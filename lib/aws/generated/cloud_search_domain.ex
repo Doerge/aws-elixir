@@ -287,14 +287,13 @@ defmodule AWS.CloudSearchDomain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearchdomain%20Search&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:query` (`t:string`) Specifies the search criteria for the request. How you
-  specify the search criteria depends on the query parser used for the request
-  and the parser options specified in the queryOptions parameter. By default,
-  the simple query parser is used to process requests. To use the structured,
-  lucene, or dismax query parser, you must also specify the queryParser
-  parameter.
-
-  ## Optional parameters:
+  * `:query` (`t:string` required) Specifies the search criteria for the request.
+  How you specify the search criteria depends on the query parser used for the
+  request and the parser options specified in the queryOptions parameter. By
+  default, the simple query parser is used to process requests. To use the
+  structured, lucene, or dismax query parser, you must also specify the
+  queryParser parameter.
+  ## Keyword parameters:
   * `:cursor` (`t:string`) Retrieves a cursor value you can use to page through
   large result sets. Use the size parameter to control the number of hits to
   include in each response. You can specify either the cursor or start
@@ -364,12 +363,10 @@ defmodule AWS.CloudSearchDomain do
   information. Each specified field must be facet-enabled in the domain
   configuration. The fields are specified in JSON using the form:
   """
-
   @spec search(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_errors()}
-
   def search(%Client{} = client, query, options \\ []) when is_binary(query) do
     url_path = "/2013-01-01/search?format=sdk&pretty=true"
 
@@ -536,20 +533,17 @@ defmodule AWS.CloudSearchDomain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearchdomain%20Suggest&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:query` (`t:string`) Specifies the string for which you want to get
+  * `:query` (`t:string` required) Specifies the string for which you want to get
   suggestions.
-  * `:suggester` (`t:string`) Specifies the name of the suggester to use to find
-  suggested matches.
-
-  ## Optional parameters:
+  * `:suggester` (`t:string` required) Specifies the name of the suggester to use
+  to find suggested matches.
+  ## Keyword parameters:
   * `:size` (`t:long`) Specifies the maximum number of suggestions to return.
   """
-
   @spec suggest(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, suggest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, suggest_errors()}
-
   def suggest(%Client{} = client, query, suggester, options \\ [])
       when is_binary(query) and is_binary(suggester) do
     url_path = "/2013-01-01/suggest?format=sdk&pretty=true"
@@ -610,20 +604,18 @@ defmodule AWS.CloudSearchDomain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearchdomain%20UploadDocuments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:content_type` (`t:enum["application_json|application_xml"]`) The format of
-  the batch you are uploading. Amazon CloudSearch supports two document batch
-  formats:
+  * `:content_type` (`t:enum["application_json|application_xml"]` required) The
+  format of the batch you are uploading. Amazon CloudSearch supports two
+  document batch formats:
   * `:input` (`t:map`):
-    * `:documents` (`t:blob`) A batch of documents formatted in JSON or HTML.
-
-  ## Optional parameters:
+    * `:documents` (`t:blob` required) A batch of documents formatted in JSON or
+  HTML.
+  ## Keyword parameters:
   """
-
   @spec upload_documents(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, upload_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upload_documents_errors()}
-
   def upload_documents(%Client{} = client, content_type, input, options \\ [])
       when is_map(input) and is_binary(content_type) do
     url_path = "/2013-01-01/documents/batch?format=sdk"

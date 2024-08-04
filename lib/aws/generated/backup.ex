@@ -3584,21 +3584,18 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CancelLegalHold&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:legal_hold_id` (`t:string`) Legal hold ID required to remove the specified
-  legal hold on a recovery point.
-  * `:cancel_description` (`t:string`) String describing the reason for removing
-  the legal hold.
-
-  ## Optional parameters:
+  * `:legal_hold_id` (`t:string` required) Legal hold ID required to remove the
+  specified legal hold on a recovery point.
+  * `:cancel_description` (`t:string` required) String describing the reason for
+  removing the legal hold.
+  ## Keyword parameters:
   * `:retain_record_in_days` (`t:long`) The integer amount in days specifying
   amount of days after this API operation to remove legal hold.
   """
-
   @spec cancel_legal_hold(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_legal_hold_errors()}
-
   def cancel_legal_hold(%Client{} = client, legal_hold_id, cancel_description, options \\ [])
       when is_binary(cancel_description) do
     url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}"
@@ -3659,15 +3656,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateBackupPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_backup_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backup_plan_errors()}
-
   def create_backup_plan(%Client{} = client, options \\ []) do
     url_path = "/backup/plans"
 
@@ -3706,17 +3700,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateBackupSelection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_plan_id` (`t:string`) Uniquely identifies the backup plan to be
-  associated with the selection of resources.
-
-  ## Optional parameters:
+  * `:backup_plan_id` (`t:string` required) Uniquely identifies the backup plan to
+  be associated with the selection of resources.
+  ## Keyword parameters:
   """
-
   @spec create_backup_selection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_backup_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backup_selection_errors()}
-
   def create_backup_selection(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections"
 
@@ -3755,19 +3746,16 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateBackupVault&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of letters, numbers, and hyphens.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of letters, numbers, and hyphens.
+  ## Keyword parameters:
   """
-
   @spec create_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backup_vault_errors()}
-
   def create_backup_vault(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
 
@@ -3808,15 +3796,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateFramework&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_framework(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_framework_errors()}
-
   def create_framework(%Client{} = client, options \\ []) do
     url_path = "/audit/frameworks"
 
@@ -3857,15 +3842,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateLegalHold&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_legal_hold(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_legal_hold_errors()}
-
   def create_legal_hold(%Client{} = client, options \\ []) do
     url_path = "/legal-holds"
 
@@ -3905,17 +3887,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateLogicallyAirGappedBackupVault&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) This is the name of the vault that is being
-  created.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) This is the name of the vault that
+  is being created.
+  ## Keyword parameters:
   """
-
   @spec create_logically_air_gapped_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_logically_air_gapped_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_logically_air_gapped_backup_vault_errors()}
-
   def create_logically_air_gapped_backup_vault(
         %Client{} = client,
         backup_vault_name,
@@ -3957,15 +3936,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateReportPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_report_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_report_plan_errors()}
-
   def create_report_plan(%Client{} = client, options \\ []) do
     url_path = "/audit/report-plans"
 
@@ -4004,15 +3980,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateRestoreTestingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_restore_testing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_restore_testing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_restore_testing_plan_errors()}
-
   def create_restore_testing_plan(%Client{} = client, options \\ []) do
     url_path = "/restore-testing/plans"
 
@@ -4053,17 +4026,15 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateRestoreTestingSelection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_testing_plan_name` (`t:string`) Input the restore testing plan name
-  that was returned from the related CreateRestoreTestingPlan request.
-
-  ## Optional parameters:
+  * `:restore_testing_plan_name` (`t:string` required) Input the restore testing
+  plan name that was returned from the related CreateRestoreTestingPlan
+  request.
+  ## Keyword parameters:
   """
-
   @spec create_restore_testing_selection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_restore_testing_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_restore_testing_selection_errors()}
-
   def create_restore_testing_selection(
         %Client{} = client,
         restore_testing_plan_name,
@@ -4107,16 +4078,13 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
-
-  ## Optional parameters:
+  * `:backup_plan_id` (`t:string` required) Uniquely identifies a backup plan.
+  ## Keyword parameters:
   """
-
   @spec delete_backup_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_plan_errors()}
-
   def delete_backup_plan(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
 
@@ -4164,18 +4132,15 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupSelection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
-  * `:selection_id` (`t:string`) Uniquely identifies the body of a request to
-  assign a set of resources to a backup plan.
-
-  ## Optional parameters:
+  * `:backup_plan_id` (`t:string` required) Uniquely identifies a backup plan.
+  * `:selection_id` (`t:string` required) Uniquely identifies the body of a
+  request to assign a set of resources to a backup plan.
+  ## Keyword parameters:
   """
-
   @spec delete_backup_selection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_selection_errors()}
-
   def delete_backup_selection(%Client{} = client, backup_plan_id, selection_id, options \\ []) do
     url_path =
       "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/#{AWS.Util.encode_uri(selection_id)}"
@@ -4224,19 +4189,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupVault&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  ## Keyword parameters:
   """
-
   @spec delete_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_vault_errors()}
-
   def delete_backup_vault(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
 
@@ -4283,19 +4246,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupVaultAccessPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  ## Keyword parameters:
   """
-
   @spec delete_backup_vault_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_vault_access_policy_errors()}
-
   def delete_backup_vault_access_policy(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
 
@@ -4342,17 +4303,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupVaultLockConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of the backup vault from which to
-  delete Backup Vault Lock.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of the backup vault from
+  which to delete Backup Vault Lock.
+  ## Keyword parameters:
   """
-
   @spec delete_backup_vault_lock_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_vault_lock_configuration_errors()}
-
   def delete_backup_vault_lock_configuration(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/vault-lock"
 
@@ -4399,19 +4357,16 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupVaultNotifications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Region where they are created. They
-  consist of lowercase letters, numbers, and hyphens.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Region where they are
+  created. They consist of lowercase letters, numbers, and hyphens.
+  ## Keyword parameters:
   """
-
   @spec delete_backup_vault_notifications(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_vault_notifications_errors()}
-
   def delete_backup_vault_notifications(%Client{} = client, backup_vault_name, options \\ []) do
     url_path =
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/notification-configuration"
@@ -4459,16 +4414,13 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteFramework&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:framework_name` (`t:string`) The unique name of a framework.
-
-  ## Optional parameters:
+  * `:framework_name` (`t:string` required) The unique name of a framework.
+  ## Keyword parameters:
   """
-
   @spec delete_framework(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_framework_errors()}
-
   def delete_framework(%Client{} = client, framework_name, options \\ []) do
     url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
 
@@ -4517,22 +4469,20 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteRecoveryPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies a recovery point; for example,
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  * `:recovery_point_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies a recovery point; for example,
   arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_recovery_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recovery_point_errors()}
-
   def delete_recovery_point(
         %Client{} = client,
         backup_vault_name,
@@ -4585,16 +4535,13 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteReportPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_plan_name` (`t:string`) The unique name of a report plan.
-
-  ## Optional parameters:
+  * `:report_plan_name` (`t:string` required) The unique name of a report plan.
+  ## Keyword parameters:
   """
-
   @spec delete_report_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_report_plan_errors()}
-
   def delete_report_plan(%Client{} = client, report_plan_name, options \\ []) do
     url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
 
@@ -4641,17 +4588,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteRestoreTestingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_testing_plan_name` (`t:string`) Required unique name of the restore
-  testing plan you wish to delete.
-
-  ## Optional parameters:
+  * `:restore_testing_plan_name` (`t:string` required) Required unique name of the
+  restore testing plan you wish to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_restore_testing_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_restore_testing_plan_errors()}
-
   def delete_restore_testing_plan(%Client{} = client, restore_testing_plan_name, options \\ []) do
     url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
 
@@ -4698,19 +4642,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteRestoreTestingSelection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_testing_plan_name` (`t:string`) Required unique name of the restore
-  testing plan that contains the restore testing selection you wish to delete.
-  * `:restore_testing_selection_name` (`t:string`) Required unique name of the
-  restore testing selection you wish to delete.
-
-  ## Optional parameters:
+  * `:restore_testing_plan_name` (`t:string` required) Required unique name of the
+  restore testing plan that contains the restore testing selection you wish to
+  delete.
+  * `:restore_testing_selection_name` (`t:string` required) Required unique name
+  of the restore testing selection you wish to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_restore_testing_selection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_restore_testing_selection_errors()}
-
   def delete_restore_testing_selection(
         %Client{} = client,
         restore_testing_plan_name,
@@ -4763,17 +4705,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeBackupJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_job_id` (`t:string`) Uniquely identifies a request to Backup to back
-  up a resource.
-
-  ## Optional parameters:
+  * `:backup_job_id` (`t:string` required) Uniquely identifies a request to Backup
+  to back up a resource.
+  ## Keyword parameters:
   """
-
   @spec describe_backup_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_backup_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backup_job_errors()}
-
   def describe_backup_job(%Client{} = client, backup_job_id, options \\ []) do
     url_path = "/backup-jobs/#{AWS.Util.encode_uri(backup_job_id)}"
 
@@ -4808,21 +4747,19 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeBackupVault&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  ## Keyword parameters:
   * `:backup_vault_account_id` (`t:string`) This is the account ID of the
   specified backup vault.
   """
-
   @spec describe_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backup_vault_errors()}
-
   def describe_backup_vault(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
 
@@ -4868,16 +4805,13 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeCopyJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:copy_job_id` (`t:string`) Uniquely identifies a copy job.
-
-  ## Optional parameters:
+  * `:copy_job_id` (`t:string` required) Uniquely identifies a copy job.
+  ## Keyword parameters:
   """
-
   @spec describe_copy_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_copy_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_copy_job_errors()}
-
   def describe_copy_job(%Client{} = client, copy_job_id, options \\ []) do
     url_path = "/copy-jobs/#{AWS.Util.encode_uri(copy_job_id)}"
 
@@ -4912,16 +4846,13 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeFramework&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:framework_name` (`t:string`) The unique name of a framework.
-
-  ## Optional parameters:
+  * `:framework_name` (`t:string` required) The unique name of a framework.
+  ## Keyword parameters:
   """
-
   @spec describe_framework(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_framework_errors()}
-
   def describe_framework(%Client{} = client, framework_name, options \\ []) do
     url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
 
@@ -4958,15 +4889,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_global_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_settings_errors()}
-
   def describe_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
 
@@ -5003,17 +4931,15 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeProtectedResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies a resource. The format of the ARN depends on the resource type.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies a resource. The format of the ARN depends on the
+  resource type.
+  ## Keyword parameters:
   """
-
   @spec describe_protected_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_protected_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_protected_resource_errors()}
-
   def describe_protected_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5049,24 +4975,22 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeRecoveryPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies a recovery point; for example,
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  * `:recovery_point_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies a recovery point; for example,
   arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:backup_vault_account_id` (`t:string`) This is the account ID of the
   specified backup vault.
   """
-
   @spec describe_recovery_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recovery_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recovery_point_errors()}
-
   def describe_recovery_point(
         %Client{} = client,
         backup_vault_name,
@@ -5122,15 +5046,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeRegionSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_region_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_region_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_region_settings_errors()}
-
   def describe_region_settings(%Client{} = client, options \\ []) do
     url_path = "/account-settings"
 
@@ -5166,18 +5087,15 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeReportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_job_id` (`t:string`) The identifier of the report job. A unique,
-  randomly generated, Unicode, UTF-8 encoded string that is at most 1,024
-  bytes long. The report job ID cannot be edited.
-
-  ## Optional parameters:
+  * `:report_job_id` (`t:string` required) The identifier of the report job. A
+  unique, randomly generated, Unicode, UTF-8 encoded string that is at most
+  1,024 bytes long. The report job ID cannot be edited.
+  ## Keyword parameters:
   """
-
   @spec describe_report_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_report_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_report_job_errors()}
-
   def describe_report_job(%Client{} = client, report_job_id, options \\ []) do
     url_path = "/audit/report-jobs/#{AWS.Util.encode_uri(report_job_id)}"
 
@@ -5213,16 +5131,13 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeReportPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_plan_name` (`t:string`) The unique name of a report plan.
-
-  ## Optional parameters:
+  * `:report_plan_name` (`t:string` required) The unique name of a report plan.
+  ## Keyword parameters:
   """
-
   @spec describe_report_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_report_plan_errors()}
-
   def describe_report_plan(%Client{} = client, report_plan_name, options \\ []) do
     url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
 
@@ -5257,17 +5172,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeRestoreJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_job_id` (`t:string`) Uniquely identifies the job that restores a
-  recovery point.
-
-  ## Optional parameters:
+  * `:restore_job_id` (`t:string` required) Uniquely identifies the job that
+  restores a recovery point.
+  ## Keyword parameters:
   """
-
   @spec describe_restore_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_restore_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_restore_job_errors()}
-
   def describe_restore_job(%Client{} = client, restore_job_id, options \\ []) do
     url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}"
 
@@ -5305,18 +5217,15 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DisassociateRecoveryPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The unique name of an Backup vault.
-  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies an Backup recovery point.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The unique name of an Backup vault.
+  * `:recovery_point_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies an Backup recovery point.
+  ## Keyword parameters:
   """
-
   @spec disassociate_recovery_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_recovery_point_errors()}
-
   def disassociate_recovery_point(
         %Client{} = client,
         backup_vault_name,
@@ -5361,18 +5270,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DisassociateRecoveryPointFromParent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) This is the name of a logical container
-  where the child (nested) recovery point is stored. Backup vaults are
-  identified by names that are unique to the account used to create them and
-  the Amazon Web Services Region where they are created. They consist of
+  * `:backup_vault_name` (`t:string` required) This is the name of a logical
+  container where the child (nested) recovery point is stored. Backup vaults
+  are identified by names that are unique to the account used to create them
+  and the Amazon Web Services Region where they are created. They consist of
   lowercase letters, numbers, and hyphens.
-  * `:recovery_point_arn` (`t:string`) This is the Amazon Resource Name (ARN) that
-  uniquely identifies the child (nested) recovery point; for example,
+  * `:recovery_point_arn` (`t:string` required) This is the Amazon Resource Name
+  (ARN) that uniquely identifies the child (nested) recovery point; for
+  example,
   arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_recovery_point_from_parent(
           AWS.Client.t(),
           String.t(),
@@ -5382,7 +5290,6 @@ defmodule AWS.Backup do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_recovery_point_from_parent_errors()}
-
   def disassociate_recovery_point_from_parent(
         %Client{} = client,
         backup_vault_name,
@@ -5435,16 +5342,13 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ExportBackupPlanTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
-
-  ## Optional parameters:
+  * `:backup_plan_id` (`t:string` required) Uniquely identifies a backup plan.
+  ## Keyword parameters:
   """
-
   @spec export_backup_plan_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, export_backup_plan_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_backup_plan_template_errors()}
-
   def export_backup_plan_template(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/toTemplate"
 
@@ -5480,18 +5384,15 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
-
-  ## Optional parameters:
+  * `:backup_plan_id` (`t:string` required) Uniquely identifies a backup plan.
+  ## Keyword parameters:
   * `:version_id` (`t:string`) Unique, randomly generated, Unicode, UTF-8 encoded
   strings that are at most 1,024 bytes long. Version IDs cannot be edited.
   """
-
   @spec get_backup_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_plan_errors()}
-
   def get_backup_plan(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
 
@@ -5537,15 +5438,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupPlanFromJSON&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_backup_plan_from_json(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_backup_plan_from_json_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_plan_from_json_errors()}
-
   def get_backup_plan_from_json(%Client{} = client, options \\ []) do
     url_path = "/backup/template/json/toPlan"
 
@@ -5582,17 +5480,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupPlanFromTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_plan_template_id` (`t:string`) Uniquely identifies a stored backup
-  plan template.
-
-  ## Optional parameters:
+  * `:backup_plan_template_id` (`t:string` required) Uniquely identifies a stored
+  backup plan template.
+  ## Keyword parameters:
   """
-
   @spec get_backup_plan_from_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_plan_from_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_plan_from_template_errors()}
-
   def get_backup_plan_from_template(%Client{} = client, backup_plan_template_id, options \\ []) do
     url_path = "/backup/template/plans/#{AWS.Util.encode_uri(backup_plan_template_id)}/toPlan"
 
@@ -5628,18 +5523,15 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupSelection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
-  * `:selection_id` (`t:string`) Uniquely identifies the body of a request to
-  assign a set of resources to a backup plan.
-
-  ## Optional parameters:
+  * `:backup_plan_id` (`t:string` required) Uniquely identifies a backup plan.
+  * `:selection_id` (`t:string` required) Uniquely identifies the body of a
+  request to assign a set of resources to a backup plan.
+  ## Keyword parameters:
   """
-
   @spec get_backup_selection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_selection_errors()}
-
   def get_backup_selection(%Client{} = client, backup_plan_id, selection_id, options \\ []) do
     url_path =
       "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/#{AWS.Util.encode_uri(selection_id)}"
@@ -5676,19 +5568,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupVaultAccessPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  ## Keyword parameters:
   """
-
   @spec get_backup_vault_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_vault_access_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_vault_access_policy_errors()}
-
   def get_backup_vault_access_policy(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
 
@@ -5723,19 +5613,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupVaultNotifications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  ## Keyword parameters:
   """
-
   @spec get_backup_vault_notifications(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_vault_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_vault_notifications_errors()}
-
   def get_backup_vault_notifications(%Client{} = client, backup_vault_name, options \\ []) do
     url_path =
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/notification-configuration"
@@ -5772,17 +5660,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetLegalHold&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:legal_hold_id` (`t:string`) This is the ID required to use GetLegalHold.
-  This unique ID is associated with a specific legal hold.
-
-  ## Optional parameters:
+  * `:legal_hold_id` (`t:string` required) This is the ID required to use
+  GetLegalHold. This unique ID is associated with a specific legal hold.
+  ## Keyword parameters:
   """
-
   @spec get_legal_hold(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_legal_hold_errors()}
-
   def get_legal_hold(%Client{} = client, legal_hold_id, options \\ []) do
     url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}"
 
@@ -5817,24 +5702,22 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetRecoveryPointRestoreMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies a recovery point; for example,
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  * `:recovery_point_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies a recovery point; for example,
   arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:backup_vault_account_id` (`t:string`) This is the account ID of the
   specified backup vault.
   """
-
   @spec get_recovery_point_restore_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_recovery_point_restore_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recovery_point_restore_metadata_errors()}
-
   def get_recovery_point_restore_metadata(
         %Client{} = client,
         backup_vault_name,
@@ -5886,17 +5769,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetRestoreJobMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_job_id` (`t:string`) This is a unique identifier of a restore job
-  within Backup.
-
-  ## Optional parameters:
+  * `:restore_job_id` (`t:string` required) This is a unique identifier of a
+  restore job within Backup.
+  ## Keyword parameters:
   """
-
   @spec get_restore_job_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_restore_job_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_restore_job_metadata_errors()}
-
   def get_restore_job_metadata(%Client{} = client, restore_job_id, options \\ []) do
     url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}/metadata"
 
@@ -5934,24 +5814,21 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetRestoreTestingInferredMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web ServicesRegion where they
-  are created. They consist of letters, numbers, and hyphens.
-  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies a recovery point; for example,
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web ServicesRegion
+  where they are created. They consist of letters, numbers, and hyphens.
+  * `:recovery_point_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies a recovery point; for example,
   arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:backup_vault_account_id` (`t:string`) This is the account ID of the
   specified backup vault.
   """
-
   @spec get_restore_testing_inferred_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_restore_testing_inferred_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_restore_testing_inferred_metadata_errors()}
-
   def get_restore_testing_inferred_metadata(
         %Client{} = client,
         backup_vault_name,
@@ -6008,17 +5885,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetRestoreTestingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_testing_plan_name` (`t:string`) Required unique name of the restore
-  testing plan.
-
-  ## Optional parameters:
+  * `:restore_testing_plan_name` (`t:string` required) Required unique name of the
+  restore testing plan.
+  ## Keyword parameters:
   """
-
   @spec get_restore_testing_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_restore_testing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_restore_testing_plan_errors()}
-
   def get_restore_testing_plan(%Client{} = client, restore_testing_plan_name, options \\ []) do
     url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
 
@@ -6054,19 +5928,16 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetRestoreTestingSelection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_testing_plan_name` (`t:string`) Required unique name of the restore
-  testing plan.
-  * `:restore_testing_selection_name` (`t:string`) Required unique name of the
-  restore testing selection.
-
-  ## Optional parameters:
+  * `:restore_testing_plan_name` (`t:string` required) Required unique name of the
+  restore testing plan.
+  * `:restore_testing_selection_name` (`t:string` required) Required unique name
+  of the restore testing selection.
+  ## Keyword parameters:
   """
-
   @spec get_restore_testing_selection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_restore_testing_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_restore_testing_selection_errors()}
-
   def get_restore_testing_selection(
         %Client{} = client,
         restore_testing_plan_name,
@@ -6107,15 +5978,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetSupportedResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_supported_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_supported_resource_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_supported_resource_types_errors()}
-
   def get_supported_resource_types(%Client{} = client, options \\ []) do
     url_path = "/supported-resource-types"
 
@@ -6153,8 +6021,7 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupJobSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:account_id` (`t:string`) Returns the job count for the specified account.
   * `:aggregation_period` (`t:enum["FOURTEEN_DAYS|ONE_DAY|SEVEN_DAYS"]`) This is
   the period that sets the boundaries for returned results.
@@ -6173,12 +6040,10 @@ defmodule AWS.Backup do
   (`t:enum["ABORTED|ABORTING|AGGREGATE_ALL|ANY|COMPLETED|CREATED|EXPIRED|FAILED|PARTIAL|PENDING|RUNNING"]`)
   This parameter returns the job count for jobs with the specified state.
   """
-
   @spec list_backup_job_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_job_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_job_summaries_errors()}
-
   def list_backup_job_summaries(%Client{} = client, options \\ []) do
     url_path = "/audit/backup-job-summaries"
 
@@ -6284,8 +6149,7 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:by_account_id` (`t:string`) The account ID to list the jobs from. Returns
   only backup jobs associated with the specified account ID.
   * `:by_backup_vault_name` (`t:string`) Returns only backup jobs that will be
@@ -6319,12 +6183,10 @@ defmodule AWS.Backup do
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_backup_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_jobs_errors()}
-
   def list_backup_jobs(%Client{} = client, options \\ []) do
     url_path = "/backup-jobs"
 
@@ -6483,20 +6345,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupPlanTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to be returned.
   * `:next_token` (`t:string`) The next item following a partial list of returned
   items. For example, if a request is made to return MaxResults number of
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_backup_plan_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_plan_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_plan_templates_errors()}
-
   def list_backup_plan_templates(%Client{} = client, options \\ []) do
     url_path = "/backup/template/plans"
 
@@ -6551,21 +6410,18 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupPlanVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
-
-  ## Optional parameters:
+  * `:backup_plan_id` (`t:string` required) Uniquely identifies a backup plan.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to be returned.
   * `:next_token` (`t:string`) The next item following a partial list of returned
   items. For example, if a request is made to return MaxResults number of
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_backup_plan_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_backup_plan_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_plan_versions_errors()}
-
   def list_backup_plan_versions(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/versions"
 
@@ -6620,8 +6476,7 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupPlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:include_deleted` (`t:boolean`) A Boolean value with a default value of FALSE
   that returns deleted backup plans when set to TRUE.
   * `:max_results` (`t:integer`) The maximum number of items to be returned.
@@ -6630,12 +6485,10 @@ defmodule AWS.Backup do
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_backup_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_plans_errors()}
-
   def list_backup_plans(%Client{} = client, options \\ []) do
     url_path = "/backup/plans"
 
@@ -6696,21 +6549,18 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupSelections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
-
-  ## Optional parameters:
+  * `:backup_plan_id` (`t:string` required) Uniquely identifies a backup plan.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to be returned.
   * `:next_token` (`t:string`) The next item following a partial list of returned
   items. For example, if a request is made to return MaxResults number of
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_backup_selections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_backup_selections_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_selections_errors()}
-
   def list_backup_selections(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections"
 
@@ -6764,8 +6614,7 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupVaults&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:by_shared` (`t:boolean`) This parameter will sort the list of vaults by
   shared vaults.
   * `:by_vault_type` (`t:enum["BACKUP_VAULT|LOGICALLY_AIR_GAPPED_BACKUP_VAULT"]`)
@@ -6776,12 +6625,10 @@ defmodule AWS.Backup do
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_backup_vaults(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_vaults_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_vaults_errors()}
-
   def list_backup_vaults(%Client{} = client, options \\ []) do
     url_path = "/backup-vaults"
 
@@ -6851,8 +6698,7 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListCopyJobSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:account_id` (`t:string`) Returns the job count for the specified account.
   * `:aggregation_period` (`t:enum["FOURTEEN_DAYS|ONE_DAY|SEVEN_DAYS"]`) This is
   the period that sets the boundaries for returned results.
@@ -6871,12 +6717,10 @@ defmodule AWS.Backup do
   (`t:enum["ABORTED|ABORTING|AGGREGATE_ALL|ANY|COMPLETED|COMPLETING|CREATED|FAILED|FAILING|PARTIAL|RUNNING"]`)
   This parameter returns the job count for jobs with the specified state.
   """
-
   @spec list_copy_job_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_copy_job_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_copy_job_summaries_errors()}
-
   def list_copy_job_summaries(%Client{} = client, options \\ []) do
     url_path = "/audit/copy-job-summaries"
 
@@ -6980,8 +6824,7 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListCopyJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:by_account_id` (`t:string`) The account ID to list the jobs from. Returns
   only copy jobs associated with the specified account ID.
   * `:by_complete_after` (`t:timestamp`) Returns only copy jobs completed after a
@@ -7012,12 +6855,10 @@ defmodule AWS.Backup do
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_copy_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_copy_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_copy_jobs_errors()}
-
   def list_copy_jobs(%Client{} = client, options \\ []) do
     url_path = "/copy-jobs"
 
@@ -7176,20 +7017,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListFrameworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of desired results from 1 to 1000.
   Optional. If unspecified, the query will return 1 MB of data.
   * `:next_token` (`t:string`) An identifier that was returned from the previous
   call to this operation, which can be used to return the next set of items in
   the list.
   """
-
   @spec list_frameworks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_frameworks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_frameworks_errors()}
-
   def list_frameworks(%Client{} = client, options \\ []) do
     url_path = "/audit/frameworks"
 
@@ -7242,8 +7080,7 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListLegalHolds&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of resource list items to be
   returned.
   * `:next_token` (`t:string`) The next item following a partial list of returned
@@ -7251,12 +7088,10 @@ defmodule AWS.Backup do
   resources, NextToken allows you to return more items in your list starting
   at the location pointed to by the next token.
   """
-
   @spec list_legal_holds(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_legal_holds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_legal_holds_errors()}
-
   def list_legal_holds(%Client{} = client, options \\ []) do
     url_path = "/legal-holds"
 
@@ -7311,20 +7146,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListProtectedResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to be returned.
   * `:next_token` (`t:string`) The next item following a partial list of returned
   items. For example, if a request is made to return MaxResults number of
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_protected_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_protected_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_protected_resources_errors()}
-
   def list_protected_resources(%Client{} = client, options \\ []) do
     url_path = "/resources"
 
@@ -7377,10 +7209,9 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListProtectedResourcesByBackupVault&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) This is the list of protected resources by
-  backup vault within the vault(s) you specify by name.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) This is the list of protected
+  resources by backup vault within the vault(s) you specify by name.
+  ## Keyword parameters:
   * `:backup_vault_account_id` (`t:string`) This is the list of protected
   resources by backup vault within the vault(s) you specify by account ID.
   * `:max_results` (`t:integer`) The maximum number of items to be returned.
@@ -7389,12 +7220,10 @@ defmodule AWS.Backup do
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_protected_resources_by_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_protected_resources_by_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_protected_resources_by_backup_vault_errors()}
-
   def list_protected_resources_by_backup_vault(
         %Client{} = client,
         backup_vault_name,
@@ -7458,12 +7287,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRecoveryPointsByBackupVault&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  ## Keyword parameters:
   * `:backup_vault_account_id` (`t:string`) This parameter will sort the list of
   recovery points by account ID.
   * `:by_backup_plan_id` (`t:string`) Returns only recovery points that match the
@@ -7485,12 +7314,10 @@ defmodule AWS.Backup do
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_recovery_points_by_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recovery_points_by_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recovery_points_by_backup_vault_errors()}
-
   def list_recovery_points_by_backup_vault(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points"
 
@@ -7613,9 +7440,8 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRecoveryPointsByLegalHold&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:legal_hold_id` (`t:string`) This is the ID of the legal hold.
-
-  ## Optional parameters:
+  * `:legal_hold_id` (`t:string` required) This is the ID of the legal hold.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) This is the maximum number of resource list items
   to be returned.
   * `:next_token` (`t:string`) This is the next item following a partial list of
@@ -7623,12 +7449,10 @@ defmodule AWS.Backup do
   number of resources, NextToken allows you to return more items in your list
   starting at the location pointed to by the next token.
   """
-
   @spec list_recovery_points_by_legal_hold(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recovery_points_by_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recovery_points_by_legal_hold_errors()}
-
   def list_recovery_points_by_legal_hold(%Client{} = client, legal_hold_id, options \\ []) do
     url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}/recovery-points"
 
@@ -7682,10 +7506,9 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRecoveryPointsByResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) An ARN that uniquely identifies a resource. The
-  format of the ARN depends on the resource type.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) An ARN that uniquely identifies a
+  resource. The format of the ARN depends on the resource type.
+  ## Keyword parameters:
   * `:managed_by_aws_backup_only` (`t:boolean`) This attribute filters recovery
   points based on ownership.
   * `:max_results` (`t:integer`) The maximum number of items to be returned.
@@ -7694,12 +7517,10 @@ defmodule AWS.Backup do
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_recovery_points_by_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recovery_points_by_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recovery_points_by_resource_errors()}
-
   def list_recovery_points_by_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/recovery-points"
 
@@ -7759,8 +7580,7 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListReportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:by_creation_after` (`t:timestamp`) Returns only report jobs that were
   created after the date and time specified in Unix format and Coordinated
   Universal Time (UTC). For example, the value 1516925490 represents Friday,
@@ -7779,12 +7599,10 @@ defmodule AWS.Backup do
   call to this operation, which can be used to return the next set of items in
   the list.
   """
-
   @spec list_report_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_report_jobs_errors()}
-
   def list_report_jobs(%Client{} = client, options \\ []) do
     url_path = "/audit/report-jobs"
 
@@ -7880,20 +7698,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListReportPlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of desired results from 1 to 1000.
   Optional. If unspecified, the query will return 1 MB of data.
   * `:next_token` (`t:string`) An identifier that was returned from the previous
   call to this operation, which can be used to return the next set of items in
   the list.
   """
-
   @spec list_report_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_report_plans_errors()}
-
   def list_report_plans(%Client{} = client, options \\ []) do
     url_path = "/audit/report-plans"
 
@@ -7948,8 +7763,7 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRestoreJobSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:account_id` (`t:string`) Returns the job count for the specified account.
   * `:aggregation_period` (`t:enum["FOURTEEN_DAYS|ONE_DAY|SEVEN_DAYS"]`) This is
   the period that sets the boundaries for returned results.
@@ -7966,12 +7780,10 @@ defmodule AWS.Backup do
   (`t:enum["ABORTED|AGGREGATE_ALL|ANY|COMPLETED|CREATED|FAILED|PENDING|RUNNING"]`)
   This parameter returns the job count for jobs with the specified state.
   """
-
   @spec list_restore_job_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_restore_job_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_restore_job_summaries_errors()}
-
   def list_restore_job_summaries(%Client{} = client, options \\ []) do
     url_path = "/audit/restore-job-summaries"
 
@@ -8067,8 +7879,7 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRestoreJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:by_account_id` (`t:string`) The account ID to list the jobs from. Returns
   only restore jobs associated with the specified account ID.
   * `:by_complete_after` (`t:timestamp`) Returns only copy jobs completed after a
@@ -8091,12 +7902,10 @@ defmodule AWS.Backup do
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_restore_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_restore_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_restore_jobs_errors()}
-
   def list_restore_jobs(%Client{} = client, options \\ []) do
     url_path = "/restore-jobs"
 
@@ -8227,10 +8036,9 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRestoreJobsByProtectedResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Returns only restore jobs that match the
+  * `:resource_arn` (`t:string` required) Returns only restore jobs that match the
   specified resource Amazon Resource Name (ARN).
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:by_recovery_point_creation_date_after` (`t:timestamp`) Returns only restore
   jobs of recovery points that were created after the specified date.
   * `:by_recovery_point_creation_date_before` (`t:timestamp`) Returns only restore
@@ -8243,12 +8051,10 @@ defmodule AWS.Backup do
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_restore_jobs_by_protected_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_restore_jobs_by_protected_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_restore_jobs_by_protected_resource_errors()}
-
   def list_restore_jobs_by_protected_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/restore-jobs"
 
@@ -8334,20 +8140,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRestoreTestingPlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to be returned.
   * `:next_token` (`t:string`) The next item following a partial list of returned
   items. For example, if a request is made to return MaxResults number of
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the nexttoken.
   """
-
   @spec list_restore_testing_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_restore_testing_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_restore_testing_plans_errors()}
-
   def list_restore_testing_plans(%Client{} = client, options \\ []) do
     url_path = "/restore-testing/plans"
 
@@ -8401,22 +8204,19 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRestoreTestingSelections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_testing_plan_name` (`t:string`) Returns restore testing selections
-  by the specified restore testing plan name.
-
-  ## Optional parameters:
+  * `:restore_testing_plan_name` (`t:string` required) Returns restore testing
+  selections by the specified restore testing plan name.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to be returned.
   * `:next_token` (`t:string`) The next item following a partial list of returned
   items. For example, if a request is made to return MaxResults number of
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the nexttoken.
   """
-
   @spec list_restore_testing_selections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_restore_testing_selections_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_restore_testing_selections_errors()}
-
   def list_restore_testing_selections(
         %Client{} = client,
         restore_testing_plan_name,
@@ -8475,24 +8275,21 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies a resource. The format of the ARN depends on the type of
+  * `:resource_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies a resource. The format of the ARN depends on the type of
   resource. Valid targets for ListTags are recovery points, backup plans, and
   backup vaults.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to be returned.
   * `:next_token` (`t:string`) The next item following a partial list of returned
   items. For example, if a request is made to return MaxResults number of
   items, NextToken allows you to return more items in your list starting at
   the location pointed to by the next token.
   """
-
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-
   def list_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -8547,19 +8344,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20PutBackupVaultAccessPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  ## Keyword parameters:
   """
-
   @spec put_backup_vault_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_backup_vault_access_policy_errors()}
-
   def put_backup_vault_access_policy(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
 
@@ -8601,17 +8396,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20PutBackupVaultLockConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The Backup Vault Lock configuration that
-  specifies the name of the backup vault it protects.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The Backup Vault Lock configuration
+  that specifies the name of the backup vault it protects.
+  ## Keyword parameters:
   """
-
   @spec put_backup_vault_lock_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_backup_vault_lock_configuration_errors()}
-
   def put_backup_vault_lock_configuration(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/vault-lock"
 
@@ -8648,19 +8440,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20PutBackupVaultNotifications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-
-  ## Optional parameters:
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  ## Keyword parameters:
   """
-
   @spec put_backup_vault_notifications(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_backup_vault_notifications_errors()}
-
   def put_backup_vault_notifications(%Client{} = client, backup_vault_name, options \\ []) do
     url_path =
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/notification-configuration"
@@ -8700,17 +8490,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20PutRestoreValidationResult&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_job_id` (`t:string`) This is a unique identifier of a restore job
-  within Backup.
-
-  ## Optional parameters:
+  * `:restore_job_id` (`t:string` required) This is a unique identifier of a
+  restore job within Backup.
+  ## Keyword parameters:
   """
-
   @spec put_restore_validation_result(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_restore_validation_result_errors()}
-
   def put_restore_validation_result(%Client{} = client, restore_job_id, options \\ []) do
     url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}/validations"
 
@@ -8747,15 +8534,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20StartBackupJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_backup_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_backup_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_backup_job_errors()}
-
   def start_backup_job(%Client{} = client, options \\ []) do
     url_path = "/backup-jobs"
 
@@ -8792,15 +8576,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20StartCopyJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_copy_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_copy_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_copy_job_errors()}
-
   def start_copy_job(%Client{} = client, options \\ []) do
     url_path = "/copy-jobs"
 
@@ -8837,16 +8618,13 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20StartReportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_plan_name` (`t:string`) The unique name of a report plan.
-
-  ## Optional parameters:
+  * `:report_plan_name` (`t:string` required) The unique name of a report plan.
+  ## Keyword parameters:
   """
-
   @spec start_report_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_report_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_report_job_errors()}
-
   def start_report_job(%Client{} = client, report_plan_name, options \\ []) do
     url_path = "/audit/report-jobs/#{AWS.Util.encode_uri(report_plan_name)}"
 
@@ -8883,15 +8661,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20StartRestoreJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_restore_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_restore_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_restore_job_errors()}
-
   def start_restore_job(%Client{} = client, options \\ []) do
     url_path = "/restore-jobs"
 
@@ -8928,17 +8703,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20StopBackupJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_job_id` (`t:string`) Uniquely identifies a request to Backup to back
-  up a resource.
-
-  ## Optional parameters:
+  * `:backup_job_id` (`t:string` required) Uniquely identifies a request to Backup
+  to back up a resource.
+  ## Keyword parameters:
   """
-
   @spec stop_backup_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_backup_job_errors()}
-
   def stop_backup_job(%Client{} = client, backup_job_id, options \\ []) do
     url_path = "/backup-jobs/#{AWS.Util.encode_uri(backup_job_id)}"
 
@@ -8976,17 +8748,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) An ARN that uniquely identifies a resource. The
-  format of the ARN depends on the type of the tagged resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) An ARN that uniquely identifies a
+  resource. The format of the ARN depends on the type of the tagged resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -9024,17 +8793,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) An ARN that uniquely identifies a resource. The
-  format of the ARN depends on the type of the tagged resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) An ARN that uniquely identifies a
+  resource. The format of the ARN depends on the type of the tagged resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/untag/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -9073,16 +8839,13 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateBackupPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
-
-  ## Optional parameters:
+  * `:backup_plan_id` (`t:string` required) Uniquely identifies a backup plan.
+  ## Keyword parameters:
   """
-
   @spec update_backup_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_backup_plan_errors()}
-
   def update_backup_plan(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
 
@@ -9120,18 +8883,15 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateFramework&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:framework_name` (`t:string`) The unique name of a framework. This name is
-  between 1 and 256 characters, starting with a letter, and consisting of
-  letters (a-z, A-Z), numbers (0-9), and underscores (_).
-
-  ## Optional parameters:
+  * `:framework_name` (`t:string` required) The unique name of a framework. This
+  name is between 1 and 256 characters, starting with a letter, and consisting
+  of letters (a-z, A-Z), numbers (0-9), and underscores (_).
+  ## Keyword parameters:
   """
-
   @spec update_framework(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_framework_errors()}
-
   def update_framework(%Client{} = client, framework_name, options \\ []) do
     url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
 
@@ -9171,15 +8931,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
-
   def update_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
 
@@ -9219,22 +8976,20 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateRecoveryPointLifecycle&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_vault_name` (`t:string`) The name of a logical container where
-  backups are stored. Backup vaults are identified by names that are unique to
-  the account used to create them and the Amazon Web Services Region where
-  they are created. They consist of lowercase letters, numbers, and hyphens.
-  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies a recovery point; for example,
+  * `:backup_vault_name` (`t:string` required) The name of a logical container
+  where backups are stored. Backup vaults are identified by names that are
+  unique to the account used to create them and the Amazon Web Services Region
+  where they are created. They consist of lowercase letters, numbers, and
+  hyphens.
+  * `:recovery_point_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies a recovery point; for example,
   arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_recovery_point_lifecycle(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_recovery_point_lifecycle_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recovery_point_lifecycle_errors()}
-
   def update_recovery_point_lifecycle(
         %Client{} = client,
         backup_vault_name,
@@ -9277,15 +9032,12 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateRegionSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_region_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_region_settings_errors()}
-
   def update_region_settings(%Client{} = client, options \\ []) do
     url_path = "/account-settings"
 
@@ -9323,18 +9075,15 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateReportPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_plan_name` (`t:string`) The unique name of the report plan. This name
-  is between 1 and 256 characters, starting with a letter, and consisting of
-  letters (a-z, A-Z), numbers (0-9), and underscores (_).
-
-  ## Optional parameters:
+  * `:report_plan_name` (`t:string` required) The unique name of the report plan.
+  This name is between 1 and 256 characters, starting with a letter, and
+  consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
+  ## Keyword parameters:
   """
-
   @spec update_report_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_report_plan_errors()}
-
   def update_report_plan(%Client{} = client, report_plan_name, options \\ []) do
     url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
 
@@ -9373,17 +9122,14 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateRestoreTestingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_testing_plan_name` (`t:string`) This is the restore testing plan
-  name you wish to update.
-
-  ## Optional parameters:
+  * `:restore_testing_plan_name` (`t:string` required) This is the restore testing
+  plan name you wish to update.
+  ## Keyword parameters:
   """
-
   @spec update_restore_testing_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_restore_testing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_restore_testing_plan_errors()}
-
   def update_restore_testing_plan(%Client{} = client, restore_testing_plan_name, options \\ []) do
     url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
 
@@ -9421,19 +9167,17 @@ defmodule AWS.Backup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateRestoreTestingSelection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:restore_testing_plan_name` (`t:string`) The restore testing plan name is
-  required to update the indicated testing plan.
-  * `:restore_testing_selection_name` (`t:string`) This is the required restore
-  testing selection name of the restore testing selection you wish to update.
-
-  ## Optional parameters:
+  * `:restore_testing_plan_name` (`t:string` required) The restore testing plan
+  name is required to update the indicated testing plan.
+  * `:restore_testing_selection_name` (`t:string` required) This is the required
+  restore testing selection name of the restore testing selection you wish to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_restore_testing_selection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_restore_testing_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_restore_testing_selection_errors()}
-
   def update_restore_testing_selection(
         %Client{} = client,
         restore_testing_plan_name,

@@ -1167,15 +1167,12 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20BatchGetUserAccessTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_user_access_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_user_access_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_user_access_tasks_errors()}
-
   def batch_get_user_access_tasks(%Client{} = client, options \\ []) do
     url_path = "/useraccess/batchget"
 
@@ -1213,21 +1210,18 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ConnectAppAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app authorization to use for the
-  request.
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle that contains the app
-  authorization to use for the request.
-
-  ## Optional parameters:
+  * `:app_authorization_identifier` (`t:string` required) The Amazon Resource Name
+  (ARN) or Universal Unique Identifier (UUID) of the app authorization to use
+  for the request.
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle that contains the
+  app authorization to use for the request.
+  ## Keyword parameters:
   """
-
   @spec connect_app_authorization(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, connect_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, connect_app_authorization_errors()}
-
   def connect_app_authorization(
         %Client{} = client,
         app_authorization_identifier,
@@ -1271,17 +1265,15 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20CreateAppAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec create_app_authorization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_authorization_errors()}
-
   def create_app_authorization(%Client{} = client, app_bundle_identifier, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/appauthorizations"
 
@@ -1318,15 +1310,12 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20CreateAppBundle&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_app_bundle(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_bundle_errors()}
-
   def create_app_bundle(%Client{} = client, options \\ []) do
     url_path = "/appbundles"
 
@@ -1363,17 +1352,15 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20CreateIngestion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec create_ingestion(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ingestion_errors()}
-
   def create_ingestion(%Client{} = client, app_bundle_identifier, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions"
 
@@ -1411,19 +1398,18 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20CreateIngestionDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the ingestion to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  * `:ingestion_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the ingestion to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec create_ingestion_destination(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ingestion_destination_errors()}
-
   def create_ingestion_destination(
         %Client{} = client,
         app_bundle_identifier,
@@ -1467,20 +1453,18 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20DeleteAppAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app authorization to use for the
+  * `:app_authorization_identifier` (`t:string` required) The Amazon Resource Name
+  (ARN) or Universal Unique Identifier (UUID) of the app authorization to use
+  for the request.
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
   request.
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_app_authorization(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_authorization_errors()}
-
   def delete_app_authorization(
         %Client{} = client,
         app_authorization_identifier,
@@ -1534,17 +1518,14 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20DeleteAppBundle&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the app bundle that needs to be deleted.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the app bundle that needs to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_app_bundle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_bundle_errors()}
-
   def delete_app_bundle(%Client{} = client, app_bundle_identifier, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}"
 
@@ -1592,19 +1573,18 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20DeleteIngestion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the ingestion to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  * `:ingestion_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the ingestion to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec delete_ingestion(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ingestion_errors()}
-
   def delete_ingestion(
         %Client{} = client,
         app_bundle_identifier,
@@ -1657,17 +1637,17 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20DeleteIngestionDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-  * `:ingestion_destination_identifier` (`t:string`) The Amazon Resource Name
-  (ARN) or Universal Unique Identifier (UUID) of the ingestion destination to
-  use for the request.
-  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the ingestion to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  * `:ingestion_destination_identifier` (`t:string` required) The Amazon Resource
+  Name (ARN) or Universal Unique Identifier (UUID) of the ingestion
+  destination to use for the request.
+  * `:ingestion_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the ingestion to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec delete_ingestion_destination(
           AWS.Client.t(),
           String.t(),
@@ -1678,7 +1658,6 @@ defmodule AWS.AppFabric do
           {:ok, delete_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ingestion_destination_errors()}
-
   def delete_ingestion_destination(
         %Client{} = client,
         app_bundle_identifier,
@@ -1732,20 +1711,18 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20GetAppAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app authorization to use for the
+  * `:app_authorization_identifier` (`t:string` required) The Amazon Resource Name
+  (ARN) or Universal Unique Identifier (UUID) of the app authorization to use
+  for the request.
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
   request.
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_app_authorization(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_authorization_errors()}
-
   def get_app_authorization(
         %Client{} = client,
         app_authorization_identifier,
@@ -1786,17 +1763,15 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20GetAppBundle&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec get_app_bundle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_bundle_errors()}
-
   def get_app_bundle(%Client{} = client, app_bundle_identifier, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}"
 
@@ -1831,19 +1806,18 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20GetIngestion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the ingestion to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  * `:ingestion_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the ingestion to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec get_ingestion(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ingestion_errors()}
-
   def get_ingestion(
         %Client{} = client,
         app_bundle_identifier,
@@ -1884,22 +1858,21 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20GetIngestionDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-  * `:ingestion_destination_identifier` (`t:string`) The Amazon Resource Name
-  (ARN) or Universal Unique Identifier (UUID) of the ingestion destination to
-  use for the request.
-  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the ingestion to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  * `:ingestion_destination_identifier` (`t:string` required) The Amazon Resource
+  Name (ARN) or Universal Unique Identifier (UUID) of the ingestion
+  destination to use for the request.
+  * `:ingestion_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the ingestion to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec get_ingestion_destination(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ingestion_destination_errors()}
-
   def get_ingestion_destination(
         %Client{} = client,
         app_bundle_identifier,
@@ -1941,10 +1914,10 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ListAppAuthorizations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
   per call. You can use nextToken to obtain further pages of results.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
@@ -1954,12 +1927,10 @@ defmodule AWS.AppFabric do
   after 24 hours. Using an expired pagination token will return an HTTP 400
   InvalidToken error.
   """
-
   @spec list_app_authorizations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_authorizations_errors()}
-
   def list_app_authorizations(%Client{} = client, app_bundle_identifier, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/appauthorizations"
 
@@ -2012,8 +1983,7 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ListAppBundles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
   per call. You can use nextToken to obtain further pages of results.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
@@ -2023,12 +1993,10 @@ defmodule AWS.AppFabric do
   after 24 hours. Using an expired pagination token will return an HTTP 400
   InvalidToken error.
   """
-
   @spec list_app_bundles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_bundles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_bundles_errors()}
-
   def list_app_bundles(%Client{} = client, options \\ []) do
     url_path = "/appbundles"
 
@@ -2081,12 +2049,13 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ListIngestionDestinations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the ingestion to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  * `:ingestion_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the ingestion to use for the
+  request.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
   per call. You can use nextToken to obtain further pages of results.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
@@ -2096,12 +2065,10 @@ defmodule AWS.AppFabric do
   after 24 hours. Using an expired pagination token will return an HTTP 400
   InvalidToken error.
   """
-
   @spec list_ingestion_destinations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestion_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ingestion_destinations_errors()}
-
   def list_ingestion_destinations(
         %Client{} = client,
         app_bundle_identifier,
@@ -2160,10 +2127,10 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ListIngestions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
   per call. You can use nextToken to obtain further pages of results.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
@@ -2173,12 +2140,10 @@ defmodule AWS.AppFabric do
   after 24 hours. Using an expired pagination token will return an HTTP 400
   InvalidToken error.
   """
-
   @spec list_ingestions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ingestions_errors()}
-
   def list_ingestions(%Client{} = client, app_bundle_identifier, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions"
 
@@ -2231,17 +2196,14 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  for which you want to retrieve tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource for which you want to retrieve tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2276,19 +2238,18 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20StartIngestion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the ingestion to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  * `:ingestion_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the ingestion to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec start_ingestion(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ingestion_errors()}
-
   def start_ingestion(
         %Client{} = client,
         app_bundle_identifier,
@@ -2331,15 +2292,12 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20StartUserAccessTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_user_access_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_user_access_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_user_access_tasks_errors()}
-
   def start_user_access_tasks(%Client{} = client, options \\ []) do
     url_path = "/useraccess/start"
 
@@ -2376,19 +2334,18 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20StopIngestion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the ingestion to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  * `:ingestion_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the ingestion to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec stop_ingestion(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_ingestion_errors()}
-
   def stop_ingestion(
         %Client{} = client,
         app_bundle_identifier,
@@ -2431,17 +2388,14 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2478,20 +2432,17 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to untag.
-  * `:tag_keys` (`t:list[com.amazonaws.appfabric#TagKey]`) The keys of the
-  key-value pairs for the tag or tags you want to remove from the specified
-  resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.appfabric#TagKey]` required) The keys of
+  the key-value pairs for the tag or tags you want to remove from the
+  specified resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2540,20 +2491,18 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20UpdateAppAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app authorization to use for the
+  * `:app_authorization_identifier` (`t:string` required) The Amazon Resource Name
+  (ARN) or Universal Unique Identifier (UUID) of the app authorization to use
+  for the request.
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
   request.
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_app_authorization(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_authorization_errors()}
-
   def update_app_authorization(
         %Client{} = client,
         app_authorization_identifier,
@@ -2607,17 +2556,17 @@ defmodule AWS.AppFabric do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20UpdateIngestionDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the app bundle to use for the request.
-  * `:ingestion_destination_identifier` (`t:string`) The Amazon Resource Name
-  (ARN) or Universal Unique Identifier (UUID) of the ingestion destination to
-  use for the request.
-  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  Universal Unique Identifier (UUID) of the ingestion to use for the request.
-
-  ## Optional parameters:
+  * `:app_bundle_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the app bundle to use for the
+  request.
+  * `:ingestion_destination_identifier` (`t:string` required) The Amazon Resource
+  Name (ARN) or Universal Unique Identifier (UUID) of the ingestion
+  destination to use for the request.
+  * `:ingestion_identifier` (`t:string` required) The Amazon Resource Name (ARN)
+  or Universal Unique Identifier (UUID) of the ingestion to use for the
+  request.
+  ## Keyword parameters:
   """
-
   @spec update_ingestion_destination(
           AWS.Client.t(),
           String.t(),
@@ -2628,7 +2577,6 @@ defmodule AWS.AppFabric do
           {:ok, update_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ingestion_destination_errors()}
-
   def update_ingestion_destination(
         %Client{} = client,
         app_bundle_identifier,

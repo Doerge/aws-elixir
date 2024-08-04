@@ -1474,15 +1474,12 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateAccessor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_accessor(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_accessor_errors()}
-
   def create_accessor(%Client{} = client, options \\ []) do
     url_path = "/accessors"
 
@@ -1519,17 +1516,14 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network in which the
-  member is created.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network in
+  which the member is created.
+  ## Keyword parameters:
   """
-
   @spec create_member(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_member_errors()}
-
   def create_member(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/members"
 
@@ -1566,15 +1560,12 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_errors()}
-
   def create_network(%Client{} = client, options \\ []) do
     url_path = "/networks"
 
@@ -1611,16 +1602,14 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network for the node.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network for
+  the node.
+  ## Keyword parameters:
   """
-
   @spec create_node(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_node_errors()}
-
   def create_node(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/nodes"
 
@@ -1659,17 +1648,14 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateProposal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network for which the
-  proposal is made.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network for
+  which the proposal is made.
+  ## Keyword parameters:
   """
-
   @spec create_proposal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_proposal_errors()}
-
   def create_proposal(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/proposals"
 
@@ -1713,16 +1699,13 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20DeleteAccessor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:accessor_id` (`t:string`) The unique identifier of the accessor.
-
-  ## Optional parameters:
+  * `:accessor_id` (`t:string` required) The unique identifier of the accessor.
+  ## Keyword parameters:
   """
-
   @spec delete_accessor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_accessor_errors()}
-
   def delete_accessor(%Client{} = client, accessor_id, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
 
@@ -1775,18 +1758,16 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20DeleteMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:member_id` (`t:string`) The unique identifier of the member to remove.
-  * `:network_id` (`t:string`) The unique identifier of the network from which the
-  member is removed.
-
-  ## Optional parameters:
+  * `:member_id` (`t:string` required) The unique identifier of the member to
+  remove.
+  * `:network_id` (`t:string` required) The unique identifier of the network from
+  which the member is removed.
+  ## Keyword parameters:
   """
-
   @spec delete_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_member_errors()}
-
   def delete_member(%Client{} = client, member_id, network_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
@@ -1835,20 +1816,17 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20DeleteNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network that the node
-  is on.
-  * `:node_id` (`t:string`) The unique identifier of the node.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network that
+  the node is on.
+  * `:node_id` (`t:string` required) The unique identifier of the node.
+  ## Keyword parameters:
   * `:member_id` (`t:string`) The unique identifier of the member that owns this
   node.
   """
-
   @spec delete_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_node_errors()}
-
   def delete_node(%Client{} = client, network_id, node_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
@@ -1909,16 +1887,13 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20GetAccessor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:accessor_id` (`t:string`) The unique identifier of the accessor.
-
-  ## Optional parameters:
+  * `:accessor_id` (`t:string` required) The unique identifier of the accessor.
+  ## Keyword parameters:
   """
-
   @spec get_accessor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_accessor_errors()}
-
   def get_accessor(%Client{} = client, accessor_id, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
 
@@ -1953,18 +1928,15 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20GetMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:member_id` (`t:string`) The unique identifier of the member.
-  * `:network_id` (`t:string`) The unique identifier of the network to which the
-  member belongs.
-
-  ## Optional parameters:
+  * `:member_id` (`t:string` required) The unique identifier of the member.
+  * `:network_id` (`t:string` required) The unique identifier of the network to
+  which the member belongs.
+  ## Keyword parameters:
   """
-
   @spec get_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_member_errors()}
-
   def get_member(%Client{} = client, member_id, network_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
@@ -2000,17 +1972,14 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20GetNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network to get
-  information about.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network to
+  get information about.
+  ## Keyword parameters:
   """
-
   @spec get_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_errors()}
-
   def get_network(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}"
 
@@ -2045,20 +2014,17 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20GetNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network that the node
-  is on.
-  * `:node_id` (`t:string`) The unique identifier of the node.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network that
+  the node is on.
+  * `:node_id` (`t:string` required) The unique identifier of the node.
+  ## Keyword parameters:
   * `:member_id` (`t:string`) The unique identifier of the member that owns the
   node.
   """
-
   @spec get_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_node_errors()}
-
   def get_node(%Client{} = client, network_id, node_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
@@ -2105,18 +2071,15 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20GetProposal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network for which the
-  proposal is made.
-  * `:proposal_id` (`t:string`) The unique identifier of the proposal.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network for
+  which the proposal is made.
+  * `:proposal_id` (`t:string` required) The unique identifier of the proposal.
+  ## Keyword parameters:
   """
-
   @spec get_proposal(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_proposal_errors()}
-
   def get_proposal(%Client{} = client, network_id, proposal_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}"
@@ -2154,8 +2117,7 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListAccessors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of accessors to list.
   * `:network_type`
   (`t:enum["ETHEREUM_GOERLI|ETHEREUM_MAINNET|ETHEREUM_MAINNET_AND_GOERLI|POLYGON_MAINNET|POLYGON_MUMBAI"]`)
@@ -2163,12 +2125,10 @@ defmodule AWS.ManagedBlockchain do
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
   results to retrieve.
   """
-
   @spec list_accessors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_accessors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accessors_errors()}
-
   def list_accessors(%Client{} = client, options \\ []) do
     url_path = "/accessors"
 
@@ -2228,18 +2188,15 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of invitations to return.
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
   results to retrieve.
   """
-
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invitations_errors()}
-
   def list_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations"
 
@@ -2293,10 +2250,9 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network for which to
-  list members.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network for
+  which to list members.
+  ## Keyword parameters:
   * `:is_owned` (`t:boolean`) An optional Boolean value. If provided, the request
   is limited either to members that the current Amazon Web Services account
   owns (true) or that other Amazon Web Services accountsn own (false). If
@@ -2311,12 +2267,10 @@ defmodule AWS.ManagedBlockchain do
   An optional status specifier. If provided, only members currently in this
   status are listed.
   """
-
   @spec list_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_members_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
-
   def list_members(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/members"
 
@@ -2391,8 +2345,7 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:framework` (`t:enum["ETHEREUM|HYPERLEDGER_FABRIC"]`) An optional framework
   specifier. If provided, only networks of this framework type are listed.
   * `:max_results` (`t:integer`) The maximum number of networks to list.
@@ -2403,12 +2356,10 @@ defmodule AWS.ManagedBlockchain do
   optional status specifier. If provided, only networks currently in this
   status are listed.
   """
-
   @spec list_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_networks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_networks_errors()}
-
   def list_networks(%Client{} = client, options \\ []) do
     url_path = "/networks"
 
@@ -2482,10 +2433,9 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListNodes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network for which to
-  list nodes.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network for
+  which to list nodes.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of nodes to list.
   * `:member_id` (`t:string`) The unique identifier of the member who owns the
   nodes to list.
@@ -2496,12 +2446,10 @@ defmodule AWS.ManagedBlockchain do
   An optional status specifier. If provided, only nodes currently in this
   status are listed.
   """
-
   @spec list_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_nodes_errors()}
-
   def list_nodes(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/nodes"
 
@@ -2569,20 +2517,17 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListProposalVotes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network.
-  * `:proposal_id` (`t:string`) The unique identifier of the proposal.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network.
+  * `:proposal_id` (`t:string` required) The unique identifier of the proposal.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of votes to return.
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
   results to retrieve.
   """
-
   @spec list_proposal_votes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_proposal_votes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_proposal_votes_errors()}
-
   def list_proposal_votes(%Client{} = client, network_id, proposal_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}/votes"
@@ -2636,19 +2581,16 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListProposals&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of proposals to return.
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
   results to retrieve.
   """
-
   @spec list_proposals(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proposals_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_proposals_errors()}
-
   def list_proposals(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/proposals"
 
@@ -2702,18 +2644,15 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  For more information about ARNs and their format, see Amazon Resource Names
-  (ARNs) in the Amazon Web Services General Reference.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource. For more information about ARNs and their format, see Amazon
+  Resource Names (ARNs) in the Amazon Web Services General Reference.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2750,17 +2689,14 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20RejectInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:invitation_id` (`t:string`) The unique identifier of the invitation to
-  reject.
-
-  ## Optional parameters:
+  * `:invitation_id` (`t:string` required) The unique identifier of the invitation
+  to reject.
+  ## Keyword parameters:
   """
-
   @spec reject_invitation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reject_invitation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_invitation_errors()}
-
   def reject_invitation(%Client{} = client, invitation_id, options \\ []) do
     url_path = "/invitations/#{AWS.Util.encode_uri(invitation_id)}"
 
@@ -2810,18 +2746,15 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  For more information about ARNs and their format, see Amazon Resource Names
-  (ARNs) in the Amazon Web Services General Reference.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource. For more information about ARNs and their format, see Amazon
+  Resource Names (ARNs) in the Amazon Web Services General Reference.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2858,19 +2791,17 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  For more information about ARNs and their format, see Amazon Resource Names
-  (ARNs) in the Amazon Web Services General Reference.
-  * `:tag_keys` (`t:list[com.amazonaws.managedblockchain#TagKey]`) The tag keys.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource. For more information about ARNs and their format, see Amazon
+  Resource Names (ARNs) in the Amazon Web Services General Reference.
+  * `:tag_keys` (`t:list[com.amazonaws.managedblockchain#TagKey]` required) The
+  tag keys.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2918,18 +2849,15 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20UpdateMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:member_id` (`t:string`) The unique identifier of the member.
-  * `:network_id` (`t:string`) The unique identifier of the Managed Blockchain
-  network to which the member belongs.
-
-  ## Optional parameters:
+  * `:member_id` (`t:string` required) The unique identifier of the member.
+  * `:network_id` (`t:string` required) The unique identifier of the Managed
+  Blockchain network to which the member belongs.
+  ## Keyword parameters:
   """
-
   @spec update_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_member_errors()}
-
   def update_member(%Client{} = client, member_id, network_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
@@ -2977,18 +2905,15 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20UpdateNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network that the node
-  is on.
-  * `:node_id` (`t:string`) The unique identifier of the node.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network that
+  the node is on.
+  * `:node_id` (`t:string` required) The unique identifier of the node.
+  ## Keyword parameters:
   """
-
   @spec update_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_node_errors()}
-
   def update_node(%Client{} = client, network_id, node_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
@@ -3038,17 +2963,14 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20VoteOnProposal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_id` (`t:string`) The unique identifier of the network.
-  * `:proposal_id` (`t:string`) The unique identifier of the proposal.
-
-  ## Optional parameters:
+  * `:network_id` (`t:string` required) The unique identifier of the network.
+  * `:proposal_id` (`t:string` required) The unique identifier of the proposal.
+  ## Keyword parameters:
   """
-
   @spec vote_on_proposal(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, vote_on_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, vote_on_proposal_errors()}
-
   def vote_on_proposal(%Client{} = client, network_id, proposal_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}/votes"

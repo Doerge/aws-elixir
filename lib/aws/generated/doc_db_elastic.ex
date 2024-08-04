@@ -712,17 +712,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20CopyClusterSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_arn` (`t:string`) The Amazon Resource Name (ARN) identifier of the
-  elastic cluster snapshot.
-
-  ## Optional parameters:
+  * `:snapshot_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  identifier of the elastic cluster snapshot.
+  ## Keyword parameters:
   """
-
   @spec copy_cluster_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, copy_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_cluster_snapshot_errors()}
-
   def copy_cluster_snapshot(%Client{} = client, snapshot_arn, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}/copy"
 
@@ -760,15 +757,12 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20CreateCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cluster(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-
   def create_cluster(%Client{} = client, options \\ []) do
     url_path = "/cluster"
 
@@ -805,15 +799,12 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20CreateClusterSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cluster_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_snapshot_errors()}
-
   def create_cluster_snapshot(%Client{} = client, options \\ []) do
     url_path = "/cluster-snapshot"
 
@@ -850,17 +841,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20DeleteCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster that is
-  to be deleted.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The ARN identifier of the elastic cluster
+  that is to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-
   def delete_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -907,17 +895,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20DeleteClusterSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_arn` (`t:string`) The ARN identifier of the elastic cluster
-  snapshot that is to be deleted.
-
-  ## Optional parameters:
+  * `:snapshot_arn` (`t:string` required) The ARN identifier of the elastic
+  cluster snapshot that is to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_cluster_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_snapshot_errors()}
-
   def delete_cluster_snapshot(%Client{} = client, snapshot_arn, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}"
 
@@ -964,16 +949,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20GetCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The ARN identifier of the elastic
+  cluster.
+  ## Keyword parameters:
   """
-
   @spec get_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_errors()}
-
   def get_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -1008,17 +991,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20GetClusterSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_arn` (`t:string`) The ARN identifier of the elastic cluster
-  snapshot.
-
-  ## Optional parameters:
+  * `:snapshot_arn` (`t:string` required) The ARN identifier of the elastic
+  cluster snapshot.
+  ## Keyword parameters:
   """
-
   @spec get_cluster_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_snapshot_errors()}
-
   def get_cluster_snapshot(%Client{} = client, snapshot_arn, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}"
 
@@ -1053,8 +1033,7 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20ListClusterSnapshots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster.
   * `:max_results` (`t:string`) The maximum number of elastic cluster snapshot
   results to receive in the response.
@@ -1064,12 +1043,10 @@ defmodule AWS.DocDBElastic do
   * `:snapshot_type` (`t:string`) The type of cluster snapshots to be returned.
   You can specify one of the following values:
   """
-
   @spec list_cluster_snapshots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cluster_snapshots_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_snapshots_errors()}
-
   def list_cluster_snapshots(%Client{} = client, options \\ []) do
     url_path = "/cluster-snapshots"
 
@@ -1136,20 +1113,17 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20ListClusters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of elastic cluster snapshot
   results to receive in the response.
   * `:next_token` (`t:string`) A pagination token provided by a previous request.
   If this parameter is specified, the response includes only records beyond
   this token, up to the value specified by max-results.
   """
-
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
-
   def list_clusters(%Client{} = client, options \\ []) do
     url_path = "/clusters"
 
@@ -1202,17 +1176,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
-  resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN identifier of the elastic
+  cluster resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1247,17 +1218,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20RestoreClusterFromSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_arn` (`t:string`) The ARN identifier of the elastic cluster
-  snapshot.
-
-  ## Optional parameters:
+  * `:snapshot_arn` (`t:string` required) The ARN identifier of the elastic
+  cluster snapshot.
+  ## Keyword parameters:
   """
-
   @spec restore_cluster_from_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, restore_cluster_from_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_cluster_from_snapshot_errors()}
-
   def restore_cluster_from_snapshot(%Client{} = client, snapshot_arn, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}/restore"
 
@@ -1294,16 +1262,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20StartCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The ARN identifier of the elastic
+  cluster.
+  ## Keyword parameters:
   """
-
   @spec start_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_cluster_errors()}
-
   def start_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}/start"
 
@@ -1341,16 +1307,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20StopCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The ARN identifier of the elastic
+  cluster.
+  ## Keyword parameters:
   """
-
   @spec stop_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_cluster_errors()}
-
   def stop_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}/stop"
 
@@ -1387,17 +1351,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
-  resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN identifier of the elastic
+  cluster resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1434,19 +1395,16 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
-  resource.
-  * `:tag_keys` (`t:list[com.amazonaws.docdbelastic#TagKey]`) The tag keys to be
-  removed from the elastic cluster resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN identifier of the elastic
+  cluster resource.
+  * `:tag_keys` (`t:list[com.amazonaws.docdbelastic#TagKey]` required) The tag
+  keys to be removed from the elastic cluster resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1496,16 +1454,14 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20UpdateCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The ARN identifier of the elastic
+  cluster.
+  ## Keyword parameters:
   """
-
   @spec update_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_errors()}
-
   def update_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
 

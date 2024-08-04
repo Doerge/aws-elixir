@@ -636,6 +636,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Creates a data export and specifies the data query, the delivery preference, and
   any optional resource tags. A `DataQuery` consists of both a `QueryStatement`
   and `TableConfigurations`.
@@ -649,12 +650,10 @@ defmodule AWS.BCMDataExports do
       required("Export") => export()
     }
   """
-
   @spec create_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_export_errors()}
-
   def create_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -663,6 +662,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Deletes an existing data export.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bcmdataexports%20DeleteExport&this_doc_guide=API%2520Reference)
@@ -673,12 +673,10 @@ defmodule AWS.BCMDataExports do
       required("ExportArn") => String.t()
     }
   """
-
   @spec delete_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_export_errors()}
-
   def delete_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -687,6 +685,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Exports data based on the source data update.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bcmdataexports%20GetExecution&this_doc_guide=API%2520Reference)
@@ -698,12 +697,10 @@ defmodule AWS.BCMDataExports do
       required("ExportArn") => String.t()
     }
   """
-
   @spec get_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_execution_errors()}
-
   def get_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -712,6 +709,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Views the definition of an existing data export.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bcmdataexports%20GetExport&this_doc_guide=API%2520Reference)
@@ -722,12 +720,10 @@ defmodule AWS.BCMDataExports do
       required("ExportArn") => String.t()
     }
   """
-
   @spec get_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_errors()}
-
   def get_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -736,6 +732,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Returns the metadata for the specified table and table properties. This includes
   the list of columns in the table schema, their data types, and column
   descriptions.
@@ -749,12 +746,10 @@ defmodule AWS.BCMDataExports do
       required("TableName") => String.t()
     }
   """
-
   @spec get_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_errors()}
-
   def get_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -763,6 +758,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Lists the historical executions for the export.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bcmdataexports%20ListExecutions&this_doc_guide=API%2520Reference)
@@ -775,12 +771,10 @@ defmodule AWS.BCMDataExports do
       required("ExportArn") => String.t()
     }
   """
-
   @spec list_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_executions_errors()}
-
   def list_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -789,6 +783,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Lists all data export definitions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bcmdataexports%20ListExports&this_doc_guide=API%2520Reference)
@@ -800,12 +795,10 @@ defmodule AWS.BCMDataExports do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_exports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_exports_errors()}
-
   def list_exports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -814,6 +807,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Lists all available tables in data exports.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bcmdataexports%20ListTables&this_doc_guide=API%2520Reference)
@@ -825,12 +819,10 @@ defmodule AWS.BCMDataExports do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tables_errors()}
-
   def list_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -839,6 +831,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   List tags associated with an existing data export.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bcmdataexports%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -851,12 +844,10 @@ defmodule AWS.BCMDataExports do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -865,6 +856,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Adds tags for an existing data export definition.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bcmdataexports%20TagResource&this_doc_guide=API%2520Reference)
@@ -876,12 +868,10 @@ defmodule AWS.BCMDataExports do
       required("ResourceTags") => list(resource_tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -890,6 +880,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Deletes tags associated with an existing data export definition.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bcmdataexports%20UntagResource&this_doc_guide=API%2520Reference)
@@ -901,12 +892,10 @@ defmodule AWS.BCMDataExports do
       required("ResourceTagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -915,6 +904,7 @@ defmodule AWS.BCMDataExports do
   end
 
   @doc """
+   
   Updates an existing data export by overwriting all export parameters. All export
   parameters must be provided in the UpdateExport request.
 
@@ -927,12 +917,10 @@ defmodule AWS.BCMDataExports do
       required("ExportArn") => String.t()
     }
   """
-
   @spec update_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_export_errors()}
-
   def update_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

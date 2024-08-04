@@ -2458,6 +2458,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates an Amazon Web Services resource for an on-premises storage system that
   you want DataSync Discovery to collect information about.
 
@@ -2476,12 +2477,10 @@ defmodule AWS.DataSync do
       required("SystemType") => list(any())
     }
   """
-
   @spec add_storage_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_storage_system_errors()}
-
   def add_storage_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -2490,6 +2489,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Stops an DataSync task execution that's in progress. The transfer of some files
   are abruptly interrupted. File contents that're transferred to the destination
   might be incomplete or inconsistent with the source files.
@@ -2502,12 +2502,10 @@ defmodule AWS.DataSync do
       required("TaskExecutionArn") => String.t()
     }
   """
-
   @spec cancel_task_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_task_execution_errors()}
-
   def cancel_task_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2516,6 +2514,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Activates an DataSync agent that you've deployed in your storage environment.
   The activation process associates the agent with your Amazon Web Services
   account. If you haven't deployed an agent yet, see the following topics to
@@ -2534,12 +2533,10 @@ defmodule AWS.DataSync do
       required("ActivationKey") => String.t()
     }
   """
-
   @spec create_agent(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_agent_errors()}
-
   def create_agent(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2548,6 +2545,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for a Microsoft Azure Blob Storage container.
   DataSync can use this location as a transfer source or destination.
 
@@ -2566,12 +2564,10 @@ defmodule AWS.DataSync do
       required("ContainerUrl") => String.t()
     }
   """
-
   @spec create_location_azure_blob(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_azure_blob_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_azure_blob_errors()}
-
   def create_location_azure_blob(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2580,6 +2576,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for an Amazon EFS file system. DataSync can use
   this location as a source or destination for transferring data.
 
@@ -2597,12 +2594,10 @@ defmodule AWS.DataSync do
       required("EfsFilesystemArn") => String.t()
     }
   """
-
   @spec create_location_efs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_efs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_efs_errors()}
-
   def create_location_efs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2611,6 +2606,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for an Amazon FSx for Lustre file system. DataSync
   can use this location as a source or destination for transferring data.
 
@@ -2625,12 +2621,10 @@ defmodule AWS.DataSync do
       required("SecurityGroupArns") => list(String.t()())
     }
   """
-
   @spec create_location_fsx_lustre(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_fsx_lustre_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_fsx_lustre_errors()}
-
   def create_location_fsx_lustre(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2639,6 +2633,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for an Amazon FSx for NetApp ONTAP file system.
   DataSync can use this location as a source or destination for transferring
   data.
@@ -2655,12 +2650,10 @@ defmodule AWS.DataSync do
       required("StorageVirtualMachineArn") => String.t()
     }
   """
-
   @spec create_location_fsx_ontap(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_fsx_ontap_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_fsx_ontap_errors()}
-
   def create_location_fsx_ontap(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2669,6 +2662,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for an Amazon FSx for OpenZFS file system.
   DataSync can use this location as a source or destination for transferring
   data. Before you begin, make sure that you understand how DataSync [accesses
@@ -2687,12 +2681,10 @@ defmodule AWS.DataSync do
       required("SecurityGroupArns") => list(String.t()())
     }
   """
-
   @spec create_location_fsx_open_zfs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_fsx_open_zfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_fsx_open_zfs_errors()}
-
   def create_location_fsx_open_zfs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2701,6 +2693,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for an Amazon FSx for Windows File Server file
   system. DataSync can use this location as a source or destination for
   transferring data.
@@ -2719,12 +2712,10 @@ defmodule AWS.DataSync do
       required("User") => String.t()
     }
   """
-
   @spec create_location_fsx_windows(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_fsx_windows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_fsx_windows_errors()}
-
   def create_location_fsx_windows(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2733,6 +2724,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for a Hadoop Distributed File System (HDFS).
   DataSync can use this location as a source or destination for transferring
   data.
@@ -2757,12 +2749,10 @@ defmodule AWS.DataSync do
       required("NameNodes") => list(hdfs_name_node()())
     }
   """
-
   @spec create_location_hdfs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_hdfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_hdfs_errors()}
-
   def create_location_hdfs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2771,6 +2761,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for a Network File System (NFS) file server.
   DataSync can use this location as a source or destination for transferring
   data.
@@ -2787,12 +2778,10 @@ defmodule AWS.DataSync do
       required("Subdirectory") => String.t()
     }
   """
-
   @spec create_location_nfs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_nfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_nfs_errors()}
-
   def create_location_nfs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2801,6 +2790,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for an object storage system. DataSync can use
   this location as a source or destination for transferring data.
 
@@ -2821,12 +2811,10 @@ defmodule AWS.DataSync do
       required("ServerHostname") => String.t()
     }
   """
-
   @spec create_location_object_storage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_object_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_object_storage_errors()}
-
   def create_location_object_storage(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2836,6 +2824,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for an Amazon S3 bucket. DataSync can use this
   location as a source or destination for transferring data.
 
@@ -2852,12 +2841,10 @@ defmodule AWS.DataSync do
       required("S3Config") => s3_config()
     }
   """
-
   @spec create_location_s3(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_s3_errors()}
-
   def create_location_s3(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2866,6 +2853,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates a transfer *location* for a Server Message Block (SMB) file server.
   DataSync can use this location as a source or destination for transferring
   data.
@@ -2885,12 +2873,10 @@ defmodule AWS.DataSync do
       required("User") => String.t()
     }
   """
-
   @spec create_location_smb(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_smb_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_smb_errors()}
-
   def create_location_smb(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2899,6 +2885,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Configures a *task*, which defines where and how DataSync transfers your data. A
   task includes a source location, destination location, and transfer options
   (such as bandwidth limits, scheduling, and more).
@@ -2921,12 +2908,10 @@ defmodule AWS.DataSync do
       required("SourceLocationArn") => String.t()
     }
   """
-
   @spec create_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_task_errors()}
-
   def create_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2935,6 +2920,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Removes an DataSync agent resource from your Amazon Web Services account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20DeleteAgent&this_doc_guide=API%2520Reference)
@@ -2945,12 +2931,10 @@ defmodule AWS.DataSync do
       required("AgentArn") => String.t()
     }
   """
-
   @spec delete_agent(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agent_errors()}
-
   def delete_agent(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2959,6 +2943,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Deletes a transfer location resource from DataSync.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20DeleteLocation&this_doc_guide=API%2520Reference)
@@ -2969,12 +2954,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec delete_location(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_location_errors()}
-
   def delete_location(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2983,6 +2966,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Deletes a transfer task resource from DataSync.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20DeleteTask&this_doc_guide=API%2520Reference)
@@ -2993,12 +2977,10 @@ defmodule AWS.DataSync do
       required("TaskArn") => String.t()
     }
   """
-
   @spec delete_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_task_errors()}
-
   def delete_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3007,6 +2989,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Returns information about an DataSync agent, such as its name, service endpoint
   type, and status.
 
@@ -3018,12 +3001,10 @@ defmodule AWS.DataSync do
       required("AgentArn") => String.t()
     }
   """
-
   @spec describe_agent(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_agent_errors()}
-
   def describe_agent(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3032,6 +3013,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Returns information about a DataSync discovery job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20DescribeDiscoveryJob&this_doc_guide=API%2520Reference)
@@ -3042,12 +3024,10 @@ defmodule AWS.DataSync do
       required("DiscoveryJobArn") => String.t()
     }
   """
-
   @spec describe_discovery_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_discovery_job_errors()}
-
   def describe_discovery_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3056,6 +3036,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for Microsoft Azure
   Blob Storage is configured.
 
@@ -3067,12 +3048,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_azure_blob(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_azure_blob_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_azure_blob_errors()}
-
   def describe_location_azure_blob(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3081,6 +3060,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for an Amazon EFS file
   system is configured.
 
@@ -3092,12 +3072,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_efs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_efs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_efs_errors()}
-
   def describe_location_efs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3106,6 +3084,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for an Amazon FSx for
   Lustre file system is configured.
 
@@ -3117,12 +3096,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_fsx_lustre(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_fsx_lustre_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_fsx_lustre_errors()}
-
   def describe_location_fsx_lustre(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3131,6 +3108,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for an Amazon FSx for
   NetApp ONTAP file system is configured.
 
@@ -3142,12 +3120,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_fsx_ontap(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_fsx_ontap_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_fsx_ontap_errors()}
-
   def describe_location_fsx_ontap(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3156,6 +3132,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for an Amazon FSx for
   OpenZFS file system is configured.
 
@@ -3167,12 +3144,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_fsx_open_zfs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_fsx_open_zfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_fsx_open_zfs_errors()}
-
   def describe_location_fsx_open_zfs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3182,6 +3157,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for an Amazon FSx for
   Windows File Server file system is configured.
 
@@ -3193,12 +3169,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_fsx_windows(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_fsx_windows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_fsx_windows_errors()}
-
   def describe_location_fsx_windows(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3208,6 +3182,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for a Hadoop
   Distributed File System (HDFS) is configured.
 
@@ -3219,12 +3194,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_hdfs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_hdfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_hdfs_errors()}
-
   def describe_location_hdfs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3233,6 +3206,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for a Network File
   System (NFS) file server is configured.
 
@@ -3244,12 +3218,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_nfs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_nfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_nfs_errors()}
-
   def describe_location_nfs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3258,6 +3230,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for an object storage
   system is configured.
 
@@ -3269,12 +3242,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_object_storage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_object_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_object_storage_errors()}
-
   def describe_location_object_storage(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3284,6 +3255,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for an S3 bucket is
   configured.
 
@@ -3295,12 +3267,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_s3(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_s3_errors()}
-
   def describe_location_s3(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3309,6 +3279,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides details about how an DataSync transfer location for a Server Message
   Block (SMB) file server is configured.
 
@@ -3320,12 +3291,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec describe_location_smb(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_location_smb_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_location_smb_errors()}
-
   def describe_location_smb(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3334,6 +3303,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Returns information about an on-premises storage system that you're using with
   DataSync Discovery.
 
@@ -3345,12 +3315,10 @@ defmodule AWS.DataSync do
       required("StorageSystemArn") => String.t()
     }
   """
-
   @spec describe_storage_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_storage_system_errors()}
-
   def describe_storage_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3359,6 +3327,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Returns information, including performance data and capacity usage, which
   DataSync Discovery collects about a specific resource in your-premises storage
   system.
@@ -3377,12 +3346,10 @@ defmodule AWS.DataSync do
       required("ResourceType") => list(any())
     }
   """
-
   @spec describe_storage_system_resource_metrics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_storage_system_resource_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_storage_system_resource_metrics_errors()}
-
   def describe_storage_system_resource_metrics(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3392,6 +3359,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Returns information that DataSync Discovery collects about resources in your
   on-premises storage system.
 
@@ -3408,12 +3376,10 @@ defmodule AWS.DataSync do
       required("ResourceType") => list(any())
     }
   """
-
   @spec describe_storage_system_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_storage_system_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_storage_system_resources_errors()}
-
   def describe_storage_system_resources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3423,6 +3389,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides information about a *task*, which defines where and how DataSync
   transfers your data.
 
@@ -3434,12 +3401,10 @@ defmodule AWS.DataSync do
       required("TaskArn") => String.t()
     }
   """
-
   @spec describe_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_task_errors()}
-
   def describe_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3448,6 +3413,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides information about an execution of your DataSync task. You can use this
   operation to help monitor the progress of an ongoing transfer or check the
   results of the transfer.
@@ -3460,12 +3426,10 @@ defmodule AWS.DataSync do
       required("TaskExecutionArn") => String.t()
     }
   """
-
   @spec describe_task_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_task_execution_errors()}
-
   def describe_task_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3474,6 +3438,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Creates recommendations about where to migrate your data to in Amazon Web
   Services. Recommendations are generated based on information that DataSync
   Discovery collects about your on-premises storage system's resources. For more
@@ -3493,12 +3458,10 @@ defmodule AWS.DataSync do
       required("ResourceType") => list(any())
     }
   """
-
   @spec generate_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_recommendations_errors()}
-
   def generate_recommendations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3507,6 +3470,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Returns a list of DataSync agents that belong to an Amazon Web Services account
   in the Amazon Web Services Region specified in the request. With pagination,
   you can reduce the number of agents returned in a response. If you get a
@@ -3522,12 +3486,10 @@ defmodule AWS.DataSync do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_agents(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agents_errors()}
-
   def list_agents(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3536,6 +3498,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Provides a list of the existing discovery jobs in the Amazon Web Services Region
   and Amazon Web Services account where you're using DataSync Discovery.
 
@@ -3549,12 +3512,10 @@ defmodule AWS.DataSync do
       optional("StorageSystemArn") => String.t()
     }
   """
-
   @spec list_discovery_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_discovery_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_discovery_jobs_errors()}
-
   def list_discovery_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3563,6 +3524,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Returns a list of source and destination locations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20ListLocations&this_doc_guide=API%2520Reference)
@@ -3575,12 +3537,10 @@ defmodule AWS.DataSync do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_locations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_locations_errors()}
-
   def list_locations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3589,6 +3549,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Lists the on-premises storage systems that you're using with DataSync Discovery.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20ListStorageSystems&this_doc_guide=API%2520Reference)
@@ -3600,12 +3561,10 @@ defmodule AWS.DataSync do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_storage_systems(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_storage_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_storage_systems_errors()}
-
   def list_storage_systems(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3614,6 +3573,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Returns all the tags associated with an Amazon Web Services resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -3626,12 +3586,10 @@ defmodule AWS.DataSync do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3640,6 +3598,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Returns a list of executions for an DataSync transfer task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20ListTaskExecutions&this_doc_guide=API%2520Reference)
@@ -3652,12 +3611,10 @@ defmodule AWS.DataSync do
       optional("TaskArn") => String.t()
     }
   """
-
   @spec list_task_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_task_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_task_executions_errors()}
-
   def list_task_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3666,6 +3623,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Returns a list of the DataSync tasks you created.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20ListTasks&this_doc_guide=API%2520Reference)
@@ -3678,12 +3636,10 @@ defmodule AWS.DataSync do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tasks_errors()}
-
   def list_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3692,6 +3648,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Permanently removes a storage system resource from DataSync Discovery, including
   the associated discovery jobs, collected data, and recommendations.
 
@@ -3703,12 +3660,10 @@ defmodule AWS.DataSync do
       required("StorageSystemArn") => String.t()
     }
   """
-
   @spec remove_storage_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_storage_system_errors()}
-
   def remove_storage_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3717,6 +3672,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Runs a DataSync discovery job on your on-premises storage system. If you haven't
   added the storage system to DataSync Discovery yet, do this first by using the
   [AddStorageSystem](https://docs.aws.amazon.com/datasync/latest/userguide/API_AddStorageSystem.html)
@@ -3733,12 +3689,10 @@ defmodule AWS.DataSync do
       required("StorageSystemArn") => String.t()
     }
   """
-
   @spec start_discovery_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_discovery_job_errors()}
-
   def start_discovery_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3747,6 +3701,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Starts an DataSync transfer task. For each task, you can only run one task
   execution at a time.
 
@@ -3764,12 +3719,10 @@ defmodule AWS.DataSync do
       required("TaskArn") => String.t()
     }
   """
-
   @spec start_task_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_task_execution_errors()}
-
   def start_task_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3778,6 +3731,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Stops a running DataSync discovery job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20StopDiscoveryJob&this_doc_guide=API%2520Reference)
@@ -3788,12 +3742,10 @@ defmodule AWS.DataSync do
       required("DiscoveryJobArn") => String.t()
     }
   """
-
   @spec stop_discovery_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_discovery_job_errors()}
-
   def stop_discovery_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3802,6 +3754,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Applies a *tag* to an Amazon Web Services resource. Tags are key-value pairs
   that can help you manage, filter, and search for your resources.
 
@@ -3814,12 +3767,10 @@ defmodule AWS.DataSync do
       required("Tags") => list(tag_list_entry()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3828,6 +3779,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Removes tags from an Amazon Web Services resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20UntagResource&this_doc_guide=API%2520Reference)
@@ -3839,12 +3791,10 @@ defmodule AWS.DataSync do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3853,6 +3803,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Updates the name of an DataSync agent.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20UpdateAgent&this_doc_guide=API%2520Reference)
@@ -3864,12 +3815,10 @@ defmodule AWS.DataSync do
       required("AgentArn") => String.t()
     }
   """
-
   @spec update_agent(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_errors()}
-
   def update_agent(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3878,6 +3827,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Edits a DataSync discovery job configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20UpdateDiscoveryJob&this_doc_guide=API%2520Reference)
@@ -3889,12 +3839,10 @@ defmodule AWS.DataSync do
       required("DiscoveryJobArn") => String.t()
     }
   """
-
   @spec update_discovery_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_discovery_job_errors()}
-
   def update_discovery_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3903,6 +3851,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Modifies some configurations of the Microsoft Azure Blob Storage transfer
   location that you're using with DataSync.
 
@@ -3920,12 +3869,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec update_location_azure_blob(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_location_azure_blob_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_location_azure_blob_errors()}
-
   def update_location_azure_blob(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3934,6 +3881,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Updates some parameters of a previously created location for a Hadoop
   Distributed File System cluster.
 
@@ -3957,12 +3905,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec update_location_hdfs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_location_hdfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_location_hdfs_errors()}
-
   def update_location_hdfs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3971,6 +3917,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Modifies some configurations of the Network File System (NFS) transfer location
   that you're using with DataSync.
 
@@ -3985,12 +3932,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec update_location_nfs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_location_nfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_location_nfs_errors()}
-
   def update_location_nfs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3999,6 +3944,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Updates some parameters of an existing DataSync location for an object storage
   system.
 
@@ -4017,12 +3963,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec update_location_object_storage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_location_object_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_location_object_storage_errors()}
-
   def update_location_object_storage(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4032,6 +3976,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Updates some of the parameters of a Server Message Block (SMB) file server
   location that you can use for DataSync transfers.
 
@@ -4049,12 +3994,10 @@ defmodule AWS.DataSync do
       required("LocationArn") => String.t()
     }
   """
-
   @spec update_location_smb(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_location_smb_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_location_smb_errors()}
-
   def update_location_smb(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4063,6 +4006,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Modifies some configurations of an on-premises storage system resource that
   you're using with DataSync Discovery.
 
@@ -4079,12 +4023,10 @@ defmodule AWS.DataSync do
       required("StorageSystemArn") => String.t()
     }
   """
-
   @spec update_storage_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_storage_system_errors()}
-
   def update_storage_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -4093,6 +4035,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Updates the configuration of a *task*, which defines where and how DataSync
   transfers your data.
 
@@ -4112,12 +4055,10 @@ defmodule AWS.DataSync do
       required("TaskArn") => String.t()
     }
   """
-
   @spec update_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_task_errors()}
-
   def update_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4126,6 +4067,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+   
   Updates the configuration of a running DataSync task execution.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datasync%20UpdateTaskExecution&this_doc_guide=API%2520Reference)
@@ -4137,12 +4079,10 @@ defmodule AWS.DataSync do
       required("TaskExecutionArn") => String.t()
     }
   """
-
   @spec update_task_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_task_execution_errors()}
-
   def update_task_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

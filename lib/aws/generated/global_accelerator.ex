@@ -2233,6 +2233,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Associate a virtual private cloud (VPC) subnet endpoint with your custom routing
   accelerator. The listener port range must be large enough to support the
   number of IP addresses that can be specified in your subnet. The number of
@@ -2249,12 +2250,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointGroupArn") => String.t()
     }
   """
-
   @spec add_custom_routing_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_custom_routing_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_custom_routing_endpoints_errors()}
-
   def add_custom_routing_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2263,6 +2262,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Add endpoints to an endpoint group. The `AddEndpoints` API operation is the
   recommended option for adding endpoints. The alternative options are to add
   endpoints when you create an endpoint group (with the
@@ -2281,12 +2281,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointGroupArn") => String.t()
     }
   """
-
   @spec add_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_endpoints_errors()}
-
   def add_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2295,6 +2293,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Advertises an IPv4 address range that is provisioned for use with your Amazon
   Web Services resources through bring your own IP addresses (BYOIP). It can
   take a few minutes before traffic to the specified addresses starts routing to
@@ -2308,12 +2307,10 @@ defmodule AWS.GlobalAccelerator do
       required("Cidr") => String.t()
     }
   """
-
   @spec advertise_byoip_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, advertise_byoip_cidr_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, advertise_byoip_cidr_errors()}
-
   def advertise_byoip_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2322,6 +2319,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC
   subnet endpoint that can receive traffic for a custom routing accelerator. You
   can allow traffic to all destinations in the subnet endpoint, or allow traffic
@@ -2341,12 +2339,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointId") => String.t()
     }
   """
-
   @spec allow_custom_routing_traffic(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, allow_custom_routing_traffic_errors()}
-
   def allow_custom_routing_traffic(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2355,6 +2351,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Create an accelerator. An accelerator includes one or more listeners that
   process inbound connections and direct traffic to one or more endpoint groups,
   each of which includes endpoints, such as Network Load Balancers.
@@ -2372,12 +2369,10 @@ defmodule AWS.GlobalAccelerator do
       required("Name") => String.t()
     }
   """
-
   @spec create_accelerator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_accelerator_errors()}
-
   def create_accelerator(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2386,6 +2381,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Create a cross-account attachment in Global Accelerator. You create a
   cross-account attachment to specify the *principals* who have permission to
   work with *resources* in accelerators in their own account. You specify, in
@@ -2410,12 +2406,10 @@ defmodule AWS.GlobalAccelerator do
       required("Name") => String.t()
     }
   """
-
   @spec create_cross_account_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cross_account_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cross_account_attachment_errors()}
-
   def create_cross_account_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2425,6 +2419,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Create a custom routing accelerator. A custom routing accelerator directs
   traffic to one of possibly thousands of Amazon EC2 instance destinations
   running in a single or multiple virtual private clouds (VPC) subnet endpoints.
@@ -2448,12 +2443,10 @@ defmodule AWS.GlobalAccelerator do
       required("Name") => String.t()
     }
   """
-
   @spec create_custom_routing_accelerator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_custom_routing_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_routing_accelerator_errors()}
-
   def create_custom_routing_accelerator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2463,6 +2456,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Create an endpoint group for the specified listener for a custom routing
   accelerator. An endpoint group is a collection of endpoints in one Amazon Web
   Services Region.
@@ -2478,12 +2472,10 @@ defmodule AWS.GlobalAccelerator do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec create_custom_routing_endpoint_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_custom_routing_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_routing_endpoint_group_errors()}
-
   def create_custom_routing_endpoint_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2493,6 +2485,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Create a listener to process inbound connections from clients to a custom
   routing accelerator. Connections arrive to assigned static IP addresses on the
   port range that you specify.
@@ -2507,12 +2500,10 @@ defmodule AWS.GlobalAccelerator do
       required("PortRanges") => list(port_range()())
     }
   """
-
   @spec create_custom_routing_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_custom_routing_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_routing_listener_errors()}
-
   def create_custom_routing_listener(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2522,6 +2513,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Create an endpoint group for the specified listener. An endpoint group is a
   collection of endpoints in one Amazon Web Services Region. A resource must be
   valid and active when you add it as an endpoint.
@@ -2544,12 +2536,10 @@ defmodule AWS.GlobalAccelerator do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec create_endpoint_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_group_errors()}
-
   def create_endpoint_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2558,6 +2548,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Create a listener to process inbound connections from clients to an accelerator.
   Connections arrive to assigned static IP addresses on a port, port range, or
   list of port ranges that you specify.
@@ -2574,12 +2565,10 @@ defmodule AWS.GlobalAccelerator do
       required("Protocol") => list(any())
     }
   """
-
   @spec create_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_listener_errors()}
-
   def create_listener(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2588,6 +2577,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Delete an accelerator. Before you can delete an accelerator, you must disable it
   and remove all dependent resources (listeners and endpoint groups). To disable
   the accelerator, update the accelerator to set `Enabled` to false.
@@ -2600,12 +2590,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec delete_accelerator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_accelerator_errors()}
-
   def delete_accelerator(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2614,6 +2602,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Delete a cross-account attachment. When you delete an attachment, Global
   Accelerator revokes the permission to use the resources in the attachment from
   all principals in the list of principals. Global Accelerator revokes the
@@ -2627,12 +2616,10 @@ defmodule AWS.GlobalAccelerator do
       required("AttachmentArn") => String.t()
     }
   """
-
   @spec delete_cross_account_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cross_account_attachment_errors()}
-
   def delete_cross_account_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2642,6 +2629,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Delete a custom routing accelerator. Before you can delete an accelerator, you
   must disable it and remove all dependent resources (listeners and endpoint
   groups). To disable the accelerator, update the accelerator to set `Enabled`
@@ -2655,12 +2643,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec delete_custom_routing_accelerator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_routing_accelerator_errors()}
-
   def delete_custom_routing_accelerator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2670,6 +2656,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Delete an endpoint group from a listener for a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DeleteCustomRoutingEndpointGroup&this_doc_guide=API%2520Reference)
@@ -2680,12 +2667,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointGroupArn") => String.t()
     }
   """
-
   @spec delete_custom_routing_endpoint_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_routing_endpoint_group_errors()}
-
   def delete_custom_routing_endpoint_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2695,6 +2680,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Delete a listener for a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DeleteCustomRoutingListener&this_doc_guide=API%2520Reference)
@@ -2705,12 +2691,10 @@ defmodule AWS.GlobalAccelerator do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec delete_custom_routing_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_routing_listener_errors()}
-
   def delete_custom_routing_listener(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2720,6 +2704,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Delete an endpoint group from a listener.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DeleteEndpointGroup&this_doc_guide=API%2520Reference)
@@ -2730,12 +2715,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointGroupArn") => String.t()
     }
   """
-
   @spec delete_endpoint_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_group_errors()}
-
   def delete_endpoint_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2744,6 +2727,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Delete a listener from an accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DeleteListener&this_doc_guide=API%2520Reference)
@@ -2754,12 +2738,10 @@ defmodule AWS.GlobalAccelerator do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec delete_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_listener_errors()}
-
   def delete_listener(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2768,6 +2750,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC
   subnet endpoint that cannot receive traffic for a custom routing accelerator.
   You can deny traffic to all destinations in the VPC endpoint, or deny traffic
@@ -2787,12 +2770,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointId") => String.t()
     }
   """
-
   @spec deny_custom_routing_traffic(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deny_custom_routing_traffic_errors()}
-
   def deny_custom_routing_traffic(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2801,6 +2782,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Releases the specified address range that you provisioned to use with your
   Amazon Web Services resources through bring your own IP addresses (BYOIP) and
   deletes the corresponding address pool.
@@ -2813,12 +2795,10 @@ defmodule AWS.GlobalAccelerator do
       required("Cidr") => String.t()
     }
   """
-
   @spec deprovision_byoip_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deprovision_byoip_cidr_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deprovision_byoip_cidr_errors()}
-
   def deprovision_byoip_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2827,6 +2807,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Describe an accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DescribeAccelerator&this_doc_guide=API%2520Reference)
@@ -2837,12 +2818,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec describe_accelerator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_accelerator_errors()}
-
   def describe_accelerator(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2851,6 +2830,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Describe the attributes of an accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DescribeAcceleratorAttributes&this_doc_guide=API%2520Reference)
@@ -2861,12 +2841,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec describe_accelerator_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_accelerator_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_accelerator_attributes_errors()}
-
   def describe_accelerator_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2876,6 +2854,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Gets configuration information about a cross-account attachment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DescribeCrossAccountAttachment&this_doc_guide=API%2520Reference)
@@ -2886,12 +2865,10 @@ defmodule AWS.GlobalAccelerator do
       required("AttachmentArn") => String.t()
     }
   """
-
   @spec describe_cross_account_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_cross_account_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cross_account_attachment_errors()}
-
   def describe_cross_account_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2901,6 +2878,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Describe a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DescribeCustomRoutingAccelerator&this_doc_guide=API%2520Reference)
@@ -2911,12 +2889,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec describe_custom_routing_accelerator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_custom_routing_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_routing_accelerator_errors()}
-
   def describe_custom_routing_accelerator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2926,6 +2902,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Describe the attributes of a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DescribeCustomRoutingAcceleratorAttributes&this_doc_guide=API%2520Reference)
@@ -2936,7 +2913,6 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec describe_custom_routing_accelerator_attributes(
           AWS.Client.t(),
           input :: map(),
@@ -2945,7 +2921,6 @@ defmodule AWS.GlobalAccelerator do
           {:ok, describe_custom_routing_accelerator_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_routing_accelerator_attributes_errors()}
-
   def describe_custom_routing_accelerator_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2961,6 +2936,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Describe an endpoint group for a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DescribeCustomRoutingEndpointGroup&this_doc_guide=API%2520Reference)
@@ -2971,12 +2947,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointGroupArn") => String.t()
     }
   """
-
   @spec describe_custom_routing_endpoint_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_custom_routing_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_routing_endpoint_group_errors()}
-
   def describe_custom_routing_endpoint_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2986,6 +2960,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   The description of a listener for a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DescribeCustomRoutingListener&this_doc_guide=API%2520Reference)
@@ -2996,12 +2971,10 @@ defmodule AWS.GlobalAccelerator do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec describe_custom_routing_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_custom_routing_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_routing_listener_errors()}
-
   def describe_custom_routing_listener(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3011,6 +2984,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Describe an endpoint group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DescribeEndpointGroup&this_doc_guide=API%2520Reference)
@@ -3021,12 +2995,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointGroupArn") => String.t()
     }
   """
-
   @spec describe_endpoint_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoint_group_errors()}
-
   def describe_endpoint_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3035,6 +3007,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Describe a listener.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20DescribeListener&this_doc_guide=API%2520Reference)
@@ -3045,12 +3018,10 @@ defmodule AWS.GlobalAccelerator do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec describe_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_listener_errors()}
-
   def describe_listener(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3059,6 +3030,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List the accelerators for an Amazon Web Services account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20ListAccelerators&this_doc_guide=API%2520Reference)
@@ -3070,12 +3042,10 @@ defmodule AWS.GlobalAccelerator do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_accelerators(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_accelerators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accelerators_errors()}
-
   def list_accelerators(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3084,6 +3054,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Lists the IP address ranges that were specified in calls to
   [ProvisionByoipCidr](https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html),
   including the current state and a history of state changes.
@@ -3097,12 +3068,10 @@ defmodule AWS.GlobalAccelerator do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_byoip_cidrs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_byoip_cidrs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_byoip_cidrs_errors()}
-
   def list_byoip_cidrs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3111,6 +3080,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List the cross-account attachments that have been created in Global Accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20ListCrossAccountAttachments&this_doc_guide=API%2520Reference)
@@ -3122,12 +3092,10 @@ defmodule AWS.GlobalAccelerator do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_cross_account_attachments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_cross_account_attachments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cross_account_attachments_errors()}
-
   def list_cross_account_attachments(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3137,6 +3105,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List the accounts that have cross-account resources.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20ListCrossAccountResourceAccounts&this_doc_guide=API%2520Reference)
@@ -3147,12 +3116,10 @@ defmodule AWS.GlobalAccelerator do
       
     }
   """
-
   @spec list_cross_account_resource_accounts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_cross_account_resource_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cross_account_resource_accounts_errors()}
-
   def list_cross_account_resource_accounts(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3162,6 +3129,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List the cross-account resources available to work with.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20ListCrossAccountResources&this_doc_guide=API%2520Reference)
@@ -3175,12 +3143,10 @@ defmodule AWS.GlobalAccelerator do
       required("ResourceOwnerAwsAccountId") => String.t()
     }
   """
-
   @spec list_cross_account_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_cross_account_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cross_account_resources_errors()}
-
   def list_cross_account_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3189,6 +3155,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List the custom routing accelerators for an Amazon Web Services account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20ListCustomRoutingAccelerators&this_doc_guide=API%2520Reference)
@@ -3200,12 +3167,10 @@ defmodule AWS.GlobalAccelerator do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_custom_routing_accelerators(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_custom_routing_accelerators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_routing_accelerators_errors()}
-
   def list_custom_routing_accelerators(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3215,6 +3180,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List the endpoint groups that are associated with a listener for a custom
   routing accelerator.
 
@@ -3228,12 +3194,10 @@ defmodule AWS.GlobalAccelerator do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec list_custom_routing_endpoint_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_custom_routing_endpoint_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_routing_endpoint_groups_errors()}
-
   def list_custom_routing_endpoint_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3243,6 +3207,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List the listeners for a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20ListCustomRoutingListeners&this_doc_guide=API%2520Reference)
@@ -3255,12 +3220,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec list_custom_routing_listeners(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_custom_routing_listeners_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_routing_listeners_errors()}
-
   def list_custom_routing_listeners(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3270,6 +3233,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Provides a complete mapping from the public accelerator IP address and port to
   destination EC2 instance IP addresses and ports in the virtual public cloud
   (VPC) subnet endpoint for a custom routing accelerator. For each subnet
@@ -3294,12 +3258,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec list_custom_routing_port_mappings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_custom_routing_port_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_routing_port_mappings_errors()}
-
   def list_custom_routing_port_mappings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3309,6 +3271,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List the port mappings for a specific EC2 instance (destination) in a VPC subnet
   endpoint. The response is the mappings for one destination IP address. This is
   useful when your subnet endpoint has mappings that span multiple custom
@@ -3326,7 +3289,6 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointId") => String.t()
     }
   """
-
   @spec list_custom_routing_port_mappings_by_destination(
           AWS.Client.t(),
           input :: map(),
@@ -3335,7 +3297,6 @@ defmodule AWS.GlobalAccelerator do
           {:ok, list_custom_routing_port_mappings_by_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_routing_port_mappings_by_destination_errors()}
-
   def list_custom_routing_port_mappings_by_destination(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3351,6 +3312,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List the endpoint groups that are associated with a listener.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20ListEndpointGroups&this_doc_guide=API%2520Reference)
@@ -3363,12 +3325,10 @@ defmodule AWS.GlobalAccelerator do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec list_endpoint_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_endpoint_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_endpoint_groups_errors()}
-
   def list_endpoint_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3377,6 +3337,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List the listeners for an accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20ListListeners&this_doc_guide=API%2520Reference)
@@ -3389,12 +3350,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec list_listeners(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_listeners_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_listeners_errors()}
-
   def list_listeners(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3403,6 +3362,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   List all tags for an accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -3413,12 +3373,10 @@ defmodule AWS.GlobalAccelerator do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3427,6 +3385,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Provisions an IP address range to use with your Amazon Web Services resources
   through bring your own IP addresses (BYOIP) and creates a corresponding
   address pool. After the address range is provisioned, it is ready to be
@@ -3445,12 +3404,10 @@ defmodule AWS.GlobalAccelerator do
       required("CidrAuthorizationContext") => cidr_authorization_context()
     }
   """
-
   @spec provision_byoip_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, provision_byoip_cidr_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, provision_byoip_cidr_errors()}
-
   def provision_byoip_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3459,6 +3416,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Remove endpoints from a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20RemoveCustomRoutingEndpoints&this_doc_guide=API%2520Reference)
@@ -3470,12 +3428,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointIds") => list(String.t()())
     }
   """
-
   @spec remove_custom_routing_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_custom_routing_endpoints_errors()}
-
   def remove_custom_routing_endpoints(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3485,6 +3441,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Remove endpoints from an endpoint group. The `RemoveEndpoints` API operation is
   the recommended option for removing endpoints. The alternative is to remove
   endpoints by updating an endpoint group by using the
@@ -3501,12 +3458,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointIdentifiers") => list(endpoint_identifier()())
     }
   """
-
   @spec remove_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_endpoints_errors()}
-
   def remove_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3515,6 +3470,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Add tags to an accelerator resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20TagResource&this_doc_guide=API%2520Reference)
@@ -3526,12 +3482,10 @@ defmodule AWS.GlobalAccelerator do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3540,6 +3494,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Remove tags from a Global Accelerator resource. When you specify a tag key, the
   action removes both that key and its associated value. The operation succeeds
   even if you attempt to remove tags from an accelerator that was already
@@ -3554,12 +3509,10 @@ defmodule AWS.GlobalAccelerator do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3568,6 +3521,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Update an accelerator to make changes, such as the following:
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20UpdateAccelerator&this_doc_guide=API%2520Reference)
@@ -3582,12 +3536,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec update_accelerator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_accelerator_errors()}
-
   def update_accelerator(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3596,6 +3548,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Update the attributes for an accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20UpdateAcceleratorAttributes&this_doc_guide=API%2520Reference)
@@ -3609,12 +3562,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec update_accelerator_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_accelerator_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_accelerator_attributes_errors()}
-
   def update_accelerator_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3624,6 +3575,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Update a cross-account attachment to add or remove principals or resources. When
   you update an attachment to remove a principal (account ID or accelerator) or
   a resource, Global Accelerator revokes the permission for specific resources.
@@ -3641,12 +3593,10 @@ defmodule AWS.GlobalAccelerator do
       required("AttachmentArn") => String.t()
     }
   """
-
   @spec update_cross_account_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cross_account_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cross_account_attachment_errors()}
-
   def update_cross_account_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3656,6 +3606,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Update a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20UpdateCustomRoutingAccelerator&this_doc_guide=API%2520Reference)
@@ -3670,12 +3621,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec update_custom_routing_accelerator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_custom_routing_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_routing_accelerator_errors()}
-
   def update_custom_routing_accelerator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3685,6 +3634,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Update the attributes for a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20UpdateCustomRoutingAcceleratorAttributes&this_doc_guide=API%2520Reference)
@@ -3698,12 +3648,10 @@ defmodule AWS.GlobalAccelerator do
       required("AcceleratorArn") => String.t()
     }
   """
-
   @spec update_custom_routing_accelerator_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_custom_routing_accelerator_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_routing_accelerator_attributes_errors()}
-
   def update_custom_routing_accelerator_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3713,6 +3661,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Update a listener for a custom routing accelerator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20UpdateCustomRoutingListener&this_doc_guide=API%2520Reference)
@@ -3724,12 +3673,10 @@ defmodule AWS.GlobalAccelerator do
       required("PortRanges") => list(port_range()())
     }
   """
-
   @spec update_custom_routing_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_custom_routing_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_routing_listener_errors()}
-
   def update_custom_routing_listener(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3739,6 +3686,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Update an endpoint group. A resource must be valid and active when you add it as
   an endpoint.
 
@@ -3758,12 +3706,10 @@ defmodule AWS.GlobalAccelerator do
       required("EndpointGroupArn") => String.t()
     }
   """
-
   @spec update_endpoint_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoint_group_errors()}
-
   def update_endpoint_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3772,6 +3718,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Update a listener.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=globalaccelerator%20UpdateListener&this_doc_guide=API%2520Reference)
@@ -3785,12 +3732,10 @@ defmodule AWS.GlobalAccelerator do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec update_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_listener_errors()}
-
   def update_listener(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3799,6 +3744,7 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+   
   Stops advertising an address range that is provisioned as an address pool. You
   can perform this operation at most once every 10 seconds, even if you specify
   different address ranges each time. It can take a few minutes before traffic
@@ -3813,12 +3759,10 @@ defmodule AWS.GlobalAccelerator do
       required("Cidr") => String.t()
     }
   """
-
   @spec withdraw_byoip_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, withdraw_byoip_cidr_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, withdraw_byoip_cidr_errors()}
-
   def withdraw_byoip_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

@@ -3634,6 +3634,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Accepts an offer to share the specified portfolio.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20AcceptPortfolioShare&this_doc_guide=API%2520Reference)
@@ -3646,12 +3647,10 @@ defmodule AWS.ServiceCatalog do
       required("PortfolioId") => String.t()
     }
   """
-
   @spec accept_portfolio_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_portfolio_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_portfolio_share_errors()}
-
   def accept_portfolio_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3660,6 +3659,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Associates the specified budget with the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20AssociateBudgetWithResource&this_doc_guide=API%2520Reference)
@@ -3671,12 +3671,10 @@ defmodule AWS.ServiceCatalog do
       required("ResourceId") => String.t()
     }
   """
-
   @spec associate_budget_with_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_budget_with_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_budget_with_resource_errors()}
-
   def associate_budget_with_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3686,6 +3684,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Associates the specified principal ARN with the specified portfolio. If you
   share the portfolio with principal name sharing enabled, the `PrincipalARN`
   association is included in the share.
@@ -3701,12 +3700,10 @@ defmodule AWS.ServiceCatalog do
       required("PrincipalType") => list(any())
     }
   """
-
   @spec associate_principal_with_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_principal_with_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_principal_with_portfolio_errors()}
-
   def associate_principal_with_portfolio(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3716,6 +3713,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Associates the specified product with the specified portfolio.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20AssociateProductWithPortfolio&this_doc_guide=API%2520Reference)
@@ -3729,12 +3727,10 @@ defmodule AWS.ServiceCatalog do
       required("ProductId") => String.t()
     }
   """
-
   @spec associate_product_with_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_product_with_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_product_with_portfolio_errors()}
-
   def associate_product_with_portfolio(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3744,6 +3740,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Associates a self-service action with a provisioning artifact.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20AssociateServiceActionWithProvisioningArtifact&this_doc_guide=API%2520Reference)
@@ -3758,7 +3755,6 @@ defmodule AWS.ServiceCatalog do
       required("ServiceActionId") => String.t()
     }
   """
-
   @spec associate_service_action_with_provisioning_artifact(
           AWS.Client.t(),
           input :: map(),
@@ -3767,7 +3763,6 @@ defmodule AWS.ServiceCatalog do
           {:ok, associate_service_action_with_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_service_action_with_provisioning_artifact_errors()}
-
   def associate_service_action_with_provisioning_artifact(
         %Client{} = client,
         input,
@@ -3787,6 +3782,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Associate the specified TagOption with the specified portfolio or product.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20AssociateTagOptionWithResource&this_doc_guide=API%2520Reference)
@@ -3798,12 +3794,10 @@ defmodule AWS.ServiceCatalog do
       required("TagOptionId") => String.t()
     }
   """
-
   @spec associate_tag_option_with_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_tag_option_with_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_tag_option_with_resource_errors()}
-
   def associate_tag_option_with_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3813,6 +3807,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Associates multiple self-service actions with provisioning artifacts.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20BatchAssociateServiceActionWithProvisioningArtifact&this_doc_guide=API%2520Reference)
@@ -3824,7 +3819,6 @@ defmodule AWS.ServiceCatalog do
       required("ServiceActionAssociations") => list(service_action_association()())
     }
   """
-
   @spec batch_associate_service_action_with_provisioning_artifact(
           AWS.Client.t(),
           input :: map(),
@@ -3833,7 +3827,6 @@ defmodule AWS.ServiceCatalog do
           {:ok, batch_associate_service_action_with_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_service_action_with_provisioning_artifact_errors()}
-
   def batch_associate_service_action_with_provisioning_artifact(
         %Client{} = client,
         input,
@@ -3853,6 +3846,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Disassociates a batch of self-service actions from the specified provisioning
   artifact.
 
@@ -3865,7 +3859,6 @@ defmodule AWS.ServiceCatalog do
       required("ServiceActionAssociations") => list(service_action_association()())
     }
   """
-
   @spec batch_disassociate_service_action_from_provisioning_artifact(
           AWS.Client.t(),
           input :: map(),
@@ -3874,7 +3867,6 @@ defmodule AWS.ServiceCatalog do
           {:ok, batch_disassociate_service_action_from_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_service_action_from_provisioning_artifact_errors()}
-
   def batch_disassociate_service_action_from_provisioning_artifact(
         %Client{} = client,
         input,
@@ -3894,6 +3886,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Copies the specified source product to the specified target product or a new
   product. You can copy a product to the same account or another account. You
   can copy a product to the same Region or another Region. If you copy a product
@@ -3914,12 +3907,10 @@ defmodule AWS.ServiceCatalog do
       required("SourceProductArn") => String.t()
     }
   """
-
   @spec copy_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_product_errors()}
-
   def copy_product(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3928,6 +3919,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Creates a constraint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20CreateConstraint&this_doc_guide=API%2520Reference)
@@ -3944,12 +3936,10 @@ defmodule AWS.ServiceCatalog do
       required("Type") => String.t()
     }
   """
-
   @spec create_constraint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_constraint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_constraint_errors()}
-
   def create_constraint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3958,6 +3948,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Creates a portfolio.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20CreatePortfolio&this_doc_guide=API%2520Reference)
@@ -3973,12 +3964,10 @@ defmodule AWS.ServiceCatalog do
       required("ProviderName") => String.t()
     }
   """
-
   @spec create_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_portfolio_errors()}
-
   def create_portfolio(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3987,6 +3976,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Shares the specified portfolio with the specified account or organization node.
   Shares to an organization node can only be created by the management account
   of an organization or by a delegated administrator. You can share portfolios
@@ -4007,12 +3997,10 @@ defmodule AWS.ServiceCatalog do
       required("PortfolioId") => String.t()
     }
   """
-
   @spec create_portfolio_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_portfolio_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_portfolio_share_errors()}
-
   def create_portfolio_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4021,6 +4009,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Creates a product. A delegated admin is authorized to invoke this command.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20CreateProduct&this_doc_guide=API%2520Reference)
@@ -4043,12 +4032,10 @@ defmodule AWS.ServiceCatalog do
       required("ProductType") => list(any())
     }
   """
-
   @spec create_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_product_errors()}
-
   def create_product(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4057,6 +4044,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Creates a plan. A plan includes the list of resources to be created (when
   provisioning a new product) or modified (when updating a provisioned product)
   when the plan is executed.
@@ -4079,12 +4067,10 @@ defmodule AWS.ServiceCatalog do
       required("ProvisioningArtifactId") => String.t()
     }
   """
-
   @spec create_provisioned_product_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_provisioned_product_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_provisioned_product_plan_errors()}
-
   def create_provisioned_product_plan(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4094,6 +4080,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Creates a provisioning artifact (also known as a version) for the specified
   product. You cannot create a provisioning artifact for a product that was
   shared with you.
@@ -4109,12 +4096,10 @@ defmodule AWS.ServiceCatalog do
       required("ProductId") => String.t()
     }
   """
-
   @spec create_provisioning_artifact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_provisioning_artifact_errors()}
-
   def create_provisioning_artifact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4123,6 +4108,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Creates a self-service action.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20CreateServiceAction&this_doc_guide=API%2520Reference)
@@ -4138,12 +4124,10 @@ defmodule AWS.ServiceCatalog do
       required("Name") => String.t()
     }
   """
-
   @spec create_service_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_action_errors()}
-
   def create_service_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4152,6 +4136,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Creates a TagOption.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20CreateTagOption&this_doc_guide=API%2520Reference)
@@ -4163,12 +4148,10 @@ defmodule AWS.ServiceCatalog do
       required("Value") => String.t()
     }
   """
-
   @spec create_tag_option(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_tag_option_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tag_option_errors()}
-
   def create_tag_option(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4177,6 +4160,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Deletes the specified constraint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DeleteConstraint&this_doc_guide=API%2520Reference)
@@ -4188,12 +4172,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec delete_constraint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_constraint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_constraint_errors()}
-
   def delete_constraint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4202,6 +4184,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Deletes the specified portfolio. You cannot delete a portfolio if it was shared
   with you or if it has associated products, users, constraints, or shared
   accounts.
@@ -4215,12 +4198,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec delete_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_portfolio_errors()}
-
   def delete_portfolio(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4229,6 +4210,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Stops sharing the specified portfolio with the specified account or organization
   node. Shares to an organization node can only be deleted by the management
   account of an organization or by a delegated administrator.
@@ -4244,12 +4226,10 @@ defmodule AWS.ServiceCatalog do
       required("PortfolioId") => String.t()
     }
   """
-
   @spec delete_portfolio_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_portfolio_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_portfolio_share_errors()}
-
   def delete_portfolio_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4258,6 +4238,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Deletes the specified product. You cannot delete a product if it was shared with
   you or is associated with a portfolio.
 
@@ -4270,12 +4251,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec delete_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_product_errors()}
-
   def delete_product(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4284,6 +4263,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Deletes the specified plan.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DeleteProvisionedProductPlan&this_doc_guide=API%2520Reference)
@@ -4296,12 +4276,10 @@ defmodule AWS.ServiceCatalog do
       required("PlanId") => String.t()
     }
   """
-
   @spec delete_provisioned_product_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_provisioned_product_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_provisioned_product_plan_errors()}
-
   def delete_provisioned_product_plan(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4311,6 +4289,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Deletes the specified provisioning artifact (also known as a version) for the
   specified product.
 
@@ -4324,12 +4303,10 @@ defmodule AWS.ServiceCatalog do
       required("ProvisioningArtifactId") => String.t()
     }
   """
-
   @spec delete_provisioning_artifact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_provisioning_artifact_errors()}
-
   def delete_provisioning_artifact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4338,6 +4315,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Deletes a self-service action.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DeleteServiceAction&this_doc_guide=API%2520Reference)
@@ -4350,12 +4328,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec delete_service_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_action_errors()}
-
   def delete_service_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4364,6 +4340,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Deletes the specified TagOption.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DeleteTagOption&this_doc_guide=API%2520Reference)
@@ -4374,12 +4351,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec delete_tag_option(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_tag_option_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tag_option_errors()}
-
   def delete_tag_option(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4388,6 +4363,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the specified constraint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DescribeConstraint&this_doc_guide=API%2520Reference)
@@ -4399,12 +4375,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec describe_constraint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_constraint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_constraint_errors()}
-
   def describe_constraint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4413,6 +4387,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets the status of the specified copy product operation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DescribeCopyProductStatus&this_doc_guide=API%2520Reference)
@@ -4424,12 +4399,10 @@ defmodule AWS.ServiceCatalog do
       required("CopyProductToken") => String.t()
     }
   """
-
   @spec describe_copy_product_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_copy_product_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_copy_product_status_errors()}
-
   def describe_copy_product_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4438,6 +4411,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the specified portfolio.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DescribePortfolio&this_doc_guide=API%2520Reference)
@@ -4449,12 +4423,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec describe_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_portfolio_errors()}
-
   def describe_portfolio(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4463,6 +4435,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets the status of the specified portfolio share operation. This API can only be
   called by the management account in the organization or by a delegated admin.
 
@@ -4474,12 +4447,10 @@ defmodule AWS.ServiceCatalog do
       required("PortfolioShareToken") => String.t()
     }
   """
-
   @spec describe_portfolio_share_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_portfolio_share_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_portfolio_share_status_errors()}
-
   def describe_portfolio_share_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4489,6 +4460,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Returns a summary of each of the portfolio shares that were created for the
   specified portfolio. You can use this API to determine which accounts or
   organizational nodes this portfolio have been shared, whether the recipient
@@ -4506,12 +4478,10 @@ defmodule AWS.ServiceCatalog do
       required("Type") => list(any())
     }
   """
-
   @spec describe_portfolio_shares(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_portfolio_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_portfolio_shares_errors()}
-
   def describe_portfolio_shares(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4520,6 +4490,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the specified product.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DescribeProduct&this_doc_guide=API%2520Reference)
@@ -4532,12 +4503,10 @@ defmodule AWS.ServiceCatalog do
       optional("Name") => String.t()
     }
   """
-
   @spec describe_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_product_errors()}
-
   def describe_product(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4546,6 +4515,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the specified product. This operation is run with
   administrator access.
 
@@ -4560,12 +4530,10 @@ defmodule AWS.ServiceCatalog do
       optional("SourcePortfolioId") => String.t()
     }
   """
-
   @spec describe_product_as_admin(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_product_as_admin_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_product_as_admin_errors()}
-
   def describe_product_as_admin(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4574,6 +4542,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the specified product.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DescribeProductView&this_doc_guide=API%2520Reference)
@@ -4585,12 +4554,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec describe_product_view(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_product_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_product_view_errors()}
-
   def describe_product_view(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4599,6 +4566,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the specified provisioned product.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DescribeProvisionedProduct&this_doc_guide=API%2520Reference)
@@ -4611,12 +4579,10 @@ defmodule AWS.ServiceCatalog do
       optional("Name") => String.t()
     }
   """
-
   @spec describe_provisioned_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_provisioned_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_provisioned_product_errors()}
-
   def describe_provisioned_product(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4625,6 +4591,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the resource changes for the specified plan.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DescribeProvisionedProductPlan&this_doc_guide=API%2520Reference)
@@ -4638,12 +4605,10 @@ defmodule AWS.ServiceCatalog do
       required("PlanId") => String.t()
     }
   """
-
   @spec describe_provisioned_product_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_provisioned_product_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_provisioned_product_plan_errors()}
-
   def describe_provisioned_product_plan(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4653,6 +4618,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the specified provisioning artifact (also known as a
   version) for the specified product.
 
@@ -4670,12 +4636,10 @@ defmodule AWS.ServiceCatalog do
       optional("Verbose") => boolean()
     }
   """
-
   @spec describe_provisioning_artifact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_provisioning_artifact_errors()}
-
   def describe_provisioning_artifact(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4685,6 +4649,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the configuration required to provision the specified
   product using the specified provisioning artifact.
 
@@ -4702,12 +4667,10 @@ defmodule AWS.ServiceCatalog do
       optional("ProvisioningArtifactName") => String.t()
     }
   """
-
   @spec describe_provisioning_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_provisioning_parameters_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_provisioning_parameters_errors()}
-
   def describe_provisioning_parameters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4717,6 +4680,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the specified request operation. Use this operation after
   calling a request operation (for example, `ProvisionProduct`,
   `TerminateProvisionedProduct`, or `UpdateProvisionedProduct`).
@@ -4732,12 +4696,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec describe_record(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_record_errors()}
-
   def describe_record(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4746,6 +4708,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Describes a self-service action.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DescribeServiceAction&this_doc_guide=API%2520Reference)
@@ -4757,12 +4720,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec describe_service_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_service_action_errors()}
-
   def describe_service_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4771,6 +4732,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Finds the default parameters for a specific self-service action on a specific
   provisioned product and returns a map of the results to the user.
 
@@ -4784,12 +4746,10 @@ defmodule AWS.ServiceCatalog do
       required("ServiceActionId") => String.t()
     }
   """
-
   @spec describe_service_action_execution_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_service_action_execution_parameters_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_service_action_execution_parameters_errors()}
-
   def describe_service_action_execution_parameters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4799,6 +4759,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the specified TagOption.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DescribeTagOption&this_doc_guide=API%2520Reference)
@@ -4809,12 +4770,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec describe_tag_option(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tag_option_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tag_option_errors()}
-
   def describe_tag_option(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4823,6 +4782,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Disable portfolio sharing through the Organizations service. This command will
   not delete your current shares, but prevents you from creating new shares
   throughout your organization. Current shares are not kept in sync with your
@@ -4838,12 +4798,10 @@ defmodule AWS.ServiceCatalog do
       
     }
   """
-
   @spec disable_aws_organizations_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_aws_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_aws_organizations_access_errors()}
-
   def disable_aws_organizations_access(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4853,6 +4811,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Disassociates the specified budget from the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DisassociateBudgetFromResource&this_doc_guide=API%2520Reference)
@@ -4864,12 +4823,10 @@ defmodule AWS.ServiceCatalog do
       required("ResourceId") => String.t()
     }
   """
-
   @spec disassociate_budget_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_budget_from_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_budget_from_resource_errors()}
-
   def disassociate_budget_from_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4879,6 +4836,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Disassociates a previously associated principal ARN from a specified portfolio.
   The `PrincipalType` and `PrincipalARN` must match the
   `AssociatePrincipalWithPortfolio` call request details. For example, to
@@ -4897,12 +4855,10 @@ defmodule AWS.ServiceCatalog do
       required("PrincipalARN") => String.t()
     }
   """
-
   @spec disassociate_principal_from_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_principal_from_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_principal_from_portfolio_errors()}
-
   def disassociate_principal_from_portfolio(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4912,6 +4868,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Disassociates the specified product from the specified portfolio.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DisassociateProductFromPortfolio&this_doc_guide=API%2520Reference)
@@ -4924,12 +4881,10 @@ defmodule AWS.ServiceCatalog do
       required("ProductId") => String.t()
     }
   """
-
   @spec disassociate_product_from_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_product_from_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_product_from_portfolio_errors()}
-
   def disassociate_product_from_portfolio(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4939,6 +4894,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Disassociates the specified self-service action association from the specified
   provisioning artifact.
 
@@ -4954,7 +4910,6 @@ defmodule AWS.ServiceCatalog do
       required("ServiceActionId") => String.t()
     }
   """
-
   @spec disassociate_service_action_from_provisioning_artifact(
           AWS.Client.t(),
           input :: map(),
@@ -4963,7 +4918,6 @@ defmodule AWS.ServiceCatalog do
           {:ok, disassociate_service_action_from_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_service_action_from_provisioning_artifact_errors()}
-
   def disassociate_service_action_from_provisioning_artifact(
         %Client{} = client,
         input,
@@ -4983,6 +4937,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Disassociates the specified TagOption from the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20DisassociateTagOptionFromResource&this_doc_guide=API%2520Reference)
@@ -4994,12 +4949,10 @@ defmodule AWS.ServiceCatalog do
       required("TagOptionId") => String.t()
     }
   """
-
   @spec disassociate_tag_option_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_tag_option_from_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_tag_option_from_resource_errors()}
-
   def disassociate_tag_option_from_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5009,6 +4962,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Enable portfolio sharing feature through Organizations. This API will allow
   Service Catalog to receive updates on your organization in order to sync your
   shares with the current structure. This API can only be called by the
@@ -5024,12 +4978,10 @@ defmodule AWS.ServiceCatalog do
       
     }
   """
-
   @spec enable_aws_organizations_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_aws_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_aws_organizations_access_errors()}
-
   def enable_aws_organizations_access(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5039,6 +4991,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Provisions or modifies a product based on the resource changes for the specified
   plan.
 
@@ -5052,12 +5005,10 @@ defmodule AWS.ServiceCatalog do
       required("PlanId") => String.t()
     }
   """
-
   @spec execute_provisioned_product_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_provisioned_product_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_provisioned_product_plan_errors()}
-
   def execute_provisioned_product_plan(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5067,6 +5018,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Executes a self-service action against a provisioned product.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ExecuteProvisionedProductServiceAction&this_doc_guide=API%2520Reference)
@@ -5081,12 +5033,10 @@ defmodule AWS.ServiceCatalog do
       required("ServiceActionId") => String.t()
     }
   """
-
   @spec execute_provisioned_product_service_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_provisioned_product_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_provisioned_product_service_action_errors()}
-
   def execute_provisioned_product_service_action(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5096,6 +5046,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Get the Access Status for Organizations portfolio share feature. This API can
   only be called by the management account in the organization or by a delegated
   admin.
@@ -5108,12 +5059,10 @@ defmodule AWS.ServiceCatalog do
       
     }
   """
-
   @spec get_aws_organizations_access_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_aws_organizations_access_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_aws_organizations_access_status_errors()}
-
   def get_aws_organizations_access_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5123,6 +5072,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   This API takes either a `ProvisonedProductId` or a `ProvisionedProductName`,
   along with a list of one or more output keys, and responds with the key/value
   pairs of those outputs.
@@ -5140,12 +5090,10 @@ defmodule AWS.ServiceCatalog do
       optional("ProvisionedProductName") => String.t()
     }
   """
-
   @spec get_provisioned_product_outputs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_provisioned_product_outputs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_provisioned_product_outputs_errors()}
-
   def get_provisioned_product_outputs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5155,6 +5103,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Requests the import of a resource as an Service Catalog provisioned product that
   is associated to an Service Catalog product and provisioning artifact. Once
   imported, all supported governance actions are supported on the provisioned
@@ -5174,12 +5123,10 @@ defmodule AWS.ServiceCatalog do
       required("ProvisioningArtifactId") => String.t()
     }
   """
-
   @spec import_as_provisioned_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_as_provisioned_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_as_provisioned_product_errors()}
-
   def import_as_provisioned_product(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5189,6 +5136,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists all imported portfolios for which account-to-account shares were accepted
   by this account. By specifying the `PortfolioShareType`, you can list
   portfolios for which organizational shares were accepted by this account.
@@ -5204,12 +5152,10 @@ defmodule AWS.ServiceCatalog do
       optional("PortfolioShareType") => list(any())
     }
   """
-
   @spec list_accepted_portfolio_shares(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_accepted_portfolio_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accepted_portfolio_shares_errors()}
-
   def list_accepted_portfolio_shares(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5219,6 +5165,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists all the budgets associated to the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ListBudgetsForResource&this_doc_guide=API%2520Reference)
@@ -5232,12 +5179,10 @@ defmodule AWS.ServiceCatalog do
       required("ResourceId") => String.t()
     }
   """
-
   @spec list_budgets_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_budgets_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_budgets_for_resource_errors()}
-
   def list_budgets_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5246,6 +5191,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists the constraints for the specified portfolio and product.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ListConstraintsForPortfolio&this_doc_guide=API%2520Reference)
@@ -5260,12 +5206,10 @@ defmodule AWS.ServiceCatalog do
       required("PortfolioId") => String.t()
     }
   """
-
   @spec list_constraints_for_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_constraints_for_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_constraints_for_portfolio_errors()}
-
   def list_constraints_for_portfolio(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5275,6 +5219,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists the paths to the specified product. A path describes how the user gets
   access to a specified product and is necessary when provisioning a product. A
   path also determines the constraints that are put on a product. A path is
@@ -5291,12 +5236,10 @@ defmodule AWS.ServiceCatalog do
       required("ProductId") => String.t()
     }
   """
-
   @spec list_launch_paths(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_launch_paths_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_launch_paths_errors()}
-
   def list_launch_paths(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5305,6 +5248,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists the organization nodes that have access to the specified portfolio. This
   API can only be called by the management account in the organization or by a
   delegated admin.
@@ -5321,12 +5265,10 @@ defmodule AWS.ServiceCatalog do
       required("PortfolioId") => String.t()
     }
   """
-
   @spec list_organization_portfolio_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_organization_portfolio_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_portfolio_access_errors()}
-
   def list_organization_portfolio_access(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5336,6 +5278,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists the account IDs that have access to the specified portfolio.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ListPortfolioAccess&this_doc_guide=API%2520Reference)
@@ -5350,12 +5293,10 @@ defmodule AWS.ServiceCatalog do
       required("PortfolioId") => String.t()
     }
   """
-
   @spec list_portfolio_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_portfolio_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_portfolio_access_errors()}
-
   def list_portfolio_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5364,6 +5305,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists all portfolios in the catalog.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ListPortfolios&this_doc_guide=API%2520Reference)
@@ -5376,12 +5318,10 @@ defmodule AWS.ServiceCatalog do
       optional("PageToken") => String.t()
     }
   """
-
   @spec list_portfolios(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_portfolios_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_portfolios_errors()}
-
   def list_portfolios(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5390,6 +5330,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists all portfolios that the specified product is associated with.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ListPortfoliosForProduct&this_doc_guide=API%2520Reference)
@@ -5403,12 +5344,10 @@ defmodule AWS.ServiceCatalog do
       required("ProductId") => String.t()
     }
   """
-
   @spec list_portfolios_for_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_portfolios_for_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_portfolios_for_product_errors()}
-
   def list_portfolios_for_product(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5417,6 +5356,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists all `PrincipalARN`s and corresponding `PrincipalType`s associated with the
   specified portfolio.
 
@@ -5431,12 +5371,10 @@ defmodule AWS.ServiceCatalog do
       required("PortfolioId") => String.t()
     }
   """
-
   @spec list_principals_for_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_principals_for_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_principals_for_portfolio_errors()}
-
   def list_principals_for_portfolio(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5446,6 +5384,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists the plans for the specified provisioned product or all plans to which the
   user has access.
 
@@ -5461,12 +5400,10 @@ defmodule AWS.ServiceCatalog do
       optional("ProvisionProductId") => String.t()
     }
   """
-
   @spec list_provisioned_product_plans(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_provisioned_product_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provisioned_product_plans_errors()}
-
   def list_provisioned_product_plans(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5476,6 +5413,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists all provisioning artifacts (also known as versions) for the specified
   product.
 
@@ -5488,12 +5426,10 @@ defmodule AWS.ServiceCatalog do
       required("ProductId") => String.t()
     }
   """
-
   @spec list_provisioning_artifacts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_provisioning_artifacts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provisioning_artifacts_errors()}
-
   def list_provisioning_artifacts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5502,6 +5438,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists all provisioning artifacts (also known as versions) for the specified
   self-service action.
 
@@ -5516,7 +5453,6 @@ defmodule AWS.ServiceCatalog do
       required("ServiceActionId") => String.t()
     }
   """
-
   @spec list_provisioning_artifacts_for_service_action(
           AWS.Client.t(),
           input :: map(),
@@ -5525,7 +5461,6 @@ defmodule AWS.ServiceCatalog do
           {:ok, list_provisioning_artifacts_for_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provisioning_artifacts_for_service_action_errors()}
-
   def list_provisioning_artifacts_for_service_action(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5541,6 +5476,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists the specified requests or all performed requests.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ListRecordHistory&this_doc_guide=API%2520Reference)
@@ -5555,12 +5491,10 @@ defmodule AWS.ServiceCatalog do
       optional("SearchFilter") => list_record_history_search_filter()
     }
   """
-
   @spec list_record_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_record_history_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_record_history_errors()}
-
   def list_record_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5569,6 +5503,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists the resources associated with the specified TagOption.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ListResourcesForTagOption&this_doc_guide=API%2520Reference)
@@ -5582,12 +5517,10 @@ defmodule AWS.ServiceCatalog do
       required("TagOptionId") => String.t()
     }
   """
-
   @spec list_resources_for_tag_option(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resources_for_tag_option_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_for_tag_option_errors()}
-
   def list_resources_for_tag_option(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5597,6 +5530,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists all self-service actions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ListServiceActions&this_doc_guide=API%2520Reference)
@@ -5609,12 +5543,10 @@ defmodule AWS.ServiceCatalog do
       optional("PageToken") => String.t()
     }
   """
-
   @spec list_service_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_actions_errors()}
-
   def list_service_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5623,6 +5555,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Returns a paginated list of self-service actions associated with the specified
   Product ID and Provisioning Artifact ID.
 
@@ -5638,7 +5571,6 @@ defmodule AWS.ServiceCatalog do
       required("ProvisioningArtifactId") => String.t()
     }
   """
-
   @spec list_service_actions_for_provisioning_artifact(
           AWS.Client.t(),
           input :: map(),
@@ -5647,7 +5579,6 @@ defmodule AWS.ServiceCatalog do
           {:ok, list_service_actions_for_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_actions_for_provisioning_artifact_errors()}
-
   def list_service_actions_for_provisioning_artifact(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5663,6 +5594,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Returns summary information about stack instances that are associated with the
   specified `CFN_STACKSET` type provisioned product. You can filter for stack
   instances that are associated with a specific Amazon Web Services account name
@@ -5679,12 +5611,10 @@ defmodule AWS.ServiceCatalog do
       required("ProvisionedProductId") => String.t()
     }
   """
-
   @spec list_stack_instances_for_provisioned_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stack_instances_for_provisioned_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stack_instances_for_provisioned_product_errors()}
-
   def list_stack_instances_for_provisioned_product(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5694,6 +5624,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists the specified TagOptions or all TagOptions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ListTagOptions&this_doc_guide=API%2520Reference)
@@ -5706,12 +5637,10 @@ defmodule AWS.ServiceCatalog do
       optional("PageToken") => String.t()
     }
   """
-
   @spec list_tag_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tag_options_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tag_options_errors()}
-
   def list_tag_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5720,6 +5649,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Notifies the result of the provisioning engine execution.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20NotifyProvisionProductEngineWorkflowResult&this_doc_guide=API%2520Reference)
@@ -5736,7 +5666,6 @@ defmodule AWS.ServiceCatalog do
       required("WorkflowToken") => String.t()
     }
   """
-
   @spec notify_provision_product_engine_workflow_result(
           AWS.Client.t(),
           input :: map(),
@@ -5745,7 +5674,6 @@ defmodule AWS.ServiceCatalog do
           {:ok, notify_provision_product_engine_workflow_result_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_provision_product_engine_workflow_result_errors()}
-
   def notify_provision_product_engine_workflow_result(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5761,6 +5689,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Notifies the result of the terminate engine execution.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20NotifyTerminateProvisionedProductEngineWorkflowResult&this_doc_guide=API%2520Reference)
@@ -5775,7 +5704,6 @@ defmodule AWS.ServiceCatalog do
       required("WorkflowToken") => String.t()
     }
   """
-
   @spec notify_terminate_provisioned_product_engine_workflow_result(
           AWS.Client.t(),
           input :: map(),
@@ -5784,7 +5712,6 @@ defmodule AWS.ServiceCatalog do
           {:ok, notify_terminate_provisioned_product_engine_workflow_result_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_terminate_provisioned_product_engine_workflow_result_errors()}
-
   def notify_terminate_provisioned_product_engine_workflow_result(
         %Client{} = client,
         input,
@@ -5804,6 +5731,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Notifies the result of the update engine execution.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20NotifyUpdateProvisionedProductEngineWorkflowResult&this_doc_guide=API%2520Reference)
@@ -5819,7 +5747,6 @@ defmodule AWS.ServiceCatalog do
       required("WorkflowToken") => String.t()
     }
   """
-
   @spec notify_update_provisioned_product_engine_workflow_result(
           AWS.Client.t(),
           input :: map(),
@@ -5828,7 +5755,6 @@ defmodule AWS.ServiceCatalog do
           {:ok, notify_update_provisioned_product_engine_workflow_result_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_update_provisioned_product_engine_workflow_result_errors()}
-
   def notify_update_provisioned_product_engine_workflow_result(
         %Client{} = client,
         input,
@@ -5848,6 +5774,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Provisions the specified product. A provisioned product is a resourced instance
   of a product. For example, provisioning a product that's based on an
   CloudFormation template launches an CloudFormation stack and its underlying
@@ -5873,12 +5800,10 @@ defmodule AWS.ServiceCatalog do
       required("ProvisionedProductName") => String.t()
     }
   """
-
   @spec provision_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, provision_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, provision_product_errors()}
-
   def provision_product(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5887,6 +5812,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Rejects an offer to share the specified portfolio.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20RejectPortfolioShare&this_doc_guide=API%2520Reference)
@@ -5899,12 +5825,10 @@ defmodule AWS.ServiceCatalog do
       required("PortfolioId") => String.t()
     }
   """
-
   @spec reject_portfolio_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_portfolio_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_portfolio_share_errors()}
-
   def reject_portfolio_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5913,6 +5837,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Lists the provisioned products that are available (not terminated).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20ScanProvisionedProducts&this_doc_guide=API%2520Reference)
@@ -5926,12 +5851,10 @@ defmodule AWS.ServiceCatalog do
       optional("PageToken") => String.t()
     }
   """
-
   @spec scan_provisioned_products(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, scan_provisioned_products_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, scan_provisioned_products_errors()}
-
   def scan_provisioned_products(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5940,6 +5863,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the products to which the caller has access.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20SearchProducts&this_doc_guide=API%2520Reference)
@@ -5955,12 +5879,10 @@ defmodule AWS.ServiceCatalog do
       optional("SortOrder") => list(any())
     }
   """
-
   @spec search_products(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_products_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_products_errors()}
-
   def search_products(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5969,6 +5891,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the products for the specified portfolio or all products.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20SearchProductsAsAdmin&this_doc_guide=API%2520Reference)
@@ -5986,12 +5909,10 @@ defmodule AWS.ServiceCatalog do
       optional("SortOrder") => list(any())
     }
   """
-
   @spec search_products_as_admin(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_products_as_admin_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_products_as_admin_errors()}
-
   def search_products_as_admin(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6000,6 +5921,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Gets information about the provisioned products that meet the specified
   criteria.
 
@@ -6017,12 +5939,10 @@ defmodule AWS.ServiceCatalog do
       optional("SortOrder") => list(any())
     }
   """
-
   @spec search_provisioned_products(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_provisioned_products_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_provisioned_products_errors()}
-
   def search_provisioned_products(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6031,6 +5951,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Terminates the specified provisioned product. This operation does not delete any
   records associated with the provisioned product.
 
@@ -6047,12 +5968,10 @@ defmodule AWS.ServiceCatalog do
       required("TerminateToken") => String.t()
     }
   """
-
   @spec terminate_provisioned_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, terminate_provisioned_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_provisioned_product_errors()}
-
   def terminate_provisioned_product(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6062,6 +5981,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Updates the specified constraint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20UpdateConstraint&this_doc_guide=API%2520Reference)
@@ -6075,12 +5995,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec update_constraint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_constraint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_constraint_errors()}
-
   def update_constraint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6089,6 +6007,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Updates the specified portfolio.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20UpdatePortfolio&this_doc_guide=API%2520Reference)
@@ -6105,12 +6024,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec update_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_portfolio_errors()}
-
   def update_portfolio(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6119,6 +6036,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Updates the specified portfolio share. You can use this API to enable or disable
   `TagOptions` sharing or Principal sharing for an existing portfolio share. The
   portfolio share cannot be updated if the `CreatePortfolioShare` operation is
@@ -6138,12 +6056,10 @@ defmodule AWS.ServiceCatalog do
       required("PortfolioId") => String.t()
     }
   """
-
   @spec update_portfolio_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_portfolio_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_portfolio_share_errors()}
-
   def update_portfolio_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6152,6 +6068,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Updates the specified product.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20UpdateProduct&this_doc_guide=API%2520Reference)
@@ -6173,12 +6090,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec update_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_product_errors()}
-
   def update_product(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6187,6 +6102,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Requests updates to the configuration of the specified provisioned product. If
   there are tags associated with the object, they cannot be updated or added.
   Depending on the specific updates requested, this operation can update with no
@@ -6213,12 +6129,10 @@ defmodule AWS.ServiceCatalog do
       required("UpdateToken") => String.t()
     }
   """
-
   @spec update_provisioned_product(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_provisioned_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_provisioned_product_errors()}
-
   def update_provisioned_product(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6227,6 +6141,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Requests updates to the properties of the specified provisioned product.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20UpdateProvisionedProductProperties&this_doc_guide=API%2520Reference)
@@ -6240,12 +6155,10 @@ defmodule AWS.ServiceCatalog do
       required("ProvisionedProductProperties") => map()
     }
   """
-
   @spec update_provisioned_product_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_provisioned_product_properties_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_provisioned_product_properties_errors()}
-
   def update_provisioned_product_properties(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6255,6 +6168,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Updates the specified provisioning artifact (also known as a version) for the
   specified product.
 
@@ -6272,12 +6186,10 @@ defmodule AWS.ServiceCatalog do
       required("ProvisioningArtifactId") => String.t()
     }
   """
-
   @spec update_provisioning_artifact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_provisioning_artifact_errors()}
-
   def update_provisioning_artifact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6286,6 +6198,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Updates a self-service action.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20UpdateServiceAction&this_doc_guide=API%2520Reference)
@@ -6300,12 +6213,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec update_service_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_action_errors()}
-
   def update_service_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6314,6 +6225,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+   
   Updates the specified TagOption.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalog%20UpdateTagOption&this_doc_guide=API%2520Reference)
@@ -6326,12 +6238,10 @@ defmodule AWS.ServiceCatalog do
       required("Id") => String.t()
     }
   """
-
   @spec update_tag_option(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_tag_option_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_tag_option_errors()}
-
   def update_tag_option(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

@@ -1698,15 +1698,12 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20CreateTestCase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_test_case(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_case_errors()}
-
   def create_test_case(%Client{} = client, options \\ []) do
     url_path = "/testcase"
 
@@ -1743,15 +1740,12 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20CreateTestConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_test_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_configuration_errors()}
-
   def create_test_configuration(%Client{} = client, options \\ []) do
     url_path = "/testconfiguration"
 
@@ -1788,15 +1782,12 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20CreateTestSuite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_test_suite(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_suite_errors()}
-
   def create_test_suite(%Client{} = client, options \\ []) do
     url_path = "/testsuite"
 
@@ -1833,16 +1824,13 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20DeleteTestCase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_case_id` (`t:string`) The test case ID of the test case.
-
-  ## Optional parameters:
+  * `:test_case_id` (`t:string` required) The test case ID of the test case.
+  ## Keyword parameters:
   """
-
   @spec delete_test_case(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_case_errors()}
-
   def delete_test_case(%Client{} = client, test_case_id, options \\ []) do
     url_path = "/testcases/#{AWS.Util.encode_uri(test_case_id)}"
 
@@ -1889,16 +1877,14 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20DeleteTestConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_configuration_id` (`t:string`) The test ID of the test configuration.
-
-  ## Optional parameters:
+  * `:test_configuration_id` (`t:string` required) The test ID of the test
+  configuration.
+  ## Keyword parameters:
   """
-
   @spec delete_test_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_configuration_errors()}
-
   def delete_test_configuration(%Client{} = client, test_configuration_id, options \\ []) do
     url_path = "/testconfigurations/#{AWS.Util.encode_uri(test_configuration_id)}"
 
@@ -1945,16 +1931,13 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20DeleteTestRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_run_id` (`t:string`) The run ID of the test run.
-
-  ## Optional parameters:
+  * `:test_run_id` (`t:string` required) The run ID of the test run.
+  ## Keyword parameters:
   """
-
   @spec delete_test_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_test_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_run_errors()}
-
   def delete_test_run(%Client{} = client, test_run_id, options \\ []) do
     url_path = "/testruns/#{AWS.Util.encode_uri(test_run_id)}"
 
@@ -2001,16 +1984,13 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20DeleteTestSuite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_suite_id` (`t:string`) The test ID of the test suite.
-
-  ## Optional parameters:
+  * `:test_suite_id` (`t:string` required) The test ID of the test suite.
+  ## Keyword parameters:
   """
-
   @spec delete_test_suite(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_suite_errors()}
-
   def delete_test_suite(%Client{} = client, test_suite_id, options \\ []) do
     url_path = "/testsuites/#{AWS.Util.encode_uri(test_suite_id)}"
 
@@ -2057,17 +2037,14 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20GetTestCase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_case_id` (`t:string`) The request test ID of the test case.
-
-  ## Optional parameters:
+  * `:test_case_id` (`t:string` required) The request test ID of the test case.
+  ## Keyword parameters:
   * `:test_case_version` (`t:integer`) The test case version of the test case.
   """
-
   @spec get_test_case(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_case_errors()}
-
   def get_test_case(%Client{} = client, test_case_id, options \\ []) do
     url_path = "/testcases/#{AWS.Util.encode_uri(test_case_id)}"
 
@@ -2113,17 +2090,15 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20GetTestConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_configuration_id` (`t:string`) The request test configuration ID.
-
-  ## Optional parameters:
+  * `:test_configuration_id` (`t:string` required) The request test configuration
+  ID.
+  ## Keyword parameters:
   * `:test_configuration_version` (`t:integer`) The test configuration version.
   """
-
   @spec get_test_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_configuration_errors()}
-
   def get_test_configuration(%Client{} = client, test_configuration_id, options \\ []) do
     url_path = "/testconfigurations/#{AWS.Util.encode_uri(test_configuration_id)}"
 
@@ -2169,19 +2144,16 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20GetTestRunStep&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:step_name` (`t:string`) The step name of the test run step.
-  * `:test_run_id` (`t:string`) The test run ID of the test run step.
-
-  ## Optional parameters:
+  * `:step_name` (`t:string` required) The step name of the test run step.
+  * `:test_run_id` (`t:string` required) The test run ID of the test run step.
+  ## Keyword parameters:
   * `:test_case_id` (`t:string`) The test case ID of a test run step.
   * `:test_suite_id` (`t:string`) The test suite ID of a test run step.
   """
-
   @spec get_test_run_step(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_test_run_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_run_step_errors()}
-
   def get_test_run_step(%Client{} = client, step_name, test_run_id, options \\ []) do
     url_path =
       "/testruns/#{AWS.Util.encode_uri(test_run_id)}/steps/#{AWS.Util.encode_uri(step_name)}"
@@ -2235,17 +2207,14 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20GetTestSuite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_suite_id` (`t:string`) The ID of the test suite.
-
-  ## Optional parameters:
+  * `:test_suite_id` (`t:string` required) The ID of the test suite.
+  ## Keyword parameters:
   * `:test_suite_version` (`t:integer`) The version of the test suite.
   """
-
   @spec get_test_suite(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_suite_errors()}
-
   def get_test_suite(%Client{} = client, test_suite_id, options \\ []) do
     url_path = "/testsuites/#{AWS.Util.encode_uri(test_suite_id)}"
 
@@ -2291,16 +2260,14 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2335,19 +2302,16 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestCases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum results of the test case.
   * `:next_token` (`t:string`) The next token of the test cases.
   * `:test_case_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The IDs of the
   test cases.
   """
-
   @spec list_test_cases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_cases_errors()}
-
   def list_test_cases(%Client{} = client, options \\ []) do
     url_path = "/testcases"
 
@@ -2407,19 +2371,16 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum results of the test configuration.
   * `:next_token` (`t:string`) The next token for the test configurations.
   * `:test_configuration_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The
   configuration IDs of the test configurations.
   """
-
   @spec list_test_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_configurations_errors()}
-
   def list_test_configurations(%Client{} = client, options \\ []) do
     url_path = "/testconfigurations"
 
@@ -2479,9 +2440,8 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestRunSteps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_run_id` (`t:string`) The test run ID of the test run steps.
-
-  ## Optional parameters:
+  * `:test_run_id` (`t:string` required) The test run ID of the test run steps.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of test run steps to return in
   one page of results.
   * `:next_token` (`t:string`) The token from a previous step to retrieve the next
@@ -2489,12 +2449,10 @@ defmodule AWS.AppTest do
   * `:test_case_id` (`t:string`) The test case ID of the test run steps.
   * `:test_suite_id` (`t:string`) The test suite ID of the test run steps.
   """
-
   @spec list_test_run_steps(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_test_run_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_run_steps_errors()}
-
   def list_test_run_steps(%Client{} = client, test_run_id, options \\ []) do
     url_path = "/testruns/#{AWS.Util.encode_uri(test_run_id)}/steps"
 
@@ -2561,20 +2519,17 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestRunTestCases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_run_id` (`t:string`) The test run ID of the test cases.
-
-  ## Optional parameters:
+  * `:test_run_id` (`t:string` required) The test run ID of the test cases.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of test run test cases to
   return in one page of results.
   * `:next_token` (`t:string`) The token from a previous request to retrieve the
   next page of results.
   """
-
   @spec list_test_run_test_cases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_test_run_test_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_run_test_cases_errors()}
-
   def list_test_run_test_cases(%Client{} = client, test_run_id, options \\ []) do
     url_path = "/testruns/#{AWS.Util.encode_uri(test_run_id)}/testcases"
 
@@ -2627,8 +2582,7 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of test runs to return in one
   page of results.
   * `:next_token` (`t:string`) The token from the previous request to retrieve the
@@ -2637,12 +2591,10 @@ defmodule AWS.AppTest do
   of the test runs.
   * `:test_suite_id` (`t:string`) The test suite ID of the test runs.
   """
-
   @spec list_test_runs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_runs_errors()}
-
   def list_test_runs(%Client{} = client, options \\ []) do
     url_path = "/testruns"
 
@@ -2709,8 +2661,7 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestSuites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of test suites to return in
   one page of results.
   * `:next_token` (`t:string`) The token from a previous request to retrieve the
@@ -2718,12 +2669,10 @@ defmodule AWS.AppTest do
   * `:test_suite_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The suite ID of
   the test suites.
   """
-
   @spec list_test_suites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_suites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_suites_errors()}
-
   def list_test_suites(%Client{} = client, options \\ []) do
     url_path = "/testsuites"
 
@@ -2783,15 +2732,12 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20StartTestRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_test_run(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_test_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_test_run_errors()}
-
   def start_test_run(%Client{} = client, options \\ []) do
     url_path = "/testrun"
 
@@ -2828,17 +2774,14 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the tag
-  resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  tag resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2875,18 +2818,16 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.apptest#TagKey]`) The tag keys of the
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   resource.
-
-  ## Optional parameters:
+  * `:tag_keys` (`t:list[com.amazonaws.apptest#TagKey]` required) The tag keys of
+  the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2934,16 +2875,13 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20UpdateTestCase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_case_id` (`t:string`) The test case ID of the test case.
-
-  ## Optional parameters:
+  * `:test_case_id` (`t:string` required) The test case ID of the test case.
+  ## Keyword parameters:
   """
-
   @spec update_test_case(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_test_case_errors()}
-
   def update_test_case(%Client{} = client, test_case_id, options \\ []) do
     url_path = "/testcases/#{AWS.Util.encode_uri(test_case_id)}"
 
@@ -2990,17 +2928,14 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20UpdateTestConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_configuration_id` (`t:string`) The test configuration ID of the test
-  configuration.
-
-  ## Optional parameters:
+  * `:test_configuration_id` (`t:string` required) The test configuration ID of
+  the test configuration.
+  ## Keyword parameters:
   """
-
   @spec update_test_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_test_configuration_errors()}
-
   def update_test_configuration(%Client{} = client, test_configuration_id, options \\ []) do
     url_path = "/testconfigurations/#{AWS.Util.encode_uri(test_configuration_id)}"
 
@@ -3047,16 +2982,13 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20UpdateTestSuite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_suite_id` (`t:string`) The test suite ID of the test suite.
-
-  ## Optional parameters:
+  * `:test_suite_id` (`t:string` required) The test suite ID of the test suite.
+  ## Keyword parameters:
   """
-
   @spec update_test_suite(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_test_suite_errors()}
-
   def update_test_suite(%Client{} = client, test_suite_id, options \\ []) do
     url_path = "/testsuites/#{AWS.Util.encode_uri(test_suite_id)}"
 

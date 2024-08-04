@@ -1184,22 +1184,19 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20AssociateLicense&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:license_type` (`t:string`) The type of license to associate with the
-  workspace.
-  * `:workspace_id` (`t:string`) The ID of the workspace to associate the license
-  with.
-
-  ## Optional parameters:
+  * `:license_type` (`t:string` required) The type of license to associate with
+  the workspace.
+  * `:workspace_id` (`t:string` required) The ID of the workspace to associate the
+  license with.
+  ## Keyword parameters:
   * `:grafana_token` (`t:string`) A token from Grafana Labs that ties your Amazon
   Web Services account with a Grafana Labs account. For more information, see
   Link your account with Grafana Labs.
   """
-
   @spec associate_license(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_license_errors()}
-
   def associate_license(%Client{} = client, license_type, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/licenses/#{AWS.Util.encode_uri(license_type)}"
@@ -1250,15 +1247,12 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_workspace(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_errors()}
-
   def create_workspace(%Client{} = client, options \\ []) do
     url_path = "/workspaces"
 
@@ -1298,16 +1292,14 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspaceApiKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to create an API key.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The ID of the workspace to create an API
+  key.
+  ## Keyword parameters:
   """
-
   @spec create_workspace_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_api_key_errors()}
-
   def create_workspace_api_key(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys"
 
@@ -1349,17 +1341,14 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspaceServiceAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace within which to create
-  the service account.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The ID of the workspace within which to
+  create the service account.
+  ## Keyword parameters:
   """
-
   @spec create_workspace_service_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workspace_service_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_service_account_errors()}
-
   def create_workspace_service_account(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts"
 
@@ -1404,14 +1393,12 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspaceServiceAccountToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_account_id` (`t:string`) The ID of the service account for which to
-  create a token.
-  * `:workspace_id` (`t:string`) The ID of the workspace the service account
-  resides within.
-
-  ## Optional parameters:
+  * `:service_account_id` (`t:string` required) The ID of the service account for
+  which to create a token.
+  * `:workspace_id` (`t:string` required) The ID of the workspace the service
+  account resides within.
+  ## Keyword parameters:
   """
-
   @spec create_workspace_service_account_token(
           AWS.Client.t(),
           String.t(),
@@ -1421,7 +1408,6 @@ defmodule AWS.Grafana do
           {:ok, create_workspace_service_account_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_service_account_token_errors()}
-
   def create_workspace_service_account_token(
         %Client{} = client,
         service_account_id,
@@ -1464,16 +1450,13 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to delete.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The ID of the workspace to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_errors()}
-
   def delete_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
 
@@ -1520,17 +1503,14 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceApiKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:key_name` (`t:string`) The name of the API key to delete.
-  * `:workspace_id` (`t:string`) The ID of the workspace to delete.
-
-  ## Optional parameters:
+  * `:key_name` (`t:string` required) The name of the API key to delete.
+  * `:workspace_id` (`t:string` required) The ID of the workspace to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_workspace_api_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_api_key_errors()}
-
   def delete_workspace_api_key(%Client{} = client, key_name, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys/#{AWS.Util.encode_uri(key_name)}"
@@ -1580,18 +1560,16 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceServiceAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_account_id` (`t:string`) The ID of the service account to delete.
-  * `:workspace_id` (`t:string`) The ID of the workspace where the service account
-  resides.
-
-  ## Optional parameters:
+  * `:service_account_id` (`t:string` required) The ID of the service account to
+  delete.
+  * `:workspace_id` (`t:string` required) The ID of the workspace where the
+  service account resides.
+  ## Keyword parameters:
   """
-
   @spec delete_workspace_service_account(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_service_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_service_account_errors()}
-
   def delete_workspace_service_account(
         %Client{} = client,
         service_account_id,
@@ -1647,15 +1625,13 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceServiceAccountToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_account_id` (`t:string`) The ID of the service account from which to
+  * `:service_account_id` (`t:string` required) The ID of the service account from
+  which to delete the token.
+  * `:token_id` (`t:string` required) The ID of the token to delete.
+  * `:workspace_id` (`t:string` required) The ID of the workspace from which to
   delete the token.
-  * `:token_id` (`t:string`) The ID of the token to delete.
-  * `:workspace_id` (`t:string`) The ID of the workspace from which to delete the
-  token.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_workspace_service_account_token(
           AWS.Client.t(),
           String.t(),
@@ -1666,7 +1642,6 @@ defmodule AWS.Grafana do
           {:ok, delete_workspace_service_account_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_service_account_token_errors()}
-
   def delete_workspace_service_account_token(
         %Client{} = client,
         service_account_id,
@@ -1720,17 +1695,14 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DescribeWorkspace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to display information
-  about.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The ID of the workspace to display
+  information about.
+  ## Keyword parameters:
   """
-
   @spec describe_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_errors()}
-
   def describe_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
 
@@ -1766,17 +1738,14 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DescribeWorkspaceAuthentication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to return authentication
-  information about.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The ID of the workspace to return
+  authentication information about.
+  ## Keyword parameters:
   """
-
   @spec describe_workspace_authentication(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_authentication_errors()}
-
   def describe_workspace_authentication(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
 
@@ -1811,17 +1780,14 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DescribeWorkspaceConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to get configuration
-  information for.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The ID of the workspace to get
+  configuration information for.
+  ## Keyword parameters:
   """
-
   @spec describe_workspace_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_configuration_errors()}
-
   def describe_workspace_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
 
@@ -1856,18 +1822,16 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DisassociateLicense&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:license_type` (`t:string`) The type of license to remove from the workspace.
-  * `:workspace_id` (`t:string`) The ID of the workspace to remove the Grafana
-  Enterprise license from.
-
-  ## Optional parameters:
+  * `:license_type` (`t:string` required) The type of license to remove from the
+  workspace.
+  * `:workspace_id` (`t:string` required) The ID of the workspace to remove the
+  Grafana Enterprise license from.
+  ## Keyword parameters:
   """
-
   @spec disassociate_license(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_license_errors()}
-
   def disassociate_license(%Client{} = client, license_type, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/licenses/#{AWS.Util.encode_uri(license_type)}"
@@ -1919,10 +1883,9 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to list permissions for.
-  This parameter is required.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The ID of the workspace to list
+  permissions for. This parameter is required.
+  ## Keyword parameters:
   * `:group_id` (`t:string`) (Optional) Limits the results to only the group that
   matches this ID.
   * `:max_results` (`t:string`) The maximum number of results to include in the
@@ -1935,12 +1898,10 @@ defmodule AWS.Grafana do
   permissions of IAM Identity Center users are returned. If you specify
   SSO_GROUP, only the permissions of IAM Identity Center groups are returned.
   """
-
   @spec list_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permissions_errors()}
-
   def list_permissions(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/permissions"
 
@@ -2022,17 +1983,14 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource the list of tags are
-  associated with.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource the list of tags
+  are associated with.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2069,8 +2027,7 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
@@ -2079,12 +2036,10 @@ defmodule AWS.Grafana do
   upgrade versions. If not included, lists all versions of Grafana that are
   supported for CreateWorkspace.
   """
-
   @spec list_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_versions_errors()}
-
   def list_versions(%Client{} = client, options \\ []) do
     url_path = "/versions"
 
@@ -2146,24 +2101,21 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaceServiceAccountTokens&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_account_id` (`t:string`) The ID of the service account for which to
+  * `:service_account_id` (`t:string` required) The ID of the service account for
+  which to return tokens.
+  * `:workspace_id` (`t:string` required) The ID of the workspace for which to
   return tokens.
-  * `:workspace_id` (`t:string`) The ID of the workspace for which to return
-  tokens.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of tokens to include in the
   results.
   * `:next_token` (`t:string`) The token for the next set of service accounts to
   return. (You receive this token from a previous
   ListWorkspaceServiceAccountTokens operation.)
   """
-
   @spec list_workspace_service_account_tokens(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workspace_service_account_tokens_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspace_service_account_tokens_errors()}
-
   def list_workspace_service_account_tokens(
         %Client{} = client,
         service_account_id,
@@ -2222,21 +2174,19 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaceServiceAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The workspace for which to list service accounts.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The workspace for which to list service
+  accounts.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of service accounts to include
   in the results.
   * `:next_token` (`t:string`) The token for the next set of service accounts to
   return. (You receive this token from a previous ListWorkspaceServiceAccounts
   operation.)
   """
-
   @spec list_workspace_service_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workspace_service_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspace_service_accounts_errors()}
-
   def list_workspace_service_accounts(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts"
 
@@ -2292,19 +2242,16 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of workspaces to include in the
   results.
   * `:next_token` (`t:string`) The token for the next set of workspaces to return.
   (You receive this token from a previous ListWorkspaces operation.)
   """
-
   @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspaces_errors()}
-
   def list_workspaces(%Client{} = client, options \\ []) do
     url_path = "/workspaces"
 
@@ -2358,17 +2305,14 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource the tag is associated
-  with.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource the tag is
+  associated with.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2406,19 +2350,16 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource the tag association is
-  removed from.
-  * `:tag_keys` (`t:list[com.amazonaws.grafana#TagKey]`) The key values of the tag
-  to be removed from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource the tag
+  association is removed from.
+  * `:tag_keys` (`t:list[com.amazonaws.grafana#TagKey]` required) The key values
+  of the tag to be removed from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2466,16 +2407,13 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdatePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to update.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The ID of the workspace to update.
+  ## Keyword parameters:
   """
-
   @spec update_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_permissions_errors()}
-
   def update_permissions(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/permissions"
 
@@ -2524,16 +2462,13 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdateWorkspace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to update.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The ID of the workspace to update.
+  ## Keyword parameters:
   """
-
   @spec update_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_errors()}
-
   def update_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
 
@@ -2574,17 +2509,14 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdateWorkspaceAuthentication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to update the
+  * `:workspace_id` (`t:string` required) The ID of the workspace to update the
   authentication for.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_workspace_authentication(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_authentication_errors()}
-
   def update_workspace_authentication(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
 
@@ -2621,16 +2553,13 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdateWorkspaceConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to update.
-
-  ## Optional parameters:
+  * `:workspace_id` (`t:string` required) The ID of the workspace to update.
+  ## Keyword parameters:
   """
-
   @spec update_workspace_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_configuration_errors()}
-
   def update_workspace_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
 

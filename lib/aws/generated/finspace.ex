@@ -2469,15 +2469,12 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20CreateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-
   def create_environment(%Client{} = client, options \\ []) do
     url_path = "/environment"
 
@@ -2515,17 +2512,15 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20CreateKxChangeset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:database_name` (`t:string`) The name of the kdb database.
-  * `:environment_id` (`t:string`) A unique identifier of the kdb environment.
-
-  ## Optional parameters:
+  * `:database_name` (`t:string` required) The name of the kdb database.
+  * `:environment_id` (`t:string` required) A unique identifier of the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec create_kx_changeset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_kx_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_kx_changeset_errors()}
-
   def create_kx_changeset(%Client{} = client, database_name, environment_id, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/changesets"
@@ -2563,16 +2558,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20CreateKxCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec create_kx_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_kx_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_kx_cluster_errors()}
-
   def create_kx_cluster(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters"
 
@@ -2609,16 +2602,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20CreateKxDatabase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec create_kx_database(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_kx_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_kx_database_errors()}
-
   def create_kx_database(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases"
 
@@ -2658,19 +2649,16 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20CreateKxDataview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:database_name` (`t:string`) The name of the database where you want to
-  create a dataview.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  where you want to create the dataview.
-
-  ## Optional parameters:
+  * `:database_name` (`t:string` required) The name of the database where you want
+  to create a dataview.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, where you want to create the dataview.
+  ## Keyword parameters:
   """
-
   @spec create_kx_dataview(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_kx_dataview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_kx_dataview_errors()}
-
   def create_kx_dataview(%Client{} = client, database_name, environment_id, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/dataviews"
@@ -2708,15 +2696,12 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20CreateKxEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_kx_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_kx_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_kx_environment_errors()}
-
   def create_kx_environment(%Client{} = client, options \\ []) do
     url_path = "/kx/environments"
 
@@ -2753,17 +2738,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20CreateKxScalingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  where you want to create the scaling group.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, where you want to create the scaling group.
+  ## Keyword parameters:
   """
-
   @spec create_kx_scaling_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_kx_scaling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_kx_scaling_group_errors()}
-
   def create_kx_scaling_group(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/scalingGroups"
 
@@ -2800,17 +2782,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20CreateKxUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment
-  where you want to create a user.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment where you want to create a user.
+  ## Keyword parameters:
   """
-
   @spec create_kx_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_kx_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_kx_user_errors()}
-
   def create_kx_user(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users"
 
@@ -2847,17 +2826,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20CreateKxVolume&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  whose clusters can attach to the volume.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, whose clusters can attach to the volume.
+  ## Keyword parameters:
   """
-
   @spec create_kx_volume(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_kx_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_kx_volume_errors()}
-
   def create_kx_volume(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes"
 
@@ -2894,16 +2870,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20DeleteEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) The identifier for the FinSpace environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) The identifier for the FinSpace
+  environment.
+  ## Keyword parameters:
   """
-
   @spec delete_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-
   def delete_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
 
@@ -2950,19 +2924,18 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20DeleteKxCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of the cluster that you want to delete.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of the cluster that you want to
+  delete.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
   expires in 10 minutes.
   """
-
   @spec delete_kx_cluster(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_kx_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_kx_cluster_errors()}
-
   def delete_kx_cluster(%Client{} = client, cluster_name, environment_id, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters/#{AWS.Util.encode_uri(cluster_name)}"
@@ -3021,20 +2994,18 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20DeleteKxClusterNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of the cluster, for which you want to
-  delete the nodes.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-  * `:node_id` (`t:string`) A unique identifier for the node that you want to
-  delete.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of the cluster, for which you
+  want to delete the nodes.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  * `:node_id` (`t:string` required) A unique identifier for the node that you
+  want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_kx_cluster_node(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_kx_cluster_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_kx_cluster_node_errors()}
-
   def delete_kx_cluster_node(
         %Client{} = client,
         cluster_name,
@@ -3090,20 +3061,18 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20DeleteKxDatabase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:database_name` (`t:string`) The name of the kdb database that you want to
-  delete.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-  * `:client_token` (`t:string`) A token that ensures idempotency. This token
-  expires in 10 minutes.
-
-  ## Optional parameters:
+  * `:database_name` (`t:string` required) The name of the kdb database that you
+  want to delete.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  * `:client_token` (`t:string` required) A token that ensures idempotency. This
+  token expires in 10 minutes.
+  ## Keyword parameters:
   """
-
   @spec delete_kx_database(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_kx_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_kx_database_errors()}
-
   def delete_kx_database(
         %Client{} = client,
         database_name,
@@ -3159,18 +3128,16 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20DeleteKxDataview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:database_name` (`t:string`) The name of the database whose dataview you want
+  * `:database_name` (`t:string` required) The name of the database whose dataview
+  you want to delete.
+  * `:dataview_name` (`t:string` required) The name of the dataview that you want
   to delete.
-  * `:dataview_name` (`t:string`) The name of the dataview that you want to
-  delete.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  from where you want to delete the dataview.
-  * `:client_token` (`t:string`) A token that ensures idempotency. This token
-  expires in 10 minutes.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, from where you want to delete the dataview.
+  * `:client_token` (`t:string` required) A token that ensures idempotency. This
+  token expires in 10 minutes.
+  ## Keyword parameters:
   """
-
   @spec delete_kx_dataview(
           AWS.Client.t(),
           String.t(),
@@ -3182,7 +3149,6 @@ defmodule AWS.Finspace do
           {:ok, delete_kx_dataview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_kx_dataview_errors()}
-
   def delete_kx_dataview(
         %Client{} = client,
         database_name,
@@ -3240,18 +3206,16 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20DeleteKxEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
   expires in 10 minutes.
   """
-
   @spec delete_kx_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_kx_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_kx_environment_errors()}
-
   def delete_kx_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}"
 
@@ -3310,21 +3274,18 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20DeleteKxScalingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  from where you want to delete the dataview.
-  * `:scaling_group_name` (`t:string`) A unique identifier for the kdb scaling
-  group.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, from where you want to delete the dataview.
+  * `:scaling_group_name` (`t:string` required) A unique identifier for the kdb
+  scaling group.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
   expires in 10 minutes.
   """
-
   @spec delete_kx_scaling_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_kx_scaling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_kx_scaling_group_errors()}
-
   def delete_kx_scaling_group(
         %Client{} = client,
         environment_id,
@@ -3388,20 +3349,18 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20DeleteKxUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-  * `:user_name` (`t:string`) A unique identifier for the user that you want to
-  delete.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  * `:user_name` (`t:string` required) A unique identifier for the user that you
+  want to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
   expires in 10 minutes.
   """
-
   @spec delete_kx_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_kx_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_kx_user_errors()}
-
   def delete_kx_user(%Client{} = client, environment_id, user_name, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users/#{AWS.Util.encode_uri(user_name)}"
@@ -3462,20 +3421,18 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20DeleteKxVolume&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  whose clusters can attach to the volume.
-  * `:volume_name` (`t:string`) The name of the volume that you want to delete.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, whose clusters can attach to the volume.
+  * `:volume_name` (`t:string` required) The name of the volume that you want to
+  delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
   expires in 10 minutes.
   """
-
   @spec delete_kx_volume(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_kx_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_kx_volume_errors()}
-
   def delete_kx_volume(%Client{} = client, environment_id, volume_name, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes/#{AWS.Util.encode_uri(volume_name)}"
@@ -3534,16 +3491,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20GetEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) The identifier of the FinSpace environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) The identifier of the FinSpace
+  environment.
+  ## Keyword parameters:
   """
-
   @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
-
   def get_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
 
@@ -3578,19 +3533,17 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20GetKxChangeset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:changeset_id` (`t:string`) A unique identifier of the changeset for which
-  you want to retrieve data.
-  * `:database_name` (`t:string`) The name of the kdb database.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:changeset_id` (`t:string` required) A unique identifier of the changeset for
+  which you want to retrieve data.
+  * `:database_name` (`t:string` required) The name of the kdb database.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec get_kx_changeset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_kx_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_kx_changeset_errors()}
-
   def get_kx_changeset(
         %Client{} = client,
         changeset_id,
@@ -3632,18 +3585,16 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20GetKxCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of the cluster that you want to
+  * `:cluster_name` (`t:string` required) The name of the cluster that you want to
   retrieve.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec get_kx_cluster(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_kx_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_kx_cluster_errors()}
-
   def get_kx_cluster(%Client{} = client, cluster_name, environment_id, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters/#{AWS.Util.encode_uri(cluster_name)}"
@@ -3680,20 +3631,18 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20GetKxConnectionString&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-  * `:cluster_name` (`t:string`) A name of the kdb cluster.
-  * `:user_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies the
-  user. For more information about ARNs and how to use ARNs in policies, see
-  IAM Identifiers in the IAM User Guide.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  * `:cluster_name` (`t:string` required) A name of the kdb cluster.
+  * `:user_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  identifies the user. For more information about ARNs and how to use ARNs in
+  policies, see IAM Identifiers in the IAM User Guide.
+  ## Keyword parameters:
   """
-
   @spec get_kx_connection_string(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_kx_connection_string_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_kx_connection_string_errors()}
-
   def get_kx_connection_string(
         %Client{} = client,
         environment_id,
@@ -3735,17 +3684,15 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20GetKxDatabase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:database_name` (`t:string`) The name of the kdb database.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:database_name` (`t:string` required) The name of the kdb database.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec get_kx_database(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_kx_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_kx_database_errors()}
-
   def get_kx_database(%Client{} = client, database_name, environment_id, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}"
@@ -3781,20 +3728,17 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20GetKxDataview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:database_name` (`t:string`) The name of the database where you created the
-  dataview.
-  * `:dataview_name` (`t:string`) A unique identifier for the dataview.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  from where you want to retrieve the dataview details.
-
-  ## Optional parameters:
+  * `:database_name` (`t:string` required) The name of the database where you
+  created the dataview.
+  * `:dataview_name` (`t:string` required) A unique identifier for the dataview.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, from where you want to retrieve the dataview details.
+  ## Keyword parameters:
   """
-
   @spec get_kx_dataview(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_kx_dataview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_kx_dataview_errors()}
-
   def get_kx_dataview(
         %Client{} = client,
         database_name,
@@ -3836,16 +3780,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20GetKxEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec get_kx_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_kx_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_kx_environment_errors()}
-
   def get_kx_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}"
 
@@ -3880,18 +3822,16 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20GetKxScalingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-  * `:scaling_group_name` (`t:string`) A unique identifier for the kdb scaling
-  group.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  * `:scaling_group_name` (`t:string` required) A unique identifier for the kdb
+  scaling group.
+  ## Keyword parameters:
   """
-
   @spec get_kx_scaling_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_kx_scaling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_kx_scaling_group_errors()}
-
   def get_kx_scaling_group(%Client{} = client, environment_id, scaling_group_name, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/scalingGroups/#{AWS.Util.encode_uri(scaling_group_name)}"
@@ -3927,17 +3867,15 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20GetKxUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-  * `:user_name` (`t:string`) A unique identifier for the user.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  * `:user_name` (`t:string` required) A unique identifier for the user.
+  ## Keyword parameters:
   """
-
   @spec get_kx_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_kx_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_kx_user_errors()}
-
   def get_kx_user(%Client{} = client, environment_id, user_name, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users/#{AWS.Util.encode_uri(user_name)}"
@@ -3973,18 +3911,15 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20GetKxVolume&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  whose clusters can attach to the volume.
-  * `:volume_name` (`t:string`) A unique identifier for the volume.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, whose clusters can attach to the volume.
+  * `:volume_name` (`t:string` required) A unique identifier for the volume.
+  ## Keyword parameters:
   """
-
   @spec get_kx_volume(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_kx_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_kx_volume_errors()}
-
   def get_kx_volume(%Client{} = client, environment_id, volume_name, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes/#{AWS.Util.encode_uri(volume_name)}"
@@ -4020,8 +3955,7 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) A token generated by FinSpace that specifies where
@@ -4029,12 +3963,10 @@ defmodule AWS.Finspace do
   set of pages, pass in the nextTokennextToken value from the response object
   of the previous page call.
   """
-
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-
   def list_environments(%Client{} = client, options \\ []) do
     url_path = "/environment"
 
@@ -4087,21 +4019,19 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListKxChangesets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:database_name` (`t:string`) The name of the kdb database.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:database_name` (`t:string` required) The name of the kdb database.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_kx_changesets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_changesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kx_changesets_errors()}
-
   def list_kx_changesets(%Client{} = client, database_name, environment_id, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/changesets"
@@ -4155,21 +4085,19 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListKxClusterNodes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) A unique name for the cluster.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) A unique name for the cluster.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_kx_cluster_nodes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_cluster_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kx_cluster_nodes_errors()}
-
   def list_kx_cluster_nodes(%Client{} = client, cluster_name, environment_id, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters/#{AWS.Util.encode_uri(cluster_name)}/nodes"
@@ -4223,9 +4151,9 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListKxClusters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   * `:cluster_type` (`t:enum["GATEWAY|GP|HDB|RDB|TICKERPLANT"]`) Specifies the
   type of KDB database that is being created. The following types are
   available:
@@ -4234,12 +4162,10 @@ defmodule AWS.Finspace do
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_kx_clusters(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kx_clusters_errors()}
-
   def list_kx_clusters(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters"
 
@@ -4299,20 +4225,18 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListKxDatabases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_kx_databases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kx_databases_errors()}
-
   def list_kx_databases(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases"
 
@@ -4365,23 +4289,20 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListKxDataviews&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:database_name` (`t:string`) The name of the database where the dataviews
-  were created.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  for which you want to retrieve a list of dataviews.
-
-  ## Optional parameters:
+  * `:database_name` (`t:string` required) The name of the database where the
+  dataviews were created.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, for which you want to retrieve a list of dataviews.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_kx_dataviews(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_dataviews_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kx_dataviews_errors()}
-
   def list_kx_dataviews(%Client{} = client, database_name, environment_id, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/dataviews"
@@ -4435,19 +4356,16 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListKxEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_kx_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_kx_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kx_environments_errors()}
-
   def list_kx_environments(%Client{} = client, options \\ []) do
     url_path = "/kx/environments"
 
@@ -4500,21 +4418,18 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListKxScalingGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  for which you want to retrieve a list of scaling groups.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, for which you want to retrieve a list of scaling groups.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_kx_scaling_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_scaling_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kx_scaling_groups_errors()}
-
   def list_kx_scaling_groups(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/scalingGroups"
 
@@ -4567,20 +4482,18 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListKxUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_kx_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kx_users_errors()}
-
   def list_kx_users(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users"
 
@@ -4633,10 +4546,9 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListKxVolumes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  whose clusters can attach to the volume.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, whose clusters can attach to the volume.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) A token that indicates where a results page should
@@ -4644,12 +4556,10 @@ defmodule AWS.Finspace do
   * `:volume_type` (`t:enum["NAS_1"]`) The type of file system volume. Currently,
   FinSpace only supports NAS_1 volume type.
   """
-
   @spec list_kx_volumes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_volumes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kx_volumes_errors()}
-
   def list_kx_volumes(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes"
 
@@ -4709,16 +4619,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4753,16 +4661,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4799,20 +4705,17 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) A FinSpace resource from which you want to remove
-  a tag or tags. The value for this parameter is an Amazon Resource Name
-  (ARN).
-  * `:tag_keys` (`t:list[com.amazonaws.finspace#TagKey]`) The tag keys (names) of
-  one or more tags to be removed.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) A FinSpace resource from which you want
+  to remove a tag or tags. The value for this parameter is an Amazon Resource
+  Name (ARN).
+  * `:tag_keys` (`t:list[com.amazonaws.finspace#TagKey]` required) The tag keys
+  (names) of one or more tags to be removed.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4860,16 +4763,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20UpdateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) The identifier of the FinSpace environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) The identifier of the FinSpace
+  environment.
+  ## Keyword parameters:
   """
-
   @spec update_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
-
   def update_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
 
@@ -4909,17 +4810,15 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20UpdateKxClusterCodeConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of the cluster.
-  * `:environment_id` (`t:string`) A unique identifier of the kdb environment.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of the cluster.
+  * `:environment_id` (`t:string` required) A unique identifier of the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec update_kx_cluster_code_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_kx_cluster_code_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_kx_cluster_code_configuration_errors()}
-
   def update_kx_cluster_code_configuration(
         %Client{} = client,
         cluster_name,
@@ -4964,18 +4863,16 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20UpdateKxClusterDatabases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) A unique name for the cluster that you want to
-  modify.
-  * `:environment_id` (`t:string`) The unique identifier of a kdb environment.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) A unique name for the cluster that you
+  want to modify.
+  * `:environment_id` (`t:string` required) The unique identifier of a kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec update_kx_cluster_databases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_kx_cluster_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_kx_cluster_databases_errors()}
-
   def update_kx_cluster_databases(%Client{} = client, cluster_name, environment_id, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters/#{AWS.Util.encode_uri(cluster_name)}/configuration/databases"
@@ -5013,17 +4910,15 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20UpdateKxDatabase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:database_name` (`t:string`) The name of the kdb database.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:database_name` (`t:string` required) The name of the kdb database.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec update_kx_database(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_kx_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_kx_database_errors()}
-
   def update_kx_database(%Client{} = client, database_name, environment_id, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}"
@@ -5063,20 +4958,17 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20UpdateKxDataview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:database_name` (`t:string`) The name of the database.
-  * `:dataview_name` (`t:string`) The name of the dataview that you want to
-  update.
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment,
-  where you want to update the dataview.
-
-  ## Optional parameters:
+  * `:database_name` (`t:string` required) The name of the database.
+  * `:dataview_name` (`t:string` required) The name of the dataview that you want
+  to update.
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment, where you want to update the dataview.
+  ## Keyword parameters:
   """
-
   @spec update_kx_dataview(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_kx_dataview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_kx_dataview_errors()}
-
   def update_kx_dataview(
         %Client{} = client,
         database_name,
@@ -5120,16 +5012,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20UpdateKxEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec update_kx_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_kx_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_kx_environment_errors()}
-
   def update_kx_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}"
 
@@ -5169,16 +5059,14 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20UpdateKxEnvironmentNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  ## Keyword parameters:
   """
-
   @spec update_kx_environment_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_kx_environment_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_kx_environment_network_errors()}
-
   def update_kx_environment_network(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/network"
 
@@ -5216,17 +5104,15 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20UpdateKxUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
-  * `:user_name` (`t:string`) A unique identifier for the user.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment.
+  * `:user_name` (`t:string` required) A unique identifier for the user.
+  ## Keyword parameters:
   """
-
   @spec update_kx_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_kx_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_kx_user_errors()}
-
   def update_kx_user(%Client{} = client, environment_id, user_name, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users/#{AWS.Util.encode_uri(user_name)}"
@@ -5266,18 +5152,15 @@ defmodule AWS.Finspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspace%20UpdateKxVolume&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) A unique identifier for the kdb environment
-  where you created the storage volume.
-  * `:volume_name` (`t:string`) A unique identifier for the volume.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) A unique identifier for the kdb
+  environment where you created the storage volume.
+  * `:volume_name` (`t:string` required) A unique identifier for the volume.
+  ## Keyword parameters:
   """
-
   @spec update_kx_volume(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_kx_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_kx_volume_errors()}
-
   def update_kx_volume(%Client{} = client, environment_id, volume_name, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes/#{AWS.Util.encode_uri(volume_name)}"

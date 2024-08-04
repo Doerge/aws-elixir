@@ -1040,15 +1040,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20AcknowledgeOrderReceipt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec acknowledge_order_receipt(AWS.Client.t(), Keyword.t()) ::
           {:ok, acknowledge_order_receipt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, acknowledge_order_receipt_errors()}
-
   def acknowledge_order_receipt(%Client{} = client, options \\ []) do
     url_path = "/v1/orders/acknowledge"
 
@@ -1085,15 +1082,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ActivateDeviceIdentifier&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec activate_device_identifier(AWS.Client.t(), Keyword.t()) ::
           {:ok, activate_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_device_identifier_errors()}
-
   def activate_device_identifier(%Client{} = client, options \\ []) do
     url_path = "/v1/device-identifiers/activate"
 
@@ -1130,15 +1124,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ActivateNetworkSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec activate_network_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, activate_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_network_site_errors()}
-
   def activate_network_site(%Client{} = client, options \\ []) do
     url_path = "/v1/network-sites/activate"
 
@@ -1175,15 +1166,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ConfigureAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec configure_access_point(AWS.Client.t(), Keyword.t()) ::
           {:ok, configure_access_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, configure_access_point_errors()}
-
   def configure_access_point(%Client{} = client, options \\ []) do
     url_path = "/v1/network-resources/configure"
 
@@ -1220,15 +1208,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20CreateNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_errors()}
-
   def create_network(%Client{} = client, options \\ []) do
     url_path = "/v1/networks"
 
@@ -1265,15 +1250,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20CreateNetworkSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_network_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_site_errors()}
-
   def create_network_site(%Client{} = client, options \\ []) do
     url_path = "/v1/network-sites"
 
@@ -1310,15 +1292,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20DeactivateDeviceIdentifier&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec deactivate_device_identifier(AWS.Client.t(), Keyword.t()) ::
           {:ok, deactivate_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_device_identifier_errors()}
-
   def deactivate_device_identifier(%Client{} = client, options \\ []) do
     url_path = "/v1/device-identifiers/deactivate"
 
@@ -1358,19 +1337,17 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20DeleteNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_arn` (`t:string`) The Amazon Resource Name (ARN) of the network.
-
-  ## Optional parameters:
+  * `:network_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  network.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. For more information, see
   How to ensure idempotency.
   """
-
   @spec delete_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_network_errors()}
-
   def delete_network(%Client{} = client, network_arn, options \\ []) do
     url_path = "/v1/networks/#{AWS.Util.encode_uri(network_arn)}"
 
@@ -1432,20 +1409,17 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20DeleteNetworkSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network
-  site.
-
-  ## Optional parameters:
+  * `:network_site_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the network site.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. For more information, see
   How to ensure idempotency.
   """
-
   @spec delete_network_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_network_site_errors()}
-
   def delete_network_site(%Client{} = client, network_site_arn, options \\ []) do
     url_path = "/v1/network-sites/#{AWS.Util.encode_uri(network_site_arn)}"
 
@@ -1503,17 +1477,14 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetDeviceIdentifier&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_identifier_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  device identifier.
-
-  ## Optional parameters:
+  * `:device_identifier_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  of the device identifier.
+  ## Keyword parameters:
   """
-
   @spec get_device_identifier(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_identifier_errors()}
-
   def get_device_identifier(%Client{} = client, device_identifier_arn, options \\ []) do
     url_path = "/v1/device-identifiers/#{AWS.Util.encode_uri(device_identifier_arn)}"
 
@@ -1548,16 +1519,14 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_arn` (`t:string`) The Amazon Resource Name (ARN) of the network.
-
-  ## Optional parameters:
+  * `:network_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  network.
+  ## Keyword parameters:
   """
-
   @spec get_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_errors()}
-
   def get_network(%Client{} = client, network_arn, options \\ []) do
     url_path = "/v1/networks/#{AWS.Util.encode_uri(network_arn)}"
 
@@ -1592,17 +1561,14 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetNetworkResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  network resource.
-
-  ## Optional parameters:
+  * `:network_resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  of the network resource.
+  ## Keyword parameters:
   """
-
   @spec get_network_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_resource_errors()}
-
   def get_network_resource(%Client{} = client, network_resource_arn, options \\ []) do
     url_path = "/v1/network-resources/#{AWS.Util.encode_uri(network_resource_arn)}"
 
@@ -1637,17 +1603,14 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetNetworkSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network
-  site.
-
-  ## Optional parameters:
+  * `:network_site_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the network site.
+  ## Keyword parameters:
   """
-
   @spec get_network_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_site_errors()}
-
   def get_network_site(%Client{} = client, network_site_arn, options \\ []) do
     url_path = "/v1/network-sites/#{AWS.Util.encode_uri(network_site_arn)}"
 
@@ -1682,16 +1645,14 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetOrder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:order_arn` (`t:string`) The Amazon Resource Name (ARN) of the order.
-
-  ## Optional parameters:
+  * `:order_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  order.
+  ## Keyword parameters:
   """
-
   @spec get_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_order_errors()}
-
   def get_order(%Client{} = client, order_arn, options \\ []) do
     url_path = "/v1/orders/#{AWS.Util.encode_uri(order_arn)}"
 
@@ -1728,15 +1689,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListDeviceIdentifiers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_device_identifiers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_device_identifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_identifiers_errors()}
-
   def list_device_identifiers(%Client{} = client, options \\ []) do
     url_path = "/v1/device-identifiers/list"
 
@@ -1775,15 +1733,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworkResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_network_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_resources_errors()}
-
   def list_network_resources(%Client{} = client, options \\ []) do
     url_path = "/v1/network-resources"
 
@@ -1821,15 +1776,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworkSites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_network_sites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_sites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_sites_errors()}
-
   def list_network_sites(%Client{} = client, options \\ []) do
     url_path = "/v1/network-sites/list"
 
@@ -1867,15 +1819,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_networks_errors()}
-
   def list_networks(%Client{} = client, options \\ []) do
     url_path = "/v1/networks/list"
 
@@ -1914,15 +1863,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListOrders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_orders_errors()}
-
   def list_orders(%Client{} = client, options \\ []) do
     url_path = "/v1/orders/list"
 
@@ -1959,16 +1905,14 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2003,15 +1947,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20Ping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec ping(AWS.Client.t(), Keyword.t()) ::
           {:ok, ping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, ping_errors()}
-
   def ping(%Client{} = client, options \\ []) do
     url_path = "/ping"
 
@@ -2046,15 +1987,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20StartNetworkResourceUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_network_resource_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_network_resource_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_network_resource_update_errors()}
-
   def start_network_resource_update(%Client{} = client, options \\ []) do
     url_path = "/v1/network-resources/update"
 
@@ -2091,16 +2029,14 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2137,17 +2073,16 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.privatenetworks#TagKey]`) The tag keys.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.privatenetworks#TagKey]` required) The tag
+  keys.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2195,15 +2130,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UpdateNetworkSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_network_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_site_errors()}
-
   def update_network_site(%Client{} = client, options \\ []) do
     url_path = "/v1/network-sites/site"
 
@@ -2240,15 +2172,12 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UpdateNetworkSitePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_network_site_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_site_plan_errors()}
-
   def update_network_site_plan(%Client{} = client, options \\ []) do
     url_path = "/v1/network-sites/plan"
 

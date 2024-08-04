@@ -2784,6 +2784,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Associates a `FirewallRuleGroup` with a VPC, to provide DNS filtering for the
   VPC.
 
@@ -2801,12 +2802,10 @@ defmodule AWS.Route53Resolver do
       required("VpcId") => String.t()
     }
   """
-
   @spec associate_firewall_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_firewall_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_firewall_rule_group_errors()}
-
   def associate_firewall_rule_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2816,6 +2815,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to
   add more than one IP address, submit one `AssociateResolverEndpointIpAddress`
   request for each IP address.
@@ -2829,12 +2829,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverEndpointId") => String.t()
     }
   """
-
   @spec associate_resolver_endpoint_ip_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_resolver_endpoint_ip_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resolver_endpoint_ip_address_errors()}
-
   def associate_resolver_endpoint_ip_address(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2844,6 +2842,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Associates an Amazon VPC with a specified query logging configuration. Route 53
   Resolver logs DNS queries that originate in all of the Amazon VPCs that are
   associated with a specified query logging configuration. To associate more
@@ -2861,12 +2860,10 @@ defmodule AWS.Route53Resolver do
       required("ResourceId") => String.t()
     }
   """
-
   @spec associate_resolver_query_log_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_resolver_query_log_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resolver_query_log_config_errors()}
-
   def associate_resolver_query_log_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2876,6 +2873,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Associates a Resolver rule with a VPC. When you associate a rule with a VPC,
   Resolver forwards all DNS queries for the domain name that is specified in the
   rule and that originate in the VPC. The queries are forwarded to the IP
@@ -2893,12 +2891,10 @@ defmodule AWS.Route53Resolver do
       required("VPCId") => String.t()
     }
   """
-
   @spec associate_resolver_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resolver_rule_errors()}
-
   def associate_resolver_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2907,6 +2903,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Creates an empty firewall domain list for use in DNS Firewall rules. You can
   populate the domains for the new list with a file, using
   `ImportFirewallDomains`, or with domain strings, using
@@ -2922,12 +2919,10 @@ defmodule AWS.Route53Resolver do
       required("Name") => String.t()
     }
   """
-
   @spec create_firewall_domain_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_firewall_domain_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_firewall_domain_list_errors()}
-
   def create_firewall_domain_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2936,6 +2931,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Creates a single DNS Firewall rule in the specified rule group, using the
   specified domain list.
 
@@ -2958,12 +2954,10 @@ defmodule AWS.Route53Resolver do
       required("Priority") => integer()
     }
   """
-
   @spec create_firewall_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_firewall_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_firewall_rule_errors()}
-
   def create_firewall_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2972,6 +2966,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Creates an empty DNS Firewall rule group for filtering DNS network traffic in a
   VPC. You can add rules to the new rule group by calling `CreateFirewallRule`.
 
@@ -2985,12 +2980,10 @@ defmodule AWS.Route53Resolver do
       required("Name") => String.t()
     }
   """
-
   @spec create_firewall_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_firewall_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_firewall_rule_group_errors()}
-
   def create_firewall_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2999,6 +2992,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Creates a Route 53 Resolver on an Outpost.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20CreateOutpostResolver&this_doc_guide=API%2520Reference)
@@ -3014,12 +3008,10 @@ defmodule AWS.Route53Resolver do
       required("PreferredInstanceType") => String.t()
     }
   """
-
   @spec create_outpost_resolver(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_outpost_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_outpost_resolver_errors()}
-
   def create_outpost_resolver(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3028,6 +3020,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound
   and outbound:
 
@@ -3048,12 +3041,10 @@ defmodule AWS.Route53Resolver do
       required("SecurityGroupIds") => list(String.t()())
     }
   """
-
   @spec create_resolver_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_resolver_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resolver_endpoint_errors()}
-
   def create_resolver_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3062,6 +3053,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Creates a Resolver query logging configuration, which defines where you want
   Resolver to save DNS query logs that originate in your VPCs. Resolver can log
   queries only for VPCs that are in the same Region as the query logging
@@ -3080,12 +3072,10 @@ defmodule AWS.Route53Resolver do
       required("Name") => String.t()
     }
   """
-
   @spec create_resolver_query_log_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_resolver_query_log_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resolver_query_log_config_errors()}
-
   def create_resolver_query_log_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3095,6 +3085,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   For DNS queries that originate in your VPCs, specifies which Resolver endpoint
   the queries pass through, one domain name that you want to forward to your
   network, and the IP addresses of the DNS resolvers in your network.
@@ -3113,12 +3104,10 @@ defmodule AWS.Route53Resolver do
       required("RuleType") => list(any())
     }
   """
-
   @spec create_resolver_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resolver_rule_errors()}
-
   def create_resolver_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3127,6 +3116,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Deletes the specified domain list.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20DeleteFirewallDomainList&this_doc_guide=API%2520Reference)
@@ -3137,12 +3127,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallDomainListId") => String.t()
     }
   """
-
   @spec delete_firewall_domain_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_firewall_domain_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_firewall_domain_list_errors()}
-
   def delete_firewall_domain_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3151,6 +3139,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Deletes the specified firewall rule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20DeleteFirewallRule&this_doc_guide=API%2520Reference)
@@ -3163,12 +3152,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallRuleGroupId") => String.t()
     }
   """
-
   @spec delete_firewall_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_firewall_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_firewall_rule_errors()}
-
   def delete_firewall_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3177,6 +3164,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Deletes the specified firewall rule group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20DeleteFirewallRuleGroup&this_doc_guide=API%2520Reference)
@@ -3187,12 +3175,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallRuleGroupId") => String.t()
     }
   """
-
   @spec delete_firewall_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_firewall_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_firewall_rule_group_errors()}
-
   def delete_firewall_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3201,6 +3187,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Deletes a Resolver on the Outpost.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20DeleteOutpostResolver&this_doc_guide=API%2520Reference)
@@ -3211,12 +3198,10 @@ defmodule AWS.Route53Resolver do
       required("Id") => String.t()
     }
   """
-
   @spec delete_outpost_resolver(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_outpost_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_outpost_resolver_errors()}
-
   def delete_outpost_resolver(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3225,6 +3210,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends
   on whether it's an inbound or an outbound Resolver endpoint:
 
@@ -3236,12 +3222,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverEndpointId") => String.t()
     }
   """
-
   @spec delete_resolver_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resolver_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resolver_endpoint_errors()}
-
   def delete_resolver_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3250,6 +3234,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Deletes a query logging configuration. When you delete a configuration, Resolver
   stops logging DNS queries for all of the Amazon VPCs that are associated with
   the configuration. This also applies if the query logging configuration is
@@ -3267,12 +3252,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverQueryLogConfigId") => String.t()
     }
   """
-
   @spec delete_resolver_query_log_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resolver_query_log_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resolver_query_log_config_errors()}
-
   def delete_resolver_query_log_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3282,6 +3265,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Deletes a Resolver rule. Before you can delete a Resolver rule, you must
   disassociate it from all the VPCs that you associated the Resolver rule with.
   For more information, see
@@ -3295,12 +3279,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverRuleId") => String.t()
     }
   """
-
   @spec delete_resolver_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resolver_rule_errors()}
-
   def delete_resolver_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3309,6 +3291,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Disassociates a `FirewallRuleGroup` from a VPC, to remove DNS filtering from the
   VPC.
 
@@ -3320,12 +3303,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallRuleGroupAssociationId") => String.t()
     }
   """
-
   @spec disassociate_firewall_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_firewall_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_firewall_rule_group_errors()}
-
   def disassociate_firewall_rule_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3335,6 +3316,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Removes IP addresses from an inbound or an outbound Resolver endpoint. If you
   want to remove more than one IP address, submit one
   `DisassociateResolverEndpointIpAddress` request for each IP address.
@@ -3348,12 +3330,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverEndpointId") => String.t()
     }
   """
-
   @spec disassociate_resolver_endpoint_ip_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_resolver_endpoint_ip_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resolver_endpoint_ip_address_errors()}
-
   def disassociate_resolver_endpoint_ip_address(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3363,6 +3343,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Disassociates a VPC from a query logging configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20DisassociateResolverQueryLogConfig&this_doc_guide=API%2520Reference)
@@ -3374,12 +3355,10 @@ defmodule AWS.Route53Resolver do
       required("ResourceId") => String.t()
     }
   """
-
   @spec disassociate_resolver_query_log_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_resolver_query_log_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resolver_query_log_config_errors()}
-
   def disassociate_resolver_query_log_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3389,6 +3368,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Removes the association between a specified Resolver rule and a specified VPC.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20DisassociateResolverRule&this_doc_guide=API%2520Reference)
@@ -3400,12 +3380,10 @@ defmodule AWS.Route53Resolver do
       required("VPCId") => String.t()
     }
   """
-
   @spec disassociate_resolver_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resolver_rule_errors()}
-
   def disassociate_resolver_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3414,6 +3392,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the configuration of the firewall behavior provided by DNS Firewall
   for a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
 
@@ -3425,12 +3404,10 @@ defmodule AWS.Route53Resolver do
       required("ResourceId") => String.t()
     }
   """
-
   @spec get_firewall_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_firewall_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_firewall_config_errors()}
-
   def get_firewall_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3439,6 +3416,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the specified firewall domain list.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20GetFirewallDomainList&this_doc_guide=API%2520Reference)
@@ -3449,12 +3427,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallDomainListId") => String.t()
     }
   """
-
   @spec get_firewall_domain_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_firewall_domain_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_firewall_domain_list_errors()}
-
   def get_firewall_domain_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3463,6 +3439,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the specified firewall rule group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20GetFirewallRuleGroup&this_doc_guide=API%2520Reference)
@@ -3473,12 +3450,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallRuleGroupId") => String.t()
     }
   """
-
   @spec get_firewall_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_firewall_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_firewall_rule_group_errors()}
-
   def get_firewall_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3487,6 +3462,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves a firewall rule group association, which enables DNS filtering for a
   VPC with one rule group. A VPC can have more than one firewall rule group
   association, and a rule group can be associated with more than one VPC.
@@ -3499,12 +3475,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallRuleGroupAssociationId") => String.t()
     }
   """
-
   @spec get_firewall_rule_group_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_firewall_rule_group_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_firewall_rule_group_association_errors()}
-
   def get_firewall_rule_group_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3514,6 +3488,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Returns the Identity and Access Management (Amazon Web Services IAM) policy for
   sharing the specified rule group. You can use the policy to share the rule
   group using Resource Access Manager (RAM).
@@ -3526,12 +3501,10 @@ defmodule AWS.Route53Resolver do
       required("Arn") => String.t()
     }
   """
-
   @spec get_firewall_rule_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_firewall_rule_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_firewall_rule_group_policy_errors()}
-
   def get_firewall_rule_group_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3541,6 +3514,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Gets information about a specified Resolver on the Outpost, such as its instance
   count and type, name, and the current status of the Resolver.
 
@@ -3552,12 +3526,10 @@ defmodule AWS.Route53Resolver do
       required("Id") => String.t()
     }
   """
-
   @spec get_outpost_resolver(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_outpost_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outpost_resolver_errors()}
-
   def get_outpost_resolver(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3566,6 +3538,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the behavior configuration of Route 53 Resolver behavior for a single
   VPC from Amazon Virtual Private Cloud.
 
@@ -3577,12 +3550,10 @@ defmodule AWS.Route53Resolver do
       required("ResourceId") => String.t()
     }
   """
-
   @spec get_resolver_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resolver_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resolver_config_errors()}
-
   def get_resolver_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3591,6 +3562,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Gets DNSSEC validation information for a specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20GetResolverDnssecConfig&this_doc_guide=API%2520Reference)
@@ -3601,12 +3573,10 @@ defmodule AWS.Route53Resolver do
       required("ResourceId") => String.t()
     }
   """
-
   @spec get_resolver_dnssec_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resolver_dnssec_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resolver_dnssec_config_errors()}
-
   def get_resolver_dnssec_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3615,6 +3585,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Gets information about a specified Resolver endpoint, such as whether it's an
   inbound or an outbound Resolver endpoint, and the current status of the
   endpoint.
@@ -3627,12 +3598,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverEndpointId") => String.t()
     }
   """
-
   @spec get_resolver_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resolver_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resolver_endpoint_errors()}
-
   def get_resolver_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3641,6 +3610,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Gets information about a specified Resolver query logging configuration, such as
   the number of VPCs that the configuration is logging queries for and the
   location that logs are sent to.
@@ -3653,12 +3623,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverQueryLogConfigId") => String.t()
     }
   """
-
   @spec get_resolver_query_log_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resolver_query_log_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resolver_query_log_config_errors()}
-
   def get_resolver_query_log_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3668,6 +3636,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Gets information about a specified association between a Resolver query logging
   configuration and an Amazon VPC. When you associate a VPC with a query logging
   configuration, Resolver logs DNS queries that originate in that VPC.
@@ -3680,12 +3649,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverQueryLogConfigAssociationId") => String.t()
     }
   """
-
   @spec get_resolver_query_log_config_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resolver_query_log_config_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resolver_query_log_config_association_errors()}
-
   def get_resolver_query_log_config_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3695,6 +3662,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Gets information about a query logging policy. A query logging policy specifies
   the Resolver query logging operations and resources that you want to allow
   another Amazon Web Services account to be able to use.
@@ -3707,12 +3675,10 @@ defmodule AWS.Route53Resolver do
       required("Arn") => String.t()
     }
   """
-
   @spec get_resolver_query_log_config_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resolver_query_log_config_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resolver_query_log_config_policy_errors()}
-
   def get_resolver_query_log_config_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3722,6 +3688,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Gets information about a specified Resolver rule, such as the domain name that
   the rule forwards DNS queries for and the ID of the outbound Resolver endpoint
   that the rule is associated with.
@@ -3734,12 +3701,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverRuleId") => String.t()
     }
   """
-
   @spec get_resolver_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resolver_rule_errors()}
-
   def get_resolver_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3748,6 +3713,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Gets information about an association between a specified Resolver rule and a
   VPC. You associate a Resolver rule and a VPC using
   [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html).
@@ -3760,12 +3726,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverRuleAssociationId") => String.t()
     }
   """
-
   @spec get_resolver_rule_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resolver_rule_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resolver_rule_association_errors()}
-
   def get_resolver_rule_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3775,6 +3739,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Gets information about the Resolver rule policy for a specified rule. A Resolver
   rule policy includes the rule that you want to share with another account, the
   account that you want to share the rule with, and the Resolver operations that
@@ -3788,12 +3753,10 @@ defmodule AWS.Route53Resolver do
       required("Arn") => String.t()
     }
   """
-
   @spec get_resolver_rule_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resolver_rule_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resolver_rule_policy_errors()}
-
   def get_resolver_rule_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3802,6 +3765,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Imports domain names from a file into a domain list, for use in a DNS firewall
   rule group. Each domain specification in your domain list must satisfy the
   following requirements:
@@ -3816,12 +3780,10 @@ defmodule AWS.Route53Resolver do
       required("Operation") => list(any())
     }
   """
-
   @spec import_firewall_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_firewall_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_firewall_domains_errors()}
-
   def import_firewall_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3830,6 +3792,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the firewall configurations that you have defined. DNS Firewall uses
   the configurations to manage firewall behavior for your VPCs.
 
@@ -3842,12 +3805,10 @@ defmodule AWS.Route53Resolver do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_firewall_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_firewall_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_firewall_configs_errors()}
-
   def list_firewall_configs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3856,6 +3817,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the firewall domain lists that you have defined. For each firewall
   domain list, you can retrieve the domains that are defined for a list by
   calling `ListFirewallDomains`.
@@ -3869,12 +3831,10 @@ defmodule AWS.Route53Resolver do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_firewall_domain_lists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_firewall_domain_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_firewall_domain_lists_errors()}
-
   def list_firewall_domain_lists(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3883,6 +3843,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the domains that you have defined for the specified firewall domain
   list.
 
@@ -3896,12 +3857,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallDomainListId") => String.t()
     }
   """
-
   @spec list_firewall_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_firewall_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_firewall_domains_errors()}
-
   def list_firewall_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3910,6 +3869,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the firewall rule group associations that you have defined. Each
   association enables DNS filtering for a VPC with one rule group.
 
@@ -3926,12 +3886,10 @@ defmodule AWS.Route53Resolver do
       optional("VpcId") => String.t()
     }
   """
-
   @spec list_firewall_rule_group_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_firewall_rule_group_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_firewall_rule_group_associations_errors()}
-
   def list_firewall_rule_group_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3941,6 +3899,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the minimal high-level information for the rule groups that you have
   defined.
 
@@ -3953,12 +3912,10 @@ defmodule AWS.Route53Resolver do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_firewall_rule_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_firewall_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_firewall_rule_groups_errors()}
-
   def list_firewall_rule_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3967,6 +3924,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the firewall rules that you have defined for the specified firewall
   rule group. DNS Firewall uses the rules in a rule group to filter DNS network
   traffic for a VPC.
@@ -3983,12 +3941,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallRuleGroupId") => String.t()
     }
   """
-
   @spec list_firewall_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_firewall_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_firewall_rules_errors()}
-
   def list_firewall_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3997,6 +3953,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Lists all the Resolvers on Outposts that were created using the current Amazon
   Web Services account.
 
@@ -4010,12 +3967,10 @@ defmodule AWS.Route53Resolver do
       optional("OutpostArn") => String.t()
     }
   """
-
   @spec list_outpost_resolvers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_outpost_resolvers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_outpost_resolvers_errors()}
-
   def list_outpost_resolvers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4024,6 +3979,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Retrieves the Resolver configurations that you have defined. Route 53 Resolver
   uses the configurations to manage DNS resolution behavior for your VPCs.
 
@@ -4036,12 +3992,10 @@ defmodule AWS.Route53Resolver do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_resolver_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resolver_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resolver_configs_errors()}
-
   def list_resolver_configs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4050,6 +4004,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Lists the configurations for DNSSEC validation that are associated with the
   current Amazon Web Services account.
 
@@ -4063,12 +4018,10 @@ defmodule AWS.Route53Resolver do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_resolver_dnssec_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resolver_dnssec_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resolver_dnssec_configs_errors()}
-
   def list_resolver_dnssec_configs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4077,6 +4030,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Gets the IP addresses for a specified Resolver endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20ListResolverEndpointIpAddresses&this_doc_guide=API%2520Reference)
@@ -4089,12 +4043,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverEndpointId") => String.t()
     }
   """
-
   @spec list_resolver_endpoint_ip_addresses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resolver_endpoint_ip_addresses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resolver_endpoint_ip_addresses_errors()}
-
   def list_resolver_endpoint_ip_addresses(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4104,6 +4056,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Lists all the Resolver endpoints that were created using the current Amazon Web
   Services account.
 
@@ -4117,12 +4070,10 @@ defmodule AWS.Route53Resolver do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_resolver_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resolver_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resolver_endpoints_errors()}
-
   def list_resolver_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4131,6 +4082,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Lists information about associations between Amazon VPCs and query logging
   configurations.
 
@@ -4146,12 +4098,10 @@ defmodule AWS.Route53Resolver do
       optional("SortOrder") => list(any())
     }
   """
-
   @spec list_resolver_query_log_config_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resolver_query_log_config_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resolver_query_log_config_associations_errors()}
-
   def list_resolver_query_log_config_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4161,6 +4111,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Lists information about the specified query logging configurations. Each
   configuration defines where you want Resolver to save DNS query logs and
   specifies the VPCs that you want to log queries for.
@@ -4177,12 +4128,10 @@ defmodule AWS.Route53Resolver do
       optional("SortOrder") => list(any())
     }
   """
-
   @spec list_resolver_query_log_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resolver_query_log_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resolver_query_log_configs_errors()}
-
   def list_resolver_query_log_configs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4192,6 +4141,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Lists the associations that were created between Resolver rules and VPCs using
   the current Amazon Web Services account.
 
@@ -4205,12 +4155,10 @@ defmodule AWS.Route53Resolver do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_resolver_rule_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resolver_rule_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resolver_rule_associations_errors()}
-
   def list_resolver_rule_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4220,6 +4168,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Lists the Resolver rules that were created using the current Amazon Web Services
   account.
 
@@ -4233,12 +4182,10 @@ defmodule AWS.Route53Resolver do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_resolver_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resolver_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resolver_rules_errors()}
-
   def list_resolver_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4247,6 +4194,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Lists the tags that you associated with the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -4259,12 +4207,10 @@ defmodule AWS.Route53Resolver do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4273,6 +4219,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Attaches an Identity and Access Management (Amazon Web Services IAM) policy for
   sharing the rule group. You can use the policy to share the rule group using
   Resource Access Manager (RAM).
@@ -4286,12 +4233,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallRuleGroupPolicy") => String.t()
     }
   """
-
   @spec put_firewall_rule_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_firewall_rule_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_firewall_rule_group_policy_errors()}
-
   def put_firewall_rule_group_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4301,6 +4246,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Specifies an Amazon Web Services account that you want to share a query logging
   configuration with, the query logging configuration that you want to share,
   and the operations that you want the account to be able to perform on the
@@ -4315,12 +4261,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverQueryLogConfigPolicy") => String.t()
     }
   """
-
   @spec put_resolver_query_log_config_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resolver_query_log_config_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resolver_query_log_config_policy_errors()}
-
   def put_resolver_query_log_config_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4330,6 +4274,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Specifies an Amazon Web Services rule that you want to share with another
   account, the account that you want to share the rule with, and the operations
   that you want the account to be able to perform on the rule.
@@ -4343,12 +4288,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverRulePolicy") => String.t()
     }
   """
-
   @spec put_resolver_rule_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resolver_rule_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resolver_rule_policy_errors()}
-
   def put_resolver_rule_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4357,6 +4300,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Adds one or more tags to a specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20TagResource&this_doc_guide=API%2520Reference)
@@ -4368,12 +4312,10 @@ defmodule AWS.Route53Resolver do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4382,6 +4324,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Removes one or more tags from a specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20UntagResource&this_doc_guide=API%2520Reference)
@@ -4393,12 +4336,10 @@ defmodule AWS.Route53Resolver do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4407,6 +4348,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Updates the configuration of the firewall behavior provided by DNS Firewall for
   a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
 
@@ -4419,12 +4361,10 @@ defmodule AWS.Route53Resolver do
       required("ResourceId") => String.t()
     }
   """
-
   @spec update_firewall_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_firewall_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_firewall_config_errors()}
-
   def update_firewall_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4433,6 +4373,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Updates the firewall domain list from an array of domain specifications.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20UpdateFirewallDomains&this_doc_guide=API%2520Reference)
@@ -4445,12 +4386,10 @@ defmodule AWS.Route53Resolver do
       required("Operation") => list(any())
     }
   """
-
   @spec update_firewall_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_firewall_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_firewall_domains_errors()}
-
   def update_firewall_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4459,6 +4398,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Updates the specified firewall rule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53resolver%20UpdateFirewallRule&this_doc_guide=API%2520Reference)
@@ -4479,12 +4419,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallRuleGroupId") => String.t()
     }
   """
-
   @spec update_firewall_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_firewall_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_firewall_rule_errors()}
-
   def update_firewall_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4493,6 +4431,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Changes the association of a `FirewallRuleGroup` with a VPC. The association
   enables DNS filtering for the VPC.
 
@@ -4507,12 +4446,10 @@ defmodule AWS.Route53Resolver do
       required("FirewallRuleGroupAssociationId") => String.t()
     }
   """
-
   @spec update_firewall_rule_group_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_firewall_rule_group_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_firewall_rule_group_association_errors()}
-
   def update_firewall_rule_group_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4522,6 +4459,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   You can use `UpdateOutpostResolver` to update the instance count, type, or name
   of a Resolver on an Outpost.
 
@@ -4536,12 +4474,10 @@ defmodule AWS.Route53Resolver do
       required("Id") => String.t()
     }
   """
-
   @spec update_outpost_resolver(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_outpost_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_outpost_resolver_errors()}
-
   def update_outpost_resolver(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4550,6 +4486,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Updates the behavior configuration of Route 53 Resolver behavior for a single
   VPC from Amazon Virtual Private Cloud.
 
@@ -4562,12 +4499,10 @@ defmodule AWS.Route53Resolver do
       required("ResourceId") => String.t()
     }
   """
-
   @spec update_resolver_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_resolver_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resolver_config_errors()}
-
   def update_resolver_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4576,6 +4511,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Updates an existing DNSSEC validation configuration. If there is no existing
   DNSSEC validation configuration, one is created.
 
@@ -4588,12 +4524,10 @@ defmodule AWS.Route53Resolver do
       required("Validation") => list(any())
     }
   """
-
   @spec update_resolver_dnssec_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_resolver_dnssec_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resolver_dnssec_config_errors()}
-
   def update_resolver_dnssec_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4603,6 +4537,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Updates the name, or endpoint type for an inbound or an outbound Resolver
   endpoint. You can only update between IPV4 and DUALSTACK, IPV6 endpoint type
   can't be updated to other type.
@@ -4619,12 +4554,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverEndpointId") => String.t()
     }
   """
-
   @spec update_resolver_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_resolver_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resolver_endpoint_errors()}
-
   def update_resolver_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4633,6 +4566,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+   
   Updates settings for a specified Resolver rule. `ResolverRuleId` is required,
   and all other parameters are optional. If you don't specify a parameter, it
   retains its current value.
@@ -4646,12 +4580,10 @@ defmodule AWS.Route53Resolver do
       required("ResolverRuleId") => String.t()
     }
   """
-
   @spec update_resolver_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resolver_rule_errors()}
-
   def update_resolver_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

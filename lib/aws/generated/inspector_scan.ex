@@ -124,15 +124,12 @@ defmodule AWS.InspectorScan do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspectorscan%20ScanSbom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec scan_sbom(AWS.Client.t(), Keyword.t()) ::
           {:ok, scan_sbom_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, scan_sbom_errors()}
-
   def scan_sbom(%Client{} = client, options \\ []) do
     url_path = "/scan/sbom"
 

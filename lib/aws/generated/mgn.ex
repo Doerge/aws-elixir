@@ -2874,15 +2874,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ArchiveApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec archive_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, archive_application_errors()}
-
   def archive_application(%Client{} = client, options \\ []) do
     url_path = "/ArchiveApplication"
 
@@ -2919,15 +2916,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ArchiveWave&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec archive_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, archive_wave_errors()}
-
   def archive_wave(%Client{} = client, options \\ []) do
     url_path = "/ArchiveWave"
 
@@ -2964,15 +2958,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20AssociateApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_applications_errors()}
-
   def associate_applications(%Client{} = client, options \\ []) do
     url_path = "/AssociateApplications"
 
@@ -3009,15 +3000,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20AssociateSourceServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_source_servers_errors()}
-
   def associate_source_servers(%Client{} = client, options \\ []) do
     url_path = "/AssociateSourceServers"
 
@@ -3057,15 +3045,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ChangeServerLifeCycleState&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec change_server_life_cycle_state(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, change_server_life_cycle_state_errors()}
-
   def change_server_life_cycle_state(%Client{} = client, options \\ []) do
     url_path = "/ChangeServerLifeCycleState"
 
@@ -3102,15 +3087,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, options \\ []) do
     url_path = "/CreateApplication"
 
@@ -3147,15 +3129,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, connector(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
-
   def create_connector(%Client{} = client, options \\ []) do
     url_path = "/CreateConnector"
 
@@ -3192,15 +3171,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_launch_configuration_template_errors()}
-
   def create_launch_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
 
@@ -3237,15 +3213,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_configuration_template_errors()}
-
   def create_replication_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/CreateReplicationConfigurationTemplate"
 
@@ -3282,15 +3255,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateWave&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_wave_errors()}
-
   def create_wave(%Client{} = client, options \\ []) do
     url_path = "/CreateWave"
 
@@ -3327,15 +3297,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(%Client{} = client, options \\ []) do
     url_path = "/DeleteApplication"
 
@@ -3372,15 +3339,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
-
   def delete_connector(%Client{} = client, options \\ []) do
     url_path = "/DeleteConnector"
 
@@ -3417,15 +3381,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
-
   def delete_job(%Client{} = client, options \\ []) do
     url_path = "/DeleteJob"
 
@@ -3462,15 +3423,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_configuration_template_errors()}
-
   def delete_launch_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
 
@@ -3507,15 +3465,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_replication_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_configuration_template_errors()}
-
   def delete_replication_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/DeleteReplicationConfigurationTemplate"
 
@@ -3552,15 +3507,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteSourceServer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_source_server_errors()}
-
   def delete_source_server(%Client{} = client, options \\ []) do
     url_path = "/DeleteSourceServer"
 
@@ -3597,15 +3549,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteVcenterClient&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_vcenter_client(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vcenter_client_errors()}
-
   def delete_vcenter_client(%Client{} = client, options \\ []) do
     url_path = "/DeleteVcenterClient"
 
@@ -3642,15 +3591,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteWave&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_wave_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_wave_errors()}
-
   def delete_wave(%Client{} = client, options \\ []) do
     url_path = "/DeleteWave"
 
@@ -3687,15 +3633,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeJobLogItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_job_log_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_job_log_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_log_items_errors()}
-
   def describe_job_log_items(%Client{} = client, options \\ []) do
     url_path = "/DescribeJobLogItems"
 
@@ -3737,15 +3680,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_jobs_errors()}
-
   def describe_jobs(%Client{} = client, options \\ []) do
     url_path = "/DescribeJobs"
 
@@ -3783,15 +3723,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeLaunchConfigurationTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_launch_configuration_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_launch_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_launch_configuration_templates_errors()}
-
   def describe_launch_configuration_templates(%Client{} = client, options \\ []) do
     url_path = "/DescribeLaunchConfigurationTemplates"
 
@@ -3828,15 +3765,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeReplicationConfigurationTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_replication_configuration_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_replication_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_configuration_templates_errors()}
-
   def describe_replication_configuration_templates(%Client{} = client, options \\ []) do
     url_path = "/DescribeReplicationConfigurationTemplates"
 
@@ -3873,15 +3807,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeSourceServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_source_servers_errors()}
-
   def describe_source_servers(%Client{} = client, options \\ []) do
     url_path = "/DescribeSourceServers"
 
@@ -3918,19 +3849,16 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeVcenterClients&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum results to be returned in
   DescribeVcenterClients.
   * `:next_token` (`t:string`) Next pagination token to be provided for
   DescribeVcenterClients.
   """
-
   @spec describe_vcenter_clients(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_vcenter_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vcenter_clients_errors()}
-
   def describe_vcenter_clients(%Client{} = client, options \\ []) do
     url_path = "/DescribeVcenterClients"
 
@@ -3983,15 +3911,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisassociateApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_applications_errors()}
-
   def disassociate_applications(%Client{} = client, options \\ []) do
     url_path = "/DisassociateApplications"
 
@@ -4028,15 +3953,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisassociateSourceServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_source_servers_errors()}
-
   def disassociate_source_servers(%Client{} = client, options \\ []) do
     url_path = "/DisassociateSourceServers"
 
@@ -4085,15 +4007,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisconnectFromService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disconnect_from_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_from_service_errors()}
-
   def disconnect_from_service(%Client{} = client, options \\ []) do
     url_path = "/DisconnectFromService"
 
@@ -4140,15 +4059,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20FinalizeCutover&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec finalize_cutover(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, finalize_cutover_errors()}
-
   def finalize_cutover(%Client{} = client, options \\ []) do
     url_path = "/FinalizeCutover"
 
@@ -4185,15 +4101,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20GetLaunchConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_launch_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_configuration_errors()}
-
   def get_launch_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetLaunchConfiguration"
 
@@ -4230,15 +4143,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20GetReplicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_configuration_errors()}
-
   def get_replication_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetReplicationConfiguration"
 
@@ -4275,15 +4185,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20InitializeService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec initialize_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, initialize_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initialize_service_errors()}
-
   def initialize_service(%Client{} = client, options \\ []) do
     url_path = "/InitializeService"
 
@@ -4320,15 +4227,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/ListApplications"
 
@@ -4365,15 +4269,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
-
   def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/ListConnectors"
 
@@ -4410,15 +4311,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListExportErrors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_export_errors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_export_errors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_export_errors_errors()}
-
   def list_export_errors(%Client{} = client, options \\ []) do
     url_path = "/ListExportErrors"
 
@@ -4455,15 +4353,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListExports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_exports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_exports_errors()}
-
   def list_exports(%Client{} = client, options \\ []) do
     url_path = "/ListExports"
 
@@ -4500,15 +4395,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListImportErrors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_import_errors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_errors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_errors_errors()}
-
   def list_import_errors(%Client{} = client, options \\ []) do
     url_path = "/ListImportErrors"
 
@@ -4545,15 +4437,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListImports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_imports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_imports_errors()}
-
   def list_imports(%Client{} = client, options \\ []) do
     url_path = "/ListImports"
 
@@ -4590,15 +4479,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListManagedAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_managed_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_accounts_errors()}
-
   def list_managed_accounts(%Client{} = client, options \\ []) do
     url_path = "/ListManagedAccounts"
 
@@ -4635,15 +4521,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListSourceServerActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_source_server_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_source_server_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_source_server_actions_errors()}
-
   def list_source_server_actions(%Client{} = client, options \\ []) do
     url_path = "/ListSourceServerActions"
 
@@ -4680,16 +4563,13 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) List tags for resource request by ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) List tags for resource request by ARN.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4724,15 +4604,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListTemplateActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_template_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_template_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_actions_errors()}
-
   def list_template_actions(%Client{} = client, options \\ []) do
     url_path = "/ListTemplateActions"
 
@@ -4769,15 +4646,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListWaves&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_waves(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_waves_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_waves_errors()}
-
   def list_waves(%Client{} = client, options \\ []) do
     url_path = "/ListWaves"
 
@@ -4816,15 +4690,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20MarkAsArchived&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec mark_as_archived(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, mark_as_archived_errors()}
-
   def mark_as_archived(%Client{} = client, options \\ []) do
     url_path = "/MarkAsArchived"
 
@@ -4861,15 +4732,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PauseReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec pause_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, pause_replication_errors()}
-
   def pause_replication(%Client{} = client, options \\ []) do
     url_path = "/PauseReplication"
 
@@ -4906,15 +4774,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PutSourceServerAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_source_server_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server_action_document(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_source_server_action_errors()}
-
   def put_source_server_action(%Client{} = client, options \\ []) do
     url_path = "/PutSourceServerAction"
 
@@ -4951,15 +4816,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PutTemplateAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_template_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, template_action_document(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_template_action_errors()}
-
   def put_template_action(%Client{} = client, options \\ []) do
     url_path = "/PutTemplateAction"
 
@@ -4996,15 +4858,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RemoveSourceServerAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec remove_source_server_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, remove_source_server_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_source_server_action_errors()}
-
   def remove_source_server_action(%Client{} = client, options \\ []) do
     url_path = "/RemoveSourceServerAction"
 
@@ -5041,15 +4900,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RemoveTemplateAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec remove_template_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, remove_template_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_template_action_errors()}
-
   def remove_template_action(%Client{} = client, options \\ []) do
     url_path = "/RemoveTemplateAction"
 
@@ -5086,15 +4942,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ResumeReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec resume_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_replication_errors()}
-
   def resume_replication(%Client{} = client, options \\ []) do
     url_path = "/ResumeReplication"
 
@@ -5134,15 +4987,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RetryDataReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec retry_data_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_data_replication_errors()}
-
   def retry_data_replication(%Client{} = client, options \\ []) do
     url_path = "/RetryDataReplication"
 
@@ -5181,15 +5031,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartCutover&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_cutover(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_cutover_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_cutover_errors()}
-
   def start_cutover(%Client{} = client, options \\ []) do
     url_path = "/StartCutover"
 
@@ -5226,15 +5073,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_export(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_export_errors()}
-
   def start_export(%Client{} = client, options \\ []) do
     url_path = "/StartExport"
 
@@ -5271,15 +5115,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartImport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_errors()}
-
   def start_import(%Client{} = client, options \\ []) do
     url_path = "/StartImport"
 
@@ -5316,15 +5157,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_errors()}
-
   def start_replication(%Client{} = client, options \\ []) do
     url_path = "/StartReplication"
 
@@ -5363,15 +5201,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartTest&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_test(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_test_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_test_errors()}
-
   def start_test(%Client{} = client, options \\ []) do
     url_path = "/StartTest"
 
@@ -5408,15 +5243,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StopReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_replication_errors()}
-
   def stop_replication(%Client{} = client, options \\ []) do
     url_path = "/StopReplication"
 
@@ -5456,16 +5288,13 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Tag resource by ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Tag resource by ARN.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5504,15 +5333,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20TerminateTargetInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec terminate_target_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, terminate_target_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_target_instances_errors()}
-
   def terminate_target_instances(%Client{} = client, options \\ []) do
     url_path = "/TerminateTargetInstances"
 
@@ -5549,15 +5375,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UnarchiveApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec unarchive_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unarchive_application_errors()}
-
   def unarchive_application(%Client{} = client, options \\ []) do
     url_path = "/UnarchiveApplication"
 
@@ -5594,15 +5417,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UnarchiveWave&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec unarchive_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unarchive_wave_errors()}
-
   def unarchive_wave(%Client{} = client, options \\ []) do
     url_path = "/UnarchiveWave"
 
@@ -5640,17 +5460,15 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Untag resource by ARN.
-  * `:tag_keys` (`t:list[com.amazonaws.mgn#TagKey]`) Untag resource by Keys.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Untag resource by ARN.
+  * `:tag_keys` (`t:list[com.amazonaws.mgn#TagKey]` required) Untag resource by
+  Keys.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5698,15 +5516,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-
   def update_application(%Client{} = client, options \\ []) do
     url_path = "/UpdateApplication"
 
@@ -5743,15 +5558,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, connector(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_errors()}
-
   def update_connector(%Client{} = client, options \\ []) do
     url_path = "/UpdateConnector"
 
@@ -5788,15 +5600,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateLaunchConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_launch_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_configuration_errors()}
-
   def update_launch_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateLaunchConfiguration"
 
@@ -5833,15 +5642,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_configuration_template_errors()}
-
   def update_launch_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
 
@@ -5878,15 +5684,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateReplicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_configuration_errors()}
-
   def update_replication_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateReplicationConfiguration"
 
@@ -5923,15 +5726,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_configuration_template_errors()}
-
   def update_replication_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"
 
@@ -5968,15 +5768,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateSourceServer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_source_server_errors()}
-
   def update_source_server(%Client{} = client, options \\ []) do
     url_path = "/UpdateSourceServer"
 
@@ -6014,15 +5811,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateSourceServerReplicationType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_source_server_replication_type(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_source_server_replication_type_errors()}
-
   def update_source_server_replication_type(%Client{} = client, options \\ []) do
     url_path = "/UpdateSourceServerReplicationType"
 
@@ -6059,15 +5853,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateWave&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_wave_errors()}
-
   def update_wave(%Client{} = client, options \\ []) do
     url_path = "/UpdateWave"
 

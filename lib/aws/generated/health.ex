@@ -694,6 +694,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns a list of accounts in the organization from Organizations that are
   affected by the provided event. For more information about the different types
   of Health events, see
@@ -713,12 +714,10 @@ defmodule AWS.Health do
       required("eventArn") => String.t()
     }
   """
-
   @spec describe_affected_accounts_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_affected_accounts_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_affected_accounts_for_organization_errors()}
-
   def describe_affected_accounts_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -728,6 +727,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns a list of entities that have been affected by the specified events,
   based on the specified filter criteria. Entities can refer to individual
   customer resources, groups of customer resources, or any other construct,
@@ -746,12 +746,10 @@ defmodule AWS.Health do
       required("filter") => entity_filter()
     }
   """
-
   @spec describe_affected_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_affected_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_affected_entities_errors()}
-
   def describe_affected_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -760,6 +758,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns a list of entities that have been affected by one or more events for one
   or more accounts in your organization in Organizations, based on the filter
   criteria. Entities can refer to individual customer resources, groups of
@@ -779,12 +778,10 @@ defmodule AWS.Health do
       optional("organizationEntityFilters") => list(event_account_filter()())
     }
   """
-
   @spec describe_affected_entities_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_affected_entities_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_affected_entities_for_organization_errors()}
-
   def describe_affected_entities_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -794,6 +791,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns the number of entities that are affected by each of the specified
   events.
 
@@ -805,11 +803,9 @@ defmodule AWS.Health do
       optional("eventArns") => list(String.t()())
     }
   """
-
   @spec describe_entity_aggregates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_entity_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_entity_aggregates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -818,6 +814,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns a list of entity aggregates for your Organizations that are affected by
   each of the specified events.
 
@@ -830,11 +827,9 @@ defmodule AWS.Health do
       required("eventArns") => list(String.t()())
     }
   """
-
   @spec describe_entity_aggregates_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_entity_aggregates_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_entity_aggregates_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -844,6 +839,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns the number of events of each event type (issue, scheduled change, and
   account notification). If no filter is specified, the counts of all events in
   each category are returned.
@@ -859,12 +855,10 @@ defmodule AWS.Health do
       required("aggregateField") => list(any())
     }
   """
-
   @spec describe_event_aggregates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_aggregates_errors()}
-
   def describe_event_aggregates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -873,6 +867,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns detailed information about one or more specified events. Information
   includes standard event data (Amazon Web Services Region, service, and so on,
   as returned by
@@ -893,12 +888,10 @@ defmodule AWS.Health do
       required("eventArns") => list(String.t()())
     }
   """
-
   @spec describe_event_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_details_errors()}
-
   def describe_event_details(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -907,6 +900,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns detailed information about one or more specified events for one or more
   Amazon Web Services accounts in your organization. This information includes
   standard event data (such as the Amazon Web Services Region and service), an
@@ -931,12 +925,10 @@ defmodule AWS.Health do
       required("organizationEventDetailFilters") => list(event_account_filter()())
     }
   """
-
   @spec describe_event_details_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_details_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_details_for_organization_errors()}
-
   def describe_event_details_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -946,6 +938,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns the event types that meet the specified filter criteria. You can use
   this API operation to find information about the Health event, such as the
   category, Amazon Web Service, and event code. The metadata for each event
@@ -965,12 +958,10 @@ defmodule AWS.Health do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_event_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_types_errors()}
-
   def describe_event_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -979,6 +970,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns information about events that meet the specified filter criteria. Events
   are returned in a summary form and do not include the detailed description,
   any additional metadata that depends on the event type, or any affected
@@ -1000,12 +992,10 @@ defmodule AWS.Health do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_events_errors()}
-
   def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1014,6 +1004,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Returns information about events across your organization in Organizations. You
   can use the`filters` parameter to specify the events that you want to return.
   Events are returned in a summary form and don't include the affected accounts,
@@ -1032,12 +1023,10 @@ defmodule AWS.Health do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_events_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_events_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_events_for_organization_errors()}
-
   def describe_events_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1047,6 +1036,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   This operation provides status information on enabling or disabling Health to
   work with your organization. To call this operation, you must use the
   organization's management account.
@@ -1056,7 +1046,6 @@ defmodule AWS.Health do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_health_service_status_for_organization(
           AWS.Client.t(),
           input :: map(),
@@ -1064,7 +1053,6 @@ defmodule AWS.Health do
         ) ::
           {:ok, describe_health_service_status_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_health_service_status_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1080,6 +1068,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Disables Health from working with Organizations. To call this operation, you
   must sign in to the organization's management account. For more information,
   see [Aggregating Health
@@ -1096,7 +1085,6 @@ defmodule AWS.Health do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec disable_health_service_access_for_organization(
           AWS.Client.t(),
           input :: map(),
@@ -1105,7 +1093,6 @@ defmodule AWS.Health do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_health_service_access_for_organization_errors()}
-
   def disable_health_service_access_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1121,6 +1108,7 @@ defmodule AWS.Health do
   end
 
   @doc """
+   
   Enables Health to work with Organizations. You can use the organizational view
   feature to aggregate events from all Amazon Web Services accounts in your
   organization in a centralized location. This operation also creates a
@@ -1131,12 +1119,10 @@ defmodule AWS.Health do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec enable_health_service_access_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_health_service_access_for_organization_errors()}
-
   def enable_health_service_access_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

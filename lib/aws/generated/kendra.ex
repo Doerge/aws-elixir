@@ -4426,6 +4426,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Grants users or groups in your IAM Identity Center identity source access to
   your Amazon Kendra experience. You can create an Amazon Kendra experience such
   as a search application. For more information on creating a search application
@@ -4442,12 +4443,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec associate_entities_to_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_entities_to_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_entities_to_experience_errors()}
-
   def associate_entities_to_experience(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4457,6 +4456,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Defines the specific permissions of users or groups in your IAM Identity Center
   identity source with access to your Amazon Kendra experience. You can create
   an Amazon Kendra experience such as a search application. For more information
@@ -4474,12 +4474,10 @@ defmodule AWS.Kendra do
       required("Personas") => list(entity_persona_configuration()())
     }
   """
-
   @spec associate_personas_to_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_personas_to_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_personas_to_entities_errors()}
-
   def associate_personas_to_entities(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4489,6 +4487,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Removes one or more documents from an index. The documents must have been added
   with the `BatchPutDocument` API. The documents are deleted asynchronously. You
   can see the progress of the deletion by using Amazon Web Services CloudWatch.
@@ -4507,12 +4506,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec batch_delete_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_document_errors()}
-
   def batch_delete_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4521,6 +4518,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Removes one or more sets of featured results. Features results are placed above
   all other results for certain queries. If there's an exact match of a query,
   then one or more specific documents are featured in the search results.
@@ -4534,12 +4532,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec batch_delete_featured_results_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_featured_results_set_errors()}
-
   def batch_delete_featured_results_set(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4549,6 +4545,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Returns the indexing status for one or more documents submitted with the [
   BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html)
   API. When you use the `BatchPutDocument` API, documents are indexed
@@ -4565,12 +4562,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec batch_get_document_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_document_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_document_status_errors()}
-
   def batch_get_document_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4579,6 +4574,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Adds one or more documents to an index. The `BatchPutDocument` API enables you
   to ingest inline documents or a set of documents stored in an Amazon S3
   bucket. Use this API to ingest your text and unstructured text into an index,
@@ -4596,12 +4592,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec batch_put_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_put_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_document_errors()}
-
   def batch_put_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4610,6 +4604,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Clears existing query suggestions from an index. This deletes existing
   suggestions only, not the queries in the query log. After you clear
   suggestions, Amazon Kendra learns new suggestions based on new queries added
@@ -4625,12 +4620,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec clear_query_suggestions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, clear_query_suggestions_errors()}
-
   def clear_query_suggestions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4639,6 +4632,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Creates an access configuration for your documents. This includes user and group
   access information for your documents. This is useful for user context
   filtering, where search results are filtered based on the user or their group
@@ -4667,12 +4661,10 @@ defmodule AWS.Kendra do
       required("Name") => String.t()
     }
   """
-
   @spec create_access_control_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_control_configuration_errors()}
-
   def create_access_control_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4682,6 +4674,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Creates a data source connector that you want to use with an Amazon Kendra
   index. You specify a name, data source connector type and description for your
   data source. You also specify configuration information for the data source
@@ -4706,12 +4699,10 @@ defmodule AWS.Kendra do
       required("Type") => list(any())
     }
   """
-
   @spec create_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_errors()}
-
   def create_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4720,6 +4711,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Creates an Amazon Kendra experience such as a search application. For more
   information on creating a search application experience, including using the
   Python and Java SDKs, see [Building a search experience with no
@@ -4738,12 +4730,10 @@ defmodule AWS.Kendra do
       required("Name") => String.t()
     }
   """
-
   @spec create_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_experience_errors()}
-
   def create_experience(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4752,6 +4742,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Creates a set of frequently ask questions (FAQs) using a specified FAQ file
   stored in an Amazon S3 bucket. Adding FAQs to an index is an asynchronous
   operation.
@@ -4772,12 +4763,10 @@ defmodule AWS.Kendra do
       required("S3Path") => s3_path()
     }
   """
-
   @spec create_faq(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_faq_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_faq_errors()}
-
   def create_faq(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4786,6 +4775,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Creates a set of featured results to display at the top of the search results
   page. Featured results are placed above all other results for certain queries.
   You map specific queries to specific documents for featuring in the results.
@@ -4807,12 +4797,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec create_featured_results_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_featured_results_set_errors()}
-
   def create_featured_results_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4821,6 +4809,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Creates an Amazon Kendra index. Index creation is an asynchronous API. To
   determine if index creation has completed, check the `Status` field returned
   from a call to `DescribeIndex`. The `Status` field is set to `ACTIVE` when the
@@ -4843,12 +4832,10 @@ defmodule AWS.Kendra do
       required("RoleArn") => String.t()
     }
   """
-
   @spec create_index(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_index_errors()}
-
   def create_index(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4857,6 +4844,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Creates a block list to exlcude certain queries from suggestions. Any query that
   contains words or phrases specified in the block list is blocked or filtered
   out from being shown as a suggestion.
@@ -4875,12 +4863,10 @@ defmodule AWS.Kendra do
       required("SourceS3Path") => s3_path()
     }
   """
-
   @spec create_query_suggestions_block_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_query_suggestions_block_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_query_suggestions_block_list_errors()}
-
   def create_query_suggestions_block_list(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4890,6 +4876,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Creates a thesaurus for an index. The thesaurus contains a list of synonyms in
   Solr format.
 
@@ -4907,12 +4894,10 @@ defmodule AWS.Kendra do
       required("SourceS3Path") => s3_path()
     }
   """
-
   @spec create_thesaurus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_thesaurus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_thesaurus_errors()}
-
   def create_thesaurus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4921,6 +4906,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Deletes an access control configuration that you created for your documents in
   an index. This includes user and group access information for your documents.
   This is useful for user context filtering, where search results are filtered
@@ -4935,12 +4921,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec delete_access_control_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_control_configuration_errors()}
-
   def delete_access_control_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4950,6 +4934,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Deletes an Amazon Kendra data source connector. An exception is not thrown if
   the data source is already being deleted. While the data source is being
   deleted, the `Status` field returned by a call to the `DescribeDataSource` API
@@ -4965,12 +4950,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec delete_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
-
   def delete_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4979,6 +4962,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Deletes your Amazon Kendra experience such as a search application. For more
   information on creating a search application experience, see [Building a
   search experience with no
@@ -4993,12 +4977,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec delete_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_experience_errors()}
-
   def delete_experience(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5007,6 +4989,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Removes an FAQ from an index.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DeleteFaq&this_doc_guide=API%2520Reference)
@@ -5018,12 +5001,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec delete_faq(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_faq_errors()}
-
   def delete_faq(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5032,6 +5013,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Deletes an Amazon Kendra index. An exception is not thrown if the index is
   already being deleted. While the index is being deleted, the `Status` field
   returned by a call to the `DescribeIndex` API is set to `DELETING`.
@@ -5044,12 +5026,10 @@ defmodule AWS.Kendra do
       required("Id") => String.t()
     }
   """
-
   @spec delete_index(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_index_errors()}
-
   def delete_index(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5058,6 +5038,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Deletes a group so that all users and sub groups that belong to the group can no
   longer access documents only available to that group. For example, after
   deleting the group "Summer Interns", all interns who belonged to that group no
@@ -5074,12 +5055,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec delete_principal_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_principal_mapping_errors()}
-
   def delete_principal_mapping(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5088,6 +5067,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Deletes a block list used for query suggestions for an index. A deleted block
   list might not take effect right away. Amazon Kendra needs to refresh the
   entire suggestions list to add back the queries that were previously blocked.
@@ -5101,12 +5081,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec delete_query_suggestions_block_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_query_suggestions_block_list_errors()}
-
   def delete_query_suggestions_block_list(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5116,6 +5094,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Deletes an Amazon Kendra thesaurus.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DeleteThesaurus&this_doc_guide=API%2520Reference)
@@ -5127,12 +5106,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec delete_thesaurus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_thesaurus_errors()}
-
   def delete_thesaurus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5141,6 +5118,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets information about an access control configuration that you created for your
   documents in an index. This includes user and group access information for
   your documents. This is useful for user context filtering, where search
@@ -5155,12 +5133,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec describe_access_control_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_access_control_configuration_errors()}
-
   def describe_access_control_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5170,6 +5146,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets information about an Amazon Kendra data source connector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeDataSource&this_doc_guide=API%2520Reference)
@@ -5181,12 +5158,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec describe_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_source_errors()}
-
   def describe_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5195,6 +5170,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets information about your Amazon Kendra experience such as a search
   application. For more information on creating a search application experience,
   see [Building a search experience with no
@@ -5209,12 +5185,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec describe_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_experience_errors()}
-
   def describe_experience(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5223,6 +5197,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets information about an FAQ list.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeFaq&this_doc_guide=API%2520Reference)
@@ -5234,12 +5209,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec describe_faq(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_faq_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_faq_errors()}
-
   def describe_faq(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5248,6 +5221,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets information about a set of featured results. Features results are placed
   above all other results for certain queries. If there's an exact match of a
   query, then one or more specific documents are featured in the search results.
@@ -5261,12 +5235,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec describe_featured_results_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_featured_results_set_errors()}
-
   def describe_featured_results_set(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5276,6 +5248,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets information about an Amazon Kendra index.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeIndex&this_doc_guide=API%2520Reference)
@@ -5286,12 +5259,10 @@ defmodule AWS.Kendra do
       required("Id") => String.t()
     }
   """
-
   @spec describe_index(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_index_errors()}
-
   def describe_index(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5300,6 +5271,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Describes the processing of `PUT` and `DELETE` actions for mapping users to
   their groups. This includes information on the status of actions currently
   processing or yet to be processed, when actions were last updated, when
@@ -5317,12 +5289,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec describe_principal_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_principal_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_principal_mapping_errors()}
-
   def describe_principal_mapping(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5331,6 +5301,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets information about a block list used for query suggestions for an index.
   This is used to check the current settings that are applied to a block list.
 
@@ -5343,12 +5314,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec describe_query_suggestions_block_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_query_suggestions_block_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_query_suggestions_block_list_errors()}
-
   def describe_query_suggestions_block_list(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5358,6 +5327,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets information on the settings of query suggestions for an index. This is used
   to check the current settings applied to query suggestions.
 
@@ -5369,12 +5339,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec describe_query_suggestions_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_query_suggestions_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_query_suggestions_config_errors()}
-
   def describe_query_suggestions_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5384,6 +5352,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets information about an Amazon Kendra thesaurus.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeThesaurus&this_doc_guide=API%2520Reference)
@@ -5395,12 +5364,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec describe_thesaurus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_thesaurus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_thesaurus_errors()}
-
   def describe_thesaurus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5409,6 +5376,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Prevents users or groups in your IAM Identity Center identity source from
   accessing your Amazon Kendra experience. You can create an Amazon Kendra
   experience such as a search application. For more information on creating a
@@ -5425,12 +5393,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec disassociate_entities_from_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_entities_from_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_entities_from_experience_errors()}
-
   def disassociate_entities_from_experience(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5440,6 +5406,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Removes the specific permissions of users or groups in your IAM Identity Center
   identity source with access to your Amazon Kendra experience. You can create
   an Amazon Kendra experience such as a search application. For more information
@@ -5457,12 +5424,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec disassociate_personas_from_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_personas_from_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_personas_from_entities_errors()}
-
   def disassociate_personas_from_entities(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5472,6 +5437,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Fetches the queries that are suggested to your users.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20GetQuerySuggestions&this_doc_guide=API%2520Reference)
@@ -5486,12 +5452,10 @@ defmodule AWS.Kendra do
       required("QueryText") => String.t()
     }
   """
-
   @spec get_query_suggestions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_query_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_suggestions_errors()}
-
   def get_query_suggestions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5500,6 +5464,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Retrieves search metrics data. The data provides a snapshot of how your users
   interact with your search application and how effective the application is.
 
@@ -5515,12 +5480,10 @@ defmodule AWS.Kendra do
       required("MetricType") => list(any())
     }
   """
-
   @spec get_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_snapshots_errors()}
-
   def get_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5529,6 +5492,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Lists one or more access control configurations for an index. This includes user
   and group access information for your documents. This is useful for user
   context filtering, where search results are filtered based on the user or
@@ -5544,12 +5508,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec list_access_control_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_access_control_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_control_configurations_errors()}
-
   def list_access_control_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5559,6 +5521,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets statistics about synchronizing a data source connector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListDataSourceSyncJobs&this_doc_guide=API%2520Reference)
@@ -5574,12 +5537,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec list_data_source_sync_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_source_sync_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_source_sync_jobs_errors()}
-
   def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5588,6 +5549,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Lists the data source connectors that you have created.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListDataSources&this_doc_guide=API%2520Reference)
@@ -5600,12 +5562,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec list_data_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
-
   def list_data_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5614,6 +5574,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Lists specific permissions of users and groups with access to your Amazon Kendra
   experience.
 
@@ -5628,12 +5589,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec list_entity_personas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_entity_personas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entity_personas_errors()}
-
   def list_entity_personas(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5642,6 +5601,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Lists users or groups in your IAM Identity Center identity source that are
   granted access to your Amazon Kendra experience. You can create an Amazon
   Kendra experience such as a search application. For more information on
@@ -5659,12 +5619,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec list_experience_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_experience_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experience_entities_errors()}
-
   def list_experience_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5673,6 +5631,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra
   experience such as a search application. For more information on creating a
   search application experience, see [Building a search experience with no
@@ -5688,12 +5647,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec list_experiences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_experiences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experiences_errors()}
-
   def list_experiences(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5702,6 +5659,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets a list of FAQ lists associated with an index.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListFaqs&this_doc_guide=API%2520Reference)
@@ -5714,12 +5672,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec list_faqs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_faqs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_faqs_errors()}
-
   def list_faqs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5728,6 +5684,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Lists all your sets of featured results for a given index. Features results are
   placed above all other results for certain queries. If there's an exact match
   of a query, then one or more specific documents are featured in the search
@@ -5743,12 +5700,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec list_featured_results_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_featured_results_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_featured_results_sets_errors()}
-
   def list_featured_results_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5757,6 +5712,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Provides a list of groups that are mapped to users before a given ordering or
   timestamp identifier.
 
@@ -5772,12 +5728,10 @@ defmodule AWS.Kendra do
       required("OrderingId") => float()
     }
   """
-
   @spec list_groups_older_than_ordering_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_groups_older_than_ordering_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_older_than_ordering_id_errors()}
-
   def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5787,6 +5741,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Lists the Amazon Kendra indexes that you created.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListIndices&this_doc_guide=API%2520Reference)
@@ -5798,12 +5753,10 @@ defmodule AWS.Kendra do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_indices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indices_errors()}
-
   def list_indices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5812,6 +5765,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Lists the block lists used for query suggestions for an index. For information
   on the current quota limits for block lists, see [Quotas for Amazon
   Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html).
@@ -5826,12 +5780,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec list_query_suggestions_block_lists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_query_suggestions_block_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_query_suggestions_block_lists_errors()}
-
   def list_query_suggestions_block_lists(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5841,6 +5793,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Gets a list of tags associated with a specified resource. Indexes, FAQs, and
   data sources can have tags associated with them.
 
@@ -5852,12 +5805,10 @@ defmodule AWS.Kendra do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5866,6 +5817,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Lists the thesauri for an index.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListThesauri&this_doc_guide=API%2520Reference)
@@ -5878,12 +5830,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec list_thesauri(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_thesauri_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_thesauri_errors()}
-
   def list_thesauri(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5892,6 +5842,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Maps users to their groups so that you only need to provide the user ID when you
   issue the query. You can also map sub groups to groups. For example, the group
   "Company Intellectual Property Teams" includes sub groups "Research" and
@@ -5913,12 +5864,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec put_principal_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_principal_mapping_errors()}
-
   def put_principal_mapping(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5927,6 +5876,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Searches an index given an input query. If you are working with large language
   models (LLMs) or implementing retrieval augmented generation (RAG) systems,
   you can use Amazon Kendra's
@@ -5957,12 +5907,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_errors()}
-
   def query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5971,6 +5919,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Retrieves relevant passages or text excerpts given an input query. This API is
   similar to the
   [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html)
@@ -5999,12 +5948,10 @@ defmodule AWS.Kendra do
       required("QueryText") => String.t()
     }
   """
-
   @spec retrieve(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, retrieve_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_errors()}
-
   def retrieve(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6013,6 +5960,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Starts a synchronization job for a data source connector. If a synchronization
   job is already in progress, Amazon Kendra returns a `ResourceInUseException`
   exception.
@@ -6026,12 +5974,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec start_data_source_sync_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_data_source_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_source_sync_job_errors()}
-
   def start_data_source_sync_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6040,6 +5986,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Stops a synchronization job that is currently running. You can't stop a
   scheduled synchronization job.
 
@@ -6052,12 +5999,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec stop_data_source_sync_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_data_source_sync_job_errors()}
-
   def stop_data_source_sync_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6066,6 +6011,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Enables you to provide feedback to Amazon Kendra to improve the performance of
   your index.
 
@@ -6080,12 +6026,10 @@ defmodule AWS.Kendra do
       required("QueryId") => String.t()
     }
   """
-
   @spec submit_feedback(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_feedback_errors()}
-
   def submit_feedback(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6094,6 +6038,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Adds the specified tag to the specified index, FAQ, or data source resource. If
   the tag already exists, the existing value is replaced with the new value.
 
@@ -6106,12 +6051,10 @@ defmodule AWS.Kendra do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6120,6 +6063,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Removes a tag from an index, FAQ, or a data source.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UntagResource&this_doc_guide=API%2520Reference)
@@ -6131,12 +6075,10 @@ defmodule AWS.Kendra do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6145,6 +6087,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Updates an access control configuration for your documents in an index. This
   includes user and group access information for your documents. This is useful
   for user context filtering, where search results are filtered based on the
@@ -6171,12 +6114,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec update_access_control_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_control_configuration_errors()}
-
   def update_access_control_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6186,6 +6127,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Updates an Amazon Kendra data source connector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateDataSource&this_doc_guide=API%2520Reference)
@@ -6205,12 +6147,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec update_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
-
   def update_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6219,6 +6159,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Updates your Amazon Kendra experience such as a search application. For more
   information on creating a search application experience, see [Building a
   search experience with no
@@ -6237,12 +6178,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec update_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_experience_errors()}
-
   def update_experience(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6251,6 +6190,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Updates a set of featured results. Features results are placed above all other
   results for certain queries. You map specific queries to specific documents
   for featuring in the results. If a query contains an exact match of a query,
@@ -6270,12 +6210,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec update_featured_results_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_featured_results_set_errors()}
-
   def update_featured_results_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6284,6 +6222,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Updates an Amazon Kendra index.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateIndex&this_doc_guide=API%2520Reference)
@@ -6302,12 +6241,10 @@ defmodule AWS.Kendra do
       required("Id") => String.t()
     }
   """
-
   @spec update_index(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_index_errors()}
-
   def update_index(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6316,6 +6253,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Updates a block list used for query suggestions for an index. Updates to a block
   list might not take effect right away. Amazon Kendra needs to refresh the
   entire suggestions list to apply any updates to the block list. Other changes
@@ -6334,12 +6272,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec update_query_suggestions_block_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_query_suggestions_block_list_errors()}
-
   def update_query_suggestions_block_list(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6349,6 +6285,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Updates the settings of query suggestions for an index. Amazon Kendra supports
   partial updates, so you only need to provide the fields you want to update.
 
@@ -6366,12 +6303,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec update_query_suggestions_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_query_suggestions_config_errors()}
-
   def update_query_suggestions_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6381,6 +6316,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+   
   Updates a thesaurus for an index.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateThesaurus&this_doc_guide=API%2520Reference)
@@ -6396,12 +6332,10 @@ defmodule AWS.Kendra do
       required("IndexId") => String.t()
     }
   """
-
   @spec update_thesaurus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_thesaurus_errors()}
-
   def update_thesaurus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

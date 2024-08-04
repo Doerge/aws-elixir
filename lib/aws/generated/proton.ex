@@ -3803,6 +3803,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   In a management account, an environment account connection request is accepted.
   When the environment account connection request is accepted, Proton can use
   the associated IAM role to provision environment infrastructure resources in
@@ -3816,12 +3817,10 @@ defmodule AWS.Proton do
       "id" => String.t()
     }
   """
-
   @spec accept_environment_account_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_environment_account_connection_errors()}
-
   def accept_environment_account_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3831,6 +3830,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Attempts to cancel a component deployment (for a component that is in the
   `IN_PROGRESS` deployment status).
 
@@ -3842,12 +3842,10 @@ defmodule AWS.Proton do
       "componentName" => String.t()
     }
   """
-
   @spec cancel_component_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_component_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_component_deployment_errors()}
-
   def cancel_component_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3856,6 +3854,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Attempts to cancel an environment deployment on an `UpdateEnvironment` action,
   if the deployment is `IN_PROGRESS`. For more information, see [Update an
   environment](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-update.html)
@@ -3870,12 +3869,10 @@ defmodule AWS.Proton do
       "environmentName" => String.t()
     }
   """
-
   @spec cancel_environment_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_environment_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_environment_deployment_errors()}
-
   def cancel_environment_deployment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3885,6 +3882,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Attempts to cancel a service instance deployment on an `UpdateServiceInstance`
   action, if the deployment is `IN_PROGRESS`. For more information, see [Update
   a service
@@ -3901,12 +3899,10 @@ defmodule AWS.Proton do
       "serviceName" => String.t()
     }
   """
-
   @spec cancel_service_instance_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_service_instance_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_service_instance_deployment_errors()}
-
   def cancel_service_instance_deployment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3916,6 +3912,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Attempts to cancel a service pipeline deployment on an `UpdateServicePipeline`
   action, if the deployment is `IN_PROGRESS`. For more information, see [Update
   a service
@@ -3931,12 +3928,10 @@ defmodule AWS.Proton do
       "serviceName" => String.t()
     }
   """
-
   @spec cancel_service_pipeline_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_service_pipeline_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_service_pipeline_deployment_errors()}
-
   def cancel_service_pipeline_deployment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3946,6 +3941,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Create an Proton component. A component is an infrastructure extension for a
   service instance.
 
@@ -3966,12 +3962,10 @@ defmodule AWS.Proton do
       required("templateFile") => String.t()
     }
   """
-
   @spec create_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_component_errors()}
-
   def create_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3980,6 +3974,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Deploy a new environment. An Proton environment is created from an environment
   template that defines infrastructure and resources that can be shared across
   services. **You can provision environments using the following methods:**
@@ -4003,12 +3998,10 @@ defmodule AWS.Proton do
       required("templateName") => String.t()
     }
   """
-
   @spec create_environment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-
   def create_environment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4017,6 +4010,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Create an environment account connection in an environment account so that
   environment infrastructure resources can be provisioned in the environment
   account from a management account.
@@ -4035,12 +4029,10 @@ defmodule AWS.Proton do
       required("managementAccountId") => String.t()
     }
   """
-
   @spec create_environment_account_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_account_connection_errors()}
-
   def create_environment_account_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4050,6 +4042,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Create an environment template for Proton. For more information, see
   [Environment
   Templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html)
@@ -4069,12 +4062,10 @@ defmodule AWS.Proton do
       required("name") => String.t()
     }
   """
-
   @spec create_environment_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_environment_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_template_errors()}
-
   def create_environment_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4083,6 +4074,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Create a new major or minor version of an environment template. A major version
   of an environment template is a version that *isn't* backwards compatible. A
   minor version of an environment template is a version that's backwards
@@ -4101,12 +4093,10 @@ defmodule AWS.Proton do
       required("templateName") => String.t()
     }
   """
-
   @spec create_environment_template_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_environment_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_template_version_errors()}
-
   def create_environment_template_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4116,6 +4106,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Create and register a link to a repository. Proton uses the link to repeatedly
   access the repository, to either push to it (self-managed provisioning) or
   pull from it (template sync). You can share a linked repository across
@@ -4143,12 +4134,10 @@ defmodule AWS.Proton do
       required("provider") => String.t()
     }
   """
-
   @spec create_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_repository_errors()}
-
   def create_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4157,6 +4146,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Create an Proton service. An Proton service is an instantiation of a service
   template and often includes several service instances and pipeline. For more
   information, see
@@ -4180,12 +4170,10 @@ defmodule AWS.Proton do
       required("templateName") => String.t()
     }
   """
-
   @spec create_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_errors()}
-
   def create_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4194,6 +4182,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Create a service instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20CreateServiceInstance&this_doc_guide=API%2520Reference)
@@ -4210,12 +4199,10 @@ defmodule AWS.Proton do
       required("spec") => String.t()
     }
   """
-
   @spec create_service_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_instance_errors()}
-
   def create_service_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4224,6 +4211,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Create the Proton Ops configuration file.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20CreateServiceSyncConfig&this_doc_guide=API%2520Reference)
@@ -4238,12 +4226,10 @@ defmodule AWS.Proton do
       required("serviceName") => String.t()
     }
   """
-
   @spec create_service_sync_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_sync_config_errors()}
-
   def create_service_sync_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4252,6 +4238,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Create a service template. The administrator creates a service template to
   define standardized infrastructure and an optional CI/CD service pipeline.
   Developers, in turn, select the service template from Proton. If the selected
@@ -4275,12 +4262,10 @@ defmodule AWS.Proton do
       required("name") => String.t()
     }
   """
-
   @spec create_service_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_template_errors()}
-
   def create_service_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4289,6 +4274,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Create a new major or minor version of a service template. A major version of a
   service template is a version that *isn't* backward compatible. A minor
   version of a service template is a version that's backward compatible within
@@ -4309,12 +4295,10 @@ defmodule AWS.Proton do
       required("templateName") => String.t()
     }
   """
-
   @spec create_service_template_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_template_version_errors()}
-
   def create_service_template_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4324,6 +4308,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Set up a template to create new template versions automatically by tracking a
   linked repository. A linked repository is a repository that has been
   registered with Proton. For more information, see `CreateRepository`.
@@ -4341,12 +4326,10 @@ defmodule AWS.Proton do
       required("templateType") => String.t()
     }
   """
-
   @spec create_template_sync_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_template_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_sync_config_errors()}
-
   def create_template_sync_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4355,6 +4338,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Delete an Proton component resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20DeleteComponent&this_doc_guide=API%2520Reference)
@@ -4365,12 +4349,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec delete_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_component_errors()}
-
   def delete_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4379,6 +4361,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Delete the deployment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20DeleteDeployment&this_doc_guide=API%2520Reference)
@@ -4389,12 +4372,10 @@ defmodule AWS.Proton do
       required("id") => String.t()
     }
   """
-
   @spec delete_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_errors()}
-
   def delete_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4403,6 +4384,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Delete an environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20DeleteEnvironment&this_doc_guide=API%2520Reference)
@@ -4413,12 +4395,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec delete_environment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-
   def delete_environment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4427,6 +4407,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   In an environment account, delete an environment account connection. After you
   delete an environment account connection that’s in use by an Proton
   environment, Proton *can’t* manage the environment infrastructure resources
@@ -4442,12 +4423,10 @@ defmodule AWS.Proton do
       "id" => String.t()
     }
   """
-
   @spec delete_environment_account_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_account_connection_errors()}
-
   def delete_environment_account_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4457,6 +4436,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   If no other major or minor versions of an environment template exist, delete the
   environment template.
 
@@ -4468,12 +4448,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec delete_environment_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_environment_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_template_errors()}
-
   def delete_environment_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4482,6 +4460,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   If no other minor versions of an environment template exist, delete a major
   version of the environment template if it's not the `Recommended` version.
   Delete the `Recommended` version of the environment template if no other major
@@ -4498,12 +4477,10 @@ defmodule AWS.Proton do
       "templateName" => String.t()
     }
   """
-
   @spec delete_environment_template_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_environment_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_template_version_errors()}
-
   def delete_environment_template_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4513,6 +4490,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   De-register and unlink your repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20DeleteRepository&this_doc_guide=API%2520Reference)
@@ -4524,12 +4502,10 @@ defmodule AWS.Proton do
       "provider" => String.t()
     }
   """
-
   @spec delete_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_repository_errors()}
-
   def delete_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4538,6 +4514,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Delete a service, with its instances and pipeline.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20DeleteService&this_doc_guide=API%2520Reference)
@@ -4548,12 +4525,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec delete_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_errors()}
-
   def delete_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4562,6 +4537,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Delete the Proton Ops file.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20DeleteServiceSyncConfig&this_doc_guide=API%2520Reference)
@@ -4572,12 +4548,10 @@ defmodule AWS.Proton do
       required("serviceName") => String.t()
     }
   """
-
   @spec delete_service_sync_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_service_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_sync_config_errors()}
-
   def delete_service_sync_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4586,6 +4560,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   If no other major or minor versions of the service template exist, delete the
   service template.
 
@@ -4597,12 +4572,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec delete_service_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_service_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_template_errors()}
-
   def delete_service_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4611,6 +4584,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   If no other minor versions of a service template exist, delete a major version
   of the service template if it's not the `Recommended` version. Delete the
   `Recommended` version of the service template if no other major versions or
@@ -4627,12 +4601,10 @@ defmodule AWS.Proton do
       "templateName" => String.t()
     }
   """
-
   @spec delete_service_template_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_service_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_template_version_errors()}
-
   def delete_service_template_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4642,6 +4614,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Delete a template sync configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20DeleteTemplateSyncConfig&this_doc_guide=API%2520Reference)
@@ -4653,12 +4626,10 @@ defmodule AWS.Proton do
       required("templateType") => String.t()
     }
   """
-
   @spec delete_template_sync_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_template_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_sync_config_errors()}
-
   def delete_template_sync_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4667,6 +4638,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detail data for Proton account-wide settings.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetAccountSettings&this_doc_guide=API%2520Reference)
@@ -4677,12 +4649,10 @@ defmodule AWS.Proton do
       
     }
   """
-
   @spec get_account_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_account_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
-
   def get_account_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4691,6 +4661,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed data for a component.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetComponent&this_doc_guide=API%2520Reference)
@@ -4701,12 +4672,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec get_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_errors()}
-
   def get_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4715,6 +4684,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed data for a deployment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetDeployment&this_doc_guide=API%2520Reference)
@@ -4729,12 +4699,10 @@ defmodule AWS.Proton do
       required("id") => String.t()
     }
   """
-
   @spec get_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
-
   def get_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4743,6 +4711,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed data for an environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetEnvironment&this_doc_guide=API%2520Reference)
@@ -4753,12 +4722,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec get_environment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
-
   def get_environment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4767,6 +4734,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   In an environment account, get the detailed data for an environment account
   connection.
 
@@ -4778,12 +4746,10 @@ defmodule AWS.Proton do
       "id" => String.t()
     }
   """
-
   @spec get_environment_account_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_account_connection_errors()}
-
   def get_environment_account_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4793,6 +4759,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed data for an environment template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetEnvironmentTemplate&this_doc_guide=API%2520Reference)
@@ -4803,12 +4770,10 @@ defmodule AWS.Proton do
       required("name") => String.t()
     }
   """
-
   @spec get_environment_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_environment_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_template_errors()}
-
   def get_environment_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4817,6 +4782,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed data for a major or minor version of an environment template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetEnvironmentTemplateVersion&this_doc_guide=API%2520Reference)
@@ -4829,12 +4795,10 @@ defmodule AWS.Proton do
       "templateName" => String.t()
     }
   """
-
   @spec get_environment_template_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_environment_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_template_version_errors()}
-
   def get_environment_template_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4844,6 +4808,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detail data for a linked repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetRepository&this_doc_guide=API%2520Reference)
@@ -4855,12 +4820,10 @@ defmodule AWS.Proton do
       "provider" => String.t()
     }
   """
-
   @spec get_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_errors()}
-
   def get_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4869,6 +4832,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get the sync status of a repository used for Proton template sync. For more
   information about template sync, see .
 
@@ -4883,12 +4847,10 @@ defmodule AWS.Proton do
       required("syncType") => String.t()
     }
   """
-
   @spec get_repository_sync_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_repository_sync_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_sync_status_errors()}
-
   def get_repository_sync_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4897,6 +4859,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get counts of Proton resources. For infrastructure-provisioning resources
   (environments, services, service instances, pipelines), the action returns
   staleness counts. A resource is stale when it's behind the recommended version
@@ -4910,12 +4873,10 @@ defmodule AWS.Proton do
       
     }
   """
-
   @spec get_resources_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resources_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resources_summary_errors()}
-
   def get_resources_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4924,6 +4885,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed data for a service.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetService&this_doc_guide=API%2520Reference)
@@ -4934,12 +4896,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec get_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_errors()}
-
   def get_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4948,6 +4908,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed data for a service instance. A service instance is an instantiation
   of service template and it runs in a specific environment.
 
@@ -4960,12 +4921,10 @@ defmodule AWS.Proton do
       "serviceName" => String.t()
     }
   """
-
   @spec get_service_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_instance_errors()}
-
   def get_service_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4974,6 +4933,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get the status of the synced service instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetServiceInstanceSyncStatus&this_doc_guide=API%2520Reference)
@@ -4985,12 +4945,10 @@ defmodule AWS.Proton do
       required("serviceName") => String.t()
     }
   """
-
   @spec get_service_instance_sync_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_instance_sync_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_instance_sync_status_errors()}
-
   def get_service_instance_sync_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5000,6 +4958,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed data for the service sync blocker summary.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetServiceSyncBlockerSummary&this_doc_guide=API%2520Reference)
@@ -5011,12 +4970,10 @@ defmodule AWS.Proton do
       required("serviceName") => String.t()
     }
   """
-
   @spec get_service_sync_blocker_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_sync_blocker_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_sync_blocker_summary_errors()}
-
   def get_service_sync_blocker_summary(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5026,6 +4983,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed information for the service sync configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetServiceSyncConfig&this_doc_guide=API%2520Reference)
@@ -5036,12 +4994,10 @@ defmodule AWS.Proton do
       required("serviceName") => String.t()
     }
   """
-
   @spec get_service_sync_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_sync_config_errors()}
-
   def get_service_sync_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5050,6 +5006,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed data for a service template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetServiceTemplate&this_doc_guide=API%2520Reference)
@@ -5060,12 +5017,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec get_service_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_template_errors()}
-
   def get_service_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5074,6 +5029,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detailed data for a major or minor version of a service template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetServiceTemplateVersion&this_doc_guide=API%2520Reference)
@@ -5086,12 +5042,10 @@ defmodule AWS.Proton do
       "templateName" => String.t()
     }
   """
-
   @spec get_service_template_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_template_version_errors()}
-
   def get_service_template_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5100,6 +5054,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get detail data for a template sync configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetTemplateSyncConfig&this_doc_guide=API%2520Reference)
@@ -5111,12 +5066,10 @@ defmodule AWS.Proton do
       required("templateType") => String.t()
     }
   """
-
   @spec get_template_sync_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_template_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_sync_config_errors()}
-
   def get_template_sync_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5125,6 +5078,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get the status of a template sync.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20GetTemplateSyncStatus&this_doc_guide=API%2520Reference)
@@ -5137,12 +5091,10 @@ defmodule AWS.Proton do
       required("templateVersion") => String.t()
     }
   """
-
   @spec get_template_sync_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_template_sync_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_sync_status_errors()}
-
   def get_template_sync_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5151,6 +5103,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get a list of component Infrastructure as Code (IaC) outputs.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListComponentOutputs&this_doc_guide=API%2520Reference)
@@ -5163,12 +5116,10 @@ defmodule AWS.Proton do
       required("componentName") => String.t()
     }
   """
-
   @spec list_component_outputs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_component_outputs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_component_outputs_errors()}
-
   def list_component_outputs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5177,6 +5128,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List provisioned resources for a component with details.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListComponentProvisionedResources&this_doc_guide=API%2520Reference)
@@ -5188,12 +5140,10 @@ defmodule AWS.Proton do
       required("componentName") => String.t()
     }
   """
-
   @spec list_component_provisioned_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_component_provisioned_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_component_provisioned_resources_errors()}
-
   def list_component_provisioned_resources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5203,6 +5153,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List components with summary data. You can filter the result list by
   environment, service, or a single service instance.
 
@@ -5218,12 +5169,10 @@ defmodule AWS.Proton do
       optional("serviceName") => String.t()
     }
   """
-
   @spec list_components(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_components_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
-
   def list_components(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5232,6 +5181,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List deployments. You can filter the result list by environment, service, or a
   single service instance.
 
@@ -5248,12 +5198,10 @@ defmodule AWS.Proton do
       optional("serviceName") => String.t()
     }
   """
-
   @spec list_deployments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
-
   def list_deployments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5262,6 +5210,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   View a list of environment account connections.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListEnvironmentAccountConnections&this_doc_guide=API%2520Reference)
@@ -5276,12 +5225,10 @@ defmodule AWS.Proton do
       required("requestedBy") => String.t()
     }
   """
-
   @spec list_environment_account_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_environment_account_connections_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_account_connections_errors()}
-
   def list_environment_account_connections(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5291,6 +5238,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List the infrastructure as code outputs for your environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListEnvironmentOutputs&this_doc_guide=API%2520Reference)
@@ -5303,12 +5251,10 @@ defmodule AWS.Proton do
       required("environmentName") => String.t()
     }
   """
-
   @spec list_environment_outputs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_environment_outputs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_outputs_errors()}
-
   def list_environment_outputs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5317,6 +5263,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List the provisioned resources for your environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListEnvironmentProvisionedResources&this_doc_guide=API%2520Reference)
@@ -5328,12 +5275,10 @@ defmodule AWS.Proton do
       required("environmentName") => String.t()
     }
   """
-
   @spec list_environment_provisioned_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_environment_provisioned_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_provisioned_resources_errors()}
-
   def list_environment_provisioned_resources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5343,6 +5288,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List major or minor versions of an environment template with detail data.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListEnvironmentTemplateVersions&this_doc_guide=API%2520Reference)
@@ -5356,12 +5302,10 @@ defmodule AWS.Proton do
       required("templateName") => String.t()
     }
   """
-
   @spec list_environment_template_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_environment_template_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_template_versions_errors()}
-
   def list_environment_template_versions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5371,6 +5315,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List environment templates.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListEnvironmentTemplates&this_doc_guide=API%2520Reference)
@@ -5382,12 +5327,10 @@ defmodule AWS.Proton do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_environment_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_environment_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_templates_errors()}
-
   def list_environment_templates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5396,6 +5339,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List environments with detail data summaries.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListEnvironments&this_doc_guide=API%2520Reference)
@@ -5408,12 +5352,10 @@ defmodule AWS.Proton do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_environments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-
   def list_environments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5422,6 +5364,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List linked repositories with detail data.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListRepositories&this_doc_guide=API%2520Reference)
@@ -5433,12 +5376,10 @@ defmodule AWS.Proton do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_repositories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_repositories_errors()}
-
   def list_repositories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5447,6 +5388,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List repository sync definitions with detail data.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListRepositorySyncDefinitions&this_doc_guide=API%2520Reference)
@@ -5460,12 +5402,10 @@ defmodule AWS.Proton do
       required("syncType") => String.t()
     }
   """
-
   @spec list_repository_sync_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_repository_sync_definitions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_repository_sync_definitions_errors()}
-
   def list_repository_sync_definitions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5475,6 +5415,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get a list service of instance Infrastructure as Code (IaC) outputs.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListServiceInstanceOutputs&this_doc_guide=API%2520Reference)
@@ -5488,12 +5429,10 @@ defmodule AWS.Proton do
       required("serviceName") => String.t()
     }
   """
-
   @spec list_service_instance_outputs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_instance_outputs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_instance_outputs_errors()}
-
   def list_service_instance_outputs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5503,6 +5442,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List provisioned resources for a service instance with details.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListServiceInstanceProvisionedResources&this_doc_guide=API%2520Reference)
@@ -5515,12 +5455,10 @@ defmodule AWS.Proton do
       required("serviceName") => String.t()
     }
   """
-
   @spec list_service_instance_provisioned_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_instance_provisioned_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_instance_provisioned_resources_errors()}
-
   def list_service_instance_provisioned_resources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5530,6 +5468,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List service instances with summary data. This action lists service instances of
   all services in the Amazon Web Services account.
 
@@ -5546,12 +5485,10 @@ defmodule AWS.Proton do
       optional("sortOrder") => String.t()
     }
   """
-
   @spec list_service_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_instances_errors()}
-
   def list_service_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5560,6 +5497,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Get a list of service pipeline Infrastructure as Code (IaC) outputs.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListServicePipelineOutputs&this_doc_guide=API%2520Reference)
@@ -5572,12 +5510,10 @@ defmodule AWS.Proton do
       required("serviceName") => String.t()
     }
   """
-
   @spec list_service_pipeline_outputs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_pipeline_outputs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_pipeline_outputs_errors()}
-
   def list_service_pipeline_outputs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5587,6 +5523,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List provisioned resources for a service and pipeline with details.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListServicePipelineProvisionedResources&this_doc_guide=API%2520Reference)
@@ -5598,12 +5535,10 @@ defmodule AWS.Proton do
       required("serviceName") => String.t()
     }
   """
-
   @spec list_service_pipeline_provisioned_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_pipeline_provisioned_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_pipeline_provisioned_resources_errors()}
-
   def list_service_pipeline_provisioned_resources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5613,6 +5548,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List major or minor versions of a service template with detail data.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListServiceTemplateVersions&this_doc_guide=API%2520Reference)
@@ -5626,12 +5562,10 @@ defmodule AWS.Proton do
       required("templateName") => String.t()
     }
   """
-
   @spec list_service_template_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_template_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_template_versions_errors()}
-
   def list_service_template_versions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5641,6 +5575,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List service templates with detail data.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListServiceTemplates&this_doc_guide=API%2520Reference)
@@ -5652,12 +5587,10 @@ defmodule AWS.Proton do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_service_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_templates_errors()}
-
   def list_service_templates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5666,6 +5599,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List services with summaries of detail data.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20ListServices&this_doc_guide=API%2520Reference)
@@ -5677,12 +5611,10 @@ defmodule AWS.Proton do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
-
   def list_services(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5691,6 +5623,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   List tags for a resource. For more information, see [Proton resources and
   tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html)
   in the *Proton User Guide*.
@@ -5705,12 +5638,10 @@ defmodule AWS.Proton do
       required("resourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5719,6 +5650,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Notify Proton of status changes to a provisioned resource when you use
   self-managed provisioning.
 
@@ -5734,12 +5666,10 @@ defmodule AWS.Proton do
       required("resourceArn") => String.t()
     }
   """
-
   @spec notify_resource_deployment_status_change(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, notify_resource_deployment_status_change_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_resource_deployment_status_change_errors()}
-
   def notify_resource_deployment_status_change(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5749,6 +5679,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   In a management account, reject an environment account connection from another
   environment account. After you reject an environment account connection
   request, you *can't* accept or use the rejected environment account
@@ -5762,12 +5693,10 @@ defmodule AWS.Proton do
       "id" => String.t()
     }
   """
-
   @spec reject_environment_account_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_environment_account_connection_errors()}
-
   def reject_environment_account_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5777,6 +5706,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Tag a resource. A tag is a key-value pair of metadata that you associate with an
   Proton resource.
 
@@ -5789,12 +5719,10 @@ defmodule AWS.Proton do
       required("tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5803,6 +5731,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Remove a customer tag from a resource. A tag is a key-value pair of metadata
   associated with an Proton resource.
 
@@ -5815,12 +5744,10 @@ defmodule AWS.Proton do
       required("tagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5829,6 +5756,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update Proton settings that are used for multiple services in the Amazon Web
   Services account.
 
@@ -5843,12 +5771,10 @@ defmodule AWS.Proton do
       optional("pipelineServiceRoleArn") => String.t()
     }
   """
-
   @spec update_account_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_account_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_settings_errors()}
-
   def update_account_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5857,6 +5783,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update a component. There are a few modes for updating a component. The
   `deploymentType` field defines the mode.
 
@@ -5875,12 +5802,10 @@ defmodule AWS.Proton do
       "templateFile" => String.t()
     }
   """
-
   @spec update_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_component_errors()}
-
   def update_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5889,6 +5814,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update an environment. If the environment is associated with an environment
   account connection, *don't* update or include the `protonServiceRoleArn` and
   `provisioningRepository` parameter to update or connect to an environment
@@ -5912,12 +5838,10 @@ defmodule AWS.Proton do
       "templateMinorVersion" => String.t()
     }
   """
-
   @spec update_environment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
-
   def update_environment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5926,6 +5850,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   In an environment account, update an environment account connection to use a new
   IAM role.
 
@@ -5940,12 +5865,10 @@ defmodule AWS.Proton do
       "roleArn" => String.t()
     }
   """
-
   @spec update_environment_account_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_account_connection_errors()}
-
   def update_environment_account_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5955,6 +5878,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update an environment template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20UpdateEnvironmentTemplate&this_doc_guide=API%2520Reference)
@@ -5967,12 +5891,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec update_environment_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_environment_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_template_errors()}
-
   def update_environment_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5981,6 +5903,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update a major or minor version of an environment template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20UpdateEnvironmentTemplateVersion&this_doc_guide=API%2520Reference)
@@ -5995,12 +5918,10 @@ defmodule AWS.Proton do
       "templateName" => String.t()
     }
   """
-
   @spec update_environment_template_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_environment_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_template_version_errors()}
-
   def update_environment_template_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6010,6 +5931,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Edit a service description or use a spec to add and delete service instances.
   Existing service instances and the service pipeline *can't* be edited using
   this API. They can only be deleted.
@@ -6024,12 +5946,10 @@ defmodule AWS.Proton do
       "spec" => String.t()
     }
   """
-
   @spec update_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_errors()}
-
   def update_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6038,6 +5958,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update a service instance. There are a few modes for updating a service
   instance. The `deploymentType` field defines the mode.
 
@@ -6055,12 +5976,10 @@ defmodule AWS.Proton do
       "templateMinorVersion" => String.t()
     }
   """
-
   @spec update_service_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_instance_errors()}
-
   def update_service_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6069,6 +5988,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update the service pipeline. There are four modes for updating a service
   pipeline. The `deploymentType` field defines the mode.
 
@@ -6084,12 +6004,10 @@ defmodule AWS.Proton do
       "templateMinorVersion" => String.t()
     }
   """
-
   @spec update_service_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_pipeline_errors()}
-
   def update_service_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6098,6 +6016,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update the service sync blocker by resolving it.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20UpdateServiceSyncBlocker&this_doc_guide=API%2520Reference)
@@ -6109,12 +6028,10 @@ defmodule AWS.Proton do
       required("resolvedReason") => [String.t()]
     }
   """
-
   @spec update_service_sync_blocker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_sync_blocker_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_sync_blocker_errors()}
-
   def update_service_sync_blocker(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6123,6 +6040,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update the Proton Ops config file.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20UpdateServiceSyncConfig&this_doc_guide=API%2520Reference)
@@ -6137,12 +6055,10 @@ defmodule AWS.Proton do
       required("serviceName") => String.t()
     }
   """
-
   @spec update_service_sync_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_sync_config_errors()}
-
   def update_service_sync_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6151,6 +6067,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update a service template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20UpdateServiceTemplate&this_doc_guide=API%2520Reference)
@@ -6163,12 +6080,10 @@ defmodule AWS.Proton do
       "name" => String.t()
     }
   """
-
   @spec update_service_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_template_errors()}
-
   def update_service_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6177,6 +6092,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update a major or minor version of a service template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=proton%20UpdateServiceTemplateVersion&this_doc_guide=API%2520Reference)
@@ -6193,12 +6109,10 @@ defmodule AWS.Proton do
       "templateName" => String.t()
     }
   """
-
   @spec update_service_template_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_template_version_errors()}
-
   def update_service_template_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6208,6 +6122,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
+   
   Update template sync configuration parameters, except for the `templateName` and
   `templateType`. Repository details (branch, name, and provider) should be of a
   linked repository. A linked repository is a repository that has been
@@ -6226,12 +6141,10 @@ defmodule AWS.Proton do
       required("templateType") => String.t()
     }
   """
-
   @spec update_template_sync_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_template_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_sync_config_errors()}
-
   def update_template_sync_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

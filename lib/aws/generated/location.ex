@@ -2843,17 +2843,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20AssociateTrackerConsumer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:tracker_name` (`t:string`) The name of the tracker resource to be associated
-  with a geofence collection.
-
-  ## Optional parameters:
+  * `:tracker_name` (`t:string` required) The name of the tracker resource to be
+  associated with a geofence collection.
+  ## Keyword parameters:
   """
-
   @spec associate_tracker_consumer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_tracker_consumer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_tracker_consumer_errors()}
-
   def associate_tracker_consumer(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/consumers"
 
@@ -2890,17 +2887,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchDeleteDevicePositionHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:tracker_name` (`t:string`) The name of the tracker resource to delete the
-  device position history from.
-
-  ## Optional parameters:
+  * `:tracker_name` (`t:string` required) The name of the tracker resource to
+  delete the device position history from.
+  ## Keyword parameters:
   """
-
   @spec batch_delete_device_position_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_device_position_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_device_position_history_errors()}
-
   def batch_delete_device_position_history(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/delete-positions"
 
@@ -2937,17 +2931,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchDeleteGeofence&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_name` (`t:string`) The geofence collection storing the geofences
-  to be deleted.
-
-  ## Optional parameters:
+  * `:collection_name` (`t:string` required) The geofence collection storing the
+  geofences to be deleted.
+  ## Keyword parameters:
   """
-
   @spec batch_delete_geofence(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_geofence_errors()}
-
   def batch_delete_geofence(%Client{} = client, collection_name, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/delete-geofences"
@@ -2989,17 +2980,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchEvaluateGeofences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_name` (`t:string`) The geofence collection used in evaluating the
-  position of devices against its geofences.
-
-  ## Optional parameters:
+  * `:collection_name` (`t:string` required) The geofence collection used in
+  evaluating the position of devices against its geofences.
+  ## Keyword parameters:
   """
-
   @spec batch_evaluate_geofences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_evaluate_geofences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_evaluate_geofences_errors()}
-
   def batch_evaluate_geofences(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/positions"
 
@@ -3036,17 +3024,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchGetDevicePosition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:tracker_name` (`t:string`) The tracker resource retrieving the device
-  position.
-
-  ## Optional parameters:
+  * `:tracker_name` (`t:string` required) The tracker resource retrieving the
+  device position.
+  ## Keyword parameters:
   """
-
   @spec batch_get_device_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_device_position_errors()}
-
   def batch_get_device_position(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/get-positions"
 
@@ -3085,16 +3070,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchPutGeofence&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_name` (`t:string`) The geofence collection storing the geofences.
-
-  ## Optional parameters:
+  * `:collection_name` (`t:string` required) The geofence collection storing the
+  geofences.
+  ## Keyword parameters:
   """
-
   @spec batch_put_geofence(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_geofence_errors()}
-
   def batch_put_geofence(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/put-geofences"
 
@@ -3134,16 +3117,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchUpdateDevicePosition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:tracker_name` (`t:string`) The name of the tracker resource to update.
-
-  ## Optional parameters:
+  * `:tracker_name` (`t:string` required) The name of the tracker resource to
+  update.
+  ## Keyword parameters:
   """
-
   @spec batch_update_device_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_update_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_device_position_errors()}
-
   def batch_update_device_position(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions"
 
@@ -3187,18 +3168,15 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CalculateRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:calculator_name` (`t:string`) The name of the route calculator resource that
-  you want to use to calculate the route.
-
-  ## Optional parameters:
+  * `:calculator_name` (`t:string` required) The name of the route calculator
+  resource that you want to use to calculate the route.
+  ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-
   @spec calculate_route(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, calculate_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, calculate_route_errors()}
-
   def calculate_route(%Client{} = client, calculator_name, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route"
 
@@ -3258,18 +3236,15 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CalculateRouteMatrix&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:calculator_name` (`t:string`) The name of the route calculator resource that
-  you want to use to calculate the route matrix.
-
-  ## Optional parameters:
+  * `:calculator_name` (`t:string` required) The name of the route calculator
+  resource that you want to use to calculate the route matrix.
+  ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-
   @spec calculate_route_matrix(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, calculate_route_matrix_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, calculate_route_matrix_errors()}
-
   def calculate_route_matrix(%Client{} = client, calculator_name, options \\ []) do
     url_path =
       "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route-matrix"
@@ -3318,15 +3293,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateGeofenceCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_geofence_collection(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_geofence_collection_errors()}
-
   def create_geofence_collection(%Client{} = client, options \\ []) do
     url_path = "/geofencing/v0/collections"
 
@@ -3364,15 +3336,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_errors()}
-
   def create_key(%Client{} = client, options \\ []) do
     url_path = "/metadata/v0/keys"
 
@@ -3410,15 +3379,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateMap&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_map(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_map_errors()}
-
   def create_map(%Client{} = client, options \\ []) do
     url_path = "/maps/v0/maps"
 
@@ -3459,15 +3425,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreatePlaceIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_place_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_place_index_errors()}
-
   def create_place_index(%Client{} = client, options \\ []) do
     url_path = "/places/v0/indexes"
 
@@ -3507,15 +3470,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateRouteCalculator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_route_calculator(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_route_calculator_errors()}
-
   def create_route_calculator(%Client{} = client, options \\ []) do
     url_path = "/routes/v0/calculators"
 
@@ -3553,15 +3513,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateTracker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_tracker(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tracker_errors()}
-
   def create_tracker(%Client{} = client, options \\ []) do
     url_path = "/tracking/v0/trackers"
 
@@ -3598,17 +3555,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeleteGeofenceCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_name` (`t:string`) The name of the geofence collection to be
-  deleted.
-
-  ## Optional parameters:
+  * `:collection_name` (`t:string` required) The name of the geofence collection
+  to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_geofence_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_geofence_collection_errors()}
-
   def delete_geofence_collection(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
 
@@ -3656,19 +3610,16 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeleteKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:key_name` (`t:string`) The name of the API key to delete.
-
-  ## Optional parameters:
+  * `:key_name` (`t:string` required) The name of the API key to delete.
+  ## Keyword parameters:
   * `:force_delete` (`t:string`) ForceDelete bypasses an API key's expiry
   conditions and deletes the key. Set the parameter true to delete the key or
   to false to not preemptively delete the API key.
   """
-
   @spec delete_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_errors()}
-
   def delete_key(%Client{} = client, key_name, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
 
@@ -3726,16 +3677,13 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeleteMap&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:map_name` (`t:string`) The name of the map resource to be deleted.
-
-  ## Optional parameters:
+  * `:map_name` (`t:string` required) The name of the map resource to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_map_errors()}
-
   def delete_map(%Client{} = client, map_name, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
 
@@ -3782,16 +3730,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeletePlaceIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:index_name` (`t:string`) The name of the place index resource to be deleted.
-
-  ## Optional parameters:
+  * `:index_name` (`t:string` required) The name of the place index resource to be
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_place_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_place_index_errors()}
-
   def delete_place_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
 
@@ -3838,17 +3784,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeleteRouteCalculator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:calculator_name` (`t:string`) The name of the route calculator resource to
-  be deleted.
-
-  ## Optional parameters:
+  * `:calculator_name` (`t:string` required) The name of the route calculator
+  resource to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_route_calculator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_route_calculator_errors()}
-
   def delete_route_calculator(%Client{} = client, calculator_name, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
 
@@ -3895,16 +3838,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeleteTracker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:tracker_name` (`t:string`) The name of the tracker resource to be deleted.
-
-  ## Optional parameters:
+  * `:tracker_name` (`t:string` required) The name of the tracker resource to be
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_tracker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tracker_errors()}
-
   def delete_tracker(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
 
@@ -3951,16 +3892,13 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribeGeofenceCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_name` (`t:string`) The name of the geofence collection.
-
-  ## Optional parameters:
+  * `:collection_name` (`t:string` required) The name of the geofence collection.
+  ## Keyword parameters:
   """
-
   @spec describe_geofence_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_geofence_collection_errors()}
-
   def describe_geofence_collection(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
 
@@ -3995,16 +3933,13 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribeKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:key_name` (`t:string`) The name of the API key resource.
-
-  ## Optional parameters:
+  * `:key_name` (`t:string` required) The name of the API key resource.
+  ## Keyword parameters:
   """
-
   @spec describe_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_errors()}
-
   def describe_key(%Client{} = client, key_name, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
 
@@ -4039,16 +3974,13 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribeMap&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:map_name` (`t:string`) The name of the map resource.
-
-  ## Optional parameters:
+  * `:map_name` (`t:string` required) The name of the map resource.
+  ## Keyword parameters:
   """
-
   @spec describe_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_map_errors()}
-
   def describe_map(%Client{} = client, map_name, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
 
@@ -4083,16 +4015,13 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribePlaceIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:index_name` (`t:string`) The name of the place index resource.
-
-  ## Optional parameters:
+  * `:index_name` (`t:string` required) The name of the place index resource.
+  ## Keyword parameters:
   """
-
   @spec describe_place_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_place_index_errors()}
-
   def describe_place_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
 
@@ -4127,16 +4056,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribeRouteCalculator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:calculator_name` (`t:string`) The name of the route calculator resource.
-
-  ## Optional parameters:
+  * `:calculator_name` (`t:string` required) The name of the route calculator
+  resource.
+  ## Keyword parameters:
   """
-
   @spec describe_route_calculator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_route_calculator_errors()}
-
   def describe_route_calculator(%Client{} = client, calculator_name, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
 
@@ -4171,16 +4098,13 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribeTracker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:tracker_name` (`t:string`) The name of the tracker resource.
-
-  ## Optional parameters:
+  * `:tracker_name` (`t:string` required) The name of the tracker resource.
+  ## Keyword parameters:
   """
-
   @spec describe_tracker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tracker_errors()}
-
   def describe_tracker(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
 
@@ -4215,20 +4139,17 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DisassociateTrackerConsumer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:consumer_arn` (`t:string`) The Amazon Resource Name (ARN) for the geofence
-  collection to be disassociated from the tracker resource. Used when you need
-  to specify a resource across all Amazon Web Services.
-  * `:tracker_name` (`t:string`) The name of the tracker resource to be
+  * `:consumer_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  geofence collection to be disassociated from the tracker resource. Used when
+  you need to specify a resource across all Amazon Web Services.
+  * `:tracker_name` (`t:string` required) The name of the tracker resource to be
   dissociated from the consumer.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_tracker_consumer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_tracker_consumer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_tracker_consumer_errors()}
-
   def disassociate_tracker_consumer(%Client{} = client, consumer_arn, tracker_name, options \\ []) do
     url_path =
       "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/consumers/#{AWS.Util.encode_uri(consumer_arn)}"
@@ -4280,16 +4201,13 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ForecastGeofenceEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_name` (`t:string`) The name of the geofence collection.
-
-  ## Optional parameters:
+  * `:collection_name` (`t:string` required) The name of the geofence collection.
+  ## Keyword parameters:
   """
-
   @spec forecast_geofence_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, forecast_geofence_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, forecast_geofence_events_errors()}
-
   def forecast_geofence_events(%Client{} = client, collection_name, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/forecast-geofence-events"
@@ -4327,18 +4245,16 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetDevicePosition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The device whose position you want to retrieve.
-  * `:tracker_name` (`t:string`) The tracker resource receiving the position
-  update.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The device whose position you want to
+  retrieve.
+  * `:tracker_name` (`t:string` required) The tracker resource receiving the
+  position update.
+  ## Keyword parameters:
   """
-
   @spec get_device_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_position_errors()}
-
   def get_device_position(%Client{} = client, device_id, tracker_name, options \\ []) do
     url_path =
       "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/devices/#{AWS.Util.encode_uri(device_id)}/positions/latest"
@@ -4375,19 +4291,16 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetDevicePositionHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The device whose position history you want to
-  retrieve.
-  * `:tracker_name` (`t:string`) The tracker resource receiving the request for
-  the device position history.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The device whose position history you want
+  to retrieve.
+  * `:tracker_name` (`t:string` required) The tracker resource receiving the
+  request for the device position history.
+  ## Keyword parameters:
   """
-
   @spec get_device_position_history(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_position_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_position_history_errors()}
-
   def get_device_position_history(%Client{} = client, device_id, tracker_name, options \\ []) do
     url_path =
       "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/devices/#{AWS.Util.encode_uri(device_id)}/list-positions"
@@ -4425,18 +4338,16 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetGeofence&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_name` (`t:string`) The geofence collection storing the target
-  geofence.
-  * `:geofence_id` (`t:string`) The geofence you're retrieving details for.
-
-  ## Optional parameters:
+  * `:collection_name` (`t:string` required) The geofence collection storing the
+  target geofence.
+  * `:geofence_id` (`t:string` required) The geofence you're retrieving details
+  for.
+  ## Keyword parameters:
   """
-
   @spec get_geofence(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_geofence_errors()}
-
   def get_geofence(%Client{} = client, collection_name, geofence_id, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/geofences/#{AWS.Util.encode_uri(geofence_id)}"
@@ -4472,23 +4383,22 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetMapGlyphs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:font_stack` (`t:string`) A comma-separated list of fonts to load glyphs from
-  in order of preference. For example, Noto Sans Regular, Arial Unicode.
-  * `:font_unicode_range` (`t:string`) A Unicode range of characters to download
-  glyphs for. Each response will contain 256 characters. For example, 0–255
-  includes all characters from range U+0000 to 00FF. Must be aligned to
+  * `:font_stack` (`t:string` required) A comma-separated list of fonts to load
+  glyphs from in order of preference. For example, Noto Sans Regular, Arial
+  Unicode.
+  * `:font_unicode_range` (`t:string` required) A Unicode range of characters to
+  download glyphs for. Each response will contain 256 characters. For example,
+  0–255 includes all characters from range U+0000 to 00FF. Must be aligned to
   multiples of 256.
-  * `:map_name` (`t:string`) The map resource associated with the glyph ﬁle.
-
-  ## Optional parameters:
+  * `:map_name` (`t:string` required) The map resource associated with the glyph
+  ﬁle.
+  ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-
   @spec get_map_glyphs(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_glyphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_map_glyphs_errors()}
-
   def get_map_glyphs(%Client{} = client, font_stack, font_unicode_range, map_name, options \\ []) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/glyphs/#{AWS.Util.encode_uri(font_stack)}/#{AWS.Util.encode_uri(font_unicode_range)}"
@@ -4544,19 +4454,17 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetMapSprites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_name` (`t:string`) The name of the sprite ﬁle. Use the following ﬁle
-  names for the sprite sheet:
-  * `:map_name` (`t:string`) The map resource associated with the sprite ﬁle.
-
-  ## Optional parameters:
+  * `:file_name` (`t:string` required) The name of the sprite ﬁle. Use the
+  following ﬁle names for the sprite sheet:
+  * `:map_name` (`t:string` required) The map resource associated with the sprite
+  ﬁle.
+  ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-
   @spec get_map_sprites(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_sprites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_map_sprites_errors()}
-
   def get_map_sprites(%Client{} = client, file_name, map_name, options \\ []) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/sprites/#{AWS.Util.encode_uri(file_name)}"
@@ -4610,18 +4518,15 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetMapStyleDescriptor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:map_name` (`t:string`) The map resource to retrieve the style descriptor
-  from.
-
-  ## Optional parameters:
+  * `:map_name` (`t:string` required) The map resource to retrieve the style
+  descriptor from.
+  ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-
   @spec get_map_style_descriptor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_style_descriptor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_map_style_descriptor_errors()}
-
   def get_map_style_descriptor(%Client{} = client, map_name, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/style-descriptor"
 
@@ -4676,20 +4581,18 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetMapTile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:map_name` (`t:string`) The map resource to retrieve the map tiles from.
-  * `:x` (`t:string`) The X axis value for the map tile.
-  * `:y` (`t:string`) The Y axis value for the map tile.
-  * `:z` (`t:string`) The zoom value for the map tile.
-
-  ## Optional parameters:
+  * `:map_name` (`t:string` required) The map resource to retrieve the map tiles
+  from.
+  * `:x` (`t:string` required) The X axis value for the map tile.
+  * `:y` (`t:string` required) The Y axis value for the map tile.
+  * `:z` (`t:string` required) The zoom value for the map tile.
+  ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-
   @spec get_map_tile(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_tile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_map_tile_errors()}
-
   def get_map_tile(%Client{} = client, map_name, x, y, z, options \\ []) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/tiles/#{AWS.Util.encode_uri(z)}/#{AWS.Util.encode_uri(x)}/#{AWS.Util.encode_uri(y)}"
@@ -4744,21 +4647,18 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetPlace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:index_name` (`t:string`) The name of the place index resource that you want
-  to use for the search.
-  * `:place_id` (`t:string`) The identifier of the place to find.
-
-  ## Optional parameters:
+  * `:index_name` (`t:string` required) The name of the place index resource that
+  you want to use for the search.
+  * `:place_id` (`t:string` required) The identifier of the place to find.
+  ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   * `:language` (`t:string`) The preferred language used to return results. The
   value must be a valid BCP 47 language tag, for example, en for English.
   """
-
   @spec get_place(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_place_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_place_errors()}
-
   def get_place(%Client{} = client, index_name, place_id, options \\ []) do
     url_path =
       "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/places/#{AWS.Util.encode_uri(place_id)}"
@@ -4812,17 +4712,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListDevicePositions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:tracker_name` (`t:string`) The tracker resource containing the requested
-  devices.
-
-  ## Optional parameters:
+  * `:tracker_name` (`t:string` required) The tracker resource containing the
+  requested devices.
+  ## Keyword parameters:
   """
-
   @spec list_device_positions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_positions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_positions_errors()}
-
   def list_device_positions(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-positions"
 
@@ -4859,15 +4756,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListGeofenceCollections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_geofence_collections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_geofence_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_geofence_collections_errors()}
-
   def list_geofence_collections(%Client{} = client, options \\ []) do
     url_path = "/geofencing/v0/list-collections"
 
@@ -4904,17 +4798,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListGeofences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_name` (`t:string`) The name of the geofence collection storing
-  the list of geofences.
-
-  ## Optional parameters:
+  * `:collection_name` (`t:string` required) The name of the geofence collection
+  storing the list of geofences.
+  ## Keyword parameters:
   """
-
   @spec list_geofences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_geofences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_geofences_errors()}
-
   def list_geofences(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/list-geofences"
 
@@ -4951,15 +4842,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListKeys&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keys_errors()}
-
   def list_keys(%Client{} = client, options \\ []) do
     url_path = "/metadata/v0/list-keys"
 
@@ -4996,15 +4884,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListMaps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_maps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_maps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_maps_errors()}
-
   def list_maps(%Client{} = client, options \\ []) do
     url_path = "/maps/v0/list-maps"
 
@@ -5041,15 +4926,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListPlaceIndexes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_place_indexes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_place_indexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_place_indexes_errors()}
-
   def list_place_indexes(%Client{} = client, options \\ []) do
     url_path = "/places/v0/list-indexes"
 
@@ -5086,15 +4968,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListRouteCalculators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_route_calculators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_route_calculators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_route_calculators_errors()}
-
   def list_route_calculators(%Client{} = client, options \\ []) do
     url_path = "/routes/v0/list-calculators"
 
@@ -5132,17 +5011,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  whose tags you want to retrieve.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource whose tags you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5177,17 +5053,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListTrackerConsumers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:tracker_name` (`t:string`) The tracker resource whose associated geofence
-  collections you want to list.
-
-  ## Optional parameters:
+  * `:tracker_name` (`t:string` required) The tracker resource whose associated
+  geofence collections you want to list.
+  ## Keyword parameters:
   """
-
   @spec list_tracker_consumers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tracker_consumers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tracker_consumers_errors()}
-
   def list_tracker_consumers(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-consumers"
 
@@ -5224,15 +5097,12 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListTrackers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_trackers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trackers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trackers_errors()}
-
   def list_trackers(%Client{} = client, options \\ []) do
     url_path = "/tracking/v0/list-trackers"
 
@@ -5270,19 +5140,16 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20PutGeofence&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_name` (`t:string`) The geofence collection to store the geofence
-  in.
-  * `:geofence_id` (`t:string`) An identifier for the geofence. For example,
-  ExampleGeofence-1.
-
-  ## Optional parameters:
+  * `:collection_name` (`t:string` required) The geofence collection to store the
+  geofence in.
+  * `:geofence_id` (`t:string` required) An identifier for the geofence. For
+  example, ExampleGeofence-1.
+  ## Keyword parameters:
   """
-
   @spec put_geofence(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_geofence_errors()}
-
   def put_geofence(%Client{} = client, collection_name, geofence_id, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/geofences/#{AWS.Util.encode_uri(geofence_id)}"
@@ -5321,18 +5188,15 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20SearchPlaceIndexForPosition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:index_name` (`t:string`) The name of the place index resource you want to
-  use for the search.
-
-  ## Optional parameters:
+  * `:index_name` (`t:string` required) The name of the place index resource you
+  want to use for the search.
+  ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-
   @spec search_place_index_for_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_place_index_for_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_place_index_for_position_errors()}
-
   def search_place_index_for_position(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/position"
 
@@ -5384,18 +5248,15 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20SearchPlaceIndexForSuggestions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:index_name` (`t:string`) The name of the place index resource you want to
-  use for the search.
-
-  ## Optional parameters:
+  * `:index_name` (`t:string` required) The name of the place index resource you
+  want to use for the search.
+  ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-
   @spec search_place_index_for_suggestions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_place_index_for_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_place_index_for_suggestions_errors()}
-
   def search_place_index_for_suggestions(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/suggestions"
 
@@ -5446,18 +5307,15 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20SearchPlaceIndexForText&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:index_name` (`t:string`) The name of the place index resource you want to
-  use for the search.
-
-  ## Optional parameters:
+  * `:index_name` (`t:string` required) The name of the place index resource you
+  want to use for the search.
+  ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-
   @spec search_place_index_for_text(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_place_index_for_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_place_index_for_text_errors()}
-
   def search_place_index_for_text(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/text"
 
@@ -5508,17 +5366,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  whose tags you want to update.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource whose tags you want to update.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5555,19 +5410,16 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  from which you want to remove tags.
-  * `:tag_keys` (`t:list[smithy.api#String]`) The list of tag keys to remove from
-  the specified resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource from which you want to remove tags.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) The list of tag keys to
+  remove from the specified resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5615,16 +5467,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdateGeofenceCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_name` (`t:string`) The name of the geofence collection to update.
-
-  ## Optional parameters:
+  * `:collection_name` (`t:string` required) The name of the geofence collection
+  to update.
+  ## Keyword parameters:
   """
-
   @spec update_geofence_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_geofence_collection_errors()}
-
   def update_geofence_collection(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
 
@@ -5671,16 +5521,13 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdateKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:key_name` (`t:string`) The name of the API key resource to update.
-
-  ## Optional parameters:
+  * `:key_name` (`t:string` required) The name of the API key resource to update.
+  ## Keyword parameters:
   """
-
   @spec update_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_key_errors()}
-
   def update_key(%Client{} = client, key_name, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
 
@@ -5727,16 +5574,13 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdateMap&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:map_name` (`t:string`) The name of the map resource to update.
-
-  ## Optional parameters:
+  * `:map_name` (`t:string` required) The name of the map resource to update.
+  ## Keyword parameters:
   """
-
   @spec update_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_map_errors()}
-
   def update_map(%Client{} = client, map_name, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
 
@@ -5783,16 +5627,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdatePlaceIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:index_name` (`t:string`) The name of the place index resource to update.
-
-  ## Optional parameters:
+  * `:index_name` (`t:string` required) The name of the place index resource to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_place_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_place_index_errors()}
-
   def update_place_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
 
@@ -5839,17 +5681,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdateRouteCalculator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:calculator_name` (`t:string`) The name of the route calculator resource to
-  update.
-
-  ## Optional parameters:
+  * `:calculator_name` (`t:string` required) The name of the route calculator
+  resource to update.
+  ## Keyword parameters:
   """
-
   @spec update_route_calculator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_route_calculator_errors()}
-
   def update_route_calculator(%Client{} = client, calculator_name, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
 
@@ -5896,16 +5735,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdateTracker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:tracker_name` (`t:string`) The name of the tracker resource to update.
-
-  ## Optional parameters:
+  * `:tracker_name` (`t:string` required) The name of the tracker resource to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_tracker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_tracker_errors()}
-
   def update_tracker(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
 
@@ -5954,17 +5791,14 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20VerifyDevicePosition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:tracker_name` (`t:string`) The name of the tracker resource to be associated
-  with verification request.
-
-  ## Optional parameters:
+  * `:tracker_name` (`t:string` required) The name of the tracker resource to be
+  associated with verification request.
+  ## Keyword parameters:
   """
-
   @spec verify_device_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, verify_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_device_position_errors()}
-
   def verify_device_position(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions/verify"
 

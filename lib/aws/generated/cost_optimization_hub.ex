@@ -1032,6 +1032,7 @@ defmodule AWS.CostOptimizationHub do
   end
 
   @doc """
+   
   Returns a set of preferences for an account in order to add account-specific
   preferences into the service. These preferences impact how the savings
   associated with recommendations are presented—estimated savings after
@@ -1045,12 +1046,10 @@ defmodule AWS.CostOptimizationHub do
       
     }
   """
-
   @spec get_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_preferences_errors()}
-
   def get_preferences(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1059,6 +1058,7 @@ defmodule AWS.CostOptimizationHub do
   end
 
   @doc """
+   
   Returns both the current and recommended resource configuration and the
   estimated cost impact for a recommendation.
 
@@ -1070,12 +1070,10 @@ defmodule AWS.CostOptimizationHub do
       required("recommendationId") => [String.t()]
     }
   """
-
   @spec get_recommendation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendation_errors()}
-
   def get_recommendation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1084,6 +1082,7 @@ defmodule AWS.CostOptimizationHub do
   end
 
   @doc """
+   
   Retrieves the enrollment status for an account. It can also return the list of
   accounts that are enrolled under the organization.
 
@@ -1098,12 +1097,10 @@ defmodule AWS.CostOptimizationHub do
       optional("nextToken") => [String.t()]
     }
   """
-
   @spec list_enrollment_statuses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_enrollment_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_enrollment_statuses_errors()}
-
   def list_enrollment_statuses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1112,6 +1109,7 @@ defmodule AWS.CostOptimizationHub do
   end
 
   @doc """
+   
   Returns a concise representation of savings estimates for resources. Also
   returns de-duped savings across different types of recommendations.
 
@@ -1126,12 +1124,10 @@ defmodule AWS.CostOptimizationHub do
       required("groupBy") => [String.t()]
     }
   """
-
   @spec list_recommendation_summaries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_recommendation_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendation_summaries_errors()}
-
   def list_recommendation_summaries(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1141,6 +1137,7 @@ defmodule AWS.CostOptimizationHub do
   end
 
   @doc """
+   
   Returns a list of recommendations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costoptimizationhub%20ListRecommendations&this_doc_guide=API%2520Reference)
@@ -1155,12 +1152,10 @@ defmodule AWS.CostOptimizationHub do
       optional("orderBy") => order_by()
     }
   """
-
   @spec list_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendations_errors()}
-
   def list_recommendations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1169,6 +1164,7 @@ defmodule AWS.CostOptimizationHub do
   end
 
   @doc """
+   
   Updates the enrollment (opt in and opt out) status of an account to the Cost
   Optimization Hub service. If the account is a management account of an
   organization, this action can also be used to enroll member accounts of the
@@ -1183,12 +1179,10 @@ defmodule AWS.CostOptimizationHub do
       required("status") => list(any())
     }
   """
-
   @spec update_enrollment_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_enrollment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_enrollment_status_errors()}
-
   def update_enrollment_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1197,6 +1191,7 @@ defmodule AWS.CostOptimizationHub do
   end
 
   @doc """
+   
   Updates a set of preferences for an account in order to add account-specific
   preferences into the service. These preferences impact how the savings
   associated with recommendations are presented.
@@ -1210,12 +1205,10 @@ defmodule AWS.CostOptimizationHub do
       optional("savingsEstimationMode") => list(any())
     }
   """
-
   @spec update_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_preferences_errors()}
-
   def update_preferences(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

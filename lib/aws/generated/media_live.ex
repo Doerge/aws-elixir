@@ -7219,16 +7219,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20AcceptInputDeviceTransfer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_device_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec accept_input_device_transfer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_input_device_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_input_device_transfer_errors()}
-
   def accept_input_device_transfer(%Client{} = client, input_device_id, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/accept"
 
@@ -7270,15 +7267,12 @@ defmodule AWS.MediaLive do
     * `:input_ids` (`t:list[com.amazonaws.medialive#__string]`)
     * `:input_security_group_ids` (`t:list[com.amazonaws.medialive#__string]`)
     * `:multiplex_ids` (`t:list[com.amazonaws.medialive#__string]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_delete(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, batch_delete_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_errors()}
-
   def batch_delete(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/batch/delete"
@@ -7319,15 +7313,12 @@ defmodule AWS.MediaLive do
   * `:input` (`t:map | nil`):
     * `:channel_ids` (`t:list[com.amazonaws.medialive#__string]`)
     * `:multiplex_ids` (`t:list[com.amazonaws.medialive#__string]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_start(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, batch_start_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_start_errors()}
-
   def batch_start(%Client{} = client, input, options \\ []) when is_map(input) or is_nil(input) do
     url_path = "/prod/batch/start"
 
@@ -7367,15 +7358,12 @@ defmodule AWS.MediaLive do
   * `:input` (`t:map | nil`):
     * `:channel_ids` (`t:list[com.amazonaws.medialive#__string]`)
     * `:multiplex_ids` (`t:list[com.amazonaws.medialive#__string]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_stop(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, batch_stop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_stop_errors()}
-
   def batch_stop(%Client{} = client, input, options \\ []) when is_map(input) or is_nil(input) do
     url_path = "/prod/batch/stop"
 
@@ -7412,19 +7400,16 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20BatchUpdateSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
+  * `:channel_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:creates` (`t:structure`)
     * `:deletes` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_update_schedule(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, batch_update_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_schedule_errors()}
-
   def batch_update_schedule(%Client{} = client, channel_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
@@ -7462,16 +7447,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CancelInputDeviceTransfer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_device_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec cancel_input_device_transfer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_input_device_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_input_device_transfer_errors()}
-
   def cancel_input_device_transfer(%Client{} = client, input_device_id, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/cancel"
 
@@ -7511,15 +7493,12 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input` (`t:map | nil`):
     * `:id` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec claim_device(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, claim_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, claim_device_errors()}
-
   def claim_device(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/claimDevice"
@@ -7572,15 +7551,12 @@ defmodule AWS.MediaLive do
     * `:role_arn` (`t:string`)
     * `:tags` (`t:map`)
     * `:vpc` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_channel(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
-
   def create_channel(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/channels"
@@ -7621,29 +7597,29 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input` (`t:map`):
     * `:comparison_operator`
-  (`t:enum["GreaterThanOrEqualToThreshold|GreaterThanThreshold|LessThanOrEqualToThreshold|LessThanThreshold"]`)
-    * `:evaluation_periods` (`t:integer`)
-    * `:group_identifier` (`t:string`)
-    * `:metric_name` (`t:string`)
-    * `:name` (`t:string`)
-    * `:period` (`t:integer`)
-    * `:statistic` (`t:enum["Average|Maximum|Minimum|SampleCount|Sum"]`)
+  (`t:enum["GreaterThanOrEqualToThreshold|GreaterThanThreshold|LessThanOrEqualToThreshold|LessThanThreshold"]`
+  required)
+    * `:evaluation_periods` (`t:integer` required)
+    * `:group_identifier` (`t:string` required)
+    * `:metric_name` (`t:string` required)
+    * `:name` (`t:string` required)
+    * `:period` (`t:integer` required)
+    * `:statistic` (`t:enum["Average|Maximum|Minimum|SampleCount|Sum"]` required)
     * `:target_resource_type`
-  (`t:enum["CLOUDFRONT_DISTRIBUTION|MEDIACONNECT_FLOW|MEDIALIVE_CHANNEL|MEDIALIVE_INPUT_DEVICE|MEDIALIVE_MULTIPLEX|MEDIAPACKAGE_CHANNEL|MEDIAPACKAGE_ORIGIN_ENDPOINT|S3_BUCKET"]`)
-    * `:threshold` (`t:double`)
-    * `:treat_missing_data` (`t:enum["breaching|ignore|missing|notBreaching"]`)
+  (`t:enum["CLOUDFRONT_DISTRIBUTION|MEDIACONNECT_FLOW|MEDIALIVE_CHANNEL|MEDIALIVE_INPUT_DEVICE|MEDIALIVE_MULTIPLEX|MEDIAPACKAGE_CHANNEL|MEDIAPACKAGE_ORIGIN_ENDPOINT|S3_BUCKET"]`
+  required)
+    * `:threshold` (`t:double` required)
+    * `:treat_missing_data` (`t:enum["breaching|ignore|missing|notBreaching"]`
+  required)
     * `:datapoints_to_alarm` (`t:integer`)
     * `:description` (`t:string`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cloud_watch_alarm_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cloud_watch_alarm_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cloud_watch_alarm_template_errors()}
-
   def create_cloud_watch_alarm_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/prod/cloudwatch-alarm-templates"
@@ -7683,18 +7659,15 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string`)
+    * `:name` (`t:string` required)
     * `:description` (`t:string`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cloud_watch_alarm_template_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cloud_watch_alarm_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cloud_watch_alarm_template_group_errors()}
-
   def create_cloud_watch_alarm_template_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/prod/cloudwatch-alarm-template-groups"
@@ -7735,22 +7708,20 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input` (`t:map`):
     * `:event_type`
-  (`t:enum["MEDIACONNECT_ALERT|MEDIACONNECT_FLOW_STATUS_CHANGE|MEDIACONNECT_OUTPUT_HEALTH|MEDIACONNECT_SOURCE_HEALTH|MEDIALIVE_CHANNEL_ALERT|MEDIALIVE_CHANNEL_INPUT_CHANGE|MEDIALIVE_CHANNEL_STATE_CHANGE|MEDIALIVE_MULTIPLEX_ALERT|MEDIALIVE_MULTIPLEX_STATE_CHANGE|MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION|MEDIAPACKAGE_INPUT_NOTIFICATION|MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION|SIGNAL_MAP_ACTIVE_ALARM"]`)
-    * `:group_identifier` (`t:string`)
-    * `:name` (`t:string`)
+  (`t:enum["MEDIACONNECT_ALERT|MEDIACONNECT_FLOW_STATUS_CHANGE|MEDIACONNECT_OUTPUT_HEALTH|MEDIACONNECT_SOURCE_HEALTH|MEDIALIVE_CHANNEL_ALERT|MEDIALIVE_CHANNEL_INPUT_CHANGE|MEDIALIVE_CHANNEL_STATE_CHANGE|MEDIALIVE_MULTIPLEX_ALERT|MEDIALIVE_MULTIPLEX_STATE_CHANGE|MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION|MEDIAPACKAGE_INPUT_NOTIFICATION|MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION|SIGNAL_MAP_ACTIVE_ALARM"]`
+  required)
+    * `:group_identifier` (`t:string` required)
+    * `:name` (`t:string` required)
     * `:description` (`t:string`)
     * `:event_targets`
   (`t:list[com.amazonaws.medialive#EventBridgeRuleTemplateTarget]`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_event_bridge_rule_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_bridge_rule_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_bridge_rule_template_errors()}
-
   def create_event_bridge_rule_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/prod/eventbridge-rule-templates"
@@ -7791,18 +7762,15 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string`)
+    * `:name` (`t:string` required)
     * `:description` (`t:string`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_event_bridge_rule_template_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_bridge_rule_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_bridge_rule_template_group_errors()}
-
   def create_event_bridge_rule_template_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/prod/eventbridge-rule-template-groups"
@@ -7855,15 +7823,12 @@ defmodule AWS.MediaLive do
     * `:type`
   (`t:enum["AWS_CDI|INPUT_DEVICE|MEDIACONNECT|MP4_FILE|RTMP_PULL|RTMP_PUSH|RTP_PUSH|SRT_CALLER|TS_FILE|UDP_PUSH|URL_PULL"]`)
     * `:vpc` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_input(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_input_errors()}
-
   def create_input(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/inputs"
@@ -7904,15 +7869,12 @@ defmodule AWS.MediaLive do
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`)
     * `:whitelist_rules` (`t:list[com.amazonaws.medialive#InputWhitelistRuleCidr]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_input_security_group(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_input_security_group_errors()}
-
   def create_input_security_group(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/inputSecurityGroups"
@@ -7951,20 +7913,17 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:availability_zones` (`t:list[com.amazonaws.medialive#__string]`)
-    * `:multiplex_settings` (`t:structure`)
-    * `:name` (`t:string`)
-    * `:request_id` (`t:string`)
+    * `:availability_zones` (`t:list[com.amazonaws.medialive#__string]` required)
+    * `:multiplex_settings` (`t:structure` required)
+    * `:name` (`t:string` required)
+    * `:request_id` (`t:string` required)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_multiplex(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_multiplex_errors()}
-
   def create_multiplex(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/prod/multiplexes"
 
@@ -8001,20 +7960,17 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateMultiplexProgram&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:multiplex_id` (`t:string`)
+  * `:multiplex_id` (`t:string` required)
   * `:input` (`t:map`):
-    * `:multiplex_program_settings` (`t:structure`)
-    * `:program_name` (`t:string`)
-    * `:request_id` (`t:string`)
-
-  ## Optional parameters:
+    * `:multiplex_program_settings` (`t:structure` required)
+    * `:program_name` (`t:string` required)
+    * `:request_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec create_multiplex_program(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_multiplex_program_errors()}
-
   def create_multiplex_program(%Client{} = client, multiplex_id, input, options \\ [])
       when is_map(input) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs"
@@ -8052,19 +8008,16 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreatePartnerInput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_id` (`t:string`)
+  * `:input_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:request_id` (`t:string`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_partner_input(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_partner_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_partner_input_errors()}
-
   def create_partner_input(%Client{} = client, input_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}/partners"
@@ -8104,23 +8057,20 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:discovery_entry_point_arn` (`t:string`)
-    * `:name` (`t:string`)
+    * `:discovery_entry_point_arn` (`t:string` required)
+    * `:name` (`t:string` required)
     * `:cloud_watch_alarm_template_group_identifiers`
   (`t:list[com.amazonaws.medialive#__stringPatternS]`)
     * `:description` (`t:string`)
     * `:event_bridge_rule_template_group_identifiers`
   (`t:list[com.amazonaws.medialive#__stringPatternS]`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_signal_map(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_signal_map_errors()}
-
   def create_signal_map(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/prod/signal-maps"
 
@@ -8157,18 +8107,15 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
+  * `:resource_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_tags(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
-
   def create_tags(%Client{} = client, resource_arn, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8206,16 +8153,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:channel_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
-
   def delete_channel(%Client{} = client, channel_id, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
 
@@ -8262,16 +8206,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_cloud_watch_alarm_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cloud_watch_alarm_template_errors()}
-
   def delete_cloud_watch_alarm_template(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
 
@@ -8320,16 +8261,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_cloud_watch_alarm_template_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cloud_watch_alarm_template_group_errors()}
-
   def delete_cloud_watch_alarm_template_group(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-template-groups/#{AWS.Util.encode_uri(identifier)}"
 
@@ -8376,16 +8314,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_event_bridge_rule_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_bridge_rule_template_errors()}
-
   def delete_event_bridge_rule_template(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
 
@@ -8434,16 +8369,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_event_bridge_rule_template_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_bridge_rule_template_group_errors()}
-
   def delete_event_bridge_rule_template_group(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/eventbridge-rule-template-groups/#{AWS.Util.encode_uri(identifier)}"
 
@@ -8490,16 +8422,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteInput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_input_errors()}
-
   def delete_input(%Client{} = client, input_id, options \\ []) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
 
@@ -8546,16 +8475,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteInputSecurityGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_security_group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_security_group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_input_security_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_input_security_group_errors()}
-
   def delete_input_security_group(%Client{} = client, input_security_group_id, options \\ []) do
     url_path = "/prod/inputSecurityGroups/#{AWS.Util.encode_uri(input_security_group_id)}"
 
@@ -8602,16 +8528,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteMultiplex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:multiplex_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:multiplex_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_multiplex(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_multiplex_errors()}
-
   def delete_multiplex(%Client{} = client, multiplex_id, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
 
@@ -8658,17 +8581,14 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteMultiplexProgram&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:multiplex_id` (`t:string`)
-  * `:program_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:multiplex_id` (`t:string` required)
+  * `:program_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_multiplex_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_multiplex_program_errors()}
-
   def delete_multiplex_program(%Client{} = client, multiplex_id, program_name, options \\ []) do
     url_path =
       "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs/#{AWS.Util.encode_uri(program_name)}"
@@ -8716,16 +8636,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteReservation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:reservation_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:reservation_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_reservation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_reservation_errors()}
-
   def delete_reservation(%Client{} = client, reservation_id, options \\ []) do
     url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
 
@@ -8772,16 +8689,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:channel_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schedule_errors()}
-
   def delete_schedule(%Client{} = client, channel_id, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
 
@@ -8828,16 +8742,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteSignalMap&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_signal_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_signal_map_errors()}
-
   def delete_signal_map(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
 
@@ -8884,17 +8795,14 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
-  * `:tag_keys` (`t:list[com.amazonaws.medialive#__string]`)
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required)
+  * `:tag_keys` (`t:list[com.amazonaws.medialive#__string]` required)
+  ## Keyword parameters:
   """
-
   @spec delete_tags(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
-
   def delete_tags(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8942,15 +8850,12 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeAccountConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_account_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_configuration_errors()}
-
   def describe_account_configuration(%Client{} = client, options \\ []) do
     url_path = "/prod/accountConfiguration"
 
@@ -8985,16 +8890,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:channel_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_errors()}
-
   def describe_channel(%Client{} = client, channel_id, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
 
@@ -9029,16 +8931,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_input_errors()}
-
   def describe_input(%Client{} = client, input_id, options \\ []) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
 
@@ -9073,16 +8972,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInputDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_device_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_input_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_input_device_errors()}
-
   def describe_input_device(%Client{} = client, input_device_id, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}"
 
@@ -9117,17 +9013,14 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInputDeviceThumbnail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
-  * `:accept` (`t:enum["image_jpeg"]`)
-
-  ## Optional parameters:
+  * `:input_device_id` (`t:string` required)
+  * `:accept` (`t:enum["image_jpeg"]` required)
+  ## Keyword parameters:
   """
-
   @spec describe_input_device_thumbnail(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_device_thumbnail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_input_device_thumbnail_errors()}
-
   def describe_input_device_thumbnail(%Client{} = client, input_device_id, accept, options \\ [])
       when is_binary(accept) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/thumbnailData"
@@ -9174,16 +9067,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInputSecurityGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_security_group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_security_group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_input_security_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_input_security_group_errors()}
-
   def describe_input_security_group(%Client{} = client, input_security_group_id, options \\ []) do
     url_path = "/prod/inputSecurityGroups/#{AWS.Util.encode_uri(input_security_group_id)}"
 
@@ -9218,16 +9108,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeMultiplex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:multiplex_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:multiplex_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_multiplex(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_multiplex_errors()}
-
   def describe_multiplex(%Client{} = client, multiplex_id, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
 
@@ -9262,17 +9149,14 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeMultiplexProgram&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:multiplex_id` (`t:string`)
-  * `:program_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:multiplex_id` (`t:string` required)
+  * `:program_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_multiplex_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_multiplex_program_errors()}
-
   def describe_multiplex_program(%Client{} = client, multiplex_id, program_name, options \\ []) do
     url_path =
       "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs/#{AWS.Util.encode_uri(program_name)}"
@@ -9308,16 +9192,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeOffering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:offering_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:offering_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_offering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_offering_errors()}
-
   def describe_offering(%Client{} = client, offering_id, options \\ []) do
     url_path = "/prod/offerings/#{AWS.Util.encode_uri(offering_id)}"
 
@@ -9352,16 +9233,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeReservation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:reservation_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:reservation_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_reservation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reservation_errors()}
-
   def describe_reservation(%Client{} = client, reservation_id, options \\ []) do
     url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
 
@@ -9396,18 +9274,15 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:channel_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec describe_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schedule_errors()}
-
   def describe_schedule(%Client{} = client, channel_id, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
 
@@ -9460,18 +9335,15 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeThumbnails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
-  * `:pipeline_id` (`t:string`)
-  * `:thumbnail_type` (`t:string`)
-
-  ## Optional parameters:
+  * `:channel_id` (`t:string` required)
+  * `:pipeline_id` (`t:string` required)
+  * `:thumbnail_type` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_thumbnails(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_thumbnails_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_thumbnails_errors()}
-
   def describe_thumbnails(
         %Client{} = client,
         channel_id,
@@ -9513,16 +9385,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_cloud_watch_alarm_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_watch_alarm_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_watch_alarm_template_errors()}
-
   def get_cloud_watch_alarm_template(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
 
@@ -9557,16 +9426,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_cloud_watch_alarm_template_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_watch_alarm_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_watch_alarm_template_group_errors()}
-
   def get_cloud_watch_alarm_template_group(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-template-groups/#{AWS.Util.encode_uri(identifier)}"
 
@@ -9601,16 +9467,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_event_bridge_rule_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_bridge_rule_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_bridge_rule_template_errors()}
-
   def get_event_bridge_rule_template(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
 
@@ -9645,16 +9508,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_event_bridge_rule_template_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_bridge_rule_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_bridge_rule_template_group_errors()}
-
   def get_event_bridge_rule_template_group(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/eventbridge-rule-template-groups/#{AWS.Util.encode_uri(identifier)}"
 
@@ -9689,16 +9549,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetSignalMap&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_signal_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_signal_map_errors()}
-
   def get_signal_map(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
 
@@ -9733,17 +9590,14 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-
   def list_channels(%Client{} = client, options \\ []) do
     url_path = "/prod/channels"
 
@@ -9796,19 +9650,16 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListCloudWatchAlarmTemplateGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:scope` (`t:string`)
   * `:signal_map_identifier` (`t:string`)
   """
-
   @spec list_cloud_watch_alarm_template_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_watch_alarm_template_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cloud_watch_alarm_template_groups_errors()}
-
   def list_cloud_watch_alarm_template_groups(%Client{} = client, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-template-groups"
 
@@ -9875,20 +9726,17 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListCloudWatchAlarmTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:group_identifier` (`t:string`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:scope` (`t:string`)
   * `:signal_map_identifier` (`t:string`)
   """
-
   @spec list_cloud_watch_alarm_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_watch_alarm_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cloud_watch_alarm_templates_errors()}
-
   def list_cloud_watch_alarm_templates(%Client{} = client, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates"
 
@@ -9974,18 +9822,15 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListEventBridgeRuleTemplateGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:signal_map_identifier` (`t:string`)
   """
-
   @spec list_event_bridge_rule_template_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_bridge_rule_template_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_bridge_rule_template_groups_errors()}
-
   def list_event_bridge_rule_template_groups(%Client{} = client, options \\ []) do
     url_path = "/prod/eventbridge-rule-template-groups"
 
@@ -10045,19 +9890,16 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListEventBridgeRuleTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:group_identifier` (`t:string`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:signal_map_identifier` (`t:string`)
   """
-
   @spec list_event_bridge_rule_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_bridge_rule_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_bridge_rule_templates_errors()}
-
   def list_event_bridge_rule_templates(%Client{} = client, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates"
 
@@ -10131,18 +9973,15 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputDeviceTransfers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:transfer_type` (`t:string`)
-
-  ## Optional parameters:
+  * `:transfer_type` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_input_device_transfers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_input_device_transfers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_input_device_transfers_errors()}
-
   def list_input_device_transfers(%Client{} = client, transfer_type, options \\ [])
       when is_binary(transfer_type) do
     url_path = "/prod/inputDeviceTransfers"
@@ -10196,17 +10035,14 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_input_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_input_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_input_devices_errors()}
-
   def list_input_devices(%Client{} = client, options \\ []) do
     url_path = "/prod/inputDevices"
 
@@ -10259,17 +10095,14 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputSecurityGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_input_security_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_input_security_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_input_security_groups_errors()}
-
   def list_input_security_groups(%Client{} = client, options \\ []) do
     url_path = "/prod/inputSecurityGroups"
 
@@ -10322,17 +10155,14 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_inputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_inputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inputs_errors()}
-
   def list_inputs(%Client{} = client, options \\ []) do
     url_path = "/prod/inputs"
 
@@ -10385,18 +10215,15 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListMultiplexPrograms&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:multiplex_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:multiplex_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_multiplex_programs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multiplex_programs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_multiplex_programs_errors()}
-
   def list_multiplex_programs(%Client{} = client, multiplex_id, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs"
 
@@ -10449,17 +10276,14 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListMultiplexes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_multiplexes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_multiplexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_multiplexes_errors()}
-
   def list_multiplexes(%Client{} = client, options \\ []) do
     url_path = "/prod/multiplexes"
 
@@ -10512,8 +10336,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:channel_class` (`t:string`)
   * `:channel_configuration` (`t:string`)
   * `:codec` (`t:string`)
@@ -10527,12 +10350,10 @@ defmodule AWS.MediaLive do
   * `:special_feature` (`t:string`)
   * `:video_quality` (`t:string`)
   """
-
   @spec list_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offerings_errors()}
-
   def list_offerings(%Client{} = client, options \\ []) do
     url_path = "/prod/offerings"
 
@@ -10681,8 +10502,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListReservations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:channel_class` (`t:string`)
   * `:codec` (`t:string`)
   * `:max_results` (`t:integer`)
@@ -10694,12 +10514,10 @@ defmodule AWS.MediaLive do
   * `:special_feature` (`t:string`)
   * `:video_quality` (`t:string`)
   """
-
   @spec list_reservations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reservations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reservations_errors()}
-
   def list_reservations(%Client{} = client, options \\ []) do
     url_path = "/prod/reservations"
 
@@ -10830,19 +10648,16 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListSignalMaps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:cloud_watch_alarm_template_group_identifier` (`t:string`)
   * `:event_bridge_rule_template_group_identifier` (`t:string`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_signal_maps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signal_maps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signal_maps_errors()}
-
   def list_signal_maps(%Client{} = client, options \\ []) do
     url_path = "/prod/signal-maps"
 
@@ -10919,16 +10734,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -10963,23 +10775,20 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20PurchaseOffering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:offering_id` (`t:string`)
+  * `:offering_id` (`t:string` required)
   * `:input` (`t:map`):
-    * `:count` (`t:integer`)
+    * `:count` (`t:integer` required)
     * `:name` (`t:string`)
     * `:renewal_settings` (`t:structure`)
     * `:request_id` (`t:string`)
     * `:start` (`t:string`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec purchase_offering(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_offering_errors()}
-
   def purchase_offering(%Client{} = client, offering_id, input, options \\ [])
       when is_map(input) do
     url_path = "/prod/offerings/#{AWS.Util.encode_uri(offering_id)}/purchase"
@@ -11019,18 +10828,15 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20RebootInputDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
+  * `:input_device_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:force` (`t:enum["NO|YES"]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reboot_input_device(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, reboot_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_input_device_errors()}
-
   def reboot_input_device(%Client{} = client, input_device_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/reboot"
@@ -11068,16 +10874,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20RejectInputDeviceTransfer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_device_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec reject_input_device_transfer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reject_input_device_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_input_device_transfer_errors()}
-
   def reject_input_device_transfer(%Client{} = client, input_device_id, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/reject"
 
@@ -11114,18 +10917,15 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20RestartChannelPipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
+  * `:channel_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:pipeline_ids` (`t:list[com.amazonaws.medialive#ChannelPipelineIdToRestart]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec restart_channel_pipelines(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, restart_channel_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restart_channel_pipelines_errors()}
-
   def restart_channel_pipelines(%Client{} = client, channel_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/restartChannelPipelines"
@@ -11163,16 +10963,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:channel_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_channel_errors()}
-
   def start_channel(%Client{} = client, channel_id, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/start"
 
@@ -11209,16 +11006,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartDeleteMonitorDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_delete_monitor_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_delete_monitor_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_delete_monitor_deployment_errors()}
-
   def start_delete_monitor_deployment(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}/monitor-deployment"
 
@@ -11267,16 +11061,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartInputDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_device_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_input_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_input_device_errors()}
-
   def start_input_device(%Client{} = client, input_device_id, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/start"
 
@@ -11320,16 +11111,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartInputDeviceMaintenanceWindow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_device_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_input_device_maintenance_window(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_input_device_maintenance_window_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_input_device_maintenance_window_errors()}
-
   def start_input_device_maintenance_window(%Client{} = client, input_device_id, options \\ []) do
     url_path =
       "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/startInputDeviceMaintenanceWindow"
@@ -11367,18 +11155,15 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartMonitorDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
+  * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:dry_run` (`t:boolean`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_monitor_deployment(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, start_monitor_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_monitor_deployment_errors()}
-
   def start_monitor_deployment(%Client{} = client, identifier, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}/monitor-deployment"
@@ -11417,16 +11202,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartMultiplex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:multiplex_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:multiplex_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_multiplex(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_multiplex_errors()}
-
   def start_multiplex(%Client{} = client, multiplex_id, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/start"
 
@@ -11464,7 +11246,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartUpdateSignalMap&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
+  * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:cloud_watch_alarm_template_group_identifiers`
   (`t:list[com.amazonaws.medialive#__stringPatternS]`)
@@ -11474,15 +11256,12 @@ defmodule AWS.MediaLive do
   (`t:list[com.amazonaws.medialive#__stringPatternS]`)
     * `:force_rediscovery` (`t:boolean`)
     * `:name` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_update_signal_map(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, start_update_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_update_signal_map_errors()}
-
   def start_update_signal_map(%Client{} = client, identifier, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
@@ -11530,16 +11309,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StopChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:channel_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec stop_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_channel_errors()}
-
   def stop_channel(%Client{} = client, channel_id, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/stop"
 
@@ -11578,16 +11354,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StopInputDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:input_device_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec stop_input_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_input_device_errors()}
-
   def stop_input_device(%Client{} = client, input_device_id, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/stop"
 
@@ -11625,16 +11398,13 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StopMultiplex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:multiplex_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:multiplex_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec stop_multiplex(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_multiplex_errors()}
-
   def stop_multiplex(%Client{} = client, multiplex_id, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/stop"
 
@@ -11672,20 +11442,17 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20TransferInputDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
+  * `:input_device_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:target_customer_id` (`t:string`)
     * `:target_region` (`t:string`)
     * `:transfer_message` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec transfer_input_device(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, transfer_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, transfer_input_device_errors()}
-
   def transfer_input_device(%Client{} = client, input_device_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/transfer"
@@ -11725,15 +11492,12 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input` (`t:map | nil`):
     * `:account_configuration` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_account_configuration(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_configuration_errors()}
-
   def update_account_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/accountConfiguration"
@@ -11771,7 +11535,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
+  * `:channel_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:cdi_input_specification` (`t:structure`)
     * `:destinations` (`t:list[com.amazonaws.medialive#OutputDestination]`)
@@ -11782,15 +11546,12 @@ defmodule AWS.MediaLive do
     * `:maintenance` (`t:structure`)
     * `:name` (`t:string`)
     * `:role_arn` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_channel(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
-
   def update_channel(%Client{} = client, channel_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
@@ -11828,19 +11589,16 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateChannelClass&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_id` (`t:string`)
+  * `:channel_id` (`t:string` required)
   * `:input` (`t:map`):
-    * `:channel_class` (`t:enum["SINGLE_PIPELINE|STANDARD"]`)
+    * `:channel_class` (`t:enum["SINGLE_PIPELINE|STANDARD"]` required)
     * `:destinations` (`t:list[com.amazonaws.medialive#OutputDestination]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_channel_class(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_channel_class_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_class_errors()}
-
   def update_channel_class(%Client{} = client, channel_id, input, options \\ [])
       when is_map(input) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/channelClass"
@@ -11878,7 +11636,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
+  * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:comparison_operator`
   (`t:enum["GreaterThanOrEqualToThreshold|GreaterThanThreshold|LessThanOrEqualToThreshold|LessThanThreshold"]`)
@@ -11894,10 +11652,8 @@ defmodule AWS.MediaLive do
   (`t:enum["CLOUDFRONT_DISTRIBUTION|MEDIACONNECT_FLOW|MEDIALIVE_CHANNEL|MEDIALIVE_INPUT_DEVICE|MEDIALIVE_MULTIPLEX|MEDIAPACKAGE_CHANNEL|MEDIAPACKAGE_ORIGIN_ENDPOINT|S3_BUCKET"]`)
     * `:threshold` (`t:double`)
     * `:treat_missing_data` (`t:enum["breaching|ignore|missing|notBreaching"]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_cloud_watch_alarm_template(
           AWS.Client.t(),
           String.t(),
@@ -11907,7 +11663,6 @@ defmodule AWS.MediaLive do
           {:ok, update_cloud_watch_alarm_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cloud_watch_alarm_template_errors()}
-
   def update_cloud_watch_alarm_template(%Client{} = client, identifier, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
@@ -11955,13 +11710,11 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
+  * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:description` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_cloud_watch_alarm_template_group(
           AWS.Client.t(),
           String.t(),
@@ -11971,7 +11724,6 @@ defmodule AWS.MediaLive do
           {:ok, update_cloud_watch_alarm_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cloud_watch_alarm_template_group_errors()}
-
   def update_cloud_watch_alarm_template_group(
         %Client{} = client,
         identifier,
@@ -12024,7 +11776,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
+  * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:description` (`t:string`)
     * `:event_targets`
@@ -12033,10 +11785,8 @@ defmodule AWS.MediaLive do
   (`t:enum["MEDIACONNECT_ALERT|MEDIACONNECT_FLOW_STATUS_CHANGE|MEDIACONNECT_OUTPUT_HEALTH|MEDIACONNECT_SOURCE_HEALTH|MEDIALIVE_CHANNEL_ALERT|MEDIALIVE_CHANNEL_INPUT_CHANGE|MEDIALIVE_CHANNEL_STATE_CHANGE|MEDIALIVE_MULTIPLEX_ALERT|MEDIALIVE_MULTIPLEX_STATE_CHANGE|MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION|MEDIAPACKAGE_INPUT_NOTIFICATION|MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION|SIGNAL_MAP_ACTIVE_ALARM"]`)
     * `:group_identifier` (`t:string`)
     * `:name` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_event_bridge_rule_template(
           AWS.Client.t(),
           String.t(),
@@ -12046,7 +11796,6 @@ defmodule AWS.MediaLive do
           {:ok, update_event_bridge_rule_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_bridge_rule_template_errors()}
-
   def update_event_bridge_rule_template(%Client{} = client, identifier, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
@@ -12094,13 +11843,11 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`)
+  * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:description` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_event_bridge_rule_template_group(
           AWS.Client.t(),
           String.t(),
@@ -12110,7 +11857,6 @@ defmodule AWS.MediaLive do
           {:ok, update_event_bridge_rule_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_bridge_rule_template_group_errors()}
-
   def update_event_bridge_rule_template_group(
         %Client{} = client,
         identifier,
@@ -12163,7 +11909,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateInput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_id` (`t:string`)
+  * `:input_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:destinations` (`t:list[com.amazonaws.medialive#InputDestinationRequest]`)
     * `:input_devices` (`t:list[com.amazonaws.medialive#InputDeviceRequest]`)
@@ -12174,15 +11920,12 @@ defmodule AWS.MediaLive do
     * `:role_arn` (`t:string`)
     * `:sources` (`t:list[com.amazonaws.medialive#InputSourceRequest]`)
     * `:srt_settings` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_input(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_input_errors()}
-
   def update_input(%Client{} = client, input_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
@@ -12220,21 +11963,18 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateInputDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_device_id` (`t:string`)
+  * `:input_device_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:availability_zone` (`t:string`)
     * `:hd_device_settings` (`t:structure`)
     * `:name` (`t:string`)
     * `:uhd_device_settings` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_input_device(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_input_device_errors()}
-
   def update_input_device(%Client{} = client, input_device_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}"
@@ -12272,19 +12012,16 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateInputSecurityGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_security_group_id` (`t:string`)
+  * `:input_security_group_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`)
     * `:whitelist_rules` (`t:list[com.amazonaws.medialive#InputWhitelistRuleCidr]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_input_security_group(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_input_security_group_errors()}
-
   def update_input_security_group(
         %Client{} = client,
         input_security_group_id,
@@ -12327,19 +12064,16 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateMultiplex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:multiplex_id` (`t:string`)
+  * `:multiplex_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:multiplex_settings` (`t:structure`)
     * `:name` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_multiplex(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_multiplex_errors()}
-
   def update_multiplex(%Client{} = client, multiplex_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
@@ -12377,14 +12111,12 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateMultiplexProgram&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:multiplex_id` (`t:string`)
-  * `:program_name` (`t:string`)
+  * `:multiplex_id` (`t:string` required)
+  * `:program_name` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:multiplex_program_settings` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_multiplex_program(
           AWS.Client.t(),
           String.t(),
@@ -12395,7 +12127,6 @@ defmodule AWS.MediaLive do
           {:ok, update_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_multiplex_program_errors()}
-
   def update_multiplex_program(
         %Client{} = client,
         multiplex_id,
@@ -12440,19 +12171,16 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateReservation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:reservation_id` (`t:string`)
+  * `:reservation_id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:name` (`t:string`)
     * `:renewal_settings` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_reservation(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_reservation_errors()}
-
   def update_reservation(%Client{} = client, reservation_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"

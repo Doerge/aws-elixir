@@ -550,15 +550,12 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20CreateChallenge&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_challenge(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_challenge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_challenge_errors()}
-
   def create_challenge(%Client{} = client, options \\ []) do
     url_path = "/challenges"
 
@@ -600,15 +597,12 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20CreateConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
-
   def create_connector(%Client{} = client, options \\ []) do
     url_path = "/connectors"
 
@@ -646,17 +640,14 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20DeleteChallenge&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:challenge_arn` (`t:string`) The Amazon Resource Name (ARN) of the challenge
-  password to delete.
-
-  ## Optional parameters:
+  * `:challenge_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  challenge password to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_challenge(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_challenge_errors()}
-
   def delete_challenge(%Client{} = client, challenge_arn, options \\ []) do
     url_path = "/challenges/#{AWS.Util.encode_uri(challenge_arn)}"
 
@@ -705,17 +696,14 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20DeleteConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector
-  to delete.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  connector to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
-
   def delete_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
 
@@ -763,16 +751,14 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20GetChallengeMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:challenge_arn` (`t:string`) The Amazon Resource Name (ARN) of the challenge.
-
-  ## Optional parameters:
+  * `:challenge_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  challenge.
+  ## Keyword parameters:
   """
-
   @spec get_challenge_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_challenge_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_challenge_metadata_errors()}
-
   def get_challenge_metadata(%Client{} = client, challenge_arn, options \\ []) do
     url_path = "/challengeMetadata/#{AWS.Util.encode_uri(challenge_arn)}"
 
@@ -808,16 +794,14 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20GetChallengePassword&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:challenge_arn` (`t:string`) The Amazon Resource Name (ARN) of the challenge.
-
-  ## Optional parameters:
+  * `:challenge_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  challenge.
+  ## Keyword parameters:
   """
-
   @spec get_challenge_password(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_challenge_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_challenge_password_errors()}
-
   def get_challenge_password(%Client{} = client, challenge_arn, options \\ []) do
     url_path = "/challengePasswords/#{AWS.Util.encode_uri(challenge_arn)}"
 
@@ -855,16 +839,14 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20GetConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  connector.
+  ## Keyword parameters:
   """
-
   @spec get_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connector_errors()}
-
   def get_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
 
@@ -899,9 +881,9 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20ListChallengeMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  connector.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want
   Connector for SCEP to return for this request. If more objects are
   available, in the response, Connector for SCEP provides a NextToken value
@@ -912,12 +894,10 @@ defmodule AWS.PcaConnectorScep do
   NextToken value in the response. To retrieve the next batch of objects, use
   the token returned from the prior request in your next request.
   """
-
   @spec list_challenge_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_challenge_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_challenge_metadata_errors()}
-
   def list_challenge_metadata(%Client{} = client, connector_arn, options \\ [])
       when is_binary(connector_arn) do
     url_path = "/challengeMetadata"
@@ -971,8 +951,7 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20ListConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want
   Connector for SCEP to return for this request. If more objects are
   available, in the response, Connector for SCEP provides a NextToken value
@@ -983,12 +962,10 @@ defmodule AWS.PcaConnectorScep do
   NextToken value in the response. To retrieve the next batch of objects, use
   the token returned from the prior request in your next request.
   """
-
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
-
   def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/connectors"
 
@@ -1045,16 +1022,14 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1089,16 +1064,14 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1135,18 +1108,16 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[smithy.api#String]`) Specifies a list of tag keys that
-  you want to remove from the specified resources.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) Specifies a list of tag
+  keys that you want to remove from the specified resources.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

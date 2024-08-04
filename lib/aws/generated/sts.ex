@@ -442,6 +442,7 @@ defmodule AWS.STS do
   end
 
   @doc """
+   
   Returns a set of temporary security credentials that you can use to access
   Amazon Web Services resources. These temporary credentials consist of an
   access key ID, a secret access key, and a security token. Typically, you use
@@ -475,12 +476,10 @@ defmodule AWS.STS do
       required("RoleSessionName") => String.t()
     }
   """
-
   @spec assume_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, assume_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_role_errors()}
-
   def assume_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -489,6 +488,7 @@ defmodule AWS.STS do
   end
 
   @doc """
+   
   Returns a set of temporary security credentials for users who have been
   authenticated via a SAML authentication response. This operation provides a
   mechanism for tying an enterprise identity store or directory to role-based
@@ -516,12 +516,10 @@ defmodule AWS.STS do
       required("SAMLAssertion") => String.t()
     }
   """
-
   @spec assume_role_with_saml(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, assume_role_with_saml_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_role_with_saml_errors()}
-
   def assume_role_with_saml(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -530,6 +528,7 @@ defmodule AWS.STS do
   end
 
   @doc """
+   
   Returns a set of temporary security credentials for users who have been
   authenticated in a mobile or web application with a web identity provider.
   Example providers include the OAuth 2.0 providers Login with Amazon and
@@ -576,12 +575,10 @@ defmodule AWS.STS do
       required("WebIdentityToken") => String.t()
     }
   """
-
   @spec assume_role_with_web_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, assume_role_with_web_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_role_with_web_identity_errors()}
-
   def assume_role_with_web_identity(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -591,6 +588,7 @@ defmodule AWS.STS do
   end
 
   @doc """
+   
   Decodes additional information about the authorization status of a request from
   an encoded message returned in response to an Amazon Web Services request. For
   example, if a user is not authorized to perform an operation that he or she
@@ -607,12 +605,10 @@ defmodule AWS.STS do
       required("EncodedMessage") => String.t()
     }
   """
-
   @spec decode_authorization_message(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, decode_authorization_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decode_authorization_message_errors()}
-
   def decode_authorization_message(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -621,6 +617,7 @@ defmodule AWS.STS do
   end
 
   @doc """
+   
   Returns the account identifier for the specified access key ID. Access keys
   consist of two parts: an access key ID (for example, `AKIAIOSFODNN7EXAMPLE`)
   and a secret access key (for example,
@@ -648,11 +645,9 @@ defmodule AWS.STS do
       required("AccessKeyId") => String.t()
     }
   """
-
   @spec get_access_key_info(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_access_key_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_key_info(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -661,6 +656,7 @@ defmodule AWS.STS do
   end
 
   @doc """
+   
   Returns details about the IAM user or role whose credentials are used to call
   the operation.
 
@@ -672,11 +668,9 @@ defmodule AWS.STS do
       
     }
   """
-
   @spec get_caller_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_caller_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_caller_identity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -685,6 +679,7 @@ defmodule AWS.STS do
   end
 
   @doc """
+   
   Returns a set of temporary security credentials (consisting of an access key ID,
   a secret access key, and a security token) for a user. A typical use is in a
   proxy application that gets temporary security credentials on behalf of
@@ -717,12 +712,10 @@ defmodule AWS.STS do
       required("Name") => String.t()
     }
   """
-
   @spec get_federation_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_federation_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_federation_token_errors()}
-
   def get_federation_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -731,6 +724,7 @@ defmodule AWS.STS do
   end
 
   @doc """
+   
   Returns a set of temporary credentials for an Amazon Web Services account or IAM
   user. The credentials consist of an access key ID, a secret access key, and a
   security token. Typically, you use `GetSessionToken` if you want to use MFA to
@@ -762,12 +756,10 @@ defmodule AWS.STS do
       optional("TokenCode") => String.t()
     }
   """
-
   @spec get_session_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_session_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_token_errors()}
-
   def get_session_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

@@ -1390,16 +1390,13 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20CreatePipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the pipe.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the pipe.
+  ## Keyword parameters:
   """
-
   @spec create_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipe_errors()}
-
   def create_pipe(%Client{} = client, name, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
 
@@ -1439,16 +1436,13 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20DeletePipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the pipe.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the pipe.
+  ## Keyword parameters:
   """
-
   @spec delete_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipe_errors()}
-
   def delete_pipe(%Client{} = client, name, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
 
@@ -1498,16 +1492,13 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20DescribePipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the pipe.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the pipe.
+  ## Keyword parameters:
   """
-
   @spec describe_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipe_errors()}
-
   def describe_pipe(%Client{} = client, name, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
 
@@ -1545,8 +1536,7 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20ListPipes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:current_state` (`t:string`) The state the pipe is in.
   * `:desired_state` (`t:string`) The state the pipe should be in.
   * `:limit` (`t:integer`) The maximum number of pipes to include in the response.
@@ -1562,12 +1552,10 @@ defmodule AWS.Pipes do
   * `:source_prefix` (`t:string`) The prefix matching the pipe source.
   * `:target_prefix` (`t:string`) The prefix matching the pipe target.
   """
-
   @spec list_pipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipes_errors()}
-
   def list_pipes(%Client{} = client, options \\ []) do
     url_path = "/v1/pipes"
 
@@ -1671,17 +1659,14 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the pipe for which you want to view
-  tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the pipe for which you want
+  to view tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1716,16 +1701,13 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20StartPipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the pipe.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the pipe.
+  ## Keyword parameters:
   """
-
   @spec start_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_pipe_errors()}
-
   def start_pipe(%Client{} = client, name, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}/start"
 
@@ -1762,16 +1744,13 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20StopPipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the pipe.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the pipe.
+  ## Keyword parameters:
   """
-
   @spec stop_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_pipe_errors()}
-
   def stop_pipe(%Client{} = client, name, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}/stop"
 
@@ -1812,16 +1791,13 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the pipe.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the pipe.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1858,18 +1834,15 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the pipe.
-  * `:tag_keys` (`t:list[com.amazonaws.pipes#TagKey]`) The list of tag keys to
-  remove from the pipe.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the pipe.
+  * `:tag_keys` (`t:list[com.amazonaws.pipes#TagKey]` required) The list of tag
+  keys to remove from the pipe.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1926,16 +1899,13 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20UpdatePipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the pipe.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the pipe.
+  ## Keyword parameters:
   """
-
   @spec update_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipe_errors()}
-
   def update_pipe(%Client{} = client, name, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
 

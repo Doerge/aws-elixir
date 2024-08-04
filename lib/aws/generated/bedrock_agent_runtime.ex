@@ -1492,19 +1492,17 @@ defmodule AWS.BedrockAgentRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20DeleteAgentMemory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_alias_id` (`t:string`) The unique identifier of an alias of an agent.
-  * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias
-  belongs.
-
-  ## Optional parameters:
+  * `:agent_alias_id` (`t:string` required) The unique identifier of an alias of
+  an agent.
+  * `:agent_id` (`t:string` required) The unique identifier of the agent to which
+  the alias belongs.
+  ## Keyword parameters:
   * `:memory_id` (`t:string`) The unique identifier of the memory.
   """
-
   @spec delete_agent_memory(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_agent_memory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agent_memory_errors()}
-
   def delete_agent_memory(%Client{} = client, agent_alias_id, agent_id, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/memories"
@@ -1563,13 +1561,13 @@ defmodule AWS.BedrockAgentRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20GetAgentMemory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_alias_id` (`t:string`) The unique identifier of an alias of an agent.
-  * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias
-  belongs.
-  * `:memory_id` (`t:string`) The unique identifier of the memory.
-  * `:memory_type` (`t:enum["SESSION_SUMMARY"]`) The type of memory.
-
-  ## Optional parameters:
+  * `:agent_alias_id` (`t:string` required) The unique identifier of an alias of
+  an agent.
+  * `:agent_id` (`t:string` required) The unique identifier of the agent to which
+  the alias belongs.
+  * `:memory_id` (`t:string` required) The unique identifier of the memory.
+  * `:memory_type` (`t:enum["SESSION_SUMMARY"]` required) The type of memory.
+  ## Keyword parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return in the
   response. If the total number of results is greater than this value, use the
   token returned in the response in the nextToken field when making another
@@ -1579,7 +1577,6 @@ defmodule AWS.BedrockAgentRuntime do
   nextToken field in the response in this field to return the next batch of
   results.
   """
-
   @spec get_agent_memory(
           AWS.Client.t(),
           String.t(),
@@ -1591,7 +1588,6 @@ defmodule AWS.BedrockAgentRuntime do
           {:ok, get_agent_memory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_memory_errors()}
-
   def get_agent_memory(
         %Client{} = client,
         agent_alias_id,
@@ -1655,19 +1651,16 @@ defmodule AWS.BedrockAgentRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20InvokeAgent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_alias_id` (`t:string`) The alias of the agent to use.
-  * `:agent_id` (`t:string`) The unique identifier of the agent to use.
-  * `:session_id` (`t:string`) The unique identifier of the session. Use the same
-  value across requests to continue the same conversation.
-
-  ## Optional parameters:
+  * `:agent_alias_id` (`t:string` required) The alias of the agent to use.
+  * `:agent_id` (`t:string` required) The unique identifier of the agent to use.
+  * `:session_id` (`t:string` required) The unique identifier of the session. Use
+  the same value across requests to continue the same conversation.
+  ## Keyword parameters:
   """
-
   @spec invoke_agent(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, invoke_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_agent_errors()}
-
   def invoke_agent(%Client{} = client, agent_alias_id, agent_id, session_id, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/text"
@@ -1730,17 +1723,15 @@ defmodule AWS.BedrockAgentRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20InvokeFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_alias_identifier` (`t:string`) The unique identifier of the flow alias.
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
-
-  ## Optional parameters:
+  * `:flow_alias_identifier` (`t:string` required) The unique identifier of the
+  flow alias.
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
+  ## Keyword parameters:
   """
-
   @spec invoke_flow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, invoke_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_flow_errors()}
-
   def invoke_flow(%Client{} = client, flow_alias_identifier, flow_identifier, options \\ []) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(flow_alias_identifier)}"
@@ -1778,17 +1769,14 @@ defmodule AWS.BedrockAgentRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20Retrieve&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  to query.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base to query.
+  ## Keyword parameters:
   """
-
   @spec retrieve(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, retrieve_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_errors()}
-
   def retrieve(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/retrieve"
 
@@ -1826,15 +1814,12 @@ defmodule AWS.BedrockAgentRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20RetrieveAndGenerate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec retrieve_and_generate(AWS.Client.t(), Keyword.t()) ::
           {:ok, retrieve_and_generate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_and_generate_errors()}
-
   def retrieve_and_generate(%Client{} = client, options \\ []) do
     url_path = "/retrieveAndGenerate"
 

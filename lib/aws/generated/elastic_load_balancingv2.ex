@@ -2570,6 +2570,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Adds the specified SSL server certificate to the certificate list for the
   specified HTTPS or TLS listener. If the certificate in already in the
   certificate list, the call is successful but the certificate is not added
@@ -2584,12 +2585,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec add_listener_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_listener_certificates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_listener_certificates_errors()}
-
   def add_listener_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2598,6 +2597,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Adds the specified tags to the specified Elastic Load Balancing resource. You
   can tag your Application Load Balancers, Network Load Balancers, Gateway Load
   Balancers, target groups, trust stores, listeners, and rules.
@@ -2611,12 +2611,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("Tags") => list(tag()())
     }
   """
-
   @spec add_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
-
   def add_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2625,6 +2623,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Adds the specified revocation file to the specified trust store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20AddTrustStoreRevocations&this_doc_guide=API%2520Reference)
@@ -2636,12 +2635,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TrustStoreArn") => String.t()
     }
   """
-
   @spec add_trust_store_revocations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_trust_store_revocations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_trust_store_revocations_errors()}
-
   def add_trust_store_revocations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2650,6 +2647,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Creates a listener for the specified Application Load Balancer, Network Load
   Balancer, or Gateway Load Balancer. For more information, see the following:
 
@@ -2669,12 +2667,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("LoadBalancerArn") => String.t()
     }
   """
-
   @spec create_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_listener_errors()}
-
   def create_listener(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2683,6 +2679,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
   Balancer. For more information, see the following:
 
@@ -2702,12 +2699,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("Name") => String.t()
     }
   """
-
   @spec create_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_load_balancer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_load_balancer_errors()}
-
   def create_load_balancer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2716,6 +2711,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Creates a rule for the specified listener. The listener must be associated with
   an Application Load Balancer.
 
@@ -2731,12 +2727,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("Priority") => integer()
     }
   """
-
   @spec create_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
-
   def create_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2745,6 +2739,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Creates a target group. For more information, see the following:
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20CreateTargetGroup&this_doc_guide=API%2520Reference)
@@ -2771,12 +2766,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("Name") => String.t()
     }
   """
-
   @spec create_target_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_target_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_target_group_errors()}
-
   def create_target_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2785,6 +2778,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Creates a trust store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20CreateTrustStore&this_doc_guide=API%2520Reference)
@@ -2799,12 +2793,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("Name") => String.t()
     }
   """
-
   @spec create_trust_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_trust_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trust_store_errors()}
-
   def create_trust_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2813,6 +2805,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Deletes the specified listener.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20DeleteListener&this_doc_guide=API%2520Reference)
@@ -2823,12 +2816,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec delete_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_listener_errors()}
-
   def delete_listener(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2837,6 +2828,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Deletes the specified Application Load Balancer, Network Load Balancer, or
   Gateway Load Balancer. Deleting a load balancer also deletes its listeners.
   You can't delete a load balancer if deletion protection is enabled. If the
@@ -2850,12 +2842,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("LoadBalancerArn") => String.t()
     }
   """
-
   @spec delete_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_load_balancer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_load_balancer_errors()}
-
   def delete_load_balancer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2864,6 +2854,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Deletes the specified rule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20DeleteRule&this_doc_guide=API%2520Reference)
@@ -2874,12 +2865,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("RuleArn") => String.t()
     }
   """
-
   @spec delete_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
-
   def delete_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2888,6 +2877,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Deletes a shared trust store association.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20DeleteSharedTrustStoreAssociation&this_doc_guide=API%2520Reference)
@@ -2899,12 +2889,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TrustStoreArn") => String.t()
     }
   """
-
   @spec delete_shared_trust_store_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_shared_trust_store_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_shared_trust_store_association_errors()}
-
   def delete_shared_trust_store_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2914,6 +2902,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Deletes the specified target group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20DeleteTargetGroup&this_doc_guide=API%2520Reference)
@@ -2924,12 +2913,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TargetGroupArn") => String.t()
     }
   """
-
   @spec delete_target_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_target_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_target_group_errors()}
-
   def delete_target_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2938,6 +2925,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Deletes a trust store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20DeleteTrustStore&this_doc_guide=API%2520Reference)
@@ -2948,12 +2936,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TrustStoreArn") => String.t()
     }
   """
-
   @spec delete_trust_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_trust_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trust_store_errors()}
-
   def delete_trust_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2962,6 +2948,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Deregisters the specified targets from the specified target group. After the
   targets are deregistered, they no longer receive traffic from the load
   balancer. The load balancer stops sending requests to targets that are
@@ -2978,12 +2965,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("Targets") => list(target_description()())
     }
   """
-
   @spec deregister_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_targets_errors()}
-
   def deregister_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2992,6 +2977,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the current Elastic Load Balancing resource limits for your Amazon Web
   Services account. For more information, see the following:
 
@@ -3004,11 +2990,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
       optional("PageSize") => integer()
     }
   """
-
   @spec describe_account_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_account_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3017,6 +3001,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the default certificate and the certificate list for the specified
   HTTPS or TLS listener. If the default certificate is also in the certificate
   list, it appears twice in the results (once with `IsDefault` set to true and
@@ -3032,12 +3017,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec describe_listener_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_listener_certificates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_listener_certificates_errors()}
-
   def describe_listener_certificates(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3047,6 +3030,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the specified listeners or the listeners for the specified Application
   Load Balancer, Network Load Balancer, or Gateway Load Balancer. You must
   specify either a load balancer or one or more listeners.
@@ -3062,12 +3046,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       optional("PageSize") => integer()
     }
   """
-
   @spec describe_listeners(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_listeners_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_listeners_errors()}
-
   def describe_listeners(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3076,6 +3058,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the attributes for the specified Application Load Balancer, Network
   Load Balancer, or Gateway Load Balancer. For more information, see the
   following:
@@ -3088,12 +3071,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("LoadBalancerArn") => String.t()
     }
   """
-
   @spec describe_load_balancer_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_load_balancer_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_balancer_attributes_errors()}
-
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3103,6 +3084,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the specified load balancers or all of your load balancers.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20DescribeLoadBalancers&this_doc_guide=API%2520Reference)
@@ -3116,12 +3098,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       optional("PageSize") => integer()
     }
   """
-
   @spec describe_load_balancers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_load_balancers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_balancers_errors()}
-
   def describe_load_balancers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3130,6 +3110,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the specified rules or the rules for the specified listener. You must
   specify either a listener or one or more rules.
 
@@ -3144,12 +3125,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       optional("RuleArns") => list(String.t()())
     }
   """
-
   @spec describe_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rules_errors()}
-
   def describe_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3158,6 +3137,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the specified policies or all policies used for SSL negotiation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20DescribeSSLPolicies&this_doc_guide=API%2520Reference)
@@ -3171,12 +3151,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       optional("PageSize") => integer()
     }
   """
-
   @spec describe_ssl_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ssl_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ssl_policies_errors()}
-
   def describe_ssl_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3185,6 +3163,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the tags for the specified Elastic Load Balancing resources. You can
   describe the tags for one or more Application Load Balancers, Network Load
   Balancers, Gateway Load Balancers, target groups, listeners, or rules.
@@ -3197,12 +3176,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("ResourceArns") => list(String.t()())
     }
   """
-
   @spec describe_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
-
   def describe_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3211,6 +3188,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the attributes for the specified target group. For more information,
   see the following:
 
@@ -3222,12 +3200,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TargetGroupArn") => String.t()
     }
   """
-
   @spec describe_target_group_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_target_group_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_target_group_attributes_errors()}
-
   def describe_target_group_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3237,6 +3213,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the specified target groups or all of your target groups. By default,
   all target groups are described. Alternatively, you can specify one of the
   following to filter the results: the ARN of the load balancer, the names of
@@ -3254,12 +3231,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       optional("TargetGroupArns") => list(String.t()())
     }
   """
-
   @spec describe_target_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_target_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_target_groups_errors()}
-
   def describe_target_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3268,6 +3243,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the health of the specified targets or all of your targets.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20DescribeTargetHealth&this_doc_guide=API%2520Reference)
@@ -3280,12 +3256,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TargetGroupArn") => String.t()
     }
   """
-
   @spec describe_target_health(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_target_health_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_target_health_errors()}
-
   def describe_target_health(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3294,6 +3268,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes all resources associated with the specified trust store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20DescribeTrustStoreAssociations&this_doc_guide=API%2520Reference)
@@ -3306,12 +3281,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TrustStoreArn") => String.t()
     }
   """
-
   @spec describe_trust_store_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trust_store_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trust_store_associations_errors()}
-
   def describe_trust_store_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3321,6 +3294,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes the revocation files in use by the specified trust store or revocation
   files.
 
@@ -3335,12 +3309,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TrustStoreArn") => String.t()
     }
   """
-
   @spec describe_trust_store_revocations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trust_store_revocations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trust_store_revocations_errors()}
-
   def describe_trust_store_revocations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3350,6 +3322,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Describes all trust stores for the specified account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20DescribeTrustStores&this_doc_guide=API%2520Reference)
@@ -3363,12 +3336,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       optional("TrustStoreArns") => list(String.t()())
     }
   """
-
   @spec describe_trust_stores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trust_stores_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trust_stores_errors()}
-
   def describe_trust_stores(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3377,6 +3348,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Retrieves the resource policy for a specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20GetResourcePolicy&this_doc_guide=API%2520Reference)
@@ -3387,12 +3359,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec get_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-
   def get_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3401,6 +3371,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Retrieves the ca certificate bundle.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20GetTrustStoreCaCertificatesBundle&this_doc_guide=API%2520Reference)
@@ -3411,12 +3382,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TrustStoreArn") => String.t()
     }
   """
-
   @spec get_trust_store_ca_certificates_bundle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_trust_store_ca_certificates_bundle_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trust_store_ca_certificates_bundle_errors()}
-
   def get_trust_store_ca_certificates_bundle(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3426,6 +3395,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Retrieves the specified revocation file.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20GetTrustStoreRevocationContent&this_doc_guide=API%2520Reference)
@@ -3437,12 +3407,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TrustStoreArn") => String.t()
     }
   """
-
   @spec get_trust_store_revocation_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_trust_store_revocation_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trust_store_revocation_content_errors()}
-
   def get_trust_store_revocation_content(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3452,6 +3420,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Replaces the specified properties of the specified listener. Any properties that
   you do not specify remain unchanged. Changing the protocol from HTTPS to HTTP,
   or from TLS to TCP, removes the security policy and default certificate
@@ -3473,12 +3442,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec modify_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_listener_errors()}
-
   def modify_listener(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3487,6 +3454,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Modifies the specified attributes of the specified Application Load Balancer,
   Network Load Balancer, or Gateway Load Balancer.
 
@@ -3499,12 +3467,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("LoadBalancerArn") => String.t()
     }
   """
-
   @spec modify_load_balancer_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_load_balancer_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_load_balancer_attributes_errors()}
-
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3514,6 +3480,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Replaces the specified properties of the specified rule. Any properties that you
   do not specify are unchanged.
 
@@ -3527,12 +3494,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("RuleArn") => String.t()
     }
   """
-
   @spec modify_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_rule_errors()}
-
   def modify_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3541,6 +3506,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Modifies the health checks used when evaluating the health state of the targets
   in the specified target group.
 
@@ -3561,12 +3527,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TargetGroupArn") => String.t()
     }
   """
-
   @spec modify_target_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_target_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_target_group_errors()}
-
   def modify_target_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3575,6 +3539,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Modifies the specified attributes of the specified target group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20ModifyTargetGroupAttributes&this_doc_guide=API%2520Reference)
@@ -3586,12 +3551,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TargetGroupArn") => String.t()
     }
   """
-
   @spec modify_target_group_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_target_group_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_target_group_attributes_errors()}
-
   def modify_target_group_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3601,6 +3564,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Update the ca certificate bundle for the specified trust store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20ModifyTrustStore&this_doc_guide=API%2520Reference)
@@ -3614,12 +3578,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TrustStoreArn") => String.t()
     }
   """
-
   @spec modify_trust_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_trust_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_trust_store_errors()}
-
   def modify_trust_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3628,6 +3590,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Registers the specified targets with the specified target group. If the target
   is an EC2 instance, it must be in the `running` state when you register it.
 
@@ -3640,12 +3603,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("Targets") => list(target_description()())
     }
   """
-
   @spec register_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_targets_errors()}
-
   def register_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3654,6 +3615,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Removes the specified certificate from the certificate list for the specified
   HTTPS or TLS listener.
 
@@ -3666,12 +3628,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("ListenerArn") => String.t()
     }
   """
-
   @spec remove_listener_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_listener_certificates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_listener_certificates_errors()}
-
   def remove_listener_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3680,6 +3640,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Removes the specified tags from the specified Elastic Load Balancing resources.
   You can remove the tags for one or more Application Load Balancers, Network
   Load Balancers, Gateway Load Balancers, target groups, listeners, or rules.
@@ -3693,12 +3654,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec remove_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_errors()}
-
   def remove_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3707,6 +3666,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Removes the specified revocation file from the specified trust store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20RemoveTrustStoreRevocations&this_doc_guide=API%2520Reference)
@@ -3718,12 +3678,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("TrustStoreArn") => String.t()
     }
   """
-
   @spec remove_trust_store_revocations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_trust_store_revocations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_trust_store_revocations_errors()}
-
   def remove_trust_store_revocations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3733,6 +3691,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Sets the type of IP addresses used by the subnets of the specified load
   balancer.
 
@@ -3745,12 +3704,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("LoadBalancerArn") => String.t()
     }
   """
-
   @spec set_ip_address_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_ip_address_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_ip_address_type_errors()}
-
   def set_ip_address_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3759,6 +3716,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Sets the priorities of the specified rules.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancingv2%20SetRulePriorities&this_doc_guide=API%2520Reference)
@@ -3769,12 +3727,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("RulePriorities") => list(rule_priority_pair()())
     }
   """
-
   @spec set_rule_priorities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_rule_priorities_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_rule_priorities_errors()}
-
   def set_rule_priorities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3783,6 +3739,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Associates the specified security groups with the specified Application Load
   Balancer or Network Load Balancer. The specified security groups override the
   previously associated security groups. You can't perform this operation on a
@@ -3799,12 +3756,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("SecurityGroups") => list(String.t()())
     }
   """
-
   @spec set_security_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_security_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_security_groups_errors()}
-
   def set_security_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3813,6 +3768,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+   
   Enables the Availability Zones for the specified public subnets for the
   specified Application Load Balancer, Network Load Balancer or Gateway Load
   Balancer. The specified subnets replace the previously enabled subnets.
@@ -3828,12 +3784,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
       required("LoadBalancerArn") => String.t()
     }
   """
-
   @spec set_subnets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_subnets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_subnets_errors()}
-
   def set_subnets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

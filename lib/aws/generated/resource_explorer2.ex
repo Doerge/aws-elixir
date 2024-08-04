@@ -885,15 +885,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20AssociateDefaultView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_default_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_default_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_default_view_errors()}
-
   def associate_default_view(%Client{} = client, options \\ []) do
     url_path = "/AssociateDefaultView"
 
@@ -930,15 +927,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20BatchGetView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_view_errors()}
-
   def batch_get_view(%Client{} = client, options \\ []) do
     url_path = "/BatchGetView"
 
@@ -990,15 +984,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20CreateIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_index_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_index_errors()}
-
   def create_index(%Client{} = client, options \\ []) do
     url_path = "/CreateIndex"
 
@@ -1044,15 +1035,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20CreateView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_view_errors()}
-
   def create_view(%Client{} = client, options \\ []) do
     url_path = "/CreateView"
 
@@ -1095,15 +1083,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20DeleteIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_index_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_index_errors()}
-
   def delete_index(%Client{} = client, options \\ []) do
     url_path = "/DeleteIndex"
 
@@ -1140,15 +1125,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20DeleteView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_view_errors()}
-
   def delete_view(%Client{} = client, options \\ []) do
     url_path = "/DeleteView"
 
@@ -1188,15 +1170,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20DisassociateDefaultView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_default_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_default_view_errors()}
-
   def disassociate_default_view(%Client{} = client, options \\ []) do
     url_path = "/DisassociateDefaultView"
 
@@ -1236,15 +1215,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20GetAccountLevelServiceConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_account_level_service_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_level_service_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_level_service_configuration_errors()}
-
   def get_account_level_service_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetAccountLevelServiceConfiguration"
 
@@ -1283,15 +1259,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20GetDefaultView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_default_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_default_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_default_view_errors()}
-
   def get_default_view(%Client{} = client, options \\ []) do
     url_path = "/GetDefaultView"
 
@@ -1329,15 +1302,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20GetIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_index_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_index_errors()}
-
   def get_index(%Client{} = client, options \\ []) do
     url_path = "/GetIndex"
 
@@ -1374,15 +1344,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20GetView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_view_errors()}
-
   def get_view(%Client{} = client, options \\ []) do
     url_path = "/GetView"
 
@@ -1421,15 +1388,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20ListIndexes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_indexes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indexes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indexes_errors()}
-
   def list_indexes(%Client{} = client, options \\ []) do
     url_path = "/ListIndexes"
 
@@ -1469,15 +1433,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20ListIndexesForMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_indexes_for_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indexes_for_members_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indexes_for_members_errors()}
-
   def list_indexes_for_members(%Client{} = client, options \\ []) do
     url_path = "/ListIndexesForMembers"
 
@@ -1515,15 +1476,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20ListSupportedResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_supported_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_supported_resource_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_supported_resource_types_errors()}
-
   def list_supported_resource_types(%Client{} = client, options \\ []) do
     url_path = "/ListSupportedResourceTypes"
 
@@ -1560,17 +1518,14 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) of the view or
-  index that you want to attach tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon resource name (ARN) of the
+  view or index that you want to attach tags to.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1608,15 +1563,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20ListViews&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_views(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_views_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_views_errors()}
-
   def list_views(%Client{} = client, options \\ []) do
     url_path = "/ListViews"
 
@@ -1659,15 +1611,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20Search&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_errors()}
-
   def search(%Client{} = client, options \\ []) do
     url_path = "/Search"
 
@@ -1705,17 +1654,14 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the view or
-  index that you want to attach tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  view or index that you want to attach tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1753,19 +1699,16 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the view or
-  index that you want to remove tags from.
-  * `:tag_keys` (`t:list[smithy.api#String]`) A list of the keys for the tags that
-  you want to remove from the specified view or index.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  view or index that you want to remove tags from.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) A list of the keys for the
+  tags that you want to remove from the specified view or index.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1818,15 +1761,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20UpdateIndexType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_index_type(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_index_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_index_type_errors()}
-
   def update_index_type(%Client{} = client, options \\ []) do
     url_path = "/UpdateIndexType"
 
@@ -1864,15 +1804,12 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20UpdateView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_view_errors()}
-
   def update_view(%Client{} = client, options \\ []) do
     url_path = "/UpdateView"
 

@@ -2887,18 +2887,16 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddBridgeOutputs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bridge_arn` (`t:string`)
+  * `:bridge_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddBridgeOutputRequest]`)
-
-  ## Optional parameters:
+    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddBridgeOutputRequest]`
+  required)
+  ## Keyword parameters:
   """
-
   @spec add_bridge_outputs(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_bridge_outputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_bridge_outputs_errors()}
-
   def add_bridge_outputs(%Client{} = client, bridge_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs"
@@ -2936,18 +2934,16 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddBridgeSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bridge_arn` (`t:string`)
+  * `:bridge_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:sources` (`t:list[com.amazonaws.mediaconnect#AddBridgeSourceRequest]`)
-
-  ## Optional parameters:
+    * `:sources` (`t:list[com.amazonaws.mediaconnect#AddBridgeSourceRequest]`
+  required)
+  ## Keyword parameters:
   """
-
   @spec add_bridge_sources(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_bridge_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_bridge_sources_errors()}
-
   def add_bridge_sources(%Client{} = client, bridge_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources"
@@ -2987,18 +2983,16 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowMediaStreams&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
+  * `:flow_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:media_streams` (`t:list[com.amazonaws.mediaconnect#AddMediaStreamRequest]`)
-
-  ## Optional parameters:
+    * `:media_streams` (`t:list[com.amazonaws.mediaconnect#AddMediaStreamRequest]`
+  required)
+  ## Keyword parameters:
   """
-
   @spec add_flow_media_streams(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_media_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_media_streams_errors()}
-
   def add_flow_media_streams(%Client{} = client, flow_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams"
@@ -3036,18 +3030,15 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowOutputs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
+  * `:flow_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddOutputRequest]`)
-
-  ## Optional parameters:
+    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddOutputRequest]` required)
+  ## Keyword parameters:
   """
-
   @spec add_flow_outputs(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_outputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_outputs_errors()}
-
   def add_flow_outputs(%Client{} = client, flow_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs"
 
@@ -3084,18 +3075,15 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
+  * `:flow_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:sources` (`t:list[com.amazonaws.mediaconnect#SetSourceRequest]`)
-
-  ## Optional parameters:
+    * `:sources` (`t:list[com.amazonaws.mediaconnect#SetSourceRequest]` required)
+  ## Keyword parameters:
   """
-
   @spec add_flow_sources(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_sources_errors()}
-
   def add_flow_sources(%Client{} = client, flow_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source"
 
@@ -3132,18 +3120,16 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowVpcInterfaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
+  * `:flow_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:vpc_interfaces` (`t:list[com.amazonaws.mediaconnect#VpcInterfaceRequest]`)
-
-  ## Optional parameters:
+    * `:vpc_interfaces` (`t:list[com.amazonaws.mediaconnect#VpcInterfaceRequest]`
+  required)
+  ## Keyword parameters:
   """
-
   @spec add_flow_vpc_interfaces(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_vpc_interfaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_vpc_interfaces_errors()}
-
   def add_flow_vpc_interfaces(%Client{} = client, flow_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/vpcInterfaces"
@@ -3182,22 +3168,20 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string`)
-    * `:placement_arn` (`t:string`)
-    * `:sources` (`t:list[com.amazonaws.mediaconnect#AddBridgeSourceRequest]`)
+    * `:name` (`t:string` required)
+    * `:placement_arn` (`t:string` required)
+    * `:sources` (`t:list[com.amazonaws.mediaconnect#AddBridgeSourceRequest]`
+  required)
     * `:egress_gateway_bridge` (`t:structure`)
     * `:ingress_gateway_bridge` (`t:structure`)
     * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddBridgeOutputRequest]`)
     * `:source_failover_config` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_bridge(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bridge_errors()}
-
   def create_bridge(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/bridges"
 
@@ -3236,7 +3220,7 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string`)
+    * `:name` (`t:string` required)
     * `:availability_zone` (`t:string`)
     * `:entitlements` (`t:list[com.amazonaws.mediaconnect#GrantEntitlementRequest]`)
     * `:maintenance` (`t:structure`)
@@ -3246,15 +3230,12 @@ defmodule AWS.MediaConnect do
     * `:source_failover_config` (`t:structure`)
     * `:sources` (`t:list[com.amazonaws.mediaconnect#SetSourceRequest]`)
     * `:vpc_interfaces` (`t:list[com.amazonaws.mediaconnect#VpcInterfaceRequest]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_flow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_errors()}
-
   def create_flow(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/flows"
 
@@ -3292,18 +3273,15 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:egress_cidr_blocks` (`t:list[com.amazonaws.mediaconnect#__string]`)
-    * `:name` (`t:string`)
-    * `:networks` (`t:list[com.amazonaws.mediaconnect#GatewayNetwork]`)
-
-  ## Optional parameters:
+    * `:egress_cidr_blocks` (`t:list[com.amazonaws.mediaconnect#__string]` required)
+    * `:name` (`t:string` required)
+    * `:networks` (`t:list[com.amazonaws.mediaconnect#GatewayNetwork]` required)
+  ## Keyword parameters:
   """
-
   @spec create_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_gateway_errors()}
-
   def create_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/gateways"
 
@@ -3340,16 +3318,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeleteBridge&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bridge_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:bridge_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_bridge(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bridge_errors()}
-
   def delete_bridge(%Client{} = client, bridge_arn, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
 
@@ -3396,16 +3371,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeleteFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:flow_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_errors()}
-
   def delete_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
 
@@ -3453,16 +3425,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeleteGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:gateway_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_errors()}
-
   def delete_gateway(%Client{} = client, gateway_arn, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
 
@@ -3511,17 +3480,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeregisterGatewayInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_instance_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:gateway_instance_arn` (`t:string` required)
+  ## Keyword parameters:
   * `:force` (`t:boolean`)
   """
-
   @spec deregister_gateway_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_gateway_instance_errors()}
-
   def deregister_gateway_instance(%Client{} = client, gateway_instance_arn, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
 
@@ -3579,16 +3545,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeBridge&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bridge_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:bridge_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_bridge(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bridge_errors()}
-
   def describe_bridge(%Client{} = client, bridge_arn, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
 
@@ -3625,16 +3588,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:flow_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_errors()}
-
   def describe_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
 
@@ -3670,16 +3630,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeFlowSourceMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:flow_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_flow_source_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_flow_source_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_source_metadata_errors()}
-
   def describe_flow_source_metadata(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source-metadata"
 
@@ -3715,16 +3672,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:gateway_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_errors()}
-
   def describe_gateway(%Client{} = client, gateway_arn, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
 
@@ -3759,16 +3713,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeGatewayInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_instance_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:gateway_instance_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_gateway_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_instance_errors()}
-
   def describe_gateway_instance(%Client{} = client, gateway_instance_arn, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
 
@@ -3805,16 +3756,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeOffering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:offering_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:offering_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_offering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_offering_errors()}
-
   def describe_offering(%Client{} = client, offering_arn, options \\ []) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
 
@@ -3851,16 +3799,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeReservation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:reservation_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:reservation_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_reservation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reservation_errors()}
-
   def describe_reservation(%Client{} = client, reservation_arn, options \\ []) do
     url_path = "/v1/reservations/#{AWS.Util.encode_uri(reservation_arn)}"
 
@@ -3895,18 +3840,16 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20GrantFlowEntitlements&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
+  * `:flow_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:entitlements` (`t:list[com.amazonaws.mediaconnect#GrantEntitlementRequest]`)
-
-  ## Optional parameters:
+    * `:entitlements` (`t:list[com.amazonaws.mediaconnect#GrantEntitlementRequest]`
+  required)
+  ## Keyword parameters:
   """
-
   @spec grant_flow_entitlements(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, grant_flow_entitlements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, grant_flow_entitlements_errors()}
-
   def grant_flow_entitlements(%Client{} = client, flow_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements"
@@ -3945,18 +3888,15 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListBridges&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:filter_arn` (`t:string`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_bridges(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bridges_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bridges_errors()}
-
   def list_bridges(%Client{} = client, options \\ []) do
     url_path = "/v1/bridges"
 
@@ -4017,17 +3957,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListEntitlements&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_entitlements(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_entitlements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entitlements_errors()}
-
   def list_entitlements(%Client{} = client, options \\ []) do
     url_path = "/v1/entitlements"
 
@@ -4081,17 +4018,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListFlows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flows_errors()}
-
   def list_flows(%Client{} = client, options \\ []) do
     url_path = "/v1/flows"
 
@@ -4146,18 +4080,15 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListGatewayInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:filter_arn` (`t:string`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_gateway_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateway_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateway_instances_errors()}
-
   def list_gateway_instances(%Client{} = client, options \\ []) do
     url_path = "/v1/gateway-instances"
 
@@ -4218,17 +4149,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListGateways&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateways_errors()}
-
   def list_gateways(%Client{} = client, options \\ []) do
     url_path = "/v1/gateways"
 
@@ -4284,17 +4212,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offerings_errors()}
-
   def list_offerings(%Client{} = client, options \\ []) do
     url_path = "/v1/offerings"
 
@@ -4349,17 +4274,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListReservations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_reservations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reservations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reservations_errors()}
-
   def list_reservations(%Client{} = client, options \\ []) do
     url_path = "/v1/reservations"
 
@@ -4412,16 +4334,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4457,19 +4376,16 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20PurchaseOffering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:offering_arn` (`t:string`)
+  * `:offering_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:reservation_name` (`t:string`)
-    * `:start` (`t:string`)
-
-  ## Optional parameters:
+    * `:reservation_name` (`t:string` required)
+    * `:start` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec purchase_offering(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_offering_errors()}
-
   def purchase_offering(%Client{} = client, offering_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
@@ -4507,17 +4423,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveBridgeOutput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bridge_arn` (`t:string`)
-  * `:output_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:bridge_arn` (`t:string` required)
+  * `:output_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec remove_bridge_output(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_bridge_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_bridge_output_errors()}
-
   def remove_bridge_output(%Client{} = client, bridge_arn, output_name, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
@@ -4565,17 +4478,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveBridgeSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bridge_arn` (`t:string`)
-  * `:source_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:bridge_arn` (`t:string` required)
+  * `:source_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec remove_bridge_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_bridge_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_bridge_source_errors()}
-
   def remove_bridge_source(%Client{} = client, bridge_arn, source_name, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
@@ -4624,17 +4534,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowMediaStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-  * `:media_stream_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:flow_arn` (`t:string` required)
+  * `:media_stream_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec remove_flow_media_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_media_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_flow_media_stream_errors()}
-
   def remove_flow_media_stream(%Client{} = client, flow_arn, media_stream_name, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams/#{AWS.Util.encode_uri(media_stream_name)}"
@@ -4686,17 +4593,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowOutput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-  * `:output_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:flow_arn` (`t:string` required)
+  * `:output_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec remove_flow_output(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_flow_output_errors()}
-
   def remove_flow_output(%Client{} = client, flow_arn, output_arn, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
@@ -4745,17 +4649,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-  * `:source_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:flow_arn` (`t:string` required)
+  * `:source_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec remove_flow_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_flow_source_errors()}
-
   def remove_flow_source(%Client{} = client, flow_arn, source_arn, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
@@ -4806,17 +4707,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowVpcInterface&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-  * `:vpc_interface_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:flow_arn` (`t:string` required)
+  * `:vpc_interface_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec remove_flow_vpc_interface(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_vpc_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_flow_vpc_interface_errors()}
-
   def remove_flow_vpc_interface(%Client{} = client, flow_arn, vpc_interface_name, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/vpcInterfaces/#{AWS.Util.encode_uri(vpc_interface_name)}"
@@ -4865,17 +4763,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RevokeFlowEntitlement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:entitlement_arn` (`t:string`)
-  * `:flow_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:entitlement_arn` (`t:string` required)
+  * `:flow_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec revoke_flow_entitlement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, revoke_flow_entitlement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_flow_entitlement_errors()}
-
   def revoke_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
@@ -4923,16 +4818,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20StartFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:flow_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_flow_errors()}
-
   def start_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/start/#{AWS.Util.encode_uri(flow_arn)}"
 
@@ -4969,16 +4861,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20StopFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:flow_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec stop_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_flow_errors()}
-
   def stop_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/stop/#{AWS.Util.encode_uri(flow_arn)}"
 
@@ -5018,18 +4907,15 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
+  * `:resource_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:tags` (`t:map`)
-
-  ## Optional parameters:
+    * `:tags` (`t:map` required)
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5066,17 +4952,14 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
-  * `:tag_keys` (`t:list[com.amazonaws.mediaconnect#__string]`)
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required)
+  * `:tag_keys` (`t:list[com.amazonaws.mediaconnect#__string]` required)
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5124,20 +5007,17 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridge&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bridge_arn` (`t:string`)
+  * `:bridge_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:egress_gateway_bridge` (`t:structure`)
     * `:ingress_gateway_bridge` (`t:structure`)
     * `:source_failover_config` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_bridge(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bridge_errors()}
-
   def update_bridge(%Client{} = client, bridge_arn, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
@@ -5175,14 +5055,12 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridgeOutput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bridge_arn` (`t:string`)
-  * `:output_name` (`t:string`)
+  * `:bridge_arn` (`t:string` required)
+  * `:output_name` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:network_output` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_bridge_output(
           AWS.Client.t(),
           String.t(),
@@ -5193,7 +5071,6 @@ defmodule AWS.MediaConnect do
           {:ok, update_bridge_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bridge_output_errors()}
-
   def update_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path =
@@ -5232,15 +5109,13 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridgeSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bridge_arn` (`t:string`)
-  * `:source_name` (`t:string`)
+  * `:bridge_arn` (`t:string` required)
+  * `:source_name` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:flow_source` (`t:structure`)
     * `:network_source` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_bridge_source(
           AWS.Client.t(),
           String.t(),
@@ -5251,7 +5126,6 @@ defmodule AWS.MediaConnect do
           {:ok, update_bridge_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bridge_source_errors()}
-
   def update_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path =
@@ -5290,18 +5164,15 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridgeState&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bridge_arn` (`t:string`)
+  * `:bridge_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:desired_state` (`t:enum["ACTIVE|DELETED|STANDBY"]`)
-
-  ## Optional parameters:
+    * `:desired_state` (`t:enum["ACTIVE|DELETED|STANDBY"]` required)
+  ## Keyword parameters:
   """
-
   @spec update_bridge_state(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_bridge_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bridge_state_errors()}
-
   def update_bridge_state(%Client{} = client, bridge_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/state"
@@ -5339,19 +5210,16 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
+  * `:flow_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:maintenance` (`t:structure`)
     * `:source_failover_config` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_flow(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_errors()}
-
   def update_flow(%Client{} = client, flow_arn, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
@@ -5391,17 +5259,15 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowEntitlement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:entitlement_arn` (`t:string`)
-  * `:flow_arn` (`t:string`)
+  * `:entitlement_arn` (`t:string` required)
+  * `:flow_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:description` (`t:string`)
     * `:encryption` (`t:structure`)
     * `:entitlement_status` (`t:enum["DISABLED|ENABLED"]`)
     * `:subscribers` (`t:list[com.amazonaws.mediaconnect#__string]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_flow_entitlement(
           AWS.Client.t(),
           String.t(),
@@ -5412,7 +5278,6 @@ defmodule AWS.MediaConnect do
           {:ok, update_flow_entitlement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_entitlement_errors()}
-
   def update_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path =
@@ -5451,18 +5316,16 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowMediaStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-  * `:media_stream_name` (`t:string`)
+  * `:flow_arn` (`t:string` required)
+  * `:media_stream_name` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:attributes` (`t:structure`)
     * `:clock_rate` (`t:integer`)
     * `:description` (`t:string`)
     * `:media_stream_type` (`t:enum["ancillary_data|audio|video"]`)
     * `:video_format` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_flow_media_stream(
           AWS.Client.t(),
           String.t(),
@@ -5473,7 +5336,6 @@ defmodule AWS.MediaConnect do
           {:ok, update_flow_media_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_media_stream_errors()}
-
   def update_flow_media_stream(
         %Client{} = client,
         flow_arn,
@@ -5518,8 +5380,8 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowOutput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-  * `:output_arn` (`t:string`)
+  * `:flow_arn` (`t:string` required)
+  * `:output_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:cidr_allow_list` (`t:list[com.amazonaws.mediaconnect#__string]`)
     * `:description` (`t:string`)
@@ -5539,10 +5401,8 @@ defmodule AWS.MediaConnect do
     * `:smoothing_latency` (`t:integer`)
     * `:stream_id` (`t:string`)
     * `:vpc_interface_attachment` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_flow_output(
           AWS.Client.t(),
           String.t(),
@@ -5553,7 +5413,6 @@ defmodule AWS.MediaConnect do
           {:ok, update_flow_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_output_errors()}
-
   def update_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path =
@@ -5592,8 +5451,8 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_arn` (`t:string`)
-  * `:source_arn` (`t:string`)
+  * `:flow_arn` (`t:string` required)
+  * `:source_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:decryption` (`t:structure`)
     * `:description` (`t:string`)
@@ -5615,10 +5474,8 @@ defmodule AWS.MediaConnect do
     * `:stream_id` (`t:string`)
     * `:vpc_interface_name` (`t:string`)
     * `:whitelist_cidr` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_flow_source(
           AWS.Client.t(),
           String.t(),
@@ -5629,7 +5486,6 @@ defmodule AWS.MediaConnect do
           {:ok, update_flow_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_source_errors()}
-
   def update_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path =
@@ -5668,18 +5524,15 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateGatewayInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_instance_arn` (`t:string`)
+  * `:gateway_instance_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:bridge_placement` (`t:enum["AVAILABLE|LOCKED"]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_gateway_instance(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_instance_errors()}
-
   def update_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"

@@ -12488,15 +12488,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20AcceptAdministratorInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec accept_administrator_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_administrator_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_administrator_invitation_errors()}
-
   def accept_administrator_invitation(%Client{} = client, options \\ []) do
     url_path = "/administrator"
 
@@ -12539,15 +12536,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20AcceptInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec accept_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_invitation_errors()}
-
   def accept_invitation(%Client{} = client, options \\ []) do
     url_path = "/master"
 
@@ -12584,15 +12578,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchDeleteAutomationRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_delete_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_automation_rules_errors()}
-
   def batch_delete_automation_rules(%Client{} = client, options \\ []) do
     url_path = "/automationrules/delete"
 
@@ -12629,15 +12620,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchDisableStandards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_disable_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_disable_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disable_standards_errors()}
-
   def batch_disable_standards(%Client{} = client, options \\ []) do
     url_path = "/standards/deregister"
 
@@ -12675,15 +12663,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchEnableStandards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_enable_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_enable_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_enable_standards_errors()}
-
   def batch_enable_standards(%Client{} = client, options \\ []) do
     url_path = "/standards/register"
 
@@ -12721,15 +12706,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetAutomationRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_automation_rules_errors()}
-
   def batch_get_automation_rules(%Client{} = client, options \\ []) do
     url_path = "/automationrules/get"
 
@@ -12769,15 +12751,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetConfigurationPolicyAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_configuration_policy_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_configuration_policy_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_configuration_policy_associations_errors()}
-
   def batch_get_configuration_policy_associations(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicyAssociation/batchget"
 
@@ -12815,15 +12794,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetSecurityControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_security_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_security_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_security_controls_errors()}
-
   def batch_get_security_controls(%Client{} = client, options \\ []) do
     url_path = "/securityControls/batchGet"
 
@@ -12861,15 +12837,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetStandardsControlAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_standards_control_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_standards_control_associations_errors()}
-
   def batch_get_standards_control_associations(%Client{} = client, options \\ []) do
     url_path = "/associations/batchGet"
 
@@ -12908,15 +12881,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchImportFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_import_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_import_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_import_findings_errors()}
-
   def batch_import_findings(%Client{} = client, options \\ []) do
     url_path = "/findings/import"
 
@@ -12954,15 +12924,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateAutomationRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_update_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_automation_rules_errors()}
-
   def batch_update_automation_rules(%Client{} = client, options \\ []) do
     url_path = "/automationrules/update"
 
@@ -13013,15 +12980,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_update_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_findings_errors()}
-
   def batch_update_findings(%Client{} = client, options \\ []) do
     url_path = "/findings/batchupdate"
 
@@ -13069,15 +13033,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateStandardsControlAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_update_standards_control_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_standards_control_associations_errors()}
-
   def batch_update_standards_control_associations(%Client{} = client, options \\ []) do
     url_path = "/associations"
 
@@ -13124,15 +13085,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateActionTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_action_target(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_action_target_errors()}
-
   def create_action_target(%Client{} = client, options \\ []) do
     url_path = "/actionTargets"
 
@@ -13169,15 +13127,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateAutomationRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_automation_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_automation_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_automation_rule_errors()}
-
   def create_automation_rule(%Client{} = client, options \\ []) do
     url_path = "/automationrules/create"
 
@@ -13215,15 +13170,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateConfigurationPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_configuration_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_policy_errors()}
-
   def create_configuration_policy(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicy/create"
 
@@ -13260,15 +13212,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateFindingAggregator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_finding_aggregator(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_finding_aggregator_errors()}
-
   def create_finding_aggregator(%Client{} = client, options \\ []) do
     url_path = "/findingAggregator/create"
 
@@ -13307,15 +13256,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateInsight&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_insight(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_insight_errors()}
-
   def create_insight(%Client{} = client, options \\ []) do
     url_path = "/insights"
 
@@ -13356,15 +13302,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_members_errors()}
-
   def create_members(%Client{} = client, options \\ []) do
     url_path = "/members"
 
@@ -13402,15 +13345,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeclineInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec decline_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, decline_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decline_invitations_errors()}
-
   def decline_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations/decline"
 
@@ -13447,17 +13387,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteActionTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:action_target_arn` (`t:string`) The Amazon Resource Name (ARN) of the custom
-  action target to delete.
-
-  ## Optional parameters:
+  * `:action_target_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the custom action target to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_action_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_action_target_errors()}
-
   def delete_action_target(%Client{} = client, action_target_arn, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
 
@@ -13508,17 +13445,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteConfigurationPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
-  unique identifier (UUID) of the configuration policy.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The Amazon Resource Name (ARN) or
+  universally unique identifier (UUID) of the configuration policy.
+  ## Keyword parameters:
   """
-
   @spec delete_configuration_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_policy_errors()}
-
   def delete_configuration_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
 
@@ -13566,17 +13500,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteFindingAggregator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to
-  delete. To obtain the ARN, use ListFindingAggregators.
-
-  ## Optional parameters:
+  * `:finding_aggregator_arn` (`t:string` required) The ARN of the finding
+  aggregator to delete. To obtain the ARN, use ListFindingAggregators.
+  ## Keyword parameters:
   """
-
   @spec delete_finding_aggregator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_finding_aggregator_errors()}
-
   def delete_finding_aggregator(%Client{} = client, finding_aggregator_arn, options \\ []) do
     url_path =
       "/findingAggregator/delete/#{AWS.Util.encode_multi_segment_uri(finding_aggregator_arn)}"
@@ -13624,16 +13555,13 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteInsight&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:insight_arn` (`t:string`) The ARN of the insight to delete.
-
-  ## Optional parameters:
+  * `:insight_arn` (`t:string` required) The ARN of the insight to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_insight(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_insight_errors()}
-
   def delete_insight(%Client{} = client, insight_arn, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
 
@@ -13682,15 +13610,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_invitations_errors()}
-
   def delete_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations/delete"
 
@@ -13727,15 +13652,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_members_errors()}
-
   def delete_members(%Client{} = client, options \\ []) do
     url_path = "/members/delete"
 
@@ -13772,15 +13694,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeActionTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_action_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_action_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_action_targets_errors()}
-
   def describe_action_targets(%Client{} = client, options \\ []) do
     url_path = "/actionTargets/get"
 
@@ -13818,16 +13737,13 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeHub&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:hub_arn` (`t:string`) The ARN of the Hub resource to retrieve.
   """
-
   @spec describe_hub(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hub_errors()}
-
   def describe_hub(%Client{} = client, options \\ []) do
     url_path = "/accounts"
 
@@ -13874,15 +13790,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_configuration_errors()}
-
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/organization/configuration"
 
@@ -13919,20 +13832,17 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeProducts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
   first call to the DescribeProducts operation, set the value of this
   parameter to NULL.
   * `:product_arn` (`t:string`) The ARN of the integration to return.
   """
-
   @spec describe_products(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_products_errors()}
-
   def describe_products(%Client{} = client, options \\ []) do
     url_path = "/products"
 
@@ -13992,19 +13902,16 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeStandards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of standards to return.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
   first call to the DescribeStandards operation, set the value of this
   parameter to NULL.
   """
-
   @spec describe_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_standards_errors()}
-
   def describe_standards(%Client{} = client, options \\ []) do
     url_path = "/standards"
 
@@ -14057,24 +13964,21 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeStandardsControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:standards_subscription_arn` (`t:string`) The ARN of a resource that
+  * `:standards_subscription_arn` (`t:string` required) The ARN of a resource that
   represents your subscription to a supported standard. To get the
   subscription ARNs of the standards you have enabled, use the
   GetEnabledStandards operation.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of security standard controls
   to return.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
   first call to the DescribeStandardsControls operation, set the value of this
   parameter to NULL.
   """
-
   @spec describe_standards_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_standards_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_standards_controls_errors()}
-
   def describe_standards_controls(%Client{} = client, standards_subscription_arn, options \\ []) do
     url_path =
       "/standards/controls/#{AWS.Util.encode_multi_segment_uri(standards_subscription_arn)}"
@@ -14130,17 +14034,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableImportFindingsForProduct&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:product_subscription_arn` (`t:string`) The ARN of the integrated product to
-  disable the integration for.
-
-  ## Optional parameters:
+  * `:product_subscription_arn` (`t:string` required) The ARN of the integrated
+  product to disable the integration for.
+  ## Keyword parameters:
   """
-
   @spec disable_import_findings_for_product(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disable_import_findings_for_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_import_findings_for_product_errors()}
-
   def disable_import_findings_for_product(
         %Client{} = client,
         product_subscription_arn,
@@ -14193,15 +14094,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_organization_admin_account_errors()}
-
   def disable_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/organization/admin/disable"
 
@@ -14241,15 +14139,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableSecurityHub&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disable_security_hub(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_security_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_security_hub_errors()}
-
   def disable_security_hub(%Client{} = client, options \\ []) do
     url_path = "/accounts"
 
@@ -14297,15 +14192,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateFromAdministratorAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_from_administrator_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_from_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_from_administrator_account_errors()}
-
   def disassociate_from_administrator_account(%Client{} = client, options \\ []) do
     url_path = "/administrator/disassociate"
 
@@ -14349,15 +14241,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateFromMasterAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_from_master_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_from_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_from_master_account_errors()}
-
   def disassociate_from_master_account(%Client{} = client, options \\ []) do
     url_path = "/master/disassociate"
 
@@ -14395,15 +14284,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_members_errors()}
-
   def disassociate_members(%Client{} = client, options \\ []) do
     url_path = "/members/disassociate"
 
@@ -14441,15 +14327,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableImportFindingsForProduct&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec enable_import_findings_for_product(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_import_findings_for_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_import_findings_for_product_errors()}
-
   def enable_import_findings_for_product(%Client{} = client, options \\ []) do
     url_path = "/productSubscriptions"
 
@@ -14487,15 +14370,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec enable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_organization_admin_account_errors()}
-
   def enable_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/organization/admin/enable"
 
@@ -14535,15 +14415,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableSecurityHub&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec enable_security_hub(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_security_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_security_hub_errors()}
-
   def enable_security_hub(%Client{} = client, options \\ []) do
     url_path = "/accounts"
 
@@ -14581,15 +14458,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetAdministratorAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_administrator_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_administrator_account_errors()}
-
   def get_administrator_account(%Client{} = client, options \\ []) do
     url_path = "/administrator"
 
@@ -14625,17 +14499,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetConfigurationPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
-  unique identifier (UUID) of the configuration policy.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The Amazon Resource Name (ARN) or
+  universally unique identifier (UUID) of the configuration policy.
+  ## Keyword parameters:
   """
-
   @spec get_configuration_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_policy_errors()}
-
   def get_configuration_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/configurationPolicy/get/#{AWS.Util.encode_uri(identifier)}"
 
@@ -14673,15 +14544,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetConfigurationPolicyAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_configuration_policy_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_configuration_policy_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_policy_association_errors()}
-
   def get_configuration_policy_association(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicyAssociation/get"
 
@@ -14718,15 +14586,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetEnabledStandards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_enabled_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_enabled_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enabled_standards_errors()}
-
   def get_enabled_standards(%Client{} = client, options \\ []) do
     url_path = "/standards/get"
 
@@ -14763,17 +14628,15 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindingAggregator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to
-  return details for. To obtain the ARN, use ListFindingAggregators.
-
-  ## Optional parameters:
+  * `:finding_aggregator_arn` (`t:string` required) The ARN of the finding
+  aggregator to return details for. To obtain the ARN, use
+  ListFindingAggregators.
+  ## Keyword parameters:
   """
-
   @spec get_finding_aggregator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_aggregator_errors()}
-
   def get_finding_aggregator(%Client{} = client, finding_aggregator_arn, options \\ []) do
     url_path =
       "/findingAggregator/get/#{AWS.Util.encode_multi_segment_uri(finding_aggregator_arn)}"
@@ -14811,15 +14674,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindingHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_finding_history(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_finding_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_history_errors()}
-
   def get_finding_history(%Client{} = client, options \\ []) do
     url_path = "/findingHistory/get"
 
@@ -14856,15 +14716,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_errors()}
-
   def get_findings(%Client{} = client, options \\ []) do
     url_path = "/findings"
 
@@ -14901,17 +14758,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInsightResults&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:insight_arn` (`t:string`) The ARN of the insight for which to return
-  results.
-
-  ## Optional parameters:
+  * `:insight_arn` (`t:string` required) The ARN of the insight for which to
+  return results.
+  ## Keyword parameters:
   """
-
   @spec get_insight_results(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_insight_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_results_errors()}
-
   def get_insight_results(%Client{} = client, insight_arn, options \\ []) do
     url_path = "/insights/results/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
 
@@ -14946,15 +14800,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInsights&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insights_errors()}
-
   def get_insights(%Client{} = client, options \\ []) do
     url_path = "/insights/get"
 
@@ -14992,15 +14843,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInvitationsCount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_invitations_count(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_invitations_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_invitations_count_errors()}
-
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitations/count"
 
@@ -15041,15 +14889,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetMasterAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_master_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_master_account_errors()}
-
   def get_master_account(%Client{} = client, options \\ []) do
     url_path = "/master"
 
@@ -15087,15 +14932,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_members_errors()}
-
   def get_members(%Client{} = client, options \\ []) do
     url_path = "/members/get"
 
@@ -15134,17 +14976,15 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetSecurityControlDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:security_control_id` (`t:string`) The ID of the security control to retrieve
-  the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
-
-  ## Optional parameters:
+  * `:security_control_id` (`t:string` required) The ID of the security control to
+  retrieve the definition for. This field doesn’t accept an Amazon Resource
+  Name (ARN).
+  ## Keyword parameters:
   """
-
   @spec get_security_control_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_security_control_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_security_control_definition_errors()}
-
   def get_security_control_definition(%Client{} = client, security_control_id, options \\ [])
       when is_binary(security_control_id) do
     url_path = "/securityControl/definition"
@@ -15183,15 +15023,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20InviteMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec invite_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, invite_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invite_members_errors()}
-
   def invite_members(%Client{} = client, options \\ []) do
     url_path = "/members/invite"
 
@@ -15228,8 +15065,7 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListAutomationRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of rules to return in the
   response. This currently ranges from 1 to 100.
   * `:next_token` (`t:string`) A token to specify where to start paginating the
@@ -15237,12 +15073,10 @@ defmodule AWS.SecurityHub do
   your first call to the ListAutomationRules API, set the value of this
   parameter to NULL.
   """
-
   @spec list_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_automation_rules_errors()}
-
   def list_automation_rules(%Client{} = client, options \\ []) do
     url_path = "/automationrules/list"
 
@@ -15297,8 +15131,7 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListConfigurationPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that's returned by
   ListConfigurationPolicies in each page of the response. When this parameter
   is used, ListConfigurationPolicies returns the specified number of results
@@ -15314,12 +15147,10 @@ defmodule AWS.SecurityHub do
   returned the NextToken value. This value is null when there are no more
   results to return.
   """
-
   @spec list_configuration_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_policies_errors()}
-
   def list_configuration_policies(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicy/list"
 
@@ -15374,15 +15205,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListConfigurationPolicyAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_configuration_policy_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_policy_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_policy_associations_errors()}
-
   def list_configuration_policy_associations(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicyAssociation/list"
 
@@ -15420,20 +15248,17 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListEnabledProductsForImport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
   response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
   first call to the ListEnabledProductsForImport operation, set the value of
   this parameter to NULL.
   """
-
   @spec list_enabled_products_for_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_products_for_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_enabled_products_for_import_errors()}
-
   def list_enabled_products_for_import(%Client{} = client, options \\ []) do
     url_path = "/productSubscriptions"
 
@@ -15487,19 +15312,16 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListFindingAggregators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. This
   operation currently only returns a single result.
   * `:next_token` (`t:string`) The token returned with the previous set of
   results. Identifies the next set of results to return.
   """
-
   @spec list_finding_aggregators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_finding_aggregators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_finding_aggregators_errors()}
-
   def list_finding_aggregators(%Client{} = client, options \\ []) do
     url_path = "/findingAggregator/list"
 
@@ -15553,20 +15375,17 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
   response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
   first call to the ListInvitations operation, set the value of this parameter
   to NULL.
   """
-
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invitations_errors()}
-
   def list_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations"
 
@@ -15620,8 +15439,7 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
   response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
@@ -15631,12 +15449,10 @@ defmodule AWS.SecurityHub do
   the response based on their relationship status with the administrator
   account. The default value is TRUE.
   """
-
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
-
   def list_members(%Client{} = client, options \\ []) do
     url_path = "/members"
 
@@ -15697,8 +15513,7 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
   response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
@@ -15707,12 +15522,10 @@ defmodule AWS.SecurityHub do
   listing data, set the value of this parameter to the value returned from the
   previous response.
   """
-
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_admin_accounts_errors()}
-
   def list_organization_admin_accounts(%Client{} = client, options \\ []) do
     url_path = "/organization/admin"
 
@@ -15765,8 +15578,7 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListSecurityControlDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that limits the total
   results of the API response to the specified number. If this parameter isn't
   provided in the request, the results include the first 25 security controls
@@ -15777,12 +15589,10 @@ defmodule AWS.SecurityHub do
   * `:standards_arn` (`t:string`) The Amazon Resource Name (ARN) of the standard
   that you want to view controls for.
   """
-
   @spec list_security_control_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_control_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_control_definitions_errors()}
-
   def list_security_control_definitions(%Client{} = client, options \\ []) do
     url_path = "/securityControls/definitions"
 
@@ -15843,12 +15653,11 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListStandardsControlAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:security_control_id` (`t:string`) The identifier of the control (identified
-  with SecurityControlId, SecurityControlArn, or a mix of both parameters)
-  that you want to determine the enablement status of in each enabled
-  standard.
-
-  ## Optional parameters:
+  * `:security_control_id` (`t:string` required) The identifier of the control
+  (identified with SecurityControlId, SecurityControlArn, or a mix of both
+  parameters) that you want to determine the enablement status of in each
+  enabled standard.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that limits the total
   results of the API response to the specified number. If this parameter isn't
   provided in the request, the results include the first 25 standard and
@@ -15859,12 +15668,10 @@ defmodule AWS.SecurityHub do
   standards that you've enabled in the calling account.
   * `:next_token` (`t:string`) Optional pagination parameter.
   """
-
   @spec list_standards_control_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_standards_control_associations_errors()}
-
   def list_standards_control_associations(%Client{} = client, security_control_id, options \\ [])
       when is_binary(security_control_id) do
     url_path = "/associations"
@@ -15918,16 +15725,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to retrieve tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to retrieve tags
+  for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -15965,15 +15770,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20StartConfigurationPolicyAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_configuration_policy_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_configuration_policy_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_configuration_policy_association_errors()}
-
   def start_configuration_policy_association(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicyAssociation/associate"
 
@@ -16016,15 +15818,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20StartConfigurationPolicyDisassociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_configuration_policy_disassociation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_configuration_policy_disassociation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_configuration_policy_disassociation_errors()}
-
   def start_configuration_policy_disassociation(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicyAssociation/disassociate"
 
@@ -16061,16 +15860,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to apply the tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to apply the
+  tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -16107,19 +15904,17 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to remove the tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.securityhub#TagKey]`) The tag keys
+  * `:resource_arn` (`t:string` required) The ARN of the resource to remove the
+  tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.securityhub#TagKey]` required) The tag keys
   associated with the tags to remove from the resource. You can remove up to
   50 tags at a time.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -16167,17 +15962,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateActionTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:action_target_arn` (`t:string`) The ARN of the custom action target to
-  update.
-
-  ## Optional parameters:
+  * `:action_target_arn` (`t:string` required) The ARN of the custom action target
+  to update.
+  ## Keyword parameters:
   """
-
   @spec update_action_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_action_target_errors()}
-
   def update_action_target(%Client{} = client, action_target_arn, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
 
@@ -16225,17 +16017,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateConfigurationPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
-  unique identifier (UUID) of the configuration policy.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The Amazon Resource Name (ARN) or
+  universally unique identifier (UUID) of the configuration policy.
+  ## Keyword parameters:
   """
-
   @spec update_configuration_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_policy_errors()}
-
   def update_configuration_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
 
@@ -16284,15 +16073,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateFindingAggregator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_finding_aggregator(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_finding_aggregator_errors()}
-
   def update_finding_aggregator(%Client{} = client, options \\ []) do
     url_path = "/findingAggregator/update"
 
@@ -16342,15 +16128,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_findings_errors()}
-
   def update_findings(%Client{} = client, options \\ []) do
     url_path = "/findings"
 
@@ -16397,16 +16180,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateInsight&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:insight_arn` (`t:string`) The ARN of the insight that you want to update.
-
-  ## Optional parameters:
+  * `:insight_arn` (`t:string` required) The ARN of the insight that you want to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_insight(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_insight_errors()}
-
   def update_insight(%Client{} = client, insight_arn, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
 
@@ -16454,15 +16235,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_organization_configuration_errors()}
-
   def update_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/organization/configuration"
 
@@ -16499,15 +16277,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateSecurityControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_security_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_security_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_control_errors()}
-
   def update_security_control(%Client{} = client, options \\ []) do
     url_path = "/securityControl/update"
 
@@ -16554,15 +16329,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateSecurityHubConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_security_hub_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_security_hub_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_hub_configuration_errors()}
-
   def update_security_hub_configuration(%Client{} = client, options \\ []) do
     url_path = "/accounts"
 
@@ -16610,17 +16382,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateStandardsControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:standards_control_arn` (`t:string`) The ARN of the security standard control
-  to enable or disable.
-
-  ## Optional parameters:
+  * `:standards_control_arn` (`t:string` required) The ARN of the security
+  standard control to enable or disable.
+  ## Keyword parameters:
   """
-
   @spec update_standards_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_standards_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_standards_control_errors()}
-
   def update_standards_control(%Client{} = client, standards_control_arn, options \\ []) do
     url_path = "/standards/control/#{AWS.Util.encode_multi_segment_uri(standards_control_arn)}"
 

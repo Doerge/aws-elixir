@@ -1576,16 +1576,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20BatchGetField&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec batch_get_field(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_field_errors()}
-
   def batch_get_field(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields-batch"
 
@@ -1623,17 +1620,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20BatchPutFieldOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-  * `:field_id` (`t:string`) The unique identifier of a field.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  * `:field_id` (`t:string` required) The unique identifier of a field.
+  ## Keyword parameters:
   """
-
   @spec batch_put_field_options(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_field_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_field_options_errors()}
-
   def batch_put_field_options(%Client{} = client, domain_id, field_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}/options"
@@ -1675,16 +1669,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateCase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec create_case(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_case_errors()}
-
   def create_case(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases"
 
@@ -1723,15 +1714,12 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-
   def create_domain(%Client{} = client, options \\ []) do
     url_path = "/domains"
 
@@ -1770,16 +1758,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateField&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec create_field(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_field_errors()}
-
   def create_field(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields"
 
@@ -1817,16 +1802,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateLayout&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec create_layout(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_layout_errors()}
-
   def create_layout(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts"
 
@@ -1864,17 +1846,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateRelatedItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:case_id` (`t:string`) A unique identifier of the case.
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:case_id` (`t:string` required) A unique identifier of the case.
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec create_related_item(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_related_item_errors()}
-
   def create_related_item(%Client{} = client, case_id, domain_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/related-items/"
@@ -1918,16 +1897,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec create_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
-
   def create_template(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates"
 
@@ -1964,16 +1940,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20DeleteDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec delete_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-
   def delete_domain(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
 
@@ -2021,17 +1994,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20DeleteField&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-  * `:field_id` (`t:string`) Unique identifier of the field.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  * `:field_id` (`t:string` required) Unique identifier of the field.
+  ## Keyword parameters:
   """
-
   @spec delete_field(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_field_errors()}
-
   def delete_field(%Client{} = client, domain_id, field_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}"
@@ -2080,17 +2050,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20DeleteLayout&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-  * `:layout_id` (`t:string`) The unique identifier of the layout.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  * `:layout_id` (`t:string` required) The unique identifier of the layout.
+  ## Keyword parameters:
   """
-
   @spec delete_layout(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_layout_errors()}
-
   def delete_layout(%Client{} = client, domain_id, layout_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
@@ -2138,17 +2105,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20DeleteTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-  * `:template_id` (`t:string`) A unique identifier of a template.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  * `:template_id` (`t:string` required) A unique identifier of a template.
+  ## Keyword parameters:
   """
-
   @spec delete_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_errors()}
-
   def delete_template(%Client{} = client, domain_id, template_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
@@ -2196,17 +2160,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetCase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:case_id` (`t:string`) A unique identifier of the case.
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:case_id` (`t:string` required) A unique identifier of the case.
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec get_case(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_case_errors()}
-
   def get_case(%Client{} = client, case_id, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
 
@@ -2243,17 +2204,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetCaseAuditEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:case_id` (`t:string`) A unique identifier of the case.
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:case_id` (`t:string` required) A unique identifier of the case.
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec get_case_audit_events(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_case_audit_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_case_audit_events_errors()}
-
   def get_case_audit_events(%Client{} = client, case_id, domain_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/audit-history"
@@ -2291,16 +2249,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetCaseEventConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec get_case_event_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_case_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_case_event_configuration_errors()}
-
   def get_case_event_configuration(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-event-configuration"
 
@@ -2337,16 +2292,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec get_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_errors()}
-
   def get_domain(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
 
@@ -2383,17 +2335,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetLayout&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-  * `:layout_id` (`t:string`) The unique identifier of the layout.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  * `:layout_id` (`t:string` required) The unique identifier of the layout.
+  ## Keyword parameters:
   """
-
   @spec get_layout(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_layout_errors()}
-
   def get_layout(%Client{} = client, domain_id, layout_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
@@ -2431,17 +2380,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-  * `:template_id` (`t:string`) A unique identifier of a template.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  * `:template_id` (`t:string` required) A unique identifier of a template.
+  ## Keyword parameters:
   """
-
   @spec get_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_errors()}
-
   def get_template(%Client{} = client, domain_id, template_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
@@ -2479,16 +2425,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListCasesForContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec list_cases_for_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cases_for_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cases_for_contact_errors()}
-
   def list_cases_for_contact(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/list-cases-for-contact"
 
@@ -2526,19 +2469,16 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-
   def list_domains(%Client{} = client, options \\ []) do
     url_path = "/domains-list"
 
@@ -2593,10 +2533,9 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListFieldOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-  * `:field_id` (`t:string`) The unique identifier of a field.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  * `:field_id` (`t:string` required) The unique identifier of a field.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
@@ -2604,12 +2543,10 @@ defmodule AWS.ConnectCases do
   * `:values` (`t:list[com.amazonaws.connectcases#Value]`) A list of FieldOption
   values to filter on for ListFieldOptions.
   """
-
   @spec list_field_options(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_field_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_field_options_errors()}
-
   def list_field_options(%Client{} = client, domain_id, field_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}/options-list"
@@ -2672,20 +2609,17 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListFields&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_fields(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fields_errors()}
-
   def list_fields(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields-list"
 
@@ -2741,20 +2675,17 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListLayouts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_layouts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_layouts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_layouts_errors()}
-
   def list_layouts(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts-list"
 
@@ -2809,16 +2740,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN)
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN)
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
 
@@ -2854,9 +2782,8 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
@@ -2864,12 +2791,10 @@ defmodule AWS.ConnectCases do
   * `:status` (`t:list[com.amazonaws.connectcases#TemplateStatus]`) A list of
   status values to filter on.
   """
-
   @spec list_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
-
   def list_templates(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates-list"
 
@@ -2934,16 +2859,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20PutCaseEventConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec put_case_event_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_case_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_case_event_configuration_errors()}
-
   def put_case_event_configuration(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-event-configuration"
 
@@ -2981,16 +2903,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20SearchCases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec search_cases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_cases_errors()}
-
   def search_cases(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases-search"
 
@@ -3027,17 +2946,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20SearchRelatedItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:case_id` (`t:string`) A unique identifier of the case.
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:case_id` (`t:string` required) A unique identifier of the case.
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec search_related_items(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, search_related_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_related_items_errors()}
-
   def search_related_items(%Client{} = client, case_id, domain_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/related-items-search"
@@ -3075,16 +2991,13 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN)
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN)
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
 
@@ -3121,17 +3034,15 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN)
-  * `:tag_keys` (`t:list[com.amazonaws.connectcases#TagKey]`) List of tag keys.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN)
+  * `:tag_keys` (`t:list[com.amazonaws.connectcases#TagKey]` required) List of tag
+  keys.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, arn, tag_keys, options \\ []) when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
 
@@ -3182,17 +3093,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20UpdateCase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:case_id` (`t:string`) A unique identifier of the case.
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-
-  ## Optional parameters:
+  * `:case_id` (`t:string` required) A unique identifier of the case.
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  ## Keyword parameters:
   """
-
   @spec update_case(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_case_errors()}
-
   def update_case(%Client{} = client, case_id, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
 
@@ -3229,17 +3137,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20UpdateField&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-  * `:field_id` (`t:string`) The unique identifier of a field.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  * `:field_id` (`t:string` required) The unique identifier of a field.
+  ## Keyword parameters:
   """
-
   @spec update_field(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_field_errors()}
-
   def update_field(%Client{} = client, domain_id, field_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}"
@@ -3278,17 +3183,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20UpdateLayout&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-  * `:layout_id` (`t:string`) The unique identifier of the layout.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  * `:layout_id` (`t:string` required) The unique identifier of the layout.
+  ## Keyword parameters:
   """
-
   @spec update_layout(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_layout_errors()}
-
   def update_layout(%Client{} = client, domain_id, layout_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
@@ -3330,17 +3232,14 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20UpdateTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
-  * `:template_id` (`t:string`) A unique identifier for the template.
-
-  ## Optional parameters:
+  * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+  * `:template_id` (`t:string` required) A unique identifier for the template.
+  ## Keyword parameters:
   """
-
   @spec update_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
-
   def update_template(%Client{} = client, domain_id, template_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"

@@ -589,6 +589,7 @@ defmodule AWS.MarketplaceAgreement do
   end
 
   @doc """
+   
   Provides details about an agreement, such as the proposer, acceptor, start date,
   and end date.
 
@@ -600,12 +601,10 @@ defmodule AWS.MarketplaceAgreement do
       required("agreementId") => String.t()
     }
   """
-
   @spec describe_agreement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_agreement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_agreement_errors()}
-
   def describe_agreement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -614,6 +613,7 @@ defmodule AWS.MarketplaceAgreement do
   end
 
   @doc """
+   
   Obtains details about the terms in an agreement that you participated in as
   proposer or acceptor. The details include:
 
@@ -627,12 +627,10 @@ defmodule AWS.MarketplaceAgreement do
       required("agreementId") => String.t()
     }
   """
-
   @spec get_agreement_terms(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_agreement_terms_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agreement_terms_errors()}
-
   def get_agreement_terms(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -641,6 +639,7 @@ defmodule AWS.MarketplaceAgreement do
   end
 
   @doc """
+   
   Searches across all agreements that a proposer or an acceptor has in AWS
   Marketplace. The search returns a list of agreements with basic agreement
   information. The following filter combinations are supported:
@@ -657,12 +656,10 @@ defmodule AWS.MarketplaceAgreement do
       optional("sort") => sort()
     }
   """
-
   @spec search_agreements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_agreements_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_agreements_errors()}
-
   def search_agreements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

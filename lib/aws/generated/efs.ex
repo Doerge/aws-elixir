@@ -1341,15 +1341,12 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20CreateAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_access_point(AWS.Client.t(), Keyword.t()) ::
           {:ok, access_point_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_point_errors()}
-
   def create_access_point(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/access-points"
 
@@ -1390,15 +1387,12 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20CreateFileSystem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_file_system(AWS.Client.t(), Keyword.t()) ::
           {:ok, file_system_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_file_system_errors()}
-
   def create_file_system(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/file-systems"
 
@@ -1441,15 +1435,12 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20CreateMountTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_mount_target(AWS.Client.t(), Keyword.t()) ::
           {:ok, mount_target_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_mount_target_errors()}
-
   def create_mount_target(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/mount-targets"
 
@@ -1490,18 +1481,15 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20CreateReplicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_file_system_id` (`t:string`) Specifies the Amazon EFS file system
-  that you want to replicate. This file system cannot already be a source or
-  destination file system in another replication configuration.
-
-  ## Optional parameters:
+  * `:source_file_system_id` (`t:string` required) Specifies the Amazon EFS file
+  system that you want to replicate. This file system cannot already be a
+  source or destination file system in another replication configuration.
+  ## Keyword parameters:
   """
-
   @spec create_replication_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, replication_configuration_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_configuration_errors()}
-
   def create_replication_configuration(%Client{} = client, source_file_system_id, options \\ []) do
     url_path =
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(source_file_system_id)}/replication-configuration"
@@ -1545,18 +1533,15 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20CreateTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) The ID of the file system whose tags you want
-  to modify (String). This operation modifies the tags only, not the file
-  system.
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) The ID of the file system whose tags
+  you want to modify (String). This operation modifies the tags only, not the
+  file system.
+  ## Keyword parameters:
   """
-
   @spec create_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
-
   def create_tags(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/create-tags/#{AWS.Util.encode_uri(file_system_id)}"
 
@@ -1596,17 +1581,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DeleteAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_point_id` (`t:string`) The ID of the access point that you want to
-  delete.
-
-  ## Optional parameters:
+  * `:access_point_id` (`t:string` required) The ID of the access point that you
+  want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_access_point(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_point_errors()}
-
   def delete_access_point(%Client{} = client, access_point_id, options \\ []) do
     url_path = "/2015-02-01/access-points/#{AWS.Util.encode_uri(access_point_id)}"
 
@@ -1657,16 +1639,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DeleteFileSystem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) The ID of the file system you want to delete.
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) The ID of the file system you want to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_file_system(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_file_system_errors()}
-
   def delete_file_system(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
 
@@ -1717,17 +1697,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DeleteFileSystemPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) Specifies the EFS file system for which to
-  delete the FileSystemPolicy.
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) Specifies the EFS file system for
+  which to delete the FileSystemPolicy.
+  ## Keyword parameters:
   """
-
   @spec delete_file_system_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_file_system_policy_errors()}
-
   def delete_file_system_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
 
@@ -1782,16 +1759,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DeleteMountTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mount_target_id` (`t:string`) The ID of the mount target to delete (String).
-
-  ## Optional parameters:
+  * `:mount_target_id` (`t:string` required) The ID of the mount target to delete
+  (String).
+  ## Keyword parameters:
   """
-
   @spec delete_mount_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mount_target_errors()}
-
   def delete_mount_target(%Client{} = client, mount_target_id, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}"
 
@@ -1842,17 +1817,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DeleteReplicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_file_system_id` (`t:string`) The ID of the source file system in the
-  replication configuration.
-
-  ## Optional parameters:
+  * `:source_file_system_id` (`t:string` required) The ID of the source file
+  system in the replication configuration.
+  ## Keyword parameters:
   """
-
   @spec delete_replication_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_configuration_errors()}
-
   def delete_replication_configuration(%Client{} = client, source_file_system_id, options \\ []) do
     url_path =
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(source_file_system_id)}/replication-configuration"
@@ -1906,17 +1878,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DeleteTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) The ID of the file system whose tags you want
-  to delete (String).
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) The ID of the file system whose tags
+  you want to delete (String).
+  ## Keyword parameters:
   """
-
   @spec delete_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
-
   def delete_tags(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/delete-tags/#{AWS.Util.encode_uri(file_system_id)}"
 
@@ -1956,8 +1925,7 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeAccessPoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:access_point_id` (`t:string`) (Optional) Specifies an EFS access point to
   describe in the response; mutually exclusive with FileSystemId.
   * `:file_system_id` (`t:string`) (Optional) If you provide a FileSystemId, EFS
@@ -1970,12 +1938,10 @@ defmodule AWS.EFS do
   You can use NextMarker in the subsequent request to fetch the next page of
   access point descriptions.
   """
-
   @spec describe_access_points(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_access_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_access_points_errors()}
-
   def describe_access_points(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/access-points"
 
@@ -2049,15 +2015,12 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeAccountPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_account_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_preferences_errors()}
-
   def describe_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
 
@@ -2092,17 +2055,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeBackupPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) Specifies which EFS file system for which to
-  retrieve the BackupPolicy.
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) Specifies which EFS file system for
+  which to retrieve the BackupPolicy.
+  ## Keyword parameters:
   """
-
   @spec describe_backup_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, backup_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backup_policy_errors()}
-
   def describe_backup_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
 
@@ -2137,17 +2097,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeFileSystemPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) Specifies which EFS file system to retrieve the
-  FileSystemPolicy for.
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) Specifies which EFS file system to
+  retrieve the FileSystemPolicy for.
+  ## Keyword parameters:
   """
-
   @spec describe_file_system_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_system_policy_errors()}
-
   def describe_file_system_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
 
@@ -2191,8 +2148,7 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeFileSystems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:creation_token` (`t:string`) (Optional) Restricts the list to the file
   system with this creation token (String). You specify a creation token when
   you create an Amazon EFS file system.
@@ -2206,12 +2162,10 @@ defmodule AWS.EFS do
   set to 100. The response is paginated at 100 per page if you have more than
   100 file systems.
   """
-
   @spec describe_file_systems(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_file_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_systems_errors()}
-
   def describe_file_systems(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/file-systems"
 
@@ -2282,17 +2236,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeLifecycleConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) The ID of the file system whose
+  * `:file_system_id` (`t:string` required) The ID of the file system whose
   LifecycleConfiguration object you want to retrieve (String).
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_lifecycle_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, lifecycle_configuration_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_lifecycle_configuration_errors()}
-
   def describe_lifecycle_configuration(%Client{} = client, file_system_id, options \\ []) do
     url_path =
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/lifecycle-configuration"
@@ -2331,17 +2282,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeMountTargetSecurityGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mount_target_id` (`t:string`) The ID of the mount target whose security
-  groups you want to retrieve.
-
-  ## Optional parameters:
+  * `:mount_target_id` (`t:string` required) The ID of the mount target whose
+  security groups you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec describe_mount_target_security_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_mount_target_security_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_mount_target_security_groups_errors()}
-
   def describe_mount_target_security_groups(%Client{} = client, mount_target_id, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}/security-groups"
 
@@ -2378,8 +2326,7 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeMountTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:access_point_id` (`t:string`) (Optional) The ID of the access point whose
   mount targets that you want to list. It must be included in your request if
   a FileSystemId or MountTargetId is not included in your request. Accepts
@@ -2400,12 +2347,10 @@ defmodule AWS.EFS do
   FileSystemId is not included. Accepts either a mount target ID or ARN as
   input.
   """
-
   @spec describe_mount_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_mount_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_mount_targets_errors()}
-
   def describe_mount_targets(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/mount-targets"
 
@@ -2487,8 +2432,7 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeReplicationConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:file_system_id` (`t:string`) You can retrieve the replication configuration
   for a specific file system by providing its file system ID.
   * `:max_results` (`t:integer`) (Optional) To limit the number of objects
@@ -2498,12 +2442,10 @@ defmodule AWS.EFS do
   You can use NextToken in a subsequent request to fetch the next page of
   output.
   """
-
   @spec describe_replication_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_replication_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_configurations_errors()}
-
   def describe_replication_configurations(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/file-systems/replication-configurations"
 
@@ -2568,10 +2510,9 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) The ID of the file system whose tag set you
-  want to retrieve.
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) The ID of the file system whose tag
+  set you want to retrieve.
+  ## Keyword parameters:
   * `:marker` (`t:string`) (Optional) An opaque pagination token returned from a
   previous DescribeTags operation (String). If present, it specifies to
   continue the list from where the previous call left off.
@@ -2580,12 +2521,10 @@ defmodule AWS.EFS do
   100, and other values are ignored. The response is paginated at 100 per page
   if you have more than 100 tags.
   """
-
   @spec describe_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
-
   def describe_tags(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/tags/#{AWS.Util.encode_uri(file_system_id)}"
 
@@ -2639,23 +2578,20 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) Specifies the EFS resource you want to retrieve
-  tags for. You can retrieve tags for EFS file systems and access points using
-  this API endpoint.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) Specifies the EFS resource you want to
+  retrieve tags for. You can retrieve tags for EFS file systems and access
+  points using this API endpoint.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) (Optional) Specifies the maximum number of tag
   objects to return in the response. The default value is 100.
   * `:next_token` (`t:string`) (Optional) You can use NextToken in a subsequent
   request to fetch the next page of access point descriptions if the response
   payload was paginated.
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_id, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
 
@@ -2714,17 +2650,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20ModifyMountTargetSecurityGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mount_target_id` (`t:string`) The ID of the mount target whose security
-  groups you want to modify.
-
-  ## Optional parameters:
+  * `:mount_target_id` (`t:string` required) The ID of the mount target whose
+  security groups you want to modify.
+  ## Keyword parameters:
   """
-
   @spec modify_mount_target_security_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_mount_target_security_groups_errors()}
-
   def modify_mount_target_security_groups(%Client{} = client, mount_target_id, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}/security-groups"
 
@@ -2767,15 +2700,12 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20PutAccountPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_preferences_errors()}
-
   def put_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
 
@@ -2813,17 +2743,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20PutBackupPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) Specifies which EFS file system to update the
-  backup policy for.
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) Specifies which EFS file system to
+  update the backup policy for.
+  ## Keyword parameters:
   """
-
   @spec put_backup_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, backup_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_backup_policy_errors()}
-
   def put_backup_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
 
@@ -2868,17 +2795,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20PutFileSystemPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) The ID of the EFS file system that you want to
-  create or update the FileSystemPolicy for.
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) The ID of the EFS file system that you
+  want to create or update the FileSystemPolicy for.
+  ## Keyword parameters:
   """
-
   @spec put_file_system_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_file_system_policy_errors()}
-
   def put_file_system_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
 
@@ -2917,17 +2841,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20PutLifecycleConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) The ID of the file system for which you are
-  creating the LifecycleConfiguration object (String).
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) The ID of the file system for which
+  you are creating the LifecycleConfiguration object (String).
+  ## Keyword parameters:
   """
-
   @spec put_lifecycle_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, lifecycle_configuration_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_lifecycle_configuration_errors()}
-
   def put_lifecycle_configuration(%Client{} = client, file_system_id, options \\ []) do
     url_path =
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/lifecycle-configuration"
@@ -2966,17 +2887,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The ID specifying the EFS resource that you want
-  to create a tag for.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The ID specifying the EFS resource that
+  you want to create a tag for.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_id, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
 
@@ -3014,19 +2932,16 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) Specifies the EFS resource that you want to remove
-  tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.efs#TagKey]`) The keys of the key-value tag
-  pairs that you want to remove from the specified EFS resource.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) Specifies the EFS resource that you want
+  to remove tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.efs#TagKey]` required) The keys of the
+  key-value tag pairs that you want to remove from the specified EFS resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_id, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
@@ -3075,17 +2990,14 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20UpdateFileSystem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) The ID of the file system that you want to
-  update.
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) The ID of the file system that you
+  want to update.
+  ## Keyword parameters:
   """
-
   @spec update_file_system(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_file_system_errors()}
-
   def update_file_system(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
 
@@ -3122,16 +3034,13 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20UpdateFileSystemProtection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_system_id` (`t:string`) The ID of the file system to update.
-
-  ## Optional parameters:
+  * `:file_system_id` (`t:string` required) The ID of the file system to update.
+  ## Keyword parameters:
   """
-
   @spec update_file_system_protection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_protection_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_file_system_protection_errors()}
-
   def update_file_system_protection(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/protection"
 

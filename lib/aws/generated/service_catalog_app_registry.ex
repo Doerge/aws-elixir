@@ -949,18 +949,15 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20AssociateAttributeGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name, ID, or ARN of the application.
-  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
-  that holds the attributes to describe the application.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The name, ID, or ARN of the application.
+  * `:attribute_group` (`t:string` required) The name, ID, or ARN of the attribute
+  group that holds the attributes to describe the application.
+  ## Keyword parameters:
   """
-
   @spec associate_attribute_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_attribute_group_errors()}
-
   def associate_attribute_group(%Client{} = client, application, attribute_group, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
@@ -1000,20 +997,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20AssociateResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name, ID, or ARN of the application.
-  * `:resource` (`t:string`) The name or ID of the resource of which the
+  * `:application` (`t:string` required) The name, ID, or ARN of the application.
+  * `:resource` (`t:string` required) The name or ID of the resource of which the
   application will be associated.
-  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
-  resource of which the application will be associated.
-
-  ## Optional parameters:
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]` required) The type
+  of resource of which the application will be associated.
+  ## Keyword parameters:
   """
-
   @spec associate_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resource_errors()}
-
   def associate_resource(%Client{} = client, application, resource, resource_type, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application)}/resources/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
@@ -1052,15 +1046,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -1100,15 +1091,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20CreateAttributeGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_attribute_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_attribute_group_errors()}
-
   def create_attribute_group(%Client{} = client, options \\ []) do
     url_path = "/attribute-groups"
 
@@ -1147,16 +1135,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DeleteApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name, ID, or ARN of the application.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The name, ID, or ARN of the application.
+  ## Keyword parameters:
   """
-
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
 
@@ -1204,17 +1189,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DeleteAttributeGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
-  that holds the attributes to describe the application.
-
-  ## Optional parameters:
+  * `:attribute_group` (`t:string` required) The name, ID, or ARN of the attribute
+  group that holds the attributes to describe the application.
+  ## Keyword parameters:
   """
-
   @spec delete_attribute_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attribute_group_errors()}
-
   def delete_attribute_group(%Client{} = client, attribute_group, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
 
@@ -1263,18 +1245,15 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DisassociateAttributeGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name, ID, or ARN of the application.
-  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
-  that holds the attributes to describe the application.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The name, ID, or ARN of the application.
+  * `:attribute_group` (`t:string` required) The name, ID, or ARN of the attribute
+  group that holds the attributes to describe the application.
+  ## Keyword parameters:
   """
-
   @spec disassociate_attribute_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_attribute_group_errors()}
-
   def disassociate_attribute_group(
         %Client{} = client,
         application,
@@ -1328,19 +1307,16 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DisassociateResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name or ID of the application.
-  * `:resource` (`t:string`) The name or ID of the resource.
-  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of the
-  resource that is being disassociated.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The name or ID of the application.
+  * `:resource` (`t:string` required) The name or ID of the resource.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]` required) The type
+  of the resource that is being disassociated.
+  ## Keyword parameters:
   """
-
   @spec disassociate_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resource_errors()}
-
   def disassociate_resource(
         %Client{} = client,
         application,
@@ -1399,16 +1375,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name, ID, or ARN of the application.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The name, ID, or ARN of the application.
+  ## Keyword parameters:
   """
-
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-
   def get_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
 
@@ -1443,13 +1416,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetAssociatedResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name, ID, or ARN of the application.
-  * `:resource` (`t:string`) The name or ID of the resource associated with the
-  application.
-  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
-  resource associated with the application.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The name, ID, or ARN of the application.
+  * `:resource` (`t:string` required) The name or ID of the resource associated
+  with the application.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]` required) The type
+  of resource associated with the application.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. If the
   parameter is omitted, it defaults to 25. The value is optional.
   * `:next_token` (`t:string`) A unique pagination token for each page of results.
@@ -1460,12 +1432,10 @@ defmodule AWS.ServiceCatalogAppRegistry do
   States whether an application tag is applied, not applied, in the process of
   being applied, or skipped.
   """
-
   @spec get_associated_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_associated_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_associated_resource_errors()}
-
   def get_associated_resource(
         %Client{} = client,
         application,
@@ -1533,17 +1503,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetAttributeGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
-  that holds the attributes to describe the application.
-
-  ## Optional parameters:
+  * `:attribute_group` (`t:string` required) The name, ID, or ARN of the attribute
+  group that holds the attributes to describe the application.
+  ## Keyword parameters:
   """
-
   @spec get_attribute_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attribute_group_errors()}
-
   def get_attribute_group(%Client{} = client, attribute_group, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
 
@@ -1578,15 +1545,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_errors()}
-
   def get_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration"
 
@@ -1621,20 +1585,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
   return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
   This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
   after a previous API call.
   """
-
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -1688,21 +1649,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAssociatedAttributeGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name or ID of the application.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The name or ID of the application.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
   return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
   This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
   after a previous API call.
   """
-
   @spec list_associated_attribute_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_attribute_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_attribute_groups_errors()}
-
   def list_associated_attribute_groups(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups"
 
@@ -1756,21 +1714,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAssociatedResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name, ID, or ARN of the application.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The name, ID, or ARN of the application.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
   return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
   This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
   after a previous API call.
   """
-
   @spec list_associated_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_resources_errors()}
-
   def list_associated_resources(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}/resources"
 
@@ -1823,20 +1778,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAttributeGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
   return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
   This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
   after a previous API call.
   """
-
   @spec list_attribute_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attribute_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attribute_groups_errors()}
-
   def list_attribute_groups(%Client{} = client, options \\ []) do
     url_path = "/attribute-groups"
 
@@ -1890,21 +1842,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAttributeGroupsForApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name or ID of the application.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The name or ID of the application.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
   return. The value cannot exceed 25. If you omit this parameter, it defaults
   to 25. This value is optional.
   * `:next_token` (`t:string`) This token retrieves the next page of results after
   a previous API call.
   """
-
   @spec list_attribute_groups_for_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attribute_groups_for_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attribute_groups_for_application_errors()}
-
   def list_attribute_groups_for_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}/attribute-group-details"
 
@@ -1957,17 +1906,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
-  resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon resource name (ARN) that
+  specifies the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2002,15 +1948,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20PutConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_errors()}
-
   def put_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration"
 
@@ -2047,20 +1990,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20SyncResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource` (`t:string`) An entity you can work with and specify with a name
-  or ID. Examples include an Amazon EC2 instance, an Amazon Web Services
-  CloudFormation stack, or an Amazon S3 bucket.
-  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
-  resource of which the application will be associated.
-
-  ## Optional parameters:
+  * `:resource` (`t:string` required) An entity you can work with and specify with
+  a name or ID. Examples include an Amazon EC2 instance, an Amazon Web
+  Services CloudFormation stack, or an Amazon S3 bucket.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]` required) The type
+  of resource of which the application will be associated.
+  ## Keyword parameters:
   """
-
   @spec sync_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, sync_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sync_resource_errors()}
-
   def sync_resource(%Client{} = client, resource, resource_type, options \\ []) do
     url_path = "/sync/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
 
@@ -2099,17 +2039,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
-  resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon resource name (ARN) that
+  specifies the resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2146,19 +2083,16 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
-  resource.
-  * `:tag_keys` (`t:list[com.amazonaws.servicecatalogappregistry#TagKey]`) A list
-  of the tag keys to remove from the specified resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon resource name (ARN) that
+  specifies the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.servicecatalogappregistry#TagKey]`
+  required) A list of the tag keys to remove from the specified resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2206,17 +2140,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20UpdateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The name, ID, or ARN of the application that will
-  be updated.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The name, ID, or ARN of the application
+  that will be updated.
+  ## Keyword parameters:
   """
-
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-
   def update_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
 
@@ -2263,17 +2194,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20UpdateAttributeGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
-  that holds the attributes to describe the application.
-
-  ## Optional parameters:
+  * `:attribute_group` (`t:string` required) The name, ID, or ARN of the attribute
+  group that holds the attributes to describe the application.
+  ## Keyword parameters:
   """
-
   @spec update_attribute_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_attribute_group_errors()}
-
   def update_attribute_group(%Client{} = client, attribute_group, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
 

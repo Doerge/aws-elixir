@@ -1009,16 +1009,14 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20AddProfilePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_name` (`t:string`) The human-readable name of the signing profile.
-
-  ## Optional parameters:
+  * `:profile_name` (`t:string` required) The human-readable name of the signing
+  profile.
+  ## Keyword parameters:
   """
-
   @spec add_profile_permission(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_profile_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_profile_permission_errors()}
-
   def add_profile_permission(%Client{} = client, profile_name, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
 
@@ -1057,16 +1055,14 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20CancelSigningProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_name` (`t:string`) The name of the signing profile to be canceled.
-
-  ## Optional parameters:
+  * `:profile_name` (`t:string` required) The name of the signing profile to be
+  canceled.
+  ## Keyword parameters:
   """
-
   @spec cancel_signing_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_signing_profile_errors()}
-
   def cancel_signing_profile(%Client{} = client, profile_name, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
 
@@ -1114,16 +1110,13 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20DescribeSigningJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID of the signing job on input.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID of the signing job on input.
+  ## Keyword parameters:
   """
-
   @spec describe_signing_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_signing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_signing_job_errors()}
-
   def describe_signing_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -1159,17 +1152,15 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20GetRevocationStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:certificate_hashes` (`t:list[com.amazonaws.signer#String]`) A list of
-  composite signed hashes that identify certificates.
-  * `:job_arn` (`t:string`) The ARN of a signing job.
-  * `:platform_id` (`t:string`) The ID of a signing platform.
-  * `:profile_version_arn` (`t:string`) The version of a signing profile.
-  * `:signature_timestamp` (`t:timestamp`) The timestamp of the signature that
-  validates the profile or job.
-
-  ## Optional parameters:
+  * `:certificate_hashes` (`t:list[com.amazonaws.signer#String]` required) A list
+  of composite signed hashes that identify certificates.
+  * `:job_arn` (`t:string` required) The ARN of a signing job.
+  * `:platform_id` (`t:string` required) The ID of a signing platform.
+  * `:profile_version_arn` (`t:string` required) The version of a signing profile.
+  * `:signature_timestamp` (`t:timestamp` required) The timestamp of the signature
+  that validates the profile or job.
+  ## Keyword parameters:
   """
-
   @spec get_revocation_status(
           AWS.Client.t(),
           String.t(),
@@ -1182,7 +1173,6 @@ defmodule AWS.Signer do
           {:ok, get_revocation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_revocation_status_errors()}
-
   def get_revocation_status(
         %Client{} = client,
         certificate_hashes,
@@ -1233,16 +1223,13 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20GetSigningPlatform&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:platform_id` (`t:string`) The ID of the target signing platform.
-
-  ## Optional parameters:
+  * `:platform_id` (`t:string` required) The ID of the target signing platform.
+  ## Keyword parameters:
   """
-
   @spec get_signing_platform(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_signing_platform_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_signing_platform_errors()}
-
   def get_signing_platform(%Client{} = client, platform_id, options \\ []) do
     url_path = "/signing-platforms/#{AWS.Util.encode_uri(platform_id)}"
 
@@ -1277,17 +1264,14 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20GetSigningProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_name` (`t:string`) The name of the target signing profile.
-
-  ## Optional parameters:
+  * `:profile_name` (`t:string` required) The name of the target signing profile.
+  ## Keyword parameters:
   * `:profile_owner` (`t:string`) The AWS account ID of the profile owner.
   """
-
   @spec get_signing_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_signing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_signing_profile_errors()}
-
   def get_signing_profile(%Client{} = client, profile_name, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
 
@@ -1333,19 +1317,16 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListProfilePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_name` (`t:string`) Name of the signing profile containing the
-  cross-account permissions.
-
-  ## Optional parameters:
+  * `:profile_name` (`t:string` required) Name of the signing profile containing
+  the cross-account permissions.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) String for specifying the next set of paginated
   results.
   """
-
   @spec list_profile_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_permissions_errors()}
-
   def list_profile_permissions(%Client{} = client, profile_name, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
 
@@ -1397,8 +1378,7 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListSigningJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:is_revoked` (`t:boolean`) Filters results to return only signing jobs with
   revoked signatures.
   * `:job_invoker` (`t:string`) Filters results to return only signing jobs
@@ -1422,12 +1402,10 @@ defmodule AWS.Signer do
   * `:status` (`t:enum["Failed|InProgress|Succeeded"]`) A status value with which
   to filter your results.
   """
-
   @spec list_signing_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signing_jobs_errors()}
-
   def list_signing_jobs(%Client{} = client, options \\ []) do
     url_path = "/signing-jobs"
 
@@ -1554,8 +1532,7 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListSigningPlatforms&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:category` (`t:string`) The category type of a signing platform.
   * `:max_results` (`t:integer`) The maximum number of results to be returned by
   this operation.
@@ -1567,12 +1544,10 @@ defmodule AWS.Signer do
   * `:target` (`t:string`) The validation template that is used by the target
   signing platform.
   """
-
   @spec list_signing_platforms(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_platforms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signing_platforms_errors()}
-
   def list_signing_platforms(%Client{} = client, options \\ []) do
     url_path = "/signing-platforms"
 
@@ -1658,8 +1633,7 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListSigningProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:include_canceled` (`t:boolean`) Designates whether to include profiles with
   the status of CANCELED.
   * `:max_results` (`t:integer`) The maximum number of profiles to be returned.
@@ -1672,12 +1646,10 @@ defmodule AWS.Signer do
   * `:statuses` (`t:list[com.amazonaws.signer#SigningProfileStatus]`) Filters
   results to return only signing jobs with statuses in the specified list.
   """
-
   @spec list_signing_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signing_profiles_errors()}
-
   def list_signing_profiles(%Client{} = client, options \\ []) do
     url_path = "/signing-profiles"
 
@@ -1757,17 +1729,14 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing
-  profile.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  signing profile.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1803,16 +1772,14 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20PutSigningProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_name` (`t:string`) The name of the signing profile to be created.
-
-  ## Optional parameters:
+  * `:profile_name` (`t:string` required) The name of the signing profile to be
+  created.
+  ## Keyword parameters:
   """
-
   @spec put_signing_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_signing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_signing_profile_errors()}
-
   def put_signing_profile(%Client{} = client, profile_name, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
 
@@ -1849,21 +1816,18 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20RemoveProfilePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_name` (`t:string`) A human-readable name for the signing profile
-  with permissions to be removed.
-  * `:statement_id` (`t:string`) A unique identifier for the cross-account
-  permissions statement.
-  * `:revision_id` (`t:string`) An identifier for the current revision of the
-  signing profile permissions.
-
-  ## Optional parameters:
+  * `:profile_name` (`t:string` required) A human-readable name for the signing
+  profile with permissions to be removed.
+  * `:statement_id` (`t:string` required) A unique identifier for the
+  cross-account permissions statement.
+  * `:revision_id` (`t:string` required) An identifier for the current revision of
+  the signing profile permissions.
+  ## Keyword parameters:
   """
-
   @spec remove_profile_permission(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_profile_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_profile_permission_errors()}
-
   def remove_profile_permission(
         %Client{} = client,
         profile_name,
@@ -1919,16 +1883,13 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20RevokeSignature&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) ID of the signing job to be revoked.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) ID of the signing job to be revoked.
+  ## Keyword parameters:
   """
-
   @spec revoke_signature(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_signature_errors()}
-
   def revoke_signature(%Client{} = client, job_id, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}/revoke"
 
@@ -1967,16 +1928,14 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20RevokeSigningProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_name` (`t:string`) The name of the signing profile to be revoked.
-
-  ## Optional parameters:
+  * `:profile_name` (`t:string` required) The name of the signing profile to be
+  revoked.
+  ## Keyword parameters:
   """
-
   @spec revoke_signing_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_signing_profile_errors()}
-
   def revoke_signing_profile(%Client{} = client, profile_name, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/revoke"
 
@@ -2013,15 +1972,12 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20SignPayload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec sign_payload(AWS.Client.t(), Keyword.t()) ::
           {:ok, sign_payload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sign_payload_errors()}
-
   def sign_payload(%Client{} = client, options \\ []) do
     url_path = "/signing-jobs/with-payload"
 
@@ -2060,15 +2016,12 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20StartSigningJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_signing_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_signing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_signing_job_errors()}
-
   def start_signing_job(%Client{} = client, options \\ []) do
     url_path = "/signing-jobs"
 
@@ -2108,17 +2061,14 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing
-  profile.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  signing profile.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2156,19 +2106,16 @@ defmodule AWS.Signer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing
-  profile.
-  * `:tag_keys` (`t:list[com.amazonaws.signer#TagKey]`) A list of tag keys to be
-  removed from the signing profile.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  signing profile.
+  * `:tag_keys` (`t:list[com.amazonaws.signer#TagKey]` required) A list of tag
+  keys to be removed from the signing profile.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

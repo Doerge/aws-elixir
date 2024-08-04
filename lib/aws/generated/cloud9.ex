@@ -599,6 +599,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Creates an Cloud9 development environment, launches an Amazon Elastic Compute
   Cloud (Amazon EC2) instance, and then connects from the instance to the
   environment.
@@ -621,12 +622,10 @@ defmodule AWS.Cloud9 do
       required("name") => String.t()
     }
   """
-
   @spec create_environment_ec2(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_environment_ec2_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_ec2_errors()}
-
   def create_environment_ec2(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -635,6 +634,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Adds an environment member to an Cloud9 development environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloud9%20CreateEnvironmentMembership&this_doc_guide=API%2520Reference)
@@ -647,12 +647,10 @@ defmodule AWS.Cloud9 do
       required("userArn") => String.t()
     }
   """
-
   @spec create_environment_membership(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_environment_membership_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_membership_errors()}
-
   def create_environment_membership(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -662,6 +660,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Deletes an Cloud9 development environment. If an Amazon EC2 instance is
   connected to the environment, also terminates the instance.
 
@@ -673,12 +672,10 @@ defmodule AWS.Cloud9 do
       required("environmentId") => String.t()
     }
   """
-
   @spec delete_environment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-
   def delete_environment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -687,6 +684,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Deletes an environment member from a development environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloud9%20DeleteEnvironmentMembership&this_doc_guide=API%2520Reference)
@@ -698,12 +696,10 @@ defmodule AWS.Cloud9 do
       required("userArn") => String.t()
     }
   """
-
   @spec delete_environment_membership(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_environment_membership_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_membership_errors()}
-
   def delete_environment_membership(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -713,6 +709,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Gets information about environment members for an Cloud9 development
   environment.
 
@@ -728,12 +725,10 @@ defmodule AWS.Cloud9 do
       optional("userArn") => String.t()
     }
   """
-
   @spec describe_environment_memberships(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_environment_memberships_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_environment_memberships_errors()}
-
   def describe_environment_memberships(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -743,6 +738,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Gets status information for an Cloud9 development environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloud9%20DescribeEnvironmentStatus&this_doc_guide=API%2520Reference)
@@ -753,12 +749,10 @@ defmodule AWS.Cloud9 do
       required("environmentId") => String.t()
     }
   """
-
   @spec describe_environment_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_environment_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_environment_status_errors()}
-
   def describe_environment_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -767,6 +761,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Gets information about Cloud9 development environments.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloud9%20DescribeEnvironments&this_doc_guide=API%2520Reference)
@@ -777,12 +772,10 @@ defmodule AWS.Cloud9 do
       required("environmentIds") => list(String.t()())
     }
   """
-
   @spec describe_environments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_environments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_environments_errors()}
-
   def describe_environments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -791,6 +784,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Gets a list of Cloud9 development environment identifiers.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloud9%20ListEnvironments&this_doc_guide=API%2520Reference)
@@ -802,12 +796,10 @@ defmodule AWS.Cloud9 do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_environments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_environments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-
   def list_environments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -816,6 +808,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Gets a list of the tags associated with an Cloud9 development environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloud9%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -826,12 +819,10 @@ defmodule AWS.Cloud9 do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -840,6 +831,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Adds tags to an Cloud9 development environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloud9%20TagResource&this_doc_guide=API%2520Reference)
@@ -851,12 +843,10 @@ defmodule AWS.Cloud9 do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -865,6 +855,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Removes tags from an Cloud9 development environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloud9%20UntagResource&this_doc_guide=API%2520Reference)
@@ -876,12 +867,10 @@ defmodule AWS.Cloud9 do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -890,6 +879,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Changes the settings of an existing Cloud9 development environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloud9%20UpdateEnvironment&this_doc_guide=API%2520Reference)
@@ -903,12 +893,10 @@ defmodule AWS.Cloud9 do
       required("environmentId") => String.t()
     }
   """
-
   @spec update_environment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
-
   def update_environment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -917,6 +905,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
+   
   Changes the settings of an existing environment member for an Cloud9 development
   environment.
 
@@ -930,12 +919,10 @@ defmodule AWS.Cloud9 do
       required("userArn") => String.t()
     }
   """
-
   @spec update_environment_membership(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_environment_membership_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_membership_errors()}
-
   def update_environment_membership(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

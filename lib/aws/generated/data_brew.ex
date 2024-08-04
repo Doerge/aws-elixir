@@ -2044,16 +2044,14 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20BatchDeleteRecipeVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the recipe whose versions are to be deleted.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the recipe whose versions are to be
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec batch_delete_recipe_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_recipe_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_recipe_version_errors()}
-
   def batch_delete_recipe_version(%Client{} = client, name, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}/batchDeleteRecipeVersion"
 
@@ -2090,15 +2088,12 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_dataset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
-
   def create_dataset(%Client{} = client, options \\ []) do
     url_path = "/datasets"
 
@@ -2135,15 +2130,12 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateProfileJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_profile_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_profile_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_job_errors()}
-
   def create_profile_job(%Client{} = client, options \\ []) do
     url_path = "/profileJobs"
 
@@ -2180,15 +2172,12 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_project(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-
   def create_project(%Client{} = client, options \\ []) do
     url_path = "/projects"
 
@@ -2225,15 +2214,12 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_recipe(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recipe_errors()}
-
   def create_recipe(%Client{} = client, options \\ []) do
     url_path = "/recipes"
 
@@ -2271,15 +2257,12 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRecipeJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_recipe_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_recipe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recipe_job_errors()}
-
   def create_recipe_job(%Client{} = client, options \\ []) do
     url_path = "/recipeJobs"
 
@@ -2317,15 +2300,12 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRuleset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_ruleset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ruleset_errors()}
-
   def create_ruleset(%Client{} = client, options \\ []) do
     url_path = "/rulesets"
 
@@ -2363,15 +2343,12 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_schedule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schedule_errors()}
-
   def create_schedule(%Client{} = client, options \\ []) do
     url_path = "/schedules"
 
@@ -2408,16 +2385,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the dataset to be deleted.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the dataset to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
-
   def delete_dataset(%Client{} = client, name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
 
@@ -2464,16 +2438,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the job to be deleted.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the job to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
-
   def delete_job(%Client{} = client, name, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}"
 
@@ -2520,16 +2491,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the project to be deleted.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the project to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-
   def delete_project(%Client{} = client, name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}"
 
@@ -2576,19 +2544,16 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteRecipeVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the recipe.
-  * `:recipe_version` (`t:string`) The version of the recipe to be deleted. You
-  can specify a numeric versions (X.Y) or LATEST_WORKING. LATEST_PUBLISHED is
-  not supported.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the recipe.
+  * `:recipe_version` (`t:string` required) The version of the recipe to be
+  deleted. You can specify a numeric versions (X.Y) or LATEST_WORKING.
+  LATEST_PUBLISHED is not supported.
+  ## Keyword parameters:
   """
-
   @spec delete_recipe_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_recipe_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recipe_version_errors()}
-
   def delete_recipe_version(%Client{} = client, name, recipe_version, options \\ []) do
     url_path =
       "/recipes/#{AWS.Util.encode_uri(name)}/recipeVersion/#{AWS.Util.encode_uri(recipe_version)}"
@@ -2636,16 +2601,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteRuleset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ruleset to be deleted.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ruleset to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_ruleset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ruleset_errors()}
-
   def delete_ruleset(%Client{} = client, name, options \\ []) do
     url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
 
@@ -2692,16 +2654,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the schedule to be deleted.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schedule to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schedule_errors()}
-
   def delete_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
 
@@ -2748,16 +2707,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the dataset to be described.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the dataset to be described.
+  ## Keyword parameters:
   """
-
   @spec describe_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
-
   def describe_dataset(%Client{} = client, name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
 
@@ -2792,16 +2748,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the job to be described.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the job to be described.
+  ## Keyword parameters:
   """
-
   @spec describe_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_errors()}
-
   def describe_job(%Client{} = client, name, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}"
 
@@ -2836,17 +2789,15 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeJobRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the job being processed during this run.
-  * `:run_id` (`t:string`) The unique identifier of the job run.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the job being processed during this
+  run.
+  * `:run_id` (`t:string` required) The unique identifier of the job run.
+  ## Keyword parameters:
   """
-
   @spec describe_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_run_errors()}
-
   def describe_job_run(%Client{} = client, name, run_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}/jobRun/#{AWS.Util.encode_uri(run_id)}"
 
@@ -2881,16 +2832,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the project to be described.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the project to be described.
+  ## Keyword parameters:
   """
-
   @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
-
   def describe_project(%Client{} = client, name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}"
 
@@ -2926,18 +2874,15 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the recipe to be described.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the recipe to be described.
+  ## Keyword parameters:
   * `:recipe_version` (`t:string`) The recipe version identifier. If this
   parameter isn't specified, then the latest published version is returned.
   """
-
   @spec describe_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recipe_errors()}
-
   def describe_recipe(%Client{} = client, name, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}"
 
@@ -2983,16 +2928,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeRuleset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ruleset to be described.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ruleset to be described.
+  ## Keyword parameters:
   """
-
   @spec describe_ruleset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ruleset_errors()}
-
   def describe_ruleset(%Client{} = client, name, options \\ []) do
     url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
 
@@ -3027,16 +2969,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the schedule to be described.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schedule to be described.
+  ## Keyword parameters:
   """
-
   @spec describe_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schedule_errors()}
-
   def describe_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
 
@@ -3071,19 +3010,16 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListDatasets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
   the next set of results.
   """
-
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-
   def list_datasets(%Client{} = client, options \\ []) do
     url_path = "/datasets"
 
@@ -3136,20 +3072,17 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListJobRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the job.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the job.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
   the next set of results.
   """
-
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_runs_errors()}
-
   def list_job_runs(%Client{} = client, name, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}/jobRuns"
 
@@ -3202,8 +3135,7 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:dataset_name` (`t:string`) The name of a dataset. Using this parameter
   indicates to return only those jobs that act on the specified dataset.
   * `:max_results` (`t:integer`) The maximum number of results to return in this
@@ -3216,12 +3148,10 @@ defmodule AWS.DataBrew do
   indicates to return only those jobs that are associated with the specified
   project.
   """
-
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-
   def list_jobs(%Client{} = client, options \\ []) do
     url_path = "/jobs"
 
@@ -3288,19 +3218,16 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListProjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
   the next set of results.
   """
-
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-
   def list_projects(%Client{} = client, options \\ []) do
     url_path = "/projects"
 
@@ -3353,21 +3280,18 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRecipeVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the recipe for which to return version
-  information.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the recipe for which to return
+  version information.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
   the next set of results.
   """
-
   @spec list_recipe_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recipe_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recipe_versions_errors()}
-
   def list_recipe_versions(%Client{} = client, name, options \\ []) when is_binary(name) do
     url_path = "/recipeVersions"
 
@@ -3420,8 +3344,7 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRecipes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
@@ -3430,12 +3353,10 @@ defmodule AWS.DataBrew do
   identifier of LATEST_WORKING or LATEST_PUBLISHED. If RecipeVersion is
   omitted, ListRecipes returns all of the LATEST_PUBLISHED recipe versions.
   """
-
   @spec list_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recipes_errors()}
-
   def list_recipes(%Client{} = client, options \\ []) do
     url_path = "/recipes"
 
@@ -3496,8 +3417,7 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRulesets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) A token generated by DataBrew that specifies where
@@ -3508,12 +3428,10 @@ defmodule AWS.DataBrew do
   (dataset). Using this parameter indicates to return only those rulesets that
   are associated with the specified resource.
   """
-
   @spec list_rulesets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rulesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rulesets_errors()}
-
   def list_rulesets(%Client{} = client, options \\ []) do
     url_path = "/rulesets"
 
@@ -3573,20 +3491,17 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListSchedules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:job_name` (`t:string`) The name of the job that these schedules apply to.
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
   the next set of results.
   """
-
   @spec list_schedules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schedules_errors()}
-
   def list_schedules(%Client{} = client, options \\ []) do
     url_path = "/schedules"
 
@@ -3646,17 +3561,14 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) string that
-  uniquely identifies the DataBrew resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) string
+  that uniquely identifies the DataBrew resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3691,16 +3603,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20PublishRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the recipe to be published.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the recipe to be published.
+  ## Keyword parameters:
   """
-
   @spec publish_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, publish_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_recipe_errors()}
-
   def publish_recipe(%Client{} = client, name, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}/publishRecipe"
 
@@ -3738,16 +3647,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20SendProjectSessionAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the project to apply the action to.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the project to apply the action to.
+  ## Keyword parameters:
   """
-
   @spec send_project_session_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_project_session_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_project_session_action_errors()}
-
   def send_project_session_action(%Client{} = client, name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}/sendProjectSessionAction"
 
@@ -3784,16 +3690,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20StartJobRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the job to be run.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the job to be run.
+  ## Keyword parameters:
   """
-
   @spec start_job_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_run_errors()}
-
   def start_job_run(%Client{} = client, name, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}/startJobRun"
 
@@ -3831,16 +3734,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20StartProjectSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the project to act upon.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the project to act upon.
+  ## Keyword parameters:
   """
-
   @spec start_project_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_project_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_project_session_errors()}
-
   def start_project_session(%Client{} = client, name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}/startProjectSession"
 
@@ -3877,17 +3777,14 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20StopJobRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the job to be stopped.
-  * `:run_id` (`t:string`) The ID of the job run to be stopped.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the job to be stopped.
+  * `:run_id` (`t:string` required) The ID of the job run to be stopped.
+  ## Keyword parameters:
   """
-
   @spec stop_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_job_run_errors()}
-
   def stop_job_run(%Client{} = client, name, run_id, options \\ []) do
     url_path =
       "/jobs/#{AWS.Util.encode_uri(name)}/jobRun/#{AWS.Util.encode_uri(run_id)}/stopJobRun"
@@ -3926,18 +3823,15 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The DataBrew resource to which tags should be
-  added. The value for this parameter is an Amazon Resource Name (ARN). For
-  DataBrew, you can tag a dataset, a job, a project, or a recipe.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The DataBrew resource to which tags
+  should be added. The value for this parameter is an Amazon Resource Name
+  (ARN). For DataBrew, you can tag a dataset, a job, a project, or a recipe.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3974,20 +3868,17 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) A DataBrew resource from which you want to remove
-  a tag or tags. The value for this parameter is an Amazon Resource Name
-  (ARN).
-  * `:tag_keys` (`t:list[com.amazonaws.databrew#TagKey]`) The tag keys (names) of
-  one or more tags to be removed.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) A DataBrew resource from which you want
+  to remove a tag or tags. The value for this parameter is an Amazon Resource
+  Name (ARN).
+  * `:tag_keys` (`t:list[com.amazonaws.databrew#TagKey]` required) The tag keys
+  (names) of one or more tags to be removed.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4035,16 +3926,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the dataset to be updated.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the dataset to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_errors()}
-
   def update_dataset(%Client{} = client, name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
 
@@ -4081,16 +3969,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateProfileJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the job to be updated.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the job to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_profile_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_profile_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_job_errors()}
-
   def update_profile_job(%Client{} = client, name, options \\ []) do
     url_path = "/profileJobs/#{AWS.Util.encode_uri(name)}"
 
@@ -4127,16 +4012,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the project to be updated.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the project to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-
   def update_project(%Client{} = client, name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}"
 
@@ -4173,16 +4055,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the recipe to be updated.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the recipe to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recipe_errors()}
-
   def update_recipe(%Client{} = client, name, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}"
 
@@ -4219,16 +4098,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateRecipeJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the job to update.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the job to update.
+  ## Keyword parameters:
   """
-
   @spec update_recipe_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_recipe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recipe_job_errors()}
-
   def update_recipe_job(%Client{} = client, name, options \\ []) do
     url_path = "/recipeJobs/#{AWS.Util.encode_uri(name)}"
 
@@ -4265,16 +4141,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateRuleset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ruleset to be updated.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ruleset to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_ruleset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ruleset_errors()}
-
   def update_ruleset(%Client{} = client, name, options \\ []) do
     url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
 
@@ -4311,16 +4184,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the schedule to update.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schedule to update.
+  ## Keyword parameters:
   """
-
   @spec update_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schedule_errors()}
-
   def update_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
 

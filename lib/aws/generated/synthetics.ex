@@ -1040,17 +1040,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20AssociateResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_identifier` (`t:string`) Specifies the group. You can specify the
-  group name, the ARN, or the group ID as the GroupIdentifier.
-
-  ## Optional parameters:
+  * `:group_identifier` (`t:string` required) Specifies the group. You can specify
+  the group name, the ARN, or the group ID as the GroupIdentifier.
+  ## Keyword parameters:
   """
-
   @spec associate_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resource_errors()}
-
   def associate_resource(%Client{} = client, group_identifier, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/associate"
 
@@ -1109,15 +1106,12 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20CreateCanary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_canary(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_canary_errors()}
-
   def create_canary(%Client{} = client, options \\ []) do
     url_path = "/canary"
 
@@ -1163,15 +1157,12 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20CreateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-
   def create_group(%Client{} = client, options \\ []) do
     url_path = "/group"
 
@@ -1210,19 +1201,16 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DeleteCanary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the canary that you want to delete. To find
-  the names of your canaries, use DescribeCanaries.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the canary that you want to delete.
+  To find the names of your canaries, use DescribeCanaries.
+  ## Keyword parameters:
   * `:delete_lambda` (`t:boolean`) Specifies whether to also delete the Lambda
   functions and layers used by this canary. The default is false.
   """
-
   @spec delete_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_canary_errors()}
-
   def delete_canary(%Client{} = client, name, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"
 
@@ -1281,17 +1269,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DeleteGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_identifier` (`t:string`) Specifies which group to delete. You can
-  specify the group name, the ARN, or the group ID as the GroupIdentifier.
-
-  ## Optional parameters:
+  * `:group_identifier` (`t:string` required) Specifies which group to delete. You
+  can specify the group name, the ARN, or the group ID as the GroupIdentifier.
+  ## Keyword parameters:
   """
-
   @spec delete_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-
   def delete_group(%Client{} = client, group_identifier, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}"
 
@@ -1344,15 +1329,12 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DescribeCanaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_canaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_canaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_canaries_errors()}
-
   def describe_canaries(%Client{} = client, options \\ []) do
     url_path = "/canaries"
 
@@ -1394,15 +1376,12 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DescribeCanariesLastRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_canaries_last_run(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_canaries_last_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_canaries_last_run_errors()}
-
   def describe_canaries_last_run(%Client{} = client, options \\ []) do
     url_path = "/canaries/last-run"
 
@@ -1441,15 +1420,12 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DescribeRuntimeVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_runtime_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_runtime_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_runtime_versions_errors()}
-
   def describe_runtime_versions(%Client{} = client, options \\ []) do
     url_path = "/runtime-versions"
 
@@ -1487,17 +1463,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DisassociateResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_identifier` (`t:string`) Specifies the group. You can specify the
-  group name, the ARN, or the group ID as the GroupIdentifier.
-
-  ## Optional parameters:
+  * `:group_identifier` (`t:string` required) Specifies the group. You can specify
+  the group name, the ARN, or the group ID as the GroupIdentifier.
+  ## Keyword parameters:
   """
-
   @spec disassociate_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resource_errors()}
-
   def disassociate_resource(%Client{} = client, group_identifier, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/disassociate"
 
@@ -1546,16 +1519,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20GetCanary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the canary that you want details for.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the canary that you want details
+  for.
+  ## Keyword parameters:
   """
-
   @spec get_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_canary_errors()}
-
   def get_canary(%Client{} = client, name, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"
 
@@ -1590,16 +1561,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20GetCanaryRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the canary that you want to see runs for.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the canary that you want to see runs
+  for.
+  ## Keyword parameters:
   """
-
   @spec get_canary_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_canary_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_canary_runs_errors()}
-
   def get_canary_runs(%Client{} = client, name, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}/runs"
 
@@ -1637,18 +1606,15 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20GetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_identifier` (`t:string`) Specifies the group to return information
-  for. You can specify the group name, the ARN, or the group ID as the
-  GroupIdentifier.
-
-  ## Optional parameters:
+  * `:group_identifier` (`t:string` required) Specifies the group to return
+  information for. You can specify the group name, the ARN, or the group ID as
+  the GroupIdentifier.
+  ## Keyword parameters:
   """
-
   @spec get_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
-
   def get_group(%Client{} = client, group_identifier, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}"
 
@@ -1684,17 +1650,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20ListAssociatedGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the canary that you want to view
-  groups for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the canary that you want to
+  view groups for.
+  ## Keyword parameters:
   """
-
   @spec list_associated_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_groups_errors()}
-
   def list_associated_groups(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource/#{AWS.Util.encode_uri(resource_arn)}/groups"
 
@@ -1732,18 +1695,15 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20ListGroupResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_identifier` (`t:string`) Specifies the group to return information
-  for. You can specify the group name, the ARN, or the group ID as the
-  GroupIdentifier.
-
-  ## Optional parameters:
+  * `:group_identifier` (`t:string` required) Specifies the group to return
+  information for. You can specify the group name, the ARN, or the group ID as
+  the GroupIdentifier.
+  ## Keyword parameters:
   """
-
   @spec list_group_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_resources_errors()}
-
   def list_group_resources(%Client{} = client, group_identifier, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/resources"
 
@@ -1781,15 +1741,12 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20ListGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
-
   def list_groups(%Client{} = client, options \\ []) do
     url_path = "/groups"
 
@@ -1826,17 +1783,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the canary or group that you want to
-  view tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the canary or group that you
+  want to view tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1874,17 +1828,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20StartCanary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the canary that you want to run. To find
-  canary names, use DescribeCanaries.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the canary that you want to run. To
+  find canary names, use DescribeCanaries.
+  ## Keyword parameters:
   """
-
   @spec start_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_canary_errors()}
-
   def start_canary(%Client{} = client, name, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}/start"
 
@@ -1924,17 +1875,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20StopCanary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the canary that you want to stop. To find the
-  names of your canaries, use ListCanaries.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the canary that you want to stop. To
+  find the names of your canaries, use ListCanaries.
+  ## Keyword parameters:
   """
-
   @spec stop_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_canary_errors()}
-
   def stop_canary(%Client{} = client, name, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}/stop"
 
@@ -1974,17 +1922,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the canary or group that you're adding
-  tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the canary or group that
+  you're adding tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2021,19 +1966,16 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the canary or group that you're
-  removing tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.synthetics#TagKey]`) The list of tag keys
-  to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the canary or group that
+  you're removing tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.synthetics#TagKey]` required) The list of
+  tag keys to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2081,17 +2023,14 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20UpdateCanary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the canary that you want to update. To find
-  the names of your canaries, use DescribeCanaries.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the canary that you want to update.
+  To find the names of your canaries, use DescribeCanaries.
+  ## Keyword parameters:
   """
-
   @spec update_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_canary_errors()}
-
   def update_canary(%Client{} = client, name, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"
 

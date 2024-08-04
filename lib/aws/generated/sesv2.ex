@@ -3809,15 +3809,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20BatchGetMetricData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_metric_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_metric_data_errors()}
-
   def batch_get_metric_data(%Client{} = client, options \\ []) do
     url_path = "/v2/email/metrics/batch"
 
@@ -3854,16 +3851,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CancelExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The export job ID.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The export job ID.
+  ## Keyword parameters:
   """
-
   @spec cancel_export_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_export_job_errors()}
-
   def cancel_export_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v2/email/export-jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
 
@@ -3904,15 +3898,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateConfigurationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_configuration_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_errors()}
-
   def create_configuration_set(%Client{} = client, options \\ []) do
     url_path = "/v2/email/configuration-sets"
 
@@ -3953,16 +3944,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set .
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set .
+  ## Keyword parameters:
   """
-
   @spec create_configuration_set_event_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_event_destination_errors()}
-
   def create_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
@@ -4005,17 +3994,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list to which the
-  contact should be added.
-
-  ## Optional parameters:
+  * `:contact_list_name` (`t:string` required) The name of the contact list to
+  which the contact should be added.
+  ## Keyword parameters:
   """
-
   @spec create_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_errors()}
-
   def create_contact(%Client{} = client, contact_list_name, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts"
 
@@ -4052,15 +4038,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateContactList&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_contact_list(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_list_errors()}
-
   def create_contact_list(%Client{} = client, options \\ []) do
     url_path = "/v2/email/contact-lists"
 
@@ -4100,15 +4083,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_custom_verification_email_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_verification_email_template_errors()}
-
   def create_custom_verification_email_template(%Client{} = client, options \\ []) do
     url_path = "/v2/email/custom-verification-email-templates"
 
@@ -4149,15 +4129,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateDedicatedIpPool&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_dedicated_ip_pool(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dedicated_ip_pool_errors()}
-
   def create_dedicated_ip_pool(%Client{} = client, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools"
 
@@ -4201,15 +4178,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateDeliverabilityTestReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_deliverability_test_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deliverability_test_report_errors()}
-
   def create_deliverability_test_report(%Client{} = client, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test"
 
@@ -4252,15 +4226,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_email_identity(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_email_identity_errors()}
-
   def create_email_identity(%Client{} = client, options \\ []) do
     url_path = "/v2/email/identities"
 
@@ -4299,17 +4270,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailIdentityPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The email identity.
-  * `:policy_name` (`t:string`) The name of the policy.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The email identity.
+  * `:policy_name` (`t:string` required) The name of the policy.
+  ## Keyword parameters:
   """
-
   @spec create_email_identity_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_email_identity_policy_errors()}
-
   def create_email_identity_policy(%Client{} = client, email_identity, policy_name, options \\ []) do
     url_path =
       "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies/#{AWS.Util.encode_uri(policy_name)}"
@@ -4350,15 +4318,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_email_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_email_template_errors()}
-
   def create_email_template(%Client{} = client, options \\ []) do
     url_path = "/v2/email/templates"
 
@@ -4395,15 +4360,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_export_job_errors()}
-
   def create_export_job(%Client{} = client, options \\ []) do
     url_path = "/v2/email/export-jobs"
 
@@ -4440,15 +4402,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_import_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_import_job_errors()}
-
   def create_import_job(%Client{} = client, options \\ []) do
     url_path = "/v2/email/import-jobs"
 
@@ -4485,16 +4444,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteConfigurationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set.
+  ## Keyword parameters:
   """
-
   @spec delete_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_errors()}
-
   def delete_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
 
@@ -4541,14 +4498,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set that
-  contains the event destination to delete.
-  * `:event_destination_name` (`t:string`) The name of the event destination to
-  delete.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set that contains the event destination to delete.
+  * `:event_destination_name` (`t:string` required) The name of the event
+  destination to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_configuration_set_event_destination(
           AWS.Client.t(),
           String.t(),
@@ -4558,7 +4513,6 @@ defmodule AWS.SESv2 do
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_event_destination_errors()}
-
   def delete_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
@@ -4611,18 +4565,15 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list from which the
-  contact should be removed.
-  * `:email_address` (`t:string`) The contact's email address.
-
-  ## Optional parameters:
+  * `:contact_list_name` (`t:string` required) The name of the contact list from
+  which the contact should be removed.
+  * `:email_address` (`t:string` required) The contact's email address.
+  ## Keyword parameters:
   """
-
   @spec delete_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_errors()}
-
   def delete_contact(%Client{} = client, contact_list_name, email_address, options \\ []) do
     url_path =
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
@@ -4670,16 +4621,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteContactList&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list.
-
-  ## Optional parameters:
+  * `:contact_list_name` (`t:string` required) The name of the contact list.
+  ## Keyword parameters:
   """
-
   @spec delete_contact_list(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_list_errors()}
-
   def delete_contact_list(%Client{} = client, contact_list_name, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
 
@@ -4730,17 +4678,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_name` (`t:string`) The name of the custom verification email
-  template that you want to delete.
-
-  ## Optional parameters:
+  * `:template_name` (`t:string` required) The name of the custom verification
+  email template that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_custom_verification_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_verification_email_template_errors()}
-
   def delete_custom_verification_email_template(%Client{} = client, template_name, options \\ []) do
     url_path =
       "/v2/email/custom-verification-email-templates/#{AWS.Util.encode_uri(template_name)}"
@@ -4788,17 +4733,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteDedicatedIpPool&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pool_name` (`t:string`) The name of the dedicated IP pool that you want to
-  delete.
-
-  ## Optional parameters:
+  * `:pool_name` (`t:string` required) The name of the dedicated IP pool that you
+  want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_dedicated_ip_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dedicated_ip_pool_errors()}
-
   def delete_dedicated_ip_pool(%Client{} = client, pool_name, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
 
@@ -4846,17 +4788,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteEmailIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The identity (that is, the email address or
-  domain) to delete.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The identity (that is, the email
+  address or domain) to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_email_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_identity_errors()}
-
   def delete_email_identity(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
 
@@ -4906,17 +4845,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteEmailIdentityPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The email identity.
-  * `:policy_name` (`t:string`) The name of the policy.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The email identity.
+  * `:policy_name` (`t:string` required) The name of the policy.
+  ## Keyword parameters:
   """
-
   @spec delete_email_identity_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_identity_policy_errors()}
-
   def delete_email_identity_policy(%Client{} = client, email_identity, policy_name, options \\ []) do
     url_path =
       "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies/#{AWS.Util.encode_uri(policy_name)}"
@@ -4964,16 +4900,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_name` (`t:string`) The name of the template to be deleted.
-
-  ## Optional parameters:
+  * `:template_name` (`t:string` required) The name of the template to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_template_errors()}
-
   def delete_email_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
 
@@ -5020,17 +4953,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteSuppressedDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_address` (`t:string`) The suppressed email destination to remove from
-  the account suppression list.
-
-  ## Optional parameters:
+  * `:email_address` (`t:string` required) The suppressed email destination to
+  remove from the account suppression list.
+  ## Keyword parameters:
   """
-
   @spec delete_suppressed_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_suppressed_destination_errors()}
-
   def delete_suppressed_destination(%Client{} = client, email_address, options \\ []) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
 
@@ -5078,15 +5008,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_errors()}
-
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account"
 
@@ -5121,19 +5048,16 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetBlacklistReports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:blacklist_item_names` (`t:list[com.amazonaws.sesv2#BlacklistItemName]`) A
-  list of IP addresses that you want to retrieve blacklist information about.
-  You can only specify the dedicated IP addresses that you use to send email
-  using Amazon SES or Amazon Pinpoint.
-
-  ## Optional parameters:
+  * `:blacklist_item_names` (`t:list[com.amazonaws.sesv2#BlacklistItemName]`
+  required) A list of IP addresses that you want to retrieve blacklist
+  information about. You can only specify the dedicated IP addresses that you
+  use to send email using Amazon SES or Amazon Pinpoint.
+  ## Keyword parameters:
   """
-
   @spec get_blacklist_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_blacklist_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blacklist_reports_errors()}
-
   def get_blacklist_reports(%Client{} = client, blacklist_item_names, options \\ [])
       when is_binary(blacklist_item_names) do
     url_path = "/v2/email/deliverability-dashboard/blacklist-report"
@@ -5171,16 +5095,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetConfigurationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set.
+  ## Keyword parameters:
   """
-
   @spec get_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_set_errors()}
-
   def get_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
 
@@ -5216,17 +5138,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetConfigurationSetEventDestinations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set that
-  contains the event destination.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set that contains the event destination.
+  ## Keyword parameters:
   """
-
   @spec get_configuration_set_event_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_set_event_destinations_errors()}
-
   def get_configuration_set_event_destinations(
         %Client{} = client,
         configuration_set_name,
@@ -5266,18 +5185,15 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list to which the
-  contact belongs.
-  * `:email_address` (`t:string`) The contact's email address.
-
-  ## Optional parameters:
+  * `:contact_list_name` (`t:string` required) The name of the contact list to
+  which the contact belongs.
+  * `:email_address` (`t:string` required) The contact's email address.
+  ## Keyword parameters:
   """
-
   @spec get_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_errors()}
-
   def get_contact(%Client{} = client, contact_list_name, email_address, options \\ []) do
     url_path =
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
@@ -5314,16 +5230,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetContactList&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list.
-
-  ## Optional parameters:
+  * `:contact_list_name` (`t:string` required) The name of the contact list.
+  ## Keyword parameters:
   """
-
   @spec get_contact_list(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_list_errors()}
-
   def get_contact_list(%Client{} = client, contact_list_name, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
 
@@ -5362,17 +5275,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_name` (`t:string`) The name of the custom verification email
-  template that you want to retrieve.
-
-  ## Optional parameters:
+  * `:template_name` (`t:string` required) The name of the custom verification
+  email template that you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_custom_verification_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_verification_email_template_errors()}
-
   def get_custom_verification_email_template(%Client{} = client, template_name, options \\ []) do
     url_path =
       "/v2/email/custom-verification-email-templates/#{AWS.Util.encode_uri(template_name)}"
@@ -5410,18 +5320,15 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDedicatedIp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ip` (`t:string`) The IP address that you want to obtain more information
-  about. The value you specify has to be a dedicated IP address that's
-  assocaited with your Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:ip` (`t:string` required) The IP address that you want to obtain more
+  information about. The value you specify has to be a dedicated IP address
+  that's assocaited with your Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec get_dedicated_ip(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dedicated_ip_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dedicated_ip_errors()}
-
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
 
@@ -5456,16 +5363,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDedicatedIpPool&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pool_name` (`t:string`) The name of the dedicated IP pool to retrieve.
-
-  ## Optional parameters:
+  * `:pool_name` (`t:string` required) The name of the dedicated IP pool to
+  retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_dedicated_ip_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dedicated_ip_pool_errors()}
-
   def get_dedicated_ip_pool(%Client{} = client, pool_name, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
 
@@ -5501,8 +5406,7 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDedicatedIps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
   GetDedicatedIps to indicate the position of the dedicated IP pool in the
   list of IP pools.
@@ -5513,12 +5417,10 @@ defmodule AWS.SESv2 do
   * `:pool_name` (`t:string`) The name of the IP pool that the dedicated IP
   address is associated with.
   """
-
   @spec get_dedicated_ips(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dedicated_ips_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dedicated_ips_errors()}
-
   def get_dedicated_ips(%Client{} = client, options \\ []) do
     url_path = "/v2/email/dedicated-ips"
 
@@ -5582,15 +5484,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDeliverabilityDashboardOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_deliverability_dashboard_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deliverability_dashboard_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deliverability_dashboard_options_errors()}
-
   def get_deliverability_dashboard_options(%Client{} = client, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
 
@@ -5625,17 +5524,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDeliverabilityTestReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_id` (`t:string`) A unique string that identifies the predictive inbox
-  placement test.
-
-  ## Optional parameters:
+  * `:report_id` (`t:string` required) A unique string that identifies the
+  predictive inbox placement test.
+  ## Keyword parameters:
   """
-
   @spec get_deliverability_test_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deliverability_test_report_errors()}
-
   def get_deliverability_test_report(%Client{} = client, report_id, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test-reports/#{AWS.Util.encode_uri(report_id)}"
 
@@ -5672,18 +5568,15 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDomainDeliverabilityCampaign&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:campaign_id` (`t:string`) The unique identifier for the campaign. The
-  Deliverability dashboard automatically generates and assigns this identifier
-  to a campaign.
-
-  ## Optional parameters:
+  * `:campaign_id` (`t:string` required) The unique identifier for the campaign.
+  The Deliverability dashboard automatically generates and assigns this
+  identifier to a campaign.
+  ## Keyword parameters:
   """
-
   @spec get_domain_deliverability_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_deliverability_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_deliverability_campaign_errors()}
-
   def get_domain_deliverability_campaign(%Client{} = client, campaign_id, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
 
@@ -5719,17 +5612,15 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDomainStatisticsReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain` (`t:string`) The domain that you want to obtain deliverability
-  metrics for.
-  * `:end_date` (`t:timestamp`) The last day (in Unix time) that you want to
-  obtain domain deliverability metrics for. The EndDate that you specify has
-  to be less than or equal to 30 days after the StartDate.
-  * `:start_date` (`t:timestamp`) The first day (in Unix time) that you want to
-  obtain domain deliverability metrics for.
-
-  ## Optional parameters:
+  * `:domain` (`t:string` required) The domain that you want to obtain
+  deliverability metrics for.
+  * `:end_date` (`t:timestamp` required) The last day (in Unix time) that you want
+  to obtain domain deliverability metrics for. The EndDate that you specify
+  has to be less than or equal to 30 days after the StartDate.
+  * `:start_date` (`t:timestamp` required) The first day (in Unix time) that you
+  want to obtain domain deliverability metrics for.
+  ## Keyword parameters:
   """
-
   @spec get_domain_statistics_report(
           AWS.Client.t(),
           String.t(),
@@ -5740,7 +5631,6 @@ defmodule AWS.SESv2 do
           {:ok, get_domain_statistics_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_statistics_report_errors()}
-
   def get_domain_statistics_report(
         %Client{} = client,
         domain,
@@ -5785,16 +5675,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetEmailIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The email identity.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The email identity.
+  ## Keyword parameters:
   """
-
   @spec get_email_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_identity_errors()}
-
   def get_email_identity(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
 
@@ -5833,16 +5720,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetEmailIdentityPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The email identity.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The email identity.
+  ## Keyword parameters:
   """
-
   @spec get_email_identity_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_identity_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_identity_policies_errors()}
-
   def get_email_identity_policies(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies"
 
@@ -5878,16 +5762,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_name` (`t:string`) The name of the template.
-
-  ## Optional parameters:
+  * `:template_name` (`t:string` required) The name of the template.
+  ## Keyword parameters:
   """
-
   @spec get_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_template_errors()}
-
   def get_email_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
 
@@ -5922,16 +5803,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The export job ID.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The export job ID.
+  ## Keyword parameters:
   """
-
   @spec get_export_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_job_errors()}
-
   def get_export_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v2/email/export-jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -5966,16 +5844,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID of the import job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID of the import job.
+  ## Keyword parameters:
   """
-
   @spec get_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_job_errors()}
-
   def get_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v2/email/import-jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -6012,17 +5887,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetMessageInsights&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:message_id` (`t:string`) A MessageId is a unique identifier for a message,
-  and is returned when sending emails through Amazon SES.
-
-  ## Optional parameters:
+  * `:message_id` (`t:string` required) A MessageId is a unique identifier for a
+  message, and is returned when sending emails through Amazon SES.
+  ## Keyword parameters:
   """
-
   @spec get_message_insights(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_message_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_message_insights_errors()}
-
   def get_message_insights(%Client{} = client, message_id, options \\ []) do
     url_path = "/v2/email/insights/#{AWS.Util.encode_uri(message_id)}"
 
@@ -6058,17 +5930,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetSuppressedDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_address` (`t:string`) The email address that's on the account
+  * `:email_address` (`t:string` required) The email address that's on the account
   suppression list.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_suppressed_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suppressed_destination_errors()}
-
   def get_suppressed_destination(%Client{} = client, email_address, options \\ []) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
 
@@ -6104,8 +5973,7 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListConfigurationSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
   ListConfigurationSets to indicate the position in the list of configuration
   sets.
@@ -6114,12 +5982,10 @@ defmodule AWS.SESv2 do
   you specified in this parameter, then the response includes a NextToken
   element, which you can use to obtain additional results.
   """
-
   @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_sets_errors()}
-
   def list_configuration_sets(%Client{} = client, options \\ []) do
     url_path = "/v2/email/configuration-sets"
 
@@ -6172,8 +6038,7 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListContactLists&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A string token indicating that there might be
   additional contact lists available to be listed. Use the token provided in
   the Response to use in the subsequent call to ListContactLists with the same
@@ -6183,12 +6048,10 @@ defmodule AWS.SESv2 do
   beyond the specified limit, the NextToken element is sent in the response.
   Use the NextToken value in subsequent requests to retrieve additional lists.
   """
-
   @spec list_contact_lists(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_contact_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_lists_errors()}
-
   def list_contact_lists(%Client{} = client, options \\ []) do
     url_path = "/v2/email/contact-lists"
 
@@ -6241,16 +6104,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListContacts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list.
-
-  ## Optional parameters:
+  * `:contact_list_name` (`t:string` required) The name of the contact list.
+  ## Keyword parameters:
   """
-
   @spec list_contacts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contacts_errors()}
-
   def list_contacts(%Client{} = client, contact_list_name, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/list"
 
@@ -6291,8 +6151,7 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListCustomVerificationEmailTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
   ListCustomVerificationEmailTemplates to indicate the position in the list of
   custom verification email templates.
@@ -6301,12 +6160,10 @@ defmodule AWS.SESv2 do
   than the number you specified in this parameter, then the response includes
   a NextToken element, which you can use to obtain additional results.
   """
-
   @spec list_custom_verification_email_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_verification_email_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_verification_email_templates_errors()}
-
   def list_custom_verification_email_templates(%Client{} = client, options \\ []) do
     url_path = "/v2/email/custom-verification-email-templates"
 
@@ -6360,8 +6217,7 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDedicatedIpPools&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
   ListDedicatedIpPools to indicate the position in the list of dedicated IP
   pools.
@@ -6370,12 +6226,10 @@ defmodule AWS.SESv2 do
   specified in this parameter, then the response includes a NextToken element,
   which you can use to obtain additional results.
   """
-
   @spec list_dedicated_ip_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dedicated_ip_pools_errors()}
-
   def list_dedicated_ip_pools(%Client{} = client, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools"
 
@@ -6431,8 +6285,7 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDeliverabilityTestReports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
   ListDeliverabilityTestReports to indicate the position in the list of
   predictive inbox placement tests.
@@ -6441,12 +6294,10 @@ defmodule AWS.SESv2 do
   number you specified in this parameter, then the response includes a
   NextToken element, which you can use to obtain additional results.
   """
-
   @spec list_deliverability_test_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deliverability_test_reports_errors()}
-
   def list_deliverability_test_reports(%Client{} = client, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test-reports"
 
@@ -6501,15 +6352,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDomainDeliverabilityCampaigns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:subscribed_domain` (`t:string`) The domain to obtain deliverability data
-  for.
-  * `:end_date` (`t:timestamp`) The last day that you want to obtain
+  * `:subscribed_domain` (`t:string` required) The domain to obtain deliverability
+  data for.
+  * `:end_date` (`t:timestamp` required) The last day that you want to obtain
   deliverability data for. This value has to be less than or equal to 30 days
   after the value of the StartDate parameter.
-  * `:start_date` (`t:timestamp`) The first day that you want to obtain
+  * `:start_date` (`t:timestamp` required) The first day that you want to obtain
   deliverability data for.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token that’s returned from a previous call to the
   ListDomainDeliverabilityCampaigns operation. This token indicates the
   position of a campaign in the list of campaigns.
@@ -6519,7 +6369,6 @@ defmodule AWS.SESv2 do
   specify in this parameter, the response includes a NextToken element, which
   you can use to obtain additional results.
   """
-
   @spec list_domain_deliverability_campaigns(
           AWS.Client.t(),
           String.t(),
@@ -6530,7 +6379,6 @@ defmodule AWS.SESv2 do
           {:ok, list_domain_deliverability_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_deliverability_campaigns_errors()}
-
   def list_domain_deliverability_campaigns(
         %Client{} = client,
         subscribed_domain,
@@ -6595,8 +6443,7 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListEmailIdentities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
   ListEmailIdentities to indicate the position in the list of identities.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
@@ -6604,12 +6451,10 @@ defmodule AWS.SESv2 do
   specified in this parameter, then the response includes a NextToken element,
   which you can use to obtain additional results.
   """
-
   @spec list_email_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_email_identities_errors()}
-
   def list_email_identities(%Client{} = client, options \\ []) do
     url_path = "/v2/email/identities"
 
@@ -6663,8 +6508,7 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListEmailTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
   ListEmailTemplates to indicate the position in the list of email templates.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
@@ -6672,12 +6516,10 @@ defmodule AWS.SESv2 do
   specified in this parameter, then the response includes a NextToken element,
   which you can use to obtain additional results.
   """
-
   @spec list_email_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_email_templates_errors()}
-
   def list_email_templates(%Client{} = client, options \\ []) do
     url_path = "/v2/email/templates"
 
@@ -6730,15 +6572,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListExportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_export_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_export_jobs_errors()}
-
   def list_export_jobs(%Client{} = client, options \\ []) do
     url_path = "/v2/email/list-export-jobs"
 
@@ -6775,15 +6614,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_jobs_errors()}
-
   def list_import_jobs(%Client{} = client, options \\ []) do
     url_path = "/v2/email/import-jobs/list"
 
@@ -6821,15 +6657,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendations_errors()}
-
   def list_recommendations(%Client{} = client, options \\ []) do
     url_path = "/v2/email/vdm/recommendations"
 
@@ -6867,8 +6700,7 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListSuppressedDestinations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:end_date` (`t:timestamp`) Used to filter the list of suppressed email
   destinations so that it only includes addresses that were added to the list
   before a specific date.
@@ -6885,12 +6717,10 @@ defmodule AWS.SESv2 do
   destinations so that it only includes addresses that were added to the list
   after a specific date.
   """
-
   @spec list_suppressed_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suppressed_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suppressed_destinations_errors()}
-
   def list_suppressed_destinations(%Client{} = client, options \\ []) do
     url_path = "/v2/email/suppression/addresses"
 
@@ -6975,17 +6805,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to retrieve tag information for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to retrieve tag information for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/v2/email/tags"
@@ -7021,15 +6848,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountDedicatedIpWarmupAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_account_dedicated_ip_warmup_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_dedicated_ip_warmup_attributes_errors()}
-
   def put_account_dedicated_ip_warmup_attributes(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account/dedicated-ips/warmup"
 
@@ -7066,15 +6890,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_account_details(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_details_errors()}
-
   def put_account_details(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account/details"
 
@@ -7111,15 +6932,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountSendingAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_account_sending_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_sending_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_sending_attributes_errors()}
-
   def put_account_sending_attributes(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account/sending"
 
@@ -7156,15 +6974,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountSuppressionAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_account_suppression_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_suppression_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_suppression_attributes_errors()}
-
   def put_account_suppression_attributes(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account/suppression"
 
@@ -7201,15 +7016,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountVdmAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_account_vdm_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_vdm_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_vdm_attributes_errors()}
-
   def put_account_vdm_attributes(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account/vdm"
 
@@ -7248,17 +7060,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetDeliveryOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set to
-  associate with a dedicated IP pool.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set to associate with a dedicated IP pool.
+  ## Keyword parameters:
   """
-
   @spec put_configuration_set_delivery_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_delivery_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_delivery_options_errors()}
-
   def put_configuration_set_delivery_options(
         %Client{} = client,
         configuration_set_name,
@@ -7301,16 +7110,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetReputationOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set.
+  ## Keyword parameters:
   """
-
   @spec put_configuration_set_reputation_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_reputation_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_reputation_options_errors()}
-
   def put_configuration_set_reputation_options(
         %Client{} = client,
         configuration_set_name,
@@ -7353,17 +7160,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetSendingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set to
-  enable or disable email sending for.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set to enable or disable email sending for.
+  ## Keyword parameters:
   """
-
   @spec put_configuration_set_sending_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_sending_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_sending_options_errors()}
-
   def put_configuration_set_sending_options(
         %Client{} = client,
         configuration_set_name,
@@ -7405,17 +7209,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetSuppressionOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set to
-  change the suppression list preferences for.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set to change the suppression list preferences for.
+  ## Keyword parameters:
   """
-
   @spec put_configuration_set_suppression_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_suppression_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_suppression_options_errors()}
-
   def put_configuration_set_suppression_options(
         %Client{} = client,
         configuration_set_name,
@@ -7458,16 +7259,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetTrackingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set.
+  ## Keyword parameters:
   """
-
   @spec put_configuration_set_tracking_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_tracking_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_tracking_options_errors()}
-
   def put_configuration_set_tracking_options(
         %Client{} = client,
         configuration_set_name,
@@ -7509,16 +7308,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetVdmOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set.
+  ## Keyword parameters:
   """
-
   @spec put_configuration_set_vdm_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_vdm_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_vdm_options_errors()}
-
   def put_configuration_set_vdm_options(%Client{} = client, configuration_set_name, options \\ []) do
     url_path =
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/vdm-options"
@@ -7556,18 +7353,15 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDedicatedIpInPool&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ip` (`t:string`) The IP address that you want to move to the dedicated IP
-  pool. The value you specify has to be a dedicated IP address that's
-  associated with your Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:ip` (`t:string` required) The IP address that you want to move to the
+  dedicated IP pool. The value you specify has to be a dedicated IP address
+  that's associated with your Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec put_dedicated_ip_in_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dedicated_ip_in_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_dedicated_ip_in_pool_errors()}
-
   def put_dedicated_ip_in_pool(%Client{} = client, ip, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/pool"
 
@@ -7604,16 +7398,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDedicatedIpPoolScalingAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pool_name` (`t:string`) The name of the dedicated IP pool.
-
-  ## Optional parameters:
+  * `:pool_name` (`t:string` required) The name of the dedicated IP pool.
+  ## Keyword parameters:
   """
-
   @spec put_dedicated_ip_pool_scaling_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dedicated_ip_pool_scaling_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_dedicated_ip_pool_scaling_attributes_errors()}
-
   def put_dedicated_ip_pool_scaling_attributes(%Client{} = client, pool_name, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}/scaling"
 
@@ -7644,11 +7435,20 @@ defmodule AWS.SESv2 do
     Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
+  @doc """
+
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDedicatedIpWarmupAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ip` (`t:string` required) The dedicated IP address that you want to update
+  the warm-up attributes for.
+  ## Keyword parameters:
+  """
   @spec put_dedicated_ip_warmup_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_dedicated_ip_warmup_attributes_errors()}
-
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/warmup"
 
@@ -7688,15 +7488,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDeliverabilityDashboardOption&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_deliverability_dashboard_option(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_deliverability_dashboard_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_deliverability_dashboard_option_errors()}
-
   def put_deliverability_dashboard_option(%Client{} = client, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
 
@@ -7733,17 +7530,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityConfigurationSetAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The email address or domain to associate with a
-  configuration set.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The email address or domain to
+  associate with a configuration set.
+  ## Keyword parameters:
   """
-
   @spec put_email_identity_configuration_set_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_configuration_set_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_email_identity_configuration_set_attributes_errors()}
-
   def put_email_identity_configuration_set_attributes(
         %Client{} = client,
         email_identity,
@@ -7784,16 +7578,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityDkimAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The email identity.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The email identity.
+  ## Keyword parameters:
   """
-
   @spec put_email_identity_dkim_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_dkim_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_email_identity_dkim_attributes_errors()}
-
   def put_email_identity_dkim_attributes(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim"
 
@@ -7831,16 +7622,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityDkimSigningAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The email identity.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The email identity.
+  ## Keyword parameters:
   """
-
   @spec put_email_identity_dkim_signing_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_dkim_signing_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_email_identity_dkim_signing_attributes_errors()}
-
   def put_email_identity_dkim_signing_attributes(
         %Client{} = client,
         email_identity,
@@ -7886,16 +7674,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityFeedbackAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The email identity.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The email identity.
+  ## Keyword parameters:
   """
-
   @spec put_email_identity_feedback_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_feedback_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_email_identity_feedback_attributes_errors()}
-
   def put_email_identity_feedback_attributes(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/feedback"
 
@@ -7933,16 +7718,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityMailFromAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The verified email identity.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The verified email identity.
+  ## Keyword parameters:
   """
-
   @spec put_email_identity_mail_from_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_mail_from_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_email_identity_mail_from_attributes_errors()}
-
   def put_email_identity_mail_from_attributes(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/mail-from"
 
@@ -7979,15 +7761,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutSuppressedDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_suppressed_destination(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_suppressed_destination_errors()}
-
   def put_suppressed_destination(%Client{} = client, options \\ []) do
     url_path = "/v2/email/suppression/addresses"
 
@@ -8024,15 +7803,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendBulkEmail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec send_bulk_email(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_bulk_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_bulk_email_errors()}
-
   def send_bulk_email(%Client{} = client, options \\ []) do
     url_path = "/v2/email/outbound-bulk-emails"
 
@@ -8076,15 +7852,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendCustomVerificationEmail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec send_custom_verification_email(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_custom_verification_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_custom_verification_email_errors()}
-
   def send_custom_verification_email(%Client{} = client, options \\ []) do
     url_path = "/v2/email/outbound-custom-verification-emails"
 
@@ -8122,15 +7895,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendEmail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec send_email(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_email_errors()}
-
   def send_email(%Client{} = client, options \\ []) do
     url_path = "/v2/email/outbound-emails"
 
@@ -8170,15 +7940,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/v2/email/tags"
 
@@ -8216,16 +7983,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20TestRenderEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_name` (`t:string`) The name of the template.
-
-  ## Optional parameters:
+  * `:template_name` (`t:string` required) The name of the template.
+  ## Keyword parameters:
   """
-
   @spec test_render_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, test_render_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_render_email_template_errors()}
-
   def test_render_email_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}/render"
 
@@ -8262,20 +8026,17 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to remove one or more tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.sesv2#TagKey]`) The tags (tag keys) that
-  you want to remove from the resource. When you specify a tag key, the action
-  removes both that key and its associated tag value.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to remove one or more tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.sesv2#TagKey]` required) The tags (tag
+  keys) that you want to remove from the resource. When you specify a tag key,
+  the action removes both that key and its associated tag value.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(resource_arn) and is_binary(tag_keys) do
     url_path = "/v2/email/tags"
@@ -8323,13 +8084,12 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set that
-  contains the event destination to modify.
-  * `:event_destination_name` (`t:string`) The name of the event destination.
-
-  ## Optional parameters:
+  * `:configuration_set_name` (`t:string` required) The name of the configuration
+  set that contains the event destination to modify.
+  * `:event_destination_name` (`t:string` required) The name of the event
+  destination.
+  ## Keyword parameters:
   """
-
   @spec update_configuration_set_event_destination(
           AWS.Client.t(),
           String.t(),
@@ -8339,7 +8099,6 @@ defmodule AWS.SESv2 do
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_set_event_destination_errors()}
-
   def update_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
@@ -8382,17 +8141,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list.
-  * `:email_address` (`t:string`) The contact's email address.
-
-  ## Optional parameters:
+  * `:contact_list_name` (`t:string` required) The name of the contact list.
+  * `:email_address` (`t:string` required) The contact's email address.
+  ## Keyword parameters:
   """
-
   @spec update_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_errors()}
-
   def update_contact(%Client{} = client, contact_list_name, email_address, options \\ []) do
     url_path =
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
@@ -8430,16 +8186,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateContactList&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list.
-
-  ## Optional parameters:
+  * `:contact_list_name` (`t:string` required) The name of the contact list.
+  ## Keyword parameters:
   """
-
   @spec update_contact_list(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_list_errors()}
-
   def update_contact_list(%Client{} = client, contact_list_name, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
 
@@ -8480,17 +8233,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_name` (`t:string`) The name of the custom verification email
-  template that you want to update.
-
-  ## Optional parameters:
+  * `:template_name` (`t:string` required) The name of the custom verification
+  email template that you want to update.
+  ## Keyword parameters:
   """
-
   @spec update_custom_verification_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_verification_email_template_errors()}
-
   def update_custom_verification_email_template(%Client{} = client, template_name, options \\ []) do
     url_path =
       "/v2/email/custom-verification-email-templates/#{AWS.Util.encode_uri(template_name)}"
@@ -8531,17 +8281,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateEmailIdentityPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:email_identity` (`t:string`) The email identity.
-  * `:policy_name` (`t:string`) The name of the policy.
-
-  ## Optional parameters:
+  * `:email_identity` (`t:string` required) The email identity.
+  * `:policy_name` (`t:string` required) The name of the policy.
+  ## Keyword parameters:
   """
-
   @spec update_email_identity_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_email_identity_policy_errors()}
-
   def update_email_identity_policy(%Client{} = client, email_identity, policy_name, options \\ []) do
     url_path =
       "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies/#{AWS.Util.encode_uri(policy_name)}"
@@ -8582,16 +8329,13 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_name` (`t:string`) The name of the template.
-
-  ## Optional parameters:
+  * `:template_name` (`t:string` required) The name of the template.
+  ## Keyword parameters:
   """
-
   @spec update_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_email_template_errors()}
-
   def update_email_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
 

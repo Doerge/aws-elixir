@@ -591,15 +591,12 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20CreateSuiteDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_suite_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_suite_definition_errors()}
-
   def create_suite_definition(%Client{} = client, options \\ []) do
     url_path = "/suiteDefinitions"
 
@@ -636,17 +633,14 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20DeleteSuiteDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
-  be deleted.
-
-  ## Optional parameters:
+  * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
+  suite to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_suite_definition_errors()}
-
   def delete_suite_definition(%Client{} = client, suite_definition_id, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
 
@@ -693,8 +687,7 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:authentication_method` (`t:enum["SignatureVersion4|X509ClientCertificate"]`)
   The authentication method used during the device connection.
   * `:certificate_arn` (`t:string`) The certificate ARN of the device. This is an
@@ -704,12 +697,10 @@ defmodule AWS.IotDeviceAdvisor do
   * `:thing_arn` (`t:string`) The thing ARN of the device. This is an optional
   parameter.
   """
-
   @spec get_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_endpoint_errors()}
-
   def get_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoint"
 
@@ -781,19 +772,16 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetSuiteDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
-  get.
-
-  ## Optional parameters:
+  * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
+  suite to get.
+  ## Keyword parameters:
   * `:suite_definition_version` (`t:string`) Suite definition version of the test
   suite to get.
   """
-
   @spec get_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_definition_errors()}
-
   def get_suite_definition(%Client{} = client, suite_definition_id, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
 
@@ -839,18 +827,15 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetSuiteRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID for the test suite
-  run.
-  * `:suite_run_id` (`t:string`) Suite run ID for the test suite run.
-
-  ## Optional parameters:
+  * `:suite_definition_id` (`t:string` required) Suite definition ID for the test
+  suite run.
+  * `:suite_run_id` (`t:string` required) Suite run ID for the test suite run.
+  ## Keyword parameters:
   """
-
   @spec get_suite_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_run_errors()}
-
   def get_suite_run(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}"
@@ -887,17 +872,15 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetSuiteRunReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite.
-  * `:suite_run_id` (`t:string`) Suite run ID of the test suite run.
-
-  ## Optional parameters:
+  * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
+  suite.
+  * `:suite_run_id` (`t:string` required) Suite run ID of the test suite run.
+  ## Keyword parameters:
   """
-
   @spec get_suite_run_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_run_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_run_report_errors()}
-
   def get_suite_run_report(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}/report"
@@ -933,17 +916,14 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListSuiteDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return at once.
   * `:next_token` (`t:string`) A token used to get the next set of results.
   """
-
   @spec list_suite_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suite_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suite_definitions_errors()}
-
   def list_suite_definitions(%Client{} = client, options \\ []) do
     url_path = "/suiteDefinitions"
 
@@ -997,8 +977,7 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListSuiteRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return at once.
   * `:next_token` (`t:string`) A token to retrieve the next set of results.
   * `:suite_definition_id` (`t:string`) Lists the test suite runs of the specified
@@ -1007,12 +986,10 @@ defmodule AWS.IotDeviceAdvisor do
   suiteDefinitionId. Lists the test suite runs of the specified test suite
   based on suite definition version.
   """
-
   @spec list_suite_runs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suite_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suite_runs_errors()}
-
   def list_suite_runs(%Client{} = client, options \\ []) do
     url_path = "/suiteRuns"
 
@@ -1084,17 +1061,14 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource ARN of the IoT Device Advisor
-  resource. This can be SuiteDefinition ARN or SuiteRun ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource ARN of the IoT Device
+  Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1129,16 +1103,14 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20StartSuiteRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite.
-
-  ## Optional parameters:
+  * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
+  suite.
+  ## Keyword parameters:
   """
-
   @spec start_suite_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_suite_run_errors()}
-
   def start_suite_run(%Client{} = client, suite_definition_id, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns"
 
@@ -1175,18 +1147,16 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20StopSuiteRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite run
-  to be stopped.
-  * `:suite_run_id` (`t:string`) Suite run ID of the test suite run to be stopped.
-
-  ## Optional parameters:
+  * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
+  suite run to be stopped.
+  * `:suite_run_id` (`t:string` required) Suite run ID of the test suite run to be
+  stopped.
+  ## Keyword parameters:
   """
-
   @spec stop_suite_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_suite_run_errors()}
-
   def stop_suite_run(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}/stop"
@@ -1224,17 +1194,14 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor
-  resource. This can be SuiteDefinition ARN or SuiteRun ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource ARN of an IoT Device
+  Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1271,19 +1238,16 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor
-  resource. This can be SuiteDefinition ARN or SuiteRun ARN.
-  * `:tag_keys` (`t:list[com.amazonaws.iotdeviceadvisor#String128]`) List of tag
-  keys to remove from the IoT Device Advisor resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource ARN of an IoT Device
+  Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.
+  * `:tag_keys` (`t:list[com.amazonaws.iotdeviceadvisor#String128]` required) List
+  of tag keys to remove from the IoT Device Advisor resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1331,17 +1295,14 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20UpdateSuiteDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
-  be updated.
-
-  ## Optional parameters:
+  * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
+  suite to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_suite_definition_errors()}
-
   def update_suite_definition(%Client{} = client, suite_definition_id, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
 

@@ -406,6 +406,7 @@ defmodule AWS.MarketplaceMetering do
   end
 
   @doc """
+   
   `BatchMeterUsage` is called from a SaaS application listed on AWS Marketplace to
   post metering records for a set of customers. For identical requests, the API
   is idempotent; requests can be retried with the same records or a subset of
@@ -420,12 +421,10 @@ defmodule AWS.MarketplaceMetering do
       required("UsageRecords") => list(usage_record()())
     }
   """
-
   @spec batch_meter_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_meter_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_meter_usage_errors()}
-
   def batch_meter_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -434,6 +433,7 @@ defmodule AWS.MarketplaceMetering do
   end
 
   @doc """
+   
   API to emit metering records. For identical requests, the API is idempotent. It
   simply returns the metering record ID. `MeterUsage` is authenticated on the
   buyer's AWS account using credentials from the EC2 instance, ECS task, or EKS
@@ -452,12 +452,10 @@ defmodule AWS.MarketplaceMetering do
       required("UsageDimension") => String.t()
     }
   """
-
   @spec meter_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, meter_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, meter_usage_errors()}
-
   def meter_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -466,6 +464,7 @@ defmodule AWS.MarketplaceMetering do
   end
 
   @doc """
+   
   Paid container software products sold through AWS Marketplace must integrate
   with the AWS Marketplace Metering Service and call the `RegisterUsage`
   operation for software entitlement and metering. Free and BYOL products for
@@ -484,12 +483,10 @@ defmodule AWS.MarketplaceMetering do
       required("PublicKeyVersion") => integer()
     }
   """
-
   @spec register_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_usage_errors()}
-
   def register_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -498,6 +495,7 @@ defmodule AWS.MarketplaceMetering do
   end
 
   @doc """
+   
   `ResolveCustomer` is called by a SaaS application during the registration
   process. When a buyer visits your website during the registration process, the
   buyer submits a registration token through their browser. The registration
@@ -512,12 +510,10 @@ defmodule AWS.MarketplaceMetering do
       required("RegistrationToken") => String.t()
     }
   """
-
   @spec resolve_customer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resolve_customer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resolve_customer_errors()}
-
   def resolve_customer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

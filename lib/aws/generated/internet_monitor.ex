@@ -943,15 +943,12 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20CreateMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_monitor(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitor_errors()}
-
   def create_monitor(%Client{} = client, options \\ []) do
     url_path = "/v20210603/Monitors"
 
@@ -988,16 +985,13 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20DeleteMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to delete.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitor_errors()}
-
   def delete_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
 
@@ -1049,24 +1043,21 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20GetHealthEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:event_id` (`t:string`) The internally-generated identifier of a health
-  event. Because EventID contains the forward slash (“/”) character, you must
-  URL-encode the EventID field in the request URL.
-  * `:monitor_name` (`t:string`) The name of the monitor.
-
-  ## Optional parameters:
+  * `:event_id` (`t:string` required) The internally-generated identifier of a
+  health event. Because EventID contains the forward slash (“/”) character,
+  you must URL-encode the EventID field in the request URL.
+  * `:monitor_name` (`t:string` required) The name of the monitor.
+  ## Keyword parameters:
   * `:linked_account_id` (`t:string`) The account ID for an account that you've
   set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
   configure cross-account sharing by using Amazon CloudWatch Observability
   Access Manager. For more information, see Internet Monitor cross-account
   observability in the Amazon CloudWatch Internet Monitor User Guide.
   """
-
   @spec get_health_event(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_health_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_health_event_errors()}
-
   def get_health_event(%Client{} = client, event_id, monitor_name, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/HealthEvents/#{AWS.Util.encode_uri(event_id)}"
@@ -1116,17 +1107,14 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20GetInternetEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:event_id` (`t:string`) The EventId of the internet event to return
+  * `:event_id` (`t:string` required) The EventId of the internet event to return
   information for.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_internet_event(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_internet_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_internet_event_errors()}
-
   def get_internet_event(%Client{} = client, event_id, options \\ []) do
     url_path = "/v20210603/InternetEvents/#{AWS.Util.encode_uri(event_id)}"
 
@@ -1164,21 +1152,18 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20GetMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor.
+  ## Keyword parameters:
   * `:linked_account_id` (`t:string`) The account ID for an account that you've
   set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
   configure cross-account sharing by using Amazon CloudWatch Observability
   Access Manager. For more information, see Internet Monitor cross-account
   observability in the Amazon CloudWatch Internet Monitor User Guide.
   """
-
   @spec get_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitor_errors()}
-
   def get_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
 
@@ -1226,23 +1211,21 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20GetQueryResults&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to return data for.
-  * `:query_id` (`t:string`) The ID of the query that you want to return data
-  results for. A QueryId is an internally-generated identifier for a specific
-  query.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor to return data
+  for.
+  * `:query_id` (`t:string` required) The ID of the query that you want to return
+  data results for. A QueryId is an internally-generated identifier for a
+  specific query.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of query results that you want to
   return with this call.
   * `:next_token` (`t:string`) The token for the next set of results. You receive
   this token from a previous call.
   """
-
   @spec get_query_results(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_results_errors()}
-
   def get_query_results(%Client{} = client, monitor_name, query_id, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}/Results"
@@ -1299,19 +1282,16 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20GetQueryStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor.
-  * `:query_id` (`t:string`) The ID of the query that you want to return the
-  status for. A QueryId is an internally-generated dentifier for a specific
-  query.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor.
+  * `:query_id` (`t:string` required) The ID of the query that you want to return
+  the status for. A QueryId is an internally-generated dentifier for a
+  specific query.
+  ## Keyword parameters:
   """
-
   @spec get_query_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_status_errors()}
-
   def get_query_status(%Client{} = client, monitor_name, query_id, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}/Status"
@@ -1349,9 +1329,8 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20ListHealthEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor.
+  ## Keyword parameters:
   * `:end_time` (`t:string`) The time when a health event ended. If the health
   event is still ongoing, then the end time is not set.
   * `:event_status` (`t:string`) The status of a health event.
@@ -1366,12 +1345,10 @@ defmodule AWS.InternetMonitor do
   this token from a previous call.
   * `:start_time` (`t:string`) The time when a health event started.
   """
-
   @spec list_health_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_health_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_health_events_errors()}
-
   def list_health_events(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/HealthEvents"
 
@@ -1473,8 +1450,7 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20ListInternetEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:end_time` (`t:string`) The end time of the time window that you want to get
   a list of internet events for.
   * `:event_status` (`t:string`) The status of an internet event.
@@ -1486,12 +1462,10 @@ defmodule AWS.InternetMonitor do
   * `:start_time` (`t:string`) The start time of the time window that you want to
   get a list of internet events for.
   """
-
   @spec list_internet_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_internet_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_internet_events_errors()}
-
   def list_internet_events(%Client{} = client, options \\ []) do
     url_path = "/v20210603/InternetEvents"
 
@@ -1587,8 +1561,7 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20ListMonitors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:include_linked_accounts` (`t:string`) A boolean option that you can set to
   TRUE to include monitors for linked accounts in a list of monitors, when
   you've set up cross-account sharing in Amazon CloudWatch Internet Monitor.
@@ -1603,12 +1576,10 @@ defmodule AWS.InternetMonitor do
   * `:next_token` (`t:string`) The token for the next set of results. You receive
   this token from a previous call.
   """
-
   @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitors_errors()}
-
   def list_monitors(%Client{} = client, options \\ []) do
     url_path = "/v20210603/Monitors"
 
@@ -1681,16 +1652,14 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for a
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1728,16 +1697,13 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20StartQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to query.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor to query.
+  ## Keyword parameters:
   """
-
   @spec start_query(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_query_errors()}
-
   def start_query(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries"
 
@@ -1774,18 +1740,15 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20StopQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor.
-  * `:query_id` (`t:string`) The ID of the query that you want to stop. A QueryId
-  is an internally-generated identifier for a specific query.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor.
+  * `:query_id` (`t:string` required) The ID of the query that you want to stop. A
+  QueryId is an internally-generated identifier for a specific query.
+  ## Keyword parameters:
   """
-
   @spec stop_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_query_errors()}
-
   def stop_query(%Client{} = client, monitor_name, query_id, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}"
@@ -1835,18 +1798,15 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a tag that you
-  add to a resource. Tags are supported only for monitors in Amazon CloudWatch
-  Internet Monitor.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for a tag
+  that you add to a resource. Tags are supported only for monitors in Amazon
+  CloudWatch Internet Monitor.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1883,19 +1843,16 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a tag you
-  remove a resource from.
-  * `:tag_keys` (`t:list[com.amazonaws.internetmonitor#TagKey]`) Tag keys that you
-  remove from a resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for a tag
+  you remove a resource from.
+  * `:tag_keys` (`t:list[com.amazonaws.internetmonitor#TagKey]` required) Tag keys
+  that you remove from a resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1946,16 +1903,13 @@ defmodule AWS.InternetMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20UpdateMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor.
+  ## Keyword parameters:
   """
-
   @spec update_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitor_errors()}
-
   def update_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
 

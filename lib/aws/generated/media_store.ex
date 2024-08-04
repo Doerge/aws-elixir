@@ -690,6 +690,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Creates a storage container to hold objects. A container is similar to a bucket
   in the Amazon S3 service.
 
@@ -702,12 +703,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec create_container(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_container_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_container_errors()}
-
   def create_container(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -716,6 +715,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Deletes the specified container. Before you make a `DeleteContainer` request,
   delete any objects in the container or in any folders in the container. You
   can delete only empty containers.
@@ -728,12 +728,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec delete_container(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_container_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_container_errors()}
-
   def delete_container(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -742,6 +740,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Deletes the access policy that is associated with the specified container.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastore%20DeleteContainerPolicy&this_doc_guide=API%2520Reference)
@@ -752,12 +751,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec delete_container_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_container_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_container_policy_errors()}
-
   def delete_container_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -766,6 +763,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Deletes the cross-origin resource sharing (CORS) configuration information that
   is set for the container.
 
@@ -777,12 +775,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec delete_cors_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_cors_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cors_policy_errors()}
-
   def delete_cors_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -791,6 +787,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Removes an object lifecycle policy from a container. It takes up to 20 minutes
   for the change to take effect.
 
@@ -802,12 +799,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec delete_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lifecycle_policy_errors()}
-
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -816,6 +811,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Deletes the metric policy that is associated with the specified container. If
   there is no metric policy associated with the container, MediaStore doesn't
   send metrics to CloudWatch.
@@ -828,12 +824,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec delete_metric_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_metric_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_metric_policy_errors()}
-
   def delete_metric_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -842,6 +836,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Retrieves the properties of the requested container. This request is commonly
   used to retrieve the endpoint of a container. An endpoint is a value assigned
   by the service when a new container is created. A container's endpoint does
@@ -858,12 +853,10 @@ defmodule AWS.MediaStore do
       optional("ContainerName") => String.t()
     }
   """
-
   @spec describe_container(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_container_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_container_errors()}
-
   def describe_container(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -872,6 +865,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Retrieves the access policy for the specified container. For information about
   the data that is included in an access policy, see the [AWS Identity and
   Access Management User Guide](https://aws.amazon.com/documentation/iam/).
@@ -884,12 +878,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec get_container_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_container_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_policy_errors()}
-
   def get_container_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -898,6 +890,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Returns the cross-origin resource sharing (CORS) configuration information that
   is set for the container.
 
@@ -909,12 +902,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec get_cors_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_cors_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cors_policy_errors()}
-
   def get_cors_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -923,6 +914,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Retrieves the object lifecycle policy that is assigned to a container.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastore%20GetLifecyclePolicy&this_doc_guide=API%2520Reference)
@@ -933,12 +925,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec get_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_policy_errors()}
-
   def get_lifecycle_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -947,6 +937,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Returns the metric policy for the specified container.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastore%20GetMetricPolicy&this_doc_guide=API%2520Reference)
@@ -957,12 +948,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec get_metric_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_metric_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_policy_errors()}
-
   def get_metric_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -971,6 +960,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Lists the properties of all containers in AWS Elemental MediaStore. You can
   query to receive all the containers in one response. Or you can include the
   `MaxResults` parameter to receive a limited number of containers in each
@@ -988,12 +978,10 @@ defmodule AWS.MediaStore do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_containers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_containers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_containers_errors()}
-
   def list_containers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1002,6 +990,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Returns a list of the tags assigned to the specified container.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastore%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -1012,12 +1001,10 @@ defmodule AWS.MediaStore do
       required("Resource") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1026,6 +1013,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Creates an access policy for the specified container to restrict the users and
   clients that can access it. For information about the data that is included in
   an access policy, see the [AWS Identity and Access Management User
@@ -1040,12 +1028,10 @@ defmodule AWS.MediaStore do
       required("Policy") => String.t()
     }
   """
-
   @spec put_container_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_container_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_container_policy_errors()}
-
   def put_container_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1054,6 +1040,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Sets the cross-origin resource sharing (CORS) configuration on a container so
   that the container can service cross-origin requests. For example, you might
   want to enable a request whose origin is http://www.example.com to access your
@@ -1074,12 +1061,10 @@ defmodule AWS.MediaStore do
       required("CorsPolicy") => list(cors_rule()())
     }
   """
-
   @spec put_cors_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_cors_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_cors_policy_errors()}
-
   def put_cors_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1088,6 +1073,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Writes an object lifecycle policy to a container. If the container already has
   an object lifecycle policy, the service replaces the existing policy with the
   new policy. It takes up to 20 minutes for the change to take effect.
@@ -1101,12 +1087,10 @@ defmodule AWS.MediaStore do
       required("LifecyclePolicy") => String.t()
     }
   """
-
   @spec put_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_lifecycle_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_lifecycle_policy_errors()}
-
   def put_lifecycle_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1115,6 +1099,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   The metric policy that you want to add to the container. A metric policy allows
   AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to
   20 minutes for the new policy to take effect.
@@ -1128,12 +1113,10 @@ defmodule AWS.MediaStore do
       required("MetricPolicy") => metric_policy()
     }
   """
-
   @spec put_metric_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_metric_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_metric_policy_errors()}
-
   def put_metric_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1142,6 +1125,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Starts access logging on the specified container. When you enable access logging
   on a container, MediaStore delivers access logs for objects stored in that
   container to Amazon CloudWatch Logs.
@@ -1154,12 +1138,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec start_access_logging(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_access_logging_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_access_logging_errors()}
-
   def start_access_logging(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1168,6 +1150,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Stops access logging on the specified container. When you stop access logging on
   a container, MediaStore stops sending access logs to Amazon CloudWatch Logs.
   These access logs are not saved and are not retrievable.
@@ -1180,12 +1163,10 @@ defmodule AWS.MediaStore do
       required("ContainerName") => String.t()
     }
   """
-
   @spec stop_access_logging(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_access_logging_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_access_logging_errors()}
-
   def stop_access_logging(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1194,6 +1175,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Adds tags to the specified AWS Elemental MediaStore container. Tags are
   key:value pairs that you can associate with AWS resources. For example, the
   tag key might be "customer" and the tag value might be "companyA." You can
@@ -1211,12 +1193,10 @@ defmodule AWS.MediaStore do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1225,6 +1205,7 @@ defmodule AWS.MediaStore do
   end
 
   @doc """
+   
   Removes tags from the specified container. You can specify one or more tags to
   remove.
 
@@ -1237,12 +1218,10 @@ defmodule AWS.MediaStore do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

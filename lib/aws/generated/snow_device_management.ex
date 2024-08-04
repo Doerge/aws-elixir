@@ -686,17 +686,14 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20CancelTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:task_id` (`t:string`) The ID of the task that you are attempting to cancel.
-  You can retrieve a task ID by using the ListTasks operation.
-
-  ## Optional parameters:
+  * `:task_id` (`t:string` required) The ID of the task that you are attempting to
+  cancel. You can retrieve a task ID by using the ListTasks operation.
+  ## Keyword parameters:
   """
-
   @spec cancel_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_task_errors()}
-
   def cancel_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/task/#{AWS.Util.encode_uri(task_id)}/cancel"
 
@@ -733,15 +730,12 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20CreateTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_task_errors()}
-
   def create_task(%Client{} = client, options \\ []) do
     url_path = "/task"
 
@@ -779,17 +773,14 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:managed_device_id` (`t:string`) The ID of the device that you are checking
-  the information of.
-
-  ## Optional parameters:
+  * `:managed_device_id` (`t:string` required) The ID of the device that you are
+  checking the information of.
+  ## Keyword parameters:
   """
-
   @spec describe_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_device_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_errors()}
-
   def describe_device(%Client{} = client, managed_device_id, options \\ []) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/describe"
 
@@ -828,16 +819,13 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeDeviceEc2Instances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:managed_device_id` (`t:string`) The ID of the managed device.
-
-  ## Optional parameters:
+  * `:managed_device_id` (`t:string` required) The ID of the managed device.
+  ## Keyword parameters:
   """
-
   @spec describe_device_ec2_instances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_device_ec2_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_ec2_instances_errors()}
-
   def describe_device_ec2_instances(%Client{} = client, managed_device_id, options \\ []) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/resources/ec2/describe"
 
@@ -874,17 +862,15 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:managed_device_id` (`t:string`) The ID of the managed device.
-  * `:task_id` (`t:string`) The ID of the task that the action is describing.
-
-  ## Optional parameters:
+  * `:managed_device_id` (`t:string` required) The ID of the managed device.
+  * `:task_id` (`t:string` required) The ID of the task that the action is
+  describing.
+  ## Keyword parameters:
   """
-
   @spec describe_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_execution_errors()}
-
   def describe_execution(%Client{} = client, managed_device_id, task_id, options \\ []) do
     url_path =
       "/task/#{AWS.Util.encode_uri(task_id)}/execution/#{AWS.Util.encode_uri(managed_device_id)}"
@@ -922,16 +908,13 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:task_id` (`t:string`) The ID of the task to be described.
-
-  ## Optional parameters:
+  * `:task_id` (`t:string` required) The ID of the task to be described.
+  ## Keyword parameters:
   """
-
   @spec describe_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_task_errors()}
-
   def describe_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/task/#{AWS.Util.encode_uri(task_id)}"
 
@@ -969,22 +952,19 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListDeviceResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:managed_device_id` (`t:string`) The ID of the managed device that you are
-  listing the resources of.
-
-  ## Optional parameters:
+  * `:managed_device_id` (`t:string` required) The ID of the managed device that
+  you are listing the resources of.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of resources per page.
   * `:next_token` (`t:string`) A pagination token to continue to the next page of
   results.
   * `:type` (`t:string`) A structure used to filter the results by type of
   resource.
   """
-
   @spec list_device_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_resources_errors()}
-
   def list_device_resources(%Client{} = client, managed_device_id, options \\ []) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/resources"
 
@@ -1046,19 +1026,16 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:job_id` (`t:string`) The ID of the job used to order the device.
   * `:max_results` (`t:integer`) The maximum number of devices to list per page.
   * `:next_token` (`t:string`) A pagination token to continue to the next page of
   results.
   """
-
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-
   def list_devices(%Client{} = client, options \\ []) do
     url_path = "/managed-devices"
 
@@ -1118,21 +1095,18 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:task_id` (`t:string`) The ID of the task.
-
-  ## Optional parameters:
+  * `:task_id` (`t:string` required) The ID of the task.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of tasks to list per page.
   * `:next_token` (`t:string`) A pagination token to continue to the next page of
   tasks.
   * `:state` (`t:string`) A structure used to filter the tasks by their current
   state.
   """
-
   @spec list_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_executions_errors()}
-
   def list_executions(%Client{} = client, task_id, options \\ []) when is_binary(task_id) do
     url_path = "/executions"
 
@@ -1192,17 +1166,14 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the device or
-  task.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  device or task.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1237,19 +1208,16 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of tasks per page.
   * `:next_token` (`t:string`) A pagination token to continue to the next page of
   tasks.
   * `:state` (`t:string`) A structure used to filter the list of tasks.
   """
-
   @spec list_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tasks_errors()}
-
   def list_tasks(%Client{} = client, options \\ []) do
     url_path = "/tasks"
 
@@ -1309,17 +1277,14 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the device or
-  task.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  device or task.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1356,20 +1321,17 @@ defmodule AWS.SnowDeviceManagement do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the device or
-  task.
-  * `:tag_keys` (`t:list[smithy.api#String]`) Optional metadata that you assign to
-  a resource. You can use tags to categorize a resource in different ways,
-  such as by purpose, owner, or environment.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  device or task.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) Optional metadata that you
+  assign to a resource. You can use tags to categorize a resource in different
+  ways, such as by purpose, owner, or environment.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

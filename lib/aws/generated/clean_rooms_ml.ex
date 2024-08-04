@@ -1022,15 +1022,12 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateAudienceModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_audience_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_audience_model_errors()}
-
   def create_audience_model(%Client{} = client, options \\ []) do
     url_path = "/audience-model"
 
@@ -1067,15 +1064,12 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateConfiguredAudienceModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_configured_audience_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configured_audience_model_errors()}
-
   def create_configured_audience_model(%Client{} = client, options \\ []) do
     url_path = "/configured-audience-model"
 
@@ -1114,15 +1108,12 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateTrainingDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_training_dataset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_training_dataset_errors()}
-
   def create_training_dataset(%Client{} = client, options \\ []) do
     url_path = "/training-dataset"
 
@@ -1160,17 +1151,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteAudienceGenerationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
-  the audience generation job that you want to delete.
-
-  ## Optional parameters:
+  * `:audience_generation_job_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) of the audience generation job that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_audience_generation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_audience_generation_job_errors()}
-
   def delete_audience_generation_job(
         %Client{} = client,
         audience_generation_job_arn,
@@ -1223,17 +1211,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteAudienceModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  audience model that you want to delete.
-
-  ## Optional parameters:
+  * `:audience_model_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the audience model that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_audience_model_errors()}
-
   def delete_audience_model(%Client{} = client, audience_model_arn, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
 
@@ -1283,17 +1268,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteConfiguredAudienceModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-  of the configured audience model that you want to delete.
-
-  ## Optional parameters:
+  * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the configured audience model that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configured_audience_model_errors()}
-
   def delete_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1344,17 +1326,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteConfiguredAudienceModelPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-  of the configured audience model policy that you want to delete.
-
-  ## Optional parameters:
+  * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the configured audience model policy that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configured_audience_model_policy_errors()}
-
   def delete_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1410,17 +1389,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteTrainingDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  training dataset that you want to delete.
-
-  ## Optional parameters:
+  * `:training_dataset_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  of the training dataset that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_training_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_training_dataset_errors()}
-
   def delete_training_dataset(%Client{} = client, training_dataset_arn, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
 
@@ -1467,17 +1443,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetAudienceGenerationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
-  the audience generation job that you are interested in.
-
-  ## Optional parameters:
+  * `:audience_generation_job_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) of the audience generation job that you are interested in.
+  ## Keyword parameters:
   """
-
   @spec get_audience_generation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_audience_generation_job_errors()}
-
   def get_audience_generation_job(%Client{} = client, audience_generation_job_arn, options \\ []) do
     url_path = "/audience-generation-job/#{AWS.Util.encode_uri(audience_generation_job_arn)}"
 
@@ -1512,17 +1485,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetAudienceModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  audience model that you are interested in.
-
-  ## Optional parameters:
+  * `:audience_model_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the audience model that you are interested in.
+  ## Keyword parameters:
   """
-
   @spec get_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_audience_model_errors()}
-
   def get_audience_model(%Client{} = client, audience_model_arn, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
 
@@ -1557,17 +1527,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetConfiguredAudienceModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-  of the configured audience model that you are interested in.
-
-  ## Optional parameters:
+  * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the configured audience model that you are interested in.
+  ## Keyword parameters:
   """
-
   @spec get_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_audience_model_errors()}
-
   def get_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1606,17 +1573,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetConfiguredAudienceModelPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-  of the configured audience model that you are interested in.
-
-  ## Optional parameters:
+  * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the configured audience model that you are interested in.
+  ## Keyword parameters:
   """
-
   @spec get_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_audience_model_policy_errors()}
-
   def get_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1656,17 +1620,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetTrainingDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  training dataset that you are interested in.
-
-  ## Optional parameters:
+  * `:training_dataset_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  of the training dataset that you are interested in.
+  ## Keyword parameters:
   """
-
   @spec get_training_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_training_dataset_errors()}
-
   def get_training_dataset(%Client{} = client, training_dataset_arn, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
 
@@ -1701,8 +1662,7 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceExportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
   the audience generation job that you are interested in.
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
@@ -1710,12 +1670,10 @@ defmodule AWS.CleanRoomsML do
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_audience_export_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audience_export_jobs_errors()}
-
   def list_audience_export_jobs(%Client{} = client, options \\ []) do
     url_path = "/audience-export-job"
 
@@ -1775,8 +1733,7 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceGenerationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:collaboration_id` (`t:string`) The identifier of the collaboration that
   contains the audience generation jobs that you are interested in.
   * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
@@ -1787,12 +1744,10 @@ defmodule AWS.CleanRoomsML do
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_audience_generation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_generation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audience_generation_jobs_errors()}
-
   def list_audience_generation_jobs(%Client{} = client, options \\ []) do
     url_path = "/audience-generation-job"
 
@@ -1869,19 +1824,16 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audience_models_errors()}
-
   def list_audience_models(%Client{} = client, options \\ []) do
     url_path = "/audience-model"
 
@@ -1934,19 +1886,16 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListConfiguredAudienceModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_configured_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configured_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configured_audience_models_errors()}
-
   def list_configured_audience_models(%Client{} = client, options \\ []) do
     url_path = "/configured-audience-model"
 
@@ -1999,17 +1948,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you are interested in.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you are interested in.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2044,19 +1990,16 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListTrainingDatasets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_training_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_training_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_training_datasets_errors()}
-
   def list_training_datasets(%Client{} = client, options \\ []) do
     url_path = "/training-dataset"
 
@@ -2109,17 +2052,15 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20PutConfiguredAudienceModelPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-  of the configured audience model that the resource policy will govern.
-
-  ## Optional parameters:
+  * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the configured audience model that the resource policy will
+  govern.
+  ## Keyword parameters:
   """
-
   @spec put_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configured_audience_model_policy_errors()}
-
   def put_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
@@ -2161,15 +2102,12 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20StartAudienceExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_audience_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_audience_export_job_errors()}
-
   def start_audience_export_job(%Client{} = client, options \\ []) do
     url_path = "/audience-export-job"
 
@@ -2206,15 +2144,12 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20StartAudienceGenerationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_audience_generation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_audience_generation_job_errors()}
-
   def start_audience_generation_job(%Client{} = client, options \\ []) do
     url_path = "/audience-generation-job"
 
@@ -2251,17 +2186,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to assign tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to assign tags.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2298,19 +2230,16 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to remove tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.cleanroomsml#TagKey]`) The key values of
-  tags that you want to remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to remove tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.cleanroomsml#TagKey]` required) The key
+  values of tags that you want to remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2360,17 +2289,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20UpdateConfiguredAudienceModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-  of the configured audience model that you want to update.
-
-  ## Optional parameters:
+  * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the configured audience model that you want to update.
+  ## Keyword parameters:
   """
-
   @spec update_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configured_audience_model_errors()}
-
   def update_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,

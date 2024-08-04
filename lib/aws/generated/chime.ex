@@ -7110,17 +7110,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20AssociatePhoneNumberWithUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:user_id` (`t:string`) The user ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:user_id` (`t:string` required) The user ID.
+  ## Keyword parameters:
   """
-
   @spec associate_phone_number_with_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_phone_number_with_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_number_with_user_errors()}
-
   def associate_phone_number_with_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=associate-phone-number"
@@ -7158,16 +7155,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20AssociatePhoneNumbersWithVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec associate_phone_numbers_with_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_phone_numbers_with_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_numbers_with_voice_connector_errors()}
-
   def associate_phone_numbers_with_voice_connector(
         %Client{} = client,
         voice_connector_id,
@@ -7209,12 +7204,10 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20AssociatePhoneNumbersWithVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
-  group ID.
-
-  ## Optional parameters:
+  * `:voice_connector_group_id` (`t:string` required) The Amazon Chime Voice
+  Connector group ID.
+  ## Keyword parameters:
   """
-
   @spec associate_phone_numbers_with_voice_connector_group(
           AWS.Client.t(),
           String.t(),
@@ -7223,7 +7216,6 @@ defmodule AWS.Chime do
           {:ok, associate_phone_numbers_with_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_numbers_with_voice_connector_group_errors()}
-
   def associate_phone_numbers_with_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -7266,16 +7258,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20AssociateSigninDelegateGroupsWithAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec associate_signin_delegate_groups_with_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_signin_delegate_groups_with_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_signin_delegate_groups_with_account_errors()}
-
   def associate_signin_delegate_groups_with_account(%Client{} = client, account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}?operation=associate-signin-delegate-groups"
@@ -7313,16 +7302,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchCreateAttendee&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec batch_create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_attendee_errors()}
-
   def batch_create_attendee(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
 
@@ -7359,19 +7345,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchCreateChannelMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel to which you're adding
-  users.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel to which you're
+  adding users.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec batch_create_channel_membership(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_channel_membership_errors()}
-
   def batch_create_channel_membership(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships?operation=batch-create"
 
@@ -7421,17 +7404,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchCreateRoomMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:room_id` (`t:string`) The room ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:room_id` (`t:string` required) The room ID.
+  ## Keyword parameters:
   """
-
   @spec batch_create_room_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_room_membership_errors()}
-
   def batch_create_room_membership(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships?operation=batch-create"
@@ -7471,15 +7451,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchDeletePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_delete_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_phone_number_errors()}
-
   def batch_delete_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers?operation=batch-delete"
 
@@ -7524,16 +7501,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchSuspendUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec batch_suspend_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_suspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_suspend_user_errors()}
-
   def batch_suspend_user(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=suspend"
 
@@ -7575,16 +7549,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchUnsuspendUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec batch_unsuspend_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_unsuspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_unsuspend_user_errors()}
-
   def batch_unsuspend_user(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=unsuspend"
 
@@ -7626,15 +7597,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchUpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_update_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_phone_number_errors()}
-
   def batch_update_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers?operation=batch-update"
 
@@ -7673,16 +7641,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchUpdateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec batch_update_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_user_errors()}
-
   def batch_update_user(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
 
@@ -7723,15 +7688,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_errors()}
-
   def create_account(%Client{} = client, options \\ []) do
     url_path = "/accounts"
 
@@ -7770,15 +7732,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAppInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_app_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_errors()}
-
   def create_app_instance(%Client{} = client, options \\ []) do
     url_path = "/app-instances"
 
@@ -7823,16 +7782,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec create_app_instance_admin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_admin_errors()}
-
   def create_app_instance_admin(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
 
@@ -7870,15 +7826,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_user_errors()}
-
   def create_app_instance_user(%Client{} = client, options \\ []) do
     url_path = "/app-instance-users"
 
@@ -7925,16 +7878,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAttendee&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_attendee_errors()}
-
   def create_attendee(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
 
@@ -7971,16 +7921,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec create_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bot_errors()}
-
   def create_bot(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
 
@@ -8018,17 +7965,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec create_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
-
   def create_channel(%Client{} = client, options \\ []) do
     url_path = "/channels"
 
@@ -8080,18 +8024,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateChannelBan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the ban request.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the ban request.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec create_channel_ban(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_ban_errors()}
-
   def create_channel_ban(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
 
@@ -8140,19 +8081,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateChannelMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel to which you're adding
-  users.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel to which you're
+  adding users.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec create_channel_membership(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_membership_errors()}
-
   def create_channel_membership(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
 
@@ -8200,18 +8138,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateChannelModerator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec create_channel_moderator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_moderator_errors()}
-
   def create_channel_moderator(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
 
@@ -8259,15 +8194,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMediaCapturePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_media_capture_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_media_capture_pipeline_errors()}
-
   def create_media_capture_pipeline(%Client{} = client, options \\ []) do
     url_path = "/media-capture-pipelines"
 
@@ -8318,15 +8250,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMeeting&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_meeting(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_errors()}
-
   def create_meeting(%Client{} = client, options \\ []) do
     url_path = "/meetings"
 
@@ -8368,16 +8297,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMeetingDialOut&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec create_meeting_dial_out(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_meeting_dial_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_dial_out_errors()}
-
   def create_meeting_dial_out(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/dial-outs"
 
@@ -8428,15 +8354,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMeetingWithAttendees&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_meeting_with_attendees(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_with_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_with_attendees_errors()}
-
   def create_meeting_with_attendees(%Client{} = client, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
 
@@ -8476,15 +8399,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreatePhoneNumberOrder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_phone_number_order(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_phone_number_order_errors()}
-
   def create_phone_number_order(%Client{} = client, options \\ []) do
     url_path = "/phone-number-orders"
 
@@ -8522,16 +8442,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateProxySession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec create_proxy_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_proxy_session_errors()}
-
   def create_proxy_session(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
 
@@ -8568,16 +8486,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec create_room(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_room_errors()}
-
   def create_room(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
 
@@ -8616,17 +8531,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateRoomMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:room_id` (`t:string`) The room ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:room_id` (`t:string` required) The room ID.
+  ## Keyword parameters:
   """
-
   @spec create_room_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_room_membership_errors()}
-
   def create_room_membership(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships"
@@ -8664,15 +8576,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateSipMediaApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sip_media_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_media_application_errors()}
-
   def create_sip_media_application(%Client{} = client, options \\ []) do
     url_path = "/sip-media-applications"
 
@@ -8711,16 +8620,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateSipMediaApplicationCall&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The ID of the SIP media
+  application.
+  ## Keyword parameters:
   """
-
   @spec create_sip_media_application_call(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_media_application_call_errors()}
-
   def create_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
@@ -8762,15 +8669,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateSipRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sip_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_rule_errors()}
-
   def create_sip_rule(%Client{} = client, options \\ []) do
     url_path = "/sip-rules"
 
@@ -8807,16 +8711,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec create_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-
   def create_user(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=create"
 
@@ -8858,15 +8759,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_voice_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_errors()}
-
   def create_voice_connector(%Client{} = client, options \\ []) do
     url_path = "/voice-connectors"
 
@@ -8908,15 +8806,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_voice_connector_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_group_errors()}
-
   def create_voice_connector_group(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-groups"
 
@@ -8957,16 +8852,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec delete_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_errors()}
-
   def delete_account(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
 
@@ -9013,16 +8905,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAppInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec delete_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_errors()}
-
   def delete_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
 
@@ -9070,18 +8959,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_admin_arn` (`t:string`) The ARN of the AppInstance's
+  * `:app_instance_admin_arn` (`t:string` required) The ARN of the AppInstance's
   administrator.
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec delete_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_admin_errors()}
-
   def delete_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -9134,17 +9020,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAppInstanceStreamingConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the streaming configurations being
-  deleted.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the streaming
+  configurations being deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_app_instance_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_streaming_configurations_errors()}
-
   def delete_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -9195,17 +9078,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the user request being
-  deleted.
-
-  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the user request
+  being deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_user_errors()}
-
   def delete_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
 
@@ -9264,17 +9144,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAttendee&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec delete_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attendee_errors()}
-
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -9325,18 +9202,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel being deleted.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel being deleted.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
-
   def delete_channel(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
@@ -9396,21 +9270,18 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteChannelBan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel from which the
+  * `:channel_arn` (`t:string` required) The ARN of the channel from which the
   AppInstanceUser was banned.
-  * `:member_arn` (`t:string`) The ARN of the AppInstanceUser that you want to
-  reinstate.
-
-  ## Optional parameters:
+  * `:member_arn` (`t:string` required) The ARN of the AppInstanceUser that you
+  want to reinstate.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec delete_channel_ban(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_ban_errors()}
-
   def delete_channel_ban(%Client{} = client, channel_arn, member_arn, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
@@ -9471,21 +9342,18 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteChannelMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel from which you want to
-  remove the user.
-  * `:member_arn` (`t:string`) The ARN of the member that you're removing from the
-  channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel from which you
+  want to remove the user.
+  * `:member_arn` (`t:string` required) The ARN of the member that you're removing
+  from the channel.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec delete_channel_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_membership_errors()}
-
   def delete_channel_membership(%Client{} = client, channel_arn, member_arn, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
@@ -9548,19 +9416,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteChannelMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-  * `:message_id` (`t:string`) The ID of the message being deleted.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  * `:message_id` (`t:string` required) The ID of the message being deleted.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec delete_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_message_errors()}
-
   def delete_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -9621,19 +9486,17 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteChannelModerator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-  * `:channel_moderator_arn` (`t:string`) The ARN of the moderator being deleted.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  * `:channel_moderator_arn` (`t:string` required) The ARN of the moderator being
+  deleted.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec delete_channel_moderator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_moderator_errors()}
-
   def delete_channel_moderator(
         %Client{} = client,
         channel_arn,
@@ -9697,17 +9560,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteEventsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:bot_id` (`t:string`) The bot ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:bot_id` (`t:string` required) The bot ID.
+  ## Keyword parameters:
   """
-
   @spec delete_events_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_events_configuration_errors()}
-
   def delete_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
@@ -9755,17 +9615,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteMediaCapturePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:media_pipeline_id` (`t:string`) The ID of the media capture pipeline being
-  deleted.
-
-  ## Optional parameters:
+  * `:media_pipeline_id` (`t:string` required) The ID of the media capture
+  pipeline being deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_media_capture_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_media_capture_pipeline_errors()}
-
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
 
@@ -9824,16 +9681,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteMeeting&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec delete_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_meeting_errors()}
-
   def delete_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
 
@@ -9882,16 +9736,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeletePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) The phone number ID.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) The phone number ID.
+  ## Keyword parameters:
   """
-
   @spec delete_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_phone_number_errors()}
-
   def delete_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -9939,17 +9790,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteProxySession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:proxy_session_id` (`t:string`) The proxy session ID.
-  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
-
-  ## Optional parameters:
+  * `:proxy_session_id` (`t:string` required) The proxy session ID.
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_proxy_session_errors()}
-
   def delete_proxy_session(
         %Client{} = client,
         proxy_session_id,
@@ -10002,17 +9851,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:room_id` (`t:string`) The chat room ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:room_id` (`t:string` required) The chat room ID.
+  ## Keyword parameters:
   """
-
   @spec delete_room(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_room_errors()}
-
   def delete_room(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
@@ -10060,18 +9906,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteRoomMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:member_id` (`t:string`) The member ID (user ID or bot ID).
-  * `:room_id` (`t:string`) The room ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:member_id` (`t:string` required) The member ID (user ID or bot ID).
+  * `:room_id` (`t:string` required) The room ID.
+  ## Keyword parameters:
   """
-
   @spec delete_room_membership(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_room_membership_errors()}
-
   def delete_room_membership(%Client{} = client, account_id, member_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships/#{AWS.Util.encode_uri(member_id)}"
@@ -10119,16 +9962,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteSipMediaApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sip_media_application_errors()}
-
   def delete_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
 
@@ -10175,16 +10016,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteSipRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_rule_id` (`t:string`) The SIP rule ID.
-
-  ## Optional parameters:
+  * `:sip_rule_id` (`t:string` required) The SIP rule ID.
+  ## Keyword parameters:
   """
-
   @spec delete_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sip_rule_errors()}
-
   def delete_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
 
@@ -10233,16 +10071,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_errors()}
-
   def delete_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
 
@@ -10290,11 +10126,10 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
@@ -10303,7 +10138,6 @@ defmodule AWS.Chime do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_emergency_calling_configuration_errors()}
-
   def delete_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -10357,17 +10191,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
-  group ID.
-
-  ## Optional parameters:
+  * `:voice_connector_group_id` (`t:string` required) The Amazon Chime Voice
+  Connector group ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_group_errors()}
-
   def delete_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
 
@@ -10416,16 +10247,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_origination_errors()}
-
   def delete_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
 
@@ -10472,16 +10301,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorProxy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_proxy_errors()}
-
   def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -10530,16 +10357,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_streaming_configuration_errors()}
-
   def delete_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -10593,16 +10418,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorTermination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_termination_errors()}
-
   def delete_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
 
@@ -10650,16 +10473,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_termination_credentials_errors()}
-
   def delete_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -10701,16 +10522,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeAppInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec describe_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_errors()}
-
   def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
 
@@ -10745,17 +10563,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_admin_arn` (`t:string`) The ARN of the AppInstanceAdmin.
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_admin_arn` (`t:string` required) The ARN of the
+  AppInstanceAdmin.
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec describe_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_admin_errors()}
-
   def describe_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -10796,16 +10612,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
-
-  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+  ## Keyword parameters:
   """
-
   @spec describe_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_user_errors()}
-
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
 
@@ -10842,18 +10655,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_errors()}
-
   def describe_channel(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
@@ -10901,20 +10711,17 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannelBan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel from which the user is
-  banned.
-  * `:member_arn` (`t:string`) The ARN of the member being banned.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel from which the
+  user is banned.
+  * `:member_arn` (`t:string` required) The ARN of the member being banned.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec describe_channel_ban(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_ban_errors()}
-
   def describe_channel_ban(%Client{} = client, channel_arn, member_arn, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
@@ -10963,19 +10770,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannelMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-  * `:member_arn` (`t:string`) The ARN of the member.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  * `:member_arn` (`t:string` required) The ARN of the member.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec describe_channel_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_membership_errors()}
-
   def describe_channel_membership(%Client{} = client, channel_arn, member_arn, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
@@ -11025,14 +10829,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannelMembershipForAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel to which the user belongs.
-  * `:app_instance_user_arn` (`t:string`) The ARN of the user in a channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel to which the user
+  belongs.
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the user in a
+  channel.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec describe_channel_membership_for_app_instance_user(
           AWS.Client.t(),
           String.t(),
@@ -11042,7 +10846,6 @@ defmodule AWS.Chime do
           {:ok, describe_channel_membership_for_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_membership_for_app_instance_user_errors()}
-
   def describe_channel_membership_for_app_instance_user(
         %Client{} = client,
         channel_arn,
@@ -11097,15 +10900,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannelModeratedByAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the moderated channel.
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser in the
-  moderated channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the moderated channel.
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser
+  in the moderated channel.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec describe_channel_moderated_by_app_instance_user(
           AWS.Client.t(),
           String.t(),
@@ -11115,7 +10916,6 @@ defmodule AWS.Chime do
           {:ok, describe_channel_moderated_by_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_moderated_by_app_instance_user_errors()}
-
   def describe_channel_moderated_by_app_instance_user(
         %Client{} = client,
         channel_arn,
@@ -11170,19 +10970,17 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannelModerator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-  * `:channel_moderator_arn` (`t:string`) The ARN of the channel moderator.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  * `:channel_moderator_arn` (`t:string` required) The ARN of the channel
+  moderator.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec describe_channel_moderator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_moderator_errors()}
-
   def describe_channel_moderator(
         %Client{} = client,
         channel_arn,
@@ -11235,17 +11033,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DisassociatePhoneNumberFromUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:user_id` (`t:string`) The user ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:user_id` (`t:string` required) The user ID.
+  ## Keyword parameters:
   """
-
   @spec disassociate_phone_number_from_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_phone_number_from_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_number_from_user_errors()}
-
   def disassociate_phone_number_from_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=disassociate-phone-number"
@@ -11284,16 +11079,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DisassociatePhoneNumbersFromVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec disassociate_phone_numbers_from_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_numbers_from_voice_connector_errors()}
-
   def disassociate_phone_numbers_from_voice_connector(
         %Client{} = client,
         voice_connector_id,
@@ -11336,12 +11129,10 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DisassociatePhoneNumbersFromVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
-  group ID.
-
-  ## Optional parameters:
+  * `:voice_connector_group_id` (`t:string` required) The Amazon Chime Voice
+  Connector group ID.
+  ## Keyword parameters:
   """
-
   @spec disassociate_phone_numbers_from_voice_connector_group(
           AWS.Client.t(),
           String.t(),
@@ -11350,7 +11141,6 @@ defmodule AWS.Chime do
           {:ok, disassociate_phone_numbers_from_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_numbers_from_voice_connector_group_errors()}
-
   def disassociate_phone_numbers_from_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -11393,16 +11183,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DisassociateSigninDelegateGroupsFromAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec disassociate_signin_delegate_groups_from_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_signin_delegate_groups_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_signin_delegate_groups_from_account_errors()}
-
   def disassociate_signin_delegate_groups_from_account(
         %Client{} = client,
         account_id,
@@ -11445,16 +11232,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec get_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_errors()}
-
   def get_account(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
 
@@ -11493,16 +11277,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec get_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
-
   def get_account_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
 
@@ -11537,16 +11318,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetAppInstanceRetentionSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec get_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_instance_retention_settings_errors()}
-
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
 
@@ -11581,16 +11359,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetAppInstanceStreamingConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec get_app_instance_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_instance_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_instance_streaming_configurations_errors()}
-
   def get_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -11640,17 +11415,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetAttendee&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec get_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attendee_errors()}
-
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -11687,17 +11459,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:bot_id` (`t:string`) The bot ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:bot_id` (`t:string` required) The bot ID.
+  ## Keyword parameters:
   """
-
   @spec get_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_errors()}
-
   def get_bot(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
 
@@ -11734,19 +11503,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetChannelMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-  * `:message_id` (`t:string`) The ID of the message.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  * `:message_id` (`t:string` required) The ID of the message.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec get_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channel_message_errors()}
-
   def get_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -11794,17 +11560,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetEventsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:bot_id` (`t:string`) The bot ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:bot_id` (`t:string` required) The bot ID.
+  ## Keyword parameters:
   """
-
   @spec get_events_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_events_configuration_errors()}
-
   def get_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
@@ -11841,15 +11604,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_global_settings_errors()}
-
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
 
@@ -11884,16 +11644,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetMediaCapturePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:media_pipeline_id` (`t:string`) The ID of the pipeline that you want to get.
-
-  ## Optional parameters:
+  * `:media_pipeline_id` (`t:string` required) The ID of the pipeline that you
+  want to get.
+  ## Keyword parameters:
   """
-
   @spec get_media_capture_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_capture_pipeline_errors()}
-
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
 
@@ -11939,16 +11697,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetMeeting&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec get_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_meeting_errors()}
-
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
 
@@ -11983,15 +11738,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetMessagingSessionEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_messaging_session_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_messaging_session_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_messaging_session_endpoint_errors()}
-
   def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoints/messaging-session"
 
@@ -12027,16 +11779,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetPhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) The phone number ID.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) The phone number ID.
+  ## Keyword parameters:
   """
-
   @spec get_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_errors()}
-
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -12073,16 +11822,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetPhoneNumberOrder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_order_id` (`t:string`) The ID for the phone number order.
-
-  ## Optional parameters:
+  * `:phone_number_order_id` (`t:string` required) The ID for the phone number
+  order.
+  ## Keyword parameters:
   """
-
   @spec get_phone_number_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_order_errors()}
-
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
 
@@ -12118,15 +11865,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetPhoneNumberSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_phone_number_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_settings_errors()}
-
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
 
@@ -12162,17 +11906,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetProxySession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:proxy_session_id` (`t:string`) The proxy session ID.
-  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
-
-  ## Optional parameters:
+  * `:proxy_session_id` (`t:string` required) The proxy session ID.
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_proxy_session_errors()}
-
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
@@ -12211,16 +11953,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetRetentionSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec get_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_retention_settings_errors()}
-
   def get_retention_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
 
@@ -12256,17 +11995,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:room_id` (`t:string`) The room ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:room_id` (`t:string` required) The room ID.
+  ## Keyword parameters:
   """
-
   @spec get_room(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_room_errors()}
-
   def get_room(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
@@ -12303,16 +12039,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetSipMediaApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_errors()}
-
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
 
@@ -12347,16 +12081,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetSipMediaApplicationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_logging_configuration_errors()}
-
   def get_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -12397,16 +12129,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetSipRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_rule_id` (`t:string`) The SIP rule ID.
-
-  ## Optional parameters:
+  * `:sip_rule_id` (`t:string` required) The SIP rule ID.
+  ## Keyword parameters:
   """
-
   @spec get_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_rule_errors()}
-
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
 
@@ -12442,17 +12171,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:user_id` (`t:string`) The user ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:user_id` (`t:string` required) The user ID.
+  ## Keyword parameters:
   """
-
   @spec get_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_errors()}
-
   def get_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -12489,17 +12215,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:user_id` (`t:string`) The user ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:user_id` (`t:string` required) The user ID.
+  ## Keyword parameters:
   """
-
   @spec get_user_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_settings_errors()}
-
   def get_user_settings(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
@@ -12536,16 +12259,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_errors()}
-
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
 
@@ -12581,11 +12302,10 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
@@ -12594,7 +12314,6 @@ defmodule AWS.Chime do
           {:ok, get_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_emergency_calling_configuration_errors()}
-
   def get_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -12635,17 +12354,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
-  group ID.
-
-  ## Optional parameters:
+  * `:voice_connector_group_id` (`t:string` required) The Amazon Chime Voice
+  Connector group ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_group_errors()}
-
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
 
@@ -12682,16 +12398,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_logging_configuration_errors()}
-
   def get_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -12732,16 +12446,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_origination_errors()}
-
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
 
@@ -12777,16 +12489,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorProxy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_proxy_errors()}
-
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -12825,16 +12535,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_streaming_configuration_errors()}
-
   def get_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -12875,16 +12583,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorTermination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_errors()}
-
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
 
@@ -12926,16 +12632,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorTerminationHealth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_termination_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_health_errors()}
-
   def get_voice_connector_termination_health(
         %Client{} = client,
         voice_connector_id,
@@ -12976,16 +12680,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20InviteUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec invite_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, invite_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invite_users_errors()}
-
   def invite_users(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=add"
 
@@ -13025,8 +12726,7 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call. Defaults to 100.
   * `:name` (`t:string`) Amazon Chime account name prefix with which to filter
@@ -13035,12 +12735,10 @@ defmodule AWS.Chime do
   results.
   * `:user_email` (`t:string`) User email address with which to filter results.
   """
-
   @spec list_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accounts_errors()}
-
   def list_accounts(%Client{} = client, options \\ []) do
     url_path = "/accounts"
 
@@ -13107,20 +12805,17 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAppInstanceAdmins&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of administrators that you
   want to return.
   * `:next_token` (`t:string`) The token returned from previous API requests until
   the number of administrators is reached.
   """
-
   @spec list_app_instance_admins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_admins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instance_admins_errors()}
-
   def list_app_instance_admins(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
 
@@ -13173,20 +12868,17 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAppInstanceUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of requests that you want
   returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
   requested users are returned.
   """
-
   @spec list_app_instance_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instance_users_errors()}
-
   def list_app_instance_users(%Client{} = client, app_instance_arn, options \\ [])
       when is_binary(app_instance_arn) do
     url_path = "/app-instance-users"
@@ -13240,19 +12932,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAppInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of AppInstances that you want
   to return.
   * `:next_token` (`t:string`) The token passed by previous API requests until you
   reach the maximum number of AppInstances.
   """
-
   @spec list_app_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instances_errors()}
-
   def list_app_instances(%Client{} = client, options \\ []) do
     url_path = "/app-instances"
 
@@ -13305,17 +12994,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAttendeeTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec list_attendee_tags(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendee_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attendee_tags_errors()}
-
   def list_attendee_tags(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags"
@@ -13361,20 +13047,17 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAttendees&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   """
-
   @spec list_attendees(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attendees_errors()}
-
   def list_attendees(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
 
@@ -13428,20 +13111,17 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListBots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call. The default is 10.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   """
-
   @spec list_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bots_errors()}
-
   def list_bots(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
 
@@ -13496,9 +13176,8 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelBans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of bans that you want
   returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
@@ -13506,12 +13185,10 @@ defmodule AWS.Chime do
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec list_channel_bans(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_bans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_bans_errors()}
-
   def list_channel_bans(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
 
@@ -13572,10 +13249,9 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelMemberships&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The maximum number of channel memberships that you
-  want returned.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The maximum number of channel memberships
+  that you want returned.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channel memberships that
   you want returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
@@ -13588,12 +13264,10 @@ defmodule AWS.Chime do
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec list_channel_memberships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_memberships_errors()}
-
   def list_channel_memberships(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
 
@@ -13662,8 +13336,7 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelMembershipsForAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUsers
   * `:max_results` (`t:integer`) The maximum number of users that you want
   returned.
@@ -13672,12 +13345,10 @@ defmodule AWS.Chime do
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec list_channel_memberships_for_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_memberships_for_app_instance_user_errors()}
-
   def list_channel_memberships_for_app_instance_user(%Client{} = client, options \\ []) do
     url_path = "/channels?scope=app-instance-user-memberships"
 
@@ -13754,9 +13425,8 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelMessages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of messages that you want
   returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
@@ -13770,12 +13440,10 @@ defmodule AWS.Chime do
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec list_channel_messages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_messages_errors()}
-
   def list_channel_messages(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
 
@@ -13871,9 +13539,8 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelModerators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of moderators that you want
   returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
@@ -13881,12 +13548,10 @@ defmodule AWS.Chime do
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec list_channel_moderators(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_moderators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_moderators_errors()}
-
   def list_channel_moderators(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
 
@@ -13946,9 +13611,8 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channels that you want to
   return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
@@ -13959,12 +13623,10 @@ defmodule AWS.Chime do
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec list_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-
   def list_channels(%Client{} = client, app_instance_arn, options \\ [])
       when is_binary(app_instance_arn) do
     url_path = "/channels"
@@ -14033,8 +13695,7 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelsModeratedByAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the user in the moderated
   channel.
   * `:max_results` (`t:integer`) The maximum number of channels in the request.
@@ -14043,12 +13704,10 @@ defmodule AWS.Chime do
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec list_channels_moderated_by_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_moderated_by_app_instance_user_errors()}
-
   def list_channels_moderated_by_app_instance_user(%Client{} = client, options \\ []) do
     url_path = "/channels?scope=app-instance-user-moderated-channels"
 
@@ -14119,19 +13778,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListMediaCapturePipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call. Valid Range: 1 - 99.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
   results.
   """
-
   @spec list_media_capture_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_media_capture_pipelines_errors()}
-
   def list_media_capture_pipelines(%Client{} = client, options \\ []) do
     url_path = "/media-capture-pipelines"
 
@@ -14184,16 +13840,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListMeetingTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec list_meeting_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_meeting_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_meeting_tags_errors()}
-
   def list_meeting_tags(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags"
 
@@ -14230,19 +13883,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListMeetings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   """
-
   @spec list_meetings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_meetings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_meetings_errors()}
-
   def list_meetings(%Client{} = client, options \\ []) do
     url_path = "/meetings"
 
@@ -14295,19 +13945,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListPhoneNumberOrders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   """
-
   @spec list_phone_number_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_number_orders_errors()}
-
   def list_phone_number_orders(%Client{} = client, options \\ []) do
     url_path = "/phone-number-orders"
 
@@ -14361,8 +14008,7 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListPhoneNumbers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:filter_name`
   (`t:enum["AccountId|SipRuleId|UserId|VoiceConnectorGroupId|VoiceConnectorId"]`)
   The filter to use to limit the number of results.
@@ -14378,12 +14024,10 @@ defmodule AWS.Chime do
   (`t:enum["AcquireFailed|AcquireInProgress|Assigned|DeleteFailed|DeleteInProgress|ReleaseFailed|ReleaseInProgress|Unassigned"]`)
   The phone number status.
   """
-
   @spec list_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_errors()}
-
   def list_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers"
 
@@ -14478,21 +14122,19 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListProxySessions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
+  ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   * `:status` (`t:enum["Closed|InProgress|Open"]`) The proxy session status.
   """
-
   @spec list_proxy_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proxy_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_proxy_sessions_errors()}
-
   def list_proxy_sessions(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
 
@@ -14553,21 +14195,18 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListRoomMemberships&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:room_id` (`t:string`) The room ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:room_id` (`t:string` required) The room ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   """
-
   @spec list_room_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_room_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_room_memberships_errors()}
-
   def list_room_memberships(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships"
@@ -14623,21 +14262,18 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListRooms&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:member_id` (`t:string`) The member ID (user ID or bot ID).
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   """
-
   @spec list_rooms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rooms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rooms_errors()}
-
   def list_rooms(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
 
@@ -14697,19 +14333,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListSipMediaApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call. Defaults to 100.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   """
-
   @spec list_sip_media_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_media_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_media_applications_errors()}
-
   def list_sip_media_applications(%Client{} = client, options \\ []) do
     url_path = "/sip-media-applications"
 
@@ -14762,20 +14395,17 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListSipRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call. Defaults to 100.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
   """
-
   @spec list_sip_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_rules_errors()}
-
   def list_sip_rules(%Client{} = client, options \\ []) do
     url_path = "/sip-rules"
 
@@ -14836,17 +14466,14 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:product_type`
-  (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`) The
-  phone number product type.
-
-  ## Optional parameters:
+  (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`
+  required) The phone number product type.
+  ## Keyword parameters:
   """
-
   @spec list_supported_phone_number_countries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_supported_phone_number_countries_errors()}
-
   def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ [])
       when is_binary(product_type) do
     url_path = "/phone-number-countries"
@@ -14882,16 +14509,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource ARN.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -14929,9 +14553,8 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call. Defaults to 100.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
@@ -14940,12 +14563,10 @@ defmodule AWS.Chime do
   results. Maximum 1.
   * `:user_type` (`t:enum["PrivateUser|SharedDevice"]`) The user type.
   """
-
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-
   def list_users(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
 
@@ -15013,19 +14634,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListVoiceConnectorGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   """
-
   @spec list_voice_connector_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connector_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_groups_errors()}
-
   def list_voice_connector_groups(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-groups"
 
@@ -15078,16 +14696,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec list_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_connector_termination_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_termination_credentials_errors()}
-
   def list_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -15127,19 +14743,16 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListVoiceConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   """
-
   @spec list_voice_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connectors_errors()}
-
   def list_voice_connectors(%Client{} = client, options \\ []) do
     url_path = "/voice-connectors"
 
@@ -15193,17 +14806,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20LogoutUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:user_id` (`t:string`) The user ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:user_id` (`t:string` required) The user ID.
+  ## Keyword parameters:
   """
-
   @spec logout_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, logout_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, logout_user_errors()}
-
   def logout_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=logout"
@@ -15241,16 +14851,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutAppInstanceRetentionSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec put_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_instance_retention_settings_errors()}
-
   def put_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
 
@@ -15287,16 +14894,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutAppInstanceStreamingConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec put_app_instance_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_app_instance_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_instance_streaming_configurations_errors()}
-
   def put_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -15339,17 +14943,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutEventsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:bot_id` (`t:string`) The bot ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:bot_id` (`t:string` required) The bot ID.
+  ## Keyword parameters:
   """
-
   @spec put_events_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_events_configuration_errors()}
-
   def put_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
@@ -15396,16 +14997,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutRetentionSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec put_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_retention_settings_errors()}
-
   def put_retention_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
 
@@ -15442,16 +15040,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutSipMediaApplicationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec put_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sip_media_application_logging_configuration_errors()}
-
   def put_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -15496,11 +15092,10 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
@@ -15509,7 +15104,6 @@ defmodule AWS.Chime do
           {:ok, put_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_emergency_calling_configuration_errors()}
-
   def put_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -15553,16 +15147,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_logging_configuration_errors()}
-
   def put_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -15606,16 +15198,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_origination_errors()}
-
   def put_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
 
@@ -15653,16 +15243,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorProxy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_proxy_errors()}
-
   def put_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -15703,16 +15291,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_streaming_configuration_errors()}
-
   def put_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -15756,16 +15342,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorTermination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_termination_errors()}
-
   def put_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
 
@@ -15802,16 +15386,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_termination_credentials_errors()}
-
   def put_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -15856,20 +15438,17 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20RedactChannelMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel containing the messages
-  that you want to redact.
-  * `:message_id` (`t:string`) The ID of the message being redacted.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel containing the
+  messages that you want to redact.
+  * `:message_id` (`t:string` required) The ID of the message being redacted.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec redact_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, redact_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, redact_channel_message_errors()}
-
   def redact_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
@@ -15918,13 +15497,11 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20RedactConversationMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:conversation_id` (`t:string`) The conversation ID.
-  * `:message_id` (`t:string`) The message ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:conversation_id` (`t:string` required) The conversation ID.
+  * `:message_id` (`t:string` required) The message ID.
+  ## Keyword parameters:
   """
-
   @spec redact_conversation_message(
           AWS.Client.t(),
           String.t(),
@@ -15935,7 +15512,6 @@ defmodule AWS.Chime do
           {:ok, redact_conversation_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, redact_conversation_message_errors()}
-
   def redact_conversation_message(
         %Client{} = client,
         account_id,
@@ -15979,18 +15555,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20RedactRoomMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:message_id` (`t:string`) The message ID.
-  * `:room_id` (`t:string`) The room ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:message_id` (`t:string` required) The message ID.
+  * `:room_id` (`t:string` required) The room ID.
+  ## Keyword parameters:
   """
-
   @spec redact_room_message(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, redact_room_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, redact_room_message_errors()}
-
   def redact_room_message(%Client{} = client, account_id, message_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
@@ -16028,17 +15601,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20RegenerateSecurityToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:bot_id` (`t:string`) The bot ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:bot_id` (`t:string` required) The bot ID.
+  ## Keyword parameters:
   """
-
   @spec regenerate_security_token(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, regenerate_security_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, regenerate_security_token_errors()}
-
   def regenerate_security_token(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}?operation=regenerate-security-token"
@@ -16077,17 +15647,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ResetPersonalPIN&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:user_id` (`t:string`) The user ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:user_id` (`t:string` required) The user ID.
+  ## Keyword parameters:
   """
-
   @spec reset_personal_pin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, reset_personal_pin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_personal_pin_errors()}
-
   def reset_personal_pin(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=reset-personal-pin"
@@ -16126,16 +15693,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20RestorePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) The phone number.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) The phone number.
+  ## Keyword parameters:
   """
-
   @spec restore_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_phone_number_errors()}
-
   def restore_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}?operation=restore"
 
@@ -16176,8 +15740,7 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20SearchAvailablePhoneNumbers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:area_code` (`t:string`) The area code used to filter results. Only applies
   to the US.
   * `:city` (`t:string`) The city used to filter results. Only applies to the US.
@@ -16194,12 +15757,10 @@ defmodule AWS.Chime do
   * `:toll_free_prefix` (`t:string`) The toll-free prefix that you use to filter
   results. Only applies to the US.
   """
-
   @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_available_phone_numbers_errors()}
-
   def search_available_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/search?type=phone-numbers"
 
@@ -16316,18 +15877,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20SendChannelMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec send_channel_message(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_channel_message_errors()}
-
   def send_channel_message(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
 
@@ -16383,16 +15941,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20StartMeetingTranscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The unique ID of the meeting being transcribed.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The unique ID of the meeting being
+  transcribed.
+  ## Keyword parameters:
   """
-
   @spec start_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_meeting_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_meeting_transcription_errors()}
-
   def start_meeting_transcription(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
 
@@ -16429,17 +15985,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20StopMeetingTranscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The unique ID of the meeting for which you stop
-  transcription.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The unique ID of the meeting for which you
+  stop transcription.
+  ## Keyword parameters:
   """
-
   @spec stop_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_meeting_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_meeting_transcription_errors()}
-
   def stop_meeting_transcription(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
 
@@ -16476,17 +16029,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20TagAttendee&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec tag_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_attendee_errors()}
-
   def tag_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=add"
@@ -16524,16 +16074,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20TagMeeting&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec tag_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_meeting_errors()}
-
   def tag_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=add"
 
@@ -16570,15 +16117,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=tag-resource"
 
@@ -16615,17 +16159,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UntagAttendee&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec untag_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_attendee_errors()}
-
   def untag_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=delete"
@@ -16663,16 +16204,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UntagMeeting&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec untag_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_meeting_errors()}
-
   def untag_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=delete"
 
@@ -16710,15 +16248,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=untag-resource"
 
@@ -16756,16 +16291,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec update_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_errors()}
-
   def update_account(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
 
@@ -16806,16 +16338,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  ## Keyword parameters:
   """
-
   @spec update_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_settings_errors()}
-
   def update_account_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
 
@@ -16852,16 +16381,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateAppInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec update_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_instance_errors()}
-
   def update_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
 
@@ -16898,16 +16424,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
-
-  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+  ## Keyword parameters:
   """
-
   @spec update_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_instance_user_errors()}
-
   def update_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
 
@@ -16945,17 +16468,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:bot_id` (`t:string`) The bot ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:bot_id` (`t:string` required) The bot ID.
+  ## Keyword parameters:
   """
-
   @spec update_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bot_errors()}
-
   def update_bot(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
 
@@ -16993,18 +16513,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec update_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
-
   def update_channel(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
@@ -17054,19 +16571,17 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateChannelMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-  * `:message_id` (`t:string`) The ID string of the message being updated.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  * `:message_id` (`t:string` required) The ID string of the message being
+  updated.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec update_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_message_errors()}
-
   def update_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -17117,18 +16632,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateChannelReadMarker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN of the channel.
+  ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
   API call.
   """
-
   @spec update_channel_read_marker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_read_marker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_read_marker_errors()}
-
   def update_channel_read_marker(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/readMarker"
 
@@ -17177,15 +16689,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
-
   def update_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
 
@@ -17227,16 +16736,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) The phone number ID.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) The phone number ID.
+  ## Keyword parameters:
   """
-
   @spec update_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_errors()}
-
   def update_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -17276,15 +16782,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdatePhoneNumberSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_settings_errors()}
-
   def update_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
 
@@ -17321,17 +16824,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateProxySession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:proxy_session_id` (`t:string`) The proxy session ID.
-  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
-
-  ## Optional parameters:
+  * `:proxy_session_id` (`t:string` required) The proxy session ID.
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec update_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_proxy_session_errors()}
-
   def update_proxy_session(
         %Client{} = client,
         proxy_session_id,
@@ -17375,17 +16876,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:room_id` (`t:string`) The room ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:room_id` (`t:string` required) The room ID.
+  ## Keyword parameters:
   """
-
   @spec update_room(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_room_errors()}
-
   def update_room(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
@@ -17426,18 +16924,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateRoomMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:member_id` (`t:string`) The member ID.
-  * `:room_id` (`t:string`) The room ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:member_id` (`t:string` required) The member ID.
+  * `:room_id` (`t:string` required) The room ID.
+  ## Keyword parameters:
   """
-
   @spec update_room_membership(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_room_membership_errors()}
-
   def update_room_membership(%Client{} = client, account_id, member_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships/#{AWS.Util.encode_uri(member_id)}"
@@ -17475,16 +16970,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateSipMediaApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec update_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_media_application_errors()}
-
   def update_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
 
@@ -17523,18 +17016,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateSipMediaApplicationCall&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application
-  handling the call.
-  * `:transaction_id` (`t:string`) The ID of the call transaction.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The ID of the SIP media
+  application handling the call.
+  * `:transaction_id` (`t:string` required) The ID of the call transaction.
+  ## Keyword parameters:
   """
-
   @spec update_sip_media_application_call(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_media_application_call_errors()}
-
   def update_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
@@ -17577,16 +17067,13 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateSipRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_rule_id` (`t:string`) The SIP rule ID.
-
-  ## Optional parameters:
+  * `:sip_rule_id` (`t:string` required) The SIP rule ID.
+  ## Keyword parameters:
   """
-
   @spec update_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_rule_errors()}
-
   def update_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
 
@@ -17624,17 +17111,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:user_id` (`t:string`) The user ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:user_id` (`t:string` required) The user ID.
+  ## Keyword parameters:
   """
-
   @spec update_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-
   def update_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -17672,17 +17156,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Chime account ID.
-  * `:user_id` (`t:string`) The user ID.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Chime account ID.
+  * `:user_id` (`t:string` required) The user ID.
+  ## Keyword parameters:
   """
-
   @spec update_user_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_settings_errors()}
-
   def update_user_settings(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
@@ -17720,16 +17201,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
+  ID.
+  ## Keyword parameters:
   """
-
   @spec update_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_connector_errors()}
-
   def update_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
 
@@ -17767,17 +17246,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
-  group ID.
-
-  ## Optional parameters:
+  * `:voice_connector_group_id` (`t:string` required) The Amazon Chime Voice
+  Connector group ID.
+  ## Keyword parameters:
   """
-
   @spec update_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_connector_group_errors()}
-
   def update_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
 
@@ -17818,15 +17294,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ValidateE911Address&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec validate_e911_address(AWS.Client.t(), Keyword.t()) ::
           {:ok, validate_e911_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_e911_address_errors()}
-
   def validate_e911_address(%Client{} = client, options \\ []) do
     url_path = "/emergency-calling/address"
 

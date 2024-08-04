@@ -1806,15 +1806,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20AssociateAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_accounts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_accounts_errors()}
-
   def associate_accounts(%Client{} = client, options \\ []) do
     url_path = "/associate-accounts"
 
@@ -1852,15 +1849,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20AssociatePricingRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_pricing_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_pricing_rules_errors()}
-
   def associate_pricing_rules(%Client{} = client, options \\ []) do
     url_path = "/associate-pricing-rules"
 
@@ -1897,15 +1891,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20BatchAssociateResourcesToCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_associate_resources_to_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_associate_resources_to_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_resources_to_custom_line_item_errors()}
-
   def batch_associate_resources_to_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/batch-associate-resources-to-custom-line-item"
 
@@ -1942,15 +1933,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20BatchDisassociateResourcesFromCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_disassociate_resources_from_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_disassociate_resources_from_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_resources_from_custom_line_item_errors()}
-
   def batch_disassociate_resources_from_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/batch-disassociate-resources-from-custom-line-item"
 
@@ -1988,18 +1976,15 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreateBillingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The token that is needed to support idempotency.
   Idempotency isn't currently supported, but will be implemented in a future
   update.
   """
-
   @spec create_billing_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_billing_group_errors()}
-
   def create_billing_group(%Client{} = client, options \\ []) do
     url_path = "/create-billing-group"
 
@@ -2049,18 +2034,15 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreateCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The token that is needed to support idempotency.
   Idempotency isn't currently supported, but will be implemented in a future
   update.
   """
-
   @spec create_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_line_item_errors()}
-
   def create_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/create-custom-line-item"
 
@@ -2109,18 +2091,15 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreatePricingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The token that is needed to support idempotency.
   Idempotency isn't currently supported, but will be implemented in a future
   update.
   """
-
   @spec create_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pricing_plan_errors()}
-
   def create_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/create-pricing-plan"
 
@@ -2169,18 +2148,15 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreatePricingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The token that's needed to support idempotency.
   Idempotency isn't currently supported, but will be implemented in a future
   update.
   """
-
   @spec create_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pricing_rule_errors()}
-
   def create_pricing_rule(%Client{} = client, options \\ []) do
     url_path = "/create-pricing-rule"
 
@@ -2228,15 +2204,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeleteBillingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_billing_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_billing_group_errors()}
-
   def delete_billing_group(%Client{} = client, options \\ []) do
     url_path = "/delete-billing-group"
 
@@ -2274,15 +2247,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeleteCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_line_item_errors()}
-
   def delete_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/delete-custom-line-item"
 
@@ -2320,15 +2290,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeletePricingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pricing_plan_errors()}
-
   def delete_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/delete-pricing-plan"
 
@@ -2366,15 +2333,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeletePricingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pricing_rule_errors()}
-
   def delete_pricing_rule(%Client{} = client, options \\ []) do
     url_path = "/delete-pricing-rule"
 
@@ -2411,15 +2375,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DisassociateAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_accounts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_accounts_errors()}
-
   def disassociate_accounts(%Client{} = client, options \\ []) do
     url_path = "/disassociate-accounts"
 
@@ -2456,15 +2417,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DisassociatePricingRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_pricing_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_pricing_rules_errors()}
-
   def disassociate_pricing_rules(%Client{} = client, options \\ []) do
     url_path = "/disassociate-pricing-rules"
 
@@ -2503,15 +2461,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20GetBillingGroupCostReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_billing_group_cost_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_billing_group_cost_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_billing_group_cost_report_errors()}
-
   def get_billing_group_cost_report(%Client{} = client, options \\ []) do
     url_path = "/get-billing-group-cost-report"
 
@@ -2551,15 +2506,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListAccountAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_account_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_account_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_associations_errors()}
-
   def list_account_associations(%Client{} = client, options \\ []) do
     url_path = "/list-account-associations"
 
@@ -2598,15 +2550,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListBillingGroupCostReports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_billing_group_cost_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_billing_group_cost_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_billing_group_cost_reports_errors()}
-
   def list_billing_group_cost_reports(%Client{} = client, options \\ []) do
     url_path = "/list-billing-group-cost-reports"
 
@@ -2645,15 +2594,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListBillingGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_billing_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_billing_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_billing_groups_errors()}
-
   def list_billing_groups(%Client{} = client, options \\ []) do
     url_path = "/list-billing-groups"
 
@@ -2690,15 +2636,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListCustomLineItemVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_custom_line_item_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_line_item_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_line_item_versions_errors()}
-
   def list_custom_line_item_versions(%Client{} = client, options \\ []) do
     url_path = "/list-custom-line-item-versions"
 
@@ -2737,15 +2680,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListCustomLineItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_custom_line_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_line_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_line_items_errors()}
-
   def list_custom_line_items(%Client{} = client, options \\ []) do
     url_path = "/list-custom-line-items"
 
@@ -2783,15 +2723,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingPlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_pricing_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pricing_plans_errors()}
-
   def list_pricing_plans(%Client{} = client, options \\ []) do
     url_path = "/list-pricing-plans"
 
@@ -2828,15 +2765,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingPlansAssociatedWithPricingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_pricing_plans_associated_with_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_plans_associated_with_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pricing_plans_associated_with_pricing_rule_errors()}
-
   def list_pricing_plans_associated_with_pricing_rule(%Client{} = client, options \\ []) do
     url_path = "/list-pricing-plans-associated-with-pricing-rule"
 
@@ -2874,15 +2808,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_pricing_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pricing_rules_errors()}
-
   def list_pricing_rules(%Client{} = client, options \\ []) do
     url_path = "/list-pricing-rules"
 
@@ -2919,15 +2850,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingRulesAssociatedToPricingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_pricing_rules_associated_to_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_rules_associated_to_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pricing_rules_associated_to_pricing_plan_errors()}
-
   def list_pricing_rules_associated_to_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/list-pricing-rules-associated-to-pricing-plan"
 
@@ -2964,15 +2892,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListResourcesAssociatedToCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_resources_associated_to_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resources_associated_to_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_associated_to_custom_line_item_errors()}
-
   def list_resources_associated_to_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/list-resources-associated-to-custom-line-item"
 
@@ -3009,17 +2934,14 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-  the resource to list the tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  identifies the resource to list the tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3056,17 +2978,14 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  which to add tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to which to add tags.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3103,19 +3022,16 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  which to delete tags.
-  * `:tag_keys` (`t:list[com.amazonaws.billingconductor#TagKey]`) The tags to
-  delete from the resource as a list of key-value pairs.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to which to delete tags.
+  * `:tag_keys` (`t:list[com.amazonaws.billingconductor#TagKey]` required) The
+  tags to delete from the resource as a list of key-value pairs.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3163,15 +3079,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdateBillingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_billing_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_billing_group_errors()}
-
   def update_billing_group(%Client{} = client, options \\ []) do
     url_path = "/update-billing-group"
 
@@ -3208,15 +3121,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdateCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_line_item_errors()}
-
   def update_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/update-custom-line-item"
 
@@ -3253,15 +3163,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdatePricingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pricing_plan_errors()}
-
   def update_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/update-pricing-plan"
 
@@ -3298,15 +3205,12 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdatePricingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pricing_rule_errors()}
-
   def update_pricing_rule(%Client{} = client, options \\ []) do
     url_path = "/update-pricing-rule"
 

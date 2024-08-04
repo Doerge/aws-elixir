@@ -454,15 +454,12 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20DeregisterSubscriptionProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec deregister_subscription_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_subscription_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_subscription_provider_errors()}
-
   def deregister_subscription_provider(%Client{} = client, options \\ []) do
     url_path = "/subscription/DeregisterSubscriptionProvider"
 
@@ -500,15 +497,12 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20GetRegisteredSubscriptionProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_registered_subscription_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_registered_subscription_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_registered_subscription_provider_errors()}
-
   def get_registered_subscription_provider(%Client{} = client, options \\ []) do
     url_path = "/subscription/GetRegisteredSubscriptionProvider"
 
@@ -545,15 +539,12 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20GetServiceSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_service_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_settings_errors()}
-
   def get_service_settings(%Client{} = client, options \\ []) do
     url_path = "/subscription/GetServiceSettings"
 
@@ -591,15 +582,12 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListLinuxSubscriptionInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_linux_subscription_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_linux_subscription_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_linux_subscription_instances_errors()}
-
   def list_linux_subscription_instances(%Client{} = client, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptionInstances"
 
@@ -638,15 +626,12 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListLinuxSubscriptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_linux_subscriptions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_linux_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_linux_subscriptions_errors()}
-
   def list_linux_subscriptions(%Client{} = client, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptions"
 
@@ -684,15 +669,12 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListRegisteredSubscriptionProviders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_registered_subscription_providers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_registered_subscription_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_registered_subscription_providers_errors()}
-
   def list_registered_subscription_providers(%Client{} = client, options \\ []) do
     url_path = "/subscription/ListRegisteredSubscriptionProviders"
 
@@ -730,17 +712,14 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  for which to list metadata tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource for which to list metadata tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -776,15 +755,12 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20RegisterSubscriptionProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_subscription_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_subscription_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_subscription_provider_errors()}
-
   def register_subscription_provider(%Client{} = client, options \\ []) do
     url_path = "/subscription/RegisterSubscriptionProvider"
 
@@ -821,17 +797,14 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Web
-  Services resource to which to add the specified metadata tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Amazon Web Services resource to which to add the specified metadata tags.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -868,19 +841,16 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Web
-  Services resource to remove the metadata tags from.
-  * `:tag_keys` (`t:list[smithy.api#String]`) A list of metadata tag keys to
-  remove from the requested resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Amazon Web Services resource to remove the metadata tags from.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) A list of metadata tag keys
+  to remove from the requested resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -928,15 +898,12 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20UpdateServiceSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_service_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_settings_errors()}
-
   def update_service_settings(%Client{} = client, options \\ []) do
     url_path = "/subscription/UpdateServiceSettings"
 

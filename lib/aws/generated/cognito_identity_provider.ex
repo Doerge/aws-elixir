@@ -4933,6 +4933,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Adds additional user attributes to the user pool schema.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20AddCustomAttributes&this_doc_guide=API%2520Reference)
@@ -4944,12 +4945,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec add_custom_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_custom_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_custom_attributes_errors()}
-
   def add_custom_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4958,6 +4957,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Adds a user to a group. A user who is in a group can present a preferred-role
   claim to an identity pool, and populates a `cognito:groups` claim to their
   access and identity tokens.
@@ -4972,12 +4972,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_add_user_to_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_add_user_to_group_errors()}
-
   def admin_add_user_to_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4986,6 +4984,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   This IAM-authenticated API operation provides a code that Amazon Cognito sent to
   your user when they signed up in your user pool. After your user enters their
   code, they confirm ownership of the email address or phone number that they
@@ -5007,12 +5006,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_confirm_sign_up(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_confirm_sign_up_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_confirm_sign_up_errors()}
-
   def admin_confirm_sign_up(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5021,6 +5018,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Creates a new user in the specified user pool. If `MessageAction` isn't set, the
   default is to send a welcome message via email or phone (SMS).
 
@@ -5040,12 +5038,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_create_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_create_user_errors()}
-
   def admin_create_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5054,6 +5050,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Deletes a user as an administrator. Works on any user.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20AdminDeleteUser&this_doc_guide=API%2520Reference)
@@ -5065,12 +5062,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_delete_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_delete_user_errors()}
-
   def admin_delete_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5079,6 +5074,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Deletes the user attributes in a user pool as an administrator. Works on any
   user.
 
@@ -5092,12 +5088,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_delete_user_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_delete_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_delete_user_attributes_errors()}
-
   def admin_delete_user_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5106,6 +5100,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Prevents the user from signing in with the specified external (SAML or social)
   identity provider (IdP). If the user that you want to deactivate is a Amazon
   Cognito user pools native username + password user, they can't use their
@@ -5129,12 +5124,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec admin_disable_provider_for_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_disable_provider_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_disable_provider_for_user_errors()}
-
   def admin_disable_provider_for_user(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5144,6 +5137,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Deactivates a user and revokes all access tokens for the user. A deactivated
   user can't sign in, but still appears in the responses to `GetUser` and
   `ListUsers` API requests.
@@ -5157,12 +5151,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_disable_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_disable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_disable_user_errors()}
-
   def admin_disable_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5171,6 +5163,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Enables the specified user as an administrator. Works on any user.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20AdminEnableUser&this_doc_guide=API%2520Reference)
@@ -5182,12 +5175,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_enable_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_enable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_enable_user_errors()}
-
   def admin_enable_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5196,6 +5187,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Forgets the device, as an administrator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20AdminForgetDevice&this_doc_guide=API%2520Reference)
@@ -5208,12 +5200,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_forget_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_forget_device_errors()}
-
   def admin_forget_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5222,6 +5212,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets the device, as an administrator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20AdminGetDevice&this_doc_guide=API%2520Reference)
@@ -5234,12 +5225,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_get_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_get_device_errors()}
-
   def admin_get_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5248,6 +5237,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets the specified user by user name in a user pool as an administrator. Works
   on any user.
 
@@ -5260,12 +5250,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_get_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_get_user_errors()}
-
   def admin_get_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5274,6 +5262,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Initiates the authentication flow, as an administrator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20AdminInitiateAuth&this_doc_guide=API%2520Reference)
@@ -5290,12 +5279,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec admin_initiate_auth(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_initiate_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_initiate_auth_errors()}
-
   def admin_initiate_auth(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5304,6 +5291,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Links an existing user account in a user pool (`DestinationUser`) to an identity
   from an external IdP (`SourceUser`) based on a specified attribute name and
   value from the external IdP. This allows you to create a link from the
@@ -5324,12 +5312,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec admin_link_provider_for_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_link_provider_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_link_provider_for_user_errors()}
-
   def admin_link_provider_for_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5338,6 +5324,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists devices, as an administrator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20AdminListDevices&this_doc_guide=API%2520Reference)
@@ -5351,12 +5338,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_list_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_list_devices_errors()}
-
   def admin_list_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5365,6 +5350,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists the groups that a user belongs to.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20AdminListGroupsForUser&this_doc_guide=API%2520Reference)
@@ -5378,12 +5364,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_list_groups_for_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_list_groups_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_list_groups_for_user_errors()}
-
   def admin_list_groups_for_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5392,6 +5376,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   A history of user activity and any risks detected as part of Amazon Cognito
   advanced security.
 
@@ -5406,12 +5391,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_list_user_auth_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_list_user_auth_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_list_user_auth_events_errors()}
-
   def admin_list_user_auth_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5420,6 +5403,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Removes the specified user from the specified group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20AdminRemoveUserFromGroup&this_doc_guide=API%2520Reference)
@@ -5432,12 +5416,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_remove_user_from_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_remove_user_from_group_errors()}
-
   def admin_remove_user_from_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5446,6 +5428,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Resets the specified user's password in a user pool as an administrator. Works
   on any user. To use this API operation, your user pool must have self-service
   account recovery configured. Use
@@ -5487,12 +5470,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_reset_user_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_reset_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_reset_user_password_errors()}
-
   def admin_reset_user_password(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5501,6 +5482,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Some API operations in a user pool generate a challenge, like a prompt for an
   MFA code, for device authentication that bypasses MFA, or for a custom
   authentication challenge. An `AdminRespondToAuthChallenge` API request
@@ -5523,12 +5505,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec admin_respond_to_auth_challenge(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_respond_to_auth_challenge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_respond_to_auth_challenge_errors()}
-
   def admin_respond_to_auth_challenge(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5538,6 +5518,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   The user's multi-factor authentication (MFA) preference, including which MFA
   options are activated, and if any are preferred. Only one factor can be set as
   preferred. The preferred MFA factor will be used to authenticate a user if
@@ -5556,12 +5537,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_set_user_mfa_preference(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_set_user_mfa_preference_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_set_user_mfa_preference_errors()}
-
   def admin_set_user_mfa_preference(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5571,6 +5550,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Sets the specified user's password in a user pool as an administrator. Works on
   any user. The password can be temporary or permanent. If it is temporary, the
   user status enters the `FORCE_CHANGE_PASSWORD` state. When the user next tries
@@ -5590,12 +5570,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_set_user_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_set_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_set_user_password_errors()}
-
   def admin_set_user_password(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5604,6 +5582,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   *This action is no longer supported.* You can use it to configure only SMS MFA.
   You can't use it to configure time-based one-time password (TOTP) software
   token MFA. To configure either type of MFA, use
@@ -5627,12 +5606,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_set_user_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_set_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_set_user_settings_errors()}
-
   def admin_set_user_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5641,6 +5618,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Provides feedback for an authentication event indicating if it was from a valid
   user. This feedback is used for improving the risk evaluation decision for the
   user pool as part of Amazon Cognito advanced security.
@@ -5656,12 +5634,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_update_auth_event_feedback(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_update_auth_event_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_update_auth_event_feedback_errors()}
-
   def admin_update_auth_event_feedback(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5671,6 +5647,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Updates the device status as an administrator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20AdminUpdateDeviceStatus&this_doc_guide=API%2520Reference)
@@ -5684,12 +5661,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_update_device_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_update_device_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_update_device_status_errors()}
-
   def admin_update_device_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5698,6 +5673,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before
   you can send SMS messages to US phone numbers. If you use SMS text messages in
@@ -5731,12 +5707,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_update_user_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_update_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_update_user_attributes_errors()}
-
   def admin_update_user_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5745,6 +5719,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Invalidates the identity, access, and refresh tokens that Amazon Cognito issued
   to a user. Call this operation with your administrative credentials when your
   user signs out of your app. This results in the following behavior.
@@ -5758,12 +5733,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec admin_user_global_sign_out(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, admin_user_global_sign_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, admin_user_global_sign_out_errors()}
-
   def admin_user_global_sign_out(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5772,6 +5745,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Begins setup of time-based one-time password (TOTP) multi-factor authentication
   (MFA) for a user, with a unique private key that Amazon Cognito generates and
   returns in the API response. You can authorize an `AssociateSoftwareToken`
@@ -5787,12 +5761,10 @@ defmodule AWS.CognitoIdentityProvider do
       optional("Session") => String.t()
     }
   """
-
   @spec associate_software_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_software_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_software_token_errors()}
-
   def associate_software_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5801,6 +5773,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Changes the password for a specified user in a user pool. Authorize this action
   with a signed-in user's access token. It must include the scope
   `aws.cognito.signin.user.admin`.
@@ -5815,12 +5788,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("ProposedPassword") => String.t()
     }
   """
-
   @spec change_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, change_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, change_password_errors()}
-
   def change_password(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5829,6 +5800,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Confirms tracking of the device. This API call is the call that begins device
   tracking. For more information about device authentication, see [Working with
   user devices in your user
@@ -5847,12 +5819,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("DeviceKey") => String.t()
     }
   """
-
   @spec confirm_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, confirm_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, confirm_device_errors()}
-
   def confirm_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5861,6 +5831,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Allows a user to enter a confirmation code to reset a forgotten password.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20ConfirmForgotPassword&this_doc_guide=API%2520Reference)
@@ -5878,12 +5849,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec confirm_forgot_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, confirm_forgot_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, confirm_forgot_password_errors()}
-
   def confirm_forgot_password(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5892,6 +5861,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   This public API operation provides a code that Amazon Cognito sent to your user
   when they signed up in your user pool via the
   [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html)
@@ -5923,12 +5893,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec confirm_sign_up(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, confirm_sign_up_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, confirm_sign_up_errors()}
-
   def confirm_sign_up(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5937,6 +5905,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Creates a new group in the specified user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20CreateGroup&this_doc_guide=API%2520Reference)
@@ -5951,12 +5920,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec create_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-
   def create_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5965,6 +5932,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Adds a configuration and trust relationship between a third-party identity
   provider (IdP) and a user pool.
 
@@ -5981,12 +5949,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec create_identity_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_identity_provider_errors()}
-
   def create_identity_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5995,6 +5961,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Creates a new OAuth2.0 resource server and defines custom scopes within it.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20CreateResourceServer&this_doc_guide=API%2520Reference)
@@ -6008,12 +5975,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec create_resource_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_resource_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_server_errors()}
-
   def create_resource_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6022,6 +5987,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Creates a user import job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20CreateUserImportJob&this_doc_guide=API%2520Reference)
@@ -6034,12 +6000,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec create_user_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_import_job_errors()}
-
   def create_user_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6048,6 +6012,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before
   you can send SMS messages to US phone numbers. If you use SMS text messages in
@@ -6098,12 +6063,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("PoolName") => String.t()
     }
   """
-
   @spec create_user_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_pool_errors()}
-
   def create_user_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6112,6 +6075,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Creates the user pool client. When you create a new user pool client, token
   revocation is automatically activated. For more information about revoking
   tokens, see
@@ -6148,12 +6112,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec create_user_pool_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_pool_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_pool_client_errors()}
-
   def create_user_pool_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6162,6 +6124,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Creates a new domain for a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20CreateUserPoolDomain&this_doc_guide=API%2520Reference)
@@ -6174,12 +6137,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec create_user_pool_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_pool_domain_errors()}
-
   def create_user_pool_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6188,6 +6149,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Deletes a group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DeleteGroup&this_doc_guide=API%2520Reference)
@@ -6199,12 +6161,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec delete_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-
   def delete_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6213,6 +6173,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Deletes an IdP for a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DeleteIdentityProvider&this_doc_guide=API%2520Reference)
@@ -6224,12 +6185,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec delete_identity_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_identity_provider_errors()}
-
   def delete_identity_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6238,6 +6197,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Deletes a resource server.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DeleteResourceServer&this_doc_guide=API%2520Reference)
@@ -6249,12 +6209,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec delete_resource_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_server_errors()}
-
   def delete_resource_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6263,6 +6221,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Allows a user to delete their own user profile. Authorize this action with a
   signed-in user's access token. It must include the scope
   `aws.cognito.signin.user.admin`.
@@ -6275,12 +6234,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("AccessToken") => String.t()
     }
   """
-
   @spec delete_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-
   def delete_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6289,6 +6246,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Deletes the attributes for a user. Authorize this action with a signed-in user's
   access token. It must include the scope `aws.cognito.signin.user.admin`.
 
@@ -6301,12 +6259,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserAttributeNames") => list(String.t()())
     }
   """
-
   @spec delete_user_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_attributes_errors()}
-
   def delete_user_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6315,6 +6271,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Deletes the specified Amazon Cognito user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DeleteUserPool&this_doc_guide=API%2520Reference)
@@ -6325,12 +6282,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec delete_user_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_pool_errors()}
-
   def delete_user_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6339,6 +6294,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Allows the developer to delete the user pool client.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DeleteUserPoolClient&this_doc_guide=API%2520Reference)
@@ -6350,12 +6306,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec delete_user_pool_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_pool_client_errors()}
-
   def delete_user_pool_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6364,6 +6318,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Deletes a domain for a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DeleteUserPoolDomain&this_doc_guide=API%2520Reference)
@@ -6375,12 +6330,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec delete_user_pool_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_pool_domain_errors()}
-
   def delete_user_pool_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6389,6 +6342,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets information about a specific IdP.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DescribeIdentityProvider&this_doc_guide=API%2520Reference)
@@ -6400,12 +6354,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec describe_identity_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_provider_errors()}
-
   def describe_identity_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6414,6 +6366,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Describes a resource server.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DescribeResourceServer&this_doc_guide=API%2520Reference)
@@ -6425,12 +6378,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec describe_resource_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_resource_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_server_errors()}
-
   def describe_resource_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6439,6 +6390,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Describes the risk configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DescribeRiskConfiguration&this_doc_guide=API%2520Reference)
@@ -6450,12 +6402,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec describe_risk_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_risk_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_risk_configuration_errors()}
-
   def describe_risk_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6464,6 +6414,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Describes the user import job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DescribeUserImportJob&this_doc_guide=API%2520Reference)
@@ -6475,12 +6426,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec describe_user_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_import_job_errors()}
-
   def describe_user_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6489,6 +6438,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Returns the configuration information and metadata of the specified user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DescribeUserPool&this_doc_guide=API%2520Reference)
@@ -6499,12 +6449,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec describe_user_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_pool_errors()}
-
   def describe_user_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6513,6 +6461,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Client method for returning the configuration information and metadata of the
   specified user pool app client.
 
@@ -6525,12 +6474,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec describe_user_pool_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_pool_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_pool_client_errors()}
-
   def describe_user_pool_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6539,6 +6486,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets information about a domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20DescribeUserPoolDomain&this_doc_guide=API%2520Reference)
@@ -6549,12 +6497,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Domain") => String.t()
     }
   """
-
   @spec describe_user_pool_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_pool_domain_errors()}
-
   def describe_user_pool_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6563,6 +6509,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Forgets the specified device. For more information about device authentication,
   see [Working with user devices in your user
   pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html).
@@ -6578,12 +6525,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("DeviceKey") => String.t()
     }
   """
-
   @spec forget_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, forget_device_errors()}
-
   def forget_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6592,6 +6537,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Calling this API causes a message to be sent to the end user with a confirmation
   code that is required to change the user's password. For the `Username`
   parameter, you can use the username or user alias. The method used to send the
@@ -6622,12 +6568,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec forgot_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, forgot_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, forgot_password_errors()}
-
   def forgot_password(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6636,6 +6580,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets the header information for the comma-separated value (CSV) file to be used
   as input for the user import job.
 
@@ -6647,12 +6592,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec get_csv_header(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_csv_header_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_csv_header_errors()}
-
   def get_csv_header(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6661,6 +6604,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets the device. For more information about device authentication, see [Working
   with user devices in your user
   pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html).
@@ -6676,12 +6620,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("DeviceKey") => String.t()
     }
   """
-
   @spec get_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_errors()}
-
   def get_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6690,6 +6632,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets a group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20GetGroup&this_doc_guide=API%2520Reference)
@@ -6701,12 +6644,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec get_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
-
   def get_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6715,6 +6656,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets the specified IdP.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20GetIdentityProviderByIdentifier&this_doc_guide=API%2520Reference)
@@ -6726,12 +6668,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec get_identity_provider_by_identifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_identity_provider_by_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_identity_provider_by_identifier_errors()}
-
   def get_identity_provider_by_identifier(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6741,6 +6681,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets the detailed activity logging configuration for a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20GetLogDeliveryConfiguration&this_doc_guide=API%2520Reference)
@@ -6751,12 +6692,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec get_log_delivery_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_log_delivery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_log_delivery_configuration_errors()}
-
   def get_log_delivery_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6766,6 +6705,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   This method takes a user pool ID, and returns the signing certificate. The
   issued certificate is valid for 10 years from the date of issue.
 
@@ -6777,12 +6717,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec get_signing_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_signing_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_signing_certificate_errors()}
-
   def get_signing_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6791,6 +6729,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets the user interface (UI) Customization information for a particular app
   client's app UI, if any such information exists for the client. If nothing is
   set for the particular client, but there is an existing pool level
@@ -6806,12 +6745,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec get_ui_customization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ui_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ui_customization_errors()}
-
   def get_ui_customization(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6820,6 +6757,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets the user attributes and metadata for a user. Authorize this action with a
   signed-in user's access token. It must include the scope
   `aws.cognito.signin.user.admin`.
@@ -6832,12 +6770,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("AccessToken") => String.t()
     }
   """
-
   @spec get_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_errors()}
-
   def get_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6846,6 +6782,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Generates a user attribute verification code for the specified attribute name.
   Sends a message to a user with a code that they must return in a
   VerifyUserAttribute request. Authorize this action with a signed-in user's
@@ -6861,12 +6798,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("AttributeName") => String.t()
     }
   """
-
   @spec get_user_attribute_verification_code(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_user_attribute_verification_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_attribute_verification_code_errors()}
-
   def get_user_attribute_verification_code(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6876,6 +6811,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Gets the user pool multi-factor authentication (MFA) configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20GetUserPoolMfaConfig&this_doc_guide=API%2520Reference)
@@ -6886,12 +6822,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec get_user_pool_mfa_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_user_pool_mfa_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_pool_mfa_config_errors()}
-
   def get_user_pool_mfa_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6900,6 +6834,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Invalidates the identity, access, and refresh tokens that Amazon Cognito issued
   to a user. Call this operation when your user signs out of your app. This
   results in the following behavior.
@@ -6912,12 +6847,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("AccessToken") => String.t()
     }
   """
-
   @spec global_sign_out(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, global_sign_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, global_sign_out_errors()}
-
   def global_sign_out(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6926,6 +6859,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Initiates sign-in for a user in the Amazon Cognito user directory. You can't
   sign in a user with a federated IdP with `InitiateAuth`. For more information,
   see [ Adding user pool sign-in through a third
@@ -6950,12 +6884,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("ClientId") => String.t()
     }
   """
-
   @spec initiate_auth(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, initiate_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initiate_auth_errors()}
-
   def initiate_auth(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6964,6 +6896,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists the sign-in devices that Amazon Cognito has registered to the current
   user. For more information about device authentication, see [Working with user
   devices in your user
@@ -6981,12 +6914,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("AccessToken") => String.t()
     }
   """
-
   @spec list_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-
   def list_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6995,6 +6926,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists the groups associated with a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20ListGroups&this_doc_guide=API%2520Reference)
@@ -7007,12 +6939,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec list_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
-
   def list_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7021,6 +6951,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists information about all IdPs for a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20ListIdentityProviders&this_doc_guide=API%2520Reference)
@@ -7033,12 +6964,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec list_identity_providers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_identity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_providers_errors()}
-
   def list_identity_providers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7047,6 +6976,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists the resource servers for a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20ListResourceServers&this_doc_guide=API%2520Reference)
@@ -7059,12 +6989,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec list_resource_servers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_servers_errors()}
-
   def list_resource_servers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7073,6 +7001,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists the tags that are assigned to an Amazon Cognito user pool. A tag is a
   label that you can apply to user pools to categorize and manage them in
   different ways, such as by purpose, owner, environment, or other criteria.
@@ -7085,12 +7014,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7099,6 +7026,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists user import jobs for a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20ListUserImportJobs&this_doc_guide=API%2520Reference)
@@ -7111,12 +7039,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec list_user_import_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_user_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_import_jobs_errors()}
-
   def list_user_import_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7125,6 +7051,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists the clients that have been created for the specified user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20ListUserPoolClients&this_doc_guide=API%2520Reference)
@@ -7137,12 +7064,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec list_user_pool_clients(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_user_pool_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_pool_clients_errors()}
-
   def list_user_pool_clients(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7151,6 +7076,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists the user pools associated with an Amazon Web Services account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20ListUserPools&this_doc_guide=API%2520Reference)
@@ -7162,12 +7088,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("MaxResults") => integer()
     }
   """
-
   @spec list_user_pools(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_user_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_pools_errors()}
-
   def list_user_pools(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7176,6 +7100,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists users and their basic details in a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20ListUsers&this_doc_guide=API%2520Reference)
@@ -7190,12 +7115,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec list_users(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-
   def list_users(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7204,6 +7127,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Lists the users in the specified group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20ListUsersInGroup&this_doc_guide=API%2520Reference)
@@ -7217,12 +7141,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec list_users_in_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_users_in_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_in_group_errors()}
-
   def list_users_in_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7231,6 +7153,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Resends the confirmation (for confirmation of registration) to a specific user
   in the user pool.
 
@@ -7247,12 +7170,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec resend_confirmation_code(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resend_confirmation_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resend_confirmation_code_errors()}
-
   def resend_confirmation_code(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7261,6 +7182,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Some API operations in a user pool generate a challenge, like a prompt for an
   MFA code, for device authentication that bypasses MFA, or for a custom
   authentication challenge. A `RespondToAuthChallenge` API request provides the
@@ -7290,12 +7212,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("ClientId") => String.t()
     }
   """
-
   @spec respond_to_auth_challenge(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, respond_to_auth_challenge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, respond_to_auth_challenge_errors()}
-
   def respond_to_auth_challenge(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7304,6 +7224,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Revokes all of the access tokens generated by, and at the same time as, the
   specified refresh token. After a token is revoked, you can't use the revoked
   token to access Amazon Cognito user APIs, or to authorize access to your
@@ -7319,12 +7240,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Token") => String.t()
     }
   """
-
   @spec revoke_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, revoke_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_token_errors()}
-
   def revoke_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7333,6 +7252,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Sets up or modifies the detailed activity logging configuration of a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20SetLogDeliveryConfiguration&this_doc_guide=API%2520Reference)
@@ -7344,12 +7264,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec set_log_delivery_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_log_delivery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_log_delivery_configuration_errors()}
-
   def set_log_delivery_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7359,6 +7277,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Configures actions on detected risks. To delete the risk configuration for
   `UserPoolId` or `ClientId`, pass null values for all four configuration types.
 
@@ -7374,12 +7293,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec set_risk_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_risk_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_risk_configuration_errors()}
-
   def set_risk_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7388,6 +7305,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Sets the user interface (UI) customization information for a user pool's
   built-in app UI. You can specify app UI customization settings for a single
   client (with a specific `clientId`) or for all clients (by setting the
@@ -7407,12 +7325,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec set_ui_customization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_ui_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_ui_customization_errors()}
-
   def set_ui_customization(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7421,6 +7337,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Set the user's multi-factor authentication (MFA) method preference, including
   which MFA factors are activated and if any are preferred. Only one factor can
   be set as preferred. The preferred MFA factor will be used to authenticate a
@@ -7444,12 +7361,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("AccessToken") => String.t()
     }
   """
-
   @spec set_user_mfa_preference(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_user_mfa_preference_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_user_mfa_preference_errors()}
-
   def set_user_mfa_preference(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7458,6 +7373,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Sets the user pool multi-factor authentication (MFA) configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20SetUserPoolMfaConfig&this_doc_guide=API%2520Reference)
@@ -7471,12 +7387,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec set_user_pool_mfa_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_user_pool_mfa_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_user_pool_mfa_config_errors()}
-
   def set_user_pool_mfa_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7485,6 +7399,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   *This action is no longer supported.* You can use it to configure only SMS MFA.
   You can't use it to configure time-based one-time password (TOTP) software
   token MFA. To configure either type of MFA, use
@@ -7501,12 +7416,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("MFAOptions") => list(mfa_option_type()())
     }
   """
-
   @spec set_user_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_user_settings_errors()}
-
   def set_user_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7515,6 +7428,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Registers the user in the specified user pool and creates a user name, password,
   and user attributes.
 
@@ -7534,12 +7448,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec sign_up(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, sign_up_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sign_up_errors()}
-
   def sign_up(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7548,6 +7460,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Starts the user import.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20StartUserImportJob&this_doc_guide=API%2520Reference)
@@ -7559,12 +7472,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec start_user_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_user_import_job_errors()}
-
   def start_user_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7573,6 +7484,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Stops the user import job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20StopUserImportJob&this_doc_guide=API%2520Reference)
@@ -7584,12 +7496,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec stop_user_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_user_import_job_errors()}
-
   def stop_user_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7598,6 +7508,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that you
   can use to categorize and manage user pools in different ways, such as by
   purpose, owner, environment, or other criteria. Each tag consists of a key and
@@ -7616,12 +7527,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Tags") => map()
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7630,6 +7539,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Removes the specified tags from an Amazon Cognito user pool. You can use this
   action up to 5 times per second, per account.
 
@@ -7642,12 +7552,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7656,6 +7564,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Provides the feedback for an authentication event, whether it was from a valid
   user or not. This feedback is used for improving the risk evaluation decision
   for the user pool as part of Amazon Cognito advanced security.
@@ -7672,12 +7581,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Username") => String.t()
     }
   """
-
   @spec update_auth_event_feedback(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_auth_event_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_auth_event_feedback_errors()}
-
   def update_auth_event_feedback(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7686,6 +7593,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Updates the device status. For more information about device authentication, see
   [Working with user devices in your user
   pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html).
@@ -7702,12 +7610,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("DeviceKey") => String.t()
     }
   """
-
   @spec update_device_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_device_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_status_errors()}
-
   def update_device_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7716,6 +7622,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Updates the specified group with the specified attributes.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20UpdateGroup&this_doc_guide=API%2520Reference)
@@ -7730,12 +7637,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec update_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
-
   def update_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7744,6 +7649,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Updates IdP information for a user pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentityprovider%20UpdateIdentityProvider&this_doc_guide=API%2520Reference)
@@ -7758,12 +7664,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec update_identity_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_identity_provider_errors()}
-
   def update_identity_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7772,6 +7676,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Updates the name and scopes of resource server. All other fields are read-only.
   If you don't provide a value for an attribute, it is set to the default value.
 
@@ -7786,12 +7691,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec update_resource_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_resource_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_server_errors()}
-
   def update_resource_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7800,6 +7703,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   With this operation, your users can update one or more of their attributes with
   their own credentials. You authorize this API request with the user's access
   token. To delete an attribute from your user, submit the attribute in your API
@@ -7817,12 +7721,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserAttributes") => list(attribute_type()())
     }
   """
-
   @spec update_user_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_attributes_errors()}
-
   def update_user_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7831,6 +7733,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before
   you can send SMS messages to US phone numbers. If you use SMS text messages in
@@ -7880,12 +7783,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec update_user_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_user_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_pool_errors()}
-
   def update_user_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7894,6 +7795,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Updates the specified user pool app client with the specified attributes. You
   can get a list of the current user pool app client settings using
   [DescribeUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html).
@@ -7931,12 +7833,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec update_user_pool_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_user_pool_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_pool_client_errors()}
-
   def update_user_pool_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7945,6 +7845,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Updates the Secure Sockets Layer (SSL) certificate for the custom domain for
   your user pool. You can use this operation to provide the Amazon Resource Name
   (ARN) of a new certificate to Amazon Cognito. You can't use it to change the
@@ -7960,12 +7861,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserPoolId") => String.t()
     }
   """
-
   @spec update_user_pool_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_pool_domain_errors()}
-
   def update_user_pool_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7974,6 +7873,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Use this API to register a user's entered time-based one-time password (TOTP)
   code and mark the user's software token MFA status as "verified" if
   successful. The request takes an access token or a session string, but not
@@ -7990,12 +7890,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("UserCode") => String.t()
     }
   """
-
   @spec verify_software_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_software_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_software_token_errors()}
-
   def verify_software_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8004,6 +7902,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+   
   Verifies the specified user attributes in the user pool. If your user pool
   requires verification before Amazon Cognito updates the attribute value,
   VerifyUserAttribute updates the affected attribute to its pending value. For
@@ -8022,12 +7921,10 @@ defmodule AWS.CognitoIdentityProvider do
       required("Code") => String.t()
     }
   """
-
   @spec verify_user_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_user_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_user_attribute_errors()}
-
   def verify_user_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

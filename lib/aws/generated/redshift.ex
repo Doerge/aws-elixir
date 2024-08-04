@@ -6518,6 +6518,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
   configuration (term, payment type, or number of nodes) and no additional
   costs.
@@ -6531,12 +6532,10 @@ defmodule AWS.Redshift do
       required("TargetReservedNodeOfferingId") => String.t()
     }
   """
-
   @spec accept_reserved_node_exchange(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_reserved_node_exchange_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_reserved_node_exchange_errors()}
-
   def accept_reserved_node_exchange(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6546,6 +6545,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Adds a partner integration to a cluster. This operation authorizes a partner to
   push status updates for the specified database. To complete the integration,
   you also set up the integration on the partner website.
@@ -6561,12 +6561,10 @@ defmodule AWS.Redshift do
       required("PartnerName") => String.t()
     }
   """
-
   @spec add_partner(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, partner_integration_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_partner_errors()}
-
   def add_partner(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6575,6 +6573,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   From a datashare consumer account, associates a datashare with the account
   (AssociateEntireAccount) or the specified namespace (ConsumerArn). If you make
   this association, the consumer can consume the datashare.
@@ -6591,12 +6590,10 @@ defmodule AWS.Redshift do
       required("DataShareArn") => String.t()
     }
   """
-
   @spec associate_data_share_consumer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_data_share_consumer_errors()}
-
   def associate_data_share_consumer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6606,6 +6603,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending
   on whether the application accessing your cluster is running on the Internet
   or an Amazon EC2 instance, you can authorize inbound access to either a
@@ -6627,12 +6625,10 @@ defmodule AWS.Redshift do
       required("ClusterSecurityGroupName") => String.t()
     }
   """
-
   @spec authorize_cluster_security_group_ingress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, authorize_cluster_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, authorize_cluster_security_group_ingress_errors()}
-
   def authorize_cluster_security_group_ingress(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6642,6 +6638,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   From a data producer account, authorizes the sharing of a datashare with one or
   more consumer accounts or managing entities. To authorize a datashare for a
   data consumer, the producer account must have the correct access permissions.
@@ -6656,12 +6653,10 @@ defmodule AWS.Redshift do
       required("DataShareArn") => String.t()
     }
   """
-
   @spec authorize_data_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, authorize_data_share_errors()}
-
   def authorize_data_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6670,6 +6665,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Grants access to a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20AuthorizeEndpointAccess&this_doc_guide=API%2520Reference)
@@ -6682,12 +6678,10 @@ defmodule AWS.Redshift do
       required("Account") => String.t()
     }
   """
-
   @spec authorize_endpoint_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, endpoint_authorization(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, authorize_endpoint_access_errors()}
-
   def authorize_endpoint_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6696,6 +6690,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Authorizes the specified Amazon Web Services account to restore the specified
   snapshot.
 
@@ -6710,12 +6705,10 @@ defmodule AWS.Redshift do
       required("AccountWithRestoreAccess") => String.t()
     }
   """
-
   @spec authorize_snapshot_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, authorize_snapshot_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, authorize_snapshot_access_errors()}
-
   def authorize_snapshot_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6724,6 +6717,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes a set of cluster snapshots.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20BatchDeleteClusterSnapshots&this_doc_guide=API%2520Reference)
@@ -6734,12 +6728,10 @@ defmodule AWS.Redshift do
       required("Identifiers") => list(delete_cluster_snapshot_message()())
     }
   """
-
   @spec batch_delete_cluster_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_cluster_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_cluster_snapshots_errors()}
-
   def batch_delete_cluster_snapshots(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6749,6 +6741,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies the settings for a set of cluster snapshots.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20BatchModifyClusterSnapshots&this_doc_guide=API%2520Reference)
@@ -6761,12 +6754,10 @@ defmodule AWS.Redshift do
       required("SnapshotIdentifierList") => list(String.t()())
     }
   """
-
   @spec batch_modify_cluster_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_modify_cluster_snapshots_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_modify_cluster_snapshots_errors()}
-
   def batch_modify_cluster_snapshots(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6776,6 +6767,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Cancels a resize operation for a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20CancelResize&this_doc_guide=API%2520Reference)
@@ -6786,12 +6778,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec cancel_resize(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resize_progress_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_resize_errors()}
-
   def cancel_resize(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6800,6 +6790,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Copies the specified automated cluster snapshot to a new manual cluster
   snapshot. The source must be an automated snapshot and it must be in the
   available state. When you delete a cluster, Amazon Redshift deletes any
@@ -6819,12 +6810,10 @@ defmodule AWS.Redshift do
       required("TargetSnapshotIdentifier") => String.t()
     }
   """
-
   @spec copy_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_cluster_snapshot_errors()}
-
   def copy_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6833,6 +6822,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates an authentication profile with the specified parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20CreateAuthenticationProfile&this_doc_guide=API%2520Reference)
@@ -6844,12 +6834,10 @@ defmodule AWS.Redshift do
       required("AuthenticationProfileName") => String.t()
     }
   """
-
   @spec create_authentication_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_authentication_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_authentication_profile_errors()}
-
   def create_authentication_profile(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6859,6 +6847,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates a new cluster with the specified parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20CreateCluster&this_doc_guide=API%2520Reference)
@@ -6907,12 +6896,10 @@ defmodule AWS.Redshift do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec create_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-
   def create_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6921,6 +6908,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates an Amazon Redshift parameter group. Creating parameter groups is
   independent of creating clusters. You can associate a cluster with a parameter
   group when you create the cluster. You can also associate an existing cluster
@@ -6937,12 +6925,10 @@ defmodule AWS.Redshift do
       required("ParameterGroupName") => String.t()
     }
   """
-
   @spec create_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_parameter_group_errors()}
-
   def create_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6952,6 +6938,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates a new Amazon Redshift security group. You use security groups to control
   access to non-VPC clusters.
 
@@ -6965,12 +6952,10 @@ defmodule AWS.Redshift do
       required("Description") => String.t()
     }
   """
-
   @spec create_cluster_security_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_security_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_security_group_errors()}
-
   def create_cluster_security_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6980,6 +6965,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates a manual snapshot of the specified cluster. The cluster must be in the
   `available` state.
 
@@ -6994,12 +6980,10 @@ defmodule AWS.Redshift do
       required("SnapshotIdentifier") => String.t()
     }
   """
-
   @spec create_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_snapshot_errors()}
-
   def create_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7008,6 +6992,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates a new Amazon Redshift subnet group. You must provide a list of one or
   more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when
   creating Amazon Redshift subnet group.
@@ -7023,12 +7008,10 @@ defmodule AWS.Redshift do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec create_cluster_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_subnet_group_errors()}
-
   def create_cluster_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7037,6 +7020,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Used to create a custom domain name for a cluster. Properties include the custom
   domain name, the cluster the custom domain is associated with, and the
   certificate Amazon Resource Name (ARN).
@@ -7051,12 +7035,10 @@ defmodule AWS.Redshift do
       required("CustomDomainName") => String.t()
     }
   """
-
   @spec create_custom_domain_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_custom_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_domain_association_errors()}
-
   def create_custom_domain_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7066,6 +7048,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates a Redshift-managed VPC endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20CreateEndpointAccess&this_doc_guide=API%2520Reference)
@@ -7080,12 +7063,10 @@ defmodule AWS.Redshift do
       required("SubnetGroupName") => String.t()
     }
   """
-
   @spec create_endpoint_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, endpoint_access(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_access_errors()}
-
   def create_endpoint_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7094,6 +7075,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates an Amazon Redshift event notification subscription. This action requires
   an ARN (Amazon Resource Name) of an Amazon SNS topic created by either the
   Amazon Redshift console, the Amazon SNS console, or the Amazon SNS API. To
@@ -7122,12 +7104,10 @@ defmodule AWS.Redshift do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec create_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_subscription_errors()}
-
   def create_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7136,6 +7116,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates an HSM client certificate that an Amazon Redshift cluster will use to
   connect to the client's HSM in order to store and retrieve the keys used to
   encrypt the cluster databases.
@@ -7149,12 +7130,10 @@ defmodule AWS.Redshift do
       required("HsmClientCertificateIdentifier") => String.t()
     }
   """
-
   @spec create_hsm_client_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hsm_client_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hsm_client_certificate_errors()}
-
   def create_hsm_client_certificate(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7164,6 +7143,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates an HSM configuration that contains the information required by an Amazon
   Redshift cluster to store and use database encryption keys in a Hardware
   Security Module (HSM). After creating the HSM configuration, you can specify
@@ -7184,12 +7164,10 @@ defmodule AWS.Redshift do
       required("HsmServerPublicCertificate") => String.t()
     }
   """
-
   @spec create_hsm_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hsm_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hsm_configuration_errors()}
-
   def create_hsm_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7198,6 +7176,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates an Amazon Redshift application for use with IAM Identity Center.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20CreateRedshiftIdcApplication&this_doc_guide=API%2520Reference)
@@ -7214,12 +7193,10 @@ defmodule AWS.Redshift do
       required("RedshiftIdcApplicationName") => String.t()
     }
   """
-
   @spec create_redshift_idc_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_redshift_idc_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_redshift_idc_application_errors()}
-
   def create_redshift_idc_application(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7229,6 +7206,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates a scheduled action. A scheduled action contains a schedule and an Amazon
   Redshift API action. For example, you can create a schedule of when to run the
   `ResizeCluster` API operation.
@@ -7248,12 +7226,10 @@ defmodule AWS.Redshift do
       required("TargetAction") => scheduled_action_type()
     }
   """
-
   @spec create_scheduled_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, scheduled_action(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scheduled_action_errors()}
-
   def create_scheduled_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7262,6 +7238,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted
   symmetric key from Key Management Service (KMS) to encrypt copied snapshots in
   a destination region.
@@ -7276,12 +7253,10 @@ defmodule AWS.Redshift do
       required("SnapshotCopyGrantName") => String.t()
     }
   """
-
   @spec create_snapshot_copy_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_snapshot_copy_grant_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_copy_grant_errors()}
-
   def create_snapshot_copy_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7290,6 +7265,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Create a snapshot schedule that can be associated to a cluster and which
   overrides the default system backup schedule.
 
@@ -7306,12 +7282,10 @@ defmodule AWS.Redshift do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec create_snapshot_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, snapshot_schedule(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_schedule_errors()}
-
   def create_snapshot_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7320,6 +7294,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Adds tags to a cluster. A resource can have up to 50 tags. If you try to create
   more than 50 tags for a resource, you will receive an error and the attempt
   will fail.
@@ -7333,12 +7308,10 @@ defmodule AWS.Redshift do
       required("Tags") => list(tag()())
     }
   """
-
   @spec create_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
-
   def create_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7347,6 +7320,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates a usage limit for a specified Amazon Redshift feature on a cluster. The
   usage limit is identified by the returned usage limit identifier.
 
@@ -7364,12 +7338,10 @@ defmodule AWS.Redshift do
       required("LimitType") => list(any())
     }
   """
-
   @spec create_usage_limit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, usage_limit(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_usage_limit_errors()}
-
   def create_usage_limit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7378,6 +7350,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   From a datashare producer account, removes authorization from the specified
   datashare.
 
@@ -7390,12 +7363,10 @@ defmodule AWS.Redshift do
       required("DataShareArn") => String.t()
     }
   """
-
   @spec deauthorize_data_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deauthorize_data_share_errors()}
-
   def deauthorize_data_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7404,6 +7375,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes an authentication profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteAuthenticationProfile&this_doc_guide=API%2520Reference)
@@ -7414,12 +7386,10 @@ defmodule AWS.Redshift do
       required("AuthenticationProfileName") => String.t()
     }
   """
-
   @spec delete_authentication_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_authentication_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_authentication_profile_errors()}
-
   def delete_authentication_profile(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7429,6 +7399,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes a previously provisioned cluster without its final snapshot being
   created. A successful response from the web service indicates that the request
   was received correctly. Use `DescribeClusters` to monitor the status of the
@@ -7454,12 +7425,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec delete_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-
   def delete_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7468,6 +7437,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes a specified Amazon Redshift parameter group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteClusterParameterGroup&this_doc_guide=API%2520Reference)
@@ -7478,12 +7448,10 @@ defmodule AWS.Redshift do
       required("ParameterGroupName") => String.t()
     }
   """
-
   @spec delete_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_parameter_group_errors()}
-
   def delete_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7493,6 +7461,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes an Amazon Redshift security group. You cannot delete a security group
   that is associated with any clusters. You cannot delete the default security
   group.
@@ -7505,12 +7474,10 @@ defmodule AWS.Redshift do
       required("ClusterSecurityGroupName") => String.t()
     }
   """
-
   @spec delete_cluster_security_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_security_group_errors()}
-
   def delete_cluster_security_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7520,6 +7487,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes the specified manual snapshot. The snapshot must be in the `available`
   state, with no other users authorized to access the snapshot.
 
@@ -7532,12 +7500,10 @@ defmodule AWS.Redshift do
       "SnapshotIdentifier" => String.t()
     }
   """
-
   @spec delete_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_snapshot_errors()}
-
   def delete_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7546,6 +7512,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes the specified cluster subnet group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteClusterSubnetGroup&this_doc_guide=API%2520Reference)
@@ -7556,12 +7523,10 @@ defmodule AWS.Redshift do
       required("ClusterSubnetGroupName") => String.t()
     }
   """
-
   @spec delete_cluster_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_subnet_group_errors()}
-
   def delete_cluster_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7570,6 +7535,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Contains information about deleting a custom domain association for a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteCustomDomainAssociation&this_doc_guide=API%2520Reference)
@@ -7581,12 +7547,10 @@ defmodule AWS.Redshift do
       required("CustomDomainName") => String.t()
     }
   """
-
   @spec delete_custom_domain_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_domain_association_errors()}
-
   def delete_custom_domain_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7596,6 +7560,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes a Redshift-managed VPC endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteEndpointAccess&this_doc_guide=API%2520Reference)
@@ -7606,12 +7571,10 @@ defmodule AWS.Redshift do
       required("EndpointName") => String.t()
     }
   """
-
   @spec delete_endpoint_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, endpoint_access(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_access_errors()}
-
   def delete_endpoint_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7620,6 +7583,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes an Amazon Redshift event notification subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteEventSubscription&this_doc_guide=API%2520Reference)
@@ -7630,12 +7594,10 @@ defmodule AWS.Redshift do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec delete_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_subscription_errors()}
-
   def delete_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7644,6 +7606,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes the specified HSM client certificate.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteHsmClientCertificate&this_doc_guide=API%2520Reference)
@@ -7654,12 +7617,10 @@ defmodule AWS.Redshift do
       required("HsmClientCertificateIdentifier") => String.t()
     }
   """
-
   @spec delete_hsm_client_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hsm_client_certificate_errors()}
-
   def delete_hsm_client_certificate(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7669,6 +7630,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes the specified Amazon Redshift HSM configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteHsmConfiguration&this_doc_guide=API%2520Reference)
@@ -7679,12 +7641,10 @@ defmodule AWS.Redshift do
       required("HsmConfigurationIdentifier") => String.t()
     }
   """
-
   @spec delete_hsm_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hsm_configuration_errors()}
-
   def delete_hsm_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7693,6 +7653,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes a partner integration from a cluster. Data can still flow to the cluster
   until the integration is deleted at the partner's website.
 
@@ -7707,12 +7668,10 @@ defmodule AWS.Redshift do
       required("PartnerName") => String.t()
     }
   """
-
   @spec delete_partner(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, partner_integration_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_partner_errors()}
-
   def delete_partner(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7721,6 +7680,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes an Amazon Redshift IAM Identity Center application.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteRedshiftIdcApplication&this_doc_guide=API%2520Reference)
@@ -7731,12 +7691,10 @@ defmodule AWS.Redshift do
       required("RedshiftIdcApplicationArn") => String.t()
     }
   """
-
   @spec delete_redshift_idc_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_redshift_idc_application_errors()}
-
   def delete_redshift_idc_application(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7746,6 +7704,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes the resource policy for a specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
@@ -7756,12 +7715,10 @@ defmodule AWS.Redshift do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7770,6 +7727,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes a scheduled action.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteScheduledAction&this_doc_guide=API%2520Reference)
@@ -7780,12 +7738,10 @@ defmodule AWS.Redshift do
       required("ScheduledActionName") => String.t()
     }
   """
-
   @spec delete_scheduled_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scheduled_action_errors()}
-
   def delete_scheduled_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7794,6 +7750,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes the specified snapshot copy grant.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteSnapshotCopyGrant&this_doc_guide=API%2520Reference)
@@ -7804,12 +7761,10 @@ defmodule AWS.Redshift do
       required("SnapshotCopyGrantName") => String.t()
     }
   """
-
   @spec delete_snapshot_copy_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_copy_grant_errors()}
-
   def delete_snapshot_copy_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7818,6 +7773,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes a snapshot schedule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteSnapshotSchedule&this_doc_guide=API%2520Reference)
@@ -7828,12 +7784,10 @@ defmodule AWS.Redshift do
       required("ScheduleIdentifier") => String.t()
     }
   """
-
   @spec delete_snapshot_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_schedule_errors()}
-
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7842,6 +7796,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes tags from a resource. You must provide the ARN of the resource from
   which you want to delete the tag or tags.
 
@@ -7854,12 +7809,10 @@ defmodule AWS.Redshift do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec delete_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
-
   def delete_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7868,6 +7821,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Deletes a usage limit from a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DeleteUsageLimit&this_doc_guide=API%2520Reference)
@@ -7878,12 +7832,10 @@ defmodule AWS.Redshift do
       required("UsageLimitId") => String.t()
     }
   """
-
   @spec delete_usage_limit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_usage_limit_errors()}
-
   def delete_usage_limit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7892,6 +7844,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of attributes attached to an account
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeAccountAttributes&this_doc_guide=API%2520Reference)
@@ -7902,11 +7855,9 @@ defmodule AWS.Redshift do
       optional("AttributeNames") => list(String.t()())
     }
   """
-
   @spec describe_account_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, account_attribute_list(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_account_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7915,6 +7866,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Describes an authentication profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeAuthenticationProfiles&this_doc_guide=API%2520Reference)
@@ -7925,12 +7877,10 @@ defmodule AWS.Redshift do
       optional("AuthenticationProfileName") => String.t()
     }
   """
-
   @spec describe_authentication_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_authentication_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_authentication_profiles_errors()}
-
   def describe_authentication_profiles(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7940,6 +7890,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns an array of `ClusterDbRevision` objects.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeClusterDbRevisions&this_doc_guide=API%2520Reference)
@@ -7952,12 +7903,10 @@ defmodule AWS.Redshift do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_cluster_db_revisions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cluster_db_revisions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_db_revisions_errors()}
-
   def describe_cluster_db_revisions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7967,6 +7916,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of Amazon Redshift parameter groups, including parameter groups
   you created and the default parameter group. For each parameter group, the
   response includes the parameter group name, description, and parameter group
@@ -7988,12 +7938,10 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_cluster_parameter_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cluster_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_parameter_groups_errors()}
-
   def describe_cluster_parameter_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8003,6 +7951,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a detailed list of parameters contained within the specified Amazon
   Redshift parameter group. For each parameter the response includes information
   such as parameter name, description, data type, value, whether the parameter
@@ -8022,12 +7971,10 @@ defmodule AWS.Redshift do
       required("ParameterGroupName") => String.t()
     }
   """
-
   @spec describe_cluster_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cluster_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_parameters_errors()}
-
   def describe_cluster_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8036,6 +7983,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns information about Amazon Redshift security groups. If the name of a
   security group is specified, the response will contain only information about
   only that security group. For information about managing security groups, go
@@ -8055,12 +8003,10 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_cluster_security_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cluster_security_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_security_groups_errors()}
-
   def describe_cluster_security_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8070,6 +8016,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns one or more snapshot objects, which contain metadata about your cluster
   snapshots. By default, this operation returns information about all snapshots
   of all clusters that are owned by your Amazon Web Services account. No
@@ -8102,12 +8049,10 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_cluster_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_snapshots_errors()}
-
   def describe_cluster_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8116,6 +8061,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns one or more cluster subnet group objects, which contain metadata about
   your cluster subnet groups. By default, this operation returns information
   about all cluster subnet groups that are defined in your Amazon Web Services
@@ -8137,12 +8083,10 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_cluster_subnet_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cluster_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_subnet_groups_errors()}
-
   def describe_cluster_subnet_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8152,6 +8096,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of all the available maintenance tracks.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeClusterTracks&this_doc_guide=API%2520Reference)
@@ -8164,12 +8109,10 @@ defmodule AWS.Redshift do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_cluster_tracks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, track_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_tracks_errors()}
-
   def describe_cluster_tracks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8178,6 +8121,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns descriptions of the available Amazon Redshift cluster versions. You can
   call this operation even before creating any clusters to learn more about the
   Amazon Redshift versions. For more information about managing clusters, go to
@@ -8196,11 +8140,9 @@ defmodule AWS.Redshift do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_cluster_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cluster_versions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_cluster_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8209,6 +8151,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns properties of provisioned clusters including general cluster properties,
   cluster database properties, maintenance and backup properties, and security
   and access properties. This operation supports pagination. For more
@@ -8233,12 +8176,10 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, clusters_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_clusters_errors()}
-
   def describe_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8247,6 +8188,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Contains information about custom domain associations for a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeCustomDomainAssociations&this_doc_guide=API%2520Reference)
@@ -8260,12 +8202,10 @@ defmodule AWS.Redshift do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_custom_domain_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, custom_domain_associations_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_domain_associations_errors()}
-
   def describe_custom_domain_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8275,6 +8215,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Shows the status of any inbound or outbound datashares available in the
   specified account.
 
@@ -8288,12 +8229,10 @@ defmodule AWS.Redshift do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_data_shares(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_shares_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_shares_errors()}
-
   def describe_data_shares(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8302,6 +8241,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of datashares where the account identifier being called is a
   consumer account identifier.
 
@@ -8316,12 +8256,10 @@ defmodule AWS.Redshift do
       optional("Status") => list(any())
     }
   """
-
   @spec describe_data_shares_for_consumer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_shares_for_consumer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_shares_for_consumer_errors()}
-
   def describe_data_shares_for_consumer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8331,6 +8269,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of datashares when the account identifier being called is a
   producer account identifier.
 
@@ -8345,12 +8284,10 @@ defmodule AWS.Redshift do
       optional("Status") => list(any())
     }
   """
-
   @spec describe_data_shares_for_producer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_shares_for_producer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_shares_for_producer_errors()}
-
   def describe_data_shares_for_producer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8360,6 +8297,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of parameter settings for the specified parameter group family.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeDefaultClusterParameters&this_doc_guide=API%2520Reference)
@@ -8372,11 +8310,9 @@ defmodule AWS.Redshift do
       required("ParameterGroupFamily") => String.t()
     }
   """
-
   @spec describe_default_cluster_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_default_cluster_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_default_cluster_parameters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8386,6 +8322,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Describes a Redshift-managed VPC endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeEndpointAccess&this_doc_guide=API%2520Reference)
@@ -8401,12 +8338,10 @@ defmodule AWS.Redshift do
       optional("VpcId") => String.t()
     }
   """
-
   @spec describe_endpoint_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, endpoint_access_list(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoint_access_errors()}
-
   def describe_endpoint_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8415,6 +8350,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Describes an endpoint authorization.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeEndpointAuthorization&this_doc_guide=API%2520Reference)
@@ -8429,12 +8365,10 @@ defmodule AWS.Redshift do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_endpoint_authorization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, endpoint_authorization_list(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoint_authorization_errors()}
-
   def describe_endpoint_authorization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8444,6 +8378,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Displays a list of event categories for all event source types, or for a
   specified source type. For a list of the event categories and source types, go
   to [Amazon Redshift Event
@@ -8457,11 +8392,9 @@ defmodule AWS.Redshift do
       optional("SourceType") => String.t()
     }
   """
-
   @spec describe_event_categories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, event_categories_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_event_categories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8470,6 +8403,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Lists descriptions of all the Amazon Redshift event notification subscriptions
   for a customer account. If you specify a subscription name, lists the
   description for that subscription. If you specify both tag keys and tag values
@@ -8491,12 +8425,10 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_event_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, event_subscriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_subscriptions_errors()}
-
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8505,6 +8437,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns events related to clusters, security groups, snapshots, and parameter
   groups for the past 14 days. Events specific to a particular cluster, security
   group, snapshot or parameter group can be obtained by providing the name as a
@@ -8524,11 +8457,9 @@ defmodule AWS.Redshift do
       optional("StartTime") => non_neg_integer()
     }
   """
-
   @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8537,6 +8468,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns information about the specified HSM client certificate. If no
   certificate ID is specified, returns information about all the HSM
   certificates owned by your Amazon Web Services account. If you specify both
@@ -8558,12 +8490,10 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_hsm_client_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, hsm_client_certificate_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hsm_client_certificates_errors()}
-
   def describe_hsm_client_certificates(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8573,6 +8503,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns information about the specified Amazon Redshift HSM configuration. If no
   configuration ID is specified, returns information about all the HSM
   configurations owned by your Amazon Web Services account. If you specify both
@@ -8594,12 +8525,10 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_hsm_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, hsm_configuration_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hsm_configurations_errors()}
-
   def describe_hsm_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8608,6 +8537,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of inbound integrations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeInboundIntegrations&this_doc_guide=API%2520Reference)
@@ -8621,12 +8551,10 @@ defmodule AWS.Redshift do
       optional("TargetArn") => String.t()
     }
   """
-
   @spec describe_inbound_integrations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, inbound_integrations_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inbound_integrations_errors()}
-
   def describe_inbound_integrations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8636,6 +8564,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Describes whether information, such as queries and connection attempts, is being
   logged for the specified Amazon Redshift cluster.
 
@@ -8647,12 +8576,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec describe_logging_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, logging_status(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_status_errors()}
-
   def describe_logging_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8661,6 +8588,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns properties of possible node configurations such as node type, number of
   nodes, and disk usage for the specified action type.
 
@@ -8679,12 +8607,10 @@ defmodule AWS.Redshift do
       required("ActionType") => list(any())
     }
   """
-
   @spec describe_node_configuration_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, node_configuration_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_node_configuration_options_errors()}
-
   def describe_node_configuration_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8694,6 +8620,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of orderable cluster options. Before you create a new cluster you
   can use this operation to find what options are available, such as the EC2
   Availability Zones (AZ) in the specific Amazon Web Services Region that you
@@ -8716,11 +8643,9 @@ defmodule AWS.Redshift do
       optional("NodeType") => String.t()
     }
   """
-
   @spec describe_orderable_cluster_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, orderable_cluster_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_orderable_cluster_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8730,6 +8655,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns information about the partner integrations defined for a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribePartners&this_doc_guide=API%2520Reference)
@@ -8743,12 +8669,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec describe_partners(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_partners_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_partners_errors()}
-
   def describe_partners(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8757,6 +8681,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Lists the Amazon Redshift IAM Identity Center applications.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeRedshiftIdcApplications&this_doc_guide=API%2520Reference)
@@ -8769,12 +8694,10 @@ defmodule AWS.Redshift do
       optional("RedshiftIdcApplicationArn") => String.t()
     }
   """
-
   @spec describe_redshift_idc_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_redshift_idc_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_redshift_idc_applications_errors()}
-
   def describe_redshift_idc_applications(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8784,6 +8707,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns exchange status details and associated metadata for a reserved-node
   exchange. Statuses include such values as in progress and requested.
 
@@ -8798,12 +8722,10 @@ defmodule AWS.Redshift do
       optional("ReservedNodeId") => String.t()
     }
   """
-
   @spec describe_reserved_node_exchange_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_reserved_node_exchange_status_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_node_exchange_status_errors()}
-
   def describe_reserved_node_exchange_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8813,6 +8735,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of the available reserved node offerings by Amazon Redshift with
   their descriptions including the node type, the fixed and recurring costs of
   reserving the node and duration the node will be reserved for you. These
@@ -8831,12 +8754,10 @@ defmodule AWS.Redshift do
       optional("ReservedNodeOfferingId") => String.t()
     }
   """
-
   @spec describe_reserved_node_offerings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reserved_node_offerings_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_node_offerings_errors()}
-
   def describe_reserved_node_offerings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8846,6 +8767,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns the descriptions of the reserved nodes.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeReservedNodes&this_doc_guide=API%2520Reference)
@@ -8858,12 +8780,10 @@ defmodule AWS.Redshift do
       optional("ReservedNodeId") => String.t()
     }
   """
-
   @spec describe_reserved_nodes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reserved_nodes_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_nodes_errors()}
-
   def describe_reserved_nodes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8872,6 +8792,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns information about the last resize operation for the specified cluster.
   If no resize operation has ever been initiated for the specified cluster, a
   ``` HTTP 404 ``` error is returned. If a resize operation was initiated and
@@ -8886,12 +8807,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec describe_resize(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resize_progress_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resize_errors()}
-
   def describe_resize(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8900,6 +8819,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Describes properties of scheduled actions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeScheduledActions&this_doc_guide=API%2520Reference)
@@ -8917,12 +8837,10 @@ defmodule AWS.Redshift do
       optional("TargetActionType") => list(any())
     }
   """
-
   @spec describe_scheduled_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, scheduled_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scheduled_actions_errors()}
-
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8931,6 +8849,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of snapshot copy grants owned by the Amazon Web Services account
   in the destination region.
 
@@ -8946,12 +8865,10 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_snapshot_copy_grants(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, snapshot_copy_grant_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_snapshot_copy_grants_errors()}
-
   def describe_snapshot_copy_grants(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8961,6 +8878,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of snapshot schedules.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeSnapshotSchedules&this_doc_guide=API%2520Reference)
@@ -8976,11 +8894,9 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_snapshot_schedules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_snapshot_schedules_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_snapshot_schedules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8989,6 +8905,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns account level backups storage size and provisional storage.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20DescribeStorage&this_doc_guide=API%2520Reference)
@@ -8996,11 +8913,9 @@ defmodule AWS.Redshift do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_storage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, customer_storage_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_storage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9009,6 +8924,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Lists the status of one or more table restore requests made using the
   `RestoreTableFromClusterSnapshot` API action. If you don't specify a value for
   the `TableRestoreRequestId` parameter, then `DescribeTableRestoreStatus`
@@ -9027,12 +8943,10 @@ defmodule AWS.Redshift do
       optional("TableRestoreRequestId") => String.t()
     }
   """
-
   @spec describe_table_restore_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, table_restore_status_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_table_restore_status_errors()}
-
   def describe_table_restore_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9042,6 +8956,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a list of tags. You can return tags from a specific resource by
   specifying an ARN, or you can return all tags for a given type of resource,
   such as clusters, snapshots, and so on. The following are limitations for
@@ -9060,12 +8975,10 @@ defmodule AWS.Redshift do
       optional("TagValues") => list(String.t()())
     }
   """
-
   @spec describe_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tagged_resource_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
-
   def describe_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9074,6 +8987,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Shows usage limits on a cluster. Results are filtered based on the combination
   of input usage limit identifier, cluster identifier, and feature type
   parameters:
@@ -9092,12 +9006,10 @@ defmodule AWS.Redshift do
       optional("UsageLimitId") => String.t()
     }
   """
-
   @spec describe_usage_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, usage_limit_list(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_usage_limits_errors()}
-
   def describe_usage_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9106,6 +9018,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Stops logging information, such as queries and connection attempts, for the
   specified Amazon Redshift cluster.
 
@@ -9117,12 +9030,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec disable_logging(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, logging_status(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_logging_errors()}
-
   def disable_logging(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9131,6 +9042,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Disables the automatic copying of snapshots from one region to another region
   for a specified cluster.
 
@@ -9142,12 +9054,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec disable_snapshot_copy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_snapshot_copy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_snapshot_copy_errors()}
-
   def disable_snapshot_copy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9156,6 +9066,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   From a datashare consumer account, remove association for the specified
   datashare.
 
@@ -9170,12 +9081,10 @@ defmodule AWS.Redshift do
       required("DataShareArn") => String.t()
     }
   """
-
   @spec disassociate_data_share_consumer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_data_share_consumer_errors()}
-
   def disassociate_data_share_consumer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9185,6 +9094,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Starts logging information, such as queries and connection attempts, for the
   specified Amazon Redshift cluster.
 
@@ -9200,12 +9110,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec enable_logging(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, logging_status(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_logging_errors()}
-
   def enable_logging(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9214,6 +9122,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Enables the automatic copy of snapshots from one region to another region for a
   specified cluster.
 
@@ -9229,12 +9138,10 @@ defmodule AWS.Redshift do
       required("DestinationRegion") => String.t()
     }
   """
-
   @spec enable_snapshot_copy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_snapshot_copy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_snapshot_copy_errors()}
-
   def enable_snapshot_copy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9243,6 +9150,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Fails over the primary compute unit of the specified Multi-AZ cluster to another
   Availability Zone.
 
@@ -9254,12 +9162,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec failover_primary_compute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, failover_primary_compute_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, failover_primary_compute_errors()}
-
   def failover_primary_compute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9268,6 +9174,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a database user name and temporary password with temporary authorization
   to log on to an Amazon Redshift database. The action returns the database user
   name prefixed with `IAM:` if `AutoCreate` is `False` or `IAMA:` if
@@ -9300,12 +9207,10 @@ defmodule AWS.Redshift do
       required("DbUser") => String.t()
     }
   """
-
   @spec get_cluster_credentials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cluster_credentials(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_credentials_errors()}
-
   def get_cluster_credentials(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9314,6 +9219,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns a database user name and temporary password with temporary authorization
   to log in to an Amazon Redshift database. The database user is mapped 1:1 to
   the source Identity and Access Management (IAM) identity. For more information
@@ -9337,12 +9243,10 @@ defmodule AWS.Redshift do
       optional("DurationSeconds") => integer()
     }
   """
-
   @spec get_cluster_credentials_with_iam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cluster_extended_credentials(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_credentials_with_iam_errors()}
-
   def get_cluster_credentials_with_iam(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9352,6 +9256,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Gets the configuration options for the reserved-node exchange. These options
   include information about the source reserved node and target reserved node
   offering. Details include the node type, the price, the node count, and the
@@ -9369,7 +9274,6 @@ defmodule AWS.Redshift do
       required("ActionType") => list(any())
     }
   """
-
   @spec get_reserved_node_exchange_configuration_options(
           AWS.Client.t(),
           input :: map(),
@@ -9378,7 +9282,6 @@ defmodule AWS.Redshift do
           {:ok, get_reserved_node_exchange_configuration_options_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reserved_node_exchange_configuration_options_errors()}
-
   def get_reserved_node_exchange_configuration_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9394,6 +9297,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Returns an array of DC2 ReservedNodeOfferings that matches the payment type,
   term, and usage price of the given DC1 reserved node.
 
@@ -9407,12 +9311,10 @@ defmodule AWS.Redshift do
       required("ReservedNodeId") => String.t()
     }
   """
-
   @spec get_reserved_node_exchange_offerings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_reserved_node_exchange_offerings_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reserved_node_exchange_offerings_errors()}
-
   def get_reserved_node_exchange_offerings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9422,6 +9324,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Get the resource policy for a specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20GetResourcePolicy&this_doc_guide=API%2520Reference)
@@ -9432,12 +9335,10 @@ defmodule AWS.Redshift do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec get_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-
   def get_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9446,6 +9347,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   List the Amazon Redshift Advisor recommendations for one or multiple Amazon
   Redshift clusters in an Amazon Web Services account.
 
@@ -9460,12 +9362,10 @@ defmodule AWS.Redshift do
       optional("NamespaceArn") => String.t()
     }
   """
-
   @spec list_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_recommendations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendations_errors()}
-
   def list_recommendations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9474,6 +9374,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   This operation is retired. Calling this operation does not change AQUA
   configuration. Amazon Redshift automatically determines whether to use AQUA
   (Advanced Query Accelerator).
@@ -9487,12 +9388,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec modify_aqua_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_aqua_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_aqua_configuration_errors()}
-
   def modify_aqua_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9501,6 +9400,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies an authentication profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20ModifyAuthenticationProfile&this_doc_guide=API%2520Reference)
@@ -9512,12 +9412,10 @@ defmodule AWS.Redshift do
       required("AuthenticationProfileName") => String.t()
     }
   """
-
   @spec modify_authentication_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_authentication_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_authentication_profile_errors()}
-
   def modify_authentication_profile(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9527,6 +9425,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies the settings for a cluster. You can also change node type and the
   number of nodes to scale up or down the cluster. When resizing a cluster, you
   must specify both the number of nodes and the node type even if one of the
@@ -9568,12 +9467,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec modify_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cluster_errors()}
-
   def modify_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9582,6 +9479,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies the database revision of a cluster. The database revision is a unique
   revision of the database running in a cluster.
 
@@ -9594,12 +9492,10 @@ defmodule AWS.Redshift do
       required("RevisionTarget") => String.t()
     }
   """
-
   @spec modify_cluster_db_revision(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_cluster_db_revision_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cluster_db_revision_errors()}
-
   def modify_cluster_db_revision(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9608,6 +9504,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies the list of Identity and Access Management (IAM) roles that can be used
   by the cluster to access other Amazon Web Services services.
 
@@ -9622,12 +9519,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec modify_cluster_iam_roles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_cluster_iam_roles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cluster_iam_roles_errors()}
-
   def modify_cluster_iam_roles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9636,6 +9531,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies the maintenance settings of a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20ModifyClusterMaintenance&this_doc_guide=API%2520Reference)
@@ -9651,12 +9547,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec modify_cluster_maintenance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_cluster_maintenance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cluster_maintenance_errors()}
-
   def modify_cluster_maintenance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9665,6 +9559,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies the parameters of a parameter group. For the parameters parameter, it
   can't contain ASCII characters.
 
@@ -9677,12 +9572,10 @@ defmodule AWS.Redshift do
       required("Parameters") => list(parameter()())
     }
   """
-
   @spec modify_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cluster_parameter_group_errors()}
-
   def modify_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9692,6 +9585,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies the settings for a snapshot.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20ModifyClusterSnapshot&this_doc_guide=API%2520Reference)
@@ -9704,12 +9598,10 @@ defmodule AWS.Redshift do
       required("SnapshotIdentifier") => String.t()
     }
   """
-
   @spec modify_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cluster_snapshot_errors()}
-
   def modify_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9718,6 +9610,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies a snapshot schedule for a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20ModifyClusterSnapshotSchedule&this_doc_guide=API%2520Reference)
@@ -9730,12 +9623,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec modify_cluster_snapshot_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cluster_snapshot_schedule_errors()}
-
   def modify_cluster_snapshot_schedule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9745,6 +9636,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies a cluster subnet group to include the specified list of VPC subnets.
   The operation replaces the existing list of subnets with the new list of
   subnets.
@@ -9759,12 +9651,10 @@ defmodule AWS.Redshift do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec modify_cluster_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_cluster_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cluster_subnet_group_errors()}
-
   def modify_cluster_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9773,6 +9663,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Contains information for changing a custom domain association.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20ModifyCustomDomainAssociation&this_doc_guide=API%2520Reference)
@@ -9785,12 +9676,10 @@ defmodule AWS.Redshift do
       required("CustomDomainName") => String.t()
     }
   """
-
   @spec modify_custom_domain_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_custom_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_custom_domain_association_errors()}
-
   def modify_custom_domain_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9800,6 +9689,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies a Redshift-managed VPC endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20ModifyEndpointAccess&this_doc_guide=API%2520Reference)
@@ -9811,12 +9701,10 @@ defmodule AWS.Redshift do
       required("EndpointName") => String.t()
     }
   """
-
   @spec modify_endpoint_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, endpoint_access(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_endpoint_access_errors()}
-
   def modify_endpoint_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9825,6 +9713,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies an existing Amazon Redshift event notification subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20ModifyEventSubscription&this_doc_guide=API%2520Reference)
@@ -9841,12 +9730,10 @@ defmodule AWS.Redshift do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec modify_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_event_subscription_errors()}
-
   def modify_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9855,6 +9742,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Changes an existing Amazon Redshift IAM Identity Center application.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20ModifyRedshiftIdcApplication&this_doc_guide=API%2520Reference)
@@ -9870,12 +9758,10 @@ defmodule AWS.Redshift do
       required("RedshiftIdcApplicationArn") => String.t()
     }
   """
-
   @spec modify_redshift_idc_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_redshift_idc_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_redshift_idc_application_errors()}
-
   def modify_redshift_idc_application(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9885,6 +9771,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies a scheduled action.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20ModifyScheduledAction&this_doc_guide=API%2520Reference)
@@ -9902,12 +9789,10 @@ defmodule AWS.Redshift do
       required("ScheduledActionName") => String.t()
     }
   """
-
   @spec modify_scheduled_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, scheduled_action(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_scheduled_action_errors()}
-
   def modify_scheduled_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9916,6 +9801,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies the number of days to retain snapshots in the destination Amazon Web
   Services Region after they are copied from the source Amazon Web Services
   Region. By default, this operation only changes the retention period of copied
@@ -9935,12 +9821,10 @@ defmodule AWS.Redshift do
       required("RetentionPeriod") => integer()
     }
   """
-
   @spec modify_snapshot_copy_retention_period(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_snapshot_copy_retention_period_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_snapshot_copy_retention_period_errors()}
-
   def modify_snapshot_copy_retention_period(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9950,6 +9834,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies a snapshot schedule. Any schedule associated with a cluster is modified
   asynchronously.
 
@@ -9962,12 +9847,10 @@ defmodule AWS.Redshift do
       required("ScheduleIdentifier") => String.t()
     }
   """
-
   @spec modify_snapshot_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, snapshot_schedule(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_snapshot_schedule_errors()}
-
   def modify_snapshot_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9976,6 +9859,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Modifies a usage limit in a cluster. You can't modify the feature type or period
   of a usage limit.
 
@@ -9989,12 +9873,10 @@ defmodule AWS.Redshift do
       required("UsageLimitId") => String.t()
     }
   """
-
   @spec modify_usage_limit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, usage_limit(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_usage_limit_errors()}
-
   def modify_usage_limit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10003,6 +9885,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Pauses a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20PauseCluster&this_doc_guide=API%2520Reference)
@@ -10013,12 +9896,10 @@ defmodule AWS.Redshift do
       "ClusterIdentifier" => String.t()
     }
   """
-
   @spec pause_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, pause_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, pause_cluster_errors()}
-
   def pause_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10027,6 +9908,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set
   of reserved node offerings. You can purchase one or more of the offerings. You
   can call the `DescribeReservedNodeOfferings` API to obtain the available
@@ -10042,12 +9924,10 @@ defmodule AWS.Redshift do
       required("ReservedNodeOfferingId") => String.t()
     }
   """
-
   @spec purchase_reserved_node_offering(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_reserved_node_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_reserved_node_offering_errors()}
-
   def purchase_reserved_node_offering(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10057,6 +9937,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Updates the resource policy for a specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20PutResourcePolicy&this_doc_guide=API%2520Reference)
@@ -10068,12 +9949,10 @@ defmodule AWS.Redshift do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10082,6 +9961,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Reboots a cluster. This action is taken as soon as possible. It results in a
   momentary outage to the cluster, during which the cluster status is set to
   `rebooting`. A cluster event is created when the reboot is completed. Any
@@ -10098,12 +9978,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec reboot_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_cluster_errors()}
-
   def reboot_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10112,6 +9990,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   From a datashare consumer account, rejects the specified datashare.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20RejectDataShare&this_doc_guide=API%2520Reference)
@@ -10122,12 +10001,10 @@ defmodule AWS.Redshift do
       required("DataShareArn") => String.t()
     }
   """
-
   @spec reject_data_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_data_share_errors()}
-
   def reject_data_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10136,6 +10013,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Sets one or more parameters of the specified parameter group to their default
   values and sets the source values of the parameters to "engine-default". To
   reset the entire parameter group specify the *ResetAllParameters* parameter.
@@ -10151,12 +10029,10 @@ defmodule AWS.Redshift do
       required("ParameterGroupName") => String.t()
     }
   """
-
   @spec reset_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_cluster_parameter_group_errors()}
-
   def reset_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10166,6 +10042,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Changes the size of the cluster. You can change the cluster's type, or change
   the number or type of nodes. The default behavior is to use the elastic resize
   method. With an elastic resize, your cluster is available for read and write
@@ -10186,12 +10063,10 @@ defmodule AWS.Redshift do
       "TargetReservedNodeOfferingId" => String.t()
     }
   """
-
   @spec resize_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resize_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resize_cluster_errors()}
-
   def resize_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10200,6 +10075,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates a new cluster from a snapshot. By default, Amazon Redshift creates the
   resulting cluster with the same configuration as the original cluster from
   which the snapshot was created, except that the new cluster is created with
@@ -10255,12 +10131,10 @@ defmodule AWS.Redshift do
       optional("ClusterParameterGroupName") => String.t()
     }
   """
-
   @spec restore_from_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_from_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_from_cluster_snapshot_errors()}
-
   def restore_from_cluster_snapshot(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10270,6 +10144,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Creates a new table from a table in an Amazon Redshift cluster snapshot. You
   must create the new table within the Amazon Redshift cluster that the snapshot
   was taken from. You cannot use `RestoreTableFromClusterSnapshot` to restore a
@@ -10298,12 +10173,10 @@ defmodule AWS.Redshift do
       required("SourceTableName") => String.t()
     }
   """
-
   @spec restore_table_from_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_table_from_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_table_from_cluster_snapshot_errors()}
-
   def restore_table_from_cluster_snapshot(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10313,6 +10186,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Resumes a paused cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20ResumeCluster&this_doc_guide=API%2520Reference)
@@ -10323,12 +10197,10 @@ defmodule AWS.Redshift do
       "ClusterIdentifier" => String.t()
     }
   """
-
   @spec resume_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resume_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_cluster_errors()}
-
   def resume_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10337,6 +10209,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Revokes an ingress rule in an Amazon Redshift security group for a previously
   authorized IP range or Amazon EC2 security group. To add an ingress rule, see
   `AuthorizeClusterSecurityGroupIngress`. For information about managing
@@ -10355,12 +10228,10 @@ defmodule AWS.Redshift do
       required("ClusterSecurityGroupName") => String.t()
     }
   """
-
   @spec revoke_cluster_security_group_ingress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, revoke_cluster_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_cluster_security_group_ingress_errors()}
-
   def revoke_cluster_security_group_ingress(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10370,6 +10241,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Revokes access to a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20RevokeEndpointAccess&this_doc_guide=API%2520Reference)
@@ -10383,12 +10255,10 @@ defmodule AWS.Redshift do
       optional("VpcIds") => list(String.t()())
     }
   """
-
   @spec revoke_endpoint_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, endpoint_authorization(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_endpoint_access_errors()}
-
   def revoke_endpoint_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10397,6 +10267,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Removes the ability of the specified Amazon Web Services account to restore the
   specified snapshot. If the account is currently restoring the snapshot, the
   restore will run to completion.
@@ -10412,12 +10283,10 @@ defmodule AWS.Redshift do
       required("AccountWithRestoreAccess") => String.t()
     }
   """
-
   @spec revoke_snapshot_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, revoke_snapshot_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_snapshot_access_errors()}
-
   def revoke_snapshot_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10426,6 +10295,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Rotates the encryption keys for a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20RotateEncryptionKey&this_doc_guide=API%2520Reference)
@@ -10436,12 +10306,10 @@ defmodule AWS.Redshift do
       required("ClusterIdentifier") => String.t()
     }
   """
-
   @spec rotate_encryption_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rotate_encryption_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rotate_encryption_key_errors()}
-
   def rotate_encryption_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10450,6 +10318,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+   
   Updates the status of a partner integration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshift%20UpdatePartnerStatus&this_doc_guide=API%2520Reference)
@@ -10465,12 +10334,10 @@ defmodule AWS.Redshift do
       required("Status") => list(any())
     }
   """
-
   @spec update_partner_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, partner_integration_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_partner_status_errors()}
-
   def update_partner_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

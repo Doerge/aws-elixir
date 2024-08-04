@@ -601,17 +601,14 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20CancelZonalShift&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:zonal_shift_id` (`t:string`) The internally-generated identifier of a zonal
-  shift.
-
-  ## Optional parameters:
+  * `:zonal_shift_id` (`t:string` required) The internally-generated identifier of
+  a zonal shift.
+  ## Keyword parameters:
   """
-
   @spec cancel_zonal_shift(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_zonal_shift_errors()}
-
   def cancel_zonal_shift(%Client{} = client, zonal_shift_id, options \\ []) do
     url_path = "/zonalshifts/#{AWS.Util.encode_uri(zonal_shift_id)}"
 
@@ -667,15 +664,12 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20CreatePracticeRunConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_practice_run_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_practice_run_configuration_errors()}
-
   def create_practice_run_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration"
 
@@ -715,18 +709,15 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20DeletePracticeRunConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) The identifier for the resource that you
-  want to delete the practice run configuration for. The identifier is the
-  Amazon Resource Name (ARN) for the resource.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) The identifier for the resource
+  that you want to delete the practice run configuration for. The identifier
+  is the Amazon Resource Name (ARN) for the resource.
+  ## Keyword parameters:
   """
-
   @spec delete_practice_run_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_practice_run_configuration_errors()}
-
   def delete_practice_run_configuration(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/configuration/#{AWS.Util.encode_uri(resource_identifier)}"
 
@@ -779,15 +770,12 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20GetAutoshiftObserverNotificationStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_autoshift_observer_notification_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_autoshift_observer_notification_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_autoshift_observer_notification_status_errors()}
-
   def get_autoshift_observer_notification_status(%Client{} = client, options \\ []) do
     url_path = "/autoshift-observer-notification"
 
@@ -826,18 +814,15 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20GetManagedResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) The identifier for the resource that
-  Amazon Web Services shifts traffic for. The identifier is the Amazon
+  * `:resource_identifier` (`t:string` required) The identifier for the resource
+  that Amazon Web Services shifts traffic for. The identifier is the Amazon
   Resource Name (ARN) for the resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_managed_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_managed_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_managed_resource_errors()}
-
   def get_managed_resource(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/managedresources/#{AWS.Util.encode_uri(resource_identifier)}"
 
@@ -874,8 +859,7 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20ListAutoshifts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) Specifies that you want to receive the next page of
@@ -885,12 +869,10 @@ defmodule AWS.ARCZonalShift do
   request the next page of results.
   * `:status` (`t:enum["ACTIVE|COMPLETED"]`) The status of the autoshift.
   """
-
   @spec list_autoshifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_autoshifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_autoshifts_errors()}
-
   def list_autoshifts(%Client{} = client, options \\ []) do
     url_path = "/autoshifts"
 
@@ -955,8 +937,7 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20ListManagedResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) Specifies that you want to receive the next page of
@@ -965,12 +946,10 @@ defmodule AWS.ARCZonalShift do
   parameter to the value provided by the previous call's NextToken response to
   request the next page of results.
   """
-
   @spec list_managed_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_resources_errors()}
-
   def list_managed_resources(%Client{} = client, options \\ []) do
     url_path = "/managedresources"
 
@@ -1027,8 +1006,7 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20ListZonalShifts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) Specifies that you want to receive the next page of
@@ -1041,12 +1019,10 @@ defmodule AWS.ARCZonalShift do
   (ARN) for the resource.
   * `:status` (`t:enum["ACTIVE|CANCELED|EXPIRED"]`) A status for a zonal shift.
   """
-
   @spec list_zonal_shifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_zonal_shifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_zonal_shifts_errors()}
-
   def list_zonal_shifts(%Client{} = client, options \\ []) do
     url_path = "/zonalshifts"
 
@@ -1122,15 +1098,12 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20StartZonalShift&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_zonal_shift(AWS.Client.t(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_zonal_shift_errors()}
-
   def start_zonal_shift(%Client{} = client, options \\ []) do
     url_path = "/zonalshifts"
 
@@ -1173,15 +1146,12 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20UpdateAutoshiftObserverNotificationStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_autoshift_observer_notification_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_autoshift_observer_notification_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_autoshift_observer_notification_status_errors()}
-
   def update_autoshift_observer_notification_status(%Client{} = client, options \\ []) do
     url_path = "/autoshift-observer-notification"
 
@@ -1220,18 +1190,15 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20UpdatePracticeRunConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) The identifier for the resource that you
-  want to update the practice run configuration for. The identifier is the
-  Amazon Resource Name (ARN) for the resource.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) The identifier for the resource
+  that you want to update the practice run configuration for. The identifier
+  is the Amazon Resource Name (ARN) for the resource.
+  ## Keyword parameters:
   """
-
   @spec update_practice_run_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_practice_run_configuration_errors()}
-
   def update_practice_run_configuration(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/configuration/#{AWS.Util.encode_uri(resource_identifier)}"
 
@@ -1283,18 +1250,15 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20UpdateZonalAutoshiftConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) The identifier for the resource that you
-  want to update the zonal autoshift configuration for. The identifier is the
-  Amazon Resource Name (ARN) for the resource.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) The identifier for the resource
+  that you want to update the zonal autoshift configuration for. The
+  identifier is the Amazon Resource Name (ARN) for the resource.
+  ## Keyword parameters:
   """
-
   @spec update_zonal_autoshift_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_zonal_autoshift_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_zonal_autoshift_configuration_errors()}
-
   def update_zonal_autoshift_configuration(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/managedresources/#{AWS.Util.encode_uri(resource_identifier)}"
 
@@ -1333,16 +1297,13 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20UpdateZonalShift&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:zonal_shift_id` (`t:string`) The identifier of a zonal shift.
-
-  ## Optional parameters:
+  * `:zonal_shift_id` (`t:string` required) The identifier of a zonal shift.
+  ## Keyword parameters:
   """
-
   @spec update_zonal_shift(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_zonal_shift_errors()}
-
   def update_zonal_shift(%Client{} = client, zonal_shift_id, options \\ []) do
     url_path = "/zonalshifts/#{AWS.Util.encode_uri(zonal_shift_id)}"
 

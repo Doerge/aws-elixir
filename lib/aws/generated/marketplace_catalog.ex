@@ -1529,15 +1529,12 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20BatchDescribeEntities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_describe_entities(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_describe_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_describe_entities_errors()}
-
   def batch_describe_entities(%Client{} = client, options \\ []) do
     url_path = "/BatchDescribeEntities"
 
@@ -1577,19 +1574,16 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20CancelChangeSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
-  value: AWSMarketplace.
-  * `:change_set_id` (`t:string`) Required. The unique identifier of the
+  * `:catalog` (`t:string` required) Required. The catalog related to the request.
+  Fixed value: AWSMarketplace.
+  * `:change_set_id` (`t:string` required) Required. The unique identifier of the
   StartChangeSet request that you want to cancel.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_change_set_errors()}
-
   def cancel_change_set(%Client{} = client, catalog, change_set_id, options \\ [])
       when is_binary(catalog) and is_binary(change_set_id) do
     url_path = "/CancelChangeSet"
@@ -1638,17 +1632,14 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity
-  resource that is associated with the resource policy.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  entity resource that is associated with the resource policy.
+  ## Keyword parameters:
   """
-
   @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/DeleteResourcePolicy"
@@ -1696,19 +1687,16 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20DescribeChangeSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
-  value: AWSMarketplace
-  * `:change_set_id` (`t:string`) Required. The unique identifier for the
+  * `:catalog` (`t:string` required) Required. The catalog related to the request.
+  Fixed value: AWSMarketplace
+  * `:change_set_id` (`t:string` required) Required. The unique identifier for the
   StartChangeSet request that you want to describe the details for.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_change_set_errors()}
-
   def describe_change_set(%Client{} = client, catalog, change_set_id, options \\ [])
       when is_binary(catalog) and is_binary(change_set_id) do
     url_path = "/DescribeChangeSet"
@@ -1744,18 +1732,16 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20DescribeEntity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
-  value: AWSMarketplace
-  * `:entity_id` (`t:string`) Required. The unique ID of the entity to describe.
-
-  ## Optional parameters:
+  * `:catalog` (`t:string` required) Required. The catalog related to the request.
+  Fixed value: AWSMarketplace
+  * `:entity_id` (`t:string` required) Required. The unique ID of the entity to
+  describe.
+  ## Keyword parameters:
   """
-
   @spec describe_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_entity_errors()}
-
   def describe_entity(%Client{} = client, catalog, entity_id, options \\ [])
       when is_binary(catalog) and is_binary(entity_id) do
     url_path = "/DescribeEntity"
@@ -1792,17 +1778,14 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20GetResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity
-  resource that is associated with the resource policy.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  entity resource that is associated with the resource policy.
+  ## Keyword parameters:
   """
-
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-
   def get_resource_policy(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/GetResourcePolicy"
@@ -1841,15 +1824,12 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListChangeSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_change_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_change_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_change_sets_errors()}
-
   def list_change_sets(%Client{} = client, options \\ []) do
     url_path = "/ListChangeSets"
 
@@ -1886,15 +1866,12 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListEntities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_entities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entities_errors()}
-
   def list_entities(%Client{} = client, options \\ []) do
     url_path = "/ListEntities"
 
@@ -1934,15 +1911,12 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/ListTagsForResource"
 
@@ -1980,15 +1954,12 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20PutResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/PutResourcePolicy"
 
@@ -2031,15 +2002,12 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20StartChangeSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_change_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_change_set_errors()}
-
   def start_change_set(%Client{} = client, options \\ []) do
     url_path = "/StartChangeSet"
 
@@ -2079,15 +2047,12 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/TagResource"
 
@@ -2127,15 +2092,12 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/UntagResource"
 

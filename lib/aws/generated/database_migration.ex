@@ -5131,6 +5131,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Adds metadata tags to an DMS resource, including replication instance, endpoint,
   subnet group, and migration task. These tags can also be used with cost
   allocation reporting to track cost associated with DMS resources, or used in a
@@ -5147,12 +5148,10 @@ defmodule AWS.DatabaseMigration do
       required("Tags") => list(tag()())
     }
   """
-
   @spec add_tags_to_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
-
   def add_tags_to_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5161,6 +5160,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Applies a pending maintenance action to a resource (for example, to a
   replication instance).
 
@@ -5174,12 +5174,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationInstanceArn") => String.t()
     }
   """
-
   @spec apply_pending_maintenance_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, apply_pending_maintenance_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_pending_maintenance_action_errors()}
-
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5189,6 +5187,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Starts the analysis of up to 20 source databases to recommend target engines for
   each source database. This is a batch version of
   [StartRecommendations](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html).
@@ -5201,12 +5200,10 @@ defmodule AWS.DatabaseMigration do
       optional("Data") => list(start_recommendations_request_entry()())
     }
   """
-
   @spec batch_start_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_start_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_start_recommendations_errors()}
-
   def batch_start_recommendations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5215,6 +5212,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Cancels a single premigration assessment run.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20CancelReplicationTaskAssessmentRun&this_doc_guide=API%2520Reference)
@@ -5225,12 +5223,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationTaskAssessmentRunArn") => String.t()
     }
   """
-
   @spec cancel_replication_task_assessment_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_replication_task_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_replication_task_assessment_run_errors()}
-
   def cancel_replication_task_assessment_run(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5240,6 +5236,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates a data provider using the provided settings. A data provider stores a
   data store type and location information about your database.
 
@@ -5255,12 +5252,10 @@ defmodule AWS.DatabaseMigration do
       required("Settings") => list()
     }
   """
-
   @spec create_data_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_provider_errors()}
-
   def create_data_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5269,6 +5264,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates an endpoint using the provided settings.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20CreateEndpoint&this_doc_guide=API%2520Reference)
@@ -5313,12 +5309,10 @@ defmodule AWS.DatabaseMigration do
       optional("RedshiftSettings") => redshift_settings()
     }
   """
-
   @spec create_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_errors()}
-
   def create_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5327,6 +5321,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates an DMS event notification subscription. You can specify the type of
   source (`SourceType`) you want to be notified of, provide a list of DMS source
   IDs (`SourceIds`) that triggers the events, and provide a list of event
@@ -5354,12 +5349,10 @@ defmodule AWS.DatabaseMigration do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec create_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_subscription_errors()}
-
   def create_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5368,6 +5361,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates a Fleet Advisor collector using the specified parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20CreateFleetAdvisorCollector&this_doc_guide=API%2520Reference)
@@ -5381,12 +5375,10 @@ defmodule AWS.DatabaseMigration do
       required("ServiceAccessRoleArn") => String.t()
     }
   """
-
   @spec create_fleet_advisor_collector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_fleet_advisor_collector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_advisor_collector_errors()}
-
   def create_fleet_advisor_collector(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5396,6 +5388,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates the instance profile using the specified parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20CreateInstanceProfile&this_doc_guide=API%2520Reference)
@@ -5414,12 +5407,10 @@ defmodule AWS.DatabaseMigration do
       optional("VpcSecurityGroups") => list(String.t()())
     }
   """
-
   @spec create_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_profile_errors()}
-
   def create_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5428,6 +5419,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates the migration project using the specified parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20CreateMigrationProject&this_doc_guide=API%2520Reference)
@@ -5445,12 +5437,10 @@ defmodule AWS.DatabaseMigration do
       required("TargetDataProviderDescriptors") => list(data_provider_descriptor_definition()())
     }
   """
-
   @spec create_migration_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_migration_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_migration_project_errors()}
-
   def create_migration_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5459,6 +5449,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates a configuration that you can later provide to configure and start an DMS
   Serverless replication. You can also provide options to validate the
   configuration inputs before you start the replication.
@@ -5480,12 +5471,10 @@ defmodule AWS.DatabaseMigration do
       required("TargetEndpointArn") => String.t()
     }
   """
-
   @spec create_replication_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_replication_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_config_errors()}
-
   def create_replication_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5494,6 +5483,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates the replication instance using the specified parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20CreateReplicationInstance&this_doc_guide=API%2520Reference)
@@ -5519,12 +5509,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationInstanceIdentifier") => String.t()
     }
   """
-
   @spec create_replication_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_instance_errors()}
-
   def create_replication_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5533,6 +5521,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates a replication subnet group given a list of the subnet IDs in a VPC. The
   VPC needs to have at least one subnet in at least two availability zones in
   the Amazon Web Services Region, otherwise the service will throw a
@@ -5549,12 +5538,10 @@ defmodule AWS.DatabaseMigration do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec create_replication_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_replication_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_subnet_group_errors()}
-
   def create_replication_subnet_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5564,6 +5551,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates a replication task using the specified parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20CreateReplicationTask&this_doc_guide=API%2520Reference)
@@ -5586,12 +5574,10 @@ defmodule AWS.DatabaseMigration do
       required("TargetEndpointArn") => String.t()
     }
   """
-
   @spec create_replication_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_task_errors()}
-
   def create_replication_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5600,6 +5586,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the specified certificate.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteCertificate&this_doc_guide=API%2520Reference)
@@ -5610,12 +5597,10 @@ defmodule AWS.DatabaseMigration do
       required("CertificateArn") => String.t()
     }
   """
-
   @spec delete_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_certificate_errors()}
-
   def delete_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5624,6 +5609,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the connection between a replication instance and an endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteConnection&this_doc_guide=API%2520Reference)
@@ -5635,12 +5621,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationInstanceArn") => String.t()
     }
   """
-
   @spec delete_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-
   def delete_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5649,6 +5633,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the specified data provider.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteDataProvider&this_doc_guide=API%2520Reference)
@@ -5659,12 +5644,10 @@ defmodule AWS.DatabaseMigration do
       required("DataProviderIdentifier") => String.t()
     }
   """
-
   @spec delete_data_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_data_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_provider_errors()}
-
   def delete_data_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5673,6 +5656,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the specified endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteEndpoint&this_doc_guide=API%2520Reference)
@@ -5683,12 +5667,10 @@ defmodule AWS.DatabaseMigration do
       required("EndpointArn") => String.t()
     }
   """
-
   @spec delete_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_errors()}
-
   def delete_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5697,6 +5679,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes an DMS event subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteEventSubscription&this_doc_guide=API%2520Reference)
@@ -5707,12 +5690,10 @@ defmodule AWS.DatabaseMigration do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec delete_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_event_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_subscription_errors()}
-
   def delete_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5721,6 +5702,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the specified Fleet Advisor collector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteFleetAdvisorCollector&this_doc_guide=API%2520Reference)
@@ -5731,12 +5713,10 @@ defmodule AWS.DatabaseMigration do
       required("CollectorReferencedId") => String.t()
     }
   """
-
   @spec delete_fleet_advisor_collector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_advisor_collector_errors()}
-
   def delete_fleet_advisor_collector(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5746,6 +5726,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the specified Fleet Advisor collector databases.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteFleetAdvisorDatabases&this_doc_guide=API%2520Reference)
@@ -5756,12 +5737,10 @@ defmodule AWS.DatabaseMigration do
       required("DatabaseIds") => list(String.t()())
     }
   """
-
   @spec delete_fleet_advisor_databases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_fleet_advisor_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_advisor_databases_errors()}
-
   def delete_fleet_advisor_databases(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5771,6 +5750,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the specified instance profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteInstanceProfile&this_doc_guide=API%2520Reference)
@@ -5781,12 +5761,10 @@ defmodule AWS.DatabaseMigration do
       required("InstanceProfileIdentifier") => String.t()
     }
   """
-
   @spec delete_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_profile_errors()}
-
   def delete_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5795,6 +5773,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the specified migration project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteMigrationProject&this_doc_guide=API%2520Reference)
@@ -5805,12 +5784,10 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec delete_migration_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_migration_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_migration_project_errors()}
-
   def delete_migration_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5819,6 +5796,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes an DMS Serverless replication configuration. This effectively
   deprovisions any and all replications that use this configuration. You can't
   delete the configuration for an DMS Serverless replication that is ongoing.
@@ -5833,12 +5811,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationConfigArn") => String.t()
     }
   """
-
   @spec delete_replication_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_replication_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_config_errors()}
-
   def delete_replication_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5847,6 +5823,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the specified replication instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteReplicationInstance&this_doc_guide=API%2520Reference)
@@ -5857,12 +5834,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationInstanceArn") => String.t()
     }
   """
-
   @spec delete_replication_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_instance_errors()}
-
   def delete_replication_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5871,6 +5846,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes a subnet group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteReplicationSubnetGroup&this_doc_guide=API%2520Reference)
@@ -5881,12 +5857,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationSubnetGroupIdentifier") => String.t()
     }
   """
-
   @spec delete_replication_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_replication_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_subnet_group_errors()}
-
   def delete_replication_subnet_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5896,6 +5870,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the specified replication task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteReplicationTask&this_doc_guide=API%2520Reference)
@@ -5906,12 +5881,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationTaskArn") => String.t()
     }
   """
-
   @spec delete_replication_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_task_errors()}
-
   def delete_replication_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5920,6 +5893,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Deletes the record of a single premigration assessment run.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DeleteReplicationTaskAssessmentRun&this_doc_guide=API%2520Reference)
@@ -5930,12 +5904,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationTaskAssessmentRunArn") => String.t()
     }
   """
-
   @spec delete_replication_task_assessment_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_replication_task_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_task_assessment_run_errors()}
-
   def delete_replication_task_assessment_run(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5945,6 +5917,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Lists all of the DMS attributes for a customer account. These attributes include
   DMS quotas for the account and a unique account identifier in a particular DMS
   region. DMS quotas include a list of resource quotas supported by the account,
@@ -5961,11 +5934,9 @@ defmodule AWS.DatabaseMigration do
       
     }
   """
-
   @spec describe_account_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_account_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5974,6 +5945,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Provides a list of individual assessments that you can specify for a new
   premigration assessment run, given one or more parameters. If you specify an
   existing migration task, this operation provides the default individual
@@ -5995,12 +5967,10 @@ defmodule AWS.DatabaseMigration do
       optional("TargetEngineName") => String.t()
     }
   """
-
   @spec describe_applicable_individual_assessments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_applicable_individual_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_applicable_individual_assessments_errors()}
-
   def describe_applicable_individual_assessments(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6010,6 +5980,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Provides a description of the certificate.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeCertificates&this_doc_guide=API%2520Reference)
@@ -6022,12 +5993,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificates_errors()}
-
   def describe_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6036,6 +6005,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Describes the status of the connections that have been made between the
   replication instance and an endpoint. Connections are created when you test an
   endpoint.
@@ -6050,12 +6020,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connections_errors()}
-
   def describe_connections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6064,6 +6032,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns configuration parameters for a schema conversion project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeConversionConfiguration&this_doc_guide=API%2520Reference)
@@ -6074,12 +6043,10 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec describe_conversion_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_conversion_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_conversion_configuration_errors()}
-
   def describe_conversion_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6089,6 +6056,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of data providers for your account in the current
   region.
 
@@ -6102,12 +6070,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_data_providers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_providers_errors()}
-
   def describe_data_providers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6116,6 +6082,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns information about the possible endpoint settings available when you
   create an endpoint for a specific database engine.
 
@@ -6129,11 +6096,9 @@ defmodule AWS.DatabaseMigration do
       required("EngineName") => String.t()
     }
   """
-
   @spec describe_endpoint_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoint_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_endpoint_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6142,6 +6107,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns information about the type of endpoints available.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeEndpointTypes&this_doc_guide=API%2520Reference)
@@ -6154,11 +6120,9 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_endpoint_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoint_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_endpoint_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6167,6 +6131,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns information about the endpoints for your account in the current region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeEndpoints&this_doc_guide=API%2520Reference)
@@ -6179,12 +6144,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoints_errors()}
-
   def describe_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6193,6 +6156,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns information about the replication instance versions used in the project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeEngineVersions&this_doc_guide=API%2520Reference)
@@ -6204,11 +6168,9 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_engine_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_engine_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_engine_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6217,6 +6179,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Lists categories for all event source types, or, if specified, for a specified
   source type. You can see a list of the event categories and source types in
   [Working with Events and
@@ -6232,11 +6195,9 @@ defmodule AWS.DatabaseMigration do
       optional("SourceType") => String.t()
     }
   """
-
   @spec describe_event_categories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_categories_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_event_categories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6245,6 +6206,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Lists all the event subscriptions for a customer account. The description of a
   subscription includes `SubscriptionName`, `SNSTopicARN`, `CustomerID`,
   `SourceType`, `SourceID`, `CreationTime`, and `Status`.
@@ -6260,12 +6222,10 @@ defmodule AWS.DatabaseMigration do
       optional("SubscriptionName") => String.t()
     }
   """
-
   @spec describe_event_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_subscriptions_errors()}
-
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6274,6 +6234,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Lists events for a given source identifier and source type. You can also specify
   a start and end time. For more information on DMS events, see [Working with
   Events and
@@ -6296,11 +6257,9 @@ defmodule AWS.DatabaseMigration do
       optional("StartTime") => non_neg_integer()
     }
   """
-
   @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6309,6 +6268,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of extension pack associations for the specified
   migration project. An extension pack is an add-on module that emulates
   functions present in a source database that are required when converting
@@ -6325,11 +6285,9 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec describe_extension_pack_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_extension_pack_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_extension_pack_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6339,6 +6297,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a list of the Fleet Advisor collectors in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeFleetAdvisorCollectors&this_doc_guide=API%2520Reference)
@@ -6351,12 +6310,10 @@ defmodule AWS.DatabaseMigration do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fleet_advisor_collectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_advisor_collectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_advisor_collectors_errors()}
-
   def describe_fleet_advisor_collectors(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6366,6 +6323,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a list of Fleet Advisor databases in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeFleetAdvisorDatabases&this_doc_guide=API%2520Reference)
@@ -6378,12 +6336,10 @@ defmodule AWS.DatabaseMigration do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fleet_advisor_databases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_advisor_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_advisor_databases_errors()}
-
   def describe_fleet_advisor_databases(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6393,6 +6349,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Provides descriptions of large-scale assessment (LSA) analyses produced by your
   Fleet Advisor collectors.
 
@@ -6405,12 +6362,10 @@ defmodule AWS.DatabaseMigration do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fleet_advisor_lsa_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_advisor_lsa_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_advisor_lsa_analysis_errors()}
-
   def describe_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6420,6 +6375,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Provides descriptions of the schemas discovered by your Fleet Advisor
   collectors.
 
@@ -6433,12 +6389,10 @@ defmodule AWS.DatabaseMigration do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fleet_advisor_schema_object_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_advisor_schema_object_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_advisor_schema_object_summary_errors()}
-
   def describe_fleet_advisor_schema_object_summary(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6448,6 +6402,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a list of schemas detected by Fleet Advisor Collectors in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeFleetAdvisorSchemas&this_doc_guide=API%2520Reference)
@@ -6460,12 +6415,10 @@ defmodule AWS.DatabaseMigration do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fleet_advisor_schemas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_advisor_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_advisor_schemas_errors()}
-
   def describe_fleet_advisor_schemas(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6475,6 +6428,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of instance profiles for your account in the current
   region.
 
@@ -6488,12 +6442,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_instance_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_profiles_errors()}
-
   def describe_instance_profiles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6502,6 +6454,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of metadata model assessments for your account in the
   current region.
 
@@ -6516,12 +6469,10 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec describe_metadata_model_assessments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_metadata_model_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metadata_model_assessments_errors()}
-
   def describe_metadata_model_assessments(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6531,6 +6482,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of metadata model conversions for a migration project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeMetadataModelConversions&this_doc_guide=API%2520Reference)
@@ -6544,12 +6496,10 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec describe_metadata_model_conversions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_metadata_model_conversions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metadata_model_conversions_errors()}
-
   def describe_metadata_model_conversions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6559,6 +6509,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of metadata model exports.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeMetadataModelExportsAsScript&this_doc_guide=API%2520Reference)
@@ -6572,12 +6523,10 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec describe_metadata_model_exports_as_script(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_metadata_model_exports_as_script_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metadata_model_exports_as_script_errors()}
-
   def describe_metadata_model_exports_as_script(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6587,6 +6536,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of metadata model exports.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeMetadataModelExportsToTarget&this_doc_guide=API%2520Reference)
@@ -6600,12 +6550,10 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec describe_metadata_model_exports_to_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_metadata_model_exports_to_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metadata_model_exports_to_target_errors()}
-
   def describe_metadata_model_exports_to_target(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6615,6 +6563,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of metadata model imports.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeMetadataModelImports&this_doc_guide=API%2520Reference)
@@ -6628,12 +6577,10 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec describe_metadata_model_imports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_metadata_model_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metadata_model_imports_errors()}
-
   def describe_metadata_model_imports(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6643,6 +6590,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of migration projects for your account in the current
   region.
 
@@ -6656,12 +6604,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_migration_projects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_migration_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_migration_projects_errors()}
-
   def describe_migration_projects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6670,6 +6616,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns information about the replication instance types that can be created in
   the specified region.
 
@@ -6682,11 +6629,9 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_orderable_replication_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_orderable_replication_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_orderable_replication_instances(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6696,6 +6641,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   For internal use only
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribePendingMaintenanceActions&this_doc_guide=API%2520Reference)
@@ -6709,12 +6655,10 @@ defmodule AWS.DatabaseMigration do
       optional("ReplicationInstanceArn") => String.t()
     }
   """
-
   @spec describe_pending_maintenance_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_pending_maintenance_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pending_maintenance_actions_errors()}
-
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6724,6 +6668,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of limitations for recommendations of target Amazon Web
   Services engines.
 
@@ -6737,12 +6682,10 @@ defmodule AWS.DatabaseMigration do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_recommendation_limitations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_recommendation_limitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recommendation_limitations_errors()}
-
   def describe_recommendation_limitations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6752,6 +6695,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of target engine recommendations for your source
   databases.
 
@@ -6765,12 +6709,10 @@ defmodule AWS.DatabaseMigration do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recommendations_errors()}
-
   def describe_recommendations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6779,6 +6721,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns the status of the RefreshSchemas operation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeRefreshSchemasStatus&this_doc_guide=API%2520Reference)
@@ -6789,12 +6732,10 @@ defmodule AWS.DatabaseMigration do
       required("EndpointArn") => String.t()
     }
   """
-
   @spec describe_refresh_schemas_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_refresh_schemas_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_refresh_schemas_status_errors()}
-
   def describe_refresh_schemas_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6804,6 +6745,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns one or more existing DMS Serverless replication configurations as a list
   of structures.
 
@@ -6817,12 +6759,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_replication_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replication_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_configs_errors()}
-
   def describe_replication_configs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6831,6 +6771,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns information about the task logs for the specified task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeReplicationInstanceTaskLogs&this_doc_guide=API%2520Reference)
@@ -6843,12 +6784,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationInstanceArn") => String.t()
     }
   """
-
   @spec describe_replication_instance_task_logs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replication_instance_task_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_instance_task_logs_errors()}
-
   def describe_replication_instance_task_logs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6858,6 +6797,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns information about replication instances for your account in the current
   region.
 
@@ -6871,12 +6811,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_replication_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replication_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_instances_errors()}
-
   def describe_replication_instances(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6886,6 +6824,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns information about the replication subnet groups.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeReplicationSubnetGroups&this_doc_guide=API%2520Reference)
@@ -6898,12 +6837,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_replication_subnet_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replication_subnet_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_subnet_groups_errors()}
-
   def describe_replication_subnet_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6913,6 +6850,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns table and schema statistics for one or more provisioned replications
   that use a given DMS Serverless replication configuration.
 
@@ -6927,12 +6865,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationConfigArn") => String.t()
     }
   """
-
   @spec describe_replication_table_statistics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replication_table_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_table_statistics_errors()}
-
   def describe_replication_table_statistics(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6942,6 +6878,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns the task assessment results from the Amazon S3 bucket that DMS creates
   in your Amazon Web Services account. This action always returns the latest
   results.
@@ -6956,12 +6893,10 @@ defmodule AWS.DatabaseMigration do
       optional("ReplicationTaskArn") => String.t()
     }
   """
-
   @spec describe_replication_task_assessment_results(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replication_task_assessment_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_task_assessment_results_errors()}
-
   def describe_replication_task_assessment_results(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6971,6 +6906,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of premigration assessment runs based on filter
   settings. These filter settings can specify a combination of premigration
   assessment runs, migration tasks, replication instances, and assessment run
@@ -6986,12 +6922,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_replication_task_assessment_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replication_task_assessment_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_task_assessment_runs_errors()}
-
   def describe_replication_task_assessment_runs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7001,6 +6935,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns a paginated list of individual assessments based on filter settings.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeReplicationTaskIndividualAssessments&this_doc_guide=API%2520Reference)
@@ -7013,7 +6948,6 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_replication_task_individual_assessments(
           AWS.Client.t(),
           input :: map(),
@@ -7022,7 +6956,6 @@ defmodule AWS.DatabaseMigration do
           {:ok, describe_replication_task_individual_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_task_individual_assessments_errors()}
-
   def describe_replication_task_individual_assessments(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7038,6 +6971,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns information about replication tasks for your account in the current
   region.
 
@@ -7052,12 +6986,10 @@ defmodule AWS.DatabaseMigration do
       optional("WithoutSettings") => boolean()
     }
   """
-
   @spec describe_replication_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replication_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_tasks_errors()}
-
   def describe_replication_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7066,6 +6998,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Provides details on replication progress by returning status information for one
   or more provisioned DMS Serverless replications.
 
@@ -7079,12 +7012,10 @@ defmodule AWS.DatabaseMigration do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_replications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replications_errors()}
-
   def describe_replications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7093,6 +7024,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns information about the schema for the specified endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20DescribeSchemas&this_doc_guide=API%2520Reference)
@@ -7105,12 +7037,10 @@ defmodule AWS.DatabaseMigration do
       required("EndpointArn") => String.t()
     }
   """
-
   @spec describe_schemas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schemas_errors()}
-
   def describe_schemas(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7119,6 +7049,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Returns table statistics on the database migration task, including table name,
   rows inserted, rows updated, and rows deleted.
 
@@ -7133,12 +7064,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationTaskArn") => String.t()
     }
   """
-
   @spec describe_table_statistics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_table_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_table_statistics_errors()}
-
   def describe_table_statistics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7147,6 +7076,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Saves a copy of a database migration assessment report to your Amazon S3 bucket.
   DMS can save your assessment report as a comma-separated value (CSV) or a PDF
   file.
@@ -7162,12 +7092,10 @@ defmodule AWS.DatabaseMigration do
       required("SelectionRules") => String.t()
     }
   """
-
   @spec export_metadata_model_assessment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_metadata_model_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_metadata_model_assessment_errors()}
-
   def export_metadata_model_assessment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7177,6 +7105,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Uploads the specified certificate.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20ImportCertificate&this_doc_guide=API%2520Reference)
@@ -7190,12 +7119,10 @@ defmodule AWS.DatabaseMigration do
       required("CertificateIdentifier") => String.t()
     }
   """
-
   @spec import_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_certificate_errors()}
-
   def import_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7204,6 +7131,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Lists all metadata tags attached to an DMS resource, including replication
   instance, endpoint, subnet group, and migration task. For more information,
   see [ `Tag`
@@ -7219,12 +7147,10 @@ defmodule AWS.DatabaseMigration do
       optional("ResourceArnList") => list(String.t()())
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7233,6 +7159,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Modifies the specified schema conversion configuration using the provided
   parameters.
 
@@ -7245,12 +7172,10 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec modify_conversion_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_conversion_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_conversion_configuration_errors()}
-
   def modify_conversion_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7260,6 +7185,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Modifies the specified data provider using the provided settings.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20ModifyDataProvider&this_doc_guide=API%2520Reference)
@@ -7275,12 +7201,10 @@ defmodule AWS.DatabaseMigration do
       required("DataProviderIdentifier") => String.t()
     }
   """
-
   @spec modify_data_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_data_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_data_provider_errors()}
-
   def modify_data_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7289,6 +7213,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Modifies the specified endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20ModifyEndpoint&this_doc_guide=API%2520Reference)
@@ -7332,12 +7257,10 @@ defmodule AWS.DatabaseMigration do
       optional("RedshiftSettings") => redshift_settings()
     }
   """
-
   @spec modify_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_endpoint_errors()}
-
   def modify_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7346,6 +7269,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Modifies an existing DMS event notification subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20ModifyEventSubscription&this_doc_guide=API%2520Reference)
@@ -7360,12 +7284,10 @@ defmodule AWS.DatabaseMigration do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec modify_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_event_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_event_subscription_errors()}
-
   def modify_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7374,6 +7296,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Modifies the specified instance profile using the provided parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20ModifyInstanceProfile&this_doc_guide=API%2520Reference)
@@ -7392,12 +7315,10 @@ defmodule AWS.DatabaseMigration do
       required("InstanceProfileIdentifier") => String.t()
     }
   """
-
   @spec modify_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_instance_profile_errors()}
-
   def modify_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7406,6 +7327,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Modifies the specified migration project using the provided parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20ModifyMigrationProject&this_doc_guide=API%2520Reference)
@@ -7423,12 +7345,10 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec modify_migration_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_migration_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_migration_project_errors()}
-
   def modify_migration_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7437,6 +7357,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Modifies an existing DMS Serverless replication configuration that you can use
   to start a replication. This command includes input validation and logic to
   check the state of any replication that uses this configuration. You can only
@@ -7460,12 +7381,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationConfigArn") => String.t()
     }
   """
-
   @spec modify_replication_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_replication_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_replication_config_errors()}
-
   def modify_replication_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7474,6 +7393,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Modifies the replication instance to apply new settings. You can change one or
   more parameters by specifying these parameters and the new values in the
   request.
@@ -7497,12 +7417,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationInstanceArn") => String.t()
     }
   """
-
   @spec modify_replication_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_replication_instance_errors()}
-
   def modify_replication_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7511,6 +7429,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Modifies the settings for the specified replication subnet group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20ModifyReplicationSubnetGroup&this_doc_guide=API%2520Reference)
@@ -7523,12 +7442,10 @@ defmodule AWS.DatabaseMigration do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec modify_replication_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_replication_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_replication_subnet_group_errors()}
-
   def modify_replication_subnet_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7538,6 +7455,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Modifies the specified replication task. You can't modify the task endpoints.
   The task must be stopped before you can modify it.
 
@@ -7557,12 +7475,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationTaskArn") => String.t()
     }
   """
-
   @spec modify_replication_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_replication_task_errors()}
-
   def modify_replication_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7571,6 +7487,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Moves a replication task from its current replication instance to a different
   target replication instance using the specified parameters. The target
   replication instance must be created with the same or later DMS version as the
@@ -7585,12 +7502,10 @@ defmodule AWS.DatabaseMigration do
       required("TargetReplicationInstanceArn") => String.t()
     }
   """
-
   @spec move_replication_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, move_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, move_replication_task_errors()}
-
   def move_replication_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7599,6 +7514,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Reboots a replication instance. Rebooting results in a momentary outage, until
   the replication instance becomes available again.
 
@@ -7612,12 +7528,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationInstanceArn") => String.t()
     }
   """
-
   @spec reboot_replication_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_replication_instance_errors()}
-
   def reboot_replication_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7626,6 +7540,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Populates the schema for the specified endpoint. This is an asynchronous
   operation and can take several minutes. You can check the status of this
   operation by calling the DescribeRefreshSchemasStatus operation.
@@ -7639,12 +7554,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationInstanceArn") => String.t()
     }
   """
-
   @spec refresh_schemas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, refresh_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, refresh_schemas_errors()}
-
   def refresh_schemas(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7653,6 +7566,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Reloads the target database table with the source data for a given DMS
   Serverless replication configuration.
 
@@ -7666,12 +7580,10 @@ defmodule AWS.DatabaseMigration do
       required("TablesToReload") => list(table_to_reload()())
     }
   """
-
   @spec reload_replication_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reload_replication_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reload_replication_tables_errors()}
-
   def reload_replication_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7680,6 +7592,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Reloads the target database table with the source data.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20ReloadTables&this_doc_guide=API%2520Reference)
@@ -7692,12 +7605,10 @@ defmodule AWS.DatabaseMigration do
       required("TablesToReload") => list(table_to_reload()())
     }
   """
-
   @spec reload_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reload_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reload_tables_errors()}
-
   def reload_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7706,6 +7617,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Removes metadata tags from an DMS resource, including replication instance,
   endpoint, subnet group, and migration task. For more information, see [ `Tag`
   ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
@@ -7720,12 +7632,10 @@ defmodule AWS.DatabaseMigration do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec remove_tags_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
-
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7734,6 +7644,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in
   your account.
 
@@ -7742,12 +7653,10 @@ defmodule AWS.DatabaseMigration do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec run_fleet_advisor_lsa_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, run_fleet_advisor_lsa_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, run_fleet_advisor_lsa_analysis_errors()}
-
   def run_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7757,6 +7666,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Applies the extension pack to your target database. An extension pack is an
   add-on module that emulates functions present in a source database that are
   required when converting objects to the target database.
@@ -7769,12 +7679,10 @@ defmodule AWS.DatabaseMigration do
       required("MigrationProjectIdentifier") => String.t()
     }
   """
-
   @spec start_extension_pack_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_extension_pack_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_extension_pack_association_errors()}
-
   def start_extension_pack_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7784,6 +7692,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Creates a database migration assessment report by assessing the migration
   complexity for your source database. A database migration assessment report
   summarizes all of the schema conversion tasks. It also details the action
@@ -7799,12 +7708,10 @@ defmodule AWS.DatabaseMigration do
       required("SelectionRules") => String.t()
     }
   """
-
   @spec start_metadata_model_assessment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_metadata_model_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_model_assessment_errors()}
-
   def start_metadata_model_assessment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7814,6 +7721,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Converts your source database objects to a format compatible with the target
   database.
 
@@ -7826,12 +7734,10 @@ defmodule AWS.DatabaseMigration do
       required("SelectionRules") => String.t()
     }
   """
-
   @spec start_metadata_model_conversion(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_metadata_model_conversion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_model_conversion_errors()}
-
   def start_metadata_model_conversion(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7841,6 +7747,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Saves your converted code to a file as a SQL script, and stores this file on
   your Amazon S3 bucket.
 
@@ -7855,12 +7762,10 @@ defmodule AWS.DatabaseMigration do
       required("SelectionRules") => String.t()
     }
   """
-
   @spec start_metadata_model_export_as_script(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_metadata_model_export_as_script_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_model_export_as_script_errors()}
-
   def start_metadata_model_export_as_script(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7870,6 +7775,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Applies converted database objects to your target database.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20StartMetadataModelExportToTarget&this_doc_guide=API%2520Reference)
@@ -7882,12 +7788,10 @@ defmodule AWS.DatabaseMigration do
       required("SelectionRules") => String.t()
     }
   """
-
   @spec start_metadata_model_export_to_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_metadata_model_export_to_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_model_export_to_target_errors()}
-
   def start_metadata_model_export_to_target(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7897,6 +7801,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Loads the metadata for all the dependent database objects of the parent object.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20StartMetadataModelImport&this_doc_guide=API%2520Reference)
@@ -7910,12 +7815,10 @@ defmodule AWS.DatabaseMigration do
       required("SelectionRules") => String.t()
     }
   """
-
   @spec start_metadata_model_import(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_metadata_model_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_model_import_errors()}
-
   def start_metadata_model_import(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7924,6 +7827,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Starts the analysis of your source database to provide recommendations of target
   engines.
 
@@ -7936,12 +7840,10 @@ defmodule AWS.DatabaseMigration do
       required("Settings") => recommendation_settings()
     }
   """
-
   @spec start_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_recommendations_errors()}
-
   def start_recommendations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7950,6 +7852,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   For a given DMS Serverless replication configuration, DMS connects to the source
   endpoint and collects the metadata to analyze the replication workload. Using
   this metadata, DMS then computes and provisions the required capacity and
@@ -7968,12 +7871,10 @@ defmodule AWS.DatabaseMigration do
       required("StartReplicationType") => String.t()
     }
   """
-
   @spec start_replication(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_errors()}
-
   def start_replication(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7982,6 +7883,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Starts the replication task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20StartReplicationTask&this_doc_guide=API%2520Reference)
@@ -7996,12 +7898,10 @@ defmodule AWS.DatabaseMigration do
       required("StartReplicationTaskType") => list(any())
     }
   """
-
   @spec start_replication_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_task_errors()}
-
   def start_replication_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8010,6 +7910,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Starts the replication task assessment for unsupported data types in the source
   database. You can only use this operation for a task if the following
   conditions are true:
@@ -8022,12 +7923,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationTaskArn") => String.t()
     }
   """
-
   @spec start_replication_task_assessment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_replication_task_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_task_assessment_errors()}
-
   def start_replication_task_assessment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8037,6 +7936,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Starts a new premigration assessment run for one or more individual assessments
   of a migration task.
 
@@ -8056,12 +7956,10 @@ defmodule AWS.DatabaseMigration do
       required("ServiceAccessRoleArn") => String.t()
     }
   """
-
   @spec start_replication_task_assessment_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_replication_task_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_task_assessment_run_errors()}
-
   def start_replication_task_assessment_run(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8071,6 +7969,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   For a given DMS Serverless replication configuration, DMS stops any and all
   ongoing DMS Serverless replications. This command doesn't deprovision the
   stopped replications.
@@ -8083,12 +7982,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationConfigArn") => String.t()
     }
   """
-
   @spec stop_replication(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_replication_errors()}
-
   def stop_replication(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8097,6 +7994,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Stops the replication task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20StopReplicationTask&this_doc_guide=API%2520Reference)
@@ -8107,12 +8005,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationTaskArn") => String.t()
     }
   """
-
   @spec stop_replication_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_replication_task_errors()}
-
   def stop_replication_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8121,6 +8017,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Tests the connection between the replication instance and the endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databasemigrationservice%20TestConnection&this_doc_guide=API%2520Reference)
@@ -8132,12 +8029,10 @@ defmodule AWS.DatabaseMigration do
       required("ReplicationInstanceArn") => String.t()
     }
   """
-
   @spec test_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_connection_errors()}
-
   def test_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8146,6 +8041,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+   
   Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts
   them to corresponding Amazon EventBridge rules. By default, this operation
   migrates subscriptions only when all your replication instance versions are
@@ -8164,12 +8060,10 @@ defmodule AWS.DatabaseMigration do
       optional("ForceMove") => boolean()
     }
   """
-
   @spec update_subscriptions_to_event_bridge(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_subscriptions_to_event_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subscriptions_to_event_bridge_errors()}
-
   def update_subscriptions_to_event_bridge(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

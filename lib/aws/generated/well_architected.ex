@@ -3252,16 +3252,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20AssociateLenses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec associate_lenses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_lenses_errors()}
-
   def associate_lenses(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateLenses"
 
@@ -3308,16 +3305,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20AssociateProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec associate_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_profiles_errors()}
-
   def associate_profiles(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateProfiles"
 
@@ -3367,16 +3361,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateLensShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec create_lens_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_lens_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lens_share_errors()}
-
   def create_lens_share(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
 
@@ -3413,16 +3404,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateLensVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec create_lens_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_lens_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lens_version_errors()}
-
   def create_lens_version(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versions"
 
@@ -3459,16 +3447,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateMilestone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec create_milestone(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_milestone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_milestone_errors()}
-
   def create_milestone(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestones"
 
@@ -3505,15 +3490,12 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_errors()}
-
   def create_profile(%Client{} = client, options \\ []) do
     url_path = "/profiles"
 
@@ -3550,16 +3532,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateProfileShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_arn` (`t:string`) The profile ARN.
-
-  ## Optional parameters:
+  * `:profile_arn` (`t:string` required) The profile ARN.
+  ## Keyword parameters:
   """
-
   @spec create_profile_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_profile_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_share_errors()}
-
   def create_profile_share(%Client{} = client, profile_arn, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares"
 
@@ -3596,15 +3575,12 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateReviewTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_review_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_review_template_errors()}
-
   def create_review_template(%Client{} = client, options \\ []) do
     url_path = "/reviewTemplates"
 
@@ -3643,16 +3619,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateTemplateShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_arn` (`t:string`) The review template ARN.
-
-  ## Optional parameters:
+  * `:template_arn` (`t:string` required) The review template ARN.
+  ## Keyword parameters:
   """
-
   @spec create_template_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_template_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_share_errors()}
-
   def create_template_share(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/shares/#{AWS.Util.encode_uri(template_arn)}"
 
@@ -3692,15 +3665,12 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateWorkload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_workload(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workload_errors()}
-
   def create_workload(%Client{} = client, options \\ []) do
     url_path = "/workloads"
 
@@ -3739,16 +3709,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateWorkloadShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec create_workload_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workload_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workload_share_errors()}
-
   def create_workload_share(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
 
@@ -3788,19 +3755,16 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteLens&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:client_request_token` (`t:string`)
-  * `:lens_status` (`t:enum["ALL|DRAFT|PUBLISHED"]`) The status of the lens to be
-  deleted.
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:client_request_token` (`t:string` required)
+  * `:lens_status` (`t:enum["ALL|DRAFT|PUBLISHED"]` required) The status of the
+  lens to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_lens(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lens_errors()}
-
   def delete_lens(
         %Client{} = client,
         lens_alias,
@@ -3857,18 +3821,15 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteLensShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:share_id` (`t:string`)
-  * `:client_request_token` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:share_id` (`t:string` required)
+  * `:client_request_token` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_lens_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lens_share_errors()}
-
   def delete_lens_share(
         %Client{} = client,
         lens_alias,
@@ -3923,17 +3884,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_arn` (`t:string`) The profile ARN.
-  * `:client_request_token` (`t:string`)
-
-  ## Optional parameters:
+  * `:profile_arn` (`t:string` required) The profile ARN.
+  * `:client_request_token` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_errors()}
-
   def delete_profile(%Client{} = client, profile_arn, client_request_token, options \\ [])
       when is_binary(client_request_token) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
@@ -3981,18 +3939,15 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteProfileShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_arn` (`t:string`) The profile ARN.
-  * `:share_id` (`t:string`)
-  * `:client_request_token` (`t:string`)
-
-  ## Optional parameters:
+  * `:profile_arn` (`t:string` required) The profile ARN.
+  * `:share_id` (`t:string` required)
+  * `:client_request_token` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_profile_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_share_errors()}
-
   def delete_profile_share(
         %Client{} = client,
         profile_arn,
@@ -4047,17 +4002,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteReviewTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_arn` (`t:string`) The review template ARN.
-  * `:client_request_token` (`t:string`)
-
-  ## Optional parameters:
+  * `:template_arn` (`t:string` required) The review template ARN.
+  * `:client_request_token` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_review_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_review_template_errors()}
-
   def delete_review_template(
         %Client{} = client,
         template_arn,
@@ -4110,18 +4062,15 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteTemplateShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:share_id` (`t:string`)
-  * `:template_arn` (`t:string`) The review template ARN.
-  * `:client_request_token` (`t:string`)
-
-  ## Optional parameters:
+  * `:share_id` (`t:string` required)
+  * `:template_arn` (`t:string` required) The review template ARN.
+  * `:client_request_token` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_template_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_share_errors()}
-
   def delete_template_share(
         %Client{} = client,
         share_id,
@@ -4176,17 +4125,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteWorkload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-  * `:client_request_token` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  * `:client_request_token` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_workload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workload_errors()}
-
   def delete_workload(%Client{} = client, workload_id, client_request_token, options \\ [])
       when is_binary(client_request_token) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
@@ -4234,18 +4180,15 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteWorkloadShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:share_id` (`t:string`)
-  * `:workload_id` (`t:string`)
-  * `:client_request_token` (`t:string`)
-
-  ## Optional parameters:
+  * `:share_id` (`t:string` required)
+  * `:workload_id` (`t:string` required)
+  * `:client_request_token` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_workload_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workload_share_errors()}
-
   def delete_workload_share(
         %Client{} = client,
         share_id,
@@ -4301,16 +4244,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DisassociateLenses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec disassociate_lenses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_lenses_errors()}
-
   def disassociate_lenses(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateLenses"
 
@@ -4357,16 +4297,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DisassociateProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec disassociate_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_profiles_errors()}
-
   def disassociate_profiles(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateProfiles"
 
@@ -4415,17 +4352,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ExportLens&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  ## Keyword parameters:
   * `:lens_version` (`t:string`) The lens version to be exported.
   """
-
   @spec export_lens(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, export_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_lens_errors()}
-
   def export_lens(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/export"
 
@@ -4471,19 +4405,16 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetAnswer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:question_id` (`t:string`)
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:question_id` (`t:string` required)
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   * `:milestone_number` (`t:integer`)
   """
-
   @spec get_answer(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_answer_errors()}
-
   def get_answer(%Client{} = client, lens_alias, question_id, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
@@ -4530,21 +4461,19 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetConsolidatedReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:format` (`t:enum["JSON|PDF"]`) The format of the consolidated report.
-
-  ## Optional parameters:
+  * `:format` (`t:enum["JSON|PDF"]` required) The format of the consolidated
+  report.
+  ## Keyword parameters:
   * `:include_shared_resources` (`t:boolean`) Set to true to have shared resources
   included in the report.
   * `:max_results` (`t:integer`) The maximum number of results to return for this
   request.
   * `:next_token` (`t:string`)
   """
-
   @spec get_consolidated_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_consolidated_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_consolidated_report_errors()}
-
   def get_consolidated_report(%Client{} = client, format, options \\ []) when is_binary(format) do
     url_path = "/consolidatedReport"
 
@@ -4604,15 +4533,12 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_global_settings_errors()}
-
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
 
@@ -4647,17 +4573,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetLens&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  ## Keyword parameters:
   * `:lens_version` (`t:string`) The lens version to be retrieved.
   """
-
   @spec get_lens(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_errors()}
-
   def get_lens(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}"
 
@@ -4703,18 +4626,15 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetLensReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   * `:milestone_number` (`t:integer`)
   """
-
   @spec get_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_review_errors()}
-
   def get_lens_review(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
@@ -4761,18 +4681,15 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetLensReviewReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   * `:milestone_number` (`t:integer`)
   """
-
   @spec get_lens_review_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_review_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_review_report_errors()}
-
   def get_lens_review_report(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/report"
@@ -4819,19 +4736,16 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetLensVersionDifference&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  ## Keyword parameters:
   * `:base_lens_version` (`t:string`) The base version of the lens.
   * `:target_lens_version` (`t:string`) The lens version to target a difference
   for.
   """
-
   @spec get_lens_version_difference(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_version_difference_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_version_difference_errors()}
-
   def get_lens_version_difference(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versionDifference"
 
@@ -4884,17 +4798,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetMilestone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:milestone_number` (`t:integer`)
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:milestone_number` (`t:integer` required)
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_milestone(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_milestone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_milestone_errors()}
-
   def get_milestone(%Client{} = client, milestone_number, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestones/#{AWS.Util.encode_uri(milestone_number)}"
@@ -4930,17 +4841,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_arn` (`t:string`) The profile ARN.
-
-  ## Optional parameters:
+  * `:profile_arn` (`t:string` required) The profile ARN.
+  ## Keyword parameters:
   * `:profile_version` (`t:string`) The profile version.
   """
-
   @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_errors()}
-
   def get_profile(%Client{} = client, profile_arn, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
 
@@ -4986,15 +4894,12 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetProfileTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_profile_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_profile_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_template_errors()}
-
   def get_profile_template(%Client{} = client, options \\ []) do
     url_path = "/profileTemplate"
 
@@ -5029,16 +4934,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetReviewTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_arn` (`t:string`) The review template ARN.
-
-  ## Optional parameters:
+  * `:template_arn` (`t:string` required) The review template ARN.
+  ## Keyword parameters:
   """
-
   @spec get_review_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_review_template_errors()}
-
   def get_review_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
 
@@ -5073,13 +4975,11 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetReviewTemplateAnswer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:question_id` (`t:string`)
-  * `:template_arn` (`t:string`) The review template ARN.
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:question_id` (`t:string` required)
+  * `:template_arn` (`t:string` required) The review template ARN.
+  ## Keyword parameters:
   """
-
   @spec get_review_template_answer(
           AWS.Client.t(),
           String.t(),
@@ -5090,7 +4990,6 @@ defmodule AWS.WellArchitected do
           {:ok, get_review_template_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_review_template_answer_errors()}
-
   def get_review_template_answer(
         %Client{} = client,
         lens_alias,
@@ -5132,17 +5031,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetReviewTemplateLensReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:template_arn` (`t:string`) The review template ARN.
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:template_arn` (`t:string` required) The review template ARN.
+  ## Keyword parameters:
   """
-
   @spec get_review_template_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_review_template_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_review_template_lens_review_errors()}
-
   def get_review_template_lens_review(%Client{} = client, lens_alias, template_arn, options \\ []) do
     url_path =
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
@@ -5178,16 +5074,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetWorkload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_workload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workload_errors()}
-
   def get_workload(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
 
@@ -5224,15 +5117,12 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ImportLens&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec import_lens(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_lens_errors()}
-
   def import_lens(%Client{} = client, options \\ []) do
     url_path = "/importLens"
 
@@ -5269,10 +5159,9 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListAnswers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
   request.
   * `:milestone_number` (`t:integer`)
@@ -5281,12 +5170,10 @@ defmodule AWS.WellArchitected do
   * `:question_priority` (`t:enum["NONE|PRIORITIZED"]`) The priority of the
   question.
   """
-
   @spec list_answers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_answers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_answers_errors()}
-
   def list_answers(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers"
@@ -5373,16 +5260,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListCheckDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec list_check_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_check_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_check_details_errors()}
-
   def list_check_details(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/checks"
 
@@ -5420,16 +5304,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListCheckSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec list_check_summaries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_check_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_check_summaries_errors()}
-
   def list_check_summaries(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/checkSummaries"
 
@@ -5466,10 +5347,9 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListLensReviewImprovements&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
   request.
   * `:milestone_number` (`t:integer`)
@@ -5478,12 +5358,10 @@ defmodule AWS.WellArchitected do
   * `:question_priority` (`t:enum["NONE|PRIORITIZED"]`) The priority of the
   question.
   """
-
   @spec list_lens_review_improvements(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_review_improvements_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lens_review_improvements_errors()}
-
   def list_lens_review_improvements(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/improvements"
@@ -5570,19 +5448,16 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListLensReviews&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:milestone_number` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_lens_reviews(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_reviews_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lens_reviews_errors()}
-
   def list_lens_reviews(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews"
 
@@ -5642,9 +5517,8 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListLensShares&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
   request.
   * `:next_token` (`t:string`)
@@ -5654,12 +5528,10 @@ defmodule AWS.WellArchitected do
   * `:status`
   (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
-
   @spec list_lens_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lens_shares_errors()}
-
   def list_lens_shares(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
 
@@ -5726,8 +5598,7 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListLenses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:lens_name` (`t:string`)
   * `:lens_status` (`t:enum["ALL|DRAFT|PUBLISHED"]`) The status of lenses to be
   returned.
@@ -5736,12 +5607,10 @@ defmodule AWS.WellArchitected do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_lenses(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lenses_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lenses_errors()}
-
   def list_lenses(%Client{} = client, options \\ []) do
     url_path = "/lenses"
 
@@ -5821,16 +5690,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListMilestones&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec list_milestones(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_milestones_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_milestones_errors()}
-
   def list_milestones(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestonesSummaries"
 
@@ -5867,15 +5733,12 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListNotifications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_notifications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notifications_errors()}
-
   def list_notifications(%Client{} = client, options \\ []) do
     url_path = "/notifications"
 
@@ -5912,18 +5775,15 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListProfileNotifications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:workload_id` (`t:string`)
   """
-
   @spec list_profile_notifications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profile_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_notifications_errors()}
-
   def list_profile_notifications(%Client{} = client, options \\ []) do
     url_path = "/profileNotifications"
 
@@ -5983,9 +5843,8 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListProfileShares&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_arn` (`t:string`) The profile ARN.
-
-  ## Optional parameters:
+  * `:profile_arn` (`t:string` required) The profile ARN.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
   request.
   * `:next_token` (`t:string`)
@@ -5995,12 +5854,10 @@ defmodule AWS.WellArchitected do
   * `:status`
   (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
-
   @spec list_profile_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_shares_errors()}
-
   def list_profile_shares(%Client{} = client, profile_arn, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares"
 
@@ -6067,20 +5924,17 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:profile_name_prefix` (`t:string`) An optional string added to the beginning
   of each profile name returned in the results.
   * `:profile_owner_type` (`t:enum["SELF|SHARED"]`) Profile owner type.
   """
-
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profiles_errors()}
-
   def list_profiles(%Client{} = client, options \\ []) do
     url_path = "/profileSummaries"
 
@@ -6152,21 +6006,18 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListReviewTemplateAnswers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:template_arn` (`t:string`) The ARN of the review template.
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:template_arn` (`t:string` required) The ARN of the review template.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
   request.
   * `:next_token` (`t:string`)
   * `:pillar_id` (`t:string`)
   """
-
   @spec list_review_template_answers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_review_template_answers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_review_template_answers_errors()}
-
   def list_review_template_answers(%Client{} = client, lens_alias, template_arn, options \\ []) do
     url_path =
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers"
@@ -6227,17 +6078,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListReviewTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_review_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_review_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_review_templates_errors()}
-
   def list_review_templates(%Client{} = client, options \\ []) do
     url_path = "/reviewTemplates"
 
@@ -6290,8 +6138,7 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListShareInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:lens_name_prefix` (`t:string`) An optional string added to the beginning of
   each lens name returned in the results.
   * `:max_results` (`t:integer`) The maximum number of results to return for this
@@ -6305,12 +6152,10 @@ defmodule AWS.WellArchitected do
   of each review template name returned in the results.
   * `:workload_name_prefix` (`t:string`)
   """
-
   @spec list_share_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_share_invitations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_share_invitations_errors()}
-
   def list_share_invitations(%Client{} = client, options \\ []) do
     url_path = "/shareInvitations"
 
@@ -6414,16 +6259,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, workload_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
 
@@ -6458,9 +6300,8 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListTemplateShares&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_arn` (`t:string`) The review template ARN.
-
-  ## Optional parameters:
+  * `:template_arn` (`t:string` required) The review template ARN.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
   request.
   * `:next_token` (`t:string`)
@@ -6470,12 +6311,10 @@ defmodule AWS.WellArchitected do
   * `:status`
   (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
-
   @spec list_template_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_shares_errors()}
-
   def list_template_shares(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/shares/#{AWS.Util.encode_uri(template_arn)}"
 
@@ -6542,9 +6381,8 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListWorkloadShares&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
   request.
   * `:next_token` (`t:string`)
@@ -6554,12 +6392,10 @@ defmodule AWS.WellArchitected do
   * `:status`
   (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
-
   @spec list_workload_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workload_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workload_shares_errors()}
-
   def list_workload_shares(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
 
@@ -6626,15 +6462,12 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListWorkloads&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_workloads(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workloads_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workloads_errors()}
-
   def list_workloads(%Client{} = client, options \\ []) do
     url_path = "/workloadsSummaries"
 
@@ -6671,16 +6504,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, workload_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
 
@@ -6718,19 +6548,16 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_arn` (`t:string`)
-  * `:tag_keys` (`t:list[com.amazonaws.wellarchitected#TagKey]`) A list of tag
-  keys. Existing tags of the resource whose keys are members of this list are
-  removed from the resource.
-
-  ## Optional parameters:
+  * `:workload_arn` (`t:string` required)
+  * `:tag_keys` (`t:list[com.amazonaws.wellarchitected#TagKey]` required) A list
+  of tag keys. Existing tags of the resource whose keys are members of this
+  list are removed from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, workload_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
@@ -6778,18 +6605,15 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateAnswer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:question_id` (`t:string`)
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:question_id` (`t:string` required)
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_answer(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_answer_errors()}
-
   def update_answer(%Client{} = client, lens_alias, question_id, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
@@ -6838,15 +6662,12 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
-
   def update_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
 
@@ -6893,16 +6714,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_integration_errors()}
-
   def update_integration(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/updateIntegration"
 
@@ -6939,17 +6757,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateLensReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lens_review_errors()}
-
   def update_lens_review(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
@@ -6997,16 +6812,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_arn` (`t:string`) The profile ARN.
-
-  ## Optional parameters:
+  * `:profile_arn` (`t:string` required) The profile ARN.
+  ## Keyword parameters:
   """
-
   @spec update_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_errors()}
-
   def update_profile(%Client{} = client, profile_arn, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
 
@@ -7053,16 +6865,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateReviewTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_arn` (`t:string`) The review template ARN.
-
-  ## Optional parameters:
+  * `:template_arn` (`t:string` required) The review template ARN.
+  ## Keyword parameters:
   """
-
   @spec update_review_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_review_template_errors()}
-
   def update_review_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
 
@@ -7109,13 +6918,11 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateReviewTemplateAnswer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:question_id` (`t:string`)
-  * `:template_arn` (`t:string`) The review template ARN.
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:question_id` (`t:string` required)
+  * `:template_arn` (`t:string` required) The review template ARN.
+  ## Keyword parameters:
   """
-
   @spec update_review_template_answer(
           AWS.Client.t(),
           String.t(),
@@ -7126,7 +6933,6 @@ defmodule AWS.WellArchitected do
           {:ok, update_review_template_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_review_template_answer_errors()}
-
   def update_review_template_answer(
         %Client{} = client,
         lens_alias,
@@ -7180,17 +6986,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateReviewTemplateLensReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:template_arn` (`t:string`) The review template ARN.
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:template_arn` (`t:string` required) The review template ARN.
+  ## Keyword parameters:
   """
-
   @spec update_review_template_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_review_template_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_review_template_lens_review_errors()}
-
   def update_review_template_lens_review(
         %Client{} = client,
         lens_alias,
@@ -7243,16 +7046,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateShareInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:share_invitation_id` (`t:string`) The ID assigned to the share invitation.
-
-  ## Optional parameters:
+  * `:share_invitation_id` (`t:string` required) The ID assigned to the share
+  invitation.
+  ## Keyword parameters:
   """
-
   @spec update_share_invitation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_share_invitation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_share_invitation_errors()}
-
   def update_share_invitation(%Client{} = client, share_invitation_id, options \\ []) do
     url_path = "/shareInvitations/#{AWS.Util.encode_uri(share_invitation_id)}"
 
@@ -7299,16 +7100,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateWorkload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_workload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workload_errors()}
-
   def update_workload(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
 
@@ -7355,17 +7153,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateWorkloadShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:share_id` (`t:string`)
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:share_id` (`t:string` required)
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_workload_share(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_workload_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workload_share_errors()}
-
   def update_workload_share(%Client{} = client, share_id, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares/#{AWS.Util.encode_uri(share_id)}"
@@ -7413,17 +7208,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpgradeLensReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec upgrade_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_lens_review_errors()}
-
   def upgrade_lens_review(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/upgrade"
@@ -7461,17 +7253,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpgradeProfileVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_arn` (`t:string`) The profile ARN.
-  * `:workload_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:profile_arn` (`t:string` required) The profile ARN.
+  * `:workload_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec upgrade_profile_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_profile_version_errors()}
-
   def upgrade_profile_version(%Client{} = client, profile_arn, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/profiles/#{AWS.Util.encode_uri(profile_arn)}/upgrade"
@@ -7509,17 +7298,14 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpgradeReviewTemplateLensReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lens_alias` (`t:string`)
-  * `:template_arn` (`t:string`) The ARN of the review template.
-
-  ## Optional parameters:
+  * `:lens_alias` (`t:string` required)
+  * `:template_arn` (`t:string` required) The ARN of the review template.
+  ## Keyword parameters:
   """
-
   @spec upgrade_review_template_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_review_template_lens_review_errors()}
-
   def upgrade_review_template_lens_review(
         %Client{} = client,
         lens_alias,

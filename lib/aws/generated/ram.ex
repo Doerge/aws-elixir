@@ -1760,15 +1760,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20AcceptResourceShareInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec accept_resource_share_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_resource_share_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_resource_share_invitation_errors()}
-
   def accept_resource_share_invitation(%Client{} = client, options \\ []) do
     url_path = "/acceptresourceshareinvitation"
 
@@ -1808,15 +1805,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20AssociateResourceShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resource_share_errors()}
-
   def associate_resource_share(%Client{} = client, options \\ []) do
     url_path = "/associateresourceshare"
 
@@ -1856,15 +1850,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20AssociateResourceSharePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_resource_share_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_resource_share_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resource_share_permission_errors()}
-
   def associate_resource_share_permission(%Client{} = client, options \\ []) do
     url_path = "/associateresourcesharepermission"
 
@@ -1903,15 +1894,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20CreatePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_permission_errors()}
-
   def create_permission(%Client{} = client, options \\ []) do
     url_path = "/createpermission"
 
@@ -1952,15 +1940,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20CreatePermissionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_permission_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_permission_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_permission_version_errors()}
-
   def create_permission_version(%Client{} = client, options \\ []) do
     url_path = "/createpermissionversion"
 
@@ -2000,15 +1985,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20CreateResourceShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_share_errors()}
-
   def create_resource_share(%Client{} = client, options \\ []) do
     url_path = "/createresourceshare"
 
@@ -2048,10 +2030,9 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20DeletePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:permission_arn` (`t:string`) Specifies the Amazon Resource Name (ARN) of the
-  customer managed permission that you want to delete.
-
-  ## Optional parameters:
+  * `:permission_arn` (`t:string` required) Specifies the Amazon Resource Name
+  (ARN) of the customer managed permission that you want to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
   that you provide to ensure the idempotency of the request. This lets you
   safely retry the request without accidentally performing the same operation
@@ -2059,12 +2040,10 @@ defmodule AWS.RAM do
   requires that you also pass the same value for all other parameters. We
   recommend that you use a UUID type of value..
   """
-
   @spec delete_permission(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_errors()}
-
   def delete_permission(%Client{} = client, permission_arn, options \\ [])
       when is_binary(permission_arn) do
     url_path = "/deletepermission"
@@ -2125,11 +2104,11 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20DeletePermissionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:permission_arn` (`t:string`) Specifies the Amazon Resource Name (ARN) of the
-  permission with the version you want to delete.
-  * `:permission_version` (`t:integer`) Specifies the version number to delete.
-
-  ## Optional parameters:
+  * `:permission_arn` (`t:string` required) Specifies the Amazon Resource Name
+  (ARN) of the permission with the version you want to delete.
+  * `:permission_version` (`t:integer` required) Specifies the version number to
+  delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
   that you provide to ensure the idempotency of the request. This lets you
   safely retry the request without accidentally performing the same operation
@@ -2137,12 +2116,10 @@ defmodule AWS.RAM do
   requires that you also pass the same value for all other parameters. We
   recommend that you use a UUID type of value..
   """
-
   @spec delete_permission_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_permission_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_version_errors()}
-
   def delete_permission_version(
         %Client{} = client,
         permission_arn,
@@ -2206,10 +2183,9 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20DeleteResourceShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_share_arn` (`t:string`) Specifies the Amazon Resource Name (ARN) of
-  the resource share to delete.
-
-  ## Optional parameters:
+  * `:resource_share_arn` (`t:string` required) Specifies the Amazon Resource Name
+  (ARN) of the resource share to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
   that you provide to ensure the idempotency of the request. This lets you
   safely retry the request without accidentally performing the same operation
@@ -2217,12 +2193,10 @@ defmodule AWS.RAM do
   requires that you also pass the same value for all other parameters. We
   recommend that you use a UUID type of value..
   """
-
   @spec delete_resource_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_share_errors()}
-
   def delete_resource_share(%Client{} = client, resource_share_arn, options \\ [])
       when is_binary(resource_share_arn) do
     url_path = "/deleteresourceshare"
@@ -2282,15 +2256,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20DisassociateResourceShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resource_share_errors()}
-
   def disassociate_resource_share(%Client{} = client, options \\ []) do
     url_path = "/disassociateresourceshare"
 
@@ -2330,15 +2301,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20DisassociateResourceSharePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_resource_share_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_resource_share_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resource_share_permission_errors()}
-
   def disassociate_resource_share_permission(%Client{} = client, options \\ []) do
     url_path = "/disassociateresourcesharepermission"
 
@@ -2384,15 +2352,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20EnableSharingWithAwsOrganization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec enable_sharing_with_aws_organization(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_sharing_with_aws_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_sharing_with_aws_organization_errors()}
-
   def enable_sharing_with_aws_organization(%Client{} = client, options \\ []) do
     url_path = "/enablesharingwithawsorganization"
 
@@ -2429,15 +2394,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20GetPermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_permission_errors()}
-
   def get_permission(%Client{} = client, options \\ []) do
     url_path = "/getpermission"
 
@@ -2475,15 +2437,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20GetResourcePolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_resource_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policies_errors()}
-
   def get_resource_policies(%Client{} = client, options \\ []) do
     url_path = "/getresourcepolicies"
 
@@ -2521,15 +2480,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20GetResourceShareAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_resource_share_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_share_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_share_associations_errors()}
-
   def get_resource_share_associations(%Client{} = client, options \\ []) do
     url_path = "/getresourceshareassociations"
 
@@ -2566,15 +2522,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20GetResourceShareInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_resource_share_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_share_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_share_invitations_errors()}
-
   def get_resource_share_invitations(%Client{} = client, options \\ []) do
     url_path = "/getresourceshareinvitations"
 
@@ -2612,15 +2565,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20GetResourceShares&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_resource_shares(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_shares_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_shares_errors()}
-
   def get_resource_shares(%Client{} = client, options \\ []) do
     url_path = "/getresourceshares"
 
@@ -2659,15 +2609,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListPendingInvitationResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_pending_invitation_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pending_invitation_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pending_invitation_resources_errors()}
-
   def list_pending_invitation_resources(%Client{} = client, options \\ []) do
     url_path = "/listpendinginvitationresources"
 
@@ -2706,15 +2653,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListPermissionAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_permission_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_permission_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_associations_errors()}
-
   def list_permission_associations(%Client{} = client, options \\ []) do
     url_path = "/listpermissionassociations"
 
@@ -2751,15 +2695,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListPermissionVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_permission_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_permission_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_versions_errors()}
-
   def list_permission_versions(%Client{} = client, options \\ []) do
     url_path = "/listpermissionversions"
 
@@ -2797,15 +2738,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permissions_errors()}
-
   def list_permissions(%Client{} = client, options \\ []) do
     url_path = "/listpermissions"
 
@@ -2843,15 +2781,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListPrincipals&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_principals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_principals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_principals_errors()}
-
   def list_principals(%Client{} = client, options \\ []) do
     url_path = "/listprincipals"
 
@@ -2889,15 +2824,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListReplacePermissionAssociationsWork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_replace_permission_associations_work(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_replace_permission_associations_work_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_replace_permission_associations_work_errors()}
-
   def list_replace_permission_associations_work(%Client{} = client, options \\ []) do
     url_path = "/listreplacepermissionassociationswork"
 
@@ -2934,15 +2866,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListResourceSharePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_resource_share_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_share_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_share_permissions_errors()}
-
   def list_resource_share_permissions(%Client{} = client, options \\ []) do
     url_path = "/listresourcesharepermissions"
 
@@ -2979,15 +2908,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_types_errors()}
-
   def list_resource_types(%Client{} = client, options \\ []) do
     url_path = "/listresourcetypes"
 
@@ -3025,15 +2951,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_errors()}
-
   def list_resources(%Client{} = client, options \\ []) do
     url_path = "/listresources"
 
@@ -3078,15 +3001,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20PromotePermissionCreatedFromPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec promote_permission_created_from_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, promote_permission_created_from_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, promote_permission_created_from_policy_errors()}
-
   def promote_permission_created_from_policy(%Client{} = client, options \\ []) do
     url_path = "/promotepermissioncreatedfrompolicy"
 
@@ -3131,17 +3051,14 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20PromoteResourceShareCreatedFromPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_share_arn` (`t:string`) Specifies the Amazon Resource Name (ARN) of
-  the resource share to promote.
-
-  ## Optional parameters:
+  * `:resource_share_arn` (`t:string` required) Specifies the Amazon Resource Name
+  (ARN) of the resource share to promote.
+  ## Keyword parameters:
   """
-
   @spec promote_resource_share_created_from_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, promote_resource_share_created_from_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, promote_resource_share_created_from_policy_errors()}
-
   def promote_resource_share_created_from_policy(
         %Client{} = client,
         resource_share_arn,
@@ -3184,15 +3101,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20RejectResourceShareInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reject_resource_share_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, reject_resource_share_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_resource_share_invitation_errors()}
-
   def reject_resource_share_invitation(%Client{} = client, options \\ []) do
     url_path = "/rejectresourceshareinvitation"
 
@@ -3236,15 +3150,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ReplacePermissionAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec replace_permission_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, replace_permission_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, replace_permission_associations_errors()}
-
   def replace_permission_associations(%Client{} = client, options \\ []) do
     url_path = "/replacepermissionassociations"
 
@@ -3285,15 +3196,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20SetDefaultPermissionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec set_default_permission_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, set_default_permission_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_default_permission_version_errors()}
-
   def set_default_permission_version(%Client{} = client, options \\ []) do
     url_path = "/setdefaultpermissionversion"
 
@@ -3332,15 +3240,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tagresource"
 
@@ -3378,15 +3283,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/untagresource"
 
@@ -3423,15 +3325,12 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20UpdateResourceShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_share_errors()}
-
   def update_resource_share(%Client{} = client, options \\ []) do
     url_path = "/updateresourceshare"
 

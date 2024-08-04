@@ -3584,16 +3584,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AcceptInboundConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_id` (`t:string`) The ID of the inbound connection to accept.
-
-  ## Optional parameters:
+  * `:connection_id` (`t:string` required) The ID of the inbound connection to
+  accept.
+  ## Keyword parameters:
   """
-
   @spec accept_inbound_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_inbound_connection_errors()}
-
   def accept_inbound_connection(%Client{} = client, connection_id, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/cc/inboundConnection/#{AWS.Util.encode_uri(connection_id)}/accept"
@@ -3634,16 +3632,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AddDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain to add the data source to.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain to add the data
+  source to.
+  ## Keyword parameters:
   """
-
   @spec add_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_data_source_errors()}
-
   def add_data_source(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource"
 
@@ -3683,15 +3679,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AddTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec add_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
-
   def add_tags(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/tags"
 
@@ -3730,18 +3723,16 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AssociatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) Name of the domain to associate the package with.
-  * `:package_id` (`t:string`) Internal ID of the package to associate with a
-  domain. Use DescribePackages to find this value.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) Name of the domain to associate the
+  package with.
+  * `:package_id` (`t:string` required) Internal ID of the package to associate
+  with a domain. Use DescribePackages to find this value.
+  ## Keyword parameters:
   """
-
   @spec associate_package(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_package_errors()}
-
   def associate_package(%Client{} = client, domain_name, package_id, options \\ []) do
     url_path =
       "/2021-01-01/packages/associate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
@@ -3780,17 +3771,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AuthorizeVpcEndpointAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
-  provide access to.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the OpenSearch Service domain
+  to provide access to.
+  ## Keyword parameters:
   """
-
   @spec authorize_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, authorize_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, authorize_vpc_endpoint_access_errors()}
-
   def authorize_vpc_endpoint_access(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/authorizeVpcEndpointAccess"
@@ -3828,16 +3816,13 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CancelDomainConfigChange&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec cancel_domain_config_change(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_domain_config_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_domain_config_change_errors()}
-
   def cancel_domain_config_change(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config/cancel"
 
@@ -3878,15 +3863,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CancelServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_service_software_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_service_software_update_errors()}
-
   def cancel_service_software_update(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel"
 
@@ -3925,15 +3907,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-
   def create_domain(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain"
 
@@ -3973,15 +3952,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateOutboundConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_outbound_connection(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_outbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_outbound_connection_errors()}
-
   def create_outbound_connection(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/outboundConnection"
 
@@ -4020,15 +3996,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_package_errors()}
-
   def create_package(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/packages"
 
@@ -4065,15 +4038,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateVpcEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_vpc_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_endpoint_errors()}
-
   def create_vpc_endpoint(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints"
 
@@ -4112,17 +4082,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-  * `:name` (`t:string`) The name of the data source to delete.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  * `:name` (`t:string` required) The name of the data source to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
-
   def delete_data_source(%Client{} = client, domain_name, name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
@@ -4171,17 +4138,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain you want to permanently
-  delete.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain you want to
+  permanently delete.
+  ## Keyword parameters:
   """
-
   @spec delete_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-
   def delete_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -4231,17 +4195,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteInboundConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_id` (`t:string`) The ID of the inbound connection to permanently
-  delete.
-
-  ## Optional parameters:
+  * `:connection_id` (`t:string` required) The ID of the inbound connection to
+  permanently delete.
+  ## Keyword parameters:
   """
-
   @spec delete_inbound_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_inbound_connection_errors()}
-
   def delete_inbound_connection(%Client{} = client, connection_id, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/inboundConnection/#{AWS.Util.encode_uri(connection_id)}"
 
@@ -4291,17 +4252,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteOutboundConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_id` (`t:string`) The ID of the outbound connection you want to
-  permanently delete.
-
-  ## Optional parameters:
+  * `:connection_id` (`t:string` required) The ID of the outbound connection you
+  want to permanently delete.
+  ## Keyword parameters:
   """
-
   @spec delete_outbound_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_outbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_outbound_connection_errors()}
-
   def delete_outbound_connection(%Client{} = client, connection_id, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/cc/outboundConnection/#{AWS.Util.encode_uri(connection_id)}"
@@ -4351,17 +4309,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeletePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) The internal ID of the package you want to delete.
-  Use DescribePackages to find this value.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) The internal ID of the package you want to
+  delete. Use DescribePackages to find this value.
+  ## Keyword parameters:
   """
-
   @spec delete_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_package_errors()}
-
   def delete_package(%Client{} = client, package_id, options \\ []) do
     url_path = "/2021-01-01/packages/#{AWS.Util.encode_uri(package_id)}"
 
@@ -4408,16 +4363,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteVpcEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vpc_endpoint_id` (`t:string`) The unique identifier of the endpoint.
-
-  ## Optional parameters:
+  * `:vpc_endpoint_id` (`t:string` required) The unique identifier of the
+  endpoint.
+  ## Keyword parameters:
   """
-
   @spec delete_vpc_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_endpoint_errors()}
-
   def delete_vpc_endpoint(%Client{} = client, vpc_endpoint_id, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints/#{AWS.Util.encode_uri(vpc_endpoint_id)}"
 
@@ -4465,17 +4418,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain that you want information
-  about.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain that you want
+  information about.
+  ## Keyword parameters:
   """
-
   @spec describe_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_errors()}
-
   def describe_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -4513,17 +4463,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainAutoTunes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) Name of the domain that you want Auto-Tune details
-  about.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) Name of the domain that you want
+  Auto-Tune details about.
+  ## Keyword parameters:
   """
-
   @spec describe_domain_auto_tunes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_auto_tunes_errors()}
-
   def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
 
@@ -4561,20 +4508,17 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainChangeProgress&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain to get progress information
-  for.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain to get progress
+  information for.
+  ## Keyword parameters:
   * `:change_id` (`t:string`) The specific change ID for which you want to get
   progress information. If omitted, the request returns information about the
   most recent configuration change.
   """
-
   @spec describe_domain_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_change_progress_errors()}
-
   def describe_domain_change_progress(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/progress"
 
@@ -4620,17 +4564,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) Name of the OpenSearch Service domain
+  * `:domain_name` (`t:string` required) Name of the OpenSearch Service domain
   configuration that you want to describe.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_domain_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_config_errors()}
-
   def describe_domain_config(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config"
 
@@ -4666,16 +4607,13 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainHealth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  ## Keyword parameters:
   """
-
   @spec describe_domain_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_health_errors()}
-
   def describe_domain_health(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/health"
 
@@ -4712,16 +4650,13 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainNodes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  ## Keyword parameters:
   """
-
   @spec describe_domain_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_nodes_errors()}
-
   def describe_domain_nodes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/nodes"
 
@@ -4757,15 +4692,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domains_errors()}
-
   def describe_domains(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain-info"
 
@@ -4805,20 +4737,17 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDryRunProgress&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  ## Keyword parameters:
   * `:dry_run_id` (`t:string`) The unique identifier of the dry run.
   * `:load_dry_run_config` (`t:boolean`) Whether to include the configuration of
   the dry run in the response. The configuration specifies the updates that
   you're planning to make on the domain.
   """
-
   @spec describe_dry_run_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dry_run_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dry_run_progress_errors()}
-
   def describe_dry_run_progress(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dryRun"
 
@@ -4874,15 +4803,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeInboundConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_inbound_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_inbound_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inbound_connections_errors()}
-
   def describe_inbound_connections(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/inboundConnection/search"
 
@@ -4920,23 +4846,21 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeInstanceTypeLimits&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:engine_version` (`t:string`) Version of OpenSearch or Elasticsearch, in the
-  format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest version
-  of OpenSearch.
+  * `:engine_version` (`t:string` required) Version of OpenSearch or
+  Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults
+  to the latest version of OpenSearch.
   * `:instance_type`
-  (`t:enum["ultrawarm1_xlarge_search|c6g_2xlarge_search|d2_2xlarge_search|m5_24xlarge_search|c4_2xlarge_search|r4_large_search|r4_xlarge_search|c5_9xlarge_search|r5_large_search|m3_medium_search|r4_4xlarge_search|r6g_2xlarge_search|c5_4xlarge_search|m6g_4xlarge_search|m4_4xlarge_search|t2_small_search|r4_8xlarge_search|c4_large_search|m6g_8xlarge_search|or1_8xlarge_search|r3_8xlarge_search|or1_xlarge_search|or1_16xlarge_search|r6gd_8xlarge_search|r6g_xlarge_search|m6g_2xlarge_search|m5_xlarge_search|d2_xlarge_search|or1_2xlarge_search|m3_large_search|m5_2xlarge_search|i2_xlarge_search|r6gd_4xlarge_search|c6g_large_search|or1_12xlarge_search|or1_large_search|t3_large_search|or1_medium_search|i3_large_search|c6g_12xlarge_search|i3_16xlarge_search|r3_4xlarge_search|i3_2xlarge_search|r6gd_xlarge_search|t3_2xlarge_search|m5_4xlarge_search|m4_2xlarge_search|r6g_4xlarge_search|c4_xlarge_search|r5_xlarge_search|c4_4xlarge_search|r3_2xlarge_search|r6g_8xlarge_search|t3_small_search|r4_2xlarge_search|m6g_xlarge_search|t4g_small_search|m4_xlarge_search|c4_8xlarge_search|i2_2xlarge_search|r3_xlarge_search|c6g_4xlarge_search|r5_24xlarge_search|c5_large_search|ultrawarm1_medium_search|r4_16xlarge_search|m5_large_search|r5_12xlarge_search|t2_micro_search|i3_8xlarge_search|m3_2xlarge_search|d2_8xlarge_search|m4_large_search|or1_4xlarge_search|r5_4xlarge_search|r6g_large_search|c5_18xlarge_search|c5_xlarge_search|i3_4xlarge_search|c5_2xlarge_search|r3_large_search|t3_xlarge_search|c6g_8xlarge_search|m6g_12xlarge_search|t3_nano_search|m5_12xlarge_search|r5_2xlarge_search|t3_micro_search|m6g_large_search|r6g_12xlarge_search|t3_medium_search|r6gd_16xlarge_search|ultrawarm1_large_search|c6g_xlarge_search|r6gd_2xlarge_search|r6gd_12xlarge_search|t2_medium_search|m3_xlarge_search|m4_10xlarge_search|i3_xlarge_search|r6gd_large_search|d2_4xlarge_search|t4g_medium_search"]`)
-  The OpenSearch Service instance type for which you need limit information.
-
-  ## Optional parameters:
+  (`t:enum["ultrawarm1_xlarge_search|c6g_2xlarge_search|d2_2xlarge_search|m5_24xlarge_search|c4_2xlarge_search|r4_large_search|r4_xlarge_search|c5_9xlarge_search|r5_large_search|m3_medium_search|r4_4xlarge_search|r6g_2xlarge_search|c5_4xlarge_search|m6g_4xlarge_search|m4_4xlarge_search|t2_small_search|r4_8xlarge_search|c4_large_search|m6g_8xlarge_search|or1_8xlarge_search|r3_8xlarge_search|or1_xlarge_search|or1_16xlarge_search|r6gd_8xlarge_search|r6g_xlarge_search|m6g_2xlarge_search|m5_xlarge_search|d2_xlarge_search|or1_2xlarge_search|m3_large_search|m5_2xlarge_search|i2_xlarge_search|r6gd_4xlarge_search|c6g_large_search|or1_12xlarge_search|or1_large_search|t3_large_search|or1_medium_search|i3_large_search|c6g_12xlarge_search|i3_16xlarge_search|r3_4xlarge_search|i3_2xlarge_search|r6gd_xlarge_search|t3_2xlarge_search|m5_4xlarge_search|m4_2xlarge_search|r6g_4xlarge_search|c4_xlarge_search|r5_xlarge_search|c4_4xlarge_search|r3_2xlarge_search|r6g_8xlarge_search|t3_small_search|r4_2xlarge_search|m6g_xlarge_search|t4g_small_search|m4_xlarge_search|c4_8xlarge_search|i2_2xlarge_search|r3_xlarge_search|c6g_4xlarge_search|r5_24xlarge_search|c5_large_search|ultrawarm1_medium_search|r4_16xlarge_search|m5_large_search|r5_12xlarge_search|t2_micro_search|i3_8xlarge_search|m3_2xlarge_search|d2_8xlarge_search|m4_large_search|or1_4xlarge_search|r5_4xlarge_search|r6g_large_search|c5_18xlarge_search|c5_xlarge_search|i3_4xlarge_search|c5_2xlarge_search|r3_large_search|t3_xlarge_search|c6g_8xlarge_search|m6g_12xlarge_search|t3_nano_search|m5_12xlarge_search|r5_2xlarge_search|t3_micro_search|m6g_large_search|r6g_12xlarge_search|t3_medium_search|r6gd_16xlarge_search|ultrawarm1_large_search|c6g_xlarge_search|r6gd_2xlarge_search|r6gd_12xlarge_search|t2_medium_search|m3_xlarge_search|m4_10xlarge_search|i3_xlarge_search|r6gd_large_search|d2_4xlarge_search|t4g_medium_search"]`
+  required) The OpenSearch Service instance type for which you need limit
+  information.
+  ## Keyword parameters:
   * `:domain_name` (`t:string`) The name of the domain. Only specify if you need
   the limits for an existing domain.
   """
-
   @spec describe_instance_type_limits(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_type_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_type_limits_errors()}
-
   def describe_instance_type_limits(
         %Client{} = client,
         engine_version,
@@ -4991,15 +4915,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeOutboundConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_outbound_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_outbound_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_outbound_connections_errors()}
-
   def describe_outbound_connections(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/outboundConnection/search"
 
@@ -5038,15 +4959,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribePackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_packages_errors()}
-
   def describe_packages(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/packages/describe"
 
@@ -5086,8 +5004,7 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeReservedInstanceOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
   number of results to return. You can use nextToken to get the next page of
   results.
@@ -5099,12 +5016,10 @@ defmodule AWS.OpenSearch do
   filter value. Use this parameter to show only the available instance types
   that match the specified reservation identifier.
   """
-
   @spec describe_reserved_instance_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_instance_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_instance_offerings_errors()}
-
   def describe_reserved_instance_offerings(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/reservedInstanceOfferings"
 
@@ -5167,8 +5082,7 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeReservedInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
   number of results to return. You can use nextToken to get the next page of
   results.
@@ -5180,12 +5094,10 @@ defmodule AWS.OpenSearch do
   value. Use this parameter to show only the reservation that matches the
   specified reserved OpenSearch instance ID.
   """
-
   @spec describe_reserved_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_instances_errors()}
-
   def describe_reserved_instances(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/reservedInstances"
 
@@ -5245,15 +5157,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeVpcEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_endpoints_errors()}
-
   def describe_vpc_endpoints(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints/describe"
 
@@ -5294,18 +5203,16 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DissociatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) Name of the domain to dissociate the package from.
-  * `:package_id` (`t:string`) Internal ID of the package to dissociate from the
-  domain. Use ListPackagesForDomain to find this value.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) Name of the domain to dissociate the
+  package from.
+  * `:package_id` (`t:string` required) Internal ID of the package to dissociate
+  from the domain. Use ListPackagesForDomain to find this value.
+  ## Keyword parameters:
   """
-
   @spec dissociate_package(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, dissociate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, dissociate_package_errors()}
-
   def dissociate_package(%Client{} = client, domain_name, package_id, options \\ []) do
     url_path =
       "/2021-01-01/packages/dissociate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
@@ -5344,17 +5251,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetCompatibleVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:domain_name` (`t:string`) The name of an existing domain. Provide this
   parameter to limit the results to a single domain.
   """
-
   @spec get_compatible_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compatible_versions_errors()}
-
   def get_compatible_versions(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/compatibleVersions"
 
@@ -5400,17 +5304,15 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-  * `:name` (`t:string`) The name of the data source to get information about.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  * `:name` (`t:string` required) The name of the data source to get information
+  about.
+  ## Keyword parameters:
   """
-
   @spec get_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_errors()}
-
   def get_data_source(%Client{} = client, domain_name, name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
@@ -5446,17 +5348,15 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetDomainMaintenanceStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-  * `:maintenance_id` (`t:string`) The request ID of the maintenance action.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  * `:maintenance_id` (`t:string` required) The request ID of the maintenance
+  action.
+  ## Keyword parameters:
   """
-
   @spec get_domain_maintenance_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_maintenance_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_maintenance_status_errors()}
-
   def get_domain_maintenance_status(
         %Client{} = client,
         domain_name,
@@ -5502,9 +5402,8 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetPackageVersionHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) The unique identifier of the package.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) The unique identifier of the package.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
   number of results to return. You can use nextToken to get the next page of
   results.
@@ -5512,12 +5411,10 @@ defmodule AWS.OpenSearch do
   returns a nextToken, you can include the returned nextToken in subsequent
   GetPackageVersionHistory operations, which returns results in the next page.
   """
-
   @spec get_package_version_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_version_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_package_version_history_errors()}
-
   def get_package_version_history(%Client{} = client, package_id, options \\ []) do
     url_path = "/2021-01-01/packages/#{AWS.Util.encode_uri(package_id)}/history"
 
@@ -5571,9 +5468,8 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetUpgradeHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of an existing domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of an existing domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
   number of results to return. You can use nextToken to get the next page of
   results.
@@ -5581,12 +5477,10 @@ defmodule AWS.OpenSearch do
   a nextToken, you can include the returned nextToken in subsequent
   GetUpgradeHistory operations, which returns results in the next page.
   """
-
   @spec get_upgrade_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upgrade_history_errors()}
-
   def get_upgrade_history(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/history"
 
@@ -5640,17 +5534,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetUpgradeStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The domain of the domain to get upgrade status
-  information for.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The domain of the domain to get upgrade
+  status information for.
+  ## Keyword parameters:
   """
-
   @spec get_upgrade_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upgrade_status_errors()}
-
   def get_upgrade_status(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
 
@@ -5688,16 +5579,13 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDataSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  ## Keyword parameters:
   """
-
   @spec list_data_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
-
   def list_data_sources(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource"
 
@@ -5732,9 +5620,8 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDomainMaintenances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  ## Keyword parameters:
   * `:action` (`t:enum["REBOOT_NODE|RESTART_DASHBOARD|RESTART_SEARCH_PROCESS"]`)
   The name of the action.
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
@@ -5746,12 +5633,10 @@ defmodule AWS.OpenSearch do
   * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|PENDING|TIMED_OUT"]`) The
   status of the action.
   """
-
   @spec list_domain_maintenances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domain_maintenances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_maintenances_errors()}
-
   def list_domain_maintenances(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/domainMaintenances"
@@ -5820,17 +5705,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDomainNames&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`) Filters the output by
   domain engine type.
   """
-
   @spec list_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_names_errors()}
-
   def list_domain_names(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/domain"
 
@@ -5878,10 +5760,9 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDomainsForPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) The unique identifier of the package for which to
-  list associated domains.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) The unique identifier of the package for
+  which to list associated domains.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
   number of results to return. You can use nextToken to get the next page of
   results.
@@ -5889,12 +5770,10 @@ defmodule AWS.OpenSearch do
   returns a nextToken, you can include the returned nextToken in subsequent
   ListDomainsForPackage operations, which returns results in the next page.
   """
-
   @spec list_domains_for_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domains_for_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_for_package_errors()}
-
   def list_domains_for_package(%Client{} = client, package_id, options \\ []) do
     url_path = "/2021-01-01/packages/#{AWS.Util.encode_uri(package_id)}/domains"
 
@@ -5948,11 +5827,10 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListInstanceTypeDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:engine_version` (`t:string`) The version of OpenSearch or Elasticsearch, in
-  the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest
-  version of OpenSearch.
-
-  ## Optional parameters:
+  * `:engine_version` (`t:string` required) The version of OpenSearch or
+  Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults
+  to the latest version of OpenSearch.
+  ## Keyword parameters:
   * `:domain_name` (`t:string`) The name of the domain.
   * `:instance_type` (`t:string`) An optional parameter that lists information for
   a given instance type.
@@ -5965,12 +5843,10 @@ defmodule AWS.OpenSearch do
   * `:retrieve_a_zs` (`t:boolean`) An optional parameter that specifies the
   Availability Zones for the domain.
   """
-
   @spec list_instance_type_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_type_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_type_details_errors()}
-
   def list_instance_type_details(%Client{} = client, engine_version, options \\ []) do
     url_path = "/2021-01-01/opensearch/instanceTypeDetails/#{AWS.Util.encode_uri(engine_version)}"
 
@@ -6052,10 +5928,9 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListPackagesForDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain for which you want to list
-  associated packages.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain for which you want
+  to list associated packages.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
   number of results to return. You can use nextToken to get the next page of
   results.
@@ -6063,12 +5938,10 @@ defmodule AWS.OpenSearch do
   returns a nextToken, you can include the returned nextToken in subsequent
   ListPackagesForDomain operations, which returns results in the next page.
   """
-
   @spec list_packages_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packages_for_domain_errors()}
-
   def list_packages_for_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/domain/#{AWS.Util.encode_uri(domain_name)}/packages"
 
@@ -6125,9 +5998,8 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListScheduledActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
   number of results to return. You can use nextToken to get the next page of
   results.
@@ -6135,12 +6007,10 @@ defmodule AWS.OpenSearch do
   returns a nextToken, you can include the returned nextToken in subsequent
   ListScheduledActions operations, which returns results in the next page.
   """
-
   @spec list_scheduled_actions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scheduled_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scheduled_actions_errors()}
-
   def list_scheduled_actions(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/scheduledActions"
@@ -6196,17 +6066,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) Amazon Resource Name (ARN) for the domain to view tags
-  for.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) Amazon Resource Name (ARN) for the domain to view
+  tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-
   def list_tags(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/2021-01-01/tags"
 
@@ -6242,8 +6109,7 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
   number of results to return. You can use nextToken to get the next page of
   results.
@@ -6251,12 +6117,10 @@ defmodule AWS.OpenSearch do
   nextToken, you can include the returned nextToken in subsequent ListVersions
   operations, which returns results in the next page.
   """
-
   @spec list_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_versions_errors()}
-
   def list_versions(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/versions"
 
@@ -6311,20 +6175,17 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVpcEndpointAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
-  retrieve access information for.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the OpenSearch Service domain
+  to retrieve access information for.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) If your initial ListVpcEndpointAccess operation
   returns a nextToken, you can include the returned nextToken in subsequent
   ListVpcEndpointAccess operations, which returns results in the next page.
   """
-
   @spec list_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoint_access_errors()}
-
   def list_vpc_endpoint_access(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/listVpcEndpointAccess"
@@ -6372,18 +6233,15 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVpcEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) If your initial ListVpcEndpoints operation returns
   a nextToken, you can include the returned nextToken in subsequent
   ListVpcEndpoints operations, which returns results in the next page.
   """
-
   @spec list_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoints_errors()}
-
   def list_vpc_endpoints(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints"
 
@@ -6430,20 +6288,17 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVpcEndpointsForDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain to list associated VPC
-  endpoints for.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain to list associated
+  VPC endpoints for.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) If your initial ListEndpointsForDomain operation
   returns a nextToken, you can include the returned nextToken in subsequent
   ListEndpointsForDomain operations, which returns results in the next page.
   """
-
   @spec list_vpc_endpoints_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoints_for_domain_errors()}
-
   def list_vpc_endpoints_for_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/vpcEndpoints"
 
@@ -6489,15 +6344,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20PurchaseReservedInstanceOffering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec purchase_reserved_instance_offering(AWS.Client.t(), Keyword.t()) ::
           {:ok, purchase_reserved_instance_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_reserved_instance_offering_errors()}
-
   def purchase_reserved_instance_offering(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/purchaseReservedInstanceOffering"
 
@@ -6535,17 +6387,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20RejectInboundConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_id` (`t:string`) The unique identifier of the inbound connection
-  to reject.
-
-  ## Optional parameters:
+  * `:connection_id` (`t:string` required) The unique identifier of the inbound
+  connection to reject.
+  ## Keyword parameters:
   """
-
   @spec reject_inbound_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reject_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_inbound_connection_errors()}
-
   def reject_inbound_connection(%Client{} = client, connection_id, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/cc/inboundConnection/#{AWS.Util.encode_uri(connection_id)}/reject"
@@ -6585,15 +6434,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20RemoveTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec remove_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_errors()}
-
   def remove_tags(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/tags-removal"
 
@@ -6631,16 +6477,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20RevokeVpcEndpointAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the OpenSearch Service
+  domain.
+  ## Keyword parameters:
   """
-
   @spec revoke_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, revoke_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_vpc_endpoint_access_errors()}
-
   def revoke_vpc_endpoint_access(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
@@ -6680,16 +6524,13 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20StartDomainMaintenance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  ## Keyword parameters:
   """
-
   @spec start_domain_maintenance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_domain_maintenance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_domain_maintenance_errors()}
-
   def start_domain_maintenance(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/domainMaintenance"
@@ -6729,15 +6570,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20StartServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_service_software_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_service_software_update_errors()}
-
   def start_service_software_update(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/start"
 
@@ -6776,17 +6614,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain.
-  * `:name` (`t:string`) The name of the data source to modify.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain.
+  * `:name` (`t:string` required) The name of the data source to modify.
+  ## Keyword parameters:
   """
-
   @spec update_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
-
   def update_data_source(%Client{} = client, domain_name, name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
@@ -6825,16 +6660,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateDomainConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain that you're updating.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain that you're
+  updating.
+  ## Keyword parameters:
   """
-
   @spec update_domain_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_config_errors()}
-
   def update_domain_config(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config"
 
@@ -6873,15 +6706,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_package_errors()}
-
   def update_package(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/packages/update"
 
@@ -6922,17 +6752,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateScheduledAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain to reschedule an action
-  for.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain to reschedule an
+  action for.
+  ## Keyword parameters:
   """
-
   @spec update_scheduled_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scheduled_action_errors()}
-
   def update_scheduled_action(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/scheduledAction/update"
@@ -6970,15 +6797,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateVpcEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_vpc_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_endpoint_errors()}
-
   def update_vpc_endpoint(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints/update"
 
@@ -7017,15 +6841,12 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpgradeDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec upgrade_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, upgrade_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_domain_errors()}
-
   def upgrade_domain(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain"
 

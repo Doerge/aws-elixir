@@ -4013,16 +4013,12 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:arn` (`t:string`)
-
-  ## Optional parameters:
+    * `:arn` (`t:string` required)
   """
-
   @spec associate_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_certificate_errors()}
-
   def associate_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2017-08-29/certificates"
 
@@ -4060,16 +4056,12 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CancelJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
   """
-
   @spec cancel_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
-
   def cancel_job(%Client{} = client, id, options \\ []) do
     url_path = "/2017-08-29/jobs/#{AWS.Util.encode_uri(id)}"
 
@@ -4119,8 +4111,8 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:role` (`t:string`)
-    * `:settings` (`t:structure`)
+    * `:role` (`t:string` required)
+    * `:settings` (`t:structure` required)
     * `:acceleration_settings` (`t:structure`)
     * `:billing_tags_source` (`t:enum["JOB|JOB_TEMPLATE|PRESET|QUEUE"]`)
     * `:client_request_token` (`t:string`)
@@ -4130,18 +4122,14 @@ defmodule AWS.MediaConvert do
     * `:queue` (`t:string`)
     * `:simulate_reserved_queue` (`t:enum["DISABLED|ENABLED"]`)
     * `:status_update_interval`
-  (`t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`)
+    (`t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`)
     * `:tags` (`t:map`)
     * `:user_metadata` (`t:map`)
-
-  ## Optional parameters:
   """
-
   @spec create_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
-
   def create_job(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2017-08-29/jobs"
 
@@ -4180,8 +4168,8 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string`)
-    * `:settings` (`t:structure`)
+    * `:name` (`t:string` required)
+    * `:settings` (`t:structure` required)
     * `:acceleration_settings` (`t:structure`)
     * `:category` (`t:string`)
     * `:description` (`t:string`)
@@ -4189,17 +4177,13 @@ defmodule AWS.MediaConvert do
     * `:priority` (`t:integer`)
     * `:queue` (`t:string`)
     * `:status_update_interval`
-  (`t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`)
+    (`t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
   """
-
   @spec create_job_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_template_errors()}
-
   def create_job_template(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2017-08-29/jobTemplates"
 
@@ -4238,20 +4222,16 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string`)
-    * `:settings` (`t:structure`)
+    * `:name` (`t:string` required)
+    * `:settings` (`t:structure` required)
     * `:category` (`t:string`)
     * `:description` (`t:string`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
   """
-
   @spec create_preset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_preset_errors()}
-
   def create_preset(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2017-08-29/presets"
 
@@ -4291,21 +4271,17 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string`)
+    * `:name` (`t:string` required)
     * `:description` (`t:string`)
     * `:pricing_plan` (`t:enum["ON_DEMAND|RESERVED"]`)
     * `:reservation_plan_settings` (`t:structure`)
     * `:status` (`t:enum["ACTIVE|PAUSED"]`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
   """
-
   @spec create_queue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_queue_errors()}
-
   def create_queue(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2017-08-29/queues"
 
@@ -4342,16 +4318,12 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeleteJobTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`)
-
-  ## Optional parameters:
+  * `:name` (`t:string` required)
   """
-
   @spec delete_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_template_errors()}
-
   def delete_job_template(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
 
@@ -4398,15 +4370,11 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeletePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
   """
-
   @spec delete_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
-
   def delete_policy(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/policy"
 
@@ -4453,16 +4421,12 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeletePreset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`)
-
-  ## Optional parameters:
+  * `:name` (`t:string` required)
   """
-
   @spec delete_preset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_preset_errors()}
-
   def delete_preset(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
 
@@ -4509,16 +4473,12 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeleteQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`)
-
-  ## Optional parameters:
+  * `:name` (`t:string` required)
   """
-
   @spec delete_queue(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queue_errors()}
-
   def delete_queue(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"
 
@@ -4572,15 +4532,11 @@ defmodule AWS.MediaConvert do
     * `:max_results` (`t:integer`)
     * `:mode` (`t:enum["DEFAULT|GET_ONLY"]`)
     * `:next_token` (`t:string`)
-
-  ## Optional parameters:
   """
-
   @spec describe_endpoints(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoints_errors()}
-
   def describe_endpoints(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/2017-08-29/endpoints"
@@ -4620,16 +4576,12 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DisassociateCertificate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required)
   """
-
   @spec disassociate_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_certificate_errors()}
-
   def disassociate_certificate(%Client{} = client, arn, options \\ []) do
     url_path = "/2017-08-29/certificates/#{AWS.Util.encode_uri(arn)}"
 
@@ -4676,16 +4628,12 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
   """
-
   @spec get_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
-
   def get_job(%Client{} = client, id, options \\ []) do
     url_path = "/2017-08-29/jobs/#{AWS.Util.encode_uri(id)}"
 
@@ -4720,16 +4668,12 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetJobTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`)
-
-  ## Optional parameters:
+  * `:name` (`t:string` required)
   """
-
   @spec get_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_template_errors()}
-
   def get_job_template(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
 
@@ -4764,15 +4708,11 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
   """
-
   @spec get_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
-
   def get_policy(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/policy"
 
@@ -4807,16 +4747,12 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetPreset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`)
-
-  ## Optional parameters:
+  * `:name` (`t:string` required)
   """
-
   @spec get_preset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_preset_errors()}
-
   def get_preset(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
 
@@ -4851,16 +4787,12 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`)
-
-  ## Optional parameters:
+  * `:name` (`t:string` required)
   """
-
   @spec get_queue(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_queue_errors()}
-
   def get_queue(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"
 
@@ -4898,19 +4830,17 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:category` (`t:string`)
   * `:list_by` (`t:enum["CREATION_DATE|NAME|SYSTEM"]`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
   """
-
   @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_templates_errors()}
-
   def list_job_templates(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/jobTemplates"
 
@@ -4988,19 +4918,17 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
   * `:queue` (`t:string`)
   * `:status` (`t:enum["CANCELED|COMPLETE|ERROR|PROGRESSING|SUBMITTED"]`)
   """
-
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-
   def list_jobs(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/jobs"
 
@@ -5077,19 +5005,17 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:category` (`t:string`)
   * `:list_by` (`t:enum["CREATION_DATE|NAME|SYSTEM"]`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
   """
-
   @spec list_presets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_presets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_presets_errors()}
-
   def list_presets(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/presets"
 
@@ -5166,18 +5092,16 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:list_by` (`t:enum["CREATION_DATE|NAME"]`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
   """
-
   @spec list_queues(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queues_errors()}
-
   def list_queues(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/queues"
 
@@ -5244,16 +5168,12 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required)
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/2017-08-29/tags/#{AWS.Util.encode_uri(arn)}"
 
@@ -5290,16 +5210,12 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:policy` (`t:structure`)
-
-  ## Optional parameters:
+    * `:policy` (`t:structure` required)
   """
-
   @spec put_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_policy_errors()}
-
   def put_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2017-08-29/policy"
 
@@ -5340,7 +5256,7 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:input_file` (`t:string`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -5348,12 +5264,10 @@ defmodule AWS.MediaConvert do
   * `:queue` (`t:string`)
   * `:status` (`t:enum["CANCELED|COMPLETE|ERROR|PROGRESSING|SUBMITTED"]`)
   """
-
   @spec search_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_jobs_errors()}
-
   def search_jobs(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/search"
 
@@ -5444,17 +5358,13 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:arn` (`t:string`)
-    * `:tags` (`t:map`)
-
-  ## Optional parameters:
+    * `:arn` (`t:string` required)
+    * `:tags` (`t:map` required)
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2017-08-29/tags"
 
@@ -5493,18 +5403,14 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`)
+  * `:arn` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:tag_keys` (`t:list[com.amazonaws.mediaconvert#__string]`)
-
-  ## Optional parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, arn, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/2017-08-29/tags/#{AWS.Util.encode_uri(arn)}"
@@ -5542,7 +5448,7 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UpdateJobTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`)
+  * `:name` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:acceleration_settings` (`t:structure`)
     * `:category` (`t:string`)
@@ -5552,16 +5458,12 @@ defmodule AWS.MediaConvert do
     * `:queue` (`t:string`)
     * `:settings` (`t:structure`)
     * `:status_update_interval`
-  (`t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`)
-
-  ## Optional parameters:
+    (`t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`)
   """
-
   @spec update_job_template(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_template_errors()}
-
   def update_job_template(%Client{} = client, name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
@@ -5599,20 +5501,16 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UpdatePreset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`)
+  * `:name` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:category` (`t:string`)
     * `:description` (`t:string`)
     * `:settings` (`t:structure`)
-
-  ## Optional parameters:
   """
-
   @spec update_preset(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_preset_errors()}
-
   def update_preset(%Client{} = client, name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
@@ -5650,20 +5548,16 @@ defmodule AWS.MediaConvert do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UpdateQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`)
+  * `:name` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:description` (`t:string`)
     * `:reservation_plan_settings` (`t:structure`)
     * `:status` (`t:enum["ACTIVE|PAUSED"]`)
-
-  ## Optional parameters:
   """
-
   @spec update_queue(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_errors()}
-
   def update_queue(%Client{} = client, name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"

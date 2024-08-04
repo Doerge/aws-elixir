@@ -3942,18 +3942,15 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20BatchGetCollaborationAnalysisTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for the
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for the
   collaboration that the analysis templates belong to. Currently accepts
   collaboration ID.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_collaboration_analysis_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_collaboration_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_collaboration_analysis_template_errors()}
-
   def batch_get_collaboration_analysis_template(
         %Client{} = client,
         collaboration_identifier,
@@ -3995,18 +3992,15 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20BatchGetSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for the
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for the
   collaboration that the schemas belong to. Currently accepts collaboration
   ID.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_schema_errors()}
-
   def batch_get_schema(%Client{} = client, collaboration_identifier, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-schema"
 
@@ -4043,17 +4037,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20BatchGetSchemaAnalysisRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) The unique identifier of the
+  * `:collaboration_identifier` (`t:string` required) The unique identifier of the
   collaboration that contains the schema analysis rule.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_schema_analysis_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_schema_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_schema_analysis_rule_errors()}
-
   def batch_get_schema_analysis_rule(%Client{} = client, collaboration_identifier, options \\ []) do
     url_path =
       "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-schema-analysis-rule"
@@ -4091,17 +4082,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreateAnalysisTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The identifier for a membership
+  * `:membership_identifier` (`t:string` required) The identifier for a membership
   resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_analysis_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_analysis_template_errors()}
-
   def create_analysis_template(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates"
 
@@ -4138,15 +4126,12 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreateCollaboration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_collaboration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_collaboration_errors()}
-
   def create_collaboration(%Client{} = client, options \\ []) do
     url_path = "/collaborations"
 
@@ -4184,19 +4169,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreateConfiguredAudienceModelAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for one of your
-  memberships for a collaboration. The configured audience model is associated
-  to the collaboration that this membership belongs to. Accepts a membership
-  ID.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for one of
+  your memberships for a collaboration. The configured audience model is
+  associated to the collaboration that this membership belongs to. Accepts a
+  membership ID.
+  ## Keyword parameters:
   """
-
   @spec create_configured_audience_model_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configured_audience_model_association_errors()}
-
   def create_configured_audience_model_association(
         %Client{} = client,
         membership_identifier,
@@ -4238,15 +4220,12 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreateConfiguredTable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_configured_table(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configured_table_errors()}
-
   def create_configured_table(%Client{} = client, options \\ []) do
     url_path = "/configuredTables"
 
@@ -4284,18 +4263,15 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreateConfiguredTableAnalysisRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_table_identifier` (`t:string`) The identifier for the configured
-  table to create the analysis rule for. Currently accepts the configured
-  table ID.
-
-  ## Optional parameters:
+  * `:configured_table_identifier` (`t:string` required) The identifier for the
+  configured table to create the analysis rule for. Currently accepts the
+  configured table ID.
+  ## Keyword parameters:
   """
-
   @spec create_configured_table_analysis_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configured_table_analysis_rule_errors()}
-
   def create_configured_table_analysis_rule(
         %Client{} = client,
         configured_table_identifier,
@@ -4338,19 +4314,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreateConfiguredTableAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for one of your
-  memberships for a collaboration. The configured table is associated to the
-  collaboration that this membership belongs to. Currently accepts a
+  * `:membership_identifier` (`t:string` required) A unique identifier for one of
+  your memberships for a collaboration. The configured table is associated to
+  the collaboration that this membership belongs to. Currently accepts a
   membership ID.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_configured_table_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configured_table_association_errors()}
-
   def create_configured_table_association(
         %Client{} = client,
         membership_identifier,
@@ -4392,16 +4365,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreateConfiguredTableAssociationAnalysisRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_table_association_identifier` (`t:string`) The unique ID for the
-  configured table association. Currently accepts the configured table
+  * `:configured_table_association_identifier` (`t:string` required) The unique ID
+  for the configured table association. Currently accepts the configured table
   association ID.
-  * `:membership_identifier` (`t:string`) A unique identifier for the membership
-  that the configured table association belongs to. Currently accepts the
-  membership ID.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for the
+  membership that the configured table association belongs to. Currently
+  accepts the membership ID.
+  ## Keyword parameters:
   """
-
   @spec create_configured_table_association_analysis_rule(
           AWS.Client.t(),
           String.t(),
@@ -4411,7 +4382,6 @@ defmodule AWS.CleanRooms do
           {:ok, create_configured_table_association_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configured_table_association_analysis_rule_errors()}
-
   def create_configured_table_association_analysis_rule(
         %Client{} = client,
         configured_table_association_identifier,
@@ -4454,17 +4424,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreateIdMappingTable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID mapping table.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID mapping table.
+  ## Keyword parameters:
   """
-
   @spec create_id_mapping_table(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_id_mapping_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_id_mapping_table_errors()}
-
   def create_id_mapping_table(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables"
 
@@ -4501,17 +4468,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreateIdNamespaceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID namespace association.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID namespace association.
+  ## Keyword parameters:
   """
-
   @spec create_id_namespace_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_id_namespace_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_id_namespace_association_errors()}
-
   def create_id_namespace_association(%Client{} = client, membership_identifier, options \\ []) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations"
@@ -4550,15 +4514,12 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreateMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_membership(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_membership_errors()}
-
   def create_membership(%Client{} = client, options \\ []) do
     url_path = "/memberships"
 
@@ -4598,18 +4559,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20CreatePrivacyBudgetTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for one of your
-  memberships for a collaboration. The privacy budget template is created in
-  the collaboration that this membership belongs to. Accepts a membership ID.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for one of
+  your memberships for a collaboration. The privacy budget template is created
+  in the collaboration that this membership belongs to. Accepts a membership
+  ID.
+  ## Keyword parameters:
   """
-
   @spec create_privacy_budget_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_privacy_budget_template_errors()}
-
   def create_privacy_budget_template(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates"
 
@@ -4646,19 +4605,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteAnalysisTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_template_identifier` (`t:string`) The identifier for the analysis
-  template resource.
-  * `:membership_identifier` (`t:string`) The identifier for a membership
+  * `:analysis_template_identifier` (`t:string` required) The identifier for the
+  analysis template resource.
+  * `:membership_identifier` (`t:string` required) The identifier for a membership
   resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_analysis_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_analysis_template_errors()}
-
   def delete_analysis_template(
         %Client{} = client,
         analysis_template_identifier,
@@ -4711,16 +4667,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteCollaboration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) The identifier for the collaboration.
-
-  ## Optional parameters:
+  * `:collaboration_identifier` (`t:string` required) The identifier for the
+  collaboration.
+  ## Keyword parameters:
   """
-
   @spec delete_collaboration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_collaboration_errors()}
-
   def delete_collaboration(%Client{} = client, collaboration_identifier, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
 
@@ -4768,15 +4722,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteConfiguredAudienceModelAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_audience_model_association_identifier` (`t:string`) A unique
-  identifier of the configured audience model association that you want to
+  * `:configured_audience_model_association_identifier` (`t:string` required) A
+  unique identifier of the configured audience model association that you want
+  to delete.
+  * `:membership_identifier` (`t:string` required) A unique identifier of the
+  membership that contains the audience model association that you want to
   delete.
-  * `:membership_identifier` (`t:string`) A unique identifier of the membership
-  that contains the audience model association that you want to delete.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_configured_audience_model_association(
           AWS.Client.t(),
           String.t(),
@@ -4786,7 +4739,6 @@ defmodule AWS.CleanRooms do
           {:ok, delete_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configured_audience_model_association_errors()}
-
   def delete_configured_audience_model_association(
         %Client{} = client,
         configured_audience_model_association_identifier,
@@ -4839,17 +4791,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteConfiguredTable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_table_identifier` (`t:string`) The unique ID for the configured
-  table to delete.
-
-  ## Optional parameters:
+  * `:configured_table_identifier` (`t:string` required) The unique ID for the
+  configured table to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_configured_table(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configured_table_errors()}
-
   def delete_configured_table(%Client{} = client, configured_table_identifier, options \\ []) do
     url_path = "/configuredTables/#{AWS.Util.encode_uri(configured_table_identifier)}"
 
@@ -4896,21 +4845,19 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteConfiguredTableAnalysisRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]`) The analysis rule
-  type to be deleted. Configured table analysis rules are uniquely identified
-  by their configured table identifier and analysis rule type.
-  * `:configured_table_identifier` (`t:string`) The unique identifier for the
-  configured table that the analysis rule applies to. Currently accepts the
-  configured table ID.
-
-  ## Optional parameters:
+  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]` required) The
+  analysis rule type to be deleted. Configured table analysis rules are
+  uniquely identified by their configured table identifier and analysis rule
+  type.
+  * `:configured_table_identifier` (`t:string` required) The unique identifier for
+  the configured table that the analysis rule applies to. Currently accepts
+  the configured table ID.
+  ## Keyword parameters:
   """
-
   @spec delete_configured_table_analysis_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configured_table_analysis_rule_errors()}
-
   def delete_configured_table_analysis_rule(
         %Client{} = client,
         analysis_rule_type,
@@ -4963,21 +4910,18 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteConfiguredTableAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_table_association_identifier` (`t:string`) The unique ID for the
-  configured table association to be deleted. Currently accepts the configured
-  table ID.
-  * `:membership_identifier` (`t:string`) A unique identifier for the membership
-  that the configured table association belongs to. Currently accepts the
-  membership ID.
-
-  ## Optional parameters:
+  * `:configured_table_association_identifier` (`t:string` required) The unique ID
+  for the configured table association to be deleted. Currently accepts the
+  configured table ID.
+  * `:membership_identifier` (`t:string` required) A unique identifier for the
+  membership that the configured table association belongs to. Currently
+  accepts the membership ID.
+  ## Keyword parameters:
   """
-
   @spec delete_configured_table_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configured_table_association_errors()}
-
   def delete_configured_table_association(
         %Client{} = client,
         configured_table_association_identifier,
@@ -5030,18 +4974,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteConfiguredTableAssociationAnalysisRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]`) The type of the
-  analysis rule that you want to delete.
-  * `:configured_table_association_identifier` (`t:string`) The identiﬁer for the
-  conﬁgured table association that's related to the analysis rule that you
-  want to delete.
-  * `:membership_identifier` (`t:string`) A unique identifier for the membership
-  that the configured table association belongs to. Currently accepts the
-  membership ID.
-
-  ## Optional parameters:
+  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]` required) The type
+  of the analysis rule that you want to delete.
+  * `:configured_table_association_identifier` (`t:string` required) The identiﬁer
+  for the conﬁgured table association that's related to the analysis rule that
+  you want to delete.
+  * `:membership_identifier` (`t:string` required) A unique identifier for the
+  membership that the configured table association belongs to. Currently
+  accepts the membership ID.
+  ## Keyword parameters:
   """
-
   @spec delete_configured_table_association_analysis_rule(
           AWS.Client.t(),
           String.t(),
@@ -5052,7 +4994,6 @@ defmodule AWS.CleanRooms do
           {:ok, delete_configured_table_association_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configured_table_association_analysis_rule_errors()}
-
   def delete_configured_table_association_analysis_rule(
         %Client{} = client,
         analysis_rule_type,
@@ -5106,19 +5047,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteIdMappingTable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id_mapping_table_identifier` (`t:string`) The unique identifier of the ID
-  mapping table that you want to delete.
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID mapping table that you want to delete.
-
-  ## Optional parameters:
+  * `:id_mapping_table_identifier` (`t:string` required) The unique identifier of
+  the ID mapping table that you want to delete.
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID mapping table that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_id_mapping_table(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_id_mapping_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_id_mapping_table_errors()}
-
   def delete_id_mapping_table(
         %Client{} = client,
         id_mapping_table_identifier,
@@ -5171,19 +5109,17 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteIdNamespaceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id_namespace_association_identifier` (`t:string`) The unique identifier of
-  the ID namespace association that you want to delete.
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID namespace association that you want to delete.
-
-  ## Optional parameters:
+  * `:id_namespace_association_identifier` (`t:string` required) The unique
+  identifier of the ID namespace association that you want to delete.
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID namespace association that you want to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_id_namespace_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_id_namespace_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_id_namespace_association_errors()}
-
   def delete_id_namespace_association(
         %Client{} = client,
         id_namespace_association_identifier,
@@ -5238,18 +5174,15 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The account ID of the member to remove.
-  * `:collaboration_identifier` (`t:string`) The unique identifier for the
-  associated collaboration.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The account ID of the member to remove.
+  * `:collaboration_identifier` (`t:string` required) The unique identifier for
+  the associated collaboration.
+  ## Keyword parameters:
   """
-
   @spec delete_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_member_errors()}
-
   def delete_member(%Client{} = client, account_id, collaboration_identifier, options \\ []) do
     url_path =
       "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/member/#{AWS.Util.encode_uri(account_id)}"
@@ -5298,17 +5231,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeleteMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The identifier for a membership
+  * `:membership_identifier` (`t:string` required) The identifier for a membership
   resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_membership(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_membership_errors()}
-
   def delete_membership(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
 
@@ -5355,20 +5285,18 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20DeletePrivacyBudgetTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for one of your
-  memberships for a collaboration. The privacy budget template is deleted from
-  the collaboration that this membership belongs to. Accepts a membership ID.
-  * `:privacy_budget_template_identifier` (`t:string`) A unique identifier for
-  your privacy budget template.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for one of
+  your memberships for a collaboration. The privacy budget template is deleted
+  from the collaboration that this membership belongs to. Accepts a membership
+  ID.
+  * `:privacy_budget_template_identifier` (`t:string` required) A unique
+  identifier for your privacy budget template.
+  ## Keyword parameters:
   """
-
   @spec delete_privacy_budget_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_privacy_budget_template_errors()}
-
   def delete_privacy_budget_template(
         %Client{} = client,
         membership_identifier,
@@ -5421,19 +5349,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetAnalysisTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_template_identifier` (`t:string`) The identifier for the analysis
-  template resource.
-  * `:membership_identifier` (`t:string`) The identifier for a membership
+  * `:analysis_template_identifier` (`t:string` required) The identifier for the
+  analysis template resource.
+  * `:membership_identifier` (`t:string` required) The identifier for a membership
   resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_analysis_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_analysis_template_errors()}
-
   def get_analysis_template(
         %Client{} = client,
         analysis_template_identifier,
@@ -5474,16 +5399,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetCollaboration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) The identifier for the collaboration.
-
-  ## Optional parameters:
+  * `:collaboration_identifier` (`t:string` required) The identifier for the
+  collaboration.
+  ## Keyword parameters:
   """
-
   @spec get_collaboration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_collaboration_errors()}
-
   def get_collaboration(%Client{} = client, collaboration_identifier, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
 
@@ -5518,20 +5441,17 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetCollaborationAnalysisTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_template_arn` (`t:string`) The Amazon Resource Name (ARN)
+  * `:analysis_template_arn` (`t:string` required) The Amazon Resource Name (ARN)
   associated with the analysis template within a collaboration.
-  * `:collaboration_identifier` (`t:string`) A unique identifier for the
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for the
   collaboration that the analysis templates belong to. Currently accepts
   collaboration ID.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_collaboration_analysis_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_collaboration_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_collaboration_analysis_template_errors()}
-
   def get_collaboration_analysis_template(
         %Client{} = client,
         analysis_template_arn,
@@ -5572,16 +5492,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetCollaborationConfiguredAudienceModelAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for the
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for the
   collaboration that the configured audience model association belongs to.
   Accepts a collaboration ID.
-  * `:configured_audience_model_association_identifier` (`t:string`) A unique
-  identifier for the configured audience model association that you want to
-  retrieve.
-
-  ## Optional parameters:
+  * `:configured_audience_model_association_identifier` (`t:string` required) A
+  unique identifier for the configured audience model association that you
+  want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_collaboration_configured_audience_model_association(
           AWS.Client.t(),
           String.t(),
@@ -5591,7 +5509,6 @@ defmodule AWS.CleanRooms do
           {:ok, get_collaboration_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_collaboration_configured_audience_model_association_errors()}
-
   def get_collaboration_configured_audience_model_association(
         %Client{} = client,
         collaboration_identifier,
@@ -5632,15 +5549,13 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetCollaborationIdNamespaceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) The unique identifier of the
+  * `:collaboration_identifier` (`t:string` required) The unique identifier of the
   collaboration that contains the ID namespace association that you want to
   retrieve.
-  * `:id_namespace_association_identifier` (`t:string`) The unique identifier of
-  the ID namespace association that you want to retrieve.
-
-  ## Optional parameters:
+  * `:id_namespace_association_identifier` (`t:string` required) The unique
+  identifier of the ID namespace association that you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_collaboration_id_namespace_association(
           AWS.Client.t(),
           String.t(),
@@ -5650,7 +5565,6 @@ defmodule AWS.CleanRooms do
           {:ok, get_collaboration_id_namespace_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_collaboration_id_namespace_association_errors()}
-
   def get_collaboration_id_namespace_association(
         %Client{} = client,
         collaboration_identifier,
@@ -5691,14 +5605,12 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetCollaborationPrivacyBudgetTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for one of your
-  collaborations.
-  * `:privacy_budget_template_identifier` (`t:string`) A unique identifier for one
-  of your privacy budget templates.
-
-  ## Optional parameters:
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for one
+  of your collaborations.
+  * `:privacy_budget_template_identifier` (`t:string` required) A unique
+  identifier for one of your privacy budget templates.
+  ## Keyword parameters:
   """
-
   @spec get_collaboration_privacy_budget_template(
           AWS.Client.t(),
           String.t(),
@@ -5708,7 +5620,6 @@ defmodule AWS.CleanRooms do
           {:ok, get_collaboration_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_collaboration_privacy_budget_template_errors()}
-
   def get_collaboration_privacy_budget_template(
         %Client{} = client,
         collaboration_identifier,
@@ -5749,16 +5660,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetConfiguredAudienceModelAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_audience_model_association_identifier` (`t:string`) A unique
-  identifier for the configured audience model association that you want to
-  retrieve.
-  * `:membership_identifier` (`t:string`) A unique identifier for the membership
-  that contains the configured audience model association that you want to
-  retrieve.
-
-  ## Optional parameters:
+  * `:configured_audience_model_association_identifier` (`t:string` required) A
+  unique identifier for the configured audience model association that you
+  want to retrieve.
+  * `:membership_identifier` (`t:string` required) A unique identifier for the
+  membership that contains the configured audience model association that you
+  want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_configured_audience_model_association(
           AWS.Client.t(),
           String.t(),
@@ -5768,7 +5677,6 @@ defmodule AWS.CleanRooms do
           {:ok, get_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_audience_model_association_errors()}
-
   def get_configured_audience_model_association(
         %Client{} = client,
         configured_audience_model_association_identifier,
@@ -5809,17 +5717,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetConfiguredTable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_table_identifier` (`t:string`) The unique ID for the configured
-  table to retrieve.
-
-  ## Optional parameters:
+  * `:configured_table_identifier` (`t:string` required) The unique ID for the
+  configured table to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_configured_table(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_table_errors()}
-
   def get_configured_table(%Client{} = client, configured_table_identifier, options \\ []) do
     url_path = "/configuredTables/#{AWS.Util.encode_uri(configured_table_identifier)}"
 
@@ -5854,20 +5759,17 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetConfiguredTableAnalysisRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]`) The analysis rule
-  to be retrieved. Configured table analysis rules are uniquely identified by
-  their configured table identifier and analysis rule type.
-  * `:configured_table_identifier` (`t:string`) The unique identifier for the
-  configured table to retrieve. Currently accepts the configured table ID.
-
-  ## Optional parameters:
+  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]` required) The
+  analysis rule to be retrieved. Configured table analysis rules are uniquely
+  identified by their configured table identifier and analysis rule type.
+  * `:configured_table_identifier` (`t:string` required) The unique identifier for
+  the configured table to retrieve. Currently accepts the configured table ID.
+  ## Keyword parameters:
   """
-
   @spec get_configured_table_analysis_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_table_analysis_rule_errors()}
-
   def get_configured_table_analysis_rule(
         %Client{} = client,
         analysis_rule_type,
@@ -5908,21 +5810,18 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetConfiguredTableAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_table_association_identifier` (`t:string`) The unique ID for the
-  configured table association to retrieve. Currently accepts the configured
-  table ID.
-  * `:membership_identifier` (`t:string`) A unique identifier for the membership
-  that the configured table association belongs to. Currently accepts the
-  membership ID.
-
-  ## Optional parameters:
+  * `:configured_table_association_identifier` (`t:string` required) The unique ID
+  for the configured table association to retrieve. Currently accepts the
+  configured table ID.
+  * `:membership_identifier` (`t:string` required) A unique identifier for the
+  membership that the configured table association belongs to. Currently
+  accepts the membership ID.
+  ## Keyword parameters:
   """
-
   @spec get_configured_table_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_table_association_errors()}
-
   def get_configured_table_association(
         %Client{} = client,
         configured_table_association_identifier,
@@ -5963,17 +5862,15 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetConfiguredTableAssociationAnalysisRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]`) The type of
-  analysis rule that you want to retrieve.
-  * `:configured_table_association_identifier` (`t:string`) The identiﬁer for the
-  conﬁgured table association that's related to the analysis rule.
-  * `:membership_identifier` (`t:string`) A unique identifier for the membership
-  that the configured table association belongs to. Currently accepts the
-  membership ID.
-
-  ## Optional parameters:
+  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]` required) The type
+  of analysis rule that you want to retrieve.
+  * `:configured_table_association_identifier` (`t:string` required) The identiﬁer
+  for the conﬁgured table association that's related to the analysis rule.
+  * `:membership_identifier` (`t:string` required) A unique identifier for the
+  membership that the configured table association belongs to. Currently
+  accepts the membership ID.
+  ## Keyword parameters:
   """
-
   @spec get_configured_table_association_analysis_rule(
           AWS.Client.t(),
           String.t(),
@@ -5984,7 +5881,6 @@ defmodule AWS.CleanRooms do
           {:ok, get_configured_table_association_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_table_association_analysis_rule_errors()}
-
   def get_configured_table_association_analysis_rule(
         %Client{} = client,
         analysis_rule_type,
@@ -6026,19 +5922,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetIdMappingTable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id_mapping_table_identifier` (`t:string`) The unique identifier of the ID
-  mapping table identifier that you want to retrieve.
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID mapping table that you want to retrieve.
-
-  ## Optional parameters:
+  * `:id_mapping_table_identifier` (`t:string` required) The unique identifier of
+  the ID mapping table identifier that you want to retrieve.
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID mapping table that you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_id_mapping_table(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_mapping_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_id_mapping_table_errors()}
-
   def get_id_mapping_table(
         %Client{} = client,
         id_mapping_table_identifier,
@@ -6079,19 +5972,17 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetIdNamespaceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id_namespace_association_identifier` (`t:string`) The unique identifier of
-  the ID namespace association that you want to retrieve.
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID namespace association that you want to retrieve.
-
-  ## Optional parameters:
+  * `:id_namespace_association_identifier` (`t:string` required) The unique
+  identifier of the ID namespace association that you want to retrieve.
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID namespace association that you want to
+  retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_id_namespace_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_namespace_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_id_namespace_association_errors()}
-
   def get_id_namespace_association(
         %Client{} = client,
         id_namespace_association_identifier,
@@ -6132,17 +6023,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The identifier for a membership
+  * `:membership_identifier` (`t:string` required) The identifier for a membership
   resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_membership(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_membership_errors()}
-
   def get_membership(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
 
@@ -6177,21 +6065,18 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetPrivacyBudgetTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for one of your
-  memberships for a collaboration. The privacy budget template is retrieved
-  from the collaboration that this membership belongs to. Accepts a membership
-  ID.
-  * `:privacy_budget_template_identifier` (`t:string`) A unique identifier for
-  your privacy budget template.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for one of
+  your memberships for a collaboration. The privacy budget template is
+  retrieved from the collaboration that this membership belongs to. Accepts a
+  membership ID.
+  * `:privacy_budget_template_identifier` (`t:string` required) A unique
+  identifier for your privacy budget template.
+  ## Keyword parameters:
   """
-
   @spec get_privacy_budget_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_privacy_budget_template_errors()}
-
   def get_privacy_budget_template(
         %Client{} = client,
         membership_identifier,
@@ -6232,19 +6117,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetProtectedQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The identifier for a membership in a
+  * `:membership_identifier` (`t:string` required) The identifier for a membership
+  in a protected query instance.
+  * `:protected_query_identifier` (`t:string` required) The identifier for a
   protected query instance.
-  * `:protected_query_identifier` (`t:string`) The identifier for a protected
-  query instance.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_protected_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_protected_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_protected_query_errors()}
-
   def get_protected_query(
         %Client{} = client,
         membership_identifier,
@@ -6285,19 +6167,17 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for the
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for the
   collaboration that the schema belongs to. Currently accepts a collaboration
   ID.
-  * `:name` (`t:string`) The name of the relation to retrieve the schema for.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the relation to retrieve the schema
+  for.
+  ## Keyword parameters:
   """
-
   @spec get_schema(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_errors()}
-
   def get_schema(%Client{} = client, collaboration_identifier, name, options \\ []) do
     url_path =
       "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/schemas/#{AWS.Util.encode_uri(name)}"
@@ -6333,23 +6213,21 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20GetSchemaAnalysisRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for the
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for the
   collaboration that the schema belongs to. Currently accepts a collaboration
   ID.
-  * `:name` (`t:string`) The name of the schema to retrieve the analysis rule for.
-  * `:type` (`t:enum["AGGREGATION|CUSTOM|ID_MAPPING_TABLE|LIST"]`) The type of the
-  schema analysis rule to retrieve. Schema analysis rules are uniquely
-  identified by a combination of the collaboration, the schema name, and their
-  type.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schema to retrieve the analysis
+  rule for.
+  * `:type` (`t:enum["AGGREGATION|CUSTOM|ID_MAPPING_TABLE|LIST"]` required) The
+  type of the schema analysis rule to retrieve. Schema analysis rules are
+  uniquely identified by a combination of the collaboration, the schema name,
+  and their type.
+  ## Keyword parameters:
   """
-
   @spec get_schema_analysis_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_schema_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_analysis_rule_errors()}
-
   def get_schema_analysis_rule(
         %Client{} = client,
         collaboration_identifier,
@@ -6391,21 +6269,18 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListAnalysisTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The identifier for a membership
+  * `:membership_identifier` (`t:string` required) The identifier for a membership
   resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_analysis_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_analysis_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analysis_templates_errors()}
-
   def list_analysis_templates(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates"
 
@@ -6458,22 +6333,19 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListCollaborationAnalysisTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for the
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for the
   collaboration that the analysis templates belong to. Currently accepts
   collaboration ID.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_collaboration_analysis_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_collaboration_analysis_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collaboration_analysis_templates_errors()}
-
   def list_collaboration_analysis_templates(
         %Client{} = client,
         collaboration_identifier,
@@ -6531,17 +6403,15 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListCollaborationConfiguredAudienceModelAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for the
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for the
   collaboration that the configured audience model association belongs to.
   Accepts a collaboration ID.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_collaboration_configured_audience_model_associations(
           AWS.Client.t(),
           String.t(),
@@ -6550,7 +6420,6 @@ defmodule AWS.CleanRooms do
           {:ok, list_collaboration_configured_audience_model_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collaboration_configured_audience_model_associations_errors()}
-
   def list_collaboration_configured_audience_model_associations(
         %Client{} = client,
         collaboration_identifier,
@@ -6608,23 +6477,20 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListCollaborationIdNamespaceAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) The unique identifier of the
+  * `:collaboration_identifier` (`t:string` required) The unique identifier of the
   collaboration that contains the ID namespace associations that you want to
   retrieve.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call. Service chooses a default if it has not been set. Service may
   return a nextToken even if the maximum results has not been met.>
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_collaboration_id_namespace_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_collaboration_id_namespace_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collaboration_id_namespace_associations_errors()}
-
   def list_collaboration_id_namespace_associations(
         %Client{} = client,
         collaboration_identifier,
@@ -6683,22 +6549,19 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListCollaborationPrivacyBudgetTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for one of your
-  collaborations.
-
-  ## Optional parameters:
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for one
+  of your collaborations.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call. Service chooses a default if it has not been set. Service may
   return a nextToken even if the maximum results has not been met.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_collaboration_privacy_budget_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_collaboration_privacy_budget_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collaboration_privacy_budget_templates_errors()}
-
   def list_collaboration_privacy_budget_templates(
         %Client{} = client,
         collaboration_identifier,
@@ -6758,24 +6621,21 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListCollaborationPrivacyBudgets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for one of your
-  collaborations.
-  * `:privacy_budget_type` (`t:enum["DIFFERENTIAL_PRIVACY"]`) Specifies the type
-  of the privacy budget.
-
-  ## Optional parameters:
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for one
+  of your collaborations.
+  * `:privacy_budget_type` (`t:enum["DIFFERENTIAL_PRIVACY"]` required) Specifies
+  the type of the privacy budget.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call. Service chooses a default if it has not been set. Service may
   return a nextToken even if the maximum results has not been met.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_collaboration_privacy_budgets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_collaboration_privacy_budgets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collaboration_privacy_budgets_errors()}
-
   def list_collaboration_privacy_budgets(
         %Client{} = client,
         collaboration_identifier,
@@ -6834,8 +6694,7 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListCollaborations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call. Service chooses a default if it has not been set. Service may
   return a nextToken even if the maximum results has not been met.
@@ -6843,12 +6702,10 @@ defmodule AWS.CleanRooms do
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_collaborations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_collaborations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collaborations_errors()}
-
   def list_collaborations(%Client{} = client, options \\ []) do
     url_path = "/collaborations"
 
@@ -6908,23 +6765,20 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListConfiguredAudienceModelAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for a membership
-  that contains the configured audience model associations that you want to
-  retrieve.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for a
+  membership that contains the configured audience model associations that you
+  want to retrieve.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call. Service chooses a default if it has not been set. Service may
   return a nextToken even if the maximum results has not been met.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_configured_audience_model_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configured_audience_model_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configured_audience_model_associations_errors()}
-
   def list_configured_audience_model_associations(
         %Client{} = client,
         membership_identifier,
@@ -6982,22 +6836,19 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListConfiguredTableAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for the membership
-  to list configured table associations for. Currently accepts the membership
-  ID.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for the
+  membership to list configured table associations for. Currently accepts the
+  membership ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_configured_table_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configured_table_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configured_table_associations_errors()}
-
   def list_configured_table_associations(%Client{} = client, membership_identifier, options \\ []) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations"
@@ -7051,19 +6902,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListConfiguredTables&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_configured_tables(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configured_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configured_tables_errors()}
-
   def list_configured_tables(%Client{} = client, options \\ []) do
     url_path = "/configuredTables"
 
@@ -7116,22 +6964,19 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListIdMappingTables&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID mapping tables that you want to view.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID mapping tables that you want to view.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call. Service chooses a default if it has not been set. Service may
   return a nextToken even if the maximum results has not been met.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_id_mapping_tables(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_id_mapping_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_id_mapping_tables_errors()}
-
   def list_id_mapping_tables(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables"
 
@@ -7184,22 +7029,19 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListIdNamespaceAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID namespace association that you want to view.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID namespace association that you want to view.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call. Service chooses a default if it has not been set. Service may
   return a nextToken even if the maximum results has not been met.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_id_namespace_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_id_namespace_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_id_namespace_associations_errors()}
-
   def list_id_namespace_associations(%Client{} = client, membership_identifier, options \\ []) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations"
@@ -7253,21 +7095,18 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) The identifier of the collaboration
-  in which the members are listed.
-
-  ## Optional parameters:
+  * `:collaboration_identifier` (`t:string` required) The identifier of the
+  collaboration in which the members are listed.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_members_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
-
   def list_members(%Client{} = client, collaboration_identifier, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/members"
 
@@ -7320,8 +7159,7 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListMemberships&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
@@ -7329,12 +7167,10 @@ defmodule AWS.CleanRooms do
   * `:status` (`t:string`) A filter which will return only memberships in the
   specified status.
   """
-
   @spec list_memberships(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_memberships_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_memberships_errors()}
-
   def list_memberships(%Client{} = client, options \\ []) do
     url_path = "/memberships"
 
@@ -7395,24 +7231,21 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListPrivacyBudgetTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for one of your
-  memberships for a collaboration. The privacy budget templates are retrieved
-  from the collaboration that this membership belongs to. Accepts a membership
-  ID.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for one of
+  your memberships for a collaboration. The privacy budget templates are
+  retrieved from the collaboration that this membership belongs to. Accepts a
+  membership ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call. Service chooses a default if it has not been set. Service may
   return a nextToken even if the maximum results has not been met.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_privacy_budget_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_privacy_budget_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_privacy_budget_templates_errors()}
-
   def list_privacy_budget_templates(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates"
 
@@ -7466,25 +7299,22 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListPrivacyBudgets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for one of your
-  memberships for a collaboration. The privacy budget is retrieved from the
-  collaboration that this membership belongs to. Accepts a membership ID.
-  * `:privacy_budget_type` (`t:enum["DIFFERENTIAL_PRIVACY"]`) The privacy budget
-  type.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for one of
+  your memberships for a collaboration. The privacy budget is retrieved from
+  the collaboration that this membership belongs to. Accepts a membership ID.
+  * `:privacy_budget_type` (`t:enum["DIFFERENTIAL_PRIVACY"]` required) The privacy
+  budget type.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call. Service chooses a default if it has not been set. Service may
   return a nextToken even if the maximum results has not been met.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_privacy_budgets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_privacy_budgets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_privacy_budgets_errors()}
-
   def list_privacy_budgets(
         %Client{} = client,
         membership_identifier,
@@ -7543,10 +7373,9 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListProtectedQueries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The identifier for the membership in the
-  collaboration.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) The identifier for the
+  membership in the collaboration.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call. Service chooses a default if it has not been set. Service can
   return a nextToken even if the maximum results has not been met.
@@ -7554,12 +7383,10 @@ defmodule AWS.CleanRooms do
   access the next page of results.
   * `:status` (`t:string`) A filter on the status of the protected query.
   """
-
   @spec list_protected_queries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_protected_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_protected_queries_errors()}
-
   def list_protected_queries(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedQueries"
 
@@ -7619,11 +7446,10 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListSchemas&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) A unique identifier for the
+  * `:collaboration_identifier` (`t:string` required) A unique identifier for the
   collaboration that the schema belongs to. Currently accepts a collaboration
   ID.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
   per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
@@ -7631,12 +7457,10 @@ defmodule AWS.CleanRooms do
   * `:schema_type` (`t:enum["ID_MAPPING_TABLE|TABLE"]`) If present, filter schemas
   by schema type. The only valid schema type is currently `TABLE`.
   """
-
   @spec list_schemas(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_schemas_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schemas_errors()}
-
   def list_schemas(%Client{} = client, collaboration_identifier, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/schemas"
 
@@ -7696,17 +7520,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with
-  the resource you want to list tags on.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  associated with the resource you want to list tags on.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7741,19 +7562,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20PopulateIdMappingTable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id_mapping_table_identifier` (`t:string`) The unique identifier of the ID
-  mapping table that you want to populate.
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID mapping table that you want to populate.
-
-  ## Optional parameters:
+  * `:id_mapping_table_identifier` (`t:string` required) The unique identifier of
+  the ID mapping table that you want to populate.
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID mapping table that you want to populate.
+  ## Keyword parameters:
   """
-
   @spec populate_id_mapping_table(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, populate_id_mapping_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, populate_id_mapping_table_errors()}
-
   def populate_id_mapping_table(
         %Client{} = client,
         id_mapping_table_identifier,
@@ -7797,17 +7615,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20PreviewPrivacyImpact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for one of your
-  memberships for a collaboration. Accepts a membership ID.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for one of
+  your memberships for a collaboration. Accepts a membership ID.
+  ## Keyword parameters:
   """
-
   @spec preview_privacy_impact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, preview_privacy_impact_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, preview_privacy_impact_errors()}
-
   def preview_privacy_impact(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/previewprivacyimpact"
 
@@ -7844,17 +7659,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20StartProtectedQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for the membership
-  to run this query against. Currently accepts a membership ID.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for the
+  membership to run this query against. Currently accepts a membership ID.
+  ## Keyword parameters:
   """
-
   @spec start_protected_query(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_protected_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_protected_query_errors()}
-
   def start_protected_query(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedQueries"
 
@@ -7891,17 +7703,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with
-  the resource you want to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  associated with the resource you want to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7938,19 +7747,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with
-  the resource you want to remove the tag from.
-  * `:tag_keys` (`t:list[com.amazonaws.cleanrooms#TagKey]`) A list of key names of
-  tags to be removed.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  associated with the resource you want to remove the tag from.
+  * `:tag_keys` (`t:list[com.amazonaws.cleanrooms#TagKey]` required) A list of key
+  names of tags to be removed.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7998,19 +7804,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateAnalysisTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_template_identifier` (`t:string`) The identifier for the analysis
-  template resource.
-  * `:membership_identifier` (`t:string`) The identifier for a membership
+  * `:analysis_template_identifier` (`t:string` required) The identifier for the
+  analysis template resource.
+  * `:membership_identifier` (`t:string` required) The identifier for a membership
   resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_analysis_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_analysis_template_errors()}
-
   def update_analysis_template(
         %Client{} = client,
         analysis_template_identifier,
@@ -8064,16 +7867,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateCollaboration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collaboration_identifier` (`t:string`) The identifier for the collaboration.
-
-  ## Optional parameters:
+  * `:collaboration_identifier` (`t:string` required) The identifier for the
+  collaboration.
+  ## Keyword parameters:
   """
-
   @spec update_collaboration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_collaboration_errors()}
-
   def update_collaboration(%Client{} = client, collaboration_identifier, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
 
@@ -8121,16 +7922,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateConfiguredAudienceModelAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_audience_model_association_identifier` (`t:string`) A unique
-  identifier for the configured audience model association that you want to
-  update.
-  * `:membership_identifier` (`t:string`) A unique identifier of the membership
-  that contains the configured audience model association that you want to
-  update.
-
-  ## Optional parameters:
+  * `:configured_audience_model_association_identifier` (`t:string` required) A
+  unique identifier for the configured audience model association that you
+  want to update.
+  * `:membership_identifier` (`t:string` required) A unique identifier of the
+  membership that contains the configured audience model association that you
+  want to update.
+  ## Keyword parameters:
   """
-
   @spec update_configured_audience_model_association(
           AWS.Client.t(),
           String.t(),
@@ -8140,7 +7939,6 @@ defmodule AWS.CleanRooms do
           {:ok, update_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configured_audience_model_association_errors()}
-
   def update_configured_audience_model_association(
         %Client{} = client,
         configured_audience_model_association_identifier,
@@ -8193,17 +7991,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateConfiguredTable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_table_identifier` (`t:string`) The identifier for the configured
-  table to update. Currently accepts the configured table ID.
-
-  ## Optional parameters:
+  * `:configured_table_identifier` (`t:string` required) The identifier for the
+  configured table to update. Currently accepts the configured table ID.
+  ## Keyword parameters:
   """
-
   @spec update_configured_table(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configured_table_errors()}
-
   def update_configured_table(%Client{} = client, configured_table_identifier, options \\ []) do
     url_path = "/configuredTables/#{AWS.Util.encode_uri(configured_table_identifier)}"
 
@@ -8250,21 +8045,19 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateConfiguredTableAnalysisRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]`) The analysis rule
-  type to be updated. Configured table analysis rules are uniquely identified
-  by their configured table identifier and analysis rule type.
-  * `:configured_table_identifier` (`t:string`) The unique identifier for the
-  configured table that the analysis rule applies to. Currently accepts the
-  configured table ID.
-
-  ## Optional parameters:
+  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]` required) The
+  analysis rule type to be updated. Configured table analysis rules are
+  uniquely identified by their configured table identifier and analysis rule
+  type.
+  * `:configured_table_identifier` (`t:string` required) The unique identifier for
+  the configured table that the analysis rule applies to. Currently accepts
+  the configured table ID.
+  ## Keyword parameters:
   """
-
   @spec update_configured_table_analysis_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configured_table_analysis_rule_errors()}
-
   def update_configured_table_analysis_rule(
         %Client{} = client,
         analysis_rule_type,
@@ -8317,20 +8110,17 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateConfiguredTableAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configured_table_association_identifier` (`t:string`) The unique identifier
-  for the configured table association to update. Currently accepts the
-  configured table association ID.
-  * `:membership_identifier` (`t:string`) The unique ID for the membership that
-  the configured table association belongs to.
-
-  ## Optional parameters:
+  * `:configured_table_association_identifier` (`t:string` required) The unique
+  identifier for the configured table association to update. Currently accepts
+  the configured table association ID.
+  * `:membership_identifier` (`t:string` required) The unique ID for the
+  membership that the configured table association belongs to.
+  ## Keyword parameters:
   """
-
   @spec update_configured_table_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configured_table_association_errors()}
-
   def update_configured_table_association(
         %Client{} = client,
         configured_table_association_identifier,
@@ -8383,17 +8173,15 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateConfiguredTableAssociationAnalysisRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]`) The analysis rule
-  type that you want to update.
-  * `:configured_table_association_identifier` (`t:string`) The identifier for the
-  configured table association to update.
-  * `:membership_identifier` (`t:string`) A unique identifier for the membership
-  that the configured table association belongs to. Currently accepts the
-  membership ID.
-
-  ## Optional parameters:
+  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]` required) The
+  analysis rule type that you want to update.
+  * `:configured_table_association_identifier` (`t:string` required) The
+  identifier for the configured table association to update.
+  * `:membership_identifier` (`t:string` required) A unique identifier for the
+  membership that the configured table association belongs to. Currently
+  accepts the membership ID.
+  ## Keyword parameters:
   """
-
   @spec update_configured_table_association_analysis_rule(
           AWS.Client.t(),
           String.t(),
@@ -8404,7 +8192,6 @@ defmodule AWS.CleanRooms do
           {:ok, update_configured_table_association_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configured_table_association_analysis_rule_errors()}
-
   def update_configured_table_association_analysis_rule(
         %Client{} = client,
         analysis_rule_type,
@@ -8458,19 +8245,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateIdMappingTable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id_mapping_table_identifier` (`t:string`) The unique identifier of the ID
-  mapping table that you want to update.
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID mapping table that you want to update.
-
-  ## Optional parameters:
+  * `:id_mapping_table_identifier` (`t:string` required) The unique identifier of
+  the ID mapping table that you want to update.
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID mapping table that you want to update.
+  ## Keyword parameters:
   """
-
   @spec update_id_mapping_table(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_id_mapping_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_id_mapping_table_errors()}
-
   def update_id_mapping_table(
         %Client{} = client,
         id_mapping_table_identifier,
@@ -8523,19 +8307,17 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateIdNamespaceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id_namespace_association_identifier` (`t:string`) The unique identifier of
-  the ID namespace association that you want to update.
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership
-  that contains the ID namespace association that you want to update.
-
-  ## Optional parameters:
+  * `:id_namespace_association_identifier` (`t:string` required) The unique
+  identifier of the ID namespace association that you want to update.
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership that contains the ID namespace association that you want to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_id_namespace_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_id_namespace_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_id_namespace_association_errors()}
-
   def update_id_namespace_association(
         %Client{} = client,
         id_namespace_association_identifier,
@@ -8588,16 +8370,14 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The unique identifier of the membership.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) The unique identifier of the
+  membership.
+  ## Keyword parameters:
   """
-
   @spec update_membership(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_membership_errors()}
-
   def update_membership(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
 
@@ -8644,20 +8424,18 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdatePrivacyBudgetTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) A unique identifier for one of your
-  memberships for a collaboration. The privacy budget template is updated in
-  the collaboration that this membership belongs to. Accepts a membership ID.
-  * `:privacy_budget_template_identifier` (`t:string`) A unique identifier for
-  your privacy budget template that you want to update.
-
-  ## Optional parameters:
+  * `:membership_identifier` (`t:string` required) A unique identifier for one of
+  your memberships for a collaboration. The privacy budget template is updated
+  in the collaboration that this membership belongs to. Accepts a membership
+  ID.
+  * `:privacy_budget_template_identifier` (`t:string` required) A unique
+  identifier for your privacy budget template that you want to update.
+  ## Keyword parameters:
   """
-
   @spec update_privacy_budget_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_privacy_budget_template_errors()}
-
   def update_privacy_budget_template(
         %Client{} = client,
         membership_identifier,
@@ -8710,19 +8488,16 @@ defmodule AWS.CleanRooms do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanrooms%20UpdateProtectedQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:membership_identifier` (`t:string`) The identifier for a member of a
+  * `:membership_identifier` (`t:string` required) The identifier for a member of
+  a protected query instance.
+  * `:protected_query_identifier` (`t:string` required) The identifier for a
   protected query instance.
-  * `:protected_query_identifier` (`t:string`) The identifier for a protected
-  query instance.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_protected_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_protected_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_protected_query_errors()}
-
   def update_protected_query(
         %Client{} = client,
         membership_identifier,

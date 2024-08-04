@@ -1243,17 +1243,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_identifier` (`t:string`) The unique identifier of the
+  * `:environment_identifier` (`t:string` required) The unique identifier of the
   environment.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications"
 
@@ -1295,15 +1292,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20CreateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-
   def create_environment(%Client{} = client, options \\ []) do
     url_path = "/environments"
 
@@ -1348,19 +1342,16 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20CreateRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) The ID of the application within which
-  the route is being created.
-  * `:environment_identifier` (`t:string`) The ID of the environment in which the
-  route is created.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) The ID of the application
+  within which the route is being created.
+  * `:environment_identifier` (`t:string` required) The ID of the environment in
+  which the route is created.
+  ## Keyword parameters:
   """
-
   @spec create_route(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_route_errors()}
-
   def create_route(
         %Client{} = client,
         application_identifier,
@@ -1406,19 +1397,16 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20CreateService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) The ID of the application which the
-  service is created.
-  * `:environment_identifier` (`t:string`) The ID of the environment in which the
-  service is created.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) The ID of the application
+  which the service is created.
+  * `:environment_identifier` (`t:string` required) The ID of the environment in
+  which the service is created.
+  ## Keyword parameters:
   """
-
   @spec create_service(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_errors()}
-
   def create_service(
         %Client{} = client,
         application_identifier,
@@ -1463,17 +1451,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20DeleteApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) The ID of the application.
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) The ID of the application.
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  ## Keyword parameters:
   """
-
   @spec delete_application(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(
         %Client{} = client,
         application_identifier,
@@ -1528,16 +1513,13 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20DeleteEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-
-  ## Optional parameters:
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  ## Keyword parameters:
   """
-
   @spec delete_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-
   def delete_environment(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}"
 
@@ -1584,17 +1566,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) Amazon Resource Name (ARN) of the resource
+  * `:identifier` (`t:string` required) Amazon Resource Name (ARN) of the resource
   associated with the policy.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(identifier)}"
 
@@ -1641,20 +1620,17 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20DeleteRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) The ID of the application to delete the
-  route from.
-  * `:environment_identifier` (`t:string`) The ID of the environment to delete the
-  route from.
-  * `:route_identifier` (`t:string`) The ID of the route to delete.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) The ID of the application to
+  delete the route from.
+  * `:environment_identifier` (`t:string` required) The ID of the environment to
+  delete the route from.
+  * `:route_identifier` (`t:string` required) The ID of the route to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_route_errors()}
-
   def delete_route(
         %Client{} = client,
         application_identifier,
@@ -1708,19 +1684,17 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20DeleteService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) Deletes a Refactor Spaces service.
-  * `:environment_identifier` (`t:string`) The ID of the environment that the
-  service is in.
-  * `:service_identifier` (`t:string`) The ID of the service to delete.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) Deletes a Refactor Spaces
+  service.
+  * `:environment_identifier` (`t:string` required) The ID of the environment that
+  the service is in.
+  * `:service_identifier` (`t:string` required) The ID of the service to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_service(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_errors()}
-
   def delete_service(
         %Client{} = client,
         application_identifier,
@@ -1774,17 +1748,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20GetApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) The ID of the application.
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) The ID of the application.
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  ## Keyword parameters:
   """
-
   @spec get_application(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-
   def get_application(
         %Client{} = client,
         application_identifier,
@@ -1825,16 +1796,13 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20GetEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-
-  ## Optional parameters:
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  ## Keyword parameters:
   """
-
   @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
-
   def get_environment(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}"
 
@@ -1869,17 +1837,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20GetResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  associated with the policy.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource associated with the policy.
+  ## Keyword parameters:
   """
-
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-
   def get_resource_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(identifier)}"
 
@@ -1914,18 +1879,15 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20GetRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) The ID of the application.
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-  * `:route_identifier` (`t:string`) The ID of the route.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) The ID of the application.
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  * `:route_identifier` (`t:string` required) The ID of the route.
+  ## Keyword parameters:
   """
-
   @spec get_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_route_errors()}
-
   def get_route(
         %Client{} = client,
         application_identifier,
@@ -1967,18 +1929,15 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20GetService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) The ID of the application.
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-  * `:service_identifier` (`t:string`) The ID of the service.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) The ID of the application.
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  * `:service_identifier` (`t:string` required) The ID of the service.
+  ## Keyword parameters:
   """
-
   @spec get_service(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_errors()}
-
   def get_service(
         %Client{} = client,
         application_identifier,
@@ -2021,20 +1980,17 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-
-  ## Optional parameters:
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
   single call. To retrieve the remaining results, make another call with the
   returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_applications(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-
   def list_applications(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications"
 
@@ -2088,20 +2044,17 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20ListEnvironmentVpcs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-
-  ## Optional parameters:
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
   single call. To retrieve the remaining results, make another call with the
   returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_environment_vpcs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_vpcs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_vpcs_errors()}
-
   def list_environment_vpcs(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}/vpcs"
 
@@ -2155,19 +2108,16 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20ListEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
   single call. To retrieve the remaining results, make another call with the
   returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-
   def list_environments(%Client{} = client, options \\ []) do
     url_path = "/environments"
 
@@ -2221,21 +2171,18 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20ListRoutes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) The ID of the application.
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) The ID of the application.
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
   single call. To retrieve the remaining results, make another call with the
   returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_routes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routes_errors()}
-
   def list_routes(
         %Client{} = client,
         application_identifier,
@@ -2295,21 +2242,18 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20ListServices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) The ID of the application.
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) The ID of the application.
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
   single call. To retrieve the remaining results, make another call with the
   returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_services(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
-
   def list_services(
         %Client{} = client,
         application_identifier,
@@ -2369,16 +2313,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2418,15 +2360,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20PutResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/resourcepolicy"
 
@@ -2466,16 +2405,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2515,18 +2452,16 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.migrationhubrefactorspaces#String]`) The
-  list of keys of the tags to be removed from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.migrationhubrefactorspaces#String]`
+  required) The list of keys of the tags to be removed from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2574,20 +2509,18 @@ defmodule AWS.MigrationHubRefactorSpaces do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubrefactorspaces%20UpdateRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_identifier` (`t:string`) The ID of the application within which
-  the route is being updated.
-  * `:environment_identifier` (`t:string`) The ID of the environment in which the
-  route is being updated.
-  * `:route_identifier` (`t:string`) The unique identifier of the route to update.
-
-  ## Optional parameters:
+  * `:application_identifier` (`t:string` required) The ID of the application
+  within which the route is being updated.
+  * `:environment_identifier` (`t:string` required) The ID of the environment in
+  which the route is being updated.
+  * `:route_identifier` (`t:string` required) The unique identifier of the route
+  to update.
+  ## Keyword parameters:
   """
-
   @spec update_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_route_errors()}
-
   def update_route(
         %Client{} = client,
         application_identifier,

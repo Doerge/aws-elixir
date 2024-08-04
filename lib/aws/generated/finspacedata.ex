@@ -1408,18 +1408,15 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20AssociateUserToPermissionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission
-  group.
-  * `:user_id` (`t:string`) The unique identifier for the user.
-
-  ## Optional parameters:
+  * `:permission_group_id` (`t:string` required) The unique identifier for the
+  permission group.
+  * `:user_id` (`t:string` required) The unique identifier for the user.
+  ## Keyword parameters:
   """
-
   @spec associate_user_to_permission_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_user_to_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_user_to_permission_group_errors()}
-
   def associate_user_to_permission_group(
         %Client{} = client,
         permission_group_id,
@@ -1462,17 +1459,14 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateChangeset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset
-  where the Changeset will be created.
-
-  ## Optional parameters:
+  * `:dataset_id` (`t:string` required) The unique identifier for the FinSpace
+  Dataset where the Changeset will be created.
+  ## Keyword parameters:
   """
-
   @spec create_changeset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_changeset_errors()}
-
   def create_changeset(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2"
 
@@ -1509,17 +1503,14 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateDataView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_id` (`t:string`) The unique Dataset identifier that is used to
-  create a Dataview.
-
-  ## Optional parameters:
+  * `:dataset_id` (`t:string` required) The unique Dataset identifier that is used
+  to create a Dataview.
+  ## Keyword parameters:
   """
-
   @spec create_data_view(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_view_errors()}
-
   def create_data_view(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2"
 
@@ -1556,15 +1547,12 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_dataset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
-
   def create_dataset(%Client{} = client, options \\ []) do
     url_path = "/datasetsv2"
 
@@ -1602,15 +1590,12 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreatePermissionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_permission_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_permission_group_errors()}
-
   def create_permission_group(%Client{} = client, options \\ []) do
     url_path = "/permission-group"
 
@@ -1647,15 +1632,12 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-
   def create_user(%Client{} = client, options \\ []) do
     url_path = "/user"
 
@@ -1692,18 +1674,16 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DeleteDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_id` (`t:string`) The unique identifier of the Dataset to be deleted.
-
-  ## Optional parameters:
+  * `:dataset_id` (`t:string` required) The unique identifier of the Dataset to be
+  deleted.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
   expires in 10 minutes.
   """
-
   @spec delete_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
-
   def delete_dataset(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
 
@@ -1761,19 +1741,16 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DeletePermissionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission
-  group that you want to delete.
-
-  ## Optional parameters:
+  * `:permission_group_id` (`t:string` required) The unique identifier for the
+  permission group that you want to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
   expires in 10 minutes.
   """
-
   @spec delete_permission_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_group_errors()}
-
   def delete_permission_group(%Client{} = client, permission_group_id, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
 
@@ -1831,17 +1808,14 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DisableUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_id` (`t:string`) The unique identifier for the user that you want to
-  deactivate.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The unique identifier for the user that you
+  want to deactivate.
+  ## Keyword parameters:
   """
-
   @spec disable_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_user_errors()}
-
   def disable_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/disable"
 
@@ -1878,15 +1852,13 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DisassociateUserFromPermissionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission
-  group.
-  * `:user_id` (`t:string`) The unique identifier for the user.
-
-  ## Optional parameters:
+  * `:permission_group_id` (`t:string` required) The unique identifier for the
+  permission group.
+  * `:user_id` (`t:string` required) The unique identifier for the user.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
   expires in 10 minutes.
   """
-
   @spec disassociate_user_from_permission_group(
           AWS.Client.t(),
           String.t(),
@@ -1896,7 +1868,6 @@ defmodule AWS.Finspacedata do
           {:ok, disassociate_user_from_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_user_from_permission_group_errors()}
-
   def disassociate_user_from_permission_group(
         %Client{} = client,
         permission_group_id,
@@ -1960,17 +1931,14 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20EnableUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_id` (`t:string`) The unique identifier for the user that you want to
-  activate.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The unique identifier for the user that you
+  want to activate.
+  ## Keyword parameters:
   """
-
   @spec enable_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, enable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_user_errors()}
-
   def enable_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/enable"
 
@@ -2007,19 +1975,16 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetChangeset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:changeset_id` (`t:string`) The unique identifier of the Changeset for which
-  to get data.
-  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset
-  where the Changeset is created.
-
-  ## Optional parameters:
+  * `:changeset_id` (`t:string` required) The unique identifier of the Changeset
+  for which to get data.
+  * `:dataset_id` (`t:string` required) The unique identifier for the FinSpace
+  Dataset where the Changeset is created.
+  ## Keyword parameters:
   """
-
   @spec get_changeset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_changeset_errors()}
-
   def get_changeset(%Client{} = client, changeset_id, dataset_id, options \\ []) do
     url_path =
       "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2/#{AWS.Util.encode_uri(changeset_id)}"
@@ -2055,18 +2020,15 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetDataView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_view_id` (`t:string`) The unique identifier for the Dataview.
-  * `:dataset_id` (`t:string`) The unique identifier for the Dataset used in the
-  Dataview.
-
-  ## Optional parameters:
+  * `:data_view_id` (`t:string` required) The unique identifier for the Dataview.
+  * `:dataset_id` (`t:string` required) The unique identifier for the Dataset used
+  in the Dataview.
+  ## Keyword parameters:
   """
-
   @spec get_data_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_view_errors()}
-
   def get_data_view(%Client{} = client, data_view_id, dataset_id, options \\ []) do
     url_path =
       "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2/#{AWS.Util.encode_uri(data_view_id)}"
@@ -2102,16 +2064,13 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_id` (`t:string`) The unique identifier for a Dataset.
-
-  ## Optional parameters:
+  * `:dataset_id` (`t:string` required) The unique identifier for a Dataset.
+  ## Keyword parameters:
   """
-
   @spec get_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dataset_errors()}
-
   def get_dataset(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
 
@@ -2147,18 +2106,15 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetExternalDataViewAccessDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_view_id` (`t:string`) The unique identifier for the Dataview that you
-  want to access.
-  * `:dataset_id` (`t:string`) The unique identifier for the Dataset.
-
-  ## Optional parameters:
+  * `:data_view_id` (`t:string` required) The unique identifier for the Dataview
+  that you want to access.
+  * `:dataset_id` (`t:string` required) The unique identifier for the Dataset.
+  ## Keyword parameters:
   """
-
   @spec get_external_data_view_access_details(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_external_data_view_access_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_external_data_view_access_details_errors()}
-
   def get_external_data_view_access_details(
         %Client{} = client,
         data_view_id,
@@ -2201,17 +2157,14 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetPermissionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission
-  group.
-
-  ## Optional parameters:
+  * `:permission_group_id` (`t:string` required) The unique identifier for the
+  permission group.
+  ## Keyword parameters:
   """
-
   @spec get_permission_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_permission_group_errors()}
-
   def get_permission_group(%Client{} = client, permission_group_id, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
 
@@ -2249,18 +2202,15 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetProgrammaticAccessCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_id` (`t:string`) The FinSpace environment identifier.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) The FinSpace environment identifier.
+  ## Keyword parameters:
   * `:duration_in_minutes` (`t:long`) The time duration in which the credentials
   remain valid.
   """
-
   @spec get_programmatic_access_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_programmatic_access_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_programmatic_access_credentials_errors()}
-
   def get_programmatic_access_credentials(%Client{} = client, environment_id, options \\ [])
       when is_binary(environment_id) do
     url_path = "/credentials/programmatic"
@@ -2307,16 +2257,14 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_id` (`t:string`) The unique identifier of the user to get data for.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The unique identifier of the user to get data
+  for.
+  ## Keyword parameters:
   """
-
   @spec get_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_errors()}
-
   def get_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}"
 
@@ -2352,15 +2300,12 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetWorkingLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_working_location(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_working_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_working_location_errors()}
-
   def get_working_location(%Client{} = client, options \\ []) do
     url_path = "/workingLocationV1"
 
@@ -2397,20 +2342,17 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListChangesets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset to
-  which the Changeset belongs.
-
-  ## Optional parameters:
+  * `:dataset_id` (`t:string` required) The unique identifier for the FinSpace
+  Dataset to which the Changeset belongs.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_changesets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_changesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_changesets_errors()}
-
   def list_changesets(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2"
 
@@ -2463,20 +2405,17 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListDataViews&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_id` (`t:string`) The unique identifier of the Dataset for which to
-  retrieve Dataviews.
-
-  ## Optional parameters:
+  * `:dataset_id` (`t:string` required) The unique identifier of the Dataset for
+  which to retrieve Dataviews.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_data_views(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_views_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_views_errors()}
-
   def list_data_views(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2"
 
@@ -2529,18 +2468,15 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListDatasets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-
   def list_datasets(%Client{} = client, options \\ []) do
     url_path = "/datasetsv2"
 
@@ -2593,18 +2529,15 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListPermissionGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:max_results` (`t:integer`) The maximum number of results per page.
-
-  ## Optional parameters:
+  * `:max_results` (`t:integer` required) The maximum number of results per page.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_permission_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_permission_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_groups_errors()}
-
   def list_permission_groups(%Client{} = client, max_results, options \\ [])
       when is_integer(max_results) do
     url_path = "/permission-group"
@@ -2651,19 +2584,16 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListPermissionGroupsByUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_id` (`t:string`) The unique identifier for the user.
-  * `:max_results` (`t:integer`) The maximum number of results per page.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The unique identifier for the user.
+  * `:max_results` (`t:integer` required) The maximum number of results per page.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_permission_groups_by_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_permission_groups_by_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_groups_by_user_errors()}
-
   def list_permission_groups_by_user(%Client{} = client, user_id, max_results, options \\ [])
       when is_integer(max_results) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/permission-groups"
@@ -2710,18 +2640,15 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:max_results` (`t:integer`) The maximum number of results per page.
-
-  ## Optional parameters:
+  * `:max_results` (`t:integer` required) The maximum number of results per page.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-
   def list_users(%Client{} = client, max_results, options \\ []) when is_integer(max_results) do
     url_path = "/user"
 
@@ -2767,20 +2694,17 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListUsersByPermissionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission
-  group.
-  * `:max_results` (`t:integer`) The maximum number of results per page.
-
-  ## Optional parameters:
+  * `:permission_group_id` (`t:string` required) The unique identifier for the
+  permission group.
+  * `:max_results` (`t:integer` required) The maximum number of results per page.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where a results page should
   begin.
   """
-
   @spec list_users_by_permission_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_by_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_by_permission_group_errors()}
-
   def list_users_by_permission_group(
         %Client{} = client,
         permission_group_id,
@@ -2834,17 +2758,14 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ResetUserPassword&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_id` (`t:string`) The unique identifier of the user that a temporary
-  password is requested for.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The unique identifier of the user that a
+  temporary password is requested for.
+  ## Keyword parameters:
   """
-
   @spec reset_user_password(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reset_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_user_password_errors()}
-
   def reset_user_password(%Client{} = client, user_id, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/password"
 
@@ -2881,19 +2802,16 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdateChangeset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:changeset_id` (`t:string`) The unique identifier for the Changeset to
-  update.
-  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset in
-  which the Changeset is created.
-
-  ## Optional parameters:
+  * `:changeset_id` (`t:string` required) The unique identifier for the Changeset
+  to update.
+  * `:dataset_id` (`t:string` required) The unique identifier for the FinSpace
+  Dataset in which the Changeset is created.
+  ## Keyword parameters:
   """
-
   @spec update_changeset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_changeset_errors()}
-
   def update_changeset(%Client{} = client, changeset_id, dataset_id, options \\ []) do
     url_path =
       "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2/#{AWS.Util.encode_uri(changeset_id)}"
@@ -2931,16 +2849,14 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdateDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_id` (`t:string`) The unique identifier for the Dataset to update.
-
-  ## Optional parameters:
+  * `:dataset_id` (`t:string` required) The unique identifier for the Dataset to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_errors()}
-
   def update_dataset(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
 
@@ -2978,17 +2894,14 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdatePermissionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission
-  group to update.
-
-  ## Optional parameters:
+  * `:permission_group_id` (`t:string` required) The unique identifier for the
+  permission group to update.
+  ## Keyword parameters:
   """
-
   @spec update_permission_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_permission_group_errors()}
-
   def update_permission_group(%Client{} = client, permission_group_id, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
 
@@ -3026,17 +2939,14 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_id` (`t:string`) The unique identifier for the user that you want to
-  update.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The unique identifier for the user that you
+  want to update.
+  ## Keyword parameters:
   """
-
   @spec update_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-
   def update_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}"
 

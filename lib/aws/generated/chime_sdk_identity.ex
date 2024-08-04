@@ -1287,15 +1287,12 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_app_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_errors()}
-
   def create_app_instance(%Client{} = client, options \\ []) do
     url_path = "/app-instances"
 
@@ -1333,16 +1330,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec create_app_instance_admin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_admin_errors()}
-
   def create_app_instance_admin(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
 
@@ -1380,15 +1374,12 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstanceBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_app_instance_bot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_bot_errors()}
-
   def create_app_instance_bot(%Client{} = client, options \\ []) do
     url_path = "/app-instance-bots"
 
@@ -1426,15 +1417,12 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_user_errors()}
-
   def create_app_instance_user(%Client{} = client, options \\ []) do
     url_path = "/app-instance-users"
 
@@ -1471,16 +1459,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DeleteAppInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec delete_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_errors()}
-
   def delete_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
 
@@ -1528,18 +1513,15 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DeleteAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_admin_arn` (`t:string`) The ARN of the AppInstance's
+  * `:app_instance_admin_arn` (`t:string` required) The ARN of the AppInstance's
   administrator.
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec delete_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_admin_errors()}
-
   def delete_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -1592,17 +1574,14 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DeleteAppInstanceBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_bot_arn` (`t:string`) The ARN of the AppInstanceBot being
-  deleted.
-
-  ## Optional parameters:
+  * `:app_instance_bot_arn` (`t:string` required) The ARN of the AppInstanceBot
+  being deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_app_instance_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_bot_errors()}
-
   def delete_app_instance_bot(%Client{} = client, app_instance_bot_arn, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
 
@@ -1649,17 +1628,14 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DeleteAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the user request being
-  deleted.
-
-  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the user request
+  being deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_user_errors()}
-
   def delete_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
 
@@ -1706,18 +1682,15 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DeregisterAppInstanceUserEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
-  * `:endpoint_id` (`t:string`) The unique identifier of the
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+  * `:endpoint_id` (`t:string` required) The unique identifier of the
   AppInstanceUserEndpoint.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec deregister_app_instance_user_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_app_instance_user_endpoint_errors()}
-
   def deregister_app_instance_user_endpoint(
         %Client{} = client,
         app_instance_user_arn,
@@ -1770,16 +1743,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DescribeAppInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec describe_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_errors()}
-
   def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
 
@@ -1814,17 +1784,15 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DescribeAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_admin_arn` (`t:string`) The ARN of the AppInstanceAdmin.
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_admin_arn` (`t:string` required) The ARN of the
+  AppInstanceAdmin.
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec describe_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_admin_errors()}
-
   def describe_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -1865,16 +1833,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DescribeAppInstanceBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_bot_arn` (`t:string`) The ARN of the AppInstanceBot.
-
-  ## Optional parameters:
+  * `:app_instance_bot_arn` (`t:string` required) The ARN of the AppInstanceBot.
+  ## Keyword parameters:
   """
-
   @spec describe_app_instance_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_bot_errors()}
-
   def describe_app_instance_bot(%Client{} = client, app_instance_bot_arn, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
 
@@ -1909,16 +1874,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DescribeAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
-
-  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+  ## Keyword parameters:
   """
-
   @spec describe_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_user_errors()}
-
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
 
@@ -1953,18 +1915,15 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DescribeAppInstanceUserEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
-  * `:endpoint_id` (`t:string`) The unique identifier of the
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+  * `:endpoint_id` (`t:string` required) The unique identifier of the
   AppInstanceUserEndpoint.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_app_instance_user_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_user_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_user_endpoint_errors()}
-
   def describe_app_instance_user_endpoint(
         %Client{} = client,
         app_instance_user_arn,
@@ -2005,16 +1964,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20GetAppInstanceRetentionSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec get_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_instance_retention_settings_errors()}
-
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
 
@@ -2049,20 +2005,17 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstanceAdmins&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of administrators that you
   want to return.
   * `:next_token` (`t:string`) The token returned from previous API requests until
   the number of administrators is reached.
   """
-
   @spec list_app_instance_admins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_admins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instance_admins_errors()}
-
   def list_app_instance_admins(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
 
@@ -2115,19 +2068,16 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstanceBots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of requests to return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
   requested bots are returned.
   """
-
   @spec list_app_instance_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instance_bots_errors()}
-
   def list_app_instance_bots(%Client{} = client, app_instance_arn, options \\ [])
       when is_binary(app_instance_arn) do
     url_path = "/app-instance-bots"
@@ -2182,20 +2132,17 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstanceUserEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
-
-  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of endpoints that you want to
   return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
   requested endpoints are returned.
   """
-
   @spec list_app_instance_user_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_user_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instance_user_endpoints_errors()}
-
   def list_app_instance_user_endpoints(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}/endpoints"
 
@@ -2248,20 +2195,17 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstanceUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of requests that you want
   returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
   requested users are returned.
   """
-
   @spec list_app_instance_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instance_users_errors()}
-
   def list_app_instance_users(%Client{} = client, app_instance_arn, options \\ [])
       when is_binary(app_instance_arn) do
     url_path = "/app-instance-users"
@@ -2315,19 +2259,16 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of AppInstances that you want
   to return.
   * `:next_token` (`t:string`) The token passed by previous API requests until you
   reach the maximum number of AppInstances.
   """
-
   @spec list_app_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instances_errors()}
-
   def list_app_instances(%Client{} = client, options \\ []) do
     url_path = "/app-instances"
 
@@ -2380,16 +2321,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -2425,16 +2363,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20PutAppInstanceRetentionSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec put_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_instance_retention_settings_errors()}
-
   def put_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
 
@@ -2471,16 +2406,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20PutAppInstanceUserExpirationSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
-
-  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+  ## Keyword parameters:
   """
-
   @spec put_app_instance_user_expiration_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_app_instance_user_expiration_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_instance_user_expiration_settings_errors()}
-
   def put_app_instance_user_expiration_settings(
         %Client{} = client,
         app_instance_user_arn,
@@ -2524,16 +2456,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20RegisterAppInstanceUserEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
-
-  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+  ## Keyword parameters:
   """
-
   @spec register_app_instance_user_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, register_app_instance_user_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_app_instance_user_endpoint_errors()}
-
   def register_app_instance_user_endpoint(
         %Client{} = client,
         app_instance_user_arn,
@@ -2574,15 +2503,12 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=tag-resource"
 
@@ -2620,15 +2546,12 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=untag-resource"
 
@@ -2665,16 +2588,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UpdateAppInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
-
-  ## Optional parameters:
+  * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+  ## Keyword parameters:
   """
-
   @spec update_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_instance_errors()}
-
   def update_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
 
@@ -2711,16 +2631,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UpdateAppInstanceBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_bot_arn` (`t:string`) The ARN of the AppInstanceBot.
-
-  ## Optional parameters:
+  * `:app_instance_bot_arn` (`t:string` required) The ARN of the AppInstanceBot.
+  ## Keyword parameters:
   """
-
   @spec update_app_instance_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_instance_bot_errors()}
-
   def update_app_instance_bot(%Client{} = client, app_instance_bot_arn, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
 
@@ -2757,16 +2674,13 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UpdateAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
-
-  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+  ## Keyword parameters:
   """
-
   @spec update_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_instance_user_errors()}
-
   def update_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
 
@@ -2804,18 +2718,15 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UpdateAppInstanceUserEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
-  * `:endpoint_id` (`t:string`) The unique identifier of the
+  * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+  * `:endpoint_id` (`t:string` required) The unique identifier of the
   AppInstanceUserEndpoint.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_app_instance_user_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_user_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_instance_user_endpoint_errors()}
-
   def update_app_instance_user_endpoint(
         %Client{} = client,
         app_instance_user_arn,

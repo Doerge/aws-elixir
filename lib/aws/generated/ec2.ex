@@ -26907,6 +26907,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Accepts an Elastic IP address transfer. For more information, see [Accept a
   transferred Elastic IP
   address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept)
@@ -26922,11 +26923,9 @@ defmodule AWS.EC2 do
       required("Address") => String.t()
     }
   """
-
   @spec accept_address_transfer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_address_transfer_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def accept_address_transfer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -26935,6 +26934,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Accepts the Convertible Reserved Instance exchange quote described in the
   `GetReservedInstancesExchangeQuote` call.
 
@@ -26948,11 +26948,9 @@ defmodule AWS.EC2 do
       required("ReservedInstanceIds") => list(String.t()())
     }
   """
-
   @spec accept_reserved_instances_exchange_quote(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_reserved_instances_exchange_quote_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def accept_reserved_instances_exchange_quote(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -26962,6 +26960,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Accepts a request to associate subnets with a transit gateway multicast domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20AcceptTransitGatewayMulticastDomainAssociations&this_doc_guide=API%2520Reference)
@@ -26975,7 +26974,6 @@ defmodule AWS.EC2 do
       optional("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec accept_transit_gateway_multicast_domain_associations(
           AWS.Client.t(),
           input :: map(),
@@ -26983,7 +26981,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, accept_transit_gateway_multicast_domain_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def accept_transit_gateway_multicast_domain_associations(
         %Client{} = client,
         input,
@@ -27003,6 +27000,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Accepts a transit gateway peering attachment request. The peering attachment
   must be in the `pendingAcceptance` state.
 
@@ -27015,11 +27013,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec accept_transit_gateway_peering_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_transit_gateway_peering_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def accept_transit_gateway_peering_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27029,6 +27025,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Accepts a request to attach a VPC to a transit gateway.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20AcceptTransitGatewayVpcAttachment&this_doc_guide=API%2520Reference)
@@ -27040,11 +27037,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec accept_transit_gateway_vpc_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_transit_gateway_vpc_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def accept_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27054,6 +27049,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Accepts connection requests to your VPC endpoint service.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20AcceptVpcEndpointConnections&this_doc_guide=API%2520Reference)
@@ -27066,11 +27062,9 @@ defmodule AWS.EC2 do
       required("VpcEndpointIds") => list(String.t()())
     }
   """
-
   @spec accept_vpc_endpoint_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_vpc_endpoint_connections_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def accept_vpc_endpoint_connections(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27080,6 +27074,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Accept a VPC peering connection request. To accept a request, the VPC peering
   connection must be in the `pending-acceptance` state, and you must be the
   owner of the peer VPC. Use `DescribeVpcPeeringConnections` to view your
@@ -27094,11 +27089,9 @@ defmodule AWS.EC2 do
       required("VpcPeeringConnectionId") => String.t()
     }
   """
-
   @spec accept_vpc_peering_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_vpc_peering_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def accept_vpc_peering_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27108,6 +27101,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Advertises an IPv4 or IPv6 address range that is provisioned for use with your
   Amazon Web Services resources through bring your own IP addresses (BYOIP). You
   can perform this operation at most once every 10 seconds, even if you specify
@@ -27124,11 +27118,9 @@ defmodule AWS.EC2 do
       required("Cidr") => String.t()
     }
   """
-
   @spec advertise_byoip_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, advertise_byoip_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def advertise_byoip_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27137,6 +27129,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Allocates an Elastic IP address to your Amazon Web Services account. After you
   allocate the Elastic IP address you can associate it with an instance or
   network interface. After you release an Elastic IP address, it is released to
@@ -27167,11 +27160,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec allocate_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, allocate_address_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def allocate_address(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27180,6 +27171,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Allocates a Dedicated Host to your account. At a minimum, specify the supported
   instance type or instance family, the Availability Zone in which to allocate
   the host, and the number of hosts to allocate.
@@ -27202,11 +27194,9 @@ defmodule AWS.EC2 do
       required("AvailabilityZone") => String.t()
     }
   """
-
   @spec allocate_hosts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, allocate_hosts_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def allocate_hosts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27215,6 +27205,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Allocate a CIDR from an IPAM pool. The Region you use should be the IPAM pool
   locale. The locale is the Amazon Web Services Region where this IPAM pool is
   available for allocations. In IPAM, an allocation is a CIDR assignment from an
@@ -27239,11 +27230,9 @@ defmodule AWS.EC2 do
       required("IpamPoolId") => String.t()
     }
   """
-
   @spec allocate_ipam_pool_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, allocate_ipam_pool_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def allocate_ipam_pool_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27252,6 +27241,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Applies a security group to the association between the target network and the
   Client VPN endpoint. This action replaces the existing security groups with
   the specified security groups.
@@ -27267,7 +27257,6 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec apply_security_groups_to_client_vpn_target_network(
           AWS.Client.t(),
           input :: map(),
@@ -27275,7 +27264,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, apply_security_groups_to_client_vpn_target_network_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def apply_security_groups_to_client_vpn_target_network(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27291,6 +27279,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Assigns one or more IPv6 addresses to the specified network interface. You can
   specify one or more specific IPv6 addresses, or you can specify the number of
   IPv6 addresses to be automatically assigned from within the subnet's IPv6 CIDR
@@ -27311,11 +27300,9 @@ defmodule AWS.EC2 do
       required("NetworkInterfaceId") => String.t()
     }
   """
-
   @spec assign_ipv6_addresses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, assign_ipv6_addresses_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def assign_ipv6_addresses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27324,6 +27311,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Assigns one or more secondary private IP addresses to the specified network
   interface. You can specify one or more specific secondary IP addresses, or you
   can specify the number of secondary IP addresses to be automatically assigned
@@ -27348,11 +27336,9 @@ defmodule AWS.EC2 do
       required("NetworkInterfaceId") => String.t()
     }
   """
-
   @spec assign_private_ip_addresses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, assign_private_ip_addresses_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def assign_private_ip_addresses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27361,6 +27347,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Assigns private IPv4 addresses to a private NAT gateway. For more information,
   see [Work with NAT
   gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with)
@@ -27377,11 +27364,9 @@ defmodule AWS.EC2 do
       required("NatGatewayId") => String.t()
     }
   """
-
   @spec assign_private_nat_gateway_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, assign_private_nat_gateway_address_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def assign_private_nat_gateway_address(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27391,6 +27376,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates an Elastic IP address, or carrier IP address (for instances that are
   in subnets in Wavelength Zones) with an instance or a network interface.
   Before you can use an Elastic IP address, you must allocate it to your
@@ -27414,11 +27400,9 @@ defmodule AWS.EC2 do
       optional("PublicIp") => String.t()
     }
   """
-
   @spec associate_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_address_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_address(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27427,6 +27411,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates a target network with a Client VPN endpoint. A target network is a
   subnet in a VPC. You can associate multiple subnets from the same VPC with a
   Client VPN endpoint. You can associate only one subnet in each Availability
@@ -27444,11 +27429,9 @@ defmodule AWS.EC2 do
       required("SubnetId") => String.t()
     }
   """
-
   @spec associate_client_vpn_target_network(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_client_vpn_target_network_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_client_vpn_target_network(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27458,6 +27441,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates a set of DHCP options (that you've previously created) with the
   specified VPC, or associates no DHCP options with the VPC. After you associate
   the options with the VPC, any existing instances and all new instances that
@@ -27476,11 +27460,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec associate_dhcp_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_dhcp_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27489,6 +27471,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates an Identity and Access Management (IAM) role with an Certificate
   Manager (ACM) certificate. This enables the certificate to be used by the ACM
   for Nitro Enclaves application inside an enclave. For more information, see
@@ -27511,11 +27494,9 @@ defmodule AWS.EC2 do
       required("RoleArn") => String.t()
     }
   """
-
   @spec associate_enclave_certificate_iam_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_enclave_certificate_iam_role_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_enclave_certificate_iam_role(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27525,6 +27506,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates an IAM instance profile with a running or stopped instance. You
   cannot associate more than one IAM instance profile with an instance.
 
@@ -27537,11 +27519,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec associate_iam_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_iam_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_iam_instance_profile(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27551,6 +27531,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates one or more targets with an event window. Only one type of target
   (instance IDs, Dedicated Host IDs, or tags) can be specified with an event
   window.
@@ -27565,11 +27546,9 @@ defmodule AWS.EC2 do
       required("InstanceEventWindowId") => String.t()
     }
   """
-
   @spec associate_instance_event_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_instance_event_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_instance_event_window(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27579,6 +27558,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates your Autonomous System Number (ASN) with a BYOIP CIDR that you own in
   the same Amazon Web Services Region. For more information, see [Tutorial:
   Bring your ASN to
@@ -27599,11 +27579,9 @@ defmodule AWS.EC2 do
       required("Cidr") => String.t()
     }
   """
-
   @spec associate_ipam_byoasn(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_ipam_byoasn_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_ipam_byoasn(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27612,6 +27590,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource
   discovery is an IPAM component that enables IPAM to manage and monitor
   resources that belong to the owning account.
@@ -27628,11 +27607,9 @@ defmodule AWS.EC2 do
       required("IpamResourceDiscoveryId") => String.t()
     }
   """
-
   @spec associate_ipam_resource_discovery(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_ipam_resource_discovery_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_ipam_resource_discovery(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27642,6 +27619,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public
   NAT gateway. For more information, see [Work with NAT
   gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with)
@@ -27662,11 +27640,9 @@ defmodule AWS.EC2 do
       required("NatGatewayId") => String.t()
     }
   """
-
   @spec associate_nat_gateway_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_nat_gateway_address_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_nat_gateway_address(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27676,6 +27652,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates a subnet in your VPC or an internet gateway or virtual private
   gateway attached to your VPC with a route table in your VPC. This association
   causes traffic from the subnet or gateway to be routed according to the routes
@@ -27694,11 +27671,9 @@ defmodule AWS.EC2 do
       required("RouteTableId") => String.t()
     }
   """
-
   @spec associate_route_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_route_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_route_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27707,6 +27682,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates a CIDR block with your subnet. You can only associate a single IPv6
   CIDR block with your subnet.
 
@@ -27721,11 +27697,9 @@ defmodule AWS.EC2 do
       required("SubnetId") => String.t()
     }
   """
-
   @spec associate_subnet_cidr_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_subnet_cidr_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_subnet_cidr_block(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27734,6 +27708,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates the specified subnets and transit gateway attachments with the
   specified transit gateway multicast domain.
 
@@ -27748,11 +27723,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec associate_transit_gateway_multicast_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_transit_gateway_multicast_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_transit_gateway_multicast_domain(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27762,6 +27735,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates the specified transit gateway attachment with a transit gateway
   policy table.
 
@@ -27775,11 +27749,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayPolicyTableId") => String.t()
     }
   """
-
   @spec associate_transit_gateway_policy_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_transit_gateway_policy_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_transit_gateway_policy_table(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27789,6 +27761,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates the specified attachment with the specified transit gateway route
   table. You can associate only one route table with an attachment.
 
@@ -27802,11 +27775,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec associate_transit_gateway_route_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_transit_gateway_route_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_transit_gateway_route_table(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27816,6 +27787,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates a branch network interface with a trunk network interface.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20AssociateTrunkInterface&this_doc_guide=API%2520Reference)
@@ -27831,11 +27803,9 @@ defmodule AWS.EC2 do
       required("TrunkInterfaceId") => String.t()
     }
   """
-
   @spec associate_trunk_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_trunk_interface_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_trunk_interface(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27844,6 +27814,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR
   block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6
   address pool that you provisioned through bring your own IP addresses
@@ -27868,11 +27839,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec associate_vpc_cidr_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_vpc_cidr_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_vpc_cidr_block(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27881,6 +27850,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated. Links an EC2-Classic instance to a
   ClassicLink-enabled VPC through one or more of the VPC security groups. You
   cannot link an EC2-Classic instance to more than one VPC at a time. You can
@@ -27899,11 +27869,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec attach_classic_link_vpc(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_classic_link_vpc_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def attach_classic_link_vpc(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27912,6 +27880,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Attaches an internet gateway or a virtual private gateway to a VPC, enabling
   connectivity between the internet and the VPC. For more information, see
   [Internet
@@ -27928,11 +27897,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec attach_internet_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def attach_internet_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27941,6 +27908,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Attaches a network interface to an instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20AttachNetworkInterface&this_doc_guide=API%2520Reference)
@@ -27956,11 +27924,9 @@ defmodule AWS.EC2 do
       required("NetworkInterfaceId") => String.t()
     }
   """
-
   @spec attach_network_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_network_interface_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def attach_network_interface(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -27969,6 +27935,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Attaches the specified Amazon Web Services Verified Access trust provider to the
   specified Amazon Web Services Verified Access instance.
 
@@ -27983,11 +27950,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessTrustProviderId") => String.t()
     }
   """
-
   @spec attach_verified_access_trust_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_verified_access_trust_provider_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def attach_verified_access_trust_provider(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -27997,6 +27962,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Attaches an EBS volume to a running or stopped instance and exposes it to the
   instance with the specified device name. Encrypted EBS volumes must be
   attached to instances that support Amazon EBS encryption. For more
@@ -28017,11 +27983,9 @@ defmodule AWS.EC2 do
       required("VolumeId") => String.t()
     }
   """
-
   @spec attach_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, volume_attachment(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def attach_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28030,6 +27994,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Attaches a virtual private gateway to a VPC. You can attach one virtual private
   gateway to one VPC at a time.
 
@@ -28043,11 +28008,9 @@ defmodule AWS.EC2 do
       required("VpnGatewayId") => String.t()
     }
   """
-
   @spec attach_vpn_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_vpn_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def attach_vpn_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28056,6 +28019,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Adds an ingress authorization rule to a Client VPN endpoint. Ingress
   authorization rules act as firewall rules that grant access to networks. You
   must configure ingress authorization rules to enable clients to access
@@ -28075,11 +28039,9 @@ defmodule AWS.EC2 do
       required("TargetNetworkCidr") => String.t()
     }
   """
-
   @spec authorize_client_vpn_ingress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, authorize_client_vpn_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def authorize_client_vpn_ingress(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28088,6 +28050,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Adds the specified outbound (egress) rules to a security group. An outbound rule
   permits instances to send traffic to the specified IPv4 or IPv6 address
   ranges, the IP address ranges specified by a prefix list, or the instances
@@ -28117,11 +28080,9 @@ defmodule AWS.EC2 do
       required("GroupId") => String.t()
     }
   """
-
   @spec authorize_security_group_egress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, authorize_security_group_egress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def authorize_security_group_egress(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -28131,6 +28092,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Adds the specified inbound (ingress) rules to a security group. An inbound rule
   permits instances to receive traffic from the specified IPv4 or IPv6 address
   range, the IP address ranges that are specified by a prefix list, or the
@@ -28161,11 +28123,9 @@ defmodule AWS.EC2 do
       optional("ToPort") => integer()
     }
   """
-
   @spec authorize_security_group_ingress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, authorize_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def authorize_security_group_ingress(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -28175,6 +28135,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Bundles an Amazon instance store-backed Windows instance. During bundling, only
   the root device volume (C:\) is bundled. Data on other instance store volumes
   is not preserved.
@@ -28189,11 +28150,9 @@ defmodule AWS.EC2 do
       required("Storage") => storage()
     }
   """
-
   @spec bundle_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, bundle_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def bundle_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28202,6 +28161,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Cancels a bundling operation for an instance store-backed Windows instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CancelBundleTask&this_doc_guide=API%2520Reference)
@@ -28213,11 +28173,9 @@ defmodule AWS.EC2 do
       required("BundleId") => String.t()
     }
   """
-
   @spec cancel_bundle_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_bundle_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def cancel_bundle_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28226,6 +28184,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Cancels the specified Capacity Reservation, releases the reserved capacity, and
   changes the Capacity Reservation's state to `cancelled`.
 
@@ -28238,11 +28197,9 @@ defmodule AWS.EC2 do
       required("CapacityReservationId") => String.t()
     }
   """
-
   @spec cancel_capacity_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_capacity_reservation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def cancel_capacity_reservation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28251,6 +28208,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity
   Reservation Fleet, the following happens:
 
@@ -28263,11 +28221,9 @@ defmodule AWS.EC2 do
       required("CapacityReservationFleetIds") => list(String.t()())
     }
   """
-
   @spec cancel_capacity_reservation_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_capacity_reservation_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def cancel_capacity_reservation_fleets(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -28277,6 +28233,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Cancels an active conversion task. The task can be the import of an instance or
   volume. The action removes all artifacts of the conversion, including a
   partially uploaded volume or instance. If the conversion is complete or is in
@@ -28293,11 +28250,9 @@ defmodule AWS.EC2 do
       required("ConversionTaskId") => String.t()
     }
   """
-
   @spec cancel_conversion_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def cancel_conversion_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28306,6 +28261,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Cancels an active export task. The request removes all artifacts of the export,
   including any partially-created Amazon S3 objects. If the export task is
   complete or is in the process of transferring the final disk image, the
@@ -28319,11 +28275,9 @@ defmodule AWS.EC2 do
       required("ExportTaskId") => String.t()
     }
   """
-
   @spec cancel_export_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def cancel_export_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28332,6 +28286,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Removes your Amazon Web Services account from the launch permissions for the
   specified AMI. For more information, see [ Cancel having an AMI shared with
   your Amazon Web Services
@@ -28347,11 +28302,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec cancel_image_launch_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_image_launch_permission_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def cancel_image_launch_permission(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -28361,6 +28314,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Cancels an in-process import virtual machine or import snapshot task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CancelImportTask&this_doc_guide=API%2520Reference)
@@ -28373,11 +28327,9 @@ defmodule AWS.EC2 do
       optional("ImportTaskId") => String.t()
     }
   """
-
   @spec cancel_import_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_import_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def cancel_import_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28386,6 +28338,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Cancels the specified Reserved Instance listing in the Reserved Instance
   Marketplace.
 
@@ -28397,11 +28350,9 @@ defmodule AWS.EC2 do
       required("ReservedInstancesListingId") => String.t()
     }
   """
-
   @spec cancel_reserved_instances_listing(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_reserved_instances_listing_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def cancel_reserved_instances_listing(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -28411,6 +28362,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Cancels the specified Spot Fleet requests. After you cancel a Spot Fleet
   request, the Spot Fleet launches no new instances.
 
@@ -28424,11 +28376,9 @@ defmodule AWS.EC2 do
       required("TerminateInstances") => boolean()
     }
   """
-
   @spec cancel_spot_fleet_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_spot_fleet_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def cancel_spot_fleet_requests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28437,6 +28387,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Cancels one or more Spot Instance requests.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CancelSpotInstanceRequests&this_doc_guide=API%2520Reference)
@@ -28448,11 +28399,9 @@ defmodule AWS.EC2 do
       required("SpotInstanceRequestIds") => list(String.t()())
     }
   """
-
   @spec cancel_spot_instance_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_spot_instance_requests_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def cancel_spot_instance_requests(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -28462,6 +28411,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Determines whether a product code is associated with an instance. This action
   can only be used by the owner of the product code. It is useful when a product
   code owner must verify whether another user's instance is eligible for
@@ -28477,11 +28427,9 @@ defmodule AWS.EC2 do
       required("ProductCode") => String.t()
     }
   """
-
   @spec confirm_product_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, confirm_product_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def confirm_product_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28490,6 +28438,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Copies the specified Amazon FPGA Image (AFI) to the current Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CopyFpgaImage&this_doc_guide=API%2520Reference)
@@ -28505,11 +28454,9 @@ defmodule AWS.EC2 do
       required("SourceRegion") => String.t()
     }
   """
-
   @spec copy_fpga_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_fpga_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def copy_fpga_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28518,6 +28465,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Initiates the copy of an AMI. You can copy an AMI from one Region to another, or
   from a Region to an Outpost. You can't copy an AMI from an Outpost to a
   Region, from one Outpost to another, or within the same Outpost. To copy an
@@ -28556,11 +28504,9 @@ defmodule AWS.EC2 do
       required("SourceRegion") => String.t()
     }
   """
-
   @spec copy_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def copy_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28569,6 +28515,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You
   can copy a snapshot within the same Region, from one Region to another, or
   from a Region to an Outpost. You can't copy a snapshot from an Outpost to a
@@ -28592,11 +28539,9 @@ defmodule AWS.EC2 do
       required("SourceSnapshotId") => String.t()
     }
   """
-
   @spec copy_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def copy_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28605,6 +28550,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a new Capacity Reservation with the specified attributes. Capacity
   Reservations enable you to reserve capacity for your Amazon EC2 instances in a
   specific Availability Zone for any duration. This gives you the flexibility to
@@ -28644,11 +28590,9 @@ defmodule AWS.EC2 do
       required("InstanceType") => String.t()
     }
   """
-
   @spec create_capacity_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_capacity_reservation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_capacity_reservation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28657,6 +28601,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a Capacity Reservation Fleet. For more information, see [Create a
   Capacity Reservation
   Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet)
@@ -28678,11 +28623,9 @@ defmodule AWS.EC2 do
       required("TotalTargetCapacity") => integer()
     }
   """
-
   @spec create_capacity_reservation_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_capacity_reservation_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_capacity_reservation_fleet(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -28692,6 +28635,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a carrier gateway. For more information about carrier gateways, see
   [Carrier
   gateways](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway)
@@ -28708,11 +28652,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec create_carrier_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_carrier_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_carrier_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28721,6 +28663,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a Client VPN endpoint. A Client VPN endpoint is the resource you create
   and configure to enable and manage client VPN sessions. It is the destination
   endpoint at which all client VPN sessions are terminated.
@@ -28750,11 +28693,9 @@ defmodule AWS.EC2 do
       required("ServerCertificateArn") => String.t()
     }
   """
-
   @spec create_client_vpn_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_client_vpn_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_client_vpn_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28763,6 +28704,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has
   a route table that describes the available destination network routes. Each
   route in the route table specifies the path for traﬃc to speciﬁc resources or
@@ -28781,11 +28723,9 @@ defmodule AWS.EC2 do
       required("TargetVpcSubnetId") => String.t()
     }
   """
-
   @spec create_client_vpn_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_client_vpn_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_client_vpn_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28794,6 +28734,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a range of customer-owned IP addresses.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateCoipCidr&this_doc_guide=API%2520Reference)
@@ -28806,11 +28747,9 @@ defmodule AWS.EC2 do
       required("CoipPoolId") => String.t()
     }
   """
-
   @spec create_coip_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_coip_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_coip_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28819,6 +28758,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a pool of customer-owned IP (CoIP) addresses.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateCoipPool&this_doc_guide=API%2520Reference)
@@ -28831,11 +28771,9 @@ defmodule AWS.EC2 do
       required("LocalGatewayRouteTableId") => String.t()
     }
   """
-
   @spec create_coip_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_coip_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_coip_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28844,6 +28782,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Provides information to Amazon Web Services about your customer gateway device.
   The customer gateway device is the appliance at your end of the VPN
   connection. You must provide the IP address of the customer gateway device’s
@@ -28872,11 +28811,9 @@ defmodule AWS.EC2 do
       required("Type") => list(any())
     }
   """
-
   @spec create_customer_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_customer_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_customer_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28885,6 +28822,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a default subnet with a size `/20` IPv4 CIDR block in the specified
   Availability Zone in your default VPC. You can have only one default subnet
   per Availability Zone. For more information, see [Create a default
@@ -28901,11 +28839,9 @@ defmodule AWS.EC2 do
       required("AvailabilityZone") => String.t()
     }
   """
-
   @spec create_default_subnet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_default_subnet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_default_subnet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28914,6 +28850,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a default VPC with a size `/16` IPv4 CIDR block and a default subnet in
   each Availability Zone. For more information about the components of a default
   VPC, see [Default
@@ -28929,11 +28866,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec create_default_vpc(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_default_vpc_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_default_vpc(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28942,6 +28877,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a custom set of DHCP options. After you create a DHCP option set, you
   associate it with a VPC. After you associate a DHCP option set with a VPC, all
   existing and newly launched instances in the VPC use this set of DHCP options.
@@ -28960,11 +28896,9 @@ defmodule AWS.EC2 do
       required("DhcpConfigurations") => list(new_dhcp_configuration()())
     }
   """
-
   @spec create_dhcp_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dhcp_options_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_dhcp_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -28973,6 +28907,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   [IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only
   internet gateway is used to enable outbound communication over IPv6 from
   instances in your VPC to the internet, and prevents hosts outside of your VPC
@@ -28989,11 +28924,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec create_egress_only_internet_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_egress_only_internet_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_egress_only_internet_gateway(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -29003,6 +28936,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an EC2 Fleet that contains the configuration information for On-Demand
   Instances and Spot Instances. Instances are launched immediately if there is
   available capacity. A single EC2 Fleet can include multiple launch
@@ -29029,11 +28963,9 @@ defmodule AWS.EC2 do
       required("TargetCapacitySpecification") => target_capacity_specification_request()
     }
   """
-
   @spec create_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29042,6 +28974,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates one or more flow logs to capture information about IP traffic for a
   specific network interface, subnet, or VPC. Flow log data for a monitored
   network interface is recorded as flow log records, which are log events
@@ -29075,11 +29008,9 @@ defmodule AWS.EC2 do
       required("ResourceType") => list(any())
     }
   """
-
   @spec create_flow_logs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_flow_logs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_flow_logs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29088,6 +29019,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).
   The create operation is asynchronous. To verify that the AFI is ready for use,
   check the output logs.
@@ -29106,11 +29038,9 @@ defmodule AWS.EC2 do
       required("InputStorageLocation") => storage_location()
     }
   """
-
   @spec create_fpga_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_fpga_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_fpga_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29119,6 +29049,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
   either running or stopped. If you customized your instance with instance store
   volumes or Amazon EBS volumes in addition to the root device volume, the new
@@ -29140,11 +29071,9 @@ defmodule AWS.EC2 do
       required("Name") => String.t()
     }
   """
-
   @spec create_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29153,6 +29082,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an EC2 Instance Connect Endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateInstanceConnectEndpoint&this_doc_guide=API%2520Reference)
@@ -29168,11 +29098,9 @@ defmodule AWS.EC2 do
       required("SubnetId") => String.t()
     }
   """
-
   @spec create_instance_connect_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instance_connect_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_instance_connect_endpoint(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -29182,6 +29110,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an event window in which scheduled events for the associated Amazon EC2
   instances can run. You can define either a set of time ranges or a cron
   expression when creating the event window, but not both. All event window
@@ -29199,11 +29128,9 @@ defmodule AWS.EC2 do
       optional("TimeRanges") => list(instance_event_window_time_range_request()())
     }
   """
-
   @spec create_instance_event_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instance_event_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_instance_event_window(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29212,6 +29139,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Exports a running or stopped instance to an Amazon S3 bucket.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateInstanceExportTask&this_doc_guide=API%2520Reference)
@@ -29226,11 +29154,9 @@ defmodule AWS.EC2 do
       required("TargetEnvironment") => list(any())
     }
   """
-
   @spec create_instance_export_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instance_export_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_instance_export_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29239,6 +29165,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an internet gateway for use with a VPC. After creating the internet
   gateway, you attach it to a VPC using `AttachInternetGateway`.
 
@@ -29251,11 +29178,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec create_internet_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_internet_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_internet_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29264,6 +29189,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you
   can use to automate your IP address management workflows including assigning,
   tracking, troubleshooting, and auditing IP addresses across Amazon Web
@@ -29283,11 +29209,9 @@ defmodule AWS.EC2 do
       optional("Tier") => list(any())
     }
   """
-
   @spec create_ipam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ipam_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_ipam(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29296,6 +29220,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Create a verification token. A verification token is an Amazon Web
   Services-generated random value that you can use to prove ownership of an
   external resource. For example, you can use a verification token to validate
@@ -29313,7 +29238,6 @@ defmodule AWS.EC2 do
       required("IpamId") => String.t()
     }
   """
-
   @spec create_ipam_external_resource_verification_token(
           AWS.Client.t(),
           input :: map(),
@@ -29321,7 +29245,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, create_ipam_external_resource_verification_token_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_ipam_external_resource_verification_token(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -29337,6 +29260,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a
   pool is a collection of contiguous IP addresses CIDRs. Pools enable you to
   organize your IP addresses according to your routing and security needs. For
@@ -29367,11 +29291,9 @@ defmodule AWS.EC2 do
       required("IpamScopeId") => String.t()
     }
   """
-
   @spec create_ipam_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ipam_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_ipam_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29380,6 +29302,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an IPAM resource discovery. A resource discovery is an IPAM component
   that enables IPAM to manage and monitor resources that belong to the owning
   account.
@@ -29396,11 +29319,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec create_ipam_resource_discovery(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ipam_resource_discovery_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_ipam_resource_discovery(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -29410,6 +29331,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Create an IPAM scope. In IPAM, a scope is the highest-level container within
   IPAM. An IPAM contains two default scopes. Each scope represents the IP space
   for a single network. The private scope is intended for all private IP address
@@ -29429,11 +29351,9 @@ defmodule AWS.EC2 do
       required("IpamId") => String.t()
     }
   """
-
   @spec create_ipam_scope(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ipam_scope_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_ipam_scope(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29442,6 +29362,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the
   specified PEM or PPK format. Amazon EC2 stores the public key and displays the
   private key for you to save to a file. The private key is returned as an
@@ -29464,11 +29385,9 @@ defmodule AWS.EC2 do
       required("KeyName") => String.t()
     }
   """
-
   @spec create_key_pair(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, key_pair(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_key_pair(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29477,6 +29396,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a launch template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateLaunchTemplate&this_doc_guide=API%2520Reference)
@@ -29492,11 +29412,9 @@ defmodule AWS.EC2 do
       required("LaunchTemplateName") => String.t()
     }
   """
-
   @spec create_launch_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_launch_template_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_launch_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29505,6 +29423,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a new version of a launch template. You must specify an existing launch
   template, either by name or ID. You can determine whether the new version
   inherits parameters from a source version, and add or overwrite parameters as
@@ -29527,11 +29446,9 @@ defmodule AWS.EC2 do
       required("LaunchTemplateData") => request_launch_template_data()
     }
   """
-
   @spec create_launch_template_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_launch_template_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_launch_template_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -29541,6 +29458,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a static route for the specified local gateway route table. You must
   specify one of the following targets:
 
@@ -29557,11 +29475,9 @@ defmodule AWS.EC2 do
       required("LocalGatewayRouteTableId") => String.t()
     }
   """
-
   @spec create_local_gateway_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_local_gateway_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_local_gateway_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29570,6 +29486,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a local gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateLocalGatewayRouteTable&this_doc_guide=API%2520Reference)
@@ -29583,11 +29500,9 @@ defmodule AWS.EC2 do
       required("LocalGatewayId") => String.t()
     }
   """
-
   @spec create_local_gateway_route_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_local_gateway_route_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_local_gateway_route_table(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -29597,6 +29512,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a local gateway route table virtual interface group association.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation&this_doc_guide=API%2520Reference)
@@ -29610,7 +29526,6 @@ defmodule AWS.EC2 do
       required("LocalGatewayVirtualInterfaceGroupId") => String.t()
     }
   """
-
   @spec create_local_gateway_route_table_virtual_interface_group_association(
           AWS.Client.t(),
           input :: map(),
@@ -29619,7 +29534,6 @@ defmodule AWS.EC2 do
           {:ok, create_local_gateway_route_table_virtual_interface_group_association_result(),
            any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_local_gateway_route_table_virtual_interface_group_association(
         %Client{} = client,
         input,
@@ -29639,6 +29553,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Associates the specified VPC with the specified local gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateLocalGatewayRouteTableVpcAssociation&this_doc_guide=API%2520Reference)
@@ -29652,7 +29567,6 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec create_local_gateway_route_table_vpc_association(
           AWS.Client.t(),
           input :: map(),
@@ -29660,7 +29574,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, create_local_gateway_route_table_vpc_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_local_gateway_route_table_vpc_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -29676,6 +29589,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a managed prefix list. You can specify one or more entries for the
   prefix list. Each entry consists of a CIDR block and an optional description.
 
@@ -29693,11 +29607,9 @@ defmodule AWS.EC2 do
       required("PrefixListName") => String.t()
     }
   """
-
   @spec create_managed_prefix_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_managed_prefix_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_managed_prefix_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29706,6 +29618,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a NAT gateway in the specified subnet. This action creates a network
   interface in the specified subnet with a private IP address from the IP
   address range of the subnet. You can create either a public NAT gateway or a
@@ -29730,11 +29643,9 @@ defmodule AWS.EC2 do
       required("SubnetId") => String.t()
     }
   """
-
   @spec create_nat_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_nat_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_nat_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29743,6 +29654,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a network ACL in a VPC. Network ACLs provide an optional layer of
   security (in addition to security groups) for the instances in your VPC.
 
@@ -29757,11 +29669,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec create_network_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_network_acl_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_network_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29770,6 +29680,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an entry (a rule) in a network ACL with the specified rule number. Each
   network ACL has a set of numbered ingress rules and a separate set of numbered
   egress rules. When determining whether a packet should be allowed in or out of
@@ -29798,11 +29709,9 @@ defmodule AWS.EC2 do
       required("RuleNumber") => integer()
     }
   """
-
   @spec create_network_acl_entry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_network_acl_entry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29811,6 +29720,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a Network Access Scope.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateNetworkInsightsAccessScope&this_doc_guide=API%2520Reference)
@@ -29825,11 +29735,9 @@ defmodule AWS.EC2 do
       required("ClientToken") => String.t()
     }
   """
-
   @spec create_network_insights_access_scope(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_network_insights_access_scope_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_network_insights_access_scope(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -29839,6 +29747,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a path to analyze for reachability.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateNetworkInsightsPath&this_doc_guide=API%2520Reference)
@@ -29859,11 +29768,9 @@ defmodule AWS.EC2 do
       required("Source") => String.t()
     }
   """
-
   @spec create_network_insights_path(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_network_insights_path_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_network_insights_path(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29872,6 +29779,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a network interface in the specified subnet. The number of IP addresses
   you can assign to a network interface varies by instance type.
 
@@ -29900,11 +29808,9 @@ defmodule AWS.EC2 do
       required("SubnetId") => String.t()
     }
   """
-
   @spec create_network_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_network_interface_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_network_interface(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29913,6 +29819,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Grants an Amazon Web Services-authorized account permission to attach the
   specified network interface to an instance in their account.
 
@@ -29928,11 +29835,9 @@ defmodule AWS.EC2 do
       required("Permission") => list(any())
     }
   """
-
   @spec create_network_interface_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_network_interface_permission_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_network_interface_permission(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -29942,6 +29847,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a placement group in which to launch instances. The strategy of the
   placement group determines how the instances are organized within the group. A
   `cluster` placement group is a logical grouping of instances within a single
@@ -29964,11 +29870,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec create_placement_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_placement_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_placement_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -29977,6 +29881,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a public IPv4 address pool. A public IPv4 pool is an EC2 IP address pool
   required for the public IPv4 CIDRs that you own and bring to Amazon Web
   Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services,
@@ -29993,11 +29898,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec create_public_ipv4_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_public_ipv4_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_public_ipv4_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30006,6 +29909,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Replaces the EBS-backed root volume for a `running` instance with a new volume
   that is restored to the original root volume's launch state, that is restored
   to a specific snapshot taken from the original root volume, or that is
@@ -30026,11 +29930,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec create_replace_root_volume_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_replace_root_volume_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_replace_root_volume_task(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30040,6 +29942,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the
   Reserved Instance Marketplace. You can submit one Standard Reserved Instance
   listing at a time. To get a list of your Standard Reserved Instances, you can
@@ -30058,11 +29961,9 @@ defmodule AWS.EC2 do
       required("ReservedInstancesId") => String.t()
     }
   """
-
   @spec create_reserved_instances_listing(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_reserved_instances_listing_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_reserved_instances_listing(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30072,6 +29973,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Starts a task that restores an AMI from an Amazon S3 object that was previously
   created by using
   [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html).
@@ -30092,11 +29994,9 @@ defmodule AWS.EC2 do
       required("ObjectKey") => String.t()
     }
   """
-
   @spec create_restore_image_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_restore_image_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_restore_image_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30105,6 +30005,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a route in a route table within a VPC. You must specify either a
   destination CIDR block or a prefix list ID. You must also specify exactly one
   of the resources from the parameter list.
@@ -30132,11 +30033,9 @@ defmodule AWS.EC2 do
       required("RouteTableId") => String.t()
     }
   """
-
   @spec create_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30145,6 +30044,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a route table for the specified VPC. After you create a route table, you
   can add routes and associate the table with a subnet.
 
@@ -30159,11 +30059,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec create_route_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_route_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_route_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30172,6 +30070,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a security group. A security group acts as a virtual firewall for your
   instance to control inbound and outbound traffic. For more information, see
   [Amazon EC2 security
@@ -30194,11 +30093,9 @@ defmodule AWS.EC2 do
       required("GroupName") => String.t()
     }
   """
-
   @spec create_security_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_security_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_security_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30207,6 +30104,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use
   snapshots for backups, to make copies of EBS volumes, and to save data before
   shutting down an instance. You can create snapshots of volumes in a Region and
@@ -30227,11 +30125,9 @@ defmodule AWS.EC2 do
       required("VolumeId") => String.t()
     }
   """
-
   @spec create_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, snapshot(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30240,6 +30136,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates crash-consistent snapshots of multiple EBS volumes and stores the data
   in S3. Volumes are chosen by specifying an instance. Any attached volumes will
   produce one snapshot each that is crash-consistent across the instance. You
@@ -30260,11 +30157,9 @@ defmodule AWS.EC2 do
       required("InstanceSpecification") => instance_specification()
     }
   """
-
   @spec create_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30273,6 +30168,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a data feed for Spot Instances, enabling you to view Spot Instance usage
   logs. You can create one data feed per Amazon Web Services account. For more
   information, see [Spot Instance data
@@ -30289,11 +30185,9 @@ defmodule AWS.EC2 do
       required("Bucket") => String.t()
     }
   """
-
   @spec create_spot_datafeed_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_spot_datafeed_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_spot_datafeed_subscription(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30303,6 +30197,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Stores an AMI as a single object in an Amazon S3 bucket.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateStoreImageTask&this_doc_guide=API%2520Reference)
@@ -30316,11 +30211,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec create_store_image_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_store_image_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_store_image_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30329,6 +30222,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4
   CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only
   subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an
@@ -30357,11 +30251,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec create_subnet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_subnet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_subnet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30370,6 +30262,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a subnet CIDR reservation. For more information, see [Subnet CIDR
   reservations](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html)
   in the *Amazon VPC User Guide* and [Assign prefixes to network
@@ -30389,11 +30282,9 @@ defmodule AWS.EC2 do
       required("SubnetId") => String.t()
     }
   """
-
   @spec create_subnet_cidr_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_subnet_cidr_reservation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_subnet_cidr_reservation(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30403,6 +30294,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Adds or overwrites only the specified tags for the specified Amazon EC2 resource
   or resources. When you specify an existing tag key, the value is overwritten
   with the new value. Each resource can have a maximum of 50 tags. Each tag
@@ -30418,11 +30310,9 @@ defmodule AWS.EC2 do
       required("Tags") => list(tag()())
     }
   """
-
   @spec create_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30431,6 +30321,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a Traffic Mirror filter. A Traffic Mirror filter is a set of rules that
   defines the traffic to mirror.
 
@@ -30445,11 +30336,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec create_traffic_mirror_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_traffic_mirror_filter_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_traffic_mirror_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30458,6 +30347,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a Traffic Mirror filter rule. A Traffic Mirror rule defines the Traffic
   Mirror source traffic to mirror.
 
@@ -30481,11 +30371,9 @@ defmodule AWS.EC2 do
       required("TrafficMirrorFilterId") => String.t()
     }
   """
-
   @spec create_traffic_mirror_filter_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_traffic_mirror_filter_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_traffic_mirror_filter_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30495,6 +30383,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a Traffic Mirror session. A Traffic Mirror session actively copies
   packets from a Traffic Mirror source to a Traffic Mirror target. Create a
   filter, and then assign it to the session to define a subset of the traffic to
@@ -30517,11 +30406,9 @@ defmodule AWS.EC2 do
       required("TrafficMirrorTargetId") => String.t()
     }
   """
-
   @spec create_traffic_mirror_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_traffic_mirror_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_traffic_mirror_session(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30531,6 +30418,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a target for your Traffic Mirror session. A Traffic Mirror target is the
   destination for mirrored traffic. The Traffic Mirror source and the Traffic
   Mirror target (monitoring appliances) can be in the same VPC, or in different
@@ -30550,11 +30438,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec create_traffic_mirror_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_traffic_mirror_target_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_traffic_mirror_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30563,6 +30449,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a transit gateway. You can use a transit gateway to interconnect your
   virtual private clouds (VPC) and on-premises networks. After the transit
   gateway enters the `available` state, you can attach your VPCs and VPN
@@ -30579,11 +30466,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec create_transit_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30592,6 +30477,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a Connect attachment from a specified transit gateway attachment. A
   Connect attachment is a GRE-based tunnel attachment that you can use to
   establish a connection between a transit gateway and an appliance.
@@ -30607,11 +30493,9 @@ defmodule AWS.EC2 do
       required("TransportTransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec create_transit_gateway_connect(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_gateway_connect_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway_connect(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30621,6 +30505,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a Connect peer for a specified transit gateway Connect attachment
   between a transit gateway and an appliance. The peer address and transit
   gateway address must be the same IP address family (IPv4 or IPv6).
@@ -30639,11 +30524,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec create_transit_gateway_connect_peer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_gateway_connect_peer_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway_connect_peer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30653,6 +30536,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a multicast domain using the specified transit gateway.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateTransitGatewayMulticastDomain&this_doc_guide=API%2520Reference)
@@ -30666,11 +30550,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayId") => String.t()
     }
   """
-
   @spec create_transit_gateway_multicast_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_gateway_multicast_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway_multicast_domain(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30680,6 +30562,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Requests a transit gateway peering attachment between the specified transit
   gateway (requester) and a peer transit gateway (accepter). The peer transit
   gateway can be in your account or a different Amazon Web Services account.
@@ -30698,11 +30581,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayId") => String.t()
     }
   """
-
   @spec create_transit_gateway_peering_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_gateway_peering_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway_peering_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30712,6 +30593,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a transit gateway policy table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateTransitGatewayPolicyTable&this_doc_guide=API%2520Reference)
@@ -30724,11 +30606,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayId") => String.t()
     }
   """
-
   @spec create_transit_gateway_policy_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_gateway_policy_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway_policy_table(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30738,6 +30618,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a reference (route) to a prefix list in a specified transit gateway
   route table.
 
@@ -30753,11 +30634,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec create_transit_gateway_prefix_list_reference(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_gateway_prefix_list_reference_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30767,6 +30646,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a static route for the specified transit gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateTransitGatewayRoute&this_doc_guide=API%2520Reference)
@@ -30781,11 +30661,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec create_transit_gateway_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_gateway_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30794,6 +30672,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a route table for the specified transit gateway.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateTransitGatewayRouteTable&this_doc_guide=API%2520Reference)
@@ -30806,11 +30685,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayId") => String.t()
     }
   """
-
   @spec create_transit_gateway_route_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_gateway_route_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway_route_table(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30820,6 +30697,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Advertises a new transit gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20CreateTransitGatewayRouteTableAnnouncement&this_doc_guide=API%2520Reference)
@@ -30833,7 +30711,6 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec create_transit_gateway_route_table_announcement(
           AWS.Client.t(),
           input :: map(),
@@ -30841,7 +30718,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, create_transit_gateway_route_table_announcement_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway_route_table_announcement(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30857,6 +30733,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Attaches the specified VPC to the specified transit gateway. If you attach a VPC
   with a CIDR range that overlaps the CIDR range of a VPC that is already
   attached, the new VPC CIDR range is not propagated to the default propagation
@@ -30875,11 +30752,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec create_transit_gateway_vpc_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_gateway_vpc_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30889,6 +30764,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   An Amazon Web Services Verified Access endpoint is where you define your
   application along with an optional endpoint-level access policy.
 
@@ -30914,11 +30790,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessGroupId") => String.t()
     }
   """
-
   @spec create_verified_access_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_verified_access_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_verified_access_endpoint(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30928,6 +30802,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   An Amazon Web Services Verified Access group is a collection of Amazon Web
   Services Verified Access endpoints who's associated applications have similar
   security requirements. Each instance within a Verified Access group shares an
@@ -30949,11 +30824,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessInstanceId") => String.t()
     }
   """
-
   @spec create_verified_access_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_verified_access_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_verified_access_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -30962,6 +30835,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   An Amazon Web Services Verified Access instance is a regional entity that
   evaluates application requests and grants access only when your security
   requirements are met.
@@ -30978,11 +30852,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec create_verified_access_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_verified_access_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_verified_access_instance(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -30992,6 +30864,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   A trust provider is a third-party entity that creates, maintains, and manages
   identity information for users and devices. When an application request is
   made, the identity information sent by the trust provider is evaluated by
@@ -31015,11 +30888,9 @@ defmodule AWS.EC2 do
       required("TrustProviderType") => list(any())
     }
   """
-
   @spec create_verified_access_trust_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_verified_access_trust_provider_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_verified_access_trust_provider(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -31029,6 +30900,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an EBS volume that can be attached to an instance in the same
   Availability Zone. You can create a new empty volume or restore a volume from
   an EBS snapshot. Any Amazon Web Services Marketplace product codes from the
@@ -31054,11 +30926,9 @@ defmodule AWS.EC2 do
       required("AvailabilityZone") => String.t()
     }
   """
-
   @spec create_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, volume(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31067,6 +30937,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a VPC with the specified CIDR blocks. For more information, see [IP
   addressing for your VPCs and
   subnets](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html)
@@ -31095,11 +30966,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec create_vpc(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_vpc(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31108,6 +30977,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a VPC endpoint. A VPC endpoint provides a private connection between the
   specified VPC and the specified endpoint service. You can use an endpoint
   service provided by Amazon Web Services, an Amazon Web Services Marketplace
@@ -31136,11 +31006,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec create_vpc_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31149,6 +31017,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a connection notification for a specified VPC endpoint or VPC endpoint
   service. A connection notification notifies you of specific endpoint events.
   You must create an SNS topic to receive notifications. For more information,
@@ -31169,11 +31038,9 @@ defmodule AWS.EC2 do
       required("ConnectionNotificationArn") => String.t()
     }
   """
-
   @spec create_vpc_endpoint_connection_notification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_endpoint_connection_notification_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_vpc_endpoint_connection_notification(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -31183,6 +31050,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a VPC endpoint service to which service consumers (Amazon Web Services
   accounts, users, and IAM roles) can connect. Before you create an endpoint
   service, you must create one of the following for your service:
@@ -31202,11 +31070,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec create_vpc_endpoint_service_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_endpoint_service_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_vpc_endpoint_service_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -31216,6 +31082,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Requests a VPC peering connection between two VPCs: a requester VPC that you own
   and an accepter VPC with which to create the connection. The accepter VPC can
   belong to another Amazon Web Services account and can be in a different Region
@@ -31238,11 +31105,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec create_vpc_peering_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_peering_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_vpc_peering_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -31252,6 +31117,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a VPN connection between an existing virtual private gateway or transit
   gateway and a customer gateway. The supported connection type is `ipsec.1`.
   The response includes information that you need to give to your network
@@ -31271,11 +31137,9 @@ defmodule AWS.EC2 do
       required("Type") => String.t()
     }
   """
-
   @spec create_vpn_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpn_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_vpn_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31284,6 +31148,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a static route associated with a VPN connection between an existing
   virtual private gateway and a VPN customer gateway. The static route allows
   traffic to be routed from the virtual private gateway to the VPN customer
@@ -31298,11 +31163,9 @@ defmodule AWS.EC2 do
       required("VpnConnectionId") => String.t()
     }
   """
-
   @spec create_vpn_connection_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_vpn_connection_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31311,6 +31174,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a virtual private gateway. A virtual private gateway is the endpoint on
   the VPC side of your VPN connection. You can create a virtual private gateway
   before creating the VPC itself.
@@ -31327,11 +31191,9 @@ defmodule AWS.EC2 do
       required("Type") => list(any())
     }
   """
-
   @spec create_vpn_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpn_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_vpn_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31340,6 +31202,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a carrier gateway.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteCarrierGateway&this_doc_guide=API%2520Reference)
@@ -31351,11 +31214,9 @@ defmodule AWS.EC2 do
       required("CarrierGatewayId") => String.t()
     }
   """
-
   @spec delete_carrier_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_carrier_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_carrier_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31364,6 +31225,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified Client VPN endpoint. You must disassociate all target
   networks before you can delete a Client VPN endpoint.
 
@@ -31376,11 +31238,9 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec delete_client_vpn_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_client_vpn_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_client_vpn_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31389,6 +31249,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a route from a Client VPN endpoint. You can only delete routes that you
   manually added using the **CreateClientVpnRoute** action. You cannot delete
   routes that were automatically added when associating a subnet. To remove
@@ -31406,11 +31267,9 @@ defmodule AWS.EC2 do
       required("DestinationCidrBlock") => String.t()
     }
   """
-
   @spec delete_client_vpn_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_client_vpn_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_client_vpn_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31419,6 +31278,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a range of customer-owned IP addresses.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteCoipCidr&this_doc_guide=API%2520Reference)
@@ -31431,11 +31291,9 @@ defmodule AWS.EC2 do
       required("CoipPoolId") => String.t()
     }
   """
-
   @spec delete_coip_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_coip_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_coip_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31444,6 +31302,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a pool of customer-owned IP (CoIP) addresses.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteCoipPool&this_doc_guide=API%2520Reference)
@@ -31455,11 +31314,9 @@ defmodule AWS.EC2 do
       required("CoipPoolId") => String.t()
     }
   """
-
   @spec delete_coip_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_coip_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_coip_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31468,6 +31325,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified customer gateway. You must delete the VPN connection
   before you can delete the customer gateway.
 
@@ -31480,11 +31338,9 @@ defmodule AWS.EC2 do
       required("CustomerGatewayId") => String.t()
     }
   """
-
   @spec delete_customer_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_customer_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31493,6 +31349,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified set of DHCP options. You must disassociate the set of DHCP
   options before you can delete it. You can disassociate the set of DHCP options
   by associating either a new set of options or the default set of options with
@@ -31507,11 +31364,9 @@ defmodule AWS.EC2 do
       required("DhcpOptionsId") => String.t()
     }
   """
-
   @spec delete_dhcp_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_dhcp_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31520,6 +31375,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes an egress-only internet gateway.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteEgressOnlyInternetGateway&this_doc_guide=API%2520Reference)
@@ -31531,11 +31387,9 @@ defmodule AWS.EC2 do
       required("EgressOnlyInternetGatewayId") => String.t()
     }
   """
-
   @spec delete_egress_only_internet_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_egress_only_internet_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_egress_only_internet_gateway(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -31545,6 +31399,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified EC2 Fleets. After you delete an EC2 Fleet, it launches no
   new instances.
 
@@ -31558,11 +31413,9 @@ defmodule AWS.EC2 do
       required("TerminateInstances") => boolean()
     }
   """
-
   @spec delete_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_fleets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31571,6 +31424,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes one or more flow logs.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteFlowLogs&this_doc_guide=API%2520Reference)
@@ -31582,11 +31436,9 @@ defmodule AWS.EC2 do
       required("FlowLogIds") => list(String.t()())
     }
   """
-
   @spec delete_flow_logs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_flow_logs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_flow_logs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31595,6 +31447,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified Amazon FPGA Image (AFI).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteFpgaImage&this_doc_guide=API%2520Reference)
@@ -31606,11 +31459,9 @@ defmodule AWS.EC2 do
       required("FpgaImageId") => String.t()
     }
   """
-
   @spec delete_fpga_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_fpga_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_fpga_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31619,6 +31470,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified EC2 Instance Connect Endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteInstanceConnectEndpoint&this_doc_guide=API%2520Reference)
@@ -31630,11 +31482,9 @@ defmodule AWS.EC2 do
       required("InstanceConnectEndpointId") => String.t()
     }
   """
-
   @spec delete_instance_connect_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_instance_connect_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_instance_connect_endpoint(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -31644,6 +31494,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified event window.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteInstanceEventWindow&this_doc_guide=API%2520Reference)
@@ -31656,11 +31507,9 @@ defmodule AWS.EC2 do
       required("InstanceEventWindowId") => String.t()
     }
   """
-
   @spec delete_instance_event_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_instance_event_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_instance_event_window(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31669,6 +31518,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified internet gateway. You must detach the internet gateway
   from the VPC before you can delete it.
 
@@ -31681,11 +31531,9 @@ defmodule AWS.EC2 do
       required("InternetGatewayId") => String.t()
     }
   """
-
   @spec delete_internet_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_internet_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31694,6 +31542,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Delete an IPAM. Deleting an IPAM removes all monitored data associated with the
   IPAM including the historical data for CIDRs.
 
@@ -31707,11 +31556,9 @@ defmodule AWS.EC2 do
       required("IpamId") => String.t()
     }
   """
-
   @spec delete_ipam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ipam_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_ipam(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31720,6 +31567,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Delete a verification token. A verification token is an Amazon Web
   Services-generated random value that you can use to prove ownership of an
   external resource. For example, you can use a verification token to validate
@@ -31735,7 +31583,6 @@ defmodule AWS.EC2 do
       required("IpamExternalResourceVerificationTokenId") => String.t()
     }
   """
-
   @spec delete_ipam_external_resource_verification_token(
           AWS.Client.t(),
           input :: map(),
@@ -31743,7 +31590,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, delete_ipam_external_resource_verification_token_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_ipam_external_resource_verification_token(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -31759,6 +31605,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Delete an IPAM pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteIpamPool&this_doc_guide=API%2520Reference)
@@ -31771,11 +31618,9 @@ defmodule AWS.EC2 do
       required("IpamPoolId") => String.t()
     }
   """
-
   @spec delete_ipam_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ipam_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_ipam_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31784,6 +31629,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes an IPAM resource discovery. A resource discovery is an IPAM component
   that enables IPAM to manage and monitor resources that belong to the owning
   account.
@@ -31797,11 +31643,9 @@ defmodule AWS.EC2 do
       required("IpamResourceDiscoveryId") => String.t()
     }
   """
-
   @spec delete_ipam_resource_discovery(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ipam_resource_discovery_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_ipam_resource_discovery(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -31811,6 +31655,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Delete the scope for an IPAM. You cannot delete the default scopes.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteIpamScope&this_doc_guide=API%2520Reference)
@@ -31822,11 +31667,9 @@ defmodule AWS.EC2 do
       required("IpamScopeId") => String.t()
     }
   """
-
   @spec delete_ipam_scope(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ipam_scope_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_ipam_scope(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31835,6 +31678,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified key pair, by removing the public key from Amazon EC2.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteKeyPair&this_doc_guide=API%2520Reference)
@@ -31847,11 +31691,9 @@ defmodule AWS.EC2 do
       optional("KeyPairId") => String.t()
     }
   """
-
   @spec delete_key_pair(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_key_pair(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31860,6 +31702,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a launch template. Deleting a launch template deletes all of its
   versions.
 
@@ -31873,11 +31716,9 @@ defmodule AWS.EC2 do
       optional("LaunchTemplateName") => String.t()
     }
   """
-
   @spec delete_launch_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_launch_template_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_launch_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31886,6 +31727,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes one or more versions of a launch template. You can't delete the default
   version of a launch template; you must first assign a different version as the
   default. If the default version is the only version for the launch template,
@@ -31902,11 +31744,9 @@ defmodule AWS.EC2 do
       required("Versions") => list(String.t()())
     }
   """
-
   @spec delete_launch_template_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_launch_template_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_launch_template_versions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -31916,6 +31756,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified route from the specified local gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteLocalGatewayRoute&this_doc_guide=API%2520Reference)
@@ -31929,11 +31770,9 @@ defmodule AWS.EC2 do
       required("LocalGatewayRouteTableId") => String.t()
     }
   """
-
   @spec delete_local_gateway_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_local_gateway_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_local_gateway_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -31942,6 +31781,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a local gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteLocalGatewayRouteTable&this_doc_guide=API%2520Reference)
@@ -31953,11 +31793,9 @@ defmodule AWS.EC2 do
       required("LocalGatewayRouteTableId") => String.t()
     }
   """
-
   @spec delete_local_gateway_route_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_local_gateway_route_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_local_gateway_route_table(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -31967,6 +31805,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a local gateway route table virtual interface group association.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation&this_doc_guide=API%2520Reference)
@@ -31978,7 +31817,6 @@ defmodule AWS.EC2 do
       required("LocalGatewayRouteTableVirtualInterfaceGroupAssociationId") => String.t()
     }
   """
-
   @spec delete_local_gateway_route_table_virtual_interface_group_association(
           AWS.Client.t(),
           input :: map(),
@@ -31987,7 +31825,6 @@ defmodule AWS.EC2 do
           {:ok, delete_local_gateway_route_table_virtual_interface_group_association_result(),
            any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_local_gateway_route_table_virtual_interface_group_association(
         %Client{} = client,
         input,
@@ -32007,6 +31844,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified association between a VPC and local gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteLocalGatewayRouteTableVpcAssociation&this_doc_guide=API%2520Reference)
@@ -32018,7 +31856,6 @@ defmodule AWS.EC2 do
       required("LocalGatewayRouteTableVpcAssociationId") => String.t()
     }
   """
-
   @spec delete_local_gateway_route_table_vpc_association(
           AWS.Client.t(),
           input :: map(),
@@ -32026,7 +31863,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, delete_local_gateway_route_table_vpc_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_local_gateway_route_table_vpc_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32042,6 +31878,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified managed prefix list. You must first remove all references
   to the prefix list in your resources.
 
@@ -32054,11 +31891,9 @@ defmodule AWS.EC2 do
       required("PrefixListId") => String.t()
     }
   """
-
   @spec delete_managed_prefix_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_managed_prefix_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_managed_prefix_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32067,6 +31902,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified NAT gateway. Deleting a public NAT gateway disassociates
   its Elastic IP address, but does not release the address from your account.
   Deleting a NAT gateway does not delete any NAT gateway routes in your route
@@ -32081,11 +31917,9 @@ defmodule AWS.EC2 do
       required("NatGatewayId") => String.t()
     }
   """
-
   @spec delete_nat_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_nat_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_nat_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32094,6 +31928,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified network ACL. You can't delete the ACL if it's associated
   with any subnets. You can't delete the default network ACL.
 
@@ -32106,11 +31941,9 @@ defmodule AWS.EC2 do
       required("NetworkAclId") => String.t()
     }
   """
-
   @spec delete_network_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_network_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32119,6 +31952,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified ingress or egress entry (rule) from the specified network
   ACL.
 
@@ -32133,11 +31967,9 @@ defmodule AWS.EC2 do
       required("RuleNumber") => integer()
     }
   """
-
   @spec delete_network_acl_entry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_network_acl_entry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32146,6 +31978,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified Network Access Scope.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteNetworkInsightsAccessScope&this_doc_guide=API%2520Reference)
@@ -32157,11 +31990,9 @@ defmodule AWS.EC2 do
       required("NetworkInsightsAccessScopeId") => String.t()
     }
   """
-
   @spec delete_network_insights_access_scope(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_network_insights_access_scope_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_network_insights_access_scope(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32171,6 +32002,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified Network Access Scope analysis.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteNetworkInsightsAccessScopeAnalysis&this_doc_guide=API%2520Reference)
@@ -32182,11 +32014,9 @@ defmodule AWS.EC2 do
       required("NetworkInsightsAccessScopeAnalysisId") => String.t()
     }
   """
-
   @spec delete_network_insights_access_scope_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_network_insights_access_scope_analysis_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_network_insights_access_scope_analysis(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32196,6 +32026,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified network insights analysis.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteNetworkInsightsAnalysis&this_doc_guide=API%2520Reference)
@@ -32207,11 +32038,9 @@ defmodule AWS.EC2 do
       required("NetworkInsightsAnalysisId") => String.t()
     }
   """
-
   @spec delete_network_insights_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_network_insights_analysis_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_network_insights_analysis(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32221,6 +32050,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified path.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteNetworkInsightsPath&this_doc_guide=API%2520Reference)
@@ -32232,11 +32062,9 @@ defmodule AWS.EC2 do
       required("NetworkInsightsPathId") => String.t()
     }
   """
-
   @spec delete_network_insights_path(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_network_insights_path_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_network_insights_path(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32245,6 +32073,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified network interface. You must detach the network interface
   before you can delete it.
 
@@ -32257,11 +32086,9 @@ defmodule AWS.EC2 do
       required("NetworkInterfaceId") => String.t()
     }
   """
-
   @spec delete_network_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_network_interface(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32270,6 +32097,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a permission for a network interface. By default, you cannot delete the
   permission if the account for which you're removing the permission has
   attached the network interface to an instance. However, you can force delete
@@ -32285,11 +32113,9 @@ defmodule AWS.EC2 do
       required("NetworkInterfacePermissionId") => String.t()
     }
   """
-
   @spec delete_network_interface_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_network_interface_permission_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_network_interface_permission(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32299,6 +32125,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified placement group. You must terminate all instances in the
   placement group before you can delete the placement group. For more
   information, see [Placement
@@ -32314,11 +32141,9 @@ defmodule AWS.EC2 do
       required("GroupName") => String.t()
     }
   """
-
   @spec delete_placement_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_placement_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32327,6 +32152,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Delete a public IPv4 pool. A public IPv4 pool is an EC2 IP address pool required
   for the public IPv4 CIDRs that you own and bring to Amazon Web Services to
   manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however,
@@ -32342,11 +32168,9 @@ defmodule AWS.EC2 do
       required("PoolId") => String.t()
     }
   """
-
   @spec delete_public_ipv4_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_public_ipv4_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_public_ipv4_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32355,6 +32179,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the queued purchases for the specified Reserved Instances.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteQueuedReservedInstances&this_doc_guide=API%2520Reference)
@@ -32366,11 +32191,9 @@ defmodule AWS.EC2 do
       required("ReservedInstancesIds") => list(String.t()())
     }
   """
-
   @spec delete_queued_reserved_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_queued_reserved_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_queued_reserved_instances(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32380,6 +32203,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified route from the specified route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteRoute&this_doc_guide=API%2520Reference)
@@ -32394,11 +32218,9 @@ defmodule AWS.EC2 do
       required("RouteTableId") => String.t()
     }
   """
-
   @spec delete_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32407,6 +32229,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified route table. You must disassociate the route table from
   any subnets before you can delete it. You can't delete the main route table.
 
@@ -32419,11 +32242,9 @@ defmodule AWS.EC2 do
       required("RouteTableId") => String.t()
     }
   """
-
   @spec delete_route_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_route_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32432,6 +32253,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a security group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteSecurityGroup&this_doc_guide=API%2520Reference)
@@ -32444,11 +32266,9 @@ defmodule AWS.EC2 do
       optional("GroupName") => String.t()
     }
   """
-
   @spec delete_security_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_security_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32457,6 +32277,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified snapshot. When you make periodic snapshots of a volume,
   the snapshots are incremental, and only the blocks on the device that have
   changed since your last snapshot are saved in the new snapshot. When you
@@ -32473,11 +32294,9 @@ defmodule AWS.EC2 do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec delete_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32486,6 +32305,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the data feed for Spot Instances.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteSpotDatafeedSubscription&this_doc_guide=API%2520Reference)
@@ -32496,11 +32316,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec delete_spot_datafeed_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_spot_datafeed_subscription(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32510,6 +32328,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified subnet. You must terminate all running instances in the
   subnet before you can delete the subnet.
 
@@ -32522,11 +32341,9 @@ defmodule AWS.EC2 do
       required("SubnetId") => String.t()
     }
   """
-
   @spec delete_subnet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_subnet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32535,6 +32352,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a subnet CIDR reservation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteSubnetCidrReservation&this_doc_guide=API%2520Reference)
@@ -32546,11 +32364,9 @@ defmodule AWS.EC2 do
       required("SubnetCidrReservationId") => String.t()
     }
   """
-
   @spec delete_subnet_cidr_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_subnet_cidr_reservation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_subnet_cidr_reservation(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32560,6 +32376,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified set of tags from the specified set of resources.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTags&this_doc_guide=API%2520Reference)
@@ -32572,11 +32389,9 @@ defmodule AWS.EC2 do
       required("Resources") => list(String.t()())
     }
   """
-
   @spec delete_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32585,6 +32400,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified Traffic Mirror filter.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTrafficMirrorFilter&this_doc_guide=API%2520Reference)
@@ -32596,11 +32412,9 @@ defmodule AWS.EC2 do
       required("TrafficMirrorFilterId") => String.t()
     }
   """
-
   @spec delete_traffic_mirror_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_traffic_mirror_filter_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_traffic_mirror_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32609,6 +32423,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified Traffic Mirror rule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTrafficMirrorFilterRule&this_doc_guide=API%2520Reference)
@@ -32620,11 +32435,9 @@ defmodule AWS.EC2 do
       required("TrafficMirrorFilterRuleId") => String.t()
     }
   """
-
   @spec delete_traffic_mirror_filter_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_traffic_mirror_filter_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_traffic_mirror_filter_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32634,6 +32447,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified Traffic Mirror session.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTrafficMirrorSession&this_doc_guide=API%2520Reference)
@@ -32645,11 +32459,9 @@ defmodule AWS.EC2 do
       required("TrafficMirrorSessionId") => String.t()
     }
   """
-
   @spec delete_traffic_mirror_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_traffic_mirror_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_traffic_mirror_session(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32659,6 +32471,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified Traffic Mirror target.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTrafficMirrorTarget&this_doc_guide=API%2520Reference)
@@ -32670,11 +32483,9 @@ defmodule AWS.EC2 do
       required("TrafficMirrorTargetId") => String.t()
     }
   """
-
   @spec delete_traffic_mirror_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_traffic_mirror_target_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_traffic_mirror_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32683,6 +32494,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified transit gateway.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTransitGateway&this_doc_guide=API%2520Reference)
@@ -32694,11 +32506,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayId") => String.t()
     }
   """
-
   @spec delete_transit_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_transit_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32707,6 +32517,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified Connect attachment. You must first delete any Connect
   peers for the attachment.
 
@@ -32719,11 +32530,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec delete_transit_gateway_connect(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_transit_gateway_connect_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway_connect(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32733,6 +32542,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified Connect peer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTransitGatewayConnectPeer&this_doc_guide=API%2520Reference)
@@ -32744,11 +32554,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayConnectPeerId") => String.t()
     }
   """
-
   @spec delete_transit_gateway_connect_peer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_transit_gateway_connect_peer_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway_connect_peer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32758,6 +32566,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified transit gateway multicast domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTransitGatewayMulticastDomain&this_doc_guide=API%2520Reference)
@@ -32769,11 +32578,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec delete_transit_gateway_multicast_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_transit_gateway_multicast_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway_multicast_domain(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32783,6 +32590,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a transit gateway peering attachment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTransitGatewayPeeringAttachment&this_doc_guide=API%2520Reference)
@@ -32794,11 +32602,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec delete_transit_gateway_peering_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_transit_gateway_peering_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway_peering_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32808,6 +32614,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified transit gateway policy table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTransitGatewayPolicyTable&this_doc_guide=API%2520Reference)
@@ -32819,11 +32626,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayPolicyTableId") => String.t()
     }
   """
-
   @spec delete_transit_gateway_policy_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_transit_gateway_policy_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway_policy_table(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32833,6 +32638,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a reference (route) to a prefix list in a specified transit gateway
   route table.
 
@@ -32846,11 +32652,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec delete_transit_gateway_prefix_list_reference(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_transit_gateway_prefix_list_reference_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32860,6 +32664,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified route from the specified transit gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTransitGatewayRoute&this_doc_guide=API%2520Reference)
@@ -32872,11 +32677,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec delete_transit_gateway_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_transit_gateway_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -32885,6 +32688,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified transit gateway route table. If there are any route tables
   associated with the transit gateway route table, you must first run
   `DisassociateRouteTable` before you can delete the transit gateway route
@@ -32900,11 +32704,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec delete_transit_gateway_route_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_transit_gateway_route_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway_route_table(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32914,6 +32716,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Advertises to the transit gateway that a transit gateway route table is deleted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTransitGatewayRouteTableAnnouncement&this_doc_guide=API%2520Reference)
@@ -32925,7 +32728,6 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableAnnouncementId") => String.t()
     }
   """
-
   @spec delete_transit_gateway_route_table_announcement(
           AWS.Client.t(),
           input :: map(),
@@ -32933,7 +32735,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, delete_transit_gateway_route_table_announcement_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway_route_table_announcement(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32949,6 +32750,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified VPC attachment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteTransitGatewayVpcAttachment&this_doc_guide=API%2520Reference)
@@ -32960,11 +32762,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec delete_transit_gateway_vpc_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_transit_gateway_vpc_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -32974,6 +32774,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Delete an Amazon Web Services Verified Access endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteVerifiedAccessEndpoint&this_doc_guide=API%2520Reference)
@@ -32986,11 +32787,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessEndpointId") => String.t()
     }
   """
-
   @spec delete_verified_access_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_verified_access_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_verified_access_endpoint(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33000,6 +32799,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Delete an Amazon Web Services Verified Access group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteVerifiedAccessGroup&this_doc_guide=API%2520Reference)
@@ -33012,11 +32812,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessGroupId") => String.t()
     }
   """
-
   @spec delete_verified_access_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_verified_access_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_verified_access_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33025,6 +32823,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Delete an Amazon Web Services Verified Access instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteVerifiedAccessInstance&this_doc_guide=API%2520Reference)
@@ -33037,11 +32836,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessInstanceId") => String.t()
     }
   """
-
   @spec delete_verified_access_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_verified_access_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_verified_access_instance(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33051,6 +32848,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Delete an Amazon Web Services Verified Access trust provider.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteVerifiedAccessTrustProvider&this_doc_guide=API%2520Reference)
@@ -33063,11 +32861,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessTrustProviderId") => String.t()
     }
   """
-
   @spec delete_verified_access_trust_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_verified_access_trust_provider_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_verified_access_trust_provider(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33077,6 +32873,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified EBS volume. The volume must be in the `available` state
   (not attached to an instance). The volume can remain in the `deleting` state
   for several minutes.
@@ -33090,11 +32887,9 @@ defmodule AWS.EC2 do
       required("VolumeId") => String.t()
     }
   """
-
   @spec delete_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33103,6 +32898,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified VPC. You must detach or delete all gateways and resources
   that are associated with the VPC before you can delete it. For example, you
   must terminate all instances running in the VPC, delete all security groups
@@ -33120,11 +32916,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec delete_vpc(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_vpc(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33133,6 +32927,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified VPC endpoint connection notifications.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeleteVpcEndpointConnectionNotifications&this_doc_guide=API%2520Reference)
@@ -33144,11 +32939,9 @@ defmodule AWS.EC2 do
       required("ConnectionNotificationIds") => list(String.t()())
     }
   """
-
   @spec delete_vpc_endpoint_connection_notifications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vpc_endpoint_connection_notifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_vpc_endpoint_connection_notifications(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33158,6 +32951,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified VPC endpoint service configurations. Before you can delete
   an endpoint service configuration, you must reject any `Available` or
   `PendingAcceptance` interface endpoint connections that are attached to the
@@ -33172,11 +32966,9 @@ defmodule AWS.EC2 do
       required("ServiceIds") => list(String.t()())
     }
   """
-
   @spec delete_vpc_endpoint_service_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vpc_endpoint_service_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_vpc_endpoint_service_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33186,6 +32978,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified VPC endpoints. When you delete a gateway endpoint, we
   delete the endpoint routes in the route tables for the endpoint.
 
@@ -33198,11 +32991,9 @@ defmodule AWS.EC2 do
       required("VpcEndpointIds") => list(String.t()())
     }
   """
-
   @spec delete_vpc_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vpc_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_vpc_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33211,6 +33002,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes a VPC peering connection. Either the owner of the requester VPC or the
   owner of the accepter VPC can delete the VPC peering connection if it's in the
   `active` state. The owner of the requester VPC can delete a VPC peering
@@ -33226,11 +33018,9 @@ defmodule AWS.EC2 do
       required("VpcPeeringConnectionId") => String.t()
     }
   """
-
   @spec delete_vpc_peering_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vpc_peering_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33240,6 +33030,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified VPN connection. If you're deleting the VPC and its
   associated components, we recommend that you detach the virtual private
   gateway from the VPC and delete the VPC before deleting the VPN connection. If
@@ -33259,11 +33050,9 @@ defmodule AWS.EC2 do
       required("VpnConnectionId") => String.t()
     }
   """
-
   @spec delete_vpn_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_vpn_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33272,6 +33061,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified static route associated with a VPN connection between an
   existing virtual private gateway and a VPN customer gateway. The static route
   allows traffic to be routed from the virtual private gateway to the VPN
@@ -33286,11 +33076,9 @@ defmodule AWS.EC2 do
       required("VpnConnectionId") => String.t()
     }
   """
-
   @spec delete_vpn_connection_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_vpn_connection_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33299,6 +33087,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deletes the specified virtual private gateway. You must first detach the virtual
   private gateway from the VPC. Note that you don't need to delete the virtual
   private gateway if you plan to delete and recreate the VPN connection between
@@ -33313,11 +33102,9 @@ defmodule AWS.EC2 do
       required("VpnGatewayId") => String.t()
     }
   """
-
   @spec delete_vpn_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_vpn_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33326,6 +33113,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Releases the specified address range that you provisioned for use with your
   Amazon Web Services resources through bring your own IP addresses (BYOIP) and
   deletes the corresponding address pool.
@@ -33339,11 +33127,9 @@ defmodule AWS.EC2 do
       required("Cidr") => String.t()
     }
   """
-
   @spec deprovision_byoip_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deprovision_byoip_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def deprovision_byoip_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33352,6 +33138,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deprovisions your Autonomous System Number (ASN) from your Amazon Web Services
   account. This action can only be called after any BYOIP CIDR associations are
   removed from your Amazon Web Services account with
@@ -33370,11 +33157,9 @@ defmodule AWS.EC2 do
       required("IpamId") => String.t()
     }
   """
-
   @spec deprovision_ipam_byoasn(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deprovision_ipam_byoasn_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def deprovision_ipam_byoasn(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33383,6 +33168,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from
   a pool that has a source pool, the CIDR is recycled back into the source pool.
   For more information, see [Deprovision pool
@@ -33399,11 +33185,9 @@ defmodule AWS.EC2 do
       required("IpamPoolId") => String.t()
     }
   """
-
   @spec deprovision_ipam_pool_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deprovision_ipam_pool_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def deprovision_ipam_pool_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33412,6 +33196,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deprovision a CIDR from a public IPv4 pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DeprovisionPublicIpv4PoolCidr&this_doc_guide=API%2520Reference)
@@ -33424,11 +33209,9 @@ defmodule AWS.EC2 do
       required("PoolId") => String.t()
     }
   """
-
   @spec deprovision_public_ipv4_pool_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deprovision_public_ipv4_pool_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def deprovision_public_ipv4_pool_cidr(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33438,6 +33221,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deregisters the specified AMI. After you deregister an AMI, it can't be used to
   launch new instances. If you deregister an AMI that matches a Recycle Bin
   retention rule, the AMI is retained in the Recycle Bin for the specified
@@ -33454,11 +33238,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec deregister_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def deregister_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33467,6 +33249,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deregisters tag keys to prevent tags that have the specified tag keys from being
   included in scheduled event notifications for resources in the Region.
 
@@ -33479,7 +33262,6 @@ defmodule AWS.EC2 do
       required("InstanceTagAttribute") => deregister_instance_tag_attribute_request()
     }
   """
-
   @spec deregister_instance_event_notification_attributes(
           AWS.Client.t(),
           input :: map(),
@@ -33487,7 +33269,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, deregister_instance_event_notification_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def deregister_instance_event_notification_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33503,6 +33284,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deregisters the specified members (network interfaces) from the transit gateway
   multicast group.
 
@@ -33517,7 +33299,6 @@ defmodule AWS.EC2 do
       optional("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec deregister_transit_gateway_multicast_group_members(
           AWS.Client.t(),
           input :: map(),
@@ -33525,7 +33306,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, deregister_transit_gateway_multicast_group_members_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def deregister_transit_gateway_multicast_group_members(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33541,6 +33321,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Deregisters the specified sources (network interfaces) from the transit gateway
   multicast group.
 
@@ -33555,7 +33336,6 @@ defmodule AWS.EC2 do
       optional("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec deregister_transit_gateway_multicast_group_sources(
           AWS.Client.t(),
           input :: map(),
@@ -33563,7 +33343,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, deregister_transit_gateway_multicast_group_sources_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def deregister_transit_gateway_multicast_group_sources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33579,6 +33358,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes attributes of your Amazon Web Services account. The following are the
   supported account attributes:
 
@@ -33591,11 +33371,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec describe_account_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_account_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33604,6 +33382,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes an Elastic IP address transfer. For more information, see [Transfer
   Elastic IP
   addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro)
@@ -33620,11 +33399,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_address_transfers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_address_transfers_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_address_transfers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33633,6 +33410,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Elastic IP addresses or all of your Elastic IP
   addresses.
 
@@ -33647,11 +33425,9 @@ defmodule AWS.EC2 do
       optional("PublicIps") => list(String.t()())
     }
   """
-
   @spec describe_addresses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_addresses_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_addresses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33660,6 +33436,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the attributes of the specified Elastic IP addresses. For
   requirements, see [Using reverse DNS for email
   applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
@@ -33676,11 +33453,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_addresses_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_addresses_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_addresses_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33689,6 +33464,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the longer ID format settings for all resource types in a specific
   Region. This request is useful for performing a quick audit to determine
   whether a specific Region is fully opted in for longer IDs (17-character IDs).
@@ -33703,11 +33479,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec describe_aggregate_id_format(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_aggregate_id_format_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_aggregate_id_format(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33716,6 +33490,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the Availability Zones, Local Zones, and Wavelength Zones that are
   available to you. If there is an event impacting a zone, you can use this
   request to view the state and any provided messages for that zone. For more
@@ -33736,11 +33511,9 @@ defmodule AWS.EC2 do
       optional("ZoneNames") => list(String.t()())
     }
   """
-
   @spec describe_availability_zones(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_availability_zones_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_availability_zones(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33749,6 +33522,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the current Infrastructure Performance metric subscriptions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeAwsNetworkPerformanceMetricSubscriptions&this_doc_guide=API%2520Reference)
@@ -33762,7 +33536,6 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_aws_network_performance_metric_subscriptions(
           AWS.Client.t(),
           input :: map(),
@@ -33770,7 +33543,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, describe_aws_network_performance_metric_subscriptions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_aws_network_performance_metric_subscriptions(
         %Client{} = client,
         input,
@@ -33790,6 +33562,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified bundle tasks or all of your bundle tasks. Completed
   bundle tasks are listed for only a limited time. If your bundle task is no
   longer in the list, you can still register an AMI from it. Just use
@@ -33806,11 +33579,9 @@ defmodule AWS.EC2 do
       optional("Filters") => list(filter()())
     }
   """
-
   @spec describe_bundle_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_bundle_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_bundle_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33819,6 +33590,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the IP address ranges that were specified in calls to
   `ProvisionByoipCidr`.
 
@@ -33832,11 +33604,9 @@ defmodule AWS.EC2 do
       required("MaxResults") => integer()
     }
   """
-
   @spec describe_byoip_cidrs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_byoip_cidrs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_byoip_cidrs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33845,6 +33615,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes Capacity Block offerings available for purchase in the Amazon Web
   Services Region that you're currently using. With Capacity Blocks, you
   purchase a specific instance type for a period of time.
@@ -33864,11 +33635,9 @@ defmodule AWS.EC2 do
       required("InstanceType") => String.t()
     }
   """
-
   @spec describe_capacity_block_offerings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_capacity_block_offerings_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_capacity_block_offerings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33878,6 +33647,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more Capacity Reservation Fleets.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeCapacityReservationFleets&this_doc_guide=API%2520Reference)
@@ -33892,11 +33662,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_capacity_reservation_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_capacity_reservation_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_capacity_reservation_fleets(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33906,6 +33674,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more of your Capacity Reservations. The results describe only
   the Capacity Reservations in the Amazon Web Services Region that you're
   currently using.
@@ -33922,11 +33691,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_capacity_reservations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_capacity_reservations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_capacity_reservations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33936,6 +33703,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more of your carrier gateways.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeCarrierGateways&this_doc_guide=API%2520Reference)
@@ -33950,11 +33718,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_carrier_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_carrier_gateways_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_carrier_gateways(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -33963,6 +33729,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeClassicLinkInstances&this_doc_guide=API%2520Reference)
@@ -33977,11 +33744,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_classic_link_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_classic_link_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_classic_link_instances(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -33991,6 +33756,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the authorization rules for a specified Client VPN endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeClientVpnAuthorizationRules&this_doc_guide=API%2520Reference)
@@ -34005,11 +33771,9 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec describe_client_vpn_authorization_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_client_vpn_authorization_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_client_vpn_authorization_rules(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34019,6 +33783,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes active client connections and connections that have been terminated
   within the last 60 minutes for the specified Client VPN endpoint.
 
@@ -34034,11 +33799,9 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec describe_client_vpn_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_client_vpn_connections_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_client_vpn_connections(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34048,6 +33811,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more Client VPN endpoints in the account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeClientVpnEndpoints&this_doc_guide=API%2520Reference)
@@ -34062,11 +33826,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_client_vpn_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_client_vpn_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_client_vpn_endpoints(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34076,6 +33838,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the routes for the specified Client VPN endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeClientVpnRoutes&this_doc_guide=API%2520Reference)
@@ -34090,11 +33853,9 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec describe_client_vpn_routes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_client_vpn_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_client_vpn_routes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34103,6 +33864,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the target networks associated with the specified Client VPN endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeClientVpnTargetNetworks&this_doc_guide=API%2520Reference)
@@ -34118,11 +33880,9 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec describe_client_vpn_target_networks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_client_vpn_target_networks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_client_vpn_target_networks(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34132,6 +33892,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified customer-owned address pools or all of your
   customer-owned address pools.
 
@@ -34147,11 +33908,9 @@ defmodule AWS.EC2 do
       optional("PoolIds") => list(String.t()())
     }
   """
-
   @spec describe_coip_pools(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_coip_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_coip_pools(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34160,6 +33919,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified conversion tasks or all your conversion tasks. For more
   information, see the [VM Import/Export User
   Guide](https://docs.aws.amazon.com/vm-import/latest/userguide/). For
@@ -34176,11 +33936,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec describe_conversion_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_conversion_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_conversion_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34189,6 +33947,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more of your VPN customer gateways.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeCustomerGateways&this_doc_guide=API%2520Reference)
@@ -34201,11 +33960,9 @@ defmodule AWS.EC2 do
       optional("Filters") => list(filter()())
     }
   """
-
   @spec describe_customer_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_customer_gateways_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_customer_gateways(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34214,6 +33971,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your DHCP option sets. The default is to describe all your DHCP option
   sets. Alternatively, you can specify specific DHCP option set IDs or filter
   the results to include only the DHCP option sets that match specific criteria.
@@ -34230,11 +33988,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_dhcp_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dhcp_options_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_dhcp_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34243,6 +33999,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your egress-only internet gateways. The default is to describe all
   your egress-only internet gateways. Alternatively, you can specify specific
   egress-only internet gateway IDs or filter the results to include only the
@@ -34260,11 +34017,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_egress_only_internet_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_egress_only_internet_gateways_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_egress_only_internet_gateways(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34274,6 +34029,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads
   that require graphics acceleration, we recommend that you use Amazon EC2 G4,
   G5, or G6 instances.
@@ -34290,11 +34046,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_elastic_gpus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_elastic_gpus_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_elastic_gpus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34303,6 +34057,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified export image tasks or all of your export image tasks.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeExportImageTasks&this_doc_guide=API%2520Reference)
@@ -34317,11 +34072,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_export_image_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_export_image_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_export_image_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34330,6 +34083,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified export instance tasks or all of your export instance
   tasks.
 
@@ -34342,11 +34096,9 @@ defmodule AWS.EC2 do
       optional("Filters") => list(filter()())
     }
   """
-
   @spec describe_export_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_export_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_export_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34355,6 +34107,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describe details for Windows AMIs that are configured for Windows fast launch.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeFastLaunchImages&this_doc_guide=API%2520Reference)
@@ -34369,11 +34122,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fast_launch_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fast_launch_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_fast_launch_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34382,6 +34133,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the state of fast snapshot restores for your snapshots.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeFastSnapshotRestores&this_doc_guide=API%2520Reference)
@@ -34395,11 +34147,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fast_snapshot_restores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fast_snapshot_restores_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_fast_snapshot_restores(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34409,6 +34159,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the events for the specified EC2 Fleet during the specified time. EC2
   Fleet events are delayed by up to 30 seconds before they can be described.
   This ensures that you can query by the last evaluated time and not miss a
@@ -34427,11 +34178,9 @@ defmodule AWS.EC2 do
       required("StartTime") => non_neg_integer()
     }
   """
-
   @spec describe_fleet_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_history_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_fleet_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34440,6 +34189,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the running instances for the specified EC2 Fleet. Currently,
   `DescribeFleetInstances` does not support fleets of type `instant`. Instead,
   use `DescribeFleets`, specifying the `instant` fleet ID in the request.
@@ -34456,11 +34206,9 @@ defmodule AWS.EC2 do
       required("FleetId") => String.t()
     }
   """
-
   @spec describe_fleet_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_fleet_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34469,6 +34217,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified EC2 Fleet or all of your EC2 Fleets. If a fleet is of
   type `instant`, you must specify the fleet ID in the request, otherwise the
   fleet does not appear in the response.
@@ -34485,11 +34234,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_fleets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34498,6 +34245,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more flow logs.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeFlowLogs&this_doc_guide=API%2520Reference)
@@ -34512,11 +34260,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_flow_logs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_flow_logs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_flow_logs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34525,6 +34271,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified attribute of the specified Amazon FPGA Image (AFI).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeFpgaImageAttribute&this_doc_guide=API%2520Reference)
@@ -34537,11 +34284,9 @@ defmodule AWS.EC2 do
       required("FpgaImageId") => String.t()
     }
   """
-
   @spec describe_fpga_image_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fpga_image_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_fpga_image_attribute(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34551,6 +34296,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the Amazon FPGA Images (AFIs) available to you. These include public
   AFIs, private AFIs that you own, and AFIs owned by other Amazon Web Services
   accounts for which you have load permissions.
@@ -34568,11 +34314,9 @@ defmodule AWS.EC2 do
       optional("Owners") => list(String.t()())
     }
   """
-
   @spec describe_fpga_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fpga_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_fpga_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34581,6 +34325,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the Dedicated Host reservations that are available to purchase.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeHostReservationOfferings&this_doc_guide=API%2520Reference)
@@ -34596,11 +34341,9 @@ defmodule AWS.EC2 do
       optional("OfferingId") => String.t()
     }
   """
-
   @spec describe_host_reservation_offerings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_host_reservation_offerings_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_host_reservation_offerings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34610,6 +34353,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes reservations that are associated with Dedicated Hosts in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeHostReservations&this_doc_guide=API%2520Reference)
@@ -34623,11 +34367,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_host_reservations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_host_reservations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_host_reservations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34636,6 +34378,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Dedicated Hosts or all your Dedicated Hosts.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeHosts&this_doc_guide=API%2520Reference)
@@ -34649,11 +34392,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_hosts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_hosts_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_hosts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34662,6 +34403,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your IAM instance profile associations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeIamInstanceProfileAssociations&this_doc_guide=API%2520Reference)
@@ -34675,11 +34417,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_iam_instance_profile_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_iam_instance_profile_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_iam_instance_profile_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34689,6 +34429,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the ID format settings for your resources on a per-Region basis, for
   example, to view which resource types are enabled for longer IDs. This request
   only returns information about resource types whose ID formats can be
@@ -34712,11 +34453,9 @@ defmodule AWS.EC2 do
       optional("Resource") => String.t()
     }
   """
-
   @spec describe_id_format(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_id_format_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_id_format(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34725,6 +34464,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the ID format settings for resources for the specified IAM user, IAM
   role, or root user. For example, you can view the resource types that are
   enabled for longer IDs. This request only returns information about resource
@@ -34751,11 +34491,9 @@ defmodule AWS.EC2 do
       required("PrincipalArn") => String.t()
     }
   """
-
   @spec describe_identity_id_format(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_identity_id_format_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_identity_id_format(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34764,6 +34502,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified attribute of the specified AMI. You can specify only one
   attribute at a time.
 
@@ -34777,11 +34516,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec describe_image_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, image_attribute(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_image_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34790,6 +34527,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of
   the images available to you. The images available to you include public
   images, private images that you own, and private images owned by other Amazon
@@ -34811,11 +34549,9 @@ defmodule AWS.EC2 do
       optional("Owners") => list(String.t()())
     }
   """
-
   @spec describe_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34824,6 +34560,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Displays details about an import virtual machine or import snapshot tasks that
   are already created.
 
@@ -34839,11 +34576,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_import_image_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_import_image_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_import_image_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34852,6 +34587,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your import snapshot tasks.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeImportSnapshotTasks&this_doc_guide=API%2520Reference)
@@ -34866,11 +34602,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_import_snapshot_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_import_snapshot_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_import_snapshot_tasks(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34880,6 +34614,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified attribute of the specified instance. You can specify
   only one attribute at a time. Valid attribute values are: `instanceType` |
   `kernel` | `ramdisk` | `userData` | `disableApiTermination` |
@@ -34897,11 +34632,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec describe_instance_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, instance_attribute(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_instance_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -34910,6 +34643,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified EC2 Instance Connect Endpoints or all EC2 Instance
   Connect Endpoints.
 
@@ -34925,11 +34659,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_instance_connect_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_connect_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_instance_connect_endpoints(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34939,6 +34671,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the credit option for CPU usage of the specified burstable performance
   instances. The credit options are `standard` and `unlimited`. If you do not
   specify an instance ID, Amazon EC2 returns burstable performance instances
@@ -34959,11 +34692,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_instance_credit_specifications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_credit_specifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_instance_credit_specifications(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -34973,6 +34704,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the tag keys that are registered to appear in scheduled event
   notifications for resources in the current Region.
 
@@ -34984,7 +34716,6 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec describe_instance_event_notification_attributes(
           AWS.Client.t(),
           input :: map(),
@@ -34992,7 +34723,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, describe_instance_event_notification_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_instance_event_notification_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35008,6 +34738,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified event windows or all event windows. If you specify event
   window IDs, the output includes information for only the specified event
   windows. If you specify filters, the output includes information for only
@@ -35028,11 +34759,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_instance_event_windows(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_event_windows_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_instance_event_windows(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35042,6 +34771,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the status of the specified instances or all of your instances. By
   default, only running instances are described, unless you specifically
   indicate to return the status of all instances. Instance status includes the
@@ -35060,11 +34790,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_instance_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_instance_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35073,6 +34801,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes a tree-based hierarchy that represents the physical host placement of
   your EC2 instances within an Availability Zone or Local Zone. You can use this
   information to determine the relative proximity of your EC2 instances within
@@ -35092,11 +34821,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_instance_topology(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_topology_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_instance_topology(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35105,6 +34832,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Lists the instance types that are offered for the specified location. If no
   location is specified, the default is to list the instance types that are
   offered in the current Region.
@@ -35121,11 +34849,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_instance_type_offerings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_type_offerings_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_instance_type_offerings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35135,6 +34861,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified instance types. By default, all instance types for the
   current Region are described. Alternatively, you can filter the results.
 
@@ -35150,11 +34877,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_instance_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_types_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_instance_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35163,6 +34888,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified instances or all instances. If you specify instance IDs,
   the output includes information for only the specified instances. If you
   specify filters, the output includes information for only those instances that
@@ -35183,11 +34909,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35196,6 +34920,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your internet gateways. The default is to describe all your internet
   gateways. Alternatively, you can specify specific internet gateway IDs or
   filter the results to include only the internet gateways that match specific
@@ -35213,11 +34938,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_internet_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_internet_gateways_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_internet_gateways(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35226,6 +34949,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your Autonomous System Numbers (ASNs), their provisioning statuses,
   and the BYOIP CIDRs with which they are associated. For more information, see
   [Tutorial: Bring your ASN to
@@ -35242,11 +34966,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_ipam_byoasn(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ipam_byoasn_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_ipam_byoasn(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35255,6 +34977,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describe verification tokens. A verification token is an Amazon Web
   Services-generated random value that you can use to prove ownership of an
   external resource. For example, you can use a verification token to validate
@@ -35273,7 +34996,6 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_ipam_external_resource_verification_tokens(
           AWS.Client.t(),
           input :: map(),
@@ -35281,7 +35003,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, describe_ipam_external_resource_verification_tokens_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_ipam_external_resource_verification_tokens(
         %Client{} = client,
         input,
@@ -35301,6 +35022,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Get information about your IPAM pools.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeIpamPools&this_doc_guide=API%2520Reference)
@@ -35315,11 +35037,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_ipam_pools(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ipam_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_ipam_pools(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35328,6 +35048,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes IPAM resource discoveries. A resource discovery is an IPAM component
   that enables IPAM to manage and monitor resources that belong to the owning
   account.
@@ -35344,11 +35065,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_ipam_resource_discoveries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ipam_resource_discoveries_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_ipam_resource_discoveries(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35358,6 +35077,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes resource discovery association with an Amazon VPC IPAM. An associated
   resource discovery is a resource discovery that has been associated with an
   IPAM..
@@ -35374,11 +35094,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_ipam_resource_discovery_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ipam_resource_discovery_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_ipam_resource_discovery_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35394,6 +35112,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Get information about your IPAM scopes.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeIpamScopes&this_doc_guide=API%2520Reference)
@@ -35408,11 +35127,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_ipam_scopes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ipam_scopes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_ipam_scopes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35421,6 +35138,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Get information about your IPAM pools.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeIpams&this_doc_guide=API%2520Reference)
@@ -35435,11 +35153,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_ipams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ipams_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_ipams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35448,6 +35164,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your IPv6 address pools.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeIpv6Pools&this_doc_guide=API%2520Reference)
@@ -35462,11 +35179,9 @@ defmodule AWS.EC2 do
       optional("PoolIds") => list(String.t()())
     }
   """
-
   @spec describe_ipv6_pools(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ipv6_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_ipv6_pools(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35475,6 +35190,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified key pairs or all of your key pairs.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeKeyPairs&this_doc_guide=API%2520Reference)
@@ -35489,11 +35205,9 @@ defmodule AWS.EC2 do
       optional("KeyPairIds") => list(String.t()())
     }
   """
-
   @spec describe_key_pairs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_key_pairs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_key_pairs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35502,6 +35216,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more versions of a specified launch template. You can describe
   all versions, individual versions, or a range of versions. You can also
   describe all the latest versions or all the default versions of all the launch
@@ -35524,11 +35239,9 @@ defmodule AWS.EC2 do
       optional("Versions") => list(String.t()())
     }
   """
-
   @spec describe_launch_template_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_launch_template_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_launch_template_versions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35538,6 +35251,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more launch templates.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeLaunchTemplates&this_doc_guide=API%2520Reference)
@@ -35553,11 +35267,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_launch_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_launch_templates_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_launch_templates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35566,6 +35278,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the associations between virtual interface groups and local gateway
   route tables.
 
@@ -35581,7 +35294,6 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_local_gateway_route_table_virtual_interface_group_associations(
           AWS.Client.t(),
           input :: map(),
@@ -35590,7 +35302,6 @@ defmodule AWS.EC2 do
           {:ok, describe_local_gateway_route_table_virtual_interface_group_associations_result(),
            any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_local_gateway_route_table_virtual_interface_group_associations(
         %Client{} = client,
         input,
@@ -35610,6 +35321,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified associations between VPCs and local gateway route
   tables.
 
@@ -35625,7 +35337,6 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_local_gateway_route_table_vpc_associations(
           AWS.Client.t(),
           input :: map(),
@@ -35633,7 +35344,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, describe_local_gateway_route_table_vpc_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_local_gateway_route_table_vpc_associations(
         %Client{} = client,
         input,
@@ -35653,6 +35363,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more local gateway route tables. By default, all local gateway
   route tables are described. Alternatively, you can filter the results.
 
@@ -35668,11 +35379,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_local_gateway_route_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_local_gateway_route_tables_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_local_gateway_route_tables(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35682,6 +35391,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified local gateway virtual interface groups.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeLocalGatewayVirtualInterfaceGroups&this_doc_guide=API%2520Reference)
@@ -35696,7 +35406,6 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_local_gateway_virtual_interface_groups(
           AWS.Client.t(),
           input :: map(),
@@ -35704,7 +35413,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, describe_local_gateway_virtual_interface_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_local_gateway_virtual_interface_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35720,6 +35428,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified local gateway virtual interfaces.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeLocalGatewayVirtualInterfaces&this_doc_guide=API%2520Reference)
@@ -35734,11 +35443,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_local_gateway_virtual_interfaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_local_gateway_virtual_interfaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_local_gateway_virtual_interfaces(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35748,6 +35455,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more local gateways. By default, all local gateways are
   described. Alternatively, you can filter the results.
 
@@ -35763,11 +35471,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_local_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_local_gateways_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_local_gateways(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35776,6 +35482,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the lock status for a snapshot.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeLockedSnapshots&this_doc_guide=API%2520Reference)
@@ -35790,11 +35497,9 @@ defmodule AWS.EC2 do
       optional("SnapshotIds") => list(String.t()())
     }
   """
-
   @spec describe_locked_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_locked_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_locked_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35803,6 +35508,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified EC2 Mac Dedicated Host or all of your EC2 Mac Dedicated
   Hosts.
 
@@ -35817,11 +35523,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_mac_hosts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_mac_hosts_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_mac_hosts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35830,6 +35534,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your managed prefix lists and any Amazon Web Services-managed prefix
   lists.
 
@@ -35845,11 +35550,9 @@ defmodule AWS.EC2 do
       optional("PrefixListIds") => list(String.t()())
     }
   """
-
   @spec describe_managed_prefix_lists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_managed_prefix_lists_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_managed_prefix_lists(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35859,6 +35562,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeMovingAddresses&this_doc_guide=API%2520Reference)
@@ -35873,11 +35577,9 @@ defmodule AWS.EC2 do
       optional("PublicIps") => list(String.t()())
     }
   """
-
   @spec describe_moving_addresses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_moving_addresses_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_moving_addresses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35886,6 +35588,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your NAT gateways. The default is to describe all your NAT gateways.
   Alternatively, you can specify specific NAT gateway IDs or filter the results
   to include only the NAT gateways that match specific criteria.
@@ -35902,11 +35605,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_nat_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_nat_gateways_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_nat_gateways(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35915,6 +35616,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your network ACLs. The default is to describe all your network ACLs.
   Alternatively, you can specify specific network ACL IDs or filter the results
   to include only the network ACLs that match specific criteria.
@@ -35931,11 +35633,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_network_acls(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_network_acls_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_network_acls(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -35944,6 +35644,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Network Access Scope analyses.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeNetworkInsightsAccessScopeAnalyses&this_doc_guide=API%2520Reference)
@@ -35961,7 +35662,6 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_network_insights_access_scope_analyses(
           AWS.Client.t(),
           input :: map(),
@@ -35969,7 +35669,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, describe_network_insights_access_scope_analyses_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_network_insights_access_scope_analyses(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -35985,6 +35684,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Network Access Scopes.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeNetworkInsightsAccessScopes&this_doc_guide=API%2520Reference)
@@ -35999,11 +35699,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_network_insights_access_scopes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_network_insights_access_scopes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_network_insights_access_scopes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36013,6 +35711,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more of your network insights analyses.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeNetworkInsightsAnalyses&this_doc_guide=API%2520Reference)
@@ -36030,11 +35729,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_network_insights_analyses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_network_insights_analyses_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_network_insights_analyses(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36044,6 +35741,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more of your paths.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeNetworkInsightsPaths&this_doc_guide=API%2520Reference)
@@ -36058,11 +35756,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_network_insights_paths(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_network_insights_paths_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_network_insights_paths(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36072,6 +35768,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes a network interface attribute. You can specify only one attribute at a
   time.
 
@@ -36085,11 +35782,9 @@ defmodule AWS.EC2 do
       required("NetworkInterfaceId") => String.t()
     }
   """
-
   @spec describe_network_interface_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_network_interface_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_network_interface_attribute(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36099,6 +35794,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the permissions for your network interfaces.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeNetworkInterfacePermissions&this_doc_guide=API%2520Reference)
@@ -36112,11 +35808,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_network_interface_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_network_interface_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_network_interface_permissions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36126,6 +35820,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more of your network interfaces. If you have a large number of
   network interfaces, the operation fails unless you use pagination or one of
   the following filters: `group-id`, `mac-address`, `private-dns-name`,
@@ -36143,11 +35838,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_network_interfaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_network_interfaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_network_interfaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36156,6 +35849,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified placement groups or all of your placement groups. To
   describe a specific placement group that is *shared* with your account, you
   must specify the ID of the placement group using the `GroupId` parameter.
@@ -36173,11 +35867,9 @@ defmodule AWS.EC2 do
       optional("GroupNames") => list(String.t()())
     }
   """
-
   @spec describe_placement_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_placement_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_placement_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36186,6 +35878,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes available Amazon Web Services services in a prefix list format, which
   includes the prefix list name and prefix list ID of the service and the IP
   address range for the service.
@@ -36202,11 +35895,9 @@ defmodule AWS.EC2 do
       optional("PrefixListIds") => list(String.t()())
     }
   """
-
   @spec describe_prefix_lists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_prefix_lists_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_prefix_lists(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36215,6 +35906,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the ID format settings for the root user and all IAM roles and IAM
   users that have explicitly specified a longer ID (17-character ID) preference.
   By default, all IAM roles and IAM users default to the same ID settings as the
@@ -36233,11 +35925,9 @@ defmodule AWS.EC2 do
       optional("Resources") => list(String.t()())
     }
   """
-
   @spec describe_principal_id_format(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_principal_id_format_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_principal_id_format(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36246,6 +35936,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified IPv4 address pools.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribePublicIpv4Pools&this_doc_guide=API%2520Reference)
@@ -36259,11 +35950,9 @@ defmodule AWS.EC2 do
       optional("PoolIds") => list(String.t()())
     }
   """
-
   @spec describe_public_ipv4_pools(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_public_ipv4_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_public_ipv4_pools(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36272,6 +35961,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the Regions that are enabled for your account, or all Regions. For a
   list of the Regions supported by Amazon EC2, see [Amazon EC2 service
   endpoints](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-endpoints.html).
@@ -36291,11 +35981,9 @@ defmodule AWS.EC2 do
       optional("RegionNames") => list(String.t()())
     }
   """
-
   @spec describe_regions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_regions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_regions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36304,6 +35992,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes a root volume replacement task. For more information, see [Replace a
   root
   volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html)
@@ -36321,11 +36010,9 @@ defmodule AWS.EC2 do
       optional("ReplaceRootVolumeTaskIds") => list(String.t()())
     }
   """
-
   @spec describe_replace_root_volume_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replace_root_volume_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_replace_root_volume_tasks(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36335,6 +36022,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more of the Reserved Instances that you purchased. For more
   information about Reserved Instances, see [Reserved
   Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html)
@@ -36352,11 +36040,9 @@ defmodule AWS.EC2 do
       optional("ReservedInstancesIds") => list(String.t()())
     }
   """
-
   @spec describe_reserved_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_reserved_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_reserved_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36365,6 +36051,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your account's Reserved Instance listings in the Reserved Instance
   Marketplace. The Reserved Instance Marketplace matches sellers who want to
   resell Reserved Instance capacity that they no longer need with buyers who
@@ -36382,11 +36069,9 @@ defmodule AWS.EC2 do
       optional("ReservedInstancesListingId") => String.t()
     }
   """
-
   @spec describe_reserved_instances_listings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_reserved_instances_listings_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_reserved_instances_listings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36396,6 +36081,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the modifications made to your Reserved Instances. If no parameter is
   specified, information about all your Reserved Instances modification requests
   is returned. If a modification ID is specified, only information about the
@@ -36413,11 +36099,9 @@ defmodule AWS.EC2 do
       optional("ReservedInstancesModificationIds") => list(String.t()())
     }
   """
-
   @spec describe_reserved_instances_modifications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_reserved_instances_modifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_reserved_instances_modifications(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36427,6 +36111,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes Reserved Instance offerings that are available for purchase. With
   Reserved Instances, you purchase the right to launch instances for a period of
   time. During that time period, you do not receive insufficient capacity
@@ -36458,11 +36143,9 @@ defmodule AWS.EC2 do
       optional("ReservedInstancesOfferingIds") => list(String.t()())
     }
   """
-
   @spec describe_reserved_instances_offerings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_reserved_instances_offerings_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_reserved_instances_offerings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36472,6 +36155,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your route tables. The default is to describe all your route tables.
   Alternatively, you can specify specific route table IDs or filter the results
   to include only the route tables that match specific criteria. Each subnet in
@@ -36492,11 +36176,9 @@ defmodule AWS.EC2 do
       optional("RouteTableIds") => list(String.t()())
     }
   """
-
   @spec describe_route_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_route_tables_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_route_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36505,6 +36187,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Finds available schedules that meet the specified criteria. You can search for
   an available schedule no more than 3 months in advance. You must meet the
   minimum required duration of 1,200 hours per year. For example, the minimum
@@ -36526,11 +36209,9 @@ defmodule AWS.EC2 do
       required("Recurrence") => scheduled_instance_recurrence_request()
     }
   """
-
   @spec describe_scheduled_instance_availability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scheduled_instance_availability_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_scheduled_instance_availability(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36540,6 +36221,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Scheduled Instances or all your Scheduled Instances.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeScheduledInstances&this_doc_guide=API%2520Reference)
@@ -36555,11 +36237,9 @@ defmodule AWS.EC2 do
       optional("SlotStartTimeRange") => slot_start_time_range_request()
     }
   """
-
   @spec describe_scheduled_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scheduled_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_scheduled_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36568,6 +36248,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the VPCs on the other side of a VPC peering connection that are
   referencing the security groups you've specified in this request.
 
@@ -36580,11 +36261,9 @@ defmodule AWS.EC2 do
       required("GroupId") => list(String.t()())
     }
   """
-
   @spec describe_security_group_references(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_security_group_references_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_security_group_references(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36594,6 +36273,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more of your security group rules.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeSecurityGroupRules&this_doc_guide=API%2520Reference)
@@ -36608,11 +36288,9 @@ defmodule AWS.EC2 do
       optional("SecurityGroupRuleIds") => list(String.t()())
     }
   """
-
   @spec describe_security_group_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_security_group_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_security_group_rules(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36622,6 +36300,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified security groups or all of your security groups.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeSecurityGroups&this_doc_guide=API%2520Reference)
@@ -36637,11 +36316,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_security_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_security_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_security_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36650,6 +36327,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified attribute of the specified snapshot. You can specify
   only one attribute at a time.
 
@@ -36663,11 +36341,9 @@ defmodule AWS.EC2 do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec describe_snapshot_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_snapshot_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_snapshot_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36676,6 +36352,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the storage tier status of one or more Amazon EBS snapshots.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeSnapshotTierStatus&this_doc_guide=API%2520Reference)
@@ -36689,11 +36366,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_snapshot_tier_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_snapshot_tier_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_snapshot_tier_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36703,6 +36378,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified EBS snapshots available to you or all of the EBS
   snapshots available to you. The snapshots available to you include public
   snapshots, private snapshots that you own, and private snapshots owned by
@@ -36723,11 +36399,9 @@ defmodule AWS.EC2 do
       optional("SnapshotIds") => list(String.t()())
     }
   """
-
   @spec describe_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36736,6 +36410,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the data feed for Spot Instances. For more information, see [Spot
   Instance data
   feed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html)
@@ -36749,11 +36424,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec describe_spot_datafeed_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_spot_datafeed_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_spot_datafeed_subscription(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36763,6 +36436,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the running instances for the specified Spot Fleet.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeSpotFleetInstances&this_doc_guide=API%2520Reference)
@@ -36776,11 +36450,9 @@ defmodule AWS.EC2 do
       required("SpotFleetRequestId") => String.t()
     }
   """
-
   @spec describe_spot_fleet_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_spot_fleet_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_spot_fleet_instances(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36790,6 +36462,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the events for the specified Spot Fleet request during the specified
   time. Spot Fleet events are delayed by up to 30 seconds before they can be
   described. This ensures that you can query by the last evaluated time and not
@@ -36808,11 +36481,9 @@ defmodule AWS.EC2 do
       required("StartTime") => non_neg_integer()
     }
   """
-
   @spec describe_spot_fleet_request_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_spot_fleet_request_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_spot_fleet_request_history(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36822,6 +36493,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your Spot Fleet requests.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeSpotFleetRequests&this_doc_guide=API%2520Reference)
@@ -36835,11 +36507,9 @@ defmodule AWS.EC2 do
       optional("SpotFleetRequestIds") => list(String.t()())
     }
   """
-
   @spec describe_spot_fleet_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_spot_fleet_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_spot_fleet_requests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36848,6 +36518,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Spot Instance requests. You can use
   `DescribeSpotInstanceRequests` to find a running Spot Instance by examining
   the response. If the status of the Spot Instance is `fulfilled`, the instance
@@ -36868,11 +36539,9 @@ defmodule AWS.EC2 do
       optional("SpotInstanceRequestIds") => list(String.t()())
     }
   """
-
   @spec describe_spot_instance_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_spot_instance_requests_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_spot_instance_requests(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36882,6 +36551,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the Spot price history. For more information, see [Spot Instance
   pricing
   history](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html)
@@ -36903,11 +36573,9 @@ defmodule AWS.EC2 do
       optional("StartTime") => non_neg_integer()
     }
   """
-
   @spec describe_spot_price_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_spot_price_history_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_spot_price_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36916,6 +36584,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the stale security group rules for security groups in a specified VPC.
   Rules are stale when they reference a deleted security group in the same VPC
   or peered VPC. Rules can also be stale if they reference a security group in a
@@ -36932,11 +36601,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec describe_stale_security_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stale_security_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_stale_security_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -36946,6 +36613,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the progress of the AMI store tasks. You can describe the store tasks
   for specified AMIs. If you don't specify the AMIs, you get a paginated list of
   store tasks from the last 31 days. For each AMI task, the response indicates
@@ -36964,11 +36632,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_store_image_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_store_image_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_store_image_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -36977,6 +36643,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your subnets. The default is to describe all your subnets.
   Alternatively, you can specify specific subnet IDs or filter the results to
   include only the subnets that match specific criteria.
@@ -36993,11 +36660,9 @@ defmodule AWS.EC2 do
       optional("SubnetIds") => list(String.t()())
     }
   """
-
   @spec describe_subnets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_subnets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_subnets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -37006,6 +36671,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified tags for your EC2 resources. For more information about
   tags, see [Tag your Amazon EC2
   resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
@@ -37022,11 +36688,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -37035,6 +36699,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describe traffic mirror filters that determine the traffic that is mirrored.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeTrafficMirrorFilterRules&this_doc_guide=API%2520Reference)
@@ -37050,11 +36715,9 @@ defmodule AWS.EC2 do
       optional("TrafficMirrorFilterRuleIds") => list(String.t()())
     }
   """
-
   @spec describe_traffic_mirror_filter_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_traffic_mirror_filter_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_traffic_mirror_filter_rules(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37064,6 +36727,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more Traffic Mirror filters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeTrafficMirrorFilters&this_doc_guide=API%2520Reference)
@@ -37078,11 +36742,9 @@ defmodule AWS.EC2 do
       optional("TrafficMirrorFilterIds") => list(String.t()())
     }
   """
-
   @spec describe_traffic_mirror_filters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_traffic_mirror_filters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_traffic_mirror_filters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37092,6 +36754,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror
   sessions are described. Alternatively, you can filter the results.
 
@@ -37107,11 +36770,9 @@ defmodule AWS.EC2 do
       optional("TrafficMirrorSessionIds") => list(String.t()())
     }
   """
-
   @spec describe_traffic_mirror_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_traffic_mirror_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_traffic_mirror_sessions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37121,6 +36782,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Information about one or more Traffic Mirror targets.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeTrafficMirrorTargets&this_doc_guide=API%2520Reference)
@@ -37135,11 +36797,9 @@ defmodule AWS.EC2 do
       optional("TrafficMirrorTargetIds") => list(String.t()())
     }
   """
-
   @spec describe_traffic_mirror_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_traffic_mirror_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_traffic_mirror_targets(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37149,6 +36809,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more attachments between resources and transit gateways. By
   default, all attachments are described. Alternatively, you can filter the
   results by attachment ID, attachment state, resource ID, or resource owner.
@@ -37165,11 +36826,9 @@ defmodule AWS.EC2 do
       optional("TransitGatewayAttachmentIds") => list(String.t()())
     }
   """
-
   @spec describe_transit_gateway_attachments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_transit_gateway_attachments_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_transit_gateway_attachments(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37179,6 +36838,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more Connect peers.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeTransitGatewayConnectPeers&this_doc_guide=API%2520Reference)
@@ -37193,11 +36853,9 @@ defmodule AWS.EC2 do
       optional("TransitGatewayConnectPeerIds") => list(String.t()())
     }
   """
-
   @spec describe_transit_gateway_connect_peers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_transit_gateway_connect_peers_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_transit_gateway_connect_peers(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37207,6 +36865,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more Connect attachments.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeTransitGatewayConnects&this_doc_guide=API%2520Reference)
@@ -37221,11 +36880,9 @@ defmodule AWS.EC2 do
       optional("TransitGatewayAttachmentIds") => list(String.t()())
     }
   """
-
   @spec describe_transit_gateway_connects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_transit_gateway_connects_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_transit_gateway_connects(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37235,6 +36892,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more transit gateway multicast domains.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeTransitGatewayMulticastDomains&this_doc_guide=API%2520Reference)
@@ -37249,11 +36907,9 @@ defmodule AWS.EC2 do
       optional("TransitGatewayMulticastDomainIds") => list(String.t()())
     }
   """
-
   @spec describe_transit_gateway_multicast_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_transit_gateway_multicast_domains_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_transit_gateway_multicast_domains(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37263,6 +36919,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your transit gateway peering attachments.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeTransitGatewayPeeringAttachments&this_doc_guide=API%2520Reference)
@@ -37277,11 +36934,9 @@ defmodule AWS.EC2 do
       optional("TransitGatewayAttachmentIds") => list(String.t()())
     }
   """
-
   @spec describe_transit_gateway_peering_attachments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_transit_gateway_peering_attachments_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_transit_gateway_peering_attachments(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37291,6 +36946,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more transit gateway route policy tables.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeTransitGatewayPolicyTables&this_doc_guide=API%2520Reference)
@@ -37305,11 +36961,9 @@ defmodule AWS.EC2 do
       optional("TransitGatewayPolicyTableIds") => list(String.t()())
     }
   """
-
   @spec describe_transit_gateway_policy_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_transit_gateway_policy_tables_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_transit_gateway_policy_tables(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37319,6 +36973,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more transit gateway route table advertisements.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeTransitGatewayRouteTableAnnouncements&this_doc_guide=API%2520Reference)
@@ -37333,7 +36988,6 @@ defmodule AWS.EC2 do
       optional("TransitGatewayRouteTableAnnouncementIds") => list(String.t()())
     }
   """
-
   @spec describe_transit_gateway_route_table_announcements(
           AWS.Client.t(),
           input :: map(),
@@ -37341,7 +36995,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, describe_transit_gateway_route_table_announcements_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_transit_gateway_route_table_announcements(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37357,6 +37010,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more transit gateway route tables. By default, all transit
   gateway route tables are described. Alternatively, you can filter the results.
 
@@ -37372,11 +37026,9 @@ defmodule AWS.EC2 do
       optional("TransitGatewayRouteTableIds") => list(String.t()())
     }
   """
-
   @spec describe_transit_gateway_route_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_transit_gateway_route_tables_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_transit_gateway_route_tables(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37386,6 +37038,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more VPC attachments. By default, all VPC attachments are
   described. Alternatively, you can filter the results.
 
@@ -37401,11 +37054,9 @@ defmodule AWS.EC2 do
       optional("TransitGatewayAttachmentIds") => list(String.t()())
     }
   """
-
   @spec describe_transit_gateway_vpc_attachments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_transit_gateway_vpc_attachments_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_transit_gateway_vpc_attachments(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37415,6 +37066,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more transit gateways. By default, all transit gateways are
   described. Alternatively, you can filter the results.
 
@@ -37430,11 +37082,9 @@ defmodule AWS.EC2 do
       optional("TransitGatewayIds") => list(String.t()())
     }
   """
-
   @spec describe_transit_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_transit_gateways_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_transit_gateways(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -37443,6 +37093,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more network interface trunk associations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeTrunkInterfaceAssociations&this_doc_guide=API%2520Reference)
@@ -37457,11 +37108,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_trunk_interface_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trunk_interface_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_trunk_interface_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37471,6 +37120,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Amazon Web Services Verified Access endpoints.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeVerifiedAccessEndpoints&this_doc_guide=API%2520Reference)
@@ -37487,11 +37137,9 @@ defmodule AWS.EC2 do
       optional("VerifiedAccessInstanceId") => String.t()
     }
   """
-
   @spec describe_verified_access_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_verified_access_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_verified_access_endpoints(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37501,6 +37149,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Verified Access groups.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeVerifiedAccessGroups&this_doc_guide=API%2520Reference)
@@ -37516,11 +37165,9 @@ defmodule AWS.EC2 do
       optional("VerifiedAccessInstanceId") => String.t()
     }
   """
-
   @spec describe_verified_access_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_verified_access_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_verified_access_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37530,6 +37177,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Amazon Web Services Verified Access instances.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeVerifiedAccessInstanceLoggingConfigurations&this_doc_guide=API%2520Reference)
@@ -37544,7 +37192,6 @@ defmodule AWS.EC2 do
       optional("VerifiedAccessInstanceIds") => list(String.t()())
     }
   """
-
   @spec describe_verified_access_instance_logging_configurations(
           AWS.Client.t(),
           input :: map(),
@@ -37552,7 +37199,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, describe_verified_access_instance_logging_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_verified_access_instance_logging_configurations(
         %Client{} = client,
         input,
@@ -37572,6 +37218,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Amazon Web Services Verified Access instances.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeVerifiedAccessInstances&this_doc_guide=API%2520Reference)
@@ -37586,11 +37233,9 @@ defmodule AWS.EC2 do
       optional("VerifiedAccessInstanceIds") => list(String.t()())
     }
   """
-
   @spec describe_verified_access_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_verified_access_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_verified_access_instances(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37600,6 +37245,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified Amazon Web Services Verified Access trust providers.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeVerifiedAccessTrustProviders&this_doc_guide=API%2520Reference)
@@ -37614,11 +37260,9 @@ defmodule AWS.EC2 do
       optional("VerifiedAccessTrustProviderIds") => list(String.t()())
     }
   """
-
   @spec describe_verified_access_trust_providers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_verified_access_trust_providers_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_verified_access_trust_providers(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37628,6 +37272,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified attribute of the specified volume. You can specify only
   one attribute at a time.
 
@@ -37641,11 +37286,9 @@ defmodule AWS.EC2 do
       required("VolumeId") => String.t()
     }
   """
-
   @spec describe_volume_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_volume_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_volume_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -37654,6 +37297,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the status of the specified volumes. Volume status provides the result
   of the checks performed on your volumes to determine events that can impair
   the performance of your volumes. The performance of a volume can be affected
@@ -37676,11 +37320,9 @@ defmodule AWS.EC2 do
       optional("VolumeIds") => list(String.t()())
     }
   """
-
   @spec describe_volume_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_volume_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_volume_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -37689,6 +37331,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified EBS volumes or all of your EBS volumes. If you are
   describing a long list of volumes, we recommend that you paginate the output
   to make the list more manageable. For more information, see
@@ -37709,11 +37352,9 @@ defmodule AWS.EC2 do
       optional("VolumeIds") => list(String.t()())
     }
   """
-
   @spec describe_volumes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_volumes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_volumes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -37722,6 +37363,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the most recent volume modification request for the specified EBS
   volumes.
 
@@ -37737,11 +37379,9 @@ defmodule AWS.EC2 do
       optional("VolumeIds") => list(String.t()())
     }
   """
-
   @spec describe_volumes_modifications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_volumes_modifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_volumes_modifications(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37751,6 +37391,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the specified attribute of the specified VPC. You can specify only one
   attribute at a time.
 
@@ -37764,11 +37405,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec describe_vpc_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpc_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -37777,6 +37416,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeVpcClassicLink&this_doc_guide=API%2520Reference)
@@ -37789,11 +37429,9 @@ defmodule AWS.EC2 do
       optional("VpcIds") => list(String.t()())
     }
   """
-
   @spec describe_vpc_classic_link(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_classic_link_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpc_classic_link(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -37802,6 +37440,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeVpcClassicLinkDnsSupport&this_doc_guide=API%2520Reference)
@@ -37814,11 +37453,9 @@ defmodule AWS.EC2 do
       optional("VpcIds") => list(String.t()())
     }
   """
-
   @spec describe_vpc_classic_link_dns_support(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_classic_link_dns_support_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpc_classic_link_dns_support(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37828,6 +37465,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the connection notifications for VPC endpoints and VPC endpoint
   services.
 
@@ -37843,7 +37481,6 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_vpc_endpoint_connection_notifications(
           AWS.Client.t(),
           input :: map(),
@@ -37851,7 +37488,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, describe_vpc_endpoint_connection_notifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpc_endpoint_connection_notifications(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37867,6 +37503,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the VPC endpoint connections to your VPC endpoint services, including
   any endpoints that are pending your acceptance.
 
@@ -37881,11 +37518,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_vpc_endpoint_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_endpoint_connections_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpc_endpoint_connections(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37895,6 +37530,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the VPC endpoint service configurations in your account (your
   services).
 
@@ -37910,11 +37546,9 @@ defmodule AWS.EC2 do
       optional("ServiceIds") => list(String.t()())
     }
   """
-
   @spec describe_vpc_endpoint_service_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_endpoint_service_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpc_endpoint_service_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37924,6 +37558,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the principals (service consumers) that are permitted to discover your
   VPC endpoint service.
 
@@ -37939,11 +37574,9 @@ defmodule AWS.EC2 do
       required("ServiceId") => String.t()
     }
   """
-
   @spec describe_vpc_endpoint_service_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_endpoint_service_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpc_endpoint_service_permissions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37953,6 +37586,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes available services to which you can create a VPC endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeVpcEndpointServices&this_doc_guide=API%2520Reference)
@@ -37967,11 +37601,9 @@ defmodule AWS.EC2 do
       optional("ServiceNames") => list(String.t()())
     }
   """
-
   @spec describe_vpc_endpoint_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_endpoint_services_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpc_endpoint_services(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -37981,6 +37613,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your VPC endpoints. The default is to describe all your VPC endpoints.
   Alternatively, you can specify specific VPC endpoint IDs or filter the results
   to include only the VPC endpoints that match specific criteria.
@@ -37997,11 +37630,9 @@ defmodule AWS.EC2 do
       optional("VpcEndpointIds") => list(String.t()())
     }
   """
-
   @spec describe_vpc_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpc_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38010,6 +37641,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your VPC peering connections. The default is to describe all your VPC
   peering connections. Alternatively, you can specify specific VPC peering
   connection IDs or filter the results to include only the VPC peering
@@ -38027,11 +37659,9 @@ defmodule AWS.EC2 do
       optional("VpcPeeringConnectionIds") => list(String.t()())
     }
   """
-
   @spec describe_vpc_peering_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_peering_connections_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38041,6 +37671,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes your VPCs. The default is to describe all your VPCs. Alternatively,
   you can specify specific VPC IDs or filter the results to include only the
   VPCs that match specific criteria.
@@ -38057,11 +37688,9 @@ defmodule AWS.EC2 do
       optional("VpcIds") => list(String.t()())
     }
   """
-
   @spec describe_vpcs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpcs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpcs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38070,6 +37699,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more of your VPN connections.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeVpnConnections&this_doc_guide=API%2520Reference)
@@ -38082,11 +37712,9 @@ defmodule AWS.EC2 do
       optional("VpnConnectionIds") => list(String.t()())
     }
   """
-
   @spec describe_vpn_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpn_connections_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpn_connections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38095,6 +37723,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes one or more of your virtual private gateways.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DescribeVpnGateways&this_doc_guide=API%2520Reference)
@@ -38107,11 +37736,9 @@ defmodule AWS.EC2 do
       optional("VpnGatewayIds") => list(String.t()())
     }
   """
-
   @spec describe_vpn_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpn_gateways_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vpn_gateways(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38120,6 +37747,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DetachClassicLinkVpc&this_doc_guide=API%2520Reference)
@@ -38132,11 +37760,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec detach_classic_link_vpc(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_classic_link_vpc_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def detach_classic_link_vpc(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38145,6 +37771,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Detaches an internet gateway from a VPC, disabling connectivity between the
   internet and the VPC. The VPC must not contain any running instances with
   Elastic IP addresses or public IPv4 addresses.
@@ -38159,11 +37786,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec detach_internet_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def detach_internet_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38172,6 +37797,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Detaches a network interface from an instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DetachNetworkInterface&this_doc_guide=API%2520Reference)
@@ -38184,11 +37810,9 @@ defmodule AWS.EC2 do
       required("AttachmentId") => String.t()
     }
   """
-
   @spec detach_network_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def detach_network_interface(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38197,6 +37821,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Detaches the specified Amazon Web Services Verified Access trust provider from
   the specified Amazon Web Services Verified Access instance.
 
@@ -38211,11 +37836,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessTrustProviderId") => String.t()
     }
   """
-
   @spec detach_verified_access_trust_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_verified_access_trust_provider_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def detach_verified_access_trust_provider(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38225,6 +37848,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Detaches an EBS volume from an instance. Make sure to unmount any file systems
   on the device within your operating system before detaching the volume.
   Failure to do so can result in the volume becoming stuck in the `busy` state
@@ -38247,11 +37871,9 @@ defmodule AWS.EC2 do
       required("VolumeId") => String.t()
     }
   """
-
   @spec detach_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, volume_attachment(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def detach_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38260,6 +37882,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Detaches a virtual private gateway from a VPC. You do this if you're planning to
   turn off the VPC and not use it anymore. You can confirm a virtual private
   gateway has been completely detached from a VPC by describing the virtual
@@ -38276,11 +37899,9 @@ defmodule AWS.EC2 do
       required("VpnGatewayId") => String.t()
     }
   """
-
   @spec detach_vpn_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def detach_vpn_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38289,6 +37910,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables Elastic IP address transfer. For more information, see [Transfer
   Elastic IP
   addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro)
@@ -38303,11 +37925,9 @@ defmodule AWS.EC2 do
       required("AllocationId") => String.t()
     }
   """
-
   @spec disable_address_transfer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_address_transfer_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_address_transfer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38316,6 +37936,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables Infrastructure Performance metric subscriptions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DisableAwsNetworkPerformanceMetricSubscription&this_doc_guide=API%2520Reference)
@@ -38330,7 +37951,6 @@ defmodule AWS.EC2 do
       optional("Statistic") => list(any())
     }
   """
-
   @spec disable_aws_network_performance_metric_subscription(
           AWS.Client.t(),
           input :: map(),
@@ -38338,7 +37958,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, disable_aws_network_performance_metric_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_aws_network_performance_metric_subscription(
         %Client{} = client,
         input,
@@ -38358,6 +37977,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables EBS encryption by default for your account in the current Region. After
   you disable encryption by default, you can still create encrypted volumes by
   enabling encryption when you create each volume.
@@ -38370,11 +37990,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec disable_ebs_encryption_by_default(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_ebs_encryption_by_default_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_ebs_encryption_by_default(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38384,6 +38002,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Discontinue Windows fast launch for a Windows AMI, and clean up existing
   pre-provisioned snapshots. After you disable Windows fast launch, the AMI uses
   the standard launch process for each new instance. Amazon EC2 must remove all
@@ -38399,11 +38018,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec disable_fast_launch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_fast_launch_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_fast_launch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38412,6 +38029,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables fast snapshot restores for the specified snapshots in the specified
   Availability Zones.
 
@@ -38425,11 +38043,9 @@ defmodule AWS.EC2 do
       required("SourceSnapshotIds") => list(String.t()())
     }
   """
-
   @spec disable_fast_snapshot_restores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_fast_snapshot_restores_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_fast_snapshot_restores(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38439,6 +38055,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Sets the AMI state to `disabled` and removes all launch permissions from the
   AMI. A disabled AMI can't be used for instance launches. A disabled AMI can't
   be shared. If an AMI was public or previously shared, it is made private. If
@@ -38454,11 +38071,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec disable_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38467,6 +38082,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables *block public access for AMIs* at the account level in the specified
   Amazon Web Services Region. This removes the *block public access* restriction
   from your account. With the restriction removed, you can publicly share your
@@ -38480,11 +38096,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec disable_image_block_public_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_image_block_public_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_image_block_public_access(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38494,6 +38108,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Cancels the deprecation of the specified AMI.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DisableImageDeprecation&this_doc_guide=API%2520Reference)
@@ -38505,11 +38120,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec disable_image_deprecation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_image_deprecation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_image_deprecation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38518,6 +38131,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables deregistration protection for an AMI. When deregistration protection is
   disabled, the AMI can be deregistered. If you chose to include a 24-hour
   cooldown period when you enabled deregistration protection for the AMI, then,
@@ -38533,11 +38147,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec disable_image_deregistration_protection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_image_deregistration_protection_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_image_deregistration_protection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38547,6 +38159,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disable the IPAM account. For more information, see [Enable integration with
   Organizations](https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html)
   in the *Amazon VPC IPAM User Guide*.
@@ -38560,11 +38173,9 @@ defmodule AWS.EC2 do
       required("DelegatedAdminAccountId") => String.t()
     }
   """
-
   @spec disable_ipam_organization_admin_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_ipam_organization_admin_account_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_ipam_organization_admin_account(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38574,6 +38185,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables access to the EC2 serial console of all instances for your account. By
   default, access to the EC2 serial console is disabled for your account. For
   more information, see [Manage account access to the EC2 serial
@@ -38588,11 +38200,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec disable_serial_console_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_serial_console_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_serial_console_access(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38602,6 +38212,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables the *block public access for snapshots* setting at the account level
   for the specified Amazon Web Services Region. After you disable block public
   access for snapshots in a Region, users can publicly share snapshots in that
@@ -38618,11 +38229,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec disable_snapshot_block_public_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_snapshot_block_public_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_snapshot_block_public_access(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38632,6 +38241,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables the specified resource attachment from propagating routes to the
   specified propagation route table.
 
@@ -38646,7 +38256,6 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec disable_transit_gateway_route_table_propagation(
           AWS.Client.t(),
           input :: map(),
@@ -38654,7 +38263,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, disable_transit_gateway_route_table_propagation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_transit_gateway_route_table_propagation(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38670,6 +38278,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables a virtual private gateway (VGW) from propagating routes to a specified
   route table of a VPC.
 
@@ -38683,11 +38292,9 @@ defmodule AWS.EC2 do
       required("RouteTableId") => String.t()
     }
   """
-
   @spec disable_vgw_route_propagation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_vgw_route_propagation(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38697,6 +38304,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DisableVpcClassicLink&this_doc_guide=API%2520Reference)
@@ -38708,11 +38316,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec disable_vpc_classic_link(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_vpc_classic_link_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_vpc_classic_link(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38721,6 +38327,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated. Disables ClassicLink DNS support for a VPC. If
   disabled, DNS hostnames resolve to public IP addresses when addressed between
   a linked EC2-Classic instance and instances in the VPC to which it's linked.
@@ -38733,11 +38340,9 @@ defmodule AWS.EC2 do
       optional("VpcId") => String.t()
     }
   """
-
   @spec disable_vpc_classic_link_dns_support(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_vpc_classic_link_dns_support_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disable_vpc_classic_link_dns_support(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38747,6 +38352,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates an Elastic IP address from the instance or network interface it's
   associated with.
 
@@ -38760,11 +38366,9 @@ defmodule AWS.EC2 do
       optional("PublicIp") => String.t()
     }
   """
-
   @spec disassociate_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_address(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38773,6 +38377,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates a target network from the specified Client VPN endpoint. When you
   disassociate the last target network from a Client VPN, the following happens:
 
@@ -38786,11 +38391,9 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec disassociate_client_vpn_target_network(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_client_vpn_target_network_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_client_vpn_target_network(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38800,6 +38403,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates an IAM role from an Certificate Manager (ACM) certificate.
   Disassociating an IAM role from an ACM certificate removes the Amazon S3
   object that contains the certificate, certificate chain, and encrypted private
@@ -38817,11 +38421,9 @@ defmodule AWS.EC2 do
       required("RoleArn") => String.t()
     }
   """
-
   @spec disassociate_enclave_certificate_iam_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_enclave_certificate_iam_role_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_enclave_certificate_iam_role(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38831,6 +38433,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates an IAM instance profile from a running or stopped instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DisassociateIamInstanceProfile&this_doc_guide=API%2520Reference)
@@ -38841,11 +38444,9 @@ defmodule AWS.EC2 do
       required("AssociationId") => String.t()
     }
   """
-
   @spec disassociate_iam_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_iam_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_iam_instance_profile(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38855,6 +38456,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates one or more targets from an event window.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DisassociateInstanceEventWindow&this_doc_guide=API%2520Reference)
@@ -38867,11 +38469,9 @@ defmodule AWS.EC2 do
       required("InstanceEventWindowId") => String.t()
     }
   """
-
   @spec disassociate_instance_event_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_instance_event_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_instance_event_window(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38881,6 +38481,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Remove the association between your Autonomous System Number (ASN) and your
   BYOIP CIDR. You may want to use this action to disassociate an ASN from a CIDR
   or if you want to swap ASNs. For more information, see [Tutorial: Bring your
@@ -38898,11 +38499,9 @@ defmodule AWS.EC2 do
       required("Cidr") => String.t()
     }
   """
-
   @spec disassociate_ipam_byoasn(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_ipam_byoasn_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_ipam_byoasn(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38911,6 +38510,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery
   is an IPAM component that enables IPAM to manage and monitor resources that
   belong to the owning account.
@@ -38924,11 +38524,9 @@ defmodule AWS.EC2 do
       required("IpamResourceDiscoveryAssociationId") => String.t()
     }
   """
-
   @spec disassociate_ipam_resource_discovery(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_ipam_resource_discovery_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_ipam_resource_discovery(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38938,6 +38536,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway.
   You cannot disassociate your primary EIP. For more information, see [Edit
   secondary IP address
@@ -38957,11 +38556,9 @@ defmodule AWS.EC2 do
       required("NatGatewayId") => String.t()
     }
   """
-
   @spec disassociate_nat_gateway_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_nat_gateway_address_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_nat_gateway_address(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -38971,6 +38568,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates a subnet or gateway from a route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DisassociateRouteTable&this_doc_guide=API%2520Reference)
@@ -38982,11 +38580,9 @@ defmodule AWS.EC2 do
       required("AssociationId") => String.t()
     }
   """
-
   @spec disassociate_route_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_route_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -38995,6 +38591,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates a CIDR block from a subnet. Currently, you can disassociate an
   IPv6 CIDR block only. You must detach or delete all gateways and resources
   that are associated with the CIDR block before you can disassociate it.
@@ -39007,11 +38604,9 @@ defmodule AWS.EC2 do
       required("AssociationId") => String.t()
     }
   """
-
   @spec disassociate_subnet_cidr_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_subnet_cidr_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_subnet_cidr_block(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39021,6 +38616,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates the specified subnets from the transit gateway multicast domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DisassociateTransitGatewayMulticastDomain&this_doc_guide=API%2520Reference)
@@ -39034,11 +38630,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec disassociate_transit_gateway_multicast_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_transit_gateway_multicast_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_transit_gateway_multicast_domain(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39054,6 +38648,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Removes the association between an an attachment and a policy table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DisassociateTransitGatewayPolicyTable&this_doc_guide=API%2520Reference)
@@ -39066,11 +38661,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayPolicyTableId") => String.t()
     }
   """
-
   @spec disassociate_transit_gateway_policy_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_transit_gateway_policy_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_transit_gateway_policy_table(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39080,6 +38673,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates a resource attachment from a transit gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20DisassociateTransitGatewayRouteTable&this_doc_guide=API%2520Reference)
@@ -39092,11 +38686,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec disassociate_transit_gateway_route_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_transit_gateway_route_table_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_transit_gateway_route_table(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39106,6 +38698,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Removes an association between a branch network interface with a trunk network
   interface.
 
@@ -39119,11 +38712,9 @@ defmodule AWS.EC2 do
       required("AssociationId") => String.t()
     }
   """
-
   @spec disassociate_trunk_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_trunk_interface_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_trunk_interface(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39132,6 +38723,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must
   specify its association ID. You can get the association ID by using
   `DescribeVpcs`. You must detach or delete all gateways and resources that are
@@ -39145,11 +38737,9 @@ defmodule AWS.EC2 do
       required("AssociationId") => String.t()
     }
   """
-
   @spec disassociate_vpc_cidr_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_vpc_cidr_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def disassociate_vpc_cidr_block(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39158,6 +38748,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables Elastic IP address transfer. For more information, see [Transfer Elastic
   IP
   addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro)
@@ -39173,11 +38764,9 @@ defmodule AWS.EC2 do
       required("TransferAccountId") => String.t()
     }
   """
-
   @spec enable_address_transfer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_address_transfer_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_address_transfer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39186,6 +38775,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables Infrastructure Performance subscriptions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20EnableAwsNetworkPerformanceMetricSubscription&this_doc_guide=API%2520Reference)
@@ -39200,7 +38790,6 @@ defmodule AWS.EC2 do
       optional("Statistic") => list(any())
     }
   """
-
   @spec enable_aws_network_performance_metric_subscription(
           AWS.Client.t(),
           input :: map(),
@@ -39208,7 +38797,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, enable_aws_network_performance_metric_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_aws_network_performance_metric_subscription(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39224,6 +38812,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables EBS encryption by default for your account in the current Region. After
   you enable encryption by default, the EBS volumes that you create are always
   encrypted, either using the default KMS key or the KMS key that you specified
@@ -39241,11 +38830,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec enable_ebs_encryption_by_default(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_ebs_encryption_by_default_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_ebs_encryption_by_default(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39255,6 +38842,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   When you enable Windows fast launch for a Windows AMI, images are
   pre-provisioned, using snapshots to launch instances up to 65% faster. To
   create the optimized Windows image, Amazon EC2 launches an instance and runs
@@ -39276,11 +38864,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec enable_fast_launch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_fast_launch_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_fast_launch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39289,6 +38875,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables fast snapshot restores for the specified snapshots in the specified
   Availability Zones. You get the full benefit of fast snapshot restores after
   they enter the `enabled` state. To get the current state of fast snapshot
@@ -39305,11 +38892,9 @@ defmodule AWS.EC2 do
       required("SourceSnapshotIds") => list(String.t()())
     }
   """
-
   @spec enable_fast_snapshot_restores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_fast_snapshot_restores_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_fast_snapshot_restores(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39319,6 +38904,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Re-enables a disabled AMI. The re-enabled AMI is marked as `available` and can
   be used for instance launches, appears in describe operations, and can be
   shared. Amazon Web Services accounts, organizations, and Organizational Units
@@ -39335,11 +38921,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec enable_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39348,6 +38932,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables *block public access for AMIs* at the account level in the specified
   Amazon Web Services Region. This prevents the public sharing of your AMIs.
   However, if you already have public AMIs, they will remain publicly available.
@@ -39361,11 +38946,9 @@ defmodule AWS.EC2 do
       required("ImageBlockPublicAccessState") => list(any())
     }
   """
-
   @spec enable_image_block_public_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_image_block_public_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_image_block_public_access(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39375,6 +38958,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables deprecation of the specified AMI at the specified date and time.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20EnableImageDeprecation&this_doc_guide=API%2520Reference)
@@ -39387,11 +38971,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec enable_image_deprecation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_image_deprecation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_image_deprecation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39400,6 +38982,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables deregistration protection for an AMI. When deregistration protection is
   enabled, the AMI can't be deregistered. To allow the AMI to be deregistered,
   you must first disable deregistration protection using
@@ -39415,11 +38998,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec enable_image_deregistration_protection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_image_deregistration_protection_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_image_deregistration_protection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39429,6 +39010,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enable an Organizations member account as the IPAM admin account. You cannot
   select the Organizations management account as the IPAM admin account. For
   more information, see [Enable integration with
@@ -39444,11 +39026,9 @@ defmodule AWS.EC2 do
       required("DelegatedAdminAccountId") => String.t()
     }
   """
-
   @spec enable_ipam_organization_admin_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_ipam_organization_admin_account_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_ipam_organization_admin_account(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39458,6 +39038,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Establishes a trust relationship between Reachability Analyzer and
   Organizations. This operation must be performed by the management account for
   the organization.
@@ -39470,7 +39051,6 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec enable_reachability_analyzer_organization_sharing(
           AWS.Client.t(),
           input :: map(),
@@ -39478,7 +39058,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, enable_reachability_analyzer_organization_sharing_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_reachability_analyzer_organization_sharing(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39494,6 +39073,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables access to the EC2 serial console of all instances for your account. By
   default, access to the EC2 serial console is disabled for your account. For
   more information, see [Manage account access to the EC2 serial
@@ -39508,11 +39088,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec enable_serial_console_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_serial_console_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_serial_console_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39521,6 +39099,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables or modifies the *block public access for snapshots* setting at the
   account level for the specified Amazon Web Services Region. After you enable
   block public access for snapshots in a Region, users can no longer request
@@ -39540,11 +39119,9 @@ defmodule AWS.EC2 do
       required("State") => list(any())
     }
   """
-
   @spec enable_snapshot_block_public_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_snapshot_block_public_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_snapshot_block_public_access(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39554,6 +39131,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables the specified attachment to propagate routes to the specified
   propagation route table.
 
@@ -39568,7 +39146,6 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec enable_transit_gateway_route_table_propagation(
           AWS.Client.t(),
           input :: map(),
@@ -39576,7 +39153,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, enable_transit_gateway_route_table_propagation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_transit_gateway_route_table_propagation(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39592,6 +39168,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables a virtual private gateway (VGW) to propagate routes to the specified
   route table of a VPC.
 
@@ -39605,11 +39182,9 @@ defmodule AWS.EC2 do
       required("RouteTableId") => String.t()
     }
   """
-
   @spec enable_vgw_route_propagation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_vgw_route_propagation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39618,6 +39193,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables I/O operations for a volume that had I/O operations disabled because the
   data on the volume was potentially inconsistent.
 
@@ -39630,11 +39206,9 @@ defmodule AWS.EC2 do
       required("VolumeId") => String.t()
     }
   """
-
   @spec enable_volume_i_o(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_volume_i_o(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39643,6 +39217,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20EnableVpcClassicLink&this_doc_guide=API%2520Reference)
@@ -39654,11 +39229,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec enable_vpc_classic_link(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_vpc_classic_link_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_vpc_classic_link(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39667,6 +39240,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated. Enables a VPC to support DNS hostname resolution for
   ClassicLink. If enabled, the DNS hostname of a linked EC2-Classic instance
   resolves to its private IP address when addressed from an instance in the VPC
@@ -39682,11 +39256,9 @@ defmodule AWS.EC2 do
       optional("VpcId") => String.t()
     }
   """
-
   @spec enable_vpc_classic_link_dns_support(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_vpc_classic_link_dns_support_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def enable_vpc_classic_link_dns_support(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39696,6 +39268,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Downloads the client certificate revocation list for the specified Client VPN
   endpoint.
 
@@ -39708,7 +39281,6 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec export_client_vpn_client_certificate_revocation_list(
           AWS.Client.t(),
           input :: map(),
@@ -39716,7 +39288,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, export_client_vpn_client_certificate_revocation_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def export_client_vpn_client_certificate_revocation_list(
         %Client{} = client,
         input,
@@ -39736,6 +39307,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Downloads the contents of the Client VPN endpoint configuration file for the
   specified Client VPN endpoint. The Client VPN endpoint configuration file
   includes the Client VPN endpoint and certificate information clients need to
@@ -39750,11 +39322,9 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec export_client_vpn_client_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_client_vpn_client_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def export_client_vpn_client_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39764,6 +39334,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Exports an Amazon Machine Image (AMI) to a VM file. For more information, see
   [Exporting a VM directly from an Amazon Machine Image
   (AMI)](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html)
@@ -39784,11 +39355,9 @@ defmodule AWS.EC2 do
       required("S3ExportLocation") => export_task_s3_location_request()
     }
   """
-
   @spec export_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def export_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39797,6 +39366,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Exports routes from the specified transit gateway route table to the specified
   S3 bucket. By default, all routes are exported. Alternatively, you can filter
   by CIDR range.
@@ -39812,11 +39382,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec export_transit_gateway_routes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_transit_gateway_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def export_transit_gateway_routes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39826,6 +39394,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Returns the IAM roles that are associated with the specified ACM (ACM)
   certificate. It also returns the name of the Amazon S3 bucket and the Amazon
   S3 object key where the certificate, certificate chain, and encrypted private
@@ -39841,11 +39410,9 @@ defmodule AWS.EC2 do
       required("CertificateArn") => String.t()
     }
   """
-
   @spec get_associated_enclave_certificate_iam_roles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_associated_enclave_certificate_iam_roles_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_associated_enclave_certificate_iam_roles(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39855,6 +39422,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets information about the IPv6 CIDR block associations for a specified IPv6
   address pool.
 
@@ -39869,11 +39437,9 @@ defmodule AWS.EC2 do
       required("PoolId") => String.t()
     }
   """
-
   @spec get_associated_ipv6_pool_cidrs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_associated_ipv6_pool_cidrs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_associated_ipv6_pool_cidrs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39883,6 +39449,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets network performance data.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetAwsNetworkPerformanceData&this_doc_guide=API%2520Reference)
@@ -39898,11 +39465,9 @@ defmodule AWS.EC2 do
       optional("StartTime") => non_neg_integer()
     }
   """
-
   @spec get_aws_network_performance_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_aws_network_performance_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_aws_network_performance_data(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39912,6 +39477,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets usage information about a Capacity Reservation. If the Capacity Reservation
   is shared, it shows usage information for the Capacity Reservation owner and
   each Amazon Web Services account that is currently using the shared capacity.
@@ -39929,11 +39495,9 @@ defmodule AWS.EC2 do
       required("CapacityReservationId") => String.t()
     }
   """
-
   @spec get_capacity_reservation_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_capacity_reservation_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_capacity_reservation_usage(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -39943,6 +39507,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the allocations from the specified customer-owned address pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetCoipPoolUsage&this_doc_guide=API%2520Reference)
@@ -39957,11 +39522,9 @@ defmodule AWS.EC2 do
       required("PoolId") => String.t()
     }
   """
-
   @spec get_coip_pool_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_coip_pool_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_coip_pool_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39970,6 +39533,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets the console output for the specified instance. For Linux instances, the
   instance console output displays the exact console output that would normally
   be displayed on a physical monitor attached to a computer. For Windows
@@ -39986,11 +39550,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec get_console_output(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_console_output_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_console_output(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -39999,6 +39561,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Retrieve a JPG-format screenshot of a running instance to help with
   troubleshooting. The returned content is Base64-encoded.
 
@@ -40012,11 +39575,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec get_console_screenshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_console_screenshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_console_screenshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40025,6 +39586,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the default credit option for CPU usage of a burstable performance
   instance family.
 
@@ -40037,11 +39599,9 @@ defmodule AWS.EC2 do
       required("InstanceFamily") => list(any())
     }
   """
-
   @spec get_default_credit_specification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_default_credit_specification_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_default_credit_specification(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40051,6 +39611,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes the default KMS key for EBS encryption by default for your account in
   this Region. You can change the default KMS key for encryption by default
   using `ModifyEbsDefaultKmsKeyId` or `ResetEbsDefaultKmsKeyId`.
@@ -40063,11 +39624,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec get_ebs_default_kms_key_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ebs_default_kms_key_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40076,6 +39635,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Describes whether EBS encryption by default is enabled for your account in the
   current Region.
 
@@ -40087,11 +39647,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec get_ebs_encryption_by_default(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ebs_encryption_by_default_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_ebs_encryption_by_default(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40101,6 +39659,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Generates a CloudFormation template that streamlines and automates the
   integration of VPC flow logs with Amazon Athena. This make it easier for you
   to query and gain insights from VPC flow logs data. Based on the information
@@ -40117,11 +39676,9 @@ defmodule AWS.EC2 do
       required("IntegrateServices") => integrate_services()
     }
   """
-
   @spec get_flow_logs_integration_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_flow_logs_integration_template_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_flow_logs_integration_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40131,6 +39688,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Lists the resource groups to which a Capacity Reservation has been added.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetGroupsForCapacityReservation&this_doc_guide=API%2520Reference)
@@ -40144,11 +39702,9 @@ defmodule AWS.EC2 do
       required("CapacityReservationId") => String.t()
     }
   """
-
   @spec get_groups_for_capacity_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_groups_for_capacity_reservation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_groups_for_capacity_reservation(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40158,6 +39714,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Preview a reservation purchase with configurations that match those of your
   Dedicated Host. You must have active Dedicated Hosts in your account before
   you purchase a reservation.
@@ -40171,11 +39728,9 @@ defmodule AWS.EC2 do
       required("OfferingId") => String.t()
     }
   """
-
   @spec get_host_reservation_purchase_preview(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_host_reservation_purchase_preview_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_host_reservation_purchase_preview(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40185,6 +39740,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets the current state of *block public access for AMIs* at the account level in
   the specified Amazon Web Services Region.
 
@@ -40196,11 +39752,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec get_image_block_public_access_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_image_block_public_access_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_image_block_public_access_state(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40210,6 +39764,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets the default instance metadata service (IMDS) settings that are set at the
   account level in the specified Amazon Web Services  Region.
 
@@ -40221,11 +39776,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec get_instance_metadata_defaults(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_metadata_defaults_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_instance_metadata_defaults(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40235,6 +39788,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets the public endorsement key associated with the Nitro Trusted Platform
   Module (NitroTPM) for the specified instance.
 
@@ -40249,11 +39803,9 @@ defmodule AWS.EC2 do
       required("KeyType") => list(any())
     }
   """
-
   @spec get_instance_tpm_ek_pub(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_tpm_ek_pub_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_instance_tpm_ek_pub(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40262,6 +39814,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Returns a list of instance types with the specified instance attributes. You can
   use the response to preview the instance types without launching instances.
   Note that the response does not consider capacity. When you specify multiple
@@ -40282,11 +39835,9 @@ defmodule AWS.EC2 do
       required("VirtualizationTypes") => list(list(any())())
     }
   """
-
   @spec get_instance_types_from_instance_requirements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_types_from_instance_requirements_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_instance_types_from_instance_requirements(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40296,6 +39847,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   A binary representation of the UEFI variable store. Only non-volatile variables
   are stored. This is a base64 encoded and zlib compressed binary value that
   must be properly encoded.
@@ -40309,11 +39861,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec get_instance_uefi_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_uefi_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_instance_uefi_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40322,6 +39872,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Retrieve historical information about a CIDR within an IPAM scope. For more
   information, see [View the history of IP
   addresses](https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html)
@@ -40342,11 +39893,9 @@ defmodule AWS.EC2 do
       required("IpamScopeId") => String.t()
     }
   """
-
   @spec get_ipam_address_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ipam_address_history_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_ipam_address_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40355,6 +39904,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets IPAM discovered accounts. A discovered account is an Amazon Web Services
   account that is monitored under a resource discovery. If you have integrated
   IPAM with Amazon Web Services Organizations, all accounts in the organization
@@ -40374,11 +39924,9 @@ defmodule AWS.EC2 do
       required("IpamResourceDiscoveryId") => String.t()
     }
   """
-
   @spec get_ipam_discovered_accounts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ipam_discovered_accounts_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_ipam_discovered_accounts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40387,6 +39935,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets the public IP addresses that have been discovered by IPAM.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetIpamDiscoveredPublicAddresses&this_doc_guide=API%2520Reference)
@@ -40402,11 +39951,9 @@ defmodule AWS.EC2 do
       required("IpamResourceDiscoveryId") => String.t()
     }
   """
-
   @spec get_ipam_discovered_public_addresses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ipam_discovered_public_addresses_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_ipam_discovered_public_addresses(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40416,6 +39963,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Returns the resource CIDRs that are monitored as part of a resource discovery. A
   discovered resource is a resource CIDR monitored under a resource discovery.
   The following resources can be discovered: VPCs, Public IPv4 pools, VPC
@@ -40434,11 +39982,9 @@ defmodule AWS.EC2 do
       required("ResourceRegion") => String.t()
     }
   """
-
   @spec get_ipam_discovered_resource_cidrs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ipam_discovered_resource_cidrs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_ipam_discovered_resource_cidrs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40448,6 +39994,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Get a list of all the CIDR allocations in an IPAM pool. The Region you use
   should be the IPAM pool locale. The locale is the Amazon Web Services Region
   where this IPAM pool is available for allocations.
@@ -40465,11 +40012,9 @@ defmodule AWS.EC2 do
       required("IpamPoolId") => String.t()
     }
   """
-
   @spec get_ipam_pool_allocations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ipam_pool_allocations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_ipam_pool_allocations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40478,6 +40023,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Get the CIDRs provisioned to an IPAM pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetIpamPoolCidrs&this_doc_guide=API%2520Reference)
@@ -40492,11 +40038,9 @@ defmodule AWS.EC2 do
       required("IpamPoolId") => String.t()
     }
   """
-
   @spec get_ipam_pool_cidrs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ipam_pool_cidrs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_ipam_pool_cidrs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40505,6 +40049,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is
   associated with more than one resource discovery, the resource CIDRs across
   all of the resource discoveries is returned. A resource discovery is an IPAM
@@ -40528,11 +40073,9 @@ defmodule AWS.EC2 do
       required("IpamScopeId") => String.t()
     }
   """
-
   @spec get_ipam_resource_cidrs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ipam_resource_cidrs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_ipam_resource_cidrs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40541,6 +40084,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Retrieves the configuration data of the specified instance. You can use this
   data to create a launch template.
 
@@ -40553,11 +40097,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec get_launch_template_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_launch_template_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_launch_template_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40566,6 +40108,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets information about the resources that are associated with the specified
   managed prefix list.
 
@@ -40580,11 +40123,9 @@ defmodule AWS.EC2 do
       required("PrefixListId") => String.t()
     }
   """
-
   @spec get_managed_prefix_list_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_managed_prefix_list_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_managed_prefix_list_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40594,6 +40135,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets information about the entries for a specified managed prefix list.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetManagedPrefixListEntries&this_doc_guide=API%2520Reference)
@@ -40608,11 +40150,9 @@ defmodule AWS.EC2 do
       required("PrefixListId") => String.t()
     }
   """
-
   @spec get_managed_prefix_list_entries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_managed_prefix_list_entries_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_managed_prefix_list_entries(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40622,6 +40162,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets the findings for the specified Network Access Scope analysis.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetNetworkInsightsAccessScopeAnalysisFindings&this_doc_guide=API%2520Reference)
@@ -40635,7 +40176,6 @@ defmodule AWS.EC2 do
       required("NetworkInsightsAccessScopeAnalysisId") => String.t()
     }
   """
-
   @spec get_network_insights_access_scope_analysis_findings(
           AWS.Client.t(),
           input :: map(),
@@ -40643,7 +40183,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, get_network_insights_access_scope_analysis_findings_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_network_insights_access_scope_analysis_findings(
         %Client{} = client,
         input,
@@ -40663,6 +40202,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets the content for the specified Network Access Scope.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetNetworkInsightsAccessScopeContent&this_doc_guide=API%2520Reference)
@@ -40674,11 +40214,9 @@ defmodule AWS.EC2 do
       required("NetworkInsightsAccessScopeId") => String.t()
     }
   """
-
   @spec get_network_insights_access_scope_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_network_insights_access_scope_content_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_network_insights_access_scope_content(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40688,6 +40226,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Retrieves the encrypted administrator password for a running Windows instance.
   The Windows password is generated at boot by the `EC2Config` service or
   `EC2Launch` scripts (Windows Server 2016 and later). This usually only happens
@@ -40706,11 +40245,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec get_password_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_password_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_password_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40719,6 +40256,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Returns a quote and exchange information for exchanging one or more specified
   Convertible Reserved Instances for a new Convertible Reserved Instance. If the
   exchange cannot be performed, the reason is returned in the response. Use
@@ -40734,11 +40272,9 @@ defmodule AWS.EC2 do
       required("ReservedInstanceIds") => list(String.t()())
     }
   """
-
   @spec get_reserved_instances_exchange_quote(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_reserved_instances_exchange_quote_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_reserved_instances_exchange_quote(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40748,6 +40284,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets security groups that can be associated by the Amazon Web Services account
   making the request with network interfaces in the specified VPC.
 
@@ -40763,11 +40300,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec get_security_groups_for_vpc(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_security_groups_for_vpc_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_security_groups_for_vpc(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40776,6 +40311,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Retrieves the access status of your account to the EC2 serial console of all
   instances. By default, access to the EC2 serial console is disabled for your
   account. For more information, see [Manage account access to the EC2 serial
@@ -40790,11 +40326,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec get_serial_console_access_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_serial_console_access_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_serial_console_access_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40804,6 +40338,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets the current state of *block public access for snapshots* setting for the
   account and Region.
 
@@ -40815,11 +40350,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec get_snapshot_block_public_access_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_snapshot_block_public_access_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_snapshot_block_public_access_state(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40829,6 +40362,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Calculates the Spot placement score for a Region or Availability Zone based on
   the specified target capacity and compute requirements. You can specify your
   compute requirements either by using `InstanceRequirementsWithMetadata` and
@@ -40851,11 +40385,9 @@ defmodule AWS.EC2 do
       required("TargetCapacity") => integer()
     }
   """
-
   @spec get_spot_placement_scores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_spot_placement_scores_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_spot_placement_scores(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40864,6 +40396,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets information about the subnet CIDR reservations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetSubnetCidrReservations&this_doc_guide=API%2520Reference)
@@ -40878,11 +40411,9 @@ defmodule AWS.EC2 do
       required("SubnetId") => String.t()
     }
   """
-
   @spec get_subnet_cidr_reservations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_subnet_cidr_reservations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_subnet_cidr_reservations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -40891,6 +40422,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Lists the route tables to which the specified resource attachment propagates
   routes.
 
@@ -40906,11 +40438,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec get_transit_gateway_attachment_propagations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_transit_gateway_attachment_propagations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_transit_gateway_attachment_propagations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40920,6 +40450,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets information about the associations for the transit gateway multicast
   domain.
 
@@ -40935,7 +40466,6 @@ defmodule AWS.EC2 do
       required("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec get_transit_gateway_multicast_domain_associations(
           AWS.Client.t(),
           input :: map(),
@@ -40943,7 +40473,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, get_transit_gateway_multicast_domain_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_transit_gateway_multicast_domain_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40959,6 +40488,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets a list of the transit gateway policy table associations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetTransitGatewayPolicyTableAssociations&this_doc_guide=API%2520Reference)
@@ -40973,11 +40503,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayPolicyTableId") => String.t()
     }
   """
-
   @spec get_transit_gateway_policy_table_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_transit_gateway_policy_table_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_transit_gateway_policy_table_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -40987,6 +40515,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Returns a list of transit gateway policy table entries.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetTransitGatewayPolicyTableEntries&this_doc_guide=API%2520Reference)
@@ -41001,11 +40530,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayPolicyTableId") => String.t()
     }
   """
-
   @spec get_transit_gateway_policy_table_entries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_transit_gateway_policy_table_entries_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_transit_gateway_policy_table_entries(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41015,6 +40542,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets information about the prefix list references in a specified transit gateway
   route table.
 
@@ -41030,11 +40558,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec get_transit_gateway_prefix_list_references(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_transit_gateway_prefix_list_references_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_transit_gateway_prefix_list_references(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41044,6 +40570,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets information about the associations for the specified transit gateway route
   table.
 
@@ -41059,11 +40586,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec get_transit_gateway_route_table_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_transit_gateway_route_table_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_transit_gateway_route_table_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41073,6 +40598,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Gets information about the route table propagations for the specified transit
   gateway route table.
 
@@ -41088,11 +40614,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec get_transit_gateway_route_table_propagations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_transit_gateway_route_table_propagations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_transit_gateway_route_table_propagations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41102,6 +40626,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Get the Verified Access policy associated with the endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetVerifiedAccessEndpointPolicy&this_doc_guide=API%2520Reference)
@@ -41113,11 +40638,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessEndpointId") => String.t()
     }
   """
-
   @spec get_verified_access_endpoint_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_verified_access_endpoint_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_verified_access_endpoint_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41127,6 +40650,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Shows the contents of the Verified Access policy associated with the group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetVerifiedAccessGroupPolicy&this_doc_guide=API%2520Reference)
@@ -41138,11 +40662,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessGroupId") => String.t()
     }
   """
-
   @spec get_verified_access_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_verified_access_group_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_verified_access_group_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41152,6 +40674,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Download an Amazon Web Services-provided sample configuration file to be used
   with the customer gateway device specified for your Site-to-Site VPN
   connection.
@@ -41167,7 +40690,6 @@ defmodule AWS.EC2 do
       required("VpnConnectionId") => String.t()
     }
   """
-
   @spec get_vpn_connection_device_sample_configuration(
           AWS.Client.t(),
           input :: map(),
@@ -41175,7 +40697,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, get_vpn_connection_device_sample_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_vpn_connection_device_sample_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41191,6 +40712,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Obtain a list of customer gateway devices for which sample configuration files
   can be provided. The request has no additional parameters. You can also see
   the list of device types with sample configuration files available under [Your
@@ -41208,11 +40730,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec get_vpn_connection_device_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_vpn_connection_device_types_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_vpn_connection_device_types(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41222,6 +40742,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Get details of available tunnel endpoint maintenance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20GetVpnTunnelReplacementStatus&this_doc_guide=API%2520Reference)
@@ -41234,11 +40755,9 @@ defmodule AWS.EC2 do
       required("VpnTunnelOutsideIpAddress") => String.t()
     }
   """
-
   @spec get_vpn_tunnel_replacement_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_vpn_tunnel_replacement_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_vpn_tunnel_replacement_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41248,6 +40767,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Uploads a client certificate revocation list to the specified Client VPN
   endpoint. Uploading a client certificate revocation list overwrites the
   existing client certificate revocation list.
@@ -41262,7 +40782,6 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec import_client_vpn_client_certificate_revocation_list(
           AWS.Client.t(),
           input :: map(),
@@ -41270,7 +40789,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, import_client_vpn_client_certificate_revocation_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def import_client_vpn_client_certificate_revocation_list(
         %Client{} = client,
         input,
@@ -41290,6 +40808,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   To import your virtual machines (VMs) with a console-based experience, you can
   use the *Import virtual machine images to Amazon Web Services* template in the
   [Migration Hub Orchestrator
@@ -41325,11 +40844,9 @@ defmodule AWS.EC2 do
       optional("UsageOperation") => String.t()
     }
   """
-
   @spec import_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def import_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41338,6 +40855,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   We recommend that you use the [ `ImportImage`
   ](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html)
   API. For more information, see [Importing a VM as an image using VM
@@ -41361,11 +40879,9 @@ defmodule AWS.EC2 do
       required("Platform") => list(any())
     }
   """
-
   @spec import_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def import_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41374,6 +40890,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Imports the public key from an RSA or ED25519 key pair that you created with a
   third-party tool. Compare this with `CreateKeyPair`, in which Amazon Web
   Services creates the key pair and gives the keys to you (Amazon Web Services
@@ -41392,11 +40909,9 @@ defmodule AWS.EC2 do
       required("PublicKeyMaterial") => binary()
     }
   """
-
   @spec import_key_pair(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def import_key_pair(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41405,6 +40920,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Imports a disk into an EBS snapshot.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ImportSnapshot&this_doc_guide=API%2520Reference)
@@ -41423,11 +40939,9 @@ defmodule AWS.EC2 do
       optional("TagSpecifications") => list(tag_specification()())
     }
   """
-
   @spec import_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def import_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41436,6 +40950,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates an import volume task using metadata from the specified disk image. This
   API action supports only single-volume VMs. To import multi-volume VMs, use
   `ImportImage` instead. To import a disk to a snapshot, use `ImportSnapshot`
@@ -41453,11 +40968,9 @@ defmodule AWS.EC2 do
       required("Volume") => volume_detail()
     }
   """
-
   @spec import_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_volume_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def import_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41466,6 +40979,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Lists one or more AMIs that are currently in the Recycle Bin. For more
   information, see [Recycle
   Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
@@ -41482,11 +40996,9 @@ defmodule AWS.EC2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_images_in_recycle_bin(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_images_in_recycle_bin_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_images_in_recycle_bin(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41495,6 +41007,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Lists one or more snapshots that are currently in the Recycle Bin.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ListSnapshotsInRecycleBin&this_doc_guide=API%2520Reference)
@@ -41508,11 +41021,9 @@ defmodule AWS.EC2 do
       optional("SnapshotIds") => list(String.t()())
     }
   """
-
   @spec list_snapshots_in_recycle_bin(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_snapshots_in_recycle_bin_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_snapshots_in_recycle_bin(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41522,6 +41033,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Locks an Amazon EBS snapshot in either *governance* or *compliance* mode to
   protect it against accidental or malicious deletions for a specific duration.
   A locked snapshot can't be deleted. You can also use this action to modify the
@@ -41541,11 +41053,9 @@ defmodule AWS.EC2 do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec lock_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, lock_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def lock_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41554,6 +41064,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies an attribute of the specified Elastic IP address. For requirements, see
   [Using reverse DNS for email
   applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
@@ -41568,11 +41079,9 @@ defmodule AWS.EC2 do
       required("AllocationId") => String.t()
     }
   """
-
   @spec modify_address_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_address_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_address_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41581,6 +41090,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Changes the opt-in status of the specified zone group for your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyAvailabilityZoneGroup&this_doc_guide=API%2520Reference)
@@ -41593,11 +41103,9 @@ defmodule AWS.EC2 do
       required("OptInStatus") => list(any())
     }
   """
-
   @spec modify_availability_zone_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_availability_zone_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_availability_zone_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41607,6 +41115,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies a Capacity Reservation's capacity and the conditions under which it is
   to be released. You cannot change a Capacity Reservation's instance type, EBS
   optimization, instance store settings, platform, Availability Zone, or
@@ -41628,11 +41137,9 @@ defmodule AWS.EC2 do
       required("CapacityReservationId") => String.t()
     }
   """
-
   @spec modify_capacity_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_capacity_reservation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_capacity_reservation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41641,6 +41148,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies a Capacity Reservation Fleet.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyCapacityReservationFleet&this_doc_guide=API%2520Reference)
@@ -41655,11 +41163,9 @@ defmodule AWS.EC2 do
       required("CapacityReservationFleetId") => String.t()
     }
   """
-
   @spec modify_capacity_reservation_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_capacity_reservation_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_capacity_reservation_fleet(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41669,6 +41175,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified Client VPN endpoint. Modifying the DNS server resets
   existing client connections.
 
@@ -41693,11 +41200,9 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec modify_client_vpn_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_client_vpn_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_client_vpn_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41706,6 +41211,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the default credit option for CPU usage of burstable performance
   instances. The default credit option is set at the account level per Amazon
   Web Services Region, and is specified per instance family. All new burstable
@@ -41728,11 +41234,9 @@ defmodule AWS.EC2 do
       required("InstanceFamily") => list(any())
     }
   """
-
   @spec modify_default_credit_specification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_default_credit_specification_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_default_credit_specification(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41742,6 +41246,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Changes the default KMS key for EBS encryption by default for your account in
   this Region. Amazon Web Services creates a unique Amazon Web Services managed
   KMS key in each Region for use with encryption by default. If you change the
@@ -41759,11 +41264,9 @@ defmodule AWS.EC2 do
       required("KmsKeyId") => String.t()
     }
   """
-
   @spec modify_ebs_default_kms_key_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_ebs_default_kms_key_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_ebs_default_kms_key_id(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -41773,6 +41276,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified EC2 Fleet. You can only modify an EC2 Fleet request of
   type `maintain`.
 
@@ -41789,11 +41293,9 @@ defmodule AWS.EC2 do
       required("FleetId") => String.t()
     }
   """
-
   @spec modify_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41802,6 +41304,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified attribute of the specified Amazon FPGA Image (AFI).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyFpgaImageAttribute&this_doc_guide=API%2520Reference)
@@ -41821,11 +41324,9 @@ defmodule AWS.EC2 do
       required("FpgaImageId") => String.t()
     }
   """
-
   @spec modify_fpga_image_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_fpga_image_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_fpga_image_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41834,6 +41335,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modify the auto-placement setting of a Dedicated Host. When auto-placement is
   enabled, any instances that you launch with a tenancy of `host` but without a
   specific host ID are placed onto any available Dedicated Host in your account
@@ -41855,11 +41357,9 @@ defmodule AWS.EC2 do
       required("HostIds") => list(String.t()())
     }
   """
-
   @spec modify_hosts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_hosts_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_hosts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41868,6 +41368,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the ID format for the specified resource on a per-Region basis. You can
   specify that resources should receive longer IDs (17-character IDs) when they
   are created. This request can only be used to modify longer ID settings for
@@ -41890,11 +41391,9 @@ defmodule AWS.EC2 do
       required("UseLongIds") => boolean()
     }
   """
-
   @spec modify_id_format(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_id_format(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41903,6 +41402,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the ID format of a resource for a specified IAM user, IAM role, or the
   root user for an account; or all IAM users, IAM roles, and the root user for
   an account. You can specify that resources should receive longer IDs
@@ -41928,11 +41428,9 @@ defmodule AWS.EC2 do
       required("UseLongIds") => boolean()
     }
   """
-
   @spec modify_identity_id_format(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_identity_id_format(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41941,6 +41439,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified attribute of the specified AMI. You can specify only one
   attribute at a time. To specify the attribute, you can use the `Attribute`
   parameter, or one of the following parameters: `Description`, `ImdsSupport`,
@@ -41966,11 +41465,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec modify_image_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_image_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -41979,6 +41476,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified attribute of the specified instance. You can specify only
   one attribute at a time. **Note: **Using this action to change the security
   groups associated with an elastic network interface (ENI) attached to an
@@ -42011,11 +41509,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec modify_instance_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_instance_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42024,6 +41520,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the Capacity Reservation settings for a stopped instance. Use this
   action to configure an instance to target a specific Capacity Reservation, run
   in any `open` Capacity Reservation with matching attributes, or run On-Demand
@@ -42039,7 +41536,6 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec modify_instance_capacity_reservation_attributes(
           AWS.Client.t(),
           input :: map(),
@@ -42047,7 +41543,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, modify_instance_capacity_reservation_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_instance_capacity_reservation_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42063,6 +41558,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the credit option for CPU usage on a running or stopped burstable
   performance instance. The credit options are `standard` and `unlimited`.
 
@@ -42076,11 +41572,9 @@ defmodule AWS.EC2 do
       required("InstanceCreditSpecifications") => list(instance_credit_specification_request()())
     }
   """
-
   @spec modify_instance_credit_specification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_instance_credit_specification_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_instance_credit_specification(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42090,6 +41584,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the start time for a scheduled Amazon EC2 instance event.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyInstanceEventStartTime&this_doc_guide=API%2520Reference)
@@ -42103,11 +41598,9 @@ defmodule AWS.EC2 do
       required("NotBefore") => non_neg_integer()
     }
   """
-
   @spec modify_instance_event_start_time(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_instance_event_start_time_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_instance_event_start_time(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42117,6 +41610,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified event window. You can define either a set of time ranges
   or a cron expression when modifying the event window, but not both.
 
@@ -42132,11 +41626,9 @@ defmodule AWS.EC2 do
       required("InstanceEventWindowId") => String.t()
     }
   """
-
   @spec modify_instance_event_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_instance_event_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_instance_event_window(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42145,6 +41637,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the recovery behavior of your instance to disable simplified automatic
   recovery or set the recovery behavior to default. The default configuration
   will not enable simplified automatic recovery for an unsupported instance
@@ -42161,11 +41654,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec modify_instance_maintenance_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_instance_maintenance_options_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_instance_maintenance_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42175,6 +41666,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the default instance metadata service (IMDS) settings at the account
   level in the specified Amazon Web Services  Region.
 
@@ -42190,11 +41682,9 @@ defmodule AWS.EC2 do
       optional("InstanceMetadataTags") => list(any())
     }
   """
-
   @spec modify_instance_metadata_defaults(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_instance_metadata_defaults_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_instance_metadata_defaults(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42204,6 +41694,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modify the instance metadata parameters on a running or stopped instance. When
   you modify the parameters on a stopped instance, they are applied when the
   instance is started. When you modify the parameters on a running instance, the
@@ -42228,11 +41719,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec modify_instance_metadata_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_instance_metadata_options_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_instance_metadata_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42242,6 +41731,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the placement attributes for a specified instance. You can do the
   following:
 
@@ -42260,11 +41750,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec modify_instance_placement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_instance_placement_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_instance_placement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42273,6 +41761,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modify the configurations of an IPAM.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyIpam&this_doc_guide=API%2520Reference)
@@ -42288,11 +41777,9 @@ defmodule AWS.EC2 do
       required("IpamId") => String.t()
     }
   """
-
   @spec modify_ipam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_ipam_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_ipam(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42301,6 +41788,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modify the configurations of an IPAM pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyIpamPool&this_doc_guide=API%2520Reference)
@@ -42320,11 +41808,9 @@ defmodule AWS.EC2 do
       required("IpamPoolId") => String.t()
     }
   """
-
   @spec modify_ipam_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_ipam_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_ipam_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42333,6 +41819,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modify a resource CIDR. You can use this action to transfer resource CIDRs
   between scopes and ignore resource CIDRs that you do not want to manage. If
   set to false, the resource will not be tracked for overlap, it cannot be
@@ -42353,11 +41840,9 @@ defmodule AWS.EC2 do
       required("ResourceRegion") => String.t()
     }
   """
-
   @spec modify_ipam_resource_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_ipam_resource_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_ipam_resource_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42366,6 +41851,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies a resource discovery. A resource discovery is an IPAM component that
   enables IPAM to manage and monitor resources that belong to the owning
   account.
@@ -42382,11 +41868,9 @@ defmodule AWS.EC2 do
       required("IpamResourceDiscoveryId") => String.t()
     }
   """
-
   @spec modify_ipam_resource_discovery(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_ipam_resource_discovery_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_ipam_resource_discovery(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42396,6 +41880,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modify an IPAM scope.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyIpamScope&this_doc_guide=API%2520Reference)
@@ -42408,11 +41893,9 @@ defmodule AWS.EC2 do
       required("IpamScopeId") => String.t()
     }
   """
-
   @spec modify_ipam_scope(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_ipam_scope_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_ipam_scope(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42421,6 +41904,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies a launch template. You can specify which version of the launch template
   to set as the default version. When launching an instance, the default version
   applies when a launch template version is not specified.
@@ -42437,11 +41921,9 @@ defmodule AWS.EC2 do
       optional("LaunchTemplateName") => String.t()
     }
   """
-
   @spec modify_launch_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_launch_template_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_launch_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42450,6 +41932,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified local gateway route.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyLocalGatewayRoute&this_doc_guide=API%2520Reference)
@@ -42465,11 +41948,9 @@ defmodule AWS.EC2 do
       required("LocalGatewayRouteTableId") => String.t()
     }
   """
-
   @spec modify_local_gateway_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_local_gateway_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_local_gateway_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42478,6 +41959,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified managed prefix list. Adding or removing entries in a
   prefix list creates a new version of the prefix list. Changing the name of the
   prefix list does not affect the version.
@@ -42496,11 +41978,9 @@ defmodule AWS.EC2 do
       required("PrefixListId") => String.t()
     }
   """
-
   @spec modify_managed_prefix_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_managed_prefix_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_managed_prefix_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42509,6 +41989,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified network interface attribute. You can specify only one
   attribute at a time. You can use this action to attach and detach security
   groups from an existing EC2 instance.
@@ -42530,11 +42011,9 @@ defmodule AWS.EC2 do
       required("NetworkInterfaceId") => String.t()
     }
   """
-
   @spec modify_network_interface_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_network_interface_attribute(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42544,6 +42023,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the options for instance hostnames for the specified instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyPrivateDnsNameOptions&this_doc_guide=API%2520Reference)
@@ -42558,11 +42038,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec modify_private_dns_name_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_private_dns_name_options_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_private_dns_name_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42572,6 +42050,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the configuration of your Reserved Instances, such as the Availability
   Zone, instance count, or instance type. The Reserved Instances to be modified
   must be identical, except for Availability Zone, network platform, and
@@ -42587,11 +42066,9 @@ defmodule AWS.EC2 do
       required("TargetConfigurations") => list(reserved_instances_configuration()())
     }
   """
-
   @spec modify_reserved_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_reserved_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_reserved_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42600,6 +42077,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the rules of a security group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifySecurityGroupRules&this_doc_guide=API%2520Reference)
@@ -42612,11 +42090,9 @@ defmodule AWS.EC2 do
       required("SecurityGroupRules") => list(security_group_rule_update()())
     }
   """
-
   @spec modify_security_group_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_security_group_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_security_group_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42625,6 +42101,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Adds or removes permission settings for the specified snapshot. You may add or
   remove specified Amazon Web Services account IDs from a snapshot's list of
   create volume permissions, but you cannot do both in a single operation. If
@@ -42648,11 +42125,9 @@ defmodule AWS.EC2 do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec modify_snapshot_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_snapshot_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42661,6 +42136,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to
   a full snapshot that includes all of the blocks of data that were written to
   the volume at the time the snapshot was created, and moved from the standard
@@ -42678,11 +42154,9 @@ defmodule AWS.EC2 do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec modify_snapshot_tier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_snapshot_tier_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_snapshot_tier(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42691,6 +42165,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified Spot Fleet request. You can only modify a Spot Fleet
   request of type `maintain`.
 
@@ -42707,11 +42182,9 @@ defmodule AWS.EC2 do
       required("SpotFleetRequestId") => String.t()
     }
   """
-
   @spec modify_spot_fleet_request(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_spot_fleet_request_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_spot_fleet_request(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42720,6 +42193,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies a subnet attribute. You can only modify one attribute at a time. Use
   this action to modify subnets on Amazon Web Services Outposts.
 
@@ -42741,11 +42215,9 @@ defmodule AWS.EC2 do
       required("SubnetId") => String.t()
     }
   """
-
   @spec modify_subnet_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_subnet_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42754,6 +42226,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Allows or restricts mirroring network services.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyTrafficMirrorFilterNetworkServices&this_doc_guide=API%2520Reference)
@@ -42767,11 +42240,9 @@ defmodule AWS.EC2 do
       required("TrafficMirrorFilterId") => String.t()
     }
   """
-
   @spec modify_traffic_mirror_filter_network_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_traffic_mirror_filter_network_services_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_traffic_mirror_filter_network_services(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42781,6 +42252,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified Traffic Mirror rule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyTrafficMirrorFilterRule&this_doc_guide=API%2520Reference)
@@ -42802,11 +42274,9 @@ defmodule AWS.EC2 do
       required("TrafficMirrorFilterRuleId") => String.t()
     }
   """
-
   @spec modify_traffic_mirror_filter_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_traffic_mirror_filter_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_traffic_mirror_filter_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42816,6 +42286,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies a Traffic Mirror session.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyTrafficMirrorSession&this_doc_guide=API%2520Reference)
@@ -42834,11 +42305,9 @@ defmodule AWS.EC2 do
       required("TrafficMirrorSessionId") => String.t()
     }
   """
-
   @spec modify_traffic_mirror_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_traffic_mirror_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_traffic_mirror_session(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42848,6 +42317,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified transit gateway. When you modify a transit gateway, the
   modified options are applied to new transit gateway attachments only. Your
   existing transit gateway attachments are not modified.
@@ -42863,11 +42333,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayId") => String.t()
     }
   """
-
   @spec modify_transit_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_transit_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_transit_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -42876,6 +42344,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies a reference (route) to a prefix list in a specified transit gateway
   route table.
 
@@ -42891,11 +42360,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec modify_transit_gateway_prefix_list_reference(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_transit_gateway_prefix_list_reference_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42905,6 +42372,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified VPC attachment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyTransitGatewayVpcAttachment&this_doc_guide=API%2520Reference)
@@ -42919,11 +42387,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec modify_transit_gateway_vpc_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_transit_gateway_vpc_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42933,6 +42399,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the configuration of the specified Amazon Web Services Verified Access
   endpoint.
 
@@ -42950,11 +42417,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessEndpointId") => String.t()
     }
   """
-
   @spec modify_verified_access_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_verified_access_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_verified_access_endpoint(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42964,6 +42429,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified Amazon Web Services Verified Access endpoint policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyVerifiedAccessEndpointPolicy&this_doc_guide=API%2520Reference)
@@ -42979,11 +42445,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessEndpointId") => String.t()
     }
   """
-
   @spec modify_verified_access_endpoint_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_verified_access_endpoint_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_verified_access_endpoint_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -42993,6 +42457,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified Amazon Web Services Verified Access group configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyVerifiedAccessGroup&this_doc_guide=API%2520Reference)
@@ -43007,11 +42472,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessGroupId") => String.t()
     }
   """
-
   @spec modify_verified_access_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_verified_access_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_verified_access_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43020,6 +42483,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified Amazon Web Services Verified Access group policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyVerifiedAccessGroupPolicy&this_doc_guide=API%2520Reference)
@@ -43035,11 +42499,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessGroupId") => String.t()
     }
   """
-
   @spec modify_verified_access_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_verified_access_group_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_verified_access_group_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43049,6 +42511,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the configuration of the specified Amazon Web Services Verified Access
   instance.
 
@@ -43063,11 +42526,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessInstanceId") => String.t()
     }
   """
-
   @spec modify_verified_access_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_verified_access_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_verified_access_instance(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43077,6 +42538,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the logging configuration for the specified Amazon Web Services
   Verified Access instance.
 
@@ -43091,7 +42553,6 @@ defmodule AWS.EC2 do
       required("VerifiedAccessInstanceId") => String.t()
     }
   """
-
   @spec modify_verified_access_instance_logging_configuration(
           AWS.Client.t(),
           input :: map(),
@@ -43099,7 +42560,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, modify_verified_access_instance_logging_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_verified_access_instance_logging_configuration(
         %Client{} = client,
         input,
@@ -43119,6 +42579,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the configuration of the specified Amazon Web Services Verified Access
   trust provider.
 
@@ -43136,11 +42597,9 @@ defmodule AWS.EC2 do
       required("VerifiedAccessTrustProviderId") => String.t()
     }
   """
-
   @spec modify_verified_access_trust_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_verified_access_trust_provider_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_verified_access_trust_provider(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43150,6 +42609,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   You can modify several parameters of an existing EBS volume, including volume
   size, volume type, and IOPS capacity. If your EBS volume is attached to a
   current-generation EC2 instance type, you might be able to apply these changes
@@ -43178,11 +42638,9 @@ defmodule AWS.EC2 do
       required("VolumeId") => String.t()
     }
   """
-
   @spec modify_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_volume_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43191,6 +42649,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies a volume attribute. By default, all I/O operations for the volume are
   suspended when the data on the volume is determined to be potentially
   inconsistent, to prevent undetectable, latent data corruption. The I/O access
@@ -43207,11 +42666,9 @@ defmodule AWS.EC2 do
       required("VolumeId") => String.t()
     }
   """
-
   @spec modify_volume_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_volume_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43220,6 +42677,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the specified attribute of the specified VPC.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyVpcAttribute&this_doc_guide=API%2520Reference)
@@ -43233,11 +42691,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec modify_vpc_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpc_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43246,6 +42702,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies attributes of a specified VPC endpoint. The attributes that you can
   modify depend on the type of VPC endpoint (interface, gateway, or Gateway Load
   Balancer). For more information, see the [Amazon Web Services PrivateLink
@@ -43272,11 +42729,9 @@ defmodule AWS.EC2 do
       required("VpcEndpointId") => String.t()
     }
   """
-
   @spec modify_vpc_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_vpc_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpc_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43285,6 +42740,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies a connection notification for VPC endpoint or VPC endpoint service. You
   can change the SNS topic for the notification, or the events for which to be
   notified.
@@ -43300,11 +42756,9 @@ defmodule AWS.EC2 do
       required("ConnectionNotificationId") => String.t()
     }
   """
-
   @spec modify_vpc_endpoint_connection_notification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_vpc_endpoint_connection_notification_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpc_endpoint_connection_notification(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43314,6 +42768,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the attributes of your VPC endpoint service configuration. You can
   change the Network Load Balancers or Gateway Load Balancers for your service,
   and you can specify whether acceptance is required for requests to connect to
@@ -43337,11 +42792,9 @@ defmodule AWS.EC2 do
       required("ServiceId") => String.t()
     }
   """
-
   @spec modify_vpc_endpoint_service_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_vpc_endpoint_service_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpc_endpoint_service_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43351,6 +42804,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the payer responsibility for your VPC endpoint service.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyVpcEndpointServicePayerResponsibility&this_doc_guide=API%2520Reference)
@@ -43363,7 +42817,6 @@ defmodule AWS.EC2 do
       required("ServiceId") => String.t()
     }
   """
-
   @spec modify_vpc_endpoint_service_payer_responsibility(
           AWS.Client.t(),
           input :: map(),
@@ -43371,7 +42824,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, modify_vpc_endpoint_service_payer_responsibility_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpc_endpoint_service_payer_responsibility(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43387,6 +42839,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the permissions for your VPC endpoint service. You can add or remove
   permissions for service consumers (Amazon Web Services accounts, users, and
   IAM roles) to connect to your endpoint service.
@@ -43402,11 +42855,9 @@ defmodule AWS.EC2 do
       required("ServiceId") => String.t()
     }
   """
-
   @spec modify_vpc_endpoint_service_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_vpc_endpoint_service_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpc_endpoint_service_permissions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43416,6 +42867,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the VPC peering connection options on one side of a VPC peering
   connection.
 
@@ -43430,11 +42882,9 @@ defmodule AWS.EC2 do
       required("VpcPeeringConnectionId") => String.t()
     }
   """
-
   @spec modify_vpc_peering_connection_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_vpc_peering_connection_options_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpc_peering_connection_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43444,6 +42894,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the instance tenancy attribute of the specified VPC. You can change the
   instance tenancy attribute of a VPC to `default` only. You cannot change the
   instance tenancy attribute to `dedicated`. After you modify the tenancy of the
@@ -43461,11 +42912,9 @@ defmodule AWS.EC2 do
       required("VpcId") => String.t()
     }
   """
-
   @spec modify_vpc_tenancy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_vpc_tenancy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpc_tenancy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43474,6 +42923,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the customer gateway or the target gateway of an Amazon Web Services
   Site-to-Site VPN connection. To modify the target gateway, the following
   migration options are available:
@@ -43490,11 +42940,9 @@ defmodule AWS.EC2 do
       required("VpnConnectionId") => String.t()
     }
   """
-
   @spec modify_vpn_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_vpn_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpn_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43503,6 +42951,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the connection options for your Site-to-Site VPN connection.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyVpnConnectionOptions&this_doc_guide=API%2520Reference)
@@ -43518,11 +42967,9 @@ defmodule AWS.EC2 do
       required("VpnConnectionId") => String.t()
     }
   """
-
   @spec modify_vpn_connection_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_vpn_connection_options_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpn_connection_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43532,6 +42979,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the VPN tunnel endpoint certificate.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ModifyVpnTunnelCertificate&this_doc_guide=API%2520Reference)
@@ -43544,11 +42992,9 @@ defmodule AWS.EC2 do
       required("VpnTunnelOutsideIpAddress") => String.t()
     }
   """
-
   @spec modify_vpn_tunnel_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_vpn_tunnel_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpn_tunnel_certificate(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43558,6 +43004,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN
   connection. You can modify multiple options for a tunnel in a single request,
   but you can only modify one tunnel at a time. For more information, see
@@ -43577,11 +43024,9 @@ defmodule AWS.EC2 do
       required("VpnTunnelOutsideIpAddress") => String.t()
     }
   """
-
   @spec modify_vpn_tunnel_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_vpn_tunnel_options_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_vpn_tunnel_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43590,6 +43035,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Enables detailed monitoring for a running instance. Otherwise, basic monitoring
   is enabled. For more information, see [Monitor your instances using
   CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html)
@@ -43605,11 +43051,9 @@ defmodule AWS.EC2 do
       required("InstanceIds") => list(String.t()())
     }
   """
-
   @spec monitor_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, monitor_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def monitor_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43618,6 +43062,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20MoveAddressToVpc&this_doc_guide=API%2520Reference)
@@ -43629,11 +43074,9 @@ defmodule AWS.EC2 do
       required("PublicIp") => String.t()
     }
   """
-
   @spec move_address_to_vpc(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, move_address_to_vpc_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def move_address_to_vpc(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43642,6 +43085,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20MoveByoipCidrToIpam&this_doc_guide=API%2520Reference)
@@ -43655,11 +43099,9 @@ defmodule AWS.EC2 do
       required("IpamPoolOwner") => String.t()
     }
   """
-
   @spec move_byoip_cidr_to_ipam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, move_byoip_cidr_to_ipam_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def move_byoip_cidr_to_ipam(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43668,6 +43110,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services
   resources through bring your own IP addresses (BYOIP) and creates a
   corresponding address pool. After the address range is provisioned, it is
@@ -43694,11 +43137,9 @@ defmodule AWS.EC2 do
       required("Cidr") => String.t()
     }
   """
-
   @spec provision_byoip_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, provision_byoip_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def provision_byoip_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43707,6 +43148,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Provisions your Autonomous System Number (ASN) for use in your Amazon Web
   Services account. This action requires authorization context for Amazon to
   bring the ASN to an Amazon Web Services account. For more information, see
@@ -43725,11 +43167,9 @@ defmodule AWS.EC2 do
       required("IpamId") => String.t()
     }
   """
-
   @spec provision_ipam_byoasn(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, provision_ipam_byoasn_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def provision_ipam_byoasn(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43738,6 +43178,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs
   to a top-level pool or to transfer a CIDR from a top-level pool to a pool
   within it.
@@ -43757,11 +43198,9 @@ defmodule AWS.EC2 do
       required("IpamPoolId") => String.t()
     }
   """
-
   @spec provision_ipam_pool_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, provision_ipam_pool_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def provision_ipam_pool_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43770,6 +43209,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Provision a CIDR to a public IPv4 pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ProvisionPublicIpv4PoolCidr&this_doc_guide=API%2520Reference)
@@ -43784,11 +43224,9 @@ defmodule AWS.EC2 do
       required("PoolId") => String.t()
     }
   """
-
   @spec provision_public_ipv4_pool_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, provision_public_ipv4_pool_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def provision_public_ipv4_pool_cidr(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43798,6 +43236,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Purchase the Capacity Block for use with your account. With Capacity Blocks you
   ensure GPU capacity is available for machine learning (ML) workloads. You must
   specify the ID of the Capacity Block offering you are purchasing.
@@ -43813,11 +43252,9 @@ defmodule AWS.EC2 do
       required("InstancePlatform") => list(any())
     }
   """
-
   @spec purchase_capacity_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_capacity_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def purchase_capacity_block(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43826,6 +43263,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Purchase a reservation with configurations that match those of your Dedicated
   Host. You must have active Dedicated Hosts in your account before you purchase
   a reservation. This action results in the specified reservation being
@@ -43844,11 +43282,9 @@ defmodule AWS.EC2 do
       required("OfferingId") => String.t()
     }
   """
-
   @spec purchase_host_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_host_reservation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def purchase_host_reservation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43857,6 +43293,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Purchases a Reserved Instance for use with your account. With Reserved
   Instances, you pay a lower hourly rate compared to On-Demand instance pricing.
   Use `DescribeReservedInstancesOfferings` to get a list of Reserved Instance
@@ -43876,11 +43313,9 @@ defmodule AWS.EC2 do
       required("ReservedInstancesOfferingId") => String.t()
     }
   """
-
   @spec purchase_reserved_instances_offering(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_reserved_instances_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def purchase_reserved_instances_offering(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -43890,6 +43325,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   You can no longer purchase Scheduled Instances. Purchases the Scheduled
   Instances with the specified schedule.
 
@@ -43903,11 +43339,9 @@ defmodule AWS.EC2 do
       required("PurchaseRequests") => list(purchase_request()())
     }
   """
-
   @spec purchase_scheduled_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_scheduled_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def purchase_scheduled_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43916,6 +43350,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Requests a reboot of the specified instances. This operation is asynchronous; it
   only queues a request to reboot the specified instances. The operation
   succeeds if the instances are valid and belong to you. Requests to reboot
@@ -43931,11 +43366,9 @@ defmodule AWS.EC2 do
       required("InstanceIds") => list(String.t()())
     }
   """
-
   @spec reboot_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def reboot_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43944,6 +43377,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Registers an AMI. When you're creating an instance-store backed AMI, registering
   the AMI is the final step in the creation process. For more information about
   creating AMIs, see [Create your own
@@ -43982,11 +43416,9 @@ defmodule AWS.EC2 do
       required("Name") => String.t()
     }
   """
-
   @spec register_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def register_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -43995,6 +43427,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Registers a set of tag keys to include in scheduled event notifications for your
   resources.
 
@@ -44007,7 +43440,6 @@ defmodule AWS.EC2 do
       required("InstanceTagAttribute") => register_instance_tag_attribute_request()
     }
   """
-
   @spec register_instance_event_notification_attributes(
           AWS.Client.t(),
           input :: map(),
@@ -44015,7 +43447,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, register_instance_event_notification_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def register_instance_event_notification_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44031,6 +43462,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Registers members (network interfaces) with the transit gateway multicast group.
   A member is a network interface associated with a supported EC2 instance that
   receives multicast traffic. For more information, see [Multicast on transit
@@ -44051,7 +43483,6 @@ defmodule AWS.EC2 do
       required("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec register_transit_gateway_multicast_group_members(
           AWS.Client.t(),
           input :: map(),
@@ -44059,7 +43490,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, register_transit_gateway_multicast_group_members_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def register_transit_gateway_multicast_group_members(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44075,6 +43505,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Registers sources (network interfaces) with the specified transit gateway
   multicast group.
 
@@ -44089,7 +43520,6 @@ defmodule AWS.EC2 do
       required("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec register_transit_gateway_multicast_group_sources(
           AWS.Client.t(),
           input :: map(),
@@ -44097,7 +43527,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, register_transit_gateway_multicast_group_sources_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def register_transit_gateway_multicast_group_sources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44113,6 +43542,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Rejects a request to associate cross-account subnets with a transit gateway
   multicast domain.
 
@@ -44127,7 +43557,6 @@ defmodule AWS.EC2 do
       optional("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec reject_transit_gateway_multicast_domain_associations(
           AWS.Client.t(),
           input :: map(),
@@ -44135,7 +43564,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, reject_transit_gateway_multicast_domain_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def reject_transit_gateway_multicast_domain_associations(
         %Client{} = client,
         input,
@@ -44155,6 +43583,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Rejects a transit gateway peering attachment request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20RejectTransitGatewayPeeringAttachment&this_doc_guide=API%2520Reference)
@@ -44166,11 +43595,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec reject_transit_gateway_peering_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_transit_gateway_peering_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def reject_transit_gateway_peering_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44180,6 +43607,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Rejects a request to attach a VPC to a transit gateway.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20RejectTransitGatewayVpcAttachment&this_doc_guide=API%2520Reference)
@@ -44191,11 +43619,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayAttachmentId") => String.t()
     }
   """
-
   @spec reject_transit_gateway_vpc_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_transit_gateway_vpc_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def reject_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44205,6 +43631,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Rejects VPC endpoint connection requests to your VPC endpoint service.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20RejectVpcEndpointConnections&this_doc_guide=API%2520Reference)
@@ -44217,11 +43644,9 @@ defmodule AWS.EC2 do
       required("VpcEndpointIds") => list(String.t()())
     }
   """
-
   @spec reject_vpc_endpoint_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_vpc_endpoint_connections_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def reject_vpc_endpoint_connections(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44231,6 +43656,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Rejects a VPC peering connection request. The VPC peering connection must be in
   the `pending-acceptance` state. Use the `DescribeVpcPeeringConnections`
   request to view your outstanding VPC peering connection requests. To delete an
@@ -44246,11 +43672,9 @@ defmodule AWS.EC2 do
       required("VpcPeeringConnectionId") => String.t()
     }
   """
-
   @spec reject_vpc_peering_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_vpc_peering_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def reject_vpc_peering_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44260,6 +43684,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Releases the specified Elastic IP address. [Default VPC] Releasing an Elastic IP
   address automatically disassociates it from any instance that it's associated
   with. To disassociate an Elastic IP address without releasing it, use
@@ -44278,11 +43703,9 @@ defmodule AWS.EC2 do
       optional("PublicIp") => String.t()
     }
   """
-
   @spec release_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def release_address(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44291,6 +43714,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   When you no longer want to use an On-Demand Dedicated Host it can be released.
   On-Demand billing is stopped and the host goes into `released` state. The host
   ID of Dedicated Hosts that have been released can no longer be specified in
@@ -44308,11 +43732,9 @@ defmodule AWS.EC2 do
       required("HostIds") => list(String.t()())
     }
   """
-
   @spec release_hosts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, release_hosts_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def release_hosts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44321,6 +43743,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Release an allocation within an IPAM pool. The Region you use should be the IPAM
   pool locale. The locale is the Amazon Web Services Region where this IPAM pool
   is available for allocations. You can only use this action to release manual
@@ -44344,11 +43767,9 @@ defmodule AWS.EC2 do
       required("IpamPoolId") => String.t()
     }
   """
-
   @spec release_ipam_pool_allocation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, release_ipam_pool_allocation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def release_ipam_pool_allocation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44357,6 +43778,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Replaces an IAM instance profile for the specified running instance. You can use
   this action to change the IAM instance profile that's associated with an
   instance without having to disassociate the existing IAM instance profile
@@ -44371,11 +43793,9 @@ defmodule AWS.EC2 do
       required("IamInstanceProfile") => iam_instance_profile_specification()
     }
   """
-
   @spec replace_iam_instance_profile_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, replace_iam_instance_profile_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def replace_iam_instance_profile_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44385,6 +43805,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Changes which network ACL a subnet is associated with. By default when you
   create a subnet, it's automatically associated with the default network ACL.
   For more information, see [Network
@@ -44401,11 +43822,9 @@ defmodule AWS.EC2 do
       required("NetworkAclId") => String.t()
     }
   """
-
   @spec replace_network_acl_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, replace_network_acl_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def replace_network_acl_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44415,6 +43834,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Replaces an entry (rule) in a network ACL. For more information, see [Network
   ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html)
   in the *Amazon VPC User Guide*.
@@ -44436,11 +43856,9 @@ defmodule AWS.EC2 do
       required("RuleNumber") => integer()
     }
   """
-
   @spec replace_network_acl_entry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def replace_network_acl_entry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44449,6 +43867,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Replaces an existing route within a route table in a VPC. You must specify
   either a destination CIDR block or a prefix list ID. You must also specify
   exactly one of the resources from the parameter list, or reset the local route
@@ -44478,11 +43897,9 @@ defmodule AWS.EC2 do
       required("RouteTableId") => String.t()
     }
   """
-
   @spec replace_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def replace_route(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44491,6 +43908,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Changes the route table associated with a given subnet, internet gateway, or
   virtual private gateway in a VPC. After the operation completes, the subnet or
   gateway uses the routes in the new route table. For more information about
@@ -44508,11 +43926,9 @@ defmodule AWS.EC2 do
       required("RouteTableId") => String.t()
     }
   """
-
   @spec replace_route_table_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, replace_route_table_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def replace_route_table_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44522,6 +43938,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Replaces the specified route in the specified transit gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ReplaceTransitGatewayRoute&this_doc_guide=API%2520Reference)
@@ -44536,11 +43953,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec replace_transit_gateway_route(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, replace_transit_gateway_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def replace_transit_gateway_route(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44550,6 +43965,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Trigger replacement of specified VPN tunnel.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ReplaceVpnTunnel&this_doc_guide=API%2520Reference)
@@ -44563,11 +43979,9 @@ defmodule AWS.EC2 do
       required("VpnTunnelOutsideIpAddress") => String.t()
     }
   """
-
   @spec replace_vpn_tunnel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, replace_vpn_tunnel_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def replace_vpn_tunnel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44576,6 +43990,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Submits feedback about the status of an instance. The instance must be in the
   `running` state. If your experience with the instance differs from the
   instance status returned by `DescribeInstanceStatus`, use
@@ -44596,11 +44011,9 @@ defmodule AWS.EC2 do
       required("Status") => list(any())
     }
   """
-
   @spec report_instance_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def report_instance_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44609,6 +44022,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a Spot Fleet request. The Spot Fleet request specifies the total target
   capacity and the On-Demand target capacity. Amazon EC2 calculates the
   difference between the total capacity and On-Demand capacity, and launches the
@@ -44623,11 +44037,9 @@ defmodule AWS.EC2 do
       required("SpotFleetRequestConfig") => spot_fleet_request_config_data()
     }
   """
-
   @spec request_spot_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, request_spot_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def request_spot_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44636,6 +44048,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Creates a Spot Instance request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20RequestSpotInstances&this_doc_guide=API%2520Reference)
@@ -44658,11 +44071,9 @@ defmodule AWS.EC2 do
       optional("ValidUntil") => non_neg_integer()
     }
   """
-
   @spec request_spot_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, request_spot_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def request_spot_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44671,6 +44082,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Resets the attribute of the specified IP address. For requirements, see [Using
   reverse DNS for email
   applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
@@ -44685,11 +44097,9 @@ defmodule AWS.EC2 do
       required("Attribute") => list(any())
     }
   """
-
   @spec reset_address_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reset_address_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def reset_address_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44698,6 +44108,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Resets the default KMS key for EBS encryption for your account in this Region to
   the Amazon Web Services managed KMS key for EBS.
 
@@ -44709,11 +44120,9 @@ defmodule AWS.EC2 do
       optional("DryRun") => boolean()
     }
   """
-
   @spec reset_ebs_default_kms_key_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reset_ebs_default_kms_key_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def reset_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44722,6 +44131,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its
   default value. You can only reset the load permission attribute.
 
@@ -44735,11 +44145,9 @@ defmodule AWS.EC2 do
       required("FpgaImageId") => String.t()
     }
   """
-
   @spec reset_fpga_image_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reset_fpga_image_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def reset_fpga_image_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44748,6 +44156,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Resets an attribute of an AMI to its default value.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ResetImageAttribute&this_doc_guide=API%2520Reference)
@@ -44760,11 +44169,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec reset_image_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def reset_image_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44773,6 +44180,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Resets an attribute of an instance to its default value. To reset the `kernel`
   or `ramdisk`, the instance must be in a stopped state. To reset the
   `sourceDestCheck`, the instance can be either running or stopped.
@@ -44787,11 +44195,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec reset_instance_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def reset_instance_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44800,6 +44206,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Resets a network interface attribute. You can specify only one attribute at a
   time.
 
@@ -44813,11 +44220,9 @@ defmodule AWS.EC2 do
       required("NetworkInterfaceId") => String.t()
     }
   """
-
   @spec reset_network_interface_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def reset_network_interface_attribute(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44827,6 +44232,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Resets permission settings for the specified snapshot.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20ResetSnapshotAttribute&this_doc_guide=API%2520Reference)
@@ -44839,11 +44245,9 @@ defmodule AWS.EC2 do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec reset_snapshot_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def reset_snapshot_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44852,6 +44256,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   This action is deprecated.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20RestoreAddressToClassic&this_doc_guide=API%2520Reference)
@@ -44863,11 +44268,9 @@ defmodule AWS.EC2 do
       required("PublicIp") => String.t()
     }
   """
-
   @spec restore_address_to_classic(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_address_to_classic_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def restore_address_to_classic(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44876,6 +44279,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Restores an AMI from the Recycle Bin. For more information, see [Recycle
   Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
   the *Amazon EC2 User Guide*.
@@ -44889,11 +44293,9 @@ defmodule AWS.EC2 do
       required("ImageId") => String.t()
     }
   """
-
   @spec restore_image_from_recycle_bin(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_image_from_recycle_bin_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def restore_image_from_recycle_bin(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44903,6 +44305,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Restores the entries from a previous version of a managed prefix list to a new
   version of the prefix list.
 
@@ -44917,11 +44320,9 @@ defmodule AWS.EC2 do
       required("PreviousVersion") => float()
     }
   """
-
   @spec restore_managed_prefix_list_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_managed_prefix_list_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def restore_managed_prefix_list_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44931,6 +44332,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Restores a snapshot from the Recycle Bin. For more information, see [Restore
   snapshots from the Recycle
   Bin](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps)
@@ -44945,11 +44347,9 @@ defmodule AWS.EC2 do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec restore_snapshot_from_recycle_bin(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_snapshot_from_recycle_bin_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def restore_snapshot_from_recycle_bin(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -44959,6 +44359,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Restores an archived Amazon EBS snapshot for use temporarily or permanently, or
   modifies the restore period or restore type for a snapshot that was previously
   temporarily restored.
@@ -44974,11 +44375,9 @@ defmodule AWS.EC2 do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec restore_snapshot_tier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_snapshot_tier_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def restore_snapshot_tier(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -44987,6 +44386,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Removes an ingress authorization rule from a Client VPN endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20RevokeClientVpnIngress&this_doc_guide=API%2520Reference)
@@ -45001,11 +44401,9 @@ defmodule AWS.EC2 do
       required("TargetNetworkCidr") => String.t()
     }
   """
-
   @spec revoke_client_vpn_ingress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, revoke_client_vpn_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def revoke_client_vpn_ingress(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45014,6 +44412,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Removes the specified outbound (egress) rules from the specified security group.
   You can specify rules using either rule IDs or security group rule properties.
   If you use rule properties, the values that you specify (for example, ports)
@@ -45041,11 +44440,9 @@ defmodule AWS.EC2 do
       required("GroupId") => String.t()
     }
   """
-
   @spec revoke_security_group_egress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, revoke_security_group_egress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def revoke_security_group_egress(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45054,6 +44451,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Removes the specified inbound (ingress) rules from a security group. You can
   specify rules using either rule IDs or security group rule properties. If you
   use rule properties, the values that you specify (for example, ports) must
@@ -45082,11 +44480,9 @@ defmodule AWS.EC2 do
       optional("ToPort") => integer()
     }
   """
-
   @spec revoke_security_group_ingress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, revoke_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def revoke_security_group_ingress(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -45096,6 +44492,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Launches the specified number of instances using an AMI for which you have
   permissions. You can specify a number of options, or leave the default
   options. The following rules apply:
@@ -45148,11 +44545,9 @@ defmodule AWS.EC2 do
       optional("ElasticInferenceAccelerators") => list(elastic_inference_accelerator()())
     }
   """
-
   @spec run_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reservation(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def run_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45161,6 +44556,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Launches the specified Scheduled Instances. Before you can launch a Scheduled
   Instance, you must purchase it and obtain an identifier using
   `PurchaseScheduledInstances`.
@@ -45177,11 +44573,9 @@ defmodule AWS.EC2 do
       required("ScheduledInstanceId") => String.t()
     }
   """
-
   @spec run_scheduled_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, run_scheduled_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def run_scheduled_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45190,6 +44584,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Searches for routes in the specified local gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20SearchLocalGatewayRoutes&this_doc_guide=API%2520Reference)
@@ -45204,11 +44599,9 @@ defmodule AWS.EC2 do
       required("LocalGatewayRouteTableId") => String.t()
     }
   """
-
   @spec search_local_gateway_routes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_local_gateway_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def search_local_gateway_routes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45217,6 +44610,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Searches one or more transit gateway multicast groups and returns the group
   membership information.
 
@@ -45232,11 +44626,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayMulticastDomainId") => String.t()
     }
   """
-
   @spec search_transit_gateway_multicast_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_transit_gateway_multicast_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def search_transit_gateway_multicast_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -45246,6 +44638,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Searches for routes in the specified transit gateway route table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20SearchTransitGatewayRoutes&this_doc_guide=API%2520Reference)
@@ -45259,11 +44652,9 @@ defmodule AWS.EC2 do
       required("TransitGatewayRouteTableId") => String.t()
     }
   """
-
   @spec search_transit_gateway_routes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_transit_gateway_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def search_transit_gateway_routes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -45273,6 +44664,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a
   *kernel panic* (on Linux instances), or a *blue screen*/*stop error* (on
   Windows instances). For instances based on Intel and AMD processors, the
@@ -45291,11 +44683,9 @@ defmodule AWS.EC2 do
       required("InstanceId") => String.t()
     }
   """
-
   @spec send_diagnostic_interrupt(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def send_diagnostic_interrupt(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45304,6 +44694,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Starts an Amazon EBS-backed instance that you've previously stopped. Instances
   that use Amazon EBS volumes as their root devices can be quickly stopped and
   started. When an instance is stopped, the compute resources are released and
@@ -45323,11 +44714,9 @@ defmodule AWS.EC2 do
       required("InstanceIds") => list(String.t()())
     }
   """
-
   @spec start_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def start_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45336,6 +44725,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Starts analyzing the specified Network Access Scope.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2%20StartNetworkInsightsAccessScopeAnalysis&this_doc_guide=API%2520Reference)
@@ -45349,11 +44739,9 @@ defmodule AWS.EC2 do
       required("NetworkInsightsAccessScopeId") => String.t()
     }
   """
-
   @spec start_network_insights_access_scope_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_network_insights_access_scope_analysis_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def start_network_insights_access_scope_analysis(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -45363,6 +44751,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Starts analyzing the specified path. If the path is reachable, the operation
   returns the shortest feasible path.
 
@@ -45379,11 +44768,9 @@ defmodule AWS.EC2 do
       required("NetworkInsightsPathId") => String.t()
     }
   """
-
   @spec start_network_insights_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_network_insights_analysis_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def start_network_insights_analysis(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -45393,6 +44780,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Initiates the verification process to prove that the service provider owns the
   private DNS name domain for the endpoint service. The service provider must
   successfully perform the verification before the consumer can use the name to
@@ -45407,7 +44795,6 @@ defmodule AWS.EC2 do
       required("ServiceId") => String.t()
     }
   """
-
   @spec start_vpc_endpoint_service_private_dns_verification(
           AWS.Client.t(),
           input :: map(),
@@ -45415,7 +44802,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, start_vpc_endpoint_service_private_dns_verification_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def start_vpc_endpoint_service_private_dns_verification(
         %Client{} = client,
         input,
@@ -45435,6 +44821,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Stops an Amazon EBS-backed instance. For more information, see [Stop and start
   Amazon EC2
   instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html)
@@ -45468,11 +44855,9 @@ defmodule AWS.EC2 do
       required("InstanceIds") => list(String.t()())
     }
   """
-
   @spec stop_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def stop_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45481,6 +44866,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Terminates active Client VPN endpoint connections. This action can be used to
   terminate a specific client connection, or up to five connections established
   by a specific user.
@@ -45496,11 +44882,9 @@ defmodule AWS.EC2 do
       required("ClientVpnEndpointId") => String.t()
     }
   """
-
   @spec terminate_client_vpn_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, terminate_client_vpn_connections_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def terminate_client_vpn_connections(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -45510,6 +44894,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Shuts down the specified instances. This operation is idempotent; if you
   terminate an instance more than once, each call succeeds. If you specify
   multiple instances and the request fails (for example, because of a single
@@ -45524,11 +44909,9 @@ defmodule AWS.EC2 do
       required("InstanceIds") => list(String.t()())
     }
   """
-
   @spec terminate_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, terminate_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def terminate_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45537,6 +44920,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a
   network interface.
 
@@ -45550,11 +44934,9 @@ defmodule AWS.EC2 do
       required("NetworkInterfaceId") => String.t()
     }
   """
-
   @spec unassign_ipv6_addresses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, unassign_ipv6_addresses_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def unassign_ipv6_addresses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45563,6 +44945,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation
   prefixes from a network interface.
 
@@ -45576,11 +44959,9 @@ defmodule AWS.EC2 do
       required("NetworkInterfaceId") => String.t()
     }
   """
-
   @spec unassign_private_ip_addresses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def unassign_private_ip_addresses(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -45590,6 +44971,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Unassigns secondary private IPv4 addresses from a private NAT gateway. You
   cannot unassign your primary private IP. For more information, see [Edit
   secondary IP address
@@ -45609,11 +44991,9 @@ defmodule AWS.EC2 do
       required("PrivateIpAddresses") => list(String.t()())
     }
   """
-
   @spec unassign_private_nat_gateway_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, unassign_private_nat_gateway_address_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def unassign_private_nat_gateway_address(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -45623,6 +45003,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Unlocks a snapshot that is locked in governance mode or that is locked in
   compliance mode but still in the cooling-off period. You can't unlock a
   snapshot that is locked in compliance mode after the cooling-off period has
@@ -45637,11 +45018,9 @@ defmodule AWS.EC2 do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec unlock_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, unlock_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def unlock_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45650,6 +45029,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Disables detailed monitoring for a running instance. For more information, see
   [Monitoring your instances and
   volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html)
@@ -45664,11 +45044,9 @@ defmodule AWS.EC2 do
       required("InstanceIds") => list(String.t()())
     }
   """
-
   @spec unmonitor_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, unmonitor_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def unmonitor_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -45677,6 +45055,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Updates the description of an egress (outbound) security group rule. You can
   replace an existing description, or add a description to a rule that did not
   have one previously. You can remove a description for a security group rule by
@@ -45694,7 +45073,6 @@ defmodule AWS.EC2 do
       optional("SecurityGroupRuleDescriptions") => list(security_group_rule_description()())
     }
   """
-
   @spec update_security_group_rule_descriptions_egress(
           AWS.Client.t(),
           input :: map(),
@@ -45702,7 +45080,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, update_security_group_rule_descriptions_egress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_security_group_rule_descriptions_egress(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -45718,6 +45095,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Updates the description of an ingress (inbound) security group rule. You can
   replace an existing description, or add a description to a rule that did not
   have one previously. You can remove a description for a security group rule by
@@ -45735,7 +45113,6 @@ defmodule AWS.EC2 do
       optional("SecurityGroupRuleDescriptions") => list(security_group_rule_description()())
     }
   """
-
   @spec update_security_group_rule_descriptions_ingress(
           AWS.Client.t(),
           input :: map(),
@@ -45743,7 +45120,6 @@ defmodule AWS.EC2 do
         ) ::
           {:ok, update_security_group_rule_descriptions_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_security_group_rule_descriptions_ingress(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -45759,6 +45135,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+   
   Stops advertising an address range that is provisioned as an address pool. You
   can perform this operation at most once every 10 seconds, even if you specify
   different address ranges each time.
@@ -45772,11 +45149,9 @@ defmodule AWS.EC2 do
       required("Cidr") => String.t()
     }
   """
-
   @spec withdraw_byoip_cidr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, withdraw_byoip_cidr_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def withdraw_byoip_cidr(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

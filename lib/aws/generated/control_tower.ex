@@ -1260,15 +1260,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20CreateLandingZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_landing_zone_errors()}
-
   def create_landing_zone(%Client{} = client, options \\ []) do
     url_path = "/create-landingzone"
 
@@ -1307,15 +1304,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20DeleteLandingZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_landing_zone_errors()}
-
   def delete_landing_zone(%Client{} = client, options \\ []) do
     url_path = "/delete-landingzone"
 
@@ -1356,15 +1350,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20DisableBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disable_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_baseline_errors()}
-
   def disable_baseline(%Client{} = client, options \\ []) do
     url_path = "/disable-baseline"
 
@@ -1405,15 +1396,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20DisableControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disable_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_control_errors()}
-
   def disable_control(%Client{} = client, options \\ []) do
     url_path = "/disable-control"
 
@@ -1454,15 +1442,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20EnableBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec enable_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_baseline_errors()}
-
   def enable_baseline(%Client{} = client, options \\ []) do
     url_path = "/enable-baseline"
 
@@ -1504,15 +1489,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20EnableControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec enable_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_control_errors()}
-
   def enable_control(%Client{} = client, options \\ []) do
     url_path = "/enable-control"
 
@@ -1552,15 +1534,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_baseline_errors()}
-
   def get_baseline(%Client{} = client, options \\ []) do
     url_path = "/get-baseline"
 
@@ -1602,15 +1581,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetBaselineOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_baseline_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_baseline_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_baseline_operation_errors()}
-
   def get_baseline_operation(%Client{} = client, options \\ []) do
     url_path = "/get-baseline-operation"
 
@@ -1651,15 +1627,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetControlOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_control_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_control_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_control_operation_errors()}
-
   def get_control_operation(%Client{} = client, options \\ []) do
     url_path = "/get-control-operation"
 
@@ -1696,15 +1669,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetEnabledBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_enabled_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_enabled_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enabled_baseline_errors()}
-
   def get_enabled_baseline(%Client{} = client, options \\ []) do
     url_path = "/get-enabled-baseline"
 
@@ -1743,15 +1713,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetEnabledControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_enabled_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_enabled_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enabled_control_errors()}
-
   def get_enabled_control(%Client{} = client, options \\ []) do
     url_path = "/get-enabled-control"
 
@@ -1788,15 +1755,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetLandingZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_landing_zone_errors()}
-
   def get_landing_zone(%Client{} = client, options \\ []) do
     url_path = "/get-landingzone"
 
@@ -1834,15 +1798,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetLandingZoneOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_landing_zone_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_landing_zone_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_landing_zone_operation_errors()}
-
   def get_landing_zone_operation(%Client{} = client, options \\ []) do
     url_path = "/get-landingzone-operation"
 
@@ -1881,15 +1842,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListBaselines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_baselines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_baselines_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_baselines_errors()}
-
   def list_baselines(%Client{} = client, options \\ []) do
     url_path = "/list-baselines"
 
@@ -1928,15 +1886,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListControlOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_control_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_operations_errors()}
-
   def list_control_operations(%Client{} = client, options \\ []) do
     url_path = "/list-control-operations"
 
@@ -1977,15 +1932,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListEnabledBaselines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_enabled_baselines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_baselines_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_enabled_baselines_errors()}
-
   def list_enabled_baselines(%Client{} = client, options \\ []) do
     url_path = "/list-enabled-baselines"
 
@@ -2025,15 +1977,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListEnabledControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_enabled_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_controls_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_enabled_controls_errors()}
-
   def list_enabled_controls(%Client{} = client, options \\ []) do
     url_path = "/list-enabled-controls"
 
@@ -2071,15 +2020,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListLandingZoneOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_landing_zone_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_landing_zone_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_landing_zone_operations_errors()}
-
   def list_landing_zone_operations(%Client{} = client, options \\ []) do
     url_path = "/list-landingzone-operations"
 
@@ -2118,15 +2064,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListLandingZones&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_landing_zones(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_landing_zones_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_landing_zones_errors()}
-
   def list_landing_zones(%Client{} = client, options \\ []) do
     url_path = "/list-landingzones"
 
@@ -2165,16 +2108,13 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2212,15 +2152,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ResetEnabledBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reset_enabled_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_enabled_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_enabled_baseline_errors()}
-
   def reset_enabled_baseline(%Client{} = client, options \\ []) do
     url_path = "/reset-enabled-baseline"
 
@@ -2262,15 +2199,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ResetLandingZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reset_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_landing_zone_errors()}
-
   def reset_landing_zone(%Client{} = client, options \\ []) do
     url_path = "/reset-landingzone"
 
@@ -2309,16 +2243,13 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to be tagged.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to be tagged.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2357,18 +2288,15 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.controltower#TagKey]`) Tag keys to be
-  removed from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.controltower#TagKey]` required) Tag keys to
+  be removed from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2418,15 +2346,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UpdateEnabledBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_enabled_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_enabled_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_enabled_baseline_errors()}
-
   def update_enabled_baseline(%Client{} = client, options \\ []) do
     url_path = "/update-enabled-baseline"
 
@@ -2466,15 +2391,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UpdateEnabledControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_enabled_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_enabled_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_enabled_control_errors()}
-
   def update_enabled_control(%Client{} = client, options \\ []) do
     url_path = "/update-enabled-control"
 
@@ -2513,15 +2435,12 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UpdateLandingZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_landing_zone_errors()}
-
   def update_landing_zone(%Client{} = client, options \\ []) do
     url_path = "/update-landingzone"
 

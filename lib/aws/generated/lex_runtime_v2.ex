@@ -740,16 +740,14 @@ defmodule AWS.LexRuntimeV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20DeleteSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that
-  contains the session data.
-  * `:bot_id` (`t:string`) The identifier of the bot that contains the session
-  data.
-  * `:locale_id` (`t:string`) The locale where the session is in use.
-  * `:session_id` (`t:string`) The identifier of the session to delete.
-
-  ## Optional parameters:
+  * `:bot_alias_id` (`t:string` required) The alias identifier in use for the bot
+  that contains the session data.
+  * `:bot_id` (`t:string` required) The identifier of the bot that contains the
+  session data.
+  * `:locale_id` (`t:string` required) The locale where the session is in use.
+  * `:session_id` (`t:string` required) The identifier of the session to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_session(
           AWS.Client.t(),
           String.t(),
@@ -761,7 +759,6 @@ defmodule AWS.LexRuntimeV2 do
           {:ok, delete_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_session_errors()}
-
   def delete_session(
         %Client{} = client,
         bot_alias_id,
@@ -818,21 +815,18 @@ defmodule AWS.LexRuntimeV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20GetSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that
-  contains the session data.
-  * `:bot_id` (`t:string`) The identifier of the bot that contains the session
-  data.
-  * `:locale_id` (`t:string`) The locale where the session is in use.
-  * `:session_id` (`t:string`) The identifier of the session to return.
-
-  ## Optional parameters:
+  * `:bot_alias_id` (`t:string` required) The alias identifier in use for the bot
+  that contains the session data.
+  * `:bot_id` (`t:string` required) The identifier of the bot that contains the
+  session data.
+  * `:locale_id` (`t:string` required) The locale where the session is in use.
+  * `:session_id` (`t:string` required) The identifier of the session to return.
+  ## Keyword parameters:
   """
-
   @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
-
   def get_session(%Client{} = client, bot_alias_id, bot_id, locale_id, session_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
@@ -869,25 +863,22 @@ defmodule AWS.LexRuntimeV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20PutSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias_id` (`t:string`) The alias identifier of the bot that receives the
+  * `:bot_alias_id` (`t:string` required) The alias identifier of the bot that
+  receives the session data.
+  * `:bot_id` (`t:string` required) The identifier of the bot that receives the
   session data.
-  * `:bot_id` (`t:string`) The identifier of the bot that receives the session
-  data.
-  * `:locale_id` (`t:string`) The locale where the session is in use.
-  * `:session_id` (`t:string`) The identifier of the session that receives the
-  session data.
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The locale where the session is in use.
+  * `:session_id` (`t:string` required) The identifier of the session that
+  receives the session data.
+  ## Keyword parameters:
   * `:response_content_type` (`t:string`) The message that Amazon Lex V2 returns
   in the response can be either text or speech depending on the value of this
   parameter.
   """
-
   @spec put_session(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_session_errors()}
-
   def put_session(%Client{} = client, bot_alias_id, bot_id, locale_id, session_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
@@ -965,16 +956,15 @@ defmodule AWS.LexRuntimeV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20RecognizeText&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that
-  processes the request.
-  * `:bot_id` (`t:string`) The identifier of the bot that processes the request.
-  * `:locale_id` (`t:string`) The locale where the session is in use.
-  * `:session_id` (`t:string`) The identifier of the user session that is having
-  the conversation.
-
-  ## Optional parameters:
+  * `:bot_alias_id` (`t:string` required) The alias identifier in use for the bot
+  that processes the request.
+  * `:bot_id` (`t:string` required) The identifier of the bot that processes the
+  request.
+  * `:locale_id` (`t:string` required) The locale where the session is in use.
+  * `:session_id` (`t:string` required) The identifier of the user session that is
+  having the conversation.
+  ## Keyword parameters:
   """
-
   @spec recognize_text(
           AWS.Client.t(),
           String.t(),
@@ -986,7 +976,6 @@ defmodule AWS.LexRuntimeV2 do
           {:ok, recognize_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, recognize_text_errors()}
-
   def recognize_text(
         %Client{} = client,
         bot_alias_id,
@@ -1035,20 +1024,19 @@ defmodule AWS.LexRuntimeV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20RecognizeUtterance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that
-  should receive the request.
-  * `:bot_id` (`t:string`) The identifier of the bot that should receive the
-  request.
-  * `:locale_id` (`t:string`) The locale where the session is in use.
-  * `:session_id` (`t:string`) The identifier of the session in use.
-  * `:request_content_type` (`t:string`) Indicates the format for audio input or
-  that the content is text. The header must start with one of the following
-  prefixes:
+  * `:bot_alias_id` (`t:string` required) The alias identifier in use for the bot
+  that should receive the request.
+  * `:bot_id` (`t:string` required) The identifier of the bot that should receive
+  the request.
+  * `:locale_id` (`t:string` required) The locale where the session is in use.
+  * `:session_id` (`t:string` required) The identifier of the session in use.
+  * `:request_content_type` (`t:string` required) Indicates the format for audio
+  input or that the content is text. The header must start with one of the
+  following prefixes:
   * `:input` (`t:map`):
     * `:input_stream` (`t:blob`) User input in PCM or Opus audio format or text
   format as described in the requestContentType parameter.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:request_attributes` (`t:string`) Request-specific information passed between
   the client application and Amazon Lex V2
   * `:response_content_type` (`t:string`) The message that Amazon Lex V2 returns
@@ -1059,7 +1047,6 @@ defmodule AWS.LexRuntimeV2 do
   action. Use the dialog action to determine the next step that Amazon Lex V2
   should use in the conversation with the user.
   """
-
   @spec recognize_utterance(
           AWS.Client.t(),
           String.t(),
@@ -1073,7 +1060,6 @@ defmodule AWS.LexRuntimeV2 do
           {:ok, recognize_utterance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, recognize_utterance_errors()}
-
   def recognize_utterance(
         %Client{} = client,
         bot_alias_id,
@@ -1185,22 +1171,22 @@ defmodule AWS.LexRuntimeV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20StartConversation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that
-  processes the request.
-  * `:bot_id` (`t:string`) The identifier of the bot to process the request.
-  * `:locale_id` (`t:string`) The locale where the session is in use.
-  * `:session_id` (`t:string`) The identifier of the user session that is having
-  the conversation.
+  * `:bot_alias_id` (`t:string` required) The alias identifier in use for the bot
+  that processes the request.
+  * `:bot_id` (`t:string` required) The identifier of the bot to process the
+  request.
+  * `:locale_id` (`t:string` required) The locale where the session is in use.
+  * `:session_id` (`t:string` required) The identifier of the user session that is
+  having the conversation.
   * `:input` (`t:map`):
-    * `:request_event_stream` (`t:union`) Represents the stream of events to Amazon
-  Lex V2 from your application. The events are encoded as HTTP/2 data frames.
-
-  ## Optional parameters:
+    * `:request_event_stream` (`t:union` required) Represents the stream of events
+  to Amazon Lex V2 from your application. The events are encoded as HTTP/2
+  data frames.
+  ## Keyword parameters:
   * `:conversation_mode` (`t:enum["AUDIO|TEXT"]`) The conversation type that you
   are using the Amazon Lex V2. If the conversation mode is AUDIO you can send
   both audio and DTMF information. If the mode is TEXT you can only send text.
   """
-
   @spec start_conversation(
           AWS.Client.t(),
           String.t(),
@@ -1213,7 +1199,6 @@ defmodule AWS.LexRuntimeV2 do
           {:ok, start_conversation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_conversation_errors()}
-
   def start_conversation(
         %Client{} = client,
         bot_alias_id,

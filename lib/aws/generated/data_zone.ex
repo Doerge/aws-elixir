@@ -6199,19 +6199,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20AcceptPredictions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-  * `:identifier` (`t:string`) The identifier of the asset.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  * `:identifier` (`t:string` required) The identifier of the asset.
+  ## Keyword parameters:
   * `:revision` (`t:string`) The revision that is to be made to the asset.
   """
-
   @spec accept_predictions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, accept_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_predictions_errors()}
-
   def accept_predictions(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}/accept-predictions"
@@ -6260,19 +6257,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20AcceptSubscriptionRequest&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The Amazon DataZone domain where the
-  specified subscription request is being accepted.
-  * `:identifier` (`t:string`) The unique identifier of the subscription request
-  that is to be accepted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The Amazon DataZone domain where
+  the specified subscription request is being accepted.
+  * `:identifier` (`t:string` required) The unique identifier of the subscription
+  request that is to be accepted.
+  ## Keyword parameters:
   """
-
   @spec accept_subscription_request(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, accept_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_subscription_request_errors()}
-
   def accept_subscription_request(
         %Client{} = client,
         domain_identifier,
@@ -6315,15 +6309,13 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20AssociateEnvironmentRole&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the environment role is associated.
-  * `:environment_identifier` (`t:string`) The ID of the Amazon DataZone
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the environment role is associated.
+  * `:environment_identifier` (`t:string` required) The ID of the Amazon DataZone
   environment.
-  * `:environment_role_arn` (`t:string`) The ARN of the environment role.
-
-  ## Optional parameters:
+  * `:environment_role_arn` (`t:string` required) The ARN of the environment role.
+  ## Keyword parameters:
   """
-
   @spec associate_environment_role(
           AWS.Client.t(),
           String.t(),
@@ -6334,7 +6326,6 @@ defmodule AWS.DataZone do
           {:ok, associate_environment_role_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_environment_role_errors()}
-
   def associate_environment_role(
         %Client{} = client,
         domain_identifier,
@@ -6378,18 +6369,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CancelMetadataGenerationRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the metadata generation run is to be cancelled.
-  * `:identifier` (`t:string`) The ID of the metadata generation run.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the metadata generation run is to be cancelled.
+  * `:identifier` (`t:string` required) The ID of the metadata generation run.
+  ## Keyword parameters:
   """
-
   @spec cancel_metadata_generation_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_metadata_generation_run_errors()}
-
   def cancel_metadata_generation_run(
         %Client{} = client,
         domain_identifier,
@@ -6432,19 +6420,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CancelSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The unique identifier of the Amazon DataZone
-  domain where the subscription request is being cancelled.
-  * `:identifier` (`t:string`) The unique identifier of the subscription that is
-  being cancelled.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The unique identifier of the Amazon
+  DataZone domain where the subscription request is being cancelled.
+  * `:identifier` (`t:string` required) The unique identifier of the subscription
+  that is being cancelled.
+  ## Keyword parameters:
   """
-
   @spec cancel_subscription(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_subscription_errors()}
-
   def cancel_subscription(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscriptions/#{AWS.Util.encode_uri(identifier)}/cancel"
@@ -6482,17 +6467,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) Amazon DataZone domain where the asset is
-  created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) Amazon DataZone domain where the
+  asset is created.
+  ## Keyword parameters:
   """
-
   @spec create_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_errors()}
-
   def create_asset(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets"
 
@@ -6529,18 +6511,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateAssetFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_identifier` (`t:string`) The ID of the data asset.
-  * `:domain_identifier` (`t:string`) The ID of the domain in which you want to
-  create an asset filter.
-
-  ## Optional parameters:
+  * `:asset_identifier` (`t:string` required) The ID of the data asset.
+  * `:domain_identifier` (`t:string` required) The ID of the domain in which you
+  want to create an asset filter.
+  ## Keyword parameters:
   """
-
   @spec create_asset_filter(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_asset_filter_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_filter_errors()}
-
   def create_asset_filter(%Client{} = client, asset_identifier, domain_identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(asset_identifier)}/filters"
@@ -6578,18 +6557,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateAssetRevision&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The unique identifier of the domain where
-  the asset is being revised.
-  * `:identifier` (`t:string`) The identifier of the asset.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The unique identifier of the domain
+  where the asset is being revised.
+  * `:identifier` (`t:string` required) The identifier of the asset.
+  ## Keyword parameters:
   """
-
   @spec create_asset_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_asset_revision_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_revision_errors()}
-
   def create_asset_revision(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}/revisions"
@@ -6627,17 +6603,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateAssetType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The unique identifier of the Amazon DataZone
-  domain where the custom asset type is being created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The unique identifier of the Amazon
+  DataZone domain where the custom asset type is being created.
+  ## Keyword parameters:
   """
-
   @spec create_asset_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_type_errors()}
-
   def create_asset_type(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types"
 
@@ -6674,17 +6647,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
-  the data source is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain where the data source is created.
+  ## Keyword parameters:
   """
-
   @spec create_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_errors()}
-
   def create_data_source(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources"
 
@@ -6721,15 +6691,12 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-
   def create_domain(%Client{} = client, options \\ []) do
     url_path = "/v2/domains"
 
@@ -6766,17 +6733,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which the environment is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which the environment is created.
+  ## Keyword parameters:
   """
-
   @spec create_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-
   def create_environment(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments"
 
@@ -6814,19 +6778,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateEnvironmentAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the environment action is created.
+  * `:environment_identifier` (`t:string` required) The ID of the environment in
   which the environment action is created.
-  * `:environment_identifier` (`t:string`) The ID of the environment in which the
-  environment action is created.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_environment_action(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_environment_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_action_errors()}
-
   def create_environment_action(
         %Client{} = client,
         domain_identifier,
@@ -6869,17 +6830,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateEnvironmentProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which this environment profile is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which this environment profile is created.
+  ## Keyword parameters:
   """
-
   @spec create_environment_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_profile_errors()}
-
   def create_environment_profile(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles"
 
@@ -6916,17 +6874,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateFormType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which this metadata form type is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which this metadata form type is created.
+  ## Keyword parameters:
   """
-
   @spec create_form_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_form_type_errors()}
-
   def create_form_type(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/form-types"
 
@@ -6963,17 +6918,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateGlossary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which this business glossary is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which this business glossary is created.
+  ## Keyword parameters:
   """
-
   @spec create_glossary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_glossary_errors()}
-
   def create_glossary(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossaries"
 
@@ -7010,17 +6962,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateGlossaryTerm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which this business glossary term is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which this business glossary term is created.
+  ## Keyword parameters:
   """
-
   @spec create_glossary_term(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_glossary_term_errors()}
-
   def create_glossary_term(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossary-terms"
 
@@ -7057,17 +7006,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateGroupProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which the group profile is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which the group profile is created.
+  ## Keyword parameters:
   """
-
   @spec create_group_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_profile_errors()}
-
   def create_group_profile(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/group-profiles"
 
@@ -7105,16 +7051,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateListingChangeSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain.
+  ## Keyword parameters:
   """
-
   @spec create_listing_change_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_listing_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_listing_change_set_errors()}
-
   def create_listing_change_set(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/listings/change-set"
 
@@ -7151,17 +7095,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which this project is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which this project is created.
+  ## Keyword parameters:
   """
-
   @spec create_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-
   def create_project(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects"
 
@@ -7198,19 +7139,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateProjectMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which project membership is created.
-  * `:project_identifier` (`t:string`) The ID of the project for which this
-  project membership was created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which project membership is created.
+  * `:project_identifier` (`t:string` required) The ID of the project for which
+  this project membership was created.
+  ## Keyword parameters:
   """
-
   @spec create_project_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_project_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_membership_errors()}
-
   def create_project_membership(
         %Client{} = client,
         domain_identifier,
@@ -7253,17 +7191,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateSubscriptionGrant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the subscription grant is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the subscription grant is created.
+  ## Keyword parameters:
   """
-
   @spec create_subscription_grant(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subscription_grant_errors()}
-
   def create_subscription_grant(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-grants"
 
@@ -7300,17 +7235,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateSubscriptionRequest&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the subscription request is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the subscription request is created.
+  ## Keyword parameters:
   """
-
   @spec create_subscription_request(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subscription_request_errors()}
-
   def create_subscription_request(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests"
 
@@ -7347,19 +7279,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateSubscriptionTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which subscription target is created.
+  * `:environment_identifier` (`t:string` required) The ID of the environment in
   which subscription target is created.
-  * `:environment_identifier` (`t:string`) The ID of the environment in which
-  subscription target is created.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_subscription_target(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_subscription_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subscription_target_errors()}
-
   def create_subscription_target(
         %Client{} = client,
         domain_identifier,
@@ -7402,17 +7331,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateUserProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which a user profile is created.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which a user profile is created.
+  ## Keyword parameters:
   """
-
   @spec create_user_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_profile_errors()}
-
   def create_user_profile(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/user-profiles"
 
@@ -7449,18 +7375,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the asset is deleted.
-  * `:identifier` (`t:string`) The identifier of the asset that is deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the asset is deleted.
+  * `:identifier` (`t:string` required) The identifier of the asset that is
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_asset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_errors()}
-
   def delete_asset(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}"
@@ -7508,19 +7432,17 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteAssetFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_identifier` (`t:string`) The ID of the data asset.
-  * `:domain_identifier` (`t:string`) The ID of the domain where you want to
-  delete an asset filter.
-  * `:identifier` (`t:string`) The ID of the asset filter that you want to delete.
-
-  ## Optional parameters:
+  * `:asset_identifier` (`t:string` required) The ID of the data asset.
+  * `:domain_identifier` (`t:string` required) The ID of the domain where you want
+  to delete an asset filter.
+  * `:identifier` (`t:string` required) The ID of the asset filter that you want
+  to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_asset_filter(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_filter_errors()}
-
   def delete_asset_filter(
         %Client{} = client,
         asset_identifier,
@@ -7574,18 +7496,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteAssetType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the asset type is deleted.
-  * `:identifier` (`t:string`) The identifier of the asset type that is deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the asset type is deleted.
+  * `:identifier` (`t:string` required) The identifier of the asset type that is
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_asset_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_type_errors()}
-
   def delete_asset_type(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types/#{AWS.Util.encode_uri(identifier)}"
@@ -7633,23 +7553,21 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the data source is deleted.
-  * `:identifier` (`t:string`) The identifier of the data source that is deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the data source is deleted.
+  * `:identifier` (`t:string` required) The identifier of the data source that is
+  deleted.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier that is
   provided to ensure the idempotency of the request.
   * `:retain_permissions_on_revoke_failure` (`t:string`) Specifies that the
   granted permissions are retained in case of a self-subscribe functionality
   failure for a data source.
   """
-
   @spec delete_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
-
   def delete_data_source(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources/#{AWS.Util.encode_uri(identifier)}"
@@ -7715,21 +7633,18 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The identifier of the Amazon Web Services domain
-  that is to be deleted.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The identifier of the Amazon Web Services
+  domain that is to be deleted.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier that is
   provided to ensure the idempotency of the request.
   * `:skip_deletion_check` (`t:string`) Specifies the optional flag to delete all
   child entities within the domain.
   """
-
   @spec delete_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-
   def delete_domain(%Client{} = client, identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(identifier)}"
 
@@ -7794,19 +7709,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the environment is deleted.
-  * `:identifier` (`t:string`) The identifier of the environment that is to be
-  deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the environment is deleted.
+  * `:identifier` (`t:string` required) The identifier of the environment that is
+  to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-
   def delete_environment(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(identifier)}"
@@ -7855,20 +7767,18 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironmentAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which an environment action is deleted.
-  * `:environment_identifier` (`t:string`) The ID of the environment where an
-  environment action is deleted.
-  * `:identifier` (`t:string`) The ID of the environment action that is deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which an environment action is deleted.
+  * `:environment_identifier` (`t:string` required) The ID of the environment
+  where an environment action is deleted.
+  * `:identifier` (`t:string` required) The ID of the environment action that is
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_environment_action(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_action_errors()}
-
   def delete_environment_action(
         %Client{} = client,
         domain_identifier,
@@ -7922,14 +7832,12 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironmentBlueprintConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the blueprint configuration is deleted.
-  * `:environment_blueprint_identifier` (`t:string`) The ID of the blueprint the
-  configuration of which is deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the blueprint configuration is deleted.
+  * `:environment_blueprint_identifier` (`t:string` required) The ID of the
+  blueprint the configuration of which is deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_environment_blueprint_configuration(
           AWS.Client.t(),
           String.t(),
@@ -7939,7 +7847,6 @@ defmodule AWS.DataZone do
           {:ok, delete_environment_blueprint_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_blueprint_configuration_errors()}
-
   def delete_environment_blueprint_configuration(
         %Client{} = client,
         domain_identifier,
@@ -7992,18 +7899,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironmentProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the environment profile is deleted.
-  * `:identifier` (`t:string`) The ID of the environment profile that is deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the environment profile is deleted.
+  * `:identifier` (`t:string` required) The ID of the environment profile that is
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_environment_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_profile_errors()}
-
   def delete_environment_profile(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles/#{AWS.Util.encode_uri(identifier)}"
@@ -8051,19 +7956,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteFormType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the metadata form type is deleted.
-  * `:form_type_identifier` (`t:string`) The ID of the metadata form type that is
-  deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the metadata form type is deleted.
+  * `:form_type_identifier` (`t:string` required) The ID of the metadata form type
+  that is deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_form_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_form_type_errors()}
-
   def delete_form_type(%Client{} = client, domain_identifier, form_type_identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/form-types/#{AWS.Util.encode_uri(form_type_identifier)}"
@@ -8111,18 +8013,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteGlossary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the business glossary is deleted.
-  * `:identifier` (`t:string`) The ID of the business glossary that is deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the business glossary is deleted.
+  * `:identifier` (`t:string` required) The ID of the business glossary that is
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_glossary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_glossary_errors()}
-
   def delete_glossary(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossaries/#{AWS.Util.encode_uri(identifier)}"
@@ -8170,19 +8070,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteGlossaryTerm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the business glossary term is deleted.
-  * `:identifier` (`t:string`) The ID of the business glossary term that is
-  deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the business glossary term is deleted.
+  * `:identifier` (`t:string` required) The ID of the business glossary term that
+  is deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_glossary_term(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_glossary_term_errors()}
-
   def delete_glossary_term(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossary-terms/#{AWS.Util.encode_uri(identifier)}"
@@ -8230,17 +8127,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteListing&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain.
-  * `:identifier` (`t:string`) The ID of the listing to be deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain.
+  * `:identifier` (`t:string` required) The ID of the listing to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_listing(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_listing_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_listing_errors()}
-
   def delete_listing(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/listings/#{AWS.Util.encode_uri(identifier)}"
@@ -8288,21 +8183,18 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the project is deleted.
-  * `:identifier` (`t:string`) The identifier of the project that is to be
-  deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the project is deleted.
+  * `:identifier` (`t:string` required) The identifier of the project that is to
+  be deleted.
+  ## Keyword parameters:
   * `:skip_deletion_check` (`t:string`) Specifies the optional flag to delete all
   child entities within the project.
   """
-
   @spec delete_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-
   def delete_project(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(identifier)}"
@@ -8361,19 +8253,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteProjectMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
-  project membership is deleted.
-  * `:project_identifier` (`t:string`) The ID of the Amazon DataZone project the
-  membership to which is deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain where project membership is deleted.
+  * `:project_identifier` (`t:string` required) The ID of the Amazon DataZone
+  project the membership to which is deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_project_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_membership_errors()}
-
   def delete_project_membership(
         %Client{} = client,
         domain_identifier,
@@ -8416,18 +8305,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteSubscriptionGrant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
-  the subscription grant is deleted.
-  * `:identifier` (`t:string`) The ID of the subscription grant that is deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain where the subscription grant is deleted.
+  * `:identifier` (`t:string` required) The ID of the subscription grant that is
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_subscription_grant(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_subscription_grant_errors()}
-
   def delete_subscription_grant(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-grants/#{AWS.Util.encode_uri(identifier)}"
@@ -8475,18 +8362,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteSubscriptionRequest&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the subscription request is deleted.
-  * `:identifier` (`t:string`) The ID of the subscription request that is deleted.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the subscription request is deleted.
+  * `:identifier` (`t:string` required) The ID of the subscription request that is
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_subscription_request(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_subscription_request_errors()}
-
   def delete_subscription_request(
         %Client{} = client,
         domain_identifier,
@@ -8539,15 +8424,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteSubscriptionTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the subscription target is deleted.
-  * `:environment_identifier` (`t:string`) The ID of the Amazon DataZone
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the subscription target is deleted.
+  * `:environment_identifier` (`t:string` required) The ID of the Amazon DataZone
   environment in which the subscription target is deleted.
-  * `:identifier` (`t:string`) The ID of the subscription target that is deleted.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The ID of the subscription target that is
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_subscription_target(
           AWS.Client.t(),
           String.t(),
@@ -8558,7 +8442,6 @@ defmodule AWS.DataZone do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_subscription_target_errors()}
-
   def delete_subscription_target(
         %Client{} = client,
         domain_identifier,
@@ -8612,21 +8495,20 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteTimeSeriesDataPoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that
-  houses the asset for which you want to delete a time series form.
-  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
-  delete a time series form.
-  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain that houses the asset for which you want to delete a time series
+  form.
+  * `:entity_identifier` (`t:string` required) The ID of the asset for which you
   want to delete a time series form.
-  * `:form_name` (`t:string`) The name of the time series form that you want to
-  delete.
-
-  ## Optional parameters:
+  * `:entity_type` (`t:enum["ASSET|LISTING"]` required) The type of the asset for
+  which you want to delete a time series form.
+  * `:form_name` (`t:string` required) The name of the time series form that you
+  want to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier to ensure
   idempotency of the request. This field is automatically populated if not
   provided.
   """
-
   @spec delete_time_series_data_points(
           AWS.Client.t(),
           String.t(),
@@ -8638,7 +8520,6 @@ defmodule AWS.DataZone do
           {:ok, delete_time_series_data_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_time_series_data_points_errors()}
-
   def delete_time_series_data_points(
         %Client{} = client,
         domain_identifier,
@@ -8705,14 +8586,12 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DisassociateEnvironmentRole&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which an environment role is disassociated.
-  * `:environment_identifier` (`t:string`) The ID of the environment.
-  * `:environment_role_arn` (`t:string`) The ARN of the environment role.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which an environment role is disassociated.
+  * `:environment_identifier` (`t:string` required) The ID of the environment.
+  * `:environment_role_arn` (`t:string` required) The ARN of the environment role.
+  ## Keyword parameters:
   """
-
   @spec disassociate_environment_role(
           AWS.Client.t(),
           String.t(),
@@ -8723,7 +8602,6 @@ defmodule AWS.DataZone do
           {:ok, disassociate_environment_role_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_environment_role_errors()}
-
   def disassociate_environment_role(
         %Client{} = client,
         domain_identifier,
@@ -8777,19 +8655,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain to
-  which the asset belongs.
-  * `:identifier` (`t:string`) The ID of the Amazon DataZone asset.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain to which the asset belongs.
+  * `:identifier` (`t:string` required) The ID of the Amazon DataZone asset.
+  ## Keyword parameters:
   * `:revision` (`t:string`) The revision of the Amazon DataZone asset.
   """
-
   @spec get_asset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_errors()}
-
   def get_asset(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}"
@@ -8836,19 +8711,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetAssetFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_identifier` (`t:string`) The ID of the data asset.
-  * `:domain_identifier` (`t:string`) The ID of the domain where you want to get
-  an asset filter.
-  * `:identifier` (`t:string`) The ID of the asset filter.
-
-  ## Optional parameters:
+  * `:asset_identifier` (`t:string` required) The ID of the data asset.
+  * `:domain_identifier` (`t:string` required) The ID of the domain where you want
+  to get an asset filter.
+  * `:identifier` (`t:string` required) The ID of the asset filter.
+  ## Keyword parameters:
   """
-
   @spec get_asset_filter(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_asset_filter_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_filter_errors()}
-
   def get_asset_filter(
         %Client{} = client,
         asset_identifier,
@@ -8890,19 +8762,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetAssetType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the asset type exists.
-  * `:identifier` (`t:string`) The ID of the asset type.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the asset type exists.
+  * `:identifier` (`t:string` required) The ID of the asset type.
+  ## Keyword parameters:
   * `:revision` (`t:string`) The revision of the asset type.
   """
-
   @spec get_asset_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_type_errors()}
-
   def get_asset_type(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types/#{AWS.Util.encode_uri(identifier)}"
@@ -8949,18 +8818,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the data source exists.
-  * `:identifier` (`t:string`) The ID of the Amazon DataZone data source.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the data source exists.
+  * `:identifier` (`t:string` required) The ID of the Amazon DataZone data source.
+  ## Keyword parameters:
   """
-
   @spec get_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_errors()}
-
   def get_data_source(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources/#{AWS.Util.encode_uri(identifier)}"
@@ -8996,18 +8862,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetDataSourceRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the domain in which this data
-  source run was performed.
-  * `:identifier` (`t:string`) The ID of the data source run.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the domain in which this
+  data source run was performed.
+  * `:identifier` (`t:string` required) The ID of the data source run.
+  ## Keyword parameters:
   """
-
   @spec get_data_source_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_run_errors()}
-
   def get_data_source_run(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-source-runs/#{AWS.Util.encode_uri(identifier)}"
@@ -9043,17 +8906,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The identifier of the specified Amazon DataZone
-  domain.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The identifier of the specified Amazon
+  DataZone domain.
+  ## Keyword parameters:
   """
-
   @spec get_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_errors()}
-
   def get_domain(%Client{} = client, identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(identifier)}"
 
@@ -9088,18 +8948,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
-  the environment exists.
-  * `:identifier` (`t:string`) The ID of the Amazon DataZone environment.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain where the environment exists.
+  * `:identifier` (`t:string` required) The ID of the Amazon DataZone environment.
+  ## Keyword parameters:
   """
-
   @spec get_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
-
   def get_environment(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(identifier)}"
@@ -9135,20 +8992,17 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the GetEnvironmentAction API is invoked.
-  * `:environment_identifier` (`t:string`) The environment ID of the environment
-  action.
-  * `:identifier` (`t:string`) The ID of the environment action
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the GetEnvironmentAction API is invoked.
+  * `:environment_identifier` (`t:string` required) The environment ID of the
+  environment action.
+  * `:identifier` (`t:string` required) The ID of the environment action
+  ## Keyword parameters:
   """
-
   @spec get_environment_action(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_action_errors()}
-
   def get_environment_action(
         %Client{} = client,
         domain_identifier,
@@ -9190,18 +9044,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentBlueprint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the domain in which this
-  blueprint exists.
-  * `:identifier` (`t:string`) The ID of this Amazon DataZone blueprint.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the domain in
+  which this blueprint exists.
+  * `:identifier` (`t:string` required) The ID of this Amazon DataZone blueprint.
+  ## Keyword parameters:
   """
-
   @spec get_environment_blueprint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_blueprint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_blueprint_errors()}
-
   def get_environment_blueprint(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprints/#{AWS.Util.encode_uri(identifier)}"
@@ -9237,13 +9088,12 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentBlueprintConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
-  this blueprint exists.
-  * `:environment_blueprint_identifier` (`t:string`) He ID of the blueprint.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain where this blueprint exists.
+  * `:environment_blueprint_identifier` (`t:string` required) He ID of the
+  blueprint.
+  ## Keyword parameters:
   """
-
   @spec get_environment_blueprint_configuration(
           AWS.Client.t(),
           String.t(),
@@ -9253,7 +9103,6 @@ defmodule AWS.DataZone do
           {:ok, get_environment_blueprint_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_blueprint_configuration_errors()}
-
   def get_environment_blueprint_configuration(
         %Client{} = client,
         domain_identifier,
@@ -9294,19 +9143,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which this environment and its credentials exist.
-  * `:environment_identifier` (`t:string`) The ID of the environment whose
-  credentials this operation gets.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which this environment and its credentials exist.
+  * `:environment_identifier` (`t:string` required) The ID of the environment
+  whose credentials this operation gets.
+  ## Keyword parameters:
   """
-
   @spec get_environment_credentials(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_credentials_errors()}
-
   def get_environment_credentials(
         %Client{} = client,
         domain_identifier,
@@ -9347,18 +9193,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which this environment profile exists.
-  * `:identifier` (`t:string`) The ID of the environment profile.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which this environment profile exists.
+  * `:identifier` (`t:string` required) The ID of the environment profile.
+  ## Keyword parameters:
   """
-
   @spec get_environment_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_profile_errors()}
-
   def get_environment_profile(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles/#{AWS.Util.encode_uri(identifier)}"
@@ -9394,19 +9237,17 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetFormType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which this metadata form type exists.
-  * `:form_type_identifier` (`t:string`) The ID of the metadata form type.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which this metadata form type exists.
+  * `:form_type_identifier` (`t:string` required) The ID of the metadata form
+  type.
+  ## Keyword parameters:
   * `:revision` (`t:string`) The revision of this metadata form type.
   """
-
   @spec get_form_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_form_type_errors()}
-
   def get_form_type(%Client{} = client, domain_identifier, form_type_identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/form-types/#{AWS.Util.encode_uri(form_type_identifier)}"
@@ -9453,18 +9294,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetGlossary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which this business glossary exists.
-  * `:identifier` (`t:string`) The ID of the business glossary.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which this business glossary exists.
+  * `:identifier` (`t:string` required) The ID of the business glossary.
+  ## Keyword parameters:
   """
-
   @spec get_glossary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_glossary_errors()}
-
   def get_glossary(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossaries/#{AWS.Util.encode_uri(identifier)}"
@@ -9500,18 +9338,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetGlossaryTerm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which this business glossary term exists.
-  * `:identifier` (`t:string`) The ID of the business glossary term.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which this business glossary term exists.
+  * `:identifier` (`t:string` required) The ID of the business glossary term.
+  ## Keyword parameters:
   """
-
   @spec get_glossary_term(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_glossary_term_errors()}
-
   def get_glossary_term(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossary-terms/#{AWS.Util.encode_uri(identifier)}"
@@ -9547,18 +9382,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetGroupProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which the group profile exists.
-  * `:group_identifier` (`t:string`) The identifier of the group profile.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which the group profile exists.
+  * `:group_identifier` (`t:string` required) The identifier of the group profile.
+  ## Keyword parameters:
   """
-
   @spec get_group_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_profile_errors()}
-
   def get_group_profile(%Client{} = client, domain_identifier, group_identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/group-profiles/#{AWS.Util.encode_uri(group_identifier)}"
@@ -9594,17 +9426,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetIamPortalLoginUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) the ID of the Amazon DataZone domain the
-  data portal of which you want to get.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) the ID of the Amazon DataZone
+  domain the data portal of which you want to get.
+  ## Keyword parameters:
   """
-
   @spec get_iam_portal_login_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_iam_portal_login_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_iam_portal_login_url_errors()}
-
   def get_iam_portal_login_url(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/get-portal-login-url"
 
@@ -9641,21 +9470,18 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetLineageNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the domain in which you want to
-  get the data lineage node.
-  * `:identifier` (`t:string`) The ID of the data lineage node that you want to
-  get.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the domain in which you
+  want to get the data lineage node.
+  * `:identifier` (`t:string` required) The ID of the data lineage node that you
+  want to get.
+  ## Keyword parameters:
   * `:event_timestamp` (`t:string`) The event time stamp for which you want to get
   the data lineage node.
   """
-
   @spec get_lineage_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_lineage_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lineage_node_errors()}
-
   def get_lineage_node(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/nodes/#{AWS.Util.encode_uri(identifier)}"
@@ -9702,18 +9528,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetListing&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain.
-  * `:identifier` (`t:string`) The ID of the listing.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain.
+  * `:identifier` (`t:string` required) The ID of the listing.
+  ## Keyword parameters:
   * `:listing_revision` (`t:string`) The revision of the listing.
   """
-
   @spec get_listing(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_listing_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_listing_errors()}
-
   def get_listing(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/listings/#{AWS.Util.encode_uri(identifier)}"
@@ -9760,18 +9584,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetMetadataGenerationRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain the
-  metadata generation run of which you want to get.
-  * `:identifier` (`t:string`) The identifier of the metadata generation run.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain the metadata generation run of which you want to get.
+  * `:identifier` (`t:string` required) The identifier of the metadata generation
+  run.
+  ## Keyword parameters:
   """
-
   @spec get_metadata_generation_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metadata_generation_run_errors()}
-
   def get_metadata_generation_run(
         %Client{} = client,
         domain_identifier,
@@ -9812,18 +9634,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the project exists.
-  * `:identifier` (`t:string`) The ID of the project.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the project exists.
+  * `:identifier` (`t:string` required) The ID of the project.
+  ## Keyword parameters:
   """
-
   @spec get_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_project_errors()}
-
   def get_project(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(identifier)}"
@@ -9859,18 +9678,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the subscription exists.
-  * `:identifier` (`t:string`) The ID of the subscription.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the subscription exists.
+  * `:identifier` (`t:string` required) The ID of the subscription.
+  ## Keyword parameters:
   """
-
   @spec get_subscription(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_errors()}
-
   def get_subscription(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscriptions/#{AWS.Util.encode_uri(identifier)}"
@@ -9906,18 +9722,15 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscriptionGrant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the subscription grant exists.
-  * `:identifier` (`t:string`) The ID of the subscription grant.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the subscription grant exists.
+  * `:identifier` (`t:string` required) The ID of the subscription grant.
+  ## Keyword parameters:
   """
-
   @spec get_subscription_grant(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_grant_errors()}
-
   def get_subscription_grant(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-grants/#{AWS.Util.encode_uri(identifier)}"
@@ -9953,19 +9766,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscriptionRequestDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which to get the subscription request details.
-  * `:identifier` (`t:string`) The identifier of the subscription request the
-  details of which to get.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which to get the subscription request details.
+  * `:identifier` (`t:string` required) The identifier of the subscription request
+  the details of which to get.
+  ## Keyword parameters:
   """
-
   @spec get_subscription_request_details(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_request_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_request_details_errors()}
-
   def get_subscription_request_details(
         %Client{} = client,
         domain_identifier,
@@ -10006,20 +9816,17 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscriptionTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the subscription target exists.
-  * `:environment_identifier` (`t:string`) The ID of the environment associated
-  with the subscription target.
-  * `:identifier` (`t:string`) The ID of the subscription target.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the subscription target exists.
+  * `:environment_identifier` (`t:string` required) The ID of the environment
+  associated with the subscription target.
+  * `:identifier` (`t:string` required) The ID of the subscription target.
+  ## Keyword parameters:
   """
-
   @spec get_subscription_target(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_target_errors()}
-
   def get_subscription_target(
         %Client{} = client,
         domain_identifier,
@@ -10061,19 +9868,18 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetTimeSeriesDataPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that
-  houses the asset for which you want to get the data point.
-  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
-  get the data point.
-  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain that houses the asset for which you want to get the data point.
+  * `:entity_identifier` (`t:string` required) The ID of the asset for which you
   want to get the data point.
-  * `:identifier` (`t:string`) The ID of the data point that you want to get.
-  * `:form_name` (`t:string`) The name of the time series form that houses the
-  data point that you want to get.
-
-  ## Optional parameters:
+  * `:entity_type` (`t:enum["ASSET|LISTING"]` required) The type of the asset for
+  which you want to get the data point.
+  * `:identifier` (`t:string` required) The ID of the data point that you want to
+  get.
+  * `:form_name` (`t:string` required) The name of the time series form that
+  houses the data point that you want to get.
+  ## Keyword parameters:
   """
-
   @spec get_time_series_data_point(
           AWS.Client.t(),
           String.t(),
@@ -10086,7 +9892,6 @@ defmodule AWS.DataZone do
           {:ok, get_time_series_data_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_time_series_data_point_errors()}
-
   def get_time_series_data_point(
         %Client{} = client,
         domain_identifier,
@@ -10131,20 +9936,17 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetUserProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) the ID of the Amazon DataZone domain the
-  data portal of which you want to get.
-  * `:user_identifier` (`t:string`) The identifier of the user for which you want
-  to get the user profile.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) the ID of the Amazon DataZone
+  domain the data portal of which you want to get.
+  * `:user_identifier` (`t:string` required) The identifier of the user for which
+  you want to get the user profile.
+  ## Keyword parameters:
   * `:type` (`t:enum["IAM|SSO"]`) The type of the user profile.
   """
-
   @spec get_user_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_profile_errors()}
-
   def get_user_profile(%Client{} = client, domain_identifier, user_identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/user-profiles/#{AWS.Util.encode_uri(user_identifier)}"
@@ -10191,11 +9993,10 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListAssetFilters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_identifier` (`t:string`) The ID of the data asset.
-  * `:domain_identifier` (`t:string`) The ID of the domain where you want to list
-  asset filters.
-
-  ## Optional parameters:
+  * `:asset_identifier` (`t:string` required) The ID of the data asset.
+  * `:domain_identifier` (`t:string` required) The ID of the domain where you want
+  to list asset filters.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of asset filters to return in
   a single call to ListAssetFilters. When the number of asset filters to be
   listed is greater than the value of MaxResults, the response contains a
@@ -10209,12 +10010,10 @@ defmodule AWS.DataZone do
   set of asset filters.
   * `:status` (`t:enum["INVALID|VALID"]`) The status of the asset filter.
   """
-
   @spec list_asset_filters(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_filters_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_filters_errors()}
-
   def list_asset_filters(%Client{} = client, asset_identifier, domain_identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(asset_identifier)}/filters"
@@ -10275,10 +10074,9 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListAssetRevisions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the domain.
-  * `:identifier` (`t:string`) The identifier of the asset.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the domain.
+  * `:identifier` (`t:string` required) The identifier of the asset.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of revisions to return in a
   single call to ListAssetRevisions. When the number of revisions to be listed
   is greater than the value of MaxResults, the response contains a NextToken
@@ -10291,12 +10089,10 @@ defmodule AWS.DataZone do
   value in a subsequent call to ListAssetRevisions to list the next set of
   revisions.
   """
-
   @spec list_asset_revisions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_revisions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_revisions_errors()}
-
   def list_asset_revisions(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}/revisions"
@@ -10350,11 +10146,10 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDataSourceRunActivities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which to list data source run activities.
-  * `:identifier` (`t:string`) The identifier of the data source run.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which to list data source run activities.
+  * `:identifier` (`t:string` required) The identifier of the data source run.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of activities to return in a
   single call to ListDataSourceRunActivities. When the number of activities to
   be listed is greater than the value of MaxResults, the response contains a
@@ -10370,12 +10165,10 @@ defmodule AWS.DataZone do
   (`t:enum["FAILED|PUBLISHING_FAILED|SKIPPED_ALREADY_IMPORTED|SKIPPED_ARCHIVED|SKIPPED_NO_ACCESS|SUCCEEDED_CREATED|SUCCEEDED_UPDATED|UNCHANGED"]`)
   The status of the data source run.
   """
-
   @spec list_data_source_run_activities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_source_run_activities_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_source_run_activities_errors()}
-
   def list_data_source_run_activities(
         %Client{} = client,
         domain_identifier,
@@ -10441,11 +10234,11 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDataSourceRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_source_identifier` (`t:string`) The identifier of the data source.
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which to invoke the ListDataSourceRuns action.
-
-  ## Optional parameters:
+  * `:data_source_identifier` (`t:string` required) The identifier of the data
+  source.
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which to invoke the ListDataSourceRuns action.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of runs to return in a single
   call to ListDataSourceRuns. When the number of runs to be listed is greater
   than the value of MaxResults, the response contains a NextToken value that
@@ -10459,12 +10252,10 @@ defmodule AWS.DataZone do
   * `:status` (`t:enum["FAILED|PARTIALLY_SUCCEEDED|REQUESTED|RUNNING|SUCCESS"]`)
   The status of the data source.
   """
-
   @spec list_data_source_runs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_source_runs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_source_runs_errors()}
-
   def list_data_source_runs(
         %Client{} = client,
         data_source_identifier,
@@ -10530,12 +10321,11 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDataSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which to list the data sources.
-  * `:project_identifier` (`t:string`) The identifier of the project in which to
-  list data sources.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which to list the data sources.
+  * `:project_identifier` (`t:string` required) The identifier of the project in
+  which to list data sources.
+  ## Keyword parameters:
   * `:environment_identifier` (`t:string`) The identifier of the environment in
   which to list the data sources.
   * `:max_results` (`t:integer`) The maximum number of data sources to return in a
@@ -10555,12 +10345,10 @@ defmodule AWS.DataZone do
   The status of the data source.
   * `:type` (`t:string`) The type of the data source.
   """
-
   @spec list_data_sources(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
-
   def list_data_sources(%Client{} = client, domain_identifier, project_identifier, options \\ [])
       when is_binary(project_identifier) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources"
@@ -10649,8 +10437,7 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of domains to return in a
   single call to ListDomains. When the number of domains to be listed is
   greater than the value of MaxResults, the response contains a NextToken
@@ -10665,12 +10452,10 @@ defmodule AWS.DataZone do
   (`t:enum["AVAILABLE|CREATING|CREATION_FAILED|DELETED|DELETING|DELETION_FAILED"]`)
   The status of the data source.
   """
-
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-
   def list_domains(%Client{} = client, options \\ []) do
     url_path = "/v2/domains"
 
@@ -10730,12 +10515,11 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which the environment actions are listed.
-  * `:environment_identifier` (`t:string`) The ID of the envrironment whose
-  environment actions are listed.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which the environment actions are listed.
+  * `:environment_identifier` (`t:string` required) The ID of the envrironment
+  whose environment actions are listed.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of environment actions to
   return in a single call to ListEnvironmentActions. When the number of
   environment actions to be listed is greater than the value of MaxResults,
@@ -10748,12 +10532,10 @@ defmodule AWS.DataZone do
   specify this NextToken value in a subsequent call to ListEnvironmentActions
   to list the next set of environment actions.
   """
-
   @spec list_environment_actions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_actions_errors()}
-
   def list_environment_actions(
         %Client{} = client,
         domain_identifier,
@@ -10812,10 +10594,9 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentBlueprintConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of blueprint configurations to
   return in a single call to ListEnvironmentBlueprintConfigurations. When the
   number of configurations to be listed is greater than the value of
@@ -10830,12 +10611,10 @@ defmodule AWS.DataZone do
   ListEnvironmentBlueprintConfigurations to list the next set of
   configurations.
   """
-
   @spec list_environment_blueprint_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_blueprint_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_blueprint_configurations_errors()}
-
   def list_environment_blueprint_configurations(
         %Client{} = client,
         domain_identifier,
@@ -10893,10 +10672,9 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentBlueprints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  ## Keyword parameters:
   * `:managed` (`t:string`) Specifies whether the environment blueprint is managed
   by Amazon DataZone.
   * `:max_results` (`t:integer`) The maximum number of blueprints to return in a
@@ -10912,12 +10690,10 @@ defmodule AWS.DataZone do
   named NextToken. You can specify this NextToken value in a subsequent call
   to ListEnvironmentBlueprintsto list the next set of blueprints.
   """
-
   @spec list_environment_blueprints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_blueprints_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_blueprints_errors()}
-
   def list_environment_blueprints(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprints"
 
@@ -10984,10 +10760,9 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  ## Keyword parameters:
   * `:aws_account_id` (`t:string`) The identifier of the Amazon Web Services
   account where you want to list environment profiles.
   * `:aws_account_region` (`t:string`) The Amazon Web Services region where you
@@ -11011,12 +10786,10 @@ defmodule AWS.DataZone do
   * `:project_identifier` (`t:string`) The identifier of the Amazon DataZone
   project.
   """
-
   @spec list_environment_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_profiles_errors()}
-
   def list_environment_profiles(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles"
 
@@ -11120,12 +10893,11 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-  * `:project_identifier` (`t:string`) The identifier of the Amazon DataZone
-  project.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  * `:project_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone project.
+  ## Keyword parameters:
   * `:aws_account_id` (`t:string`) The identifier of the Amazon Web Services
   account where you want to list environments.
   * `:aws_account_region` (`t:string`) The Amazon Web Services region where you
@@ -11151,12 +10923,10 @@ defmodule AWS.DataZone do
   (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETE_FAILED|DELETING|DISABLED|EXPIRED|INACCESSIBLE|SUSPENDED|UPDATE_FAILED|UPDATING|VALIDATION_FAILED"]`)
   The status of the environments that you want to list.
   """
-
   @spec list_environments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-
   def list_environments(%Client{} = client, domain_identifier, project_identifier, options \\ [])
       when is_binary(project_identifier) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments"
@@ -11279,12 +11049,11 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListLineageNodeHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the domain where you want to list
-  the history of the specified data lineage node.
-  * `:identifier` (`t:string`) The ID of the data lineage node whose history you
-  want to list.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the domain where you want
+  to list the history of the specified data lineage node.
+  * `:identifier` (`t:string` required) The ID of the data lineage node whose
+  history you want to list.
+  ## Keyword parameters:
   * `:direction` (`t:enum["DOWNSTREAM|UPSTREAM"]`) The direction of the data
   lineage node refers to the lineage node having neighbors in that direction.
   For example, if direction is UPSTREAM, the ListLineageNodeHistory API
@@ -11307,12 +11076,10 @@ defmodule AWS.DataZone do
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The order by which you want
   data lineage node history to be sorted.
   """
-
   @spec list_lineage_node_history(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_lineage_node_history_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lineage_node_history_errors()}
-
   def list_lineage_node_history(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/nodes/#{AWS.Util.encode_uri(identifier)}/history"
@@ -11408,10 +11175,9 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListMetadataGenerationRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
-  you want to list metadata generation runs.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain where you want to list metadata generation runs.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of metadata generation runs to
   return in a single call to ListMetadataGenerationRuns. When the number of
   metadata generation runs to be listed is greater than the value of
@@ -11429,12 +11195,10 @@ defmodule AWS.DataZone do
   * `:type` (`t:enum["BUSINESS_DESCRIPTIONS"]`) The type of the metadata
   generation runs.
   """
-
   @spec list_metadata_generation_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_metadata_generation_runs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metadata_generation_runs_errors()}
-
   def list_metadata_generation_runs(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs"
 
@@ -11501,11 +11265,10 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListNotifications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-  * `:type` (`t:enum["EVENT|TASK"]`) The type of notifications.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  * `:type` (`t:enum["EVENT|TASK"]` required) The type of notifications.
+  ## Keyword parameters:
   * `:after_timestamp` (`t:string`) The time after which you want to list
   notifications.
   * `:before_timestamp` (`t:string`) The time before which you want to list
@@ -11524,12 +11287,10 @@ defmodule AWS.DataZone do
   * `:subjects` (`t:list[smithy.api#String]`) The subjects of notifications.
   * `:task_status` (`t:enum["ACTIVE|INACTIVE"]`) The task status of notifications.
   """
-
   @spec list_notifications(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notifications_errors()}
-
   def list_notifications(%Client{} = client, domain_identifier, type, options \\ [])
       when is_binary(type) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/notifications"
@@ -11625,12 +11386,11 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListProjectMemberships&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which you want to list project memberships.
-  * `:project_identifier` (`t:string`) The identifier of the project whose
-  memberships you want to list.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which you want to list project memberships.
+  * `:project_identifier` (`t:string` required) The identifier of the project
+  whose memberships you want to list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of memberships to return in a
   single call to ListProjectMemberships. When the number of memberships to be
   listed is greater than the value of MaxResults, the response contains a
@@ -11647,12 +11407,10 @@ defmodule AWS.DataZone do
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the project
   memberships.
   """
-
   @spec list_project_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_project_memberships_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_project_memberships_errors()}
-
   def list_project_memberships(
         %Client{} = client,
         domain_identifier,
@@ -11725,10 +11483,9 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListProjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  ## Keyword parameters:
   * `:group_identifier` (`t:string`) The identifier of a group.
   * `:max_results` (`t:integer`) The maximum number of projects to return in a
   single call to ListProjects. When the number of projects to be listed is
@@ -11743,12 +11500,10 @@ defmodule AWS.DataZone do
   value in a subsequent call to ListProjects to list the next set of projects.
   * `:user_identifier` (`t:string`) The identifier of the Amazon DataZone user.
   """
-
   @spec list_projects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-
   def list_projects(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects"
 
@@ -11828,10 +11583,9 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptionGrants&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  ## Keyword parameters:
   * `:environment_id` (`t:string`) The identifier of the Amazon DataZone
   environment.
   * `:max_results` (`t:integer`) The maximum number of subscription grants to
@@ -11855,12 +11609,10 @@ defmodule AWS.DataZone do
   * `:subscription_target_id` (`t:string`) The identifier of the subscription
   target.
   """
-
   @spec list_subscription_grants(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_grants_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscription_grants_errors()}
-
   def list_subscription_grants(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-grants"
 
@@ -11973,10 +11725,9 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptionRequests&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  ## Keyword parameters:
   * `:approver_project_id` (`t:string`) The identifier of the subscription request
   approver's project.
   * `:max_results` (`t:integer`) The maximum number of subscription requests to
@@ -12002,12 +11753,10 @@ defmodule AWS.DataZone do
   * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed
   listing.
   """
-
   @spec list_subscription_requests(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_requests_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscription_requests_errors()}
-
   def list_subscription_requests(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests"
 
@@ -12120,12 +11869,11 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptionTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  where you want to list subscription targets.
-  * `:environment_identifier` (`t:string`) The identifier of the environment where
-  you want to list subscription targets.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain where you want to list subscription targets.
+  * `:environment_identifier` (`t:string` required) The identifier of the
+  environment where you want to list subscription targets.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of subscription targets to
   return in a single call to ListSubscriptionTargets. When the number of
   subscription targets to be listed is greater than the value of MaxResults,
@@ -12143,12 +11891,10 @@ defmodule AWS.DataZone do
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for
   the results of this action.
   """
-
   @spec list_subscription_targets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscription_targets_errors()}
-
   def list_subscription_targets(
         %Client{} = client,
         domain_identifier,
@@ -12221,10 +11967,9 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  ## Keyword parameters:
   * `:approver_project_id` (`t:string`) The identifier of the project for the
   subscription's approver.
   * `:max_results` (`t:integer`) The maximum number of subscriptions to return in
@@ -12250,12 +11995,10 @@ defmodule AWS.DataZone do
   * `:subscription_request_identifier` (`t:string`) The identifier of the
   subscription request for the subscriptions that you want to list.
   """
-
   @spec list_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscriptions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscriptions_errors()}
-
   def list_subscriptions(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscriptions"
 
@@ -12377,17 +12120,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
-  list.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource whose tags you
+  want to list.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -12422,15 +12162,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListTimeSeriesDataPoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that
-  houses the assets for which you want to list time series data points.
-  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
-  list data points.
-  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain that houses the assets for which you want to list time series data
+  points.
+  * `:entity_identifier` (`t:string` required) The ID of the asset for which you
   want to list data points.
-  * `:form_name` (`t:string`) The name of the time series data points form.
-
-  ## Optional parameters:
+  * `:entity_type` (`t:enum["ASSET|LISTING"]` required) The type of the asset for
+  which you want to list data points.
+  * `:form_name` (`t:string` required) The name of the time series data points
+  form.
+  ## Keyword parameters:
   * `:ended_at` (`t:string`) The timestamp at which the data points that you
   wanted to list ended.
   * `:max_results` (`t:integer`) The maximum number of data points to return in a
@@ -12447,7 +12188,6 @@ defmodule AWS.DataZone do
   * `:started_at` (`t:string`) The timestamp at which the data points that you
   want to list started.
   """
-
   @spec list_time_series_data_points(
           AWS.Client.t(),
           String.t(),
@@ -12459,7 +12199,6 @@ defmodule AWS.DataZone do
           {:ok, list_time_series_data_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_time_series_data_points_errors()}
-
   def list_time_series_data_points(
         %Client{} = client,
         domain_identifier,
@@ -12535,22 +12274,19 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20PostLineageEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the domain where you want to post
-  a data lineage event.
+  * `:domain_identifier` (`t:string` required) The ID of the domain where you want
+  to post a data lineage event.
   * `:input` (`t:map`):
-    * `:event` (`t:blob`) The data lineage event that you want to post. Only
-  open-lineage run event are supported as events.
-
-  ## Optional parameters:
+    * `:event` (`t:blob` required) The data lineage event that you want to post.
+  Only open-lineage run event are supported as events.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier that is
   provided to ensure the idempotency of the request.
   """
-
   @spec post_lineage_event(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, post_lineage_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_lineage_event_errors()}
-
   def post_lineage_event(%Client{} = client, domain_identifier, input, options \\ [])
       when is_map(input) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/events"
@@ -12599,16 +12335,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20PostTimeSeriesDataPoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
-  which you want to post time series data points.
-  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
-  post time series data points.
-  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
-  want to post data points.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain in which you want to post time series data points.
+  * `:entity_identifier` (`t:string` required) The ID of the asset for which you
+  want to post time series data points.
+  * `:entity_type` (`t:enum["ASSET|LISTING"]` required) The type of the asset for
+  which you want to post data points.
+  ## Keyword parameters:
   """
-
   @spec post_time_series_data_points(
           AWS.Client.t(),
           String.t(),
@@ -12619,7 +12353,6 @@ defmodule AWS.DataZone do
           {:ok, post_time_series_data_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_time_series_data_points_errors()}
-
   def post_time_series_data_points(
         %Client{} = client,
         domain_identifier,
@@ -12664,14 +12397,12 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20PutEnvironmentBlueprintConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-  * `:environment_blueprint_identifier` (`t:string`) The identifier of the
-  environment blueprint.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  * `:environment_blueprint_identifier` (`t:string` required) The identifier of
+  the environment blueprint.
+  ## Keyword parameters:
   """
-
   @spec put_environment_blueprint_configuration(
           AWS.Client.t(),
           String.t(),
@@ -12681,7 +12412,6 @@ defmodule AWS.DataZone do
           {:ok, put_environment_blueprint_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_environment_blueprint_configuration_errors()}
-
   def put_environment_blueprint_configuration(
         %Client{} = client,
         domain_identifier,
@@ -12725,19 +12455,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20RejectPredictions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-  * `:identifier` (`t:string`) The identifier of the prediction.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  * `:identifier` (`t:string` required) The identifier of the prediction.
+  ## Keyword parameters:
   * `:revision` (`t:string`) The revision that is to be made to the asset.
   """
-
   @spec reject_predictions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, reject_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_predictions_errors()}
-
   def reject_predictions(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}/reject-predictions"
@@ -12786,19 +12513,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20RejectSubscriptionRequest&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which the subscription request was rejected.
-  * `:identifier` (`t:string`) The identifier of the subscription request that was
-  rejected.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which the subscription request was rejected.
+  * `:identifier` (`t:string` required) The identifier of the subscription request
+  that was rejected.
+  ## Keyword parameters:
   """
-
   @spec reject_subscription_request(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, reject_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_subscription_request_errors()}
-
   def reject_subscription_request(
         %Client{} = client,
         domain_identifier,
@@ -12841,18 +12565,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20RevokeSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  where you want to revoke a subscription.
-  * `:identifier` (`t:string`) The identifier of the revoked subscription.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain where you want to revoke a subscription.
+  * `:identifier` (`t:string` required) The identifier of the revoked
+  subscription.
+  ## Keyword parameters:
   """
-
   @spec revoke_subscription(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, revoke_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_subscription_errors()}
-
   def revoke_subscription(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscriptions/#{AWS.Util.encode_uri(identifier)}/revoke"
@@ -12890,17 +12612,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20Search&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
-  domain.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain.
+  ## Keyword parameters:
   """
-
   @spec search(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_errors()}
-
   def search(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/search"
 
@@ -12937,17 +12656,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchGroupProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which you want to search group profiles.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which you want to search group profiles.
+  ## Keyword parameters:
   """
-
   @spec search_group_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_group_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_group_profiles_errors()}
-
   def search_group_profiles(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/search-group-profiles"
 
@@ -12984,17 +12700,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchListings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the domain in which to
-  search listings.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the domain in
+  which to search listings.
+  ## Keyword parameters:
   """
-
   @spec search_listings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_listings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_listings_errors()}
-
   def search_listings(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/listings/search"
 
@@ -13031,17 +12744,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which to invoke the SearchTypes action.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which to invoke the SearchTypes action.
+  ## Keyword parameters:
   """
-
   @spec search_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_types_errors()}
-
   def search_types(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/types-search"
 
@@ -13078,17 +12788,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchUserProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which you want to search user profiles.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which you want to search user profiles.
+  ## Keyword parameters:
   """
-
   @spec search_user_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_user_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_user_profiles_errors()}
-
   def search_user_profiles(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/search-user-profiles"
 
@@ -13125,18 +12832,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20StartDataSourceRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_source_identifier` (`t:string`) The identifier of the data source.
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which to start a data source run.
-
-  ## Optional parameters:
+  * `:data_source_identifier` (`t:string` required) The identifier of the data
+  source.
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which to start a data source run.
+  ## Keyword parameters:
   """
-
   @spec start_data_source_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_data_source_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_source_run_errors()}
-
   def start_data_source_run(
         %Client{} = client,
         data_source_identifier,
@@ -13179,17 +12884,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20StartMetadataGenerationRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
-  you want to start a metadata generation run.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
+  domain where you want to start a metadata generation run.
+  ## Keyword parameters:
   """
-
   @spec start_metadata_generation_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_generation_run_errors()}
-
   def start_metadata_generation_run(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs"
 
@@ -13226,17 +12928,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to be tagged in Amazon
-  DataZone.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to be tagged in
+  Amazon DataZone.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -13273,19 +12972,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to be untagged in Amazon
-  DataZone.
-  * `:tag_keys` (`t:list[com.amazonaws.datazone#TagKey]`) Specifies the tag keys
-  for the UntagResource action.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to be untagged
+  in Amazon DataZone.
+  * `:tag_keys` (`t:list[com.amazonaws.datazone#TagKey]` required) Specifies the
+  tag keys for the UntagResource action.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -13333,19 +13029,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateAssetFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_identifier` (`t:string`) The ID of the data asset.
-  * `:domain_identifier` (`t:string`) The ID of the domain where you want to
-  update an asset filter.
-  * `:identifier` (`t:string`) The ID of the asset filter.
-
-  ## Optional parameters:
+  * `:asset_identifier` (`t:string` required) The ID of the data asset.
+  * `:domain_identifier` (`t:string` required) The ID of the domain where you want
+  to update an asset filter.
+  * `:identifier` (`t:string` required) The ID of the asset filter.
+  ## Keyword parameters:
   """
-
   @spec update_asset_filter(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_asset_filter_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_filter_errors()}
-
   def update_asset_filter(
         %Client{} = client,
         asset_identifier,
@@ -13399,18 +13092,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the domain in which to
-  update a data source.
-  * `:identifier` (`t:string`) The identifier of the data source to be updated.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the domain in
+  which to update a data source.
+  * `:identifier` (`t:string` required) The identifier of the data source to be
+  updated.
+  ## Keyword parameters:
   """
-
   @spec update_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
-
   def update_data_source(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources/#{AWS.Util.encode_uri(identifier)}"
@@ -13458,19 +13149,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The ID of the Amazon Web Services domain that is to
-  be updated.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The ID of the Amazon Web Services domain
+  that is to be updated.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier that is
   provided to ensure the idempotency of the request.
   """
-
   @spec update_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_errors()}
-
   def update_domain(%Client{} = client, identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(identifier)}"
 
@@ -13518,19 +13206,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the domain in which the
-  environment is to be updated.
-  * `:identifier` (`t:string`) The identifier of the environment that is to be
-  updated.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the domain in
+  which the environment is to be updated.
+  * `:identifier` (`t:string` required) The identifier of the environment that is
+  to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
-
   def update_environment(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(identifier)}"
@@ -13578,19 +13263,17 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateEnvironmentAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The domain ID of the environment action.
-  * `:environment_identifier` (`t:string`) The environment ID of the environment
+  * `:domain_identifier` (`t:string` required) The domain ID of the environment
   action.
-  * `:identifier` (`t:string`) The ID of the environment action.
-
-  ## Optional parameters:
+  * `:environment_identifier` (`t:string` required) The environment ID of the
+  environment action.
+  * `:identifier` (`t:string` required) The ID of the environment action.
+  ## Keyword parameters:
   """
-
   @spec update_environment_action(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_action_errors()}
-
   def update_environment_action(
         %Client{} = client,
         domain_identifier,
@@ -13644,19 +13327,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateEnvironmentProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which an environment profile is to be updated.
-  * `:identifier` (`t:string`) The identifier of the environment profile that is
-  to be updated.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which an environment profile is to be updated.
+  * `:identifier` (`t:string` required) The identifier of the environment profile
+  that is to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_environment_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_profile_errors()}
-
   def update_environment_profile(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles/#{AWS.Util.encode_uri(identifier)}"
@@ -13704,19 +13384,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateGlossary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which a business glossary is to be updated.
-  * `:identifier` (`t:string`) The identifier of the business glossary to be
-  updated.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which a business glossary is to be updated.
+  * `:identifier` (`t:string` required) The identifier of the business glossary to
+  be updated.
+  ## Keyword parameters:
   """
-
   @spec update_glossary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_glossary_errors()}
-
   def update_glossary(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossaries/#{AWS.Util.encode_uri(identifier)}"
@@ -13764,19 +13441,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateGlossaryTerm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which a business glossary term is to be updated.
-  * `:identifier` (`t:string`) The identifier of the business glossary term that
-  is to be updated.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which a business glossary term is to be updated.
+  * `:identifier` (`t:string` required) The identifier of the business glossary
+  term that is to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_glossary_term(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_glossary_term_errors()}
-
   def update_glossary_term(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossary-terms/#{AWS.Util.encode_uri(identifier)}"
@@ -13824,19 +13498,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateGroupProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which a group profile is updated.
-  * `:group_identifier` (`t:string`) The identifier of the group profile that is
-  updated.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which a group profile is updated.
+  * `:group_identifier` (`t:string` required) The identifier of the group profile
+  that is updated.
+  ## Keyword parameters:
   """
-
   @spec update_group_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_profile_errors()}
-
   def update_group_profile(%Client{} = client, domain_identifier, group_identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/group-profiles/#{AWS.Util.encode_uri(group_identifier)}"
@@ -13874,19 +13545,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which a project is to be updated.
-  * `:identifier` (`t:string`) The identifier of the project that is to be
-  updated.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which a project is to be updated.
+  * `:identifier` (`t:string` required) The identifier of the project that is to
+  be updated.
+  ## Keyword parameters:
   """
-
   @spec update_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-
   def update_project(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(identifier)}"
@@ -13935,16 +13603,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateSubscriptionGrantStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_identifier` (`t:string`) The identifier of the asset the subscription
-  grant status of which is to be updated.
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which a subscription grant status is to be updated.
-  * `:identifier` (`t:string`) The identifier of the subscription grant the status
-  of which is to be updated.
-
-  ## Optional parameters:
+  * `:asset_identifier` (`t:string` required) The identifier of the asset the
+  subscription grant status of which is to be updated.
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which a subscription grant status is to be updated.
+  * `:identifier` (`t:string` required) The identifier of the subscription grant
+  the status of which is to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_subscription_grant_status(
           AWS.Client.t(),
           String.t(),
@@ -13955,7 +13621,6 @@ defmodule AWS.DataZone do
           {:ok, update_subscription_grant_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subscription_grant_status_errors()}
-
   def update_subscription_grant_status(
         %Client{} = client,
         asset_identifier,
@@ -14009,19 +13674,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateSubscriptionRequest&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which a subscription request is to be updated.
-  * `:identifier` (`t:string`) The identifier of the subscription request that is
-  to be updated.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which a subscription request is to be updated.
+  * `:identifier` (`t:string` required) The identifier of the subscription request
+  that is to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_subscription_request(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subscription_request_errors()}
-
   def update_subscription_request(
         %Client{} = client,
         domain_identifier,
@@ -14074,16 +13736,14 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateSubscriptionTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which a subscription target is to be updated.
-  * `:environment_identifier` (`t:string`) The identifier of the environment in
-  which a subscription target is to be updated.
-  * `:identifier` (`t:string`) Identifier of the subscription target that is to be
-  updated.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which a subscription target is to be updated.
+  * `:environment_identifier` (`t:string` required) The identifier of the
+  environment in which a subscription target is to be updated.
+  * `:identifier` (`t:string` required) Identifier of the subscription target that
+  is to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_subscription_target(
           AWS.Client.t(),
           String.t(),
@@ -14094,7 +13754,6 @@ defmodule AWS.DataZone do
           {:ok, update_subscription_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subscription_target_errors()}
-
   def update_subscription_target(
         %Client{} = client,
         domain_identifier,
@@ -14148,19 +13807,16 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateUserProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
-  in which a user profile is updated.
-  * `:user_identifier` (`t:string`) The identifier of the user whose user profile
-  is to be updated.
-
-  ## Optional parameters:
+  * `:domain_identifier` (`t:string` required) The identifier of the Amazon
+  DataZone domain in which a user profile is updated.
+  * `:user_identifier` (`t:string` required) The identifier of the user whose user
+  profile is to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_user_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_profile_errors()}
-
   def update_user_profile(%Client{} = client, domain_identifier, user_identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/user-profiles/#{AWS.Util.encode_uri(user_identifier)}"

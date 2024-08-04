@@ -170,21 +170,18 @@ defmodule AWS.AppConfigData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfigdata%20GetLatestConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_token` (`t:string`) Token describing the current state of the
-  configuration session. To obtain a token, first call the
+  * `:configuration_token` (`t:string` required) Token describing the current
+  state of the configuration session. To obtain a token, first call the
   StartConfigurationSession API. Note that every call to
   GetLatestConfiguration will return a new ConfigurationToken
   (NextPollConfigurationToken in the response) and must be provided to
   subsequent GetLatestConfiguration API calls.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_latest_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_latest_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_latest_configuration_errors()}
-
   def get_latest_configuration(%Client{} = client, configuration_token, options \\ [])
       when is_binary(configuration_token) do
     url_path = "/configuration"
@@ -236,15 +233,12 @@ defmodule AWS.AppConfigData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfigdata%20StartConfigurationSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_configuration_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_configuration_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_configuration_session_errors()}
-
   def start_configuration_session(%Client{} = client, options \\ []) do
     url_path = "/configurationsessions"
 

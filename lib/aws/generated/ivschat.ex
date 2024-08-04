@@ -751,15 +751,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20CreateChatToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_chat_token(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_chat_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_chat_token_errors()}
-
   def create_chat_token(%Client{} = client, options \\ []) do
     url_path = "/CreateChatToken"
 
@@ -797,15 +794,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20CreateLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_logging_configuration_errors()}
-
   def create_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/CreateLoggingConfiguration"
 
@@ -842,15 +836,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20CreateRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_room_errors()}
-
   def create_room(%Client{} = client, options \\ []) do
     url_path = "/CreateRoom"
 
@@ -887,15 +878,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20DeleteLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_logging_configuration_errors()}
-
   def delete_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/DeleteLoggingConfiguration"
 
@@ -937,15 +925,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20DeleteMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_message(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_message_errors()}
-
   def delete_message(%Client{} = client, options \\ []) do
     url_path = "/DeleteMessage"
 
@@ -982,15 +967,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20DeleteRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_room_errors()}
-
   def delete_room(%Client{} = client, options \\ []) do
     url_path = "/DeleteRoom"
 
@@ -1030,15 +1012,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20DisconnectUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disconnect_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, disconnect_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_user_errors()}
-
   def disconnect_user(%Client{} = client, options \\ []) do
     url_path = "/DisconnectUser"
 
@@ -1075,15 +1054,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20GetLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logging_configuration_errors()}
-
   def get_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetLoggingConfiguration"
 
@@ -1120,15 +1096,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20GetRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_room_errors()}
-
   def get_room(%Client{} = client, options \\ []) do
     url_path = "/GetRoom"
 
@@ -1166,15 +1139,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20ListLoggingConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_logging_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_logging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_logging_configurations_errors()}
-
   def list_logging_configurations(%Client{} = client, options \\ []) do
     url_path = "/ListLoggingConfigurations"
 
@@ -1212,15 +1182,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20ListRooms&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_rooms(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rooms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rooms_errors()}
-
   def list_rooms(%Client{} = client, options \\ []) do
     url_path = "/ListRooms"
 
@@ -1257,17 +1224,14 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to be retrieved. The ARN
-  must be URL-encoded.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to be retrieved.
+  The ARN must be URL-encoded.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1304,15 +1268,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20SendEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec send_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_event_errors()}
-
   def send_event(%Client{} = client, options \\ []) do
     url_path = "/SendEvent"
 
@@ -1349,17 +1310,14 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to be tagged. The ARN
-  must be URL-encoded.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to be tagged.
+  The ARN must be URL-encoded.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1396,22 +1354,19 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to be untagged. The ARN
-  must be URL-encoded.
-  * `:tag_keys` (`t:list[com.amazonaws.ivschat#TagKey]`) Array of tags to be
-  removed. Array of maps, each of the form string:string (key:value). See
+  * `:resource_arn` (`t:string` required) The ARN of the resource to be untagged.
+  The ARN must be URL-encoded.
+  * `:tag_keys` (`t:list[com.amazonaws.ivschat#TagKey]` required) Array of tags to
+  be removed. Array of maps, each of the form string:string (key:value). See
   Tagging AWS Resources for details, including restrictions that apply to tags
   and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints
   beyond what is documented there.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1459,15 +1414,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20UpdateLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_logging_configuration_errors()}
-
   def update_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateLoggingConfiguration"
 
@@ -1504,15 +1456,12 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20UpdateRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_room_errors()}
-
   def update_room(%Client{} = client, options \\ []) do
     url_path = "/UpdateRoom"
 

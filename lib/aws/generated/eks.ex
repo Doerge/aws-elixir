@@ -2911,18 +2911,16 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20AssociateAccessPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:principal_arn` (`t:string`) The Amazon Resource Name (ARN) of the IAM user
-  or role for the AccessEntry that you're associating the access policy to.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:principal_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  IAM user or role for the AccessEntry that you're associating the access
+  policy to.
+  ## Keyword parameters:
   """
-
   @spec associate_access_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_access_policy_errors()}
-
   def associate_access_policy(%Client{} = client, cluster_name, principal_arn, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}/access-policies"
@@ -2960,16 +2958,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20AssociateEncryptionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec associate_encryption_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_encryption_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_encryption_config_errors()}
-
   def associate_encryption_config(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/encryption-config/associate"
 
@@ -3006,16 +3001,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20AssociateIdentityProviderConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec associate_identity_provider_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_identity_provider_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_identity_provider_config_errors()}
-
   def associate_identity_provider_config(%Client{} = client, cluster_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/associate"
@@ -3062,16 +3054,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20CreateAccessEntry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec create_access_entry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_entry_errors()}
-
   def create_access_entry(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries"
 
@@ -3108,16 +3097,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20CreateAddon&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec create_addon(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_addon_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_addon_errors()}
-
   def create_addon(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons"
 
@@ -3159,15 +3145,12 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20CreateCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cluster(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-
   def create_cluster(%Client{} = client, options \\ []) do
     url_path = "/clusters"
 
@@ -3208,15 +3191,12 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20CreateEksAnywhereSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_eks_anywhere_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_eks_anywhere_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_eks_anywhere_subscription_errors()}
-
   def create_eks_anywhere_subscription(%Client{} = client, options \\ []) do
     url_path = "/eks-anywhere-subscriptions"
 
@@ -3262,16 +3242,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20CreateFargateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec create_fargate_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_fargate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fargate_profile_errors()}
-
   def create_fargate_profile(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/fargate-profiles"
 
@@ -3319,16 +3296,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20CreateNodegroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec create_nodegroup(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_nodegroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_nodegroup_errors()}
-
   def create_nodegroup(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups"
 
@@ -3370,17 +3344,14 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20CreatePodIdentityAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of the cluster to create the association
-  in.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of the cluster to create the
+  association in.
+  ## Keyword parameters:
   """
-
   @spec create_pod_identity_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_pod_identity_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pod_identity_association_errors()}
-
   def create_pod_identity_association(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations"
 
@@ -3417,18 +3388,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DeleteAccessEntry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:principal_arn` (`t:string`) The ARN of the IAM principal for the
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:principal_arn` (`t:string` required) The ARN of the IAM principal for the
   AccessEntry.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_access_entry(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_access_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_entry_errors()}
-
   def delete_access_entry(%Client{} = client, cluster_name, principal_arn, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}"
@@ -3476,21 +3444,18 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DeleteAddon&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:addon_name` (`t:string`) The name of the add-on. The name must match one of
-  the names returned by ListAddons .
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:addon_name` (`t:string` required) The name of the add-on. The name must
+  match one of the names returned by ListAddons .
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   * `:preserve` (`t:boolean`) Specifying this option preserves the add-on software
   on your cluster but Amazon EKS stops managing any settings for the add-on.
   If an IAM account is associated with the add-on, it isn't removed.
   """
-
   @spec delete_addon(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_addon_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_addon_errors()}
-
   def delete_addon(%Client{} = client, addon_name, cluster_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons/#{AWS.Util.encode_uri(addon_name)}"
@@ -3555,16 +3520,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DeleteCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the cluster to delete.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the cluster to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-
   def delete_cluster(%Client{} = client, name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}"
 
@@ -3615,16 +3577,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DeleteEksAnywhereSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the subscription.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the subscription.
+  ## Keyword parameters:
   """
-
   @spec delete_eks_anywhere_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_eks_anywhere_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_eks_anywhere_subscription_errors()}
-
   def delete_eks_anywhere_subscription(%Client{} = client, id, options \\ []) do
     url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
 
@@ -3675,18 +3634,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DeleteFargateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:fargate_profile_name` (`t:string`) The name of the Fargate profile to
-  delete.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:fargate_profile_name` (`t:string` required) The name of the Fargate profile
+  to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_fargate_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_fargate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fargate_profile_errors()}
-
   def delete_fargate_profile(
         %Client{} = client,
         cluster_name,
@@ -3739,17 +3695,14 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DeleteNodegroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:nodegroup_name` (`t:string`) The name of the node group to delete.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:nodegroup_name` (`t:string` required) The name of the node group to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_nodegroup(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_nodegroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_nodegroup_errors()}
-
   def delete_nodegroup(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}"
@@ -3797,17 +3750,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DeletePodIdentityAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:association_id` (`t:string`) The ID of the association to be deleted.
-  * `:cluster_name` (`t:string`) The cluster name that
-
-  ## Optional parameters:
+  * `:association_id` (`t:string` required) The ID of the association to be
+  deleted.
+  * `:cluster_name` (`t:string` required) The cluster name that
+  ## Keyword parameters:
   """
-
   @spec delete_pod_identity_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_pod_identity_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pod_identity_association_errors()}
-
   def delete_pod_identity_association(
         %Client{} = client,
         association_id,
@@ -3860,16 +3811,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DeregisterCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the connected cluster to deregister.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the connected cluster to deregister.
+  ## Keyword parameters:
   """
-
   @spec deregister_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_cluster_errors()}
-
   def deregister_cluster(%Client{} = client, name, options \\ []) do
     url_path = "/cluster-registrations/#{AWS.Util.encode_uri(name)}"
 
@@ -3916,18 +3864,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeAccessEntry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:principal_arn` (`t:string`) The ARN of the IAM principal for the
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:principal_arn` (`t:string` required) The ARN of the IAM principal for the
   AccessEntry.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_access_entry(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_access_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_access_entry_errors()}
-
   def describe_access_entry(%Client{} = client, cluster_name, principal_arn, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}"
@@ -3963,18 +3908,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeAddon&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:addon_name` (`t:string`) The name of the add-on. The name must match one of
-  the names returned by ListAddons .
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:addon_name` (`t:string` required) The name of the add-on. The name must
+  match one of the names returned by ListAddons .
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec describe_addon(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_addon_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_addon_errors()}
-
   def describe_addon(%Client{} = client, addon_name, cluster_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons/#{AWS.Util.encode_uri(addon_name)}"
@@ -4010,19 +3952,16 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeAddonConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:addon_name` (`t:string`) The name of the add-on. The name must match one of
-  the names returned by DescribeAddonVersions.
-  * `:addon_version` (`t:string`) The version of the add-on. The version must
-  match one of the versions returned by DescribeAddonVersions .
-
-  ## Optional parameters:
+  * `:addon_name` (`t:string` required) The name of the add-on. The name must
+  match one of the names returned by DescribeAddonVersions.
+  * `:addon_version` (`t:string` required) The version of the add-on. The version
+  must match one of the versions returned by DescribeAddonVersions .
+  ## Keyword parameters:
   """
-
   @spec describe_addon_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_addon_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_addon_configuration_errors()}
-
   def describe_addon_configuration(%Client{} = client, addon_name, addon_version, options \\ [])
       when is_binary(addon_name) and is_binary(addon_version) do
     url_path = "/addons/configuration-schemas"
@@ -4058,8 +3997,7 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeAddonVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:addon_name` (`t:string`) The name of the add-on. The name must match one of
   the names returned by ListAddons .
   * `:kubernetes_version` (`t:string`) The Kubernetes versions that you can use
@@ -4082,12 +4020,10 @@ defmodule AWS.EKS do
   * `:types` (`t:list[com.amazonaws.eks#String]`) The type of the add-on. For
   valid types, don't specify a value for this property.
   """
-
   @spec describe_addon_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_addon_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_addon_versions_errors()}
-
   def describe_addon_versions(%Client{} = client, options \\ []) do
     url_path = "/addons/supported-versions"
 
@@ -4195,16 +4131,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec describe_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
-
   def describe_cluster(%Client{} = client, name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}"
 
@@ -4239,16 +4172,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeEksAnywhereSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the subscription.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the subscription.
+  ## Keyword parameters:
   """
-
   @spec describe_eks_anywhere_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_eks_anywhere_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_eks_anywhere_subscription_errors()}
-
   def describe_eks_anywhere_subscription(%Client{} = client, id, options \\ []) do
     url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
 
@@ -4283,18 +4213,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeFargateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:fargate_profile_name` (`t:string`) The name of the Fargate profile to
-  describe.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:fargate_profile_name` (`t:string` required) The name of the Fargate profile
+  to describe.
+  ## Keyword parameters:
   """
-
   @spec describe_fargate_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_fargate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fargate_profile_errors()}
-
   def describe_fargate_profile(
         %Client{} = client,
         cluster_name,
@@ -4335,16 +4262,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeIdentityProviderConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec describe_identity_provider_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_identity_provider_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_provider_config_errors()}
-
   def describe_identity_provider_config(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/describe"
 
@@ -4381,18 +4305,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeInsight&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of the cluster to describe the insight
-  for.
-  * `:id` (`t:string`) The identity of the insight to describe.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of the cluster to describe the
+  insight for.
+  * `:id` (`t:string` required) The identity of the insight to describe.
+  ## Keyword parameters:
   """
-
   @spec describe_insight(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_insight_errors()}
-
   def describe_insight(%Client{} = client, cluster_name, id, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/insights/#{AWS.Util.encode_uri(id)}"
@@ -4428,17 +4349,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeNodegroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:nodegroup_name` (`t:string`) The name of the node group to describe.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:nodegroup_name` (`t:string` required) The name of the node group to
+  describe.
+  ## Keyword parameters:
   """
-
   @spec describe_nodegroup(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_nodegroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_nodegroup_errors()}
-
   def describe_nodegroup(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}"
@@ -4474,19 +4393,16 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribePodIdentityAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:association_id` (`t:string`) The ID of the association that you want the
-  description of.
-  * `:cluster_name` (`t:string`) The name of the cluster that the association is
-  in.
-
-  ## Optional parameters:
+  * `:association_id` (`t:string` required) The ID of the association that you
+  want the description of.
+  * `:cluster_name` (`t:string` required) The name of the cluster that the
+  association is in.
+  ## Keyword parameters:
   """
-
   @spec describe_pod_identity_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_pod_identity_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pod_identity_association_errors()}
-
   def describe_pod_identity_association(
         %Client{} = client,
         association_id,
@@ -4527,11 +4443,10 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DescribeUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Amazon EKS cluster associated with the
-  update.
-  * `:update_id` (`t:string`) The ID of the update to describe.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Amazon EKS cluster associated
+  with the update.
+  * `:update_id` (`t:string` required) The ID of the update to describe.
+  ## Keyword parameters:
   * `:addon_name` (`t:string`) The name of the add-on. The name must match one of
   the names returned by ListAddons . This parameter is required if the update
   is an add-on update.
@@ -4539,12 +4454,10 @@ defmodule AWS.EKS do
   associated with the update. This parameter is required if the update is a
   node group update.
   """
-
   @spec describe_update(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_update_errors()}
-
   def describe_update(%Client{} = client, name, update_id, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}/updates/#{AWS.Util.encode_uri(update_id)}"
 
@@ -4597,16 +4510,14 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DisassociateAccessPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:policy_arn` (`t:string`) The ARN of the policy to disassociate from the
-  access entry. For a list of associated policies ARNs, use
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:policy_arn` (`t:string` required) The ARN of the policy to disassociate from
+  the access entry. For a list of associated policies ARNs, use
   ListAssociatedAccessPolicies.
-  * `:principal_arn` (`t:string`) The ARN of the IAM principal for the
+  * `:principal_arn` (`t:string` required) The ARN of the IAM principal for the
   AccessEntry.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_access_policy(
           AWS.Client.t(),
           String.t(),
@@ -4617,7 +4528,6 @@ defmodule AWS.EKS do
           {:ok, disassociate_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_access_policy_errors()}
-
   def disassociate_access_policy(
         %Client{} = client,
         cluster_name,
@@ -4671,16 +4581,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20DisassociateIdentityProviderConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec disassociate_identity_provider_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_identity_provider_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_identity_provider_config_errors()}
-
   def disassociate_identity_provider_config(%Client{} = client, cluster_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/disassociate"
@@ -4718,9 +4625,8 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListAccessEntries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   * `:associated_policy_arn` (`t:string`) The ARN of an AccessPolicy. When you
   specify an access policy ARN, only the access entries associated to that
   access policy are returned. For a list of available policy ARNs, use
@@ -4737,12 +4643,10 @@ defmodule AWS.EKS do
   results that returned the nextToken value. This value is null when there are
   no more results to return.
   """
-
   @spec list_access_entries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_entries_errors()}
-
   def list_access_entries(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries"
 
@@ -4802,8 +4706,7 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListAccessPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results, returned in
   paginated output. You receive maxResults in a single page, along with a
   nextToken response element. You can see the remaining results of the initial
@@ -4816,12 +4719,10 @@ defmodule AWS.EKS do
   results that returned the nextToken value. This value is null when there are
   no more results to return.
   """
-
   @spec list_access_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_policies_errors()}
-
   def list_access_policies(%Client{} = client, options \\ []) do
     url_path = "/access-policies"
 
@@ -4874,9 +4775,8 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListAddons&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results, returned in
   paginated output. You receive maxResults in a single page, along with a
   nextToken response element. You can see the remaining results of the initial
@@ -4889,12 +4789,10 @@ defmodule AWS.EKS do
   results that returned the nextToken value. This value is null when there are
   no more results to return.
   """
-
   @spec list_addons(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_addons_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_addons_errors()}
-
   def list_addons(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons"
 
@@ -4947,11 +4845,10 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListAssociatedAccessPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:principal_arn` (`t:string`) The ARN of the IAM principal for the
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:principal_arn` (`t:string` required) The ARN of the IAM principal for the
   AccessEntry.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results, returned in
   paginated output. You receive maxResults in a single page, along with a
   nextToken response element. You can see the remaining results of the initial
@@ -4964,12 +4861,10 @@ defmodule AWS.EKS do
   results that returned the nextToken value. This value is null when there are
   no more results to return.
   """
-
   @spec list_associated_access_policies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_access_policies_errors()}
-
   def list_associated_access_policies(
         %Client{} = client,
         cluster_name,
@@ -5029,8 +4924,7 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListClusters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:include` (`t:list[com.amazonaws.eks#String]`) Indicates whether external
   clusters are included in the returned list. Use 'all' to return
   https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.htmlconnected
@@ -5048,12 +4942,10 @@ defmodule AWS.EKS do
   results that returned the nextToken value. This value is null when there are
   no more results to return.
   """
-
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
-
   def list_clusters(%Client{} = client, options \\ []) do
     url_path = "/clusters"
 
@@ -5113,8 +5005,7 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListEksAnywhereSubscriptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:include_status` (`t:list[com.amazonaws.eks#EksAnywhereSubscriptionStatus]`)
   An array of subscription statuses to filter on.
   * `:max_results` (`t:integer`) The maximum number of cluster results returned by
@@ -5131,12 +5022,10 @@ defmodule AWS.EKS do
   the results exceeded the value of that parameter. Pagination continues from
   the end of the previous results that returned the nextToken value.
   """
-
   @spec list_eks_anywhere_subscriptions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_eks_anywhere_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_eks_anywhere_subscriptions_errors()}
-
   def list_eks_anywhere_subscriptions(%Client{} = client, options \\ []) do
     url_path = "/eks-anywhere-subscriptions"
 
@@ -5197,9 +5086,8 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListFargateProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results, returned in
   paginated output. You receive maxResults in a single page, along with a
   nextToken response element. You can see the remaining results of the initial
@@ -5212,12 +5100,10 @@ defmodule AWS.EKS do
   results that returned the nextToken value. This value is null when there are
   no more results to return.
   """
-
   @spec list_fargate_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_fargate_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fargate_profiles_errors()}
-
   def list_fargate_profiles(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/fargate-profiles"
 
@@ -5270,9 +5156,8 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListIdentityProviderConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results, returned in
   paginated output. You receive maxResults in a single page, along with a
   nextToken response element. You can see the remaining results of the initial
@@ -5285,12 +5170,10 @@ defmodule AWS.EKS do
   results that returned the nextToken value. This value is null when there are
   no more results to return.
   """
-
   @spec list_identity_provider_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_provider_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_provider_configs_errors()}
-
   def list_identity_provider_configs(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs"
 
@@ -5345,17 +5228,14 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListInsights&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of the Amazon EKS cluster associated
-  with the insights.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of the Amazon EKS cluster
+  associated with the insights.
+  ## Keyword parameters:
   """
-
   @spec list_insights(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_insights_errors()}
-
   def list_insights(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/insights"
 
@@ -5394,9 +5274,8 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListNodegroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results, returned in
   paginated output. You receive maxResults in a single page, along with a
   nextToken response element. You can see the remaining results of the initial
@@ -5409,12 +5288,10 @@ defmodule AWS.EKS do
   results that returned the nextToken value. This value is null when there are
   no more results to return.
   """
-
   @spec list_nodegroups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodegroups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_nodegroups_errors()}
-
   def list_nodegroups(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups"
 
@@ -5469,10 +5346,9 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListPodIdentityAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of the cluster that the associations are
-  in.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of the cluster that the
+  associations are in.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of EKS Pod Identity
   association results returned by ListPodIdentityAssociations in paginated
   output. When you use this parameter, ListPodIdentityAssociations returns
@@ -5491,12 +5367,10 @@ defmodule AWS.EKS do
   * `:service_account` (`t:string`) The name of the Kubernetes service account
   that the associations use.
   """
-
   @spec list_pod_identity_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_pod_identity_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pod_identity_associations_errors()}
-
   def list_pod_identity_associations(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations"
 
@@ -5563,17 +5437,14 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-  the resource to list tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  identifies the resource to list tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5609,9 +5480,9 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20ListUpdates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Amazon EKS cluster to list updates for.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Amazon EKS cluster to list
+  updates for.
+  ## Keyword parameters:
   * `:addon_name` (`t:string`) The names of the installed add-ons that have
   available updates.
   * `:max_results` (`t:integer`) The maximum number of results, returned in
@@ -5628,12 +5499,10 @@ defmodule AWS.EKS do
   * `:nodegroup_name` (`t:string`) The name of the Amazon EKS managed node group
   to list updates for.
   """
-
   @spec list_updates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_updates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_updates_errors()}
-
   def list_updates(%Client{} = client, name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}/updates"
 
@@ -5702,15 +5571,12 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20RegisterCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_cluster(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_cluster_errors()}
-
   def register_cluster(%Client{} = client, options \\ []) do
     url_path = "/cluster-registrations"
 
@@ -5754,17 +5620,14 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  add tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to add tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5801,19 +5664,16 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  delete tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.eks#TagKey]`) The keys of the tags to
-  remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to delete tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.eks#TagKey]` required) The keys of the tags
+  to remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5861,18 +5721,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20UpdateAccessEntry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:principal_arn` (`t:string`) The ARN of the IAM principal for the
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:principal_arn` (`t:string` required) The ARN of the IAM principal for the
   AccessEntry.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_access_entry(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_access_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_entry_errors()}
-
   def update_access_entry(%Client{} = client, cluster_name, principal_arn, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}"
@@ -5910,18 +5767,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20UpdateAddon&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:addon_name` (`t:string`) The name of the add-on. The name must match one of
-  the names returned by ListAddons .
-  * `:cluster_name` (`t:string`) The name of your cluster.
-
-  ## Optional parameters:
+  * `:addon_name` (`t:string` required) The name of the add-on. The name must
+  match one of the names returned by ListAddons .
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  ## Keyword parameters:
   """
-
   @spec update_addon(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_addon_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_addon_errors()}
-
   def update_addon(%Client{} = client, addon_name, cluster_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons/#{AWS.Util.encode_uri(addon_name)}/update"
@@ -5970,16 +5824,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20UpdateClusterConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Amazon EKS cluster to update.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Amazon EKS cluster to update.
+  ## Keyword parameters:
   """
-
   @spec update_cluster_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_cluster_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_config_errors()}
-
   def update_cluster_config(%Client{} = client, name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}/update-config"
 
@@ -6023,16 +5874,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20UpdateClusterVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Amazon EKS cluster to update.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Amazon EKS cluster to update.
+  ## Keyword parameters:
   """
-
   @spec update_cluster_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_cluster_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_version_errors()}
-
   def update_cluster_version(%Client{} = client, name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}/updates"
 
@@ -6070,16 +5918,13 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20UpdateEksAnywhereSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the subscription.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the subscription.
+  ## Keyword parameters:
   """
-
   @spec update_eks_anywhere_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_eks_anywhere_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_eks_anywhere_subscription_errors()}
-
   def update_eks_anywhere_subscription(%Client{} = client, id, options \\ []) do
     url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
 
@@ -6120,17 +5965,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20UpdateNodegroupConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:nodegroup_name` (`t:string`) The name of the managed node group to update.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:nodegroup_name` (`t:string` required) The name of the managed node group to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_nodegroup_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_nodegroup_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_nodegroup_config_errors()}
-
   def update_nodegroup_config(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}/update-config"
@@ -6174,17 +6017,15 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20UpdateNodegroupVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of your cluster.
-  * `:nodegroup_name` (`t:string`) The name of the managed node group to update.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of your cluster.
+  * `:nodegroup_name` (`t:string` required) The name of the managed node group to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_nodegroup_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_nodegroup_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_nodegroup_version_errors()}
-
   def update_nodegroup_version(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}/update-version"
@@ -6225,18 +6066,16 @@ defmodule AWS.EKS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eks%20UpdatePodIdentityAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:association_id` (`t:string`) The ID of the association to be updated.
-  * `:cluster_name` (`t:string`) The name of the cluster that you want to update
-  the association in.
-
-  ## Optional parameters:
+  * `:association_id` (`t:string` required) The ID of the association to be
+  updated.
+  * `:cluster_name` (`t:string` required) The name of the cluster that you want to
+  update the association in.
+  ## Keyword parameters:
   """
-
   @spec update_pod_identity_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_pod_identity_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pod_identity_association_errors()}
-
   def update_pod_identity_association(
         %Client{} = client,
         association_id,

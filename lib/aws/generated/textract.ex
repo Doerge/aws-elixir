@@ -1803,6 +1803,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Analyzes an input document for relationships between detected items. The types
   of information returned are as follows:
 
@@ -1818,12 +1819,10 @@ defmodule AWS.Textract do
       required("FeatureTypes") => list(list(any())())
     }
   """
-
   @spec analyze_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, analyze_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, analyze_document_errors()}
-
   def analyze_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1832,6 +1831,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   `AnalyzeExpense` synchronously analyzes an input document for financially
   related relationships between text. Information is returned as
   `ExpenseDocuments` and seperated as follows:
@@ -1844,12 +1844,10 @@ defmodule AWS.Textract do
       required("Document") => document()
     }
   """
-
   @spec analyze_expense(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, analyze_expense_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, analyze_expense_errors()}
-
   def analyze_expense(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1858,6 +1856,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Analyzes identity documents for relevant information. This information is
   extracted and returned as `IdentityDocumentFields`, which records both the
   normalized field and value of the extracted text. Unlike other Amazon Textract
@@ -1871,12 +1870,10 @@ defmodule AWS.Textract do
       required("DocumentPages") => list(document()())
     }
   """
-
   @spec analyze_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, analyze_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, analyze_id_errors()}
-
   def analyze_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1885,6 +1882,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Creates an adapter, which can be fine-tuned for enhanced performance on user
   provided documents. Takes an AdapterName and FeatureType. Currently the only
   supported feature type is `QUERIES`. You can also provide a Description, Tags,
@@ -1905,12 +1903,10 @@ defmodule AWS.Textract do
       required("FeatureTypes") => list(list(any())())
     }
   """
-
   @spec create_adapter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_adapter_errors()}
-
   def create_adapter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1919,6 +1915,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Creates a new version of an adapter. Operates on a provided AdapterId and a
   specified dataset provided via the DatasetConfig argument. Requires that you
   specify an Amazon S3 bucket with the OutputConfig argument. You can provide an
@@ -1937,12 +1934,10 @@ defmodule AWS.Textract do
       required("OutputConfig") => output_config()
     }
   """
-
   @spec create_adapter_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_adapter_version_errors()}
-
   def create_adapter_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1951,6 +1946,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Deletes an Amazon Textract adapter. Takes an AdapterId and deletes the adapter
   specified by the ID.
 
@@ -1962,12 +1958,10 @@ defmodule AWS.Textract do
       required("AdapterId") => String.t()
     }
   """
-
   @spec delete_adapter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_adapter_errors()}
-
   def delete_adapter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1976,6 +1970,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Deletes an Amazon Textract adapter version. Requires that you specify both an
   AdapterId and a AdapterVersion. Deletes the adapter version specified by the
   AdapterId and the AdapterVersion.
@@ -1989,12 +1984,10 @@ defmodule AWS.Textract do
       required("AdapterVersion") => String.t()
     }
   """
-
   @spec delete_adapter_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_adapter_version_errors()}
-
   def delete_adapter_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2003,6 +1996,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Detects text in the input document. Amazon Textract can detect lines of text and
   the words that make up a line of text. The input document must be in one of
   the following image formats: JPEG, PNG, PDF, or TIFF. `DetectDocumentText`
@@ -2020,12 +2014,10 @@ defmodule AWS.Textract do
       required("Document") => document()
     }
   """
-
   @spec detect_document_text(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_document_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_document_text_errors()}
-
   def detect_document_text(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2034,6 +2026,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Gets configuration information for an adapter specified by an AdapterId,
   returning information on AdapterName, Description, CreationTime, AutoUpdate
   status, and FeatureTypes.
@@ -2046,12 +2039,10 @@ defmodule AWS.Textract do
       required("AdapterId") => String.t()
     }
   """
-
   @spec get_adapter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_adapter_errors()}
-
   def get_adapter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2060,6 +2051,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Gets configuration information for the specified adapter version, including:
   AdapterId, AdapterVersion, FeatureTypes, Status, StatusMessage, DatasetConfig,
   KMSKeyId, OutputConfig, Tags and EvaluationMetrics.
@@ -2073,12 +2065,10 @@ defmodule AWS.Textract do
       required("AdapterVersion") => String.t()
     }
   """
-
   @spec get_adapter_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_adapter_version_errors()}
-
   def get_adapter_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2087,6 +2077,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Gets the results for an Amazon Textract asynchronous operation that analyzes
   text in a document. You start asynchronous text analysis by calling
   `StartDocumentAnalysis`, which returns a job identifier (`JobId`). When the
@@ -2108,12 +2099,10 @@ defmodule AWS.Textract do
       required("JobId") => String.t()
     }
   """
-
   @spec get_document_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_document_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_analysis_errors()}
-
   def get_document_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2122,6 +2111,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Gets the results for an Amazon Textract asynchronous operation that detects text
   in a document. Amazon Textract can detect lines of text and the words that
   make up a line of text. You start asynchronous text detection by calling
@@ -2144,12 +2134,10 @@ defmodule AWS.Textract do
       required("JobId") => String.t()
     }
   """
-
   @spec get_document_text_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_document_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_text_detection_errors()}
-
   def get_document_text_detection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2158,6 +2146,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Gets the results for an Amazon Textract asynchronous operation that analyzes
   invoices and receipts. Amazon Textract finds contact information, items
   purchased, and vendor name, from input invoices and receipts. You start
@@ -2181,12 +2170,10 @@ defmodule AWS.Textract do
       required("JobId") => String.t()
     }
   """
-
   @spec get_expense_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_expense_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_expense_analysis_errors()}
-
   def get_expense_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2195,6 +2182,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Gets the results for an Amazon Textract asynchronous operation that analyzes
   text in a lending document. You start asynchronous text analysis by calling
   `StartLendingAnalysis`, which returns a job identifier (`JobId`). When the
@@ -2212,12 +2200,10 @@ defmodule AWS.Textract do
       required("JobId") => String.t()
     }
   """
-
   @spec get_lending_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lending_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lending_analysis_errors()}
-
   def get_lending_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2226,6 +2212,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Gets summarized results for the `StartLendingAnalysis` operation, which analyzes
   text in a lending document. The returned summary consists of information about
   documents grouped together by a common document type. Information like
@@ -2244,12 +2231,10 @@ defmodule AWS.Textract do
       required("JobId") => String.t()
     }
   """
-
   @spec get_lending_analysis_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lending_analysis_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lending_analysis_summary_errors()}
-
   def get_lending_analysis_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2258,6 +2243,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   List all version of an adapter that meet the specified filtration criteria.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20ListAdapterVersions&this_doc_guide=API%2520Reference)
@@ -2272,12 +2258,10 @@ defmodule AWS.Textract do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_adapter_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_adapter_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_adapter_versions_errors()}
-
   def list_adapter_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2286,6 +2270,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Lists all adapters that match the specified filtration criteria.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20ListAdapters&this_doc_guide=API%2520Reference)
@@ -2299,12 +2284,10 @@ defmodule AWS.Textract do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_adapters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_adapters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_adapters_errors()}
-
   def list_adapters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2313,6 +2296,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Lists all tags for an Amazon Textract resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -2323,12 +2307,10 @@ defmodule AWS.Textract do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2337,6 +2319,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Starts the asynchronous analysis of an input document for relationships between
   detected items such as key-value pairs, tables, and selection elements.
   `StartDocumentAnalysis` can analyze text in documents that are in JPEG, PNG,
@@ -2359,12 +2342,10 @@ defmodule AWS.Textract do
       required("FeatureTypes") => list(list(any())())
     }
   """
-
   @spec start_document_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_document_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_document_analysis_errors()}
-
   def start_document_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2373,6 +2354,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Starts the asynchronous detection of text in a document. Amazon Textract can
   detect lines of text and the words that make up a line of text.
   `StartDocumentTextDetection` can analyze text in documents that are in JPEG,
@@ -2393,12 +2375,10 @@ defmodule AWS.Textract do
       required("DocumentLocation") => document_location()
     }
   """
-
   @spec start_document_text_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_document_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_document_text_detection_errors()}
-
   def start_document_text_detection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2408,6 +2388,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Starts the asynchronous analysis of invoices or receipts for data like contact
   information, items purchased, and vendor names. `StartExpenseAnalysis` can
   analyze text in documents that are in JPEG, PNG, and PDF format. The documents
@@ -2428,12 +2409,10 @@ defmodule AWS.Textract do
       required("DocumentLocation") => document_location()
     }
   """
-
   @spec start_expense_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_expense_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_expense_analysis_errors()}
-
   def start_expense_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2442,6 +2421,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Starts the classification and analysis of an input document.
   `StartLendingAnalysis` initiates the classification and analysis of a packet
   of lending documents. `StartLendingAnalysis` operates on a document file
@@ -2463,12 +2443,10 @@ defmodule AWS.Textract do
       required("DocumentLocation") => document_location()
     }
   """
-
   @spec start_lending_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_lending_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_lending_analysis_errors()}
-
   def start_lending_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2477,6 +2455,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Adds one or more tags to the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20TagResource&this_doc_guide=API%2520Reference)
@@ -2488,12 +2467,10 @@ defmodule AWS.Textract do
       required("Tags") => map()
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2502,6 +2479,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Removes any tags with the specified keys from the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20UntagResource&this_doc_guide=API%2520Reference)
@@ -2513,12 +2491,10 @@ defmodule AWS.Textract do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2527,6 +2503,7 @@ defmodule AWS.Textract do
   end
 
   @doc """
+   
   Update the configuration for an adapter. FeatureTypes configurations cannot be
   updated. At least one new parameter must be specified as an argument.
 
@@ -2541,12 +2518,10 @@ defmodule AWS.Textract do
       required("AdapterId") => String.t()
     }
   """
-
   @spec update_adapter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_adapter_errors()}
-
   def update_adapter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

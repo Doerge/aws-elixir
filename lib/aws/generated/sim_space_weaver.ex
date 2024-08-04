@@ -757,15 +757,12 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20CreateSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_errors()}
-
   def create_snapshot(%Client{} = client, options \\ []) do
     url_path = "/createsnapshot"
 
@@ -802,18 +799,15 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20DeleteApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app` (`t:string`) The name of the app.
-  * `:domain` (`t:string`) The name of the domain of the app.
-  * `:simulation` (`t:string`) The name of the simulation of the app.
-
-  ## Optional parameters:
+  * `:app` (`t:string` required) The name of the app.
+  * `:domain` (`t:string` required) The name of the domain of the app.
+  * `:simulation` (`t:string` required) The name of the simulation of the app.
+  ## Keyword parameters:
   """
-
   @spec delete_app(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
-
   def delete_app(%Client{} = client, app, domain, simulation, options \\ [])
       when is_binary(app) and is_binary(domain) and is_binary(simulation) do
     url_path = "/deleteapp"
@@ -861,16 +855,13 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20DeleteSimulation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:simulation` (`t:string`) The name of the simulation.
-
-  ## Optional parameters:
+  * `:simulation` (`t:string` required) The name of the simulation.
+  ## Keyword parameters:
   """
-
   @spec delete_simulation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_simulation_errors()}
-
   def delete_simulation(%Client{} = client, simulation, options \\ [])
       when is_binary(simulation) do
     url_path = "/deletesimulation"
@@ -918,18 +909,15 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20DescribeApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app` (`t:string`) The name of the app.
-  * `:domain` (`t:string`) The name of the domain of the app.
-  * `:simulation` (`t:string`) The name of the simulation of the app.
-
-  ## Optional parameters:
+  * `:app` (`t:string` required) The name of the app.
+  * `:domain` (`t:string` required) The name of the domain of the app.
+  * `:simulation` (`t:string` required) The name of the simulation of the app.
+  ## Keyword parameters:
   """
-
   @spec describe_app(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_errors()}
-
   def describe_app(%Client{} = client, app, domain, simulation, options \\ [])
       when is_binary(app) and is_binary(domain) and is_binary(simulation) do
     url_path = "/describeapp"
@@ -965,16 +953,13 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20DescribeSimulation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:simulation` (`t:string`) The name of the simulation.
-
-  ## Optional parameters:
+  * `:simulation` (`t:string` required) The name of the simulation.
+  ## Keyword parameters:
   """
-
   @spec describe_simulation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_simulation_errors()}
-
   def describe_simulation(%Client{} = client, simulation, options \\ [])
       when is_binary(simulation) do
     url_path = "/describesimulation"
@@ -1010,10 +995,9 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20ListApps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:simulation` (`t:string`) The name of the simulation that you want to list
-  apps for.
-
-  ## Optional parameters:
+  * `:simulation` (`t:string` required) The name of the simulation that you want
+  to list apps for.
+  ## Keyword parameters:
   * `:domain` (`t:string`) The name of the domain that you want to list apps for.
   * `:max_results` (`t:integer`) The maximum number of apps to list.
   * `:next_token` (`t:string`) If SimSpace Weaver returns nextToken, then there
@@ -1024,12 +1008,10 @@ defmodule AWS.SimSpaceWeaver do
   24 hours. If you provide a token that isn't valid, then you receive an HTTP
   400 ValidationException error.
   """
-
   @spec list_apps(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_apps_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_apps_errors()}
-
   def list_apps(%Client{} = client, simulation, options \\ []) when is_binary(simulation) do
     url_path = "/listapps"
 
@@ -1090,8 +1072,7 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20ListSimulations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of simulations to list.
   * `:next_token` (`t:string`) If SimSpace Weaver returns nextToken, then there
   are more results available. The value of nextToken is a unique pagination
@@ -1101,12 +1082,10 @@ defmodule AWS.SimSpaceWeaver do
   24 hours. If you provide a token that isn't valid, then you receive an HTTP
   400 ValidationException error.
   """
-
   @spec list_simulations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_simulations_errors()}
-
   def list_simulations(%Client{} = client, options \\ []) do
     url_path = "/listsimulations"
 
@@ -1159,18 +1138,15 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  For more information about ARNs, see Amazon Resource Names (ARNs) in the
-  Amazon Web Services General Reference.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource. For more information about ARNs, see Amazon Resource Names (ARNs)
+  in the Amazon Web Services General Reference.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1205,15 +1181,12 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StartApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_app_errors()}
-
   def start_app(%Client{} = client, options \\ []) do
     url_path = "/startapp"
 
@@ -1250,15 +1223,12 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StartClock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_clock(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_clock_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_clock_errors()}
-
   def start_clock(%Client{} = client, options \\ []) do
     url_path = "/startclock"
 
@@ -1301,15 +1271,12 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StartSimulation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_simulation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_simulation_errors()}
-
   def start_simulation(%Client{} = client, options \\ []) do
     url_path = "/startsimulation"
 
@@ -1347,15 +1314,12 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StopApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_app_errors()}
-
   def stop_app(%Client{} = client, options \\ []) do
     url_path = "/stopapp"
 
@@ -1392,15 +1356,12 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StopClock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_clock(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_clock_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_clock_errors()}
-
   def stop_clock(%Client{} = client, options \\ []) do
     url_path = "/stopclock"
 
@@ -1437,15 +1398,12 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StopSimulation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_simulation(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_simulation_errors()}
-
   def stop_simulation(%Client{} = client, options \\ []) do
     url_path = "/stopsimulation"
 
@@ -1485,18 +1443,15 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to add tags to. For more information about ARNs, see Amazon
-  Resource Names (ARNs) in the Amazon Web Services General Reference.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to add tags to. For more information about ARNs, see
+  Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1536,20 +1491,18 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to remove tags from. For more information about ARNs, see
-  Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
-  * `:tag_keys` (`t:list[com.amazonaws.simspaceweaver#TagKey]`) A list of tag keys
-  to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to remove tags from. For more information about ARNs,
+  see Amazon Resource Names (ARNs) in the Amazon Web Services General
+  Reference.
+  * `:tag_keys` (`t:list[com.amazonaws.simspaceweaver#TagKey]` required) A list of
+  tag keys to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

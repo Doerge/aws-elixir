@@ -563,15 +563,12 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20CreateSavingsPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_savings_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_savings_plan_errors()}
-
   def create_savings_plan(%Client{} = client, options \\ []) do
     url_path = "/CreateSavingsPlan"
 
@@ -608,15 +605,12 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DeleteQueuedSavingsPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_queued_savings_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_queued_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queued_savings_plan_errors()}
-
   def delete_queued_savings_plan(%Client{} = client, options \\ []) do
     url_path = "/DeleteQueuedSavingsPlan"
 
@@ -653,15 +647,12 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlanRates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_savings_plan_rates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plan_rates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_savings_plan_rates_errors()}
-
   def describe_savings_plan_rates(%Client{} = client, options \\ []) do
     url_path = "/DescribeSavingsPlanRates"
 
@@ -698,15 +689,12 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_savings_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_savings_plans_errors()}
-
   def describe_savings_plans(%Client{} = client, options \\ []) do
     url_path = "/DescribeSavingsPlans"
 
@@ -743,15 +731,12 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlansOfferingRates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_savings_plans_offering_rates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plans_offering_rates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_savings_plans_offering_rates_errors()}
-
   def describe_savings_plans_offering_rates(%Client{} = client, options \\ []) do
     url_path = "/DescribeSavingsPlansOfferingRates"
 
@@ -788,15 +773,12 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlansOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_savings_plans_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plans_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_savings_plans_offerings_errors()}
-
   def describe_savings_plans_offerings(%Client{} = client, options \\ []) do
     url_path = "/DescribeSavingsPlansOfferings"
 
@@ -833,15 +815,12 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/ListTagsForResource"
 
@@ -878,15 +857,12 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20ReturnSavingsPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec return_savings_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, return_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, return_savings_plan_errors()}
-
   def return_savings_plan(%Client{} = client, options \\ []) do
     url_path = "/ReturnSavingsPlan"
 
@@ -923,15 +899,12 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/TagResource"
 
@@ -968,15 +941,12 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/UntagResource"
 

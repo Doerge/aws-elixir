@@ -2480,6 +2480,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Accepts the specified grant.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20AcceptGrant&this_doc_guide=API%2520Reference)
@@ -2490,12 +2491,10 @@ defmodule AWS.LicenseManager do
       required("GrantArn") => String.t()
     }
   """
-
   @spec accept_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_grant_errors()}
-
   def accept_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2504,6 +2503,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Checks in the specified license. Check in a license when it is no longer in use.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20CheckInLicense&this_doc_guide=API%2520Reference)
@@ -2515,12 +2515,10 @@ defmodule AWS.LicenseManager do
       required("LicenseConsumptionToken") => String.t()
     }
   """
-
   @spec check_in_license(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, check_in_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_in_license_errors()}
-
   def check_in_license(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2529,6 +2527,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Checks out the specified license for offline use.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20CheckoutBorrowLicense&this_doc_guide=API%2520Reference)
@@ -2544,12 +2543,10 @@ defmodule AWS.LicenseManager do
       required("LicenseArn") => String.t()
     }
   """
-
   @spec checkout_borrow_license(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, checkout_borrow_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, checkout_borrow_license_errors()}
-
   def checkout_borrow_license(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2558,6 +2555,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Checks out the specified license.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20CheckoutLicense&this_doc_guide=API%2520Reference)
@@ -2574,12 +2572,10 @@ defmodule AWS.LicenseManager do
       required("ProductSKU") => String.t()
     }
   """
-
   @spec checkout_license(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, checkout_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, checkout_license_errors()}
-
   def checkout_license(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2588,6 +2584,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Creates a grant for the specified license. A grant shares the use of license
   entitlements with a specific Amazon Web Services account, an organization, or
   an organizational unit (OU). For more information, see [Granted licenses in
@@ -2608,12 +2605,10 @@ defmodule AWS.LicenseManager do
       required("Principals") => list(String.t()())
     }
   """
-
   @spec create_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_grant_errors()}
-
   def create_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2622,6 +2617,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Creates a new version of the specified grant. For more information, see [Granted
   licenses in License
   Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
@@ -2642,12 +2638,10 @@ defmodule AWS.LicenseManager do
       required("GrantArn") => String.t()
     }
   """
-
   @spec create_grant_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_grant_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_grant_version_errors()}
-
   def create_grant_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2656,6 +2650,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Creates a license.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20CreateLicense&this_doc_guide=API%2520Reference)
@@ -2676,12 +2671,10 @@ defmodule AWS.LicenseManager do
       required("Validity") => datetime_range()
     }
   """
-
   @spec create_license(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_errors()}
-
   def create_license(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2690,6 +2683,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Creates a license configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20CreateLicenseConfiguration&this_doc_guide=API%2520Reference)
@@ -2708,12 +2702,10 @@ defmodule AWS.LicenseManager do
       required("Name") => String.t()
     }
   """
-
   @spec create_license_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_configuration_errors()}
-
   def create_license_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2722,6 +2714,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Creates a new license conversion task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20CreateLicenseConversionTaskForResource&this_doc_guide=API%2520Reference)
@@ -2734,12 +2727,10 @@ defmodule AWS.LicenseManager do
       required("SourceLicenseContext") => license_conversion_context()
     }
   """
-
   @spec create_license_conversion_task_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_license_conversion_task_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_conversion_task_for_resource_errors()}
-
   def create_license_conversion_task_for_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2749,6 +2740,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Creates a report generator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20CreateLicenseManagerReportGenerator&this_doc_guide=API%2520Reference)
@@ -2765,12 +2757,10 @@ defmodule AWS.LicenseManager do
       required("Type") => list(list(any())())
     }
   """
-
   @spec create_license_manager_report_generator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_manager_report_generator_errors()}
-
   def create_license_manager_report_generator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2780,6 +2770,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Creates a new version of the specified license.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20CreateLicenseVersion&this_doc_guide=API%2520Reference)
@@ -2801,12 +2792,10 @@ defmodule AWS.LicenseManager do
       required("Validity") => datetime_range()
     }
   """
-
   @spec create_license_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_license_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_version_errors()}
-
   def create_license_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2815,6 +2804,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Creates a long-lived token.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20CreateToken&this_doc_guide=API%2520Reference)
@@ -2829,12 +2819,10 @@ defmodule AWS.LicenseManager do
       required("LicenseArn") => String.t()
     }
   """
-
   @spec create_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_token_errors()}
-
   def create_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2843,6 +2831,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Deletes the specified grant.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20DeleteGrant&this_doc_guide=API%2520Reference)
@@ -2855,12 +2844,10 @@ defmodule AWS.LicenseManager do
       required("Version") => String.t()
     }
   """
-
   @spec delete_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_grant_errors()}
-
   def delete_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2869,6 +2856,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Deletes the specified license.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20DeleteLicense&this_doc_guide=API%2520Reference)
@@ -2880,12 +2868,10 @@ defmodule AWS.LicenseManager do
       required("SourceVersion") => String.t()
     }
   """
-
   @spec delete_license(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_license_errors()}
-
   def delete_license(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2894,6 +2880,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Deletes the specified license configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20DeleteLicenseConfiguration&this_doc_guide=API%2520Reference)
@@ -2904,12 +2891,10 @@ defmodule AWS.LicenseManager do
       required("LicenseConfigurationArn") => String.t()
     }
   """
-
   @spec delete_license_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_license_configuration_errors()}
-
   def delete_license_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2918,6 +2903,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Deletes the specified report generator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20DeleteLicenseManagerReportGenerator&this_doc_guide=API%2520Reference)
@@ -2928,12 +2914,10 @@ defmodule AWS.LicenseManager do
       required("LicenseManagerReportGeneratorArn") => String.t()
     }
   """
-
   @spec delete_license_manager_report_generator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_license_manager_report_generator_errors()}
-
   def delete_license_manager_report_generator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2943,6 +2927,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Deletes the specified token. Must be called in the license home Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20DeleteToken&this_doc_guide=API%2520Reference)
@@ -2953,12 +2938,10 @@ defmodule AWS.LicenseManager do
       required("TokenId") => String.t()
     }
   """
-
   @spec delete_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_token_errors()}
-
   def delete_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2967,6 +2950,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Extends the expiration date for license consumption.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ExtendLicenseConsumption&this_doc_guide=API%2520Reference)
@@ -2978,12 +2962,10 @@ defmodule AWS.LicenseManager do
       required("LicenseConsumptionToken") => String.t()
     }
   """
-
   @spec extend_license_consumption(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, extend_license_consumption_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, extend_license_consumption_errors()}
-
   def extend_license_consumption(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2992,6 +2974,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Gets a temporary access token to use with AssumeRoleWithWebIdentity. Access
   tokens are valid for one hour.
 
@@ -3004,12 +2987,10 @@ defmodule AWS.LicenseManager do
       required("Token") => String.t()
     }
   """
-
   @spec get_access_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_access_token_errors()}
-
   def get_access_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3018,6 +2999,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Gets detailed information about the specified grant.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20GetGrant&this_doc_guide=API%2520Reference)
@@ -3029,12 +3011,10 @@ defmodule AWS.LicenseManager do
       required("GrantArn") => String.t()
     }
   """
-
   @spec get_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_grant_errors()}
-
   def get_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3043,6 +3023,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Gets detailed information about the specified license.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20GetLicense&this_doc_guide=API%2520Reference)
@@ -3054,12 +3035,10 @@ defmodule AWS.LicenseManager do
       required("LicenseArn") => String.t()
     }
   """
-
   @spec get_license(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_errors()}
-
   def get_license(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3068,6 +3047,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Gets detailed information about the specified license configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20GetLicenseConfiguration&this_doc_guide=API%2520Reference)
@@ -3078,12 +3058,10 @@ defmodule AWS.LicenseManager do
       required("LicenseConfigurationArn") => String.t()
     }
   """
-
   @spec get_license_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_configuration_errors()}
-
   def get_license_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3092,6 +3070,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Gets information about the specified license type conversion task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20GetLicenseConversionTask&this_doc_guide=API%2520Reference)
@@ -3102,12 +3081,10 @@ defmodule AWS.LicenseManager do
       required("LicenseConversionTaskId") => String.t()
     }
   """
-
   @spec get_license_conversion_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_license_conversion_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_conversion_task_errors()}
-
   def get_license_conversion_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3116,6 +3093,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Gets information about the specified report generator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20GetLicenseManagerReportGenerator&this_doc_guide=API%2520Reference)
@@ -3126,12 +3104,10 @@ defmodule AWS.LicenseManager do
       required("LicenseManagerReportGeneratorArn") => String.t()
     }
   """
-
   @spec get_license_manager_report_generator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_manager_report_generator_errors()}
-
   def get_license_manager_report_generator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3141,6 +3117,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Gets detailed information about the usage of the specified license.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20GetLicenseUsage&this_doc_guide=API%2520Reference)
@@ -3151,12 +3128,10 @@ defmodule AWS.LicenseManager do
       required("LicenseArn") => String.t()
     }
   """
-
   @spec get_license_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_license_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_usage_errors()}
-
   def get_license_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3165,6 +3140,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Gets the License Manager settings for the current Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20GetServiceSettings&this_doc_guide=API%2520Reference)
@@ -3175,12 +3151,10 @@ defmodule AWS.LicenseManager do
       
     }
   """
-
   @spec get_service_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_settings_errors()}
-
   def get_service_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3189,6 +3163,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists the resource associations for the specified license configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListAssociationsForLicenseConfiguration&this_doc_guide=API%2520Reference)
@@ -3201,12 +3176,10 @@ defmodule AWS.LicenseManager do
       required("LicenseConfigurationArn") => String.t()
     }
   """
-
   @spec list_associations_for_license_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_associations_for_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associations_for_license_configuration_errors()}
-
   def list_associations_for_license_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3216,6 +3189,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists the grants distributed for the specified license.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListDistributedGrants&this_doc_guide=API%2520Reference)
@@ -3229,12 +3203,10 @@ defmodule AWS.LicenseManager do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_distributed_grants(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_distributed_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributed_grants_errors()}
-
   def list_distributed_grants(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3243,6 +3215,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists the license configuration operations that failed.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListFailuresForLicenseConfigurationOperations&this_doc_guide=API%2520Reference)
@@ -3255,7 +3228,6 @@ defmodule AWS.LicenseManager do
       required("LicenseConfigurationArn") => String.t()
     }
   """
-
   @spec list_failures_for_license_configuration_operations(
           AWS.Client.t(),
           input :: map(),
@@ -3264,7 +3236,6 @@ defmodule AWS.LicenseManager do
           {:ok, list_failures_for_license_configuration_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_failures_for_license_configuration_operations_errors()}
-
   def list_failures_for_license_configuration_operations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3280,6 +3251,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists the license configurations for your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListLicenseConfigurations&this_doc_guide=API%2520Reference)
@@ -3293,12 +3265,10 @@ defmodule AWS.LicenseManager do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_license_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_license_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_configurations_errors()}
-
   def list_license_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3307,6 +3277,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists the license type conversion tasks for your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListLicenseConversionTasks&this_doc_guide=API%2520Reference)
@@ -3319,12 +3290,10 @@ defmodule AWS.LicenseManager do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_license_conversion_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_license_conversion_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_conversion_tasks_errors()}
-
   def list_license_conversion_tasks(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3334,6 +3303,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists the report generators for your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListLicenseManagerReportGenerators&this_doc_guide=API%2520Reference)
@@ -3346,12 +3316,10 @@ defmodule AWS.LicenseManager do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_license_manager_report_generators(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_license_manager_report_generators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_manager_report_generators_errors()}
-
   def list_license_manager_report_generators(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3361,6 +3329,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Describes the license configurations for the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListLicenseSpecificationsForResource&this_doc_guide=API%2520Reference)
@@ -3373,12 +3342,10 @@ defmodule AWS.LicenseManager do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_license_specifications_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_license_specifications_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_specifications_for_resource_errors()}
-
   def list_license_specifications_for_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3388,6 +3355,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists all versions of the specified license.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListLicenseVersions&this_doc_guide=API%2520Reference)
@@ -3400,12 +3368,10 @@ defmodule AWS.LicenseManager do
       required("LicenseArn") => String.t()
     }
   """
-
   @spec list_license_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_license_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_versions_errors()}
-
   def list_license_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3414,6 +3380,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists the licenses for your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListLicenses&this_doc_guide=API%2520Reference)
@@ -3427,12 +3394,10 @@ defmodule AWS.LicenseManager do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_licenses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_licenses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_licenses_errors()}
-
   def list_licenses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3441,6 +3406,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists grants that are received. Received grants are grants created while
   specifying the recipient as this Amazon Web Services account, your
   organization, or an organizational unit (OU) to which this member account
@@ -3457,12 +3423,10 @@ defmodule AWS.LicenseManager do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_received_grants(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_received_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_received_grants_errors()}
-
   def list_received_grants(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3471,6 +3435,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists the grants received for all accounts in the organization.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListReceivedGrantsForOrganization&this_doc_guide=API%2520Reference)
@@ -3484,12 +3449,10 @@ defmodule AWS.LicenseManager do
       required("LicenseArn") => String.t()
     }
   """
-
   @spec list_received_grants_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_received_grants_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_received_grants_for_organization_errors()}
-
   def list_received_grants_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3499,6 +3462,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists received licenses.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListReceivedLicenses&this_doc_guide=API%2520Reference)
@@ -3512,12 +3476,10 @@ defmodule AWS.LicenseManager do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_received_licenses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_received_licenses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_received_licenses_errors()}
-
   def list_received_licenses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3526,6 +3488,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists the licenses received for all accounts in the organization.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListReceivedLicensesForOrganization&this_doc_guide=API%2520Reference)
@@ -3538,12 +3501,10 @@ defmodule AWS.LicenseManager do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_received_licenses_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_received_licenses_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_received_licenses_for_organization_errors()}
-
   def list_received_licenses_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3553,6 +3514,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists resources managed using Systems Manager inventory.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListResourceInventory&this_doc_guide=API%2520Reference)
@@ -3565,12 +3527,10 @@ defmodule AWS.LicenseManager do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_resource_inventory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_inventory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_inventory_errors()}
-
   def list_resource_inventory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3579,6 +3539,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists the tags for the specified license configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -3589,12 +3550,10 @@ defmodule AWS.LicenseManager do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3603,6 +3562,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists your tokens.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20ListTokens&this_doc_guide=API%2520Reference)
@@ -3616,12 +3576,10 @@ defmodule AWS.LicenseManager do
       optional("TokenIds") => list(String.t()())
     }
   """
-
   @spec list_tokens(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tokens_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tokens_errors()}
-
   def list_tokens(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3630,6 +3588,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Lists all license usage records for a license configuration, displaying license
   consumption details by resource at a selected point in time. Use this action
   to audit the current license consumption for any license inventory and
@@ -3646,12 +3605,10 @@ defmodule AWS.LicenseManager do
       required("LicenseConfigurationArn") => String.t()
     }
   """
-
   @spec list_usage_for_license_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_usage_for_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_usage_for_license_configuration_errors()}
-
   def list_usage_for_license_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3661,6 +3618,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Rejects the specified grant.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20RejectGrant&this_doc_guide=API%2520Reference)
@@ -3671,12 +3629,10 @@ defmodule AWS.LicenseManager do
       required("GrantArn") => String.t()
     }
   """
-
   @spec reject_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_grant_errors()}
-
   def reject_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3685,6 +3641,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Adds the specified tags to the specified license configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20TagResource&this_doc_guide=API%2520Reference)
@@ -3696,12 +3653,10 @@ defmodule AWS.LicenseManager do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3710,6 +3665,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Removes the specified tags from the specified license configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20UntagResource&this_doc_guide=API%2520Reference)
@@ -3721,12 +3677,10 @@ defmodule AWS.LicenseManager do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3735,6 +3689,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Modifies the attributes of an existing license configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20UpdateLicenseConfiguration&this_doc_guide=API%2520Reference)
@@ -3753,12 +3708,10 @@ defmodule AWS.LicenseManager do
       required("LicenseConfigurationArn") => String.t()
     }
   """
-
   @spec update_license_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_license_configuration_errors()}
-
   def update_license_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3767,6 +3720,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Updates a report generator.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20UpdateLicenseManagerReportGenerator&this_doc_guide=API%2520Reference)
@@ -3783,12 +3737,10 @@ defmodule AWS.LicenseManager do
       required("Type") => list(list(any())())
     }
   """
-
   @spec update_license_manager_report_generator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_license_manager_report_generator_errors()}
-
   def update_license_manager_report_generator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3798,6 +3750,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Adds or removes the specified license configurations for the specified Amazon
   Web Services resource.
 
@@ -3811,12 +3764,10 @@ defmodule AWS.LicenseManager do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec update_license_specifications_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_license_specifications_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_license_specifications_for_resource_errors()}
-
   def update_license_specifications_for_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3826,6 +3777,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+   
   Updates License Manager settings for the current Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanager%20UpdateServiceSettings&this_doc_guide=API%2520Reference)
@@ -3839,12 +3791,10 @@ defmodule AWS.LicenseManager do
       optional("SnsTopicArn") => String.t()
     }
   """
-
   @spec update_service_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_settings_errors()}
-
   def update_service_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

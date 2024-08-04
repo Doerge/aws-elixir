@@ -587,16 +587,14 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20AssociateDeviceWithPlacement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_template_name` (`t:string`) The device template name to associate
-  with the device ID.
-  * `:placement_name` (`t:string`) The name of the placement in which to associate
-  the device.
-  * `:project_name` (`t:string`) The name of the project containing the placement
-  in which to associate the device.
-
-  ## Optional parameters:
+  * `:device_template_name` (`t:string` required) The device template name to
+  associate with the device ID.
+  * `:placement_name` (`t:string` required) The name of the placement in which to
+  associate the device.
+  * `:project_name` (`t:string` required) The name of the project containing the
+  placement in which to associate the device.
+  ## Keyword parameters:
   """
-
   @spec associate_device_with_placement(
           AWS.Client.t(),
           String.t(),
@@ -607,7 +605,6 @@ defmodule AWS.IoT1ClickProjects do
           {:ok, associate_device_with_placement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_device_with_placement_errors()}
-
   def associate_device_with_placement(
         %Client{} = client,
         device_template_name,
@@ -651,17 +648,14 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20CreatePlacement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_name` (`t:string`) The name of the project in which to create the
-  placement.
-
-  ## Optional parameters:
+  * `:project_name` (`t:string` required) The name of the project in which to
+  create the placement.
+  ## Keyword parameters:
   """
-
   @spec create_placement(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_placement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_placement_errors()}
-
   def create_placement(%Client{} = client, project_name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}/placements"
 
@@ -699,15 +693,12 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20CreateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_project(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-
   def create_project(%Client{} = client, options \\ []) do
     url_path = "/projects"
 
@@ -745,18 +736,16 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20DeletePlacement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:placement_name` (`t:string`) The name of the empty placement to delete.
-  * `:project_name` (`t:string`) The project containing the empty placement to
+  * `:placement_name` (`t:string` required) The name of the empty placement to
   delete.
-
-  ## Optional parameters:
+  * `:project_name` (`t:string` required) The project containing the empty
+  placement to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_placement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_placement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_placement_errors()}
-
   def delete_placement(%Client{} = client, placement_name, project_name, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
@@ -805,16 +794,13 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20DeleteProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_name` (`t:string`) The name of the empty project to delete.
-
-  ## Optional parameters:
+  * `:project_name` (`t:string` required) The name of the empty project to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-
   def delete_project(%Client{} = client, project_name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
 
@@ -861,18 +847,16 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20DescribePlacement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:placement_name` (`t:string`) The name of the placement within a project.
-  * `:project_name` (`t:string`) The project containing the placement to be
-  described.
-
-  ## Optional parameters:
+  * `:placement_name` (`t:string` required) The name of the placement within a
+  project.
+  * `:project_name` (`t:string` required) The project containing the placement to
+  be described.
+  ## Keyword parameters:
   """
-
   @spec describe_placement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_placement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_placement_errors()}
-
   def describe_placement(%Client{} = client, placement_name, project_name, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
@@ -908,16 +892,13 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20DescribeProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_name` (`t:string`) The name of the project to be described.
-
-  ## Optional parameters:
+  * `:project_name` (`t:string` required) The name of the project to be described.
+  ## Keyword parameters:
   """
-
   @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
-
   def describe_project(%Client{} = client, project_name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
 
@@ -952,16 +933,14 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20DisassociateDeviceFromPlacement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_template_name` (`t:string`) The device ID that should be removed from
+  * `:device_template_name` (`t:string` required) The device ID that should be
+  removed from the placement.
+  * `:placement_name` (`t:string` required) The name of the placement that the
+  device should be removed from.
+  * `:project_name` (`t:string` required) The name of the project that contains
   the placement.
-  * `:placement_name` (`t:string`) The name of the placement that the device
-  should be removed from.
-  * `:project_name` (`t:string`) The name of the project that contains the
-  placement.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_device_from_placement(
           AWS.Client.t(),
           String.t(),
@@ -972,7 +951,6 @@ defmodule AWS.IoT1ClickProjects do
           {:ok, disassociate_device_from_placement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_device_from_placement_errors()}
-
   def disassociate_device_from_placement(
         %Client{} = client,
         device_template_name,
@@ -1026,18 +1004,16 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20GetDevicesInPlacement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:placement_name` (`t:string`) The name of the placement to get the devices
-  from.
-  * `:project_name` (`t:string`) The name of the project containing the placement.
-
-  ## Optional parameters:
+  * `:placement_name` (`t:string` required) The name of the placement to get the
+  devices from.
+  * `:project_name` (`t:string` required) The name of the project containing the
+  placement.
+  ## Keyword parameters:
   """
-
   @spec get_devices_in_placement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_devices_in_placement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_devices_in_placement_errors()}
-
   def get_devices_in_placement(%Client{} = client, placement_name, project_name, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}/devices"
@@ -1073,20 +1049,17 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20ListPlacements&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_name` (`t:string`) The project containing the placements to be
-  listed.
-
-  ## Optional parameters:
+  * `:project_name` (`t:string` required) The project containing the placements to
+  be listed.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per
   request. If not set, a default value of 100 is used.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
-
   @spec list_placements(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_placements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_placements_errors()}
-
   def list_placements(%Client{} = client, project_name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}/placements"
 
@@ -1140,18 +1113,15 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20ListProjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per
   request. If not set, a default value of 100 is used.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
-
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-
   def list_projects(%Client{} = client, options \\ []) do
     url_path = "/projects"
 
@@ -1205,17 +1175,14 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
-  list.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource whose tags you
+  want to list.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1252,17 +1219,14 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resouce for which tag(s) should be
-  added or modified.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resouce for which tag(s)
+  should be added or modified.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1299,19 +1263,16 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource whose tag you want to
-  remove.
-  * `:tag_keys` (`t:list[com.amazonaws.iot1clickprojects#TagKey]`) The keys of
-  those tags which you want to remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource whose tag you
+  want to remove.
+  * `:tag_keys` (`t:list[com.amazonaws.iot1clickprojects#TagKey]` required) The
+  keys of those tags which you want to remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1360,18 +1321,15 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20UpdatePlacement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:placement_name` (`t:string`) The name of the placement to update.
-  * `:project_name` (`t:string`) The name of the project containing the placement
-  to be updated.
-
-  ## Optional parameters:
+  * `:placement_name` (`t:string` required) The name of the placement to update.
+  * `:project_name` (`t:string` required) The name of the project containing the
+  placement to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_placement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_placement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_placement_errors()}
-
   def update_placement(%Client{} = client, placement_name, project_name, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
@@ -1412,16 +1370,13 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20UpdateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_name` (`t:string`) The name of the project to be updated.
-
-  ## Optional parameters:
+  * `:project_name` (`t:string` required) The name of the project to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-
   def update_project(%Client{} = client, project_name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
 

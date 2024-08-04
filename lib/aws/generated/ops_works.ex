@@ -2362,6 +2362,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Assign a registered instance to a layer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20AssignInstance&this_doc_guide=API%2520Reference)
@@ -2373,12 +2374,10 @@ defmodule AWS.OpsWorks do
       required("LayerIds") => list(String.t()())
     }
   """
-
   @spec assign_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assign_instance_errors()}
-
   def assign_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2387,6 +2386,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Assigns one of the stack's registered Amazon EBS volumes to a specified
   instance. The volume must first be registered with the stack by calling
   `RegisterVolume`. After you register the volume, you must call `UpdateVolume`
@@ -2407,12 +2407,10 @@ defmodule AWS.OpsWorks do
       required("VolumeId") => String.t()
     }
   """
-
   @spec assign_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assign_volume_errors()}
-
   def assign_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2421,6 +2419,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Associates one of the stack's registered Elastic IP addresses with a specified
   instance. The address must first be registered with the stack by calling
   `RegisterElasticIp`. For more information, see [Resource
@@ -2439,12 +2438,10 @@ defmodule AWS.OpsWorks do
       required("ElasticIp") => String.t()
     }
   """
-
   @spec associate_elastic_ip(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_elastic_ip_errors()}
-
   def associate_elastic_ip(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2453,6 +2450,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Attaches an Elastic Load Balancing load balancer to a specified layer. OpsWorks
   Stacks does not support Application Load Balancer. You can only use Classic
   Load Balancer with OpsWorks Stacks. For more information, see [Elastic Load
@@ -2471,12 +2469,10 @@ defmodule AWS.OpsWorks do
       required("LayerId") => String.t()
     }
   """
-
   @spec attach_elastic_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_elastic_load_balancer_errors()}
-
   def attach_elastic_load_balancer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2485,6 +2481,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Creates a clone of a specified stack. For more information, see [Clone a
   Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html).
   By default, all parameters are set to the values used by the parent stack.
@@ -2522,12 +2519,10 @@ defmodule AWS.OpsWorks do
       required("SourceStackId") => String.t()
     }
   """
-
   @spec clone_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, clone_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, clone_stack_errors()}
-
   def clone_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2536,6 +2531,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Creates an app for a specified stack. For more information, see [Creating
   Apps](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html).
   **Required Permissions**: To use this action, an IAM user must have a Manage
@@ -2562,12 +2558,10 @@ defmodule AWS.OpsWorks do
       required("Type") => list(any())
     }
   """
-
   @spec create_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
-
   def create_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2576,6 +2570,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Runs deployment or stack commands. For more information, see [Deploying
   Apps](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html)
   and [Run Stack
@@ -2600,12 +2595,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec create_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_deployment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
-
   def create_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2614,6 +2607,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Creates an instance in a specified stack. For more information, see [Adding an
   Instance to a
   Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html).
@@ -2647,12 +2641,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec create_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_errors()}
-
   def create_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2661,6 +2653,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Creates a layer. For more information, see [How to Create a
   Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html).
   You should use **CreateLayer** for noncustom layer types such as PHP App
@@ -2695,12 +2688,10 @@ defmodule AWS.OpsWorks do
       required("Type") => list(any())
     }
   """
-
   @spec create_layer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_layer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_layer_errors()}
-
   def create_layer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2709,6 +2700,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Creates a new stack. For more information, see [Create a New
   Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html).
   **Required Permissions**: To use this action, an IAM user must have an
@@ -2742,12 +2734,10 @@ defmodule AWS.OpsWorks do
       required("ServiceRoleArn") => String.t()
     }
   """
-
   @spec create_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stack_errors()}
-
   def create_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2756,6 +2746,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Creates a new user profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20CreateUserProfile&this_doc_guide=API%2520Reference)
@@ -2769,12 +2760,10 @@ defmodule AWS.OpsWorks do
       required("IamUserArn") => String.t()
     }
   """
-
   @spec create_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_profile_errors()}
-
   def create_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2783,6 +2772,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Deletes a specified app.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20DeleteApp&this_doc_guide=API%2520Reference)
@@ -2793,12 +2783,10 @@ defmodule AWS.OpsWorks do
       required("AppId") => String.t()
     }
   """
-
   @spec delete_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
-
   def delete_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2807,6 +2795,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Deletes a specified instance, which terminates the associated Amazon EC2
   instance. You must stop an instance before you can delete it.
 
@@ -2820,12 +2809,10 @@ defmodule AWS.OpsWorks do
       required("InstanceId") => String.t()
     }
   """
-
   @spec delete_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_errors()}
-
   def delete_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2834,6 +2821,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Deletes a specified layer. You must first stop and then delete all associated
   instances or unassign registered instances. For more information, see [How to
   Delete a
@@ -2851,12 +2839,10 @@ defmodule AWS.OpsWorks do
       required("LayerId") => String.t()
     }
   """
-
   @spec delete_layer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_layer_errors()}
-
   def delete_layer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2865,6 +2851,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Deletes a specified stack. You must first delete all instances, layers, and apps
   or deregister registered instances. For more information, see [Shut Down a
   Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html).
@@ -2881,12 +2868,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec delete_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stack_errors()}
-
   def delete_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2895,6 +2880,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Deletes a user profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20DeleteUserProfile&this_doc_guide=API%2520Reference)
@@ -2905,12 +2891,10 @@ defmodule AWS.OpsWorks do
       required("IamUserArn") => String.t()
     }
   """
-
   @spec delete_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_profile_errors()}
-
   def delete_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2919,6 +2903,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Deregisters a specified Amazon ECS cluster from a stack. For more information,
   see [ Resource
   Management](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete).
@@ -2935,12 +2920,10 @@ defmodule AWS.OpsWorks do
       required("EcsClusterArn") => String.t()
     }
   """
-
   @spec deregister_ecs_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_ecs_cluster_errors()}
-
   def deregister_ecs_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2949,6 +2932,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Deregisters a specified Elastic IP address. The address can be registered by
   another stack after it is deregistered. For more information, see [Resource
   Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
@@ -2965,12 +2949,10 @@ defmodule AWS.OpsWorks do
       required("ElasticIp") => String.t()
     }
   """
-
   @spec deregister_elastic_ip(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_elastic_ip_errors()}
-
   def deregister_elastic_ip(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2979,6 +2961,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Deregister an instance from OpsWorks Stacks. The instance can be a registered
   instance (Amazon EC2 or on-premises) or an instance created with OpsWorks.
   This action removes the instance from the stack and returns it to your
@@ -2992,12 +2975,10 @@ defmodule AWS.OpsWorks do
       required("InstanceId") => String.t()
     }
   """
-
   @spec deregister_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_instance_errors()}
-
   def deregister_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3006,6 +2987,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Deregisters an Amazon RDS instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20DeregisterRdsDbInstance&this_doc_guide=API%2520Reference)
@@ -3016,12 +2998,10 @@ defmodule AWS.OpsWorks do
       required("RdsDbInstanceArn") => String.t()
     }
   """
-
   @spec deregister_rds_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_rds_db_instance_errors()}
-
   def deregister_rds_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3030,6 +3010,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Deregisters an Amazon EBS volume. The volume can then be registered by another
   stack. For more information, see [Resource
   Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
@@ -3046,12 +3027,10 @@ defmodule AWS.OpsWorks do
       required("VolumeId") => String.t()
     }
   """
-
   @spec deregister_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_volume_errors()}
-
   def deregister_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3060,6 +3039,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes the available OpsWorks Stacks agent versions. You must specify a stack
   ID or a configuration manager. `DescribeAgentVersions` returns a list of
   available agent versions for the specified stack or configuration manager.
@@ -3073,12 +3053,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_agent_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_agent_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_agent_versions_errors()}
-
   def describe_agent_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3087,6 +3065,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Requests a description of a specified set of apps. This call accepts only one
   resource-identifying parameter.
 
@@ -3099,12 +3078,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_apps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_apps_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_apps_errors()}
-
   def describe_apps(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3113,6 +3090,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes the results of specified commands. This call accepts only one
   resource-identifying parameter.
 
@@ -3126,12 +3104,10 @@ defmodule AWS.OpsWorks do
       optional("InstanceId") => String.t()
     }
   """
-
   @spec describe_commands(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_commands_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_commands_errors()}
-
   def describe_commands(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3140,6 +3116,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Requests a description of a specified set of deployments. This call accepts only
   one resource-identifying parameter.
 
@@ -3153,12 +3130,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_deployments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_deployments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_deployments_errors()}
-
   def describe_deployments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3167,6 +3142,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes Amazon ECS clusters that are registered with a stack. If you specify
   only a stack ID, you can use the `MaxResults` and `NextToken` parameters to
   paginate the response. However, OpsWorks Stacks currently supports only one
@@ -3188,12 +3164,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_ecs_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ecs_clusters_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ecs_clusters_errors()}
-
   def describe_ecs_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3202,6 +3176,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes [Elastic IP
   addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html).
   This call accepts only one resource-identifying parameter.
@@ -3216,12 +3191,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_elastic_ips(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_elastic_ips_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_elastic_ips_errors()}
-
   def describe_elastic_ips(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3230,6 +3203,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes a stack's Elastic Load Balancing instances. This call accepts only one
   resource-identifying parameter.
 
@@ -3242,12 +3216,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_elastic_load_balancers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_elastic_load_balancers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_elastic_load_balancers_errors()}
-
   def describe_elastic_load_balancers(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3257,6 +3229,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Requests a description of a set of instances. This call accepts only one
   resource-identifying parameter.
 
@@ -3270,12 +3243,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instances_errors()}
-
   def describe_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3284,6 +3255,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Requests a description of one or more layers in a specified stack. This call
   accepts only one resource-identifying parameter.
 
@@ -3296,12 +3268,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_layers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_layers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_layers_errors()}
-
   def describe_layers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3310,6 +3280,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes load-based auto scaling configurations for specified layers. You must
   specify at least one of the parameters.
 
@@ -3321,12 +3292,10 @@ defmodule AWS.OpsWorks do
       required("LayerIds") => list(String.t()())
     }
   """
-
   @spec describe_load_based_auto_scaling(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_load_based_auto_scaling_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_based_auto_scaling_errors()}
-
   def describe_load_based_auto_scaling(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3336,6 +3305,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes a user's SSH information.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20DescribeMyUserProfile&this_doc_guide=API%2520Reference)
@@ -3343,11 +3313,9 @@ defmodule AWS.OpsWorks do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_my_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_my_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_my_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3356,6 +3324,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes the operating systems that are supported by OpsWorks Stacks.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20DescribeOperatingSystems&this_doc_guide=API%2520Reference)
@@ -3363,11 +3332,9 @@ defmodule AWS.OpsWorks do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_operating_systems(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_operating_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_operating_systems(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3376,6 +3343,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes the permissions for a specified stack.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20DescribePermissions&this_doc_guide=API%2520Reference)
@@ -3387,12 +3355,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_permissions_errors()}
-
   def describe_permissions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3401,6 +3367,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describe an instance's RAID arrays. This call accepts only one
   resource-identifying parameter.
 
@@ -3414,12 +3381,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_raid_arrays(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_raid_arrays_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_raid_arrays_errors()}
-
   def describe_raid_arrays(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3428,6 +3393,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes Amazon RDS instances. **Required Permissions**: To use this action, an
   IAM user must have a Show, Deploy, or Manage permissions level for the stack,
   or an attached policy that explicitly grants permissions. For more information
@@ -3443,12 +3409,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec describe_rds_db_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_rds_db_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rds_db_instances_errors()}
-
   def describe_rds_db_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3457,6 +3421,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes OpsWorks Stacks service errors. **Required Permissions**: To use this
   action, an IAM user must have a Show, Deploy, or Manage permissions level for
   the stack, or an attached policy that explicitly grants permissions. For more
@@ -3473,12 +3438,10 @@ defmodule AWS.OpsWorks do
       optional("StackId") => String.t()
     }
   """
-
   @spec describe_service_errors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_service_errors_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_service_errors_errors()}
-
   def describe_service_errors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3487,6 +3450,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Requests a description of a stack's provisioning parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20DescribeStackProvisioningParameters&this_doc_guide=API%2520Reference)
@@ -3497,12 +3461,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec describe_stack_provisioning_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stack_provisioning_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stack_provisioning_parameters_errors()}
-
   def describe_stack_provisioning_parameters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3512,6 +3474,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes the number of layers and apps in a specified stack, and the number of
   instances in each state, such as `running_setup` or `online`.
 
@@ -3523,12 +3486,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec describe_stack_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stack_summary_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stack_summary_errors()}
-
   def describe_stack_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3537,6 +3498,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Requests a description of one or more stacks.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20DescribeStacks&this_doc_guide=API%2520Reference)
@@ -3547,12 +3509,10 @@ defmodule AWS.OpsWorks do
       optional("StackIds") => list(String.t()())
     }
   """
-
   @spec describe_stacks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stacks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stacks_errors()}
-
   def describe_stacks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3561,6 +3521,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes time-based auto scaling configurations for specified instances. You
   must specify at least one of the parameters.
 
@@ -3572,12 +3533,10 @@ defmodule AWS.OpsWorks do
       required("InstanceIds") => list(String.t()())
     }
   """
-
   @spec describe_time_based_auto_scaling(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_time_based_auto_scaling_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_time_based_auto_scaling_errors()}
-
   def describe_time_based_auto_scaling(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3587,6 +3546,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describe specified users.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20DescribeUserProfiles&this_doc_guide=API%2520Reference)
@@ -3597,12 +3557,10 @@ defmodule AWS.OpsWorks do
       optional("IamUserArns") => list(String.t()())
     }
   """
-
   @spec describe_user_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_profiles_errors()}
-
   def describe_user_profiles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3611,6 +3569,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Describes an instance's Amazon EBS volumes. This call accepts only one
   resource-identifying parameter.
 
@@ -3625,12 +3584,10 @@ defmodule AWS.OpsWorks do
       optional("VolumeIds") => list(String.t()())
     }
   """
-
   @spec describe_volumes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_volumes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_volumes_errors()}
-
   def describe_volumes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3639,6 +3596,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Detaches a specified Elastic Load Balancing instance from its layer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20DetachElasticLoadBalancer&this_doc_guide=API%2520Reference)
@@ -3650,12 +3608,10 @@ defmodule AWS.OpsWorks do
       required("LayerId") => String.t()
     }
   """
-
   @spec detach_elastic_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_elastic_load_balancer_errors()}
-
   def detach_elastic_load_balancer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3664,6 +3620,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Disassociates an Elastic IP address from its instance. The address remains
   registered with the stack. For more information, see [Resource
   Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
@@ -3680,12 +3637,10 @@ defmodule AWS.OpsWorks do
       required("ElasticIp") => String.t()
     }
   """
-
   @spec disassociate_elastic_ip(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_elastic_ip_errors()}
-
   def disassociate_elastic_ip(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3694,6 +3649,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Gets a generated host name for the specified layer, based on the current host
   name theme.
 
@@ -3705,12 +3661,10 @@ defmodule AWS.OpsWorks do
       required("LayerId") => String.t()
     }
   """
-
   @spec get_hostname_suggestion(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_hostname_suggestion_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hostname_suggestion_errors()}
-
   def get_hostname_suggestion(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3719,6 +3673,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   This action can be used only with Windows stacks.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20GrantAccess&this_doc_guide=API%2520Reference)
@@ -3730,12 +3685,10 @@ defmodule AWS.OpsWorks do
       required("InstanceId") => String.t()
     }
   """
-
   @spec grant_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, grant_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, grant_access_errors()}
-
   def grant_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3744,6 +3697,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Returns a list of tags that are applied to the specified stack or layer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20ListTags&this_doc_guide=API%2520Reference)
@@ -3756,12 +3710,10 @@ defmodule AWS.OpsWorks do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-
   def list_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3770,6 +3722,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Reboots a specified instance. For more information, see [Starting, Stopping, and
   Rebooting
   Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html).
@@ -3786,12 +3739,10 @@ defmodule AWS.OpsWorks do
       required("InstanceId") => String.t()
     }
   """
-
   @spec reboot_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_instance_errors()}
-
   def reboot_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3800,6 +3751,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Registers a specified Amazon ECS cluster with a stack. You can register only one
   cluster with a stack. A cluster can be registered with only one stack. For
   more information, see [ Resource
@@ -3818,12 +3770,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec register_ecs_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_ecs_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_ecs_cluster_errors()}
-
   def register_ecs_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3832,6 +3782,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Registers an Elastic IP address with a specified stack. An address can be
   registered with only one stack at a time. If the address is already
   registered, you must first deregister it by calling `DeregisterElasticIp`. For
@@ -3851,12 +3802,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec register_elastic_ip(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_elastic_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_elastic_ip_errors()}
-
   def register_elastic_ip(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3865,6 +3814,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Registers instances that were created outside of OpsWorks Stacks with a
   specified stack. We do not recommend using this action to register instances.
   The complete registration operation includes two tasks: installing the
@@ -3894,12 +3844,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec register_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_instance_errors()}
-
   def register_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3908,6 +3856,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Registers an Amazon RDS instance with a stack.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20RegisterRdsDbInstance&this_doc_guide=API%2520Reference)
@@ -3921,12 +3870,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec register_rds_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_rds_db_instance_errors()}
-
   def register_rds_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3935,6 +3882,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Registers an Amazon EBS volume with a specified stack. A volume can be
   registered with only one stack at a time. If the volume is already registered,
   you must first deregister it by calling `DeregisterVolume`. For more
@@ -3954,12 +3902,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec register_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_volume_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_volume_errors()}
-
   def register_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3968,6 +3914,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Specify the load-based auto scaling configuration for a specified layer. For
   more information, see [Managing Load with Time-based and Load-based
   Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html).
@@ -3987,12 +3934,10 @@ defmodule AWS.OpsWorks do
       required("LayerId") => String.t()
     }
   """
-
   @spec set_load_based_auto_scaling(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_load_based_auto_scaling_errors()}
-
   def set_load_based_auto_scaling(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4001,6 +3946,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Specifies a user's permissions. For more information, see [Security and
   Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html).
   **Required Permissions**: To use this action, an IAM user must have a Manage
@@ -4020,12 +3966,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec set_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_permission_errors()}
-
   def set_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4034,6 +3978,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Specify the time-based auto scaling configuration for a specified instance. For
   more information, see [Managing Load with Time-based and Load-based
   Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html).
@@ -4051,12 +3996,10 @@ defmodule AWS.OpsWorks do
       required("InstanceId") => String.t()
     }
   """
-
   @spec set_time_based_auto_scaling(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_time_based_auto_scaling_errors()}
-
   def set_time_based_auto_scaling(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4065,6 +4008,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Starts a specified instance. For more information, see [Starting, Stopping, and
   Rebooting
   Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html).
@@ -4081,12 +4025,10 @@ defmodule AWS.OpsWorks do
       required("InstanceId") => String.t()
     }
   """
-
   @spec start_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_instance_errors()}
-
   def start_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4095,6 +4037,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Starts a stack's instances.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20StartStack&this_doc_guide=API%2520Reference)
@@ -4105,12 +4048,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec start_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_stack_errors()}
-
   def start_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4119,6 +4060,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Stops a specified instance. When you stop a standard instance, the data
   disappears and must be reinstalled when you restart the instance. You can stop
   an Amazon EBS-backed instance without losing data. For more information, see
@@ -4138,12 +4080,10 @@ defmodule AWS.OpsWorks do
       required("InstanceId") => String.t()
     }
   """
-
   @spec stop_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_instance_errors()}
-
   def stop_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4152,6 +4092,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Stops a specified stack.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20StopStack&this_doc_guide=API%2520Reference)
@@ -4162,12 +4103,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec stop_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_stack_errors()}
-
   def stop_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4176,6 +4115,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Apply cost-allocation tags to a specified stack or layer in OpsWorks Stacks. For
   more information about how tagging works, see
   [Tags](https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html) in
@@ -4190,12 +4130,10 @@ defmodule AWS.OpsWorks do
       required("Tags") => map()
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4204,6 +4142,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Unassigns a registered instance from all layers that are using the instance. The
   instance remains in the stack as an unassigned instance, and can be assigned
   to another layer as needed. You cannot use this action with instances that
@@ -4217,12 +4156,10 @@ defmodule AWS.OpsWorks do
       required("InstanceId") => String.t()
     }
   """
-
   @spec unassign_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unassign_instance_errors()}
-
   def unassign_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4231,6 +4168,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Unassigns an assigned Amazon EBS volume. The volume remains registered with the
   stack. For more information, see [Resource
   Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
@@ -4247,12 +4185,10 @@ defmodule AWS.OpsWorks do
       required("VolumeId") => String.t()
     }
   """
-
   @spec unassign_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unassign_volume_errors()}
-
   def unassign_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4261,6 +4197,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Removes tags from a specified stack or layer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20UntagResource&this_doc_guide=API%2520Reference)
@@ -4272,12 +4209,10 @@ defmodule AWS.OpsWorks do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4286,6 +4221,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Updates a specified app.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20UpdateApp&this_doc_guide=API%2520Reference)
@@ -4306,12 +4242,10 @@ defmodule AWS.OpsWorks do
       required("AppId") => String.t()
     }
   """
-
   @spec update_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_errors()}
-
   def update_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4320,6 +4254,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Updates a registered Elastic IP address's name. For more information, see
   [Resource
   Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
@@ -4337,12 +4272,10 @@ defmodule AWS.OpsWorks do
       required("ElasticIp") => String.t()
     }
   """
-
   @spec update_elastic_ip(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_elastic_ip_errors()}
-
   def update_elastic_ip(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4351,6 +4284,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Updates a specified instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20UpdateInstance&this_doc_guide=API%2520Reference)
@@ -4372,12 +4306,10 @@ defmodule AWS.OpsWorks do
       required("InstanceId") => String.t()
     }
   """
-
   @spec update_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_errors()}
-
   def update_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4386,6 +4318,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Updates a specified layer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20UpdateLayer&this_doc_guide=API%2520Reference)
@@ -4412,12 +4345,10 @@ defmodule AWS.OpsWorks do
       required("LayerId") => String.t()
     }
   """
-
   @spec update_layer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_layer_errors()}
-
   def update_layer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4426,6 +4357,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Updates a user's SSH public key.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20UpdateMyUserProfile&this_doc_guide=API%2520Reference)
@@ -4436,12 +4368,10 @@ defmodule AWS.OpsWorks do
       optional("SshPublicKey") => String.t()
     }
   """
-
   @spec update_my_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_my_user_profile_errors()}
-
   def update_my_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4450,6 +4380,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Updates an Amazon RDS instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20UpdateRdsDbInstance&this_doc_guide=API%2520Reference)
@@ -4462,12 +4393,10 @@ defmodule AWS.OpsWorks do
       required("RdsDbInstanceArn") => String.t()
     }
   """
-
   @spec update_rds_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rds_db_instance_errors()}
-
   def update_rds_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4476,6 +4405,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Updates a specified stack.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20UpdateStack&this_doc_guide=API%2520Reference)
@@ -4503,12 +4433,10 @@ defmodule AWS.OpsWorks do
       required("StackId") => String.t()
     }
   """
-
   @spec update_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stack_errors()}
-
   def update_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4517,6 +4445,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Updates a specified user profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworks%20UpdateUserProfile&this_doc_guide=API%2520Reference)
@@ -4530,12 +4459,10 @@ defmodule AWS.OpsWorks do
       required("IamUserArn") => String.t()
     }
   """
-
   @spec update_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_profile_errors()}
-
   def update_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4544,6 +4471,7 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+   
   Updates an Amazon EBS volume's name or mount point. For more information, see
   [Resource
   Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
@@ -4562,12 +4490,10 @@ defmodule AWS.OpsWorks do
       required("VolumeId") => String.t()
     }
   """
-
   @spec update_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_volume_errors()}
-
   def update_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

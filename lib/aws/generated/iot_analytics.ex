@@ -2024,15 +2024,12 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20BatchPutMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_put_message(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_put_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_message_errors()}
-
   def batch_put_message(%Client{} = client, options \\ []) do
     url_path = "/messages/batch"
 
@@ -2069,19 +2066,16 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CancelPipelineReprocessing&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of pipeline for which data reprocessing
-  is canceled.
-  * `:reprocessing_id` (`t:string`) The ID of the reprocessing task (returned by
-  StartPipelineReprocessing).
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of pipeline for which data
+  reprocessing is canceled.
+  * `:reprocessing_id` (`t:string` required) The ID of the reprocessing task
+  (returned by StartPipelineReprocessing).
+  ## Keyword parameters:
   """
-
   @spec cancel_pipeline_reprocessing(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_pipeline_reprocessing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_pipeline_reprocessing_errors()}
-
   def cancel_pipeline_reprocessing(
         %Client{} = client,
         pipeline_name,
@@ -2136,15 +2130,12 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
-
   def create_channel(%Client{} = client, options \\ []) do
     url_path = "/channels"
 
@@ -2185,15 +2176,12 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_dataset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
-
   def create_dataset(%Client{} = client, options \\ []) do
     url_path = "/datasets"
 
@@ -2231,16 +2219,13 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDatasetContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset.
-
-  ## Optional parameters:
+  * `:dataset_name` (`t:string` required) The name of the dataset.
+  ## Keyword parameters:
   """
-
   @spec create_dataset_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_dataset_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_content_errors()}
-
   def create_dataset_content(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
 
@@ -2277,15 +2262,12 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDatastore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_datastore(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_datastore_errors()}
-
   def create_datastore(%Client{} = client, options \\ []) do
     url_path = "/datastores"
 
@@ -2325,15 +2307,12 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
-
   def create_pipeline(%Client{} = client, options \\ []) do
     url_path = "/pipelines"
 
@@ -2370,16 +2349,13 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel to delete.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
-
   def delete_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
 
@@ -2426,16 +2402,13 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset to delete.
-
-  ## Optional parameters:
+  * `:dataset_name` (`t:string` required) The name of the dataset to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
-
   def delete_dataset(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
@@ -2482,20 +2455,18 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteDatasetContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset whose content is deleted.
-
-  ## Optional parameters:
+  * `:dataset_name` (`t:string` required) The name of the dataset whose content is
+  deleted.
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The version of the dataset whose content is
   deleted. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to
   delete the latest or latest successfully completed data set. If not
   specified, "$LATEST_SUCCEEDED" is the default.
   """
-
   @spec delete_dataset_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_content_errors()}
-
   def delete_dataset_content(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
 
@@ -2553,16 +2524,13 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteDatastore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_name` (`t:string`) The name of the data store to delete.
-
-  ## Optional parameters:
+  * `:datastore_name` (`t:string` required) The name of the data store to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_datastore_errors()}
-
   def delete_datastore(%Client{} = client, datastore_name, options \\ []) do
     url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
 
@@ -2609,16 +2577,13 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeletePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline to delete.
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of the pipeline to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
-
   def delete_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
 
@@ -2665,20 +2630,17 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel whose information is
-  retrieved.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel whose
+  information is retrieved.
+  ## Keyword parameters:
   * `:include_statistics` (`t:boolean`) If true, additional statistical
   information about the channel is included in the response. This feature
   can't be used with a channel whose S3 storage is customer-managed.
   """
-
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_errors()}
-
   def describe_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
 
@@ -2724,17 +2686,14 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset whose information is
-  retrieved.
-
-  ## Optional parameters:
+  * `:dataset_name` (`t:string` required) The name of the dataset whose
+  information is retrieved.
+  ## Keyword parameters:
   """
-
   @spec describe_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
-
   def describe_dataset(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
@@ -2769,19 +2728,16 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeDatastore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_name` (`t:string`) The name of the data store
-
-  ## Optional parameters:
+  * `:datastore_name` (`t:string` required) The name of the data store
+  ## Keyword parameters:
   * `:include_statistics` (`t:boolean`) If true, additional statistical
   information about the data store is included in the response. This feature
   can't be used with a data store whose S3 storage is customer-managed.
   """
-
   @spec describe_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_datastore_errors()}
-
   def describe_datastore(%Client{} = client, datastore_name, options \\ []) do
     url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
 
@@ -2827,15 +2783,12 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_options_errors()}
-
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
 
@@ -2870,17 +2823,14 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline whose information is
-  retrieved.
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of the pipeline whose
+  information is retrieved.
+  ## Keyword parameters:
   """
-
   @spec describe_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipeline_errors()}
-
   def describe_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
 
@@ -2915,21 +2865,18 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20GetDatasetContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset whose contents are
-  retrieved.
-
-  ## Optional parameters:
+  * `:dataset_name` (`t:string` required) The name of the dataset whose contents
+  are retrieved.
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The version of the dataset whose contents are
   retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to
   retrieve the contents of the latest or latest successfully completed
   dataset. If not specified, "$LATEST_SUCCEEDED" is the default.
   """
-
   @spec get_dataset_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataset_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dataset_content_errors()}
-
   def get_dataset_content(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
 
@@ -2975,18 +2922,15 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
-
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-
   def list_channels(%Client{} = client, options \\ []) do
     url_path = "/channels"
 
@@ -3039,10 +2983,9 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatasetContents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset whose contents
+  * `:dataset_name` (`t:string` required) The name of the dataset whose contents
   information you want to list.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token for the next set of results.
@@ -3053,12 +2996,10 @@ defmodule AWS.IoTAnalytics do
   dataset contents whose creation is scheduled on or after the given time. See
   the field triggers.schedule in the CreateDataset request. (timestamp)
   """
-
   @spec list_dataset_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dataset_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_contents_errors()}
-
   def list_dataset_contents(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/contents"
 
@@ -3130,18 +3071,15 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatasets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
-
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-
   def list_datasets(%Client{} = client, options \\ []) do
     url_path = "/datasets"
 
@@ -3194,18 +3132,15 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatastores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
-
   @spec list_datastores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datastores_errors()}
-
   def list_datastores(%Client{} = client, options \\ []) do
     url_path = "/datastores"
 
@@ -3258,18 +3193,15 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListPipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
-
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipelines_errors()}
-
   def list_pipelines(%Client{} = client, options \\ []) do
     url_path = "/pipelines"
 
@@ -3322,17 +3254,14 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
-  list.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource whose tags you
+  want to list.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -3368,15 +3297,12 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20PutLoggingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_options_errors()}
-
   def put_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
 
@@ -3413,15 +3339,12 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20RunPipelineActivity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec run_pipeline_activity(AWS.Client.t(), Keyword.t()) ::
           {:ok, run_pipeline_activity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, run_pipeline_activity_errors()}
-
   def run_pipeline_activity(%Client{} = client, options \\ []) do
     url_path = "/pipelineactivities/run"
 
@@ -3459,10 +3382,9 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20SampleChannelData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel whose message samples are
-  retrieved.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel whose message
+  samples are retrieved.
+  ## Keyword parameters:
   * `:end_time` (`t:timestamp`) The end of the time window from which sample
   messages are retrieved.
   * `:max_messages` (`t:integer`) The number of sample messages to be retrieved.
@@ -3470,12 +3392,10 @@ defmodule AWS.IoTAnalytics do
   * `:start_time` (`t:timestamp`) The start of the time window from which sample
   messages are retrieved.
   """
-
   @spec sample_channel_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, sample_channel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sample_channel_data_errors()}
-
   def sample_channel_data(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}/sample"
 
@@ -3535,17 +3455,14 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20StartPipelineReprocessing&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline on which to start
-  reprocessing.
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of the pipeline on which to
+  start reprocessing.
+  ## Keyword parameters:
   """
-
   @spec start_pipeline_reprocessing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_pipeline_reprocessing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_pipeline_reprocessing_errors()}
-
   def start_pipeline_reprocessing(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}/reprocessing"
 
@@ -3583,17 +3500,14 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
-  modify.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource whose tags you
+  want to modify.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -3631,19 +3545,16 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
-  remove.
-  * `:tag_keys` (`t:list[com.amazonaws.iotanalytics#TagKey]`) The keys of those
-  tags which you want to remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource whose tags you
+  want to remove.
+  * `:tag_keys` (`t:list[com.amazonaws.iotanalytics#TagKey]` required) The keys of
+  those tags which you want to remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(resource_arn) and is_binary(tag_keys) do
     url_path = "/tags"
@@ -3691,16 +3602,13 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel to be updated.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
-
   def update_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
 
@@ -3737,16 +3645,13 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdateDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset to update.
-
-  ## Optional parameters:
+  * `:dataset_name` (`t:string` required) The name of the dataset to update.
+  ## Keyword parameters:
   """
-
   @spec update_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_errors()}
-
   def update_dataset(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
@@ -3783,16 +3688,14 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdateDatastore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_name` (`t:string`) The name of the data store to be updated.
-
-  ## Optional parameters:
+  * `:datastore_name` (`t:string` required) The name of the data store to be
+  updated.
+  ## Keyword parameters:
   """
-
   @spec update_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_datastore_errors()}
-
   def update_datastore(%Client{} = client, datastore_name, options \\ []) do
     url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
 
@@ -3831,16 +3734,13 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline to update.
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of the pipeline to update.
+  ## Keyword parameters:
   """
-
   @spec update_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_errors()}
-
   def update_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
 

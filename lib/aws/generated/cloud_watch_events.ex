@@ -2374,6 +2374,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Activates a partner event source that has been deactivated. Once activated, your
   matching event bus will start receiving events from the event source.
 
@@ -2385,12 +2386,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec activate_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_event_source_errors()}
-
   def activate_event_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2399,6 +2398,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Cancels the specified replay.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20CancelReplay&this_doc_guide=API%2520Reference)
@@ -2409,12 +2409,10 @@ defmodule AWS.CloudWatchEvents do
       required("ReplayName") => String.t()
     }
   """
-
   @spec cancel_replay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_replay_errors()}
-
   def cancel_replay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2423,6 +2421,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Creates an API destination, which is an HTTP invocation endpoint configured as a
   target for events.
 
@@ -2439,12 +2438,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec create_api_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_api_destination_errors()}
-
   def create_api_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2453,6 +2450,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Creates an archive of events with the specified settings. When you create an
   archive, incoming events might not immediately start being sent to the
   archive. Allow a short period of time for changes to take effect. If you do
@@ -2472,12 +2470,10 @@ defmodule AWS.CloudWatchEvents do
       required("EventSourceArn") => String.t()
     }
   """
-
   @spec create_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_archive_errors()}
-
   def create_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2486,6 +2482,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Creates a connection. A connection defines the authorization type and
   credentials to use for authorization with an API destination HTTP endpoint.
 
@@ -2500,12 +2497,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec create_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_errors()}
-
   def create_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2514,6 +2509,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Creates a new event bus within your account. This can be a custom event bus
   which you can use to receive events from your custom applications and
   services, or it can be a partner event bus which can be matched to a partner
@@ -2529,12 +2525,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec create_event_bus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_bus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_bus_errors()}
-
   def create_event_bus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2543,6 +2537,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Called by an SaaS partner to create a partner event source. This operation is
   not used by Amazon Web Services customers. Each partner event source can be
   used by one Amazon Web Services account to create a matching partner event bus
@@ -2559,12 +2554,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec create_partner_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_partner_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_partner_event_source_errors()}
-
   def create_partner_event_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2573,6 +2566,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   You can use this operation to temporarily stop receiving events from the
   specified partner event source. The matching event bus is not deleted. When
   you deactivate a partner event source, the source goes into PENDING state. If
@@ -2586,12 +2580,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec deactivate_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_event_source_errors()}
-
   def deactivate_event_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2600,6 +2592,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Removes all authorization parameters from the connection. This lets you remove
   the secret from the connection so you can reuse it without having to create a
   new connection.
@@ -2612,12 +2605,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec deauthorize_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deauthorize_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deauthorize_connection_errors()}
-
   def deauthorize_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2626,6 +2617,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Deletes the specified API destination.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20DeleteApiDestination&this_doc_guide=API%2520Reference)
@@ -2636,12 +2628,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec delete_api_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_api_destination_errors()}
-
   def delete_api_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2650,6 +2640,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Deletes the specified archive.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20DeleteArchive&this_doc_guide=API%2520Reference)
@@ -2660,12 +2651,10 @@ defmodule AWS.CloudWatchEvents do
       required("ArchiveName") => String.t()
     }
   """
-
   @spec delete_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_archive_errors()}
-
   def delete_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2674,6 +2663,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Deletes a connection.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20DeleteConnection&this_doc_guide=API%2520Reference)
@@ -2684,12 +2674,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec delete_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-
   def delete_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2698,6 +2686,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Deletes the specified custom event bus or partner event bus. All rules
   associated with this event bus need to be deleted. You can't delete your
   account's default event bus.
@@ -2710,12 +2699,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec delete_event_bus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_bus_errors()}
-
   def delete_event_bus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2724,6 +2711,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   This operation is used by SaaS partners to delete a partner event source. This
   operation is not used by Amazon Web Services customers.
 
@@ -2736,12 +2724,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec delete_partner_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_partner_event_source_errors()}
-
   def delete_partner_event_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2750,6 +2736,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Deletes the specified rule. Before you can delete the rule, you must remove all
   targets, using
   [RemoveTargets](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html).
@@ -2764,12 +2751,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec delete_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
-
   def delete_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2778,6 +2763,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Retrieves details about an API destination.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20DescribeApiDestination&this_doc_guide=API%2520Reference)
@@ -2788,12 +2774,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec describe_api_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_api_destination_errors()}
-
   def describe_api_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2802,6 +2786,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Retrieves details about an archive.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20DescribeArchive&this_doc_guide=API%2520Reference)
@@ -2812,12 +2797,10 @@ defmodule AWS.CloudWatchEvents do
       required("ArchiveName") => String.t()
     }
   """
-
   @spec describe_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_archive_errors()}
-
   def describe_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2826,6 +2809,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Retrieves details about a connection.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20DescribeConnection&this_doc_guide=API%2520Reference)
@@ -2836,12 +2820,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec describe_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connection_errors()}
-
   def describe_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2850,6 +2832,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Displays details about an event bus in your account. This can include the
   external Amazon Web Services accounts that are permitted to write events to
   your default event bus, and the associated policy. For custom event buses and
@@ -2864,12 +2847,10 @@ defmodule AWS.CloudWatchEvents do
       optional("Name") => String.t()
     }
   """
-
   @spec describe_event_bus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_bus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_bus_errors()}
-
   def describe_event_bus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2878,6 +2859,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   This operation lists details about a partner event source that is shared with
   your account.
 
@@ -2889,12 +2871,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec describe_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_source_errors()}
-
   def describe_event_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2903,6 +2883,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   An SaaS partner can use this operation to list details about a partner event
   source that they have created. Amazon Web Services customers do not use this
   operation. Instead, Amazon Web Services customers can use
@@ -2917,12 +2898,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec describe_partner_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_partner_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_partner_event_source_errors()}
-
   def describe_partner_event_source(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2932,6 +2911,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Retrieves details about a replay. Use `DescribeReplay` to determine the progress
   of a running replay. A replay processes events to replay based on the time in
   the event, and replays them using 1 minute intervals. If you use `StartReplay`
@@ -2950,12 +2930,10 @@ defmodule AWS.CloudWatchEvents do
       required("ReplayName") => String.t()
     }
   """
-
   @spec describe_replay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replay_errors()}
-
   def describe_replay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2964,6 +2942,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Describes the specified rule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20DescribeRule&this_doc_guide=API%2520Reference)
@@ -2975,12 +2954,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec describe_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rule_errors()}
-
   def describe_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2989,6 +2966,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Disables the specified rule. A disabled rule won't match any events, and won't
   self-trigger if it has a schedule expression.
 
@@ -3001,12 +2979,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec disable_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_rule_errors()}
-
   def disable_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3015,6 +2991,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Enables the specified rule. If the rule does not exist, the operation fails.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20EnableRule&this_doc_guide=API%2520Reference)
@@ -3026,12 +3003,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec enable_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_rule_errors()}
-
   def enable_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3040,6 +3015,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Retrieves a list of API destination in the account in the current Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20ListApiDestinations&this_doc_guide=API%2520Reference)
@@ -3053,12 +3029,10 @@ defmodule AWS.CloudWatchEvents do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_api_destinations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_api_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_api_destinations_errors()}
-
   def list_api_destinations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3067,6 +3041,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Lists your archives. You can either list all the archives or you can provide a
   prefix to match to the archive names. Filter parameters are exclusive.
 
@@ -3082,12 +3057,10 @@ defmodule AWS.CloudWatchEvents do
       optional("State") => list(any())
     }
   """
-
   @spec list_archives(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_archives_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_archives_errors()}
-
   def list_archives(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3096,6 +3069,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Retrieves a list of connections from the account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20ListConnections&this_doc_guide=API%2520Reference)
@@ -3109,12 +3083,10 @@ defmodule AWS.CloudWatchEvents do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connections_errors()}
-
   def list_connections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3123,6 +3095,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Lists all the event buses in your account, including the default event bus,
   custom event buses, and partner event buses.
 
@@ -3136,12 +3109,10 @@ defmodule AWS.CloudWatchEvents do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_event_buses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_event_buses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_buses_errors()}
-
   def list_event_buses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3150,6 +3121,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   You can use this to see all the partner event sources that have been shared with
   your Amazon Web Services account. For more information about partner event
   sources, see
@@ -3165,12 +3137,10 @@ defmodule AWS.CloudWatchEvents do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_event_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_event_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_sources_errors()}
-
   def list_event_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3179,6 +3149,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   An SaaS partner can use this operation to display the Amazon Web Services
   account ID that a particular partner event source name is associated with.
   This operation is not used by Amazon Web Services customers.
@@ -3193,12 +3164,10 @@ defmodule AWS.CloudWatchEvents do
       required("EventSourceName") => String.t()
     }
   """
-
   @spec list_partner_event_source_accounts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_partner_event_source_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_partner_event_source_accounts_errors()}
-
   def list_partner_event_source_accounts(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3208,6 +3177,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   An SaaS partner can use this operation to list all the partner event source
   names that they have created. This operation is not used by Amazon Web
   Services customers.
@@ -3222,12 +3192,10 @@ defmodule AWS.CloudWatchEvents do
       required("NamePrefix") => String.t()
     }
   """
-
   @spec list_partner_event_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_partner_event_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_partner_event_sources_errors()}
-
   def list_partner_event_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3236,6 +3204,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Lists your replays. You can either list all the replays or you can provide a
   prefix to match to the replay names. Filter parameters are exclusive.
 
@@ -3251,12 +3220,10 @@ defmodule AWS.CloudWatchEvents do
       optional("State") => list(any())
     }
   """
-
   @spec list_replays(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_replays_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_replays_errors()}
-
   def list_replays(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3265,6 +3232,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Lists the rules for the specified target. You can see which of the rules in
   Amazon EventBridge can invoke a specific target in your account.
 
@@ -3279,12 +3247,10 @@ defmodule AWS.CloudWatchEvents do
       required("TargetArn") => String.t()
     }
   """
-
   @spec list_rule_names_by_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rule_names_by_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_names_by_target_errors()}
-
   def list_rule_names_by_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3293,6 +3259,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Lists your Amazon EventBridge rules. You can either list all the rules or you
   can provide a prefix to match to the rule names.
 
@@ -3307,12 +3274,10 @@ defmodule AWS.CloudWatchEvents do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-
   def list_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3321,6 +3286,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Displays the tags associated with an EventBridge resource. In EventBridge, rules
   and event buses can be tagged.
 
@@ -3332,12 +3298,10 @@ defmodule AWS.CloudWatchEvents do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3346,6 +3310,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Lists the targets assigned to the specified rule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20ListTargetsByRule&this_doc_guide=API%2520Reference)
@@ -3359,12 +3324,10 @@ defmodule AWS.CloudWatchEvents do
       required("Rule") => String.t()
     }
   """
-
   @spec list_targets_by_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_targets_by_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_targets_by_rule_errors()}
-
   def list_targets_by_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3373,6 +3336,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Sends custom events to Amazon EventBridge so that they can be matched to rules.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20PutEvents&this_doc_guide=API%2520Reference)
@@ -3383,12 +3347,10 @@ defmodule AWS.CloudWatchEvents do
       required("Entries") => list(put_events_request_entry()())
     }
   """
-
   @spec put_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_events_errors()}
-
   def put_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3397,6 +3359,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   This is used by SaaS partners to write events to a customer's partner event bus.
   Amazon Web Services customers do not use this operation.
 
@@ -3408,12 +3371,10 @@ defmodule AWS.CloudWatchEvents do
       required("Entries") => list(put_partner_events_request_entry()())
     }
   """
-
   @spec put_partner_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_partner_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_partner_events_errors()}
-
   def put_partner_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3422,6 +3383,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Running `PutPermission` permits the specified Amazon Web Services account or
   Amazon Web Services organization to put events to the specified *event bus*.
   Amazon EventBridge (CloudWatch Events) rules in your account are triggered by
@@ -3442,12 +3404,10 @@ defmodule AWS.CloudWatchEvents do
       optional("StatementId") => String.t()
     }
   """
-
   @spec put_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_permission_errors()}
-
   def put_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3456,6 +3416,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Creates or updates the specified rule. Rules are enabled by default, or based on
   value of the state. You can disable a rule using
   [DisableRule](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html).
@@ -3486,12 +3447,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec put_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_rule_errors()}
-
   def put_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3500,6 +3459,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Adds the specified targets to the specified rule, or updates the targets if they
   are already associated with the rule. Targets are the resources that are
   invoked when a rule is triggered.
@@ -3514,12 +3474,10 @@ defmodule AWS.CloudWatchEvents do
       required("Targets") => list(target()())
     }
   """
-
   @spec put_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_targets_errors()}
-
   def put_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3528,6 +3486,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Revokes the permission of another Amazon Web Services account to be able to put
   events to the specified event bus. Specify the account to revoke by the
   `StatementId` value that you associated with the account when you granted it
@@ -3544,12 +3503,10 @@ defmodule AWS.CloudWatchEvents do
       optional("StatementId") => String.t()
     }
   """
-
   @spec remove_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_permission_errors()}
-
   def remove_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3558,6 +3515,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Removes the specified targets from the specified rule. When the rule is
   triggered, those targets are no longer be invoked. When you remove a target,
   when the associated rule triggers, removed targets might continue to be
@@ -3574,12 +3532,10 @@ defmodule AWS.CloudWatchEvents do
       required("Rule") => String.t()
     }
   """
-
   @spec remove_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_targets_errors()}
-
   def remove_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3588,6 +3544,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Starts the specified replay. Events are not necessarily replayed in the exact
   same order that they were added to the archive. A replay processes events to
   replay based on the time in the event, and replays them using 1 minute
@@ -3611,12 +3568,10 @@ defmodule AWS.CloudWatchEvents do
       required("ReplayName") => String.t()
     }
   """
-
   @spec start_replay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replay_errors()}
-
   def start_replay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3625,6 +3580,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Assigns one or more tags (key-value pairs) to the specified EventBridge
   resource. Tags can help you organize and categorize your resources. You can
   also use them to scope user permissions by granting a user permission to
@@ -3641,12 +3597,10 @@ defmodule AWS.CloudWatchEvents do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3655,6 +3609,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Tests whether the specified event pattern matches the provided event.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20TestEventPattern&this_doc_guide=API%2520Reference)
@@ -3666,12 +3621,10 @@ defmodule AWS.CloudWatchEvents do
       required("EventPattern") => String.t()
     }
   """
-
   @spec test_event_pattern(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_event_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_event_pattern_errors()}
-
   def test_event_pattern(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3680,6 +3633,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Removes one or more tags from the specified EventBridge resource. In Amazon
   EventBridge (CloudWatch Events), rules and event buses can be tagged.
 
@@ -3692,12 +3646,10 @@ defmodule AWS.CloudWatchEvents do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3706,6 +3658,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Updates an API destination.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20UpdateApiDestination&this_doc_guide=API%2520Reference)
@@ -3721,12 +3674,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec update_api_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_api_destination_errors()}
-
   def update_api_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3735,6 +3686,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Updates the specified archive.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20UpdateArchive&this_doc_guide=API%2520Reference)
@@ -3748,12 +3700,10 @@ defmodule AWS.CloudWatchEvents do
       required("ArchiveName") => String.t()
     }
   """
-
   @spec update_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_archive_errors()}
-
   def update_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3762,6 +3712,7 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+   
   Updates settings for a connection.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchevents%20UpdateConnection&this_doc_guide=API%2520Reference)
@@ -3775,12 +3726,10 @@ defmodule AWS.CloudWatchEvents do
       required("Name") => String.t()
     }
   """
-
   @spec update_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connection_errors()}
-
   def update_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

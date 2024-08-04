@@ -249,17 +249,14 @@ defmodule AWS.MarketplaceDeployment do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with
-  the deployment parameter resource you want to list tags on.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  associated with the deployment parameter resource you want to list tags on.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -295,19 +292,16 @@ defmodule AWS.MarketplaceDeployment do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20PutDeploymentParameter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:catalog` (`t:string`) The catalog related to the request. Fixed value: AWS
-  Marketplace
-  * `:product_id` (`t:string`) The product for which AWS Marketplace will save
-  secrets for the buyer’s account.
-
-  ## Optional parameters:
+  * `:catalog` (`t:string` required) The catalog related to the request. Fixed
+  value: AWS Marketplace
+  * `:product_id` (`t:string` required) The product for which AWS Marketplace will
+  save secrets for the buyer’s account.
+  ## Keyword parameters:
   """
-
   @spec put_deployment_parameter(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_deployment_parameter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_deployment_parameter_errors()}
-
   def put_deployment_parameter(%Client{} = client, catalog, product_id, options \\ []) do
     url_path =
       "/catalogs/#{AWS.Util.encode_uri(catalog)}/products/#{AWS.Util.encode_uri(product_id)}/deployment-parameters"
@@ -345,17 +339,14 @@ defmodule AWS.MarketplaceDeployment do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with
-  the resource you want to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  associated with the resource you want to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -392,19 +383,16 @@ defmodule AWS.MarketplaceDeployment do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with
-  the resource you want to remove the tag from.
-  * `:tag_keys` (`t:list[smithy.api#String]`) A list of key names of tags to be
-  removed.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  associated with the resource you want to remove the tag from.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) A list of key names of tags
+  to be removed.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

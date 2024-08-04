@@ -170,6 +170,7 @@ defmodule AWS.Forecastquery do
   end
 
   @doc """
+   
   Retrieves a forecast for a single item, filtered by the supplied criteria. The
   criteria is a key-value pair. The key is either `item_id` (or the equivalent
   non-timestamp, non-target field) from the `TARGET_TIME_SERIES` dataset, or one
@@ -188,12 +189,10 @@ defmodule AWS.Forecastquery do
       required("ForecastArn") => String.t()
     }
   """
-
   @spec query_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_forecast_errors()}
-
   def query_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -202,6 +201,7 @@ defmodule AWS.Forecastquery do
   end
 
   @doc """
+   
   Retrieves a what-if forecast.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecastquery%20QueryWhatIfForecast&this_doc_guide=API%2520Reference)
@@ -216,12 +216,10 @@ defmodule AWS.Forecastquery do
       required("WhatIfForecastArn") => String.t()
     }
   """
-
   @spec query_what_if_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_what_if_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_what_if_forecast_errors()}
-
   def query_what_if_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

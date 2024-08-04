@@ -1365,6 +1365,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Associates a device with a concrete thing that is in the user's registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20AssociateEntityToThing&this_doc_guide=API%2520Reference)
@@ -1377,12 +1378,10 @@ defmodule AWS.IoTThingsGraph do
       required("thingName") => String.t()
     }
   """
-
   @spec associate_entity_to_thing(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_entity_to_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_entity_to_thing_errors()}
-
   def associate_entity_to_thing(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1391,6 +1390,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Creates a workflow template. Workflows can be created only in the user's
   namespace. (The public namespace contains only entities.) The workflow can
   contain only entities in the specified namespace. The workflow is validated
@@ -1406,12 +1406,10 @@ defmodule AWS.IoTThingsGraph do
       required("definition") => definition_document()
     }
   """
-
   @spec create_flow_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_flow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_template_errors()}
-
   def create_flow_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1420,6 +1418,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Creates a system instance. This action validates the system instance, prepares
   the deployment-related resources. For Greengrass deployments, it updates the
   Greengrass group that is specified by the `greengrassGroupName` parameter. It
@@ -1440,12 +1439,10 @@ defmodule AWS.IoTThingsGraph do
       required("target") => list(any())
     }
   """
-
   @spec create_system_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_system_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_system_instance_errors()}
-
   def create_system_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1454,6 +1451,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Creates a system. The system is validated against the entities in the latest
   version of the user's namespace unless another namespace version is specified
   in the request.
@@ -1467,12 +1465,10 @@ defmodule AWS.IoTThingsGraph do
       required("definition") => definition_document()
     }
   """
-
   @spec create_system_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_system_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_system_template_errors()}
-
   def create_system_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1481,6 +1477,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Deletes a workflow. Any new system or deployment that contains this workflow
   will fail to update or deploy. Existing deployments that contain the workflow
   will continue to run (since they use a snapshot of the workflow taken at the
@@ -1494,12 +1491,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec delete_flow_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_flow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_template_errors()}
-
   def delete_flow_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1508,6 +1503,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Deletes the specified namespace. This action deletes all of the entities in the
   namespace. Delete the systems and flows that use entities in the namespace
   before performing this action. This action takes no request parameters.
@@ -1520,12 +1516,10 @@ defmodule AWS.IoTThingsGraph do
       
     }
   """
-
   @spec delete_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_namespace_errors()}
-
   def delete_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1534,6 +1528,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Deletes a system instance. Only system instances that have never been deployed,
   or that have been undeployed can be deleted.
 
@@ -1545,12 +1540,10 @@ defmodule AWS.IoTThingsGraph do
       optional("id") => String.t()
     }
   """
-
   @spec delete_system_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_system_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_system_instance_errors()}
-
   def delete_system_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1559,6 +1552,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Deletes a system. New deployments can't contain the system after its deletion.
   Existing deployments that contain the system will continue to work because
   they use a snapshot of the system that is taken when it is deployed.
@@ -1571,12 +1565,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec delete_system_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_system_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_system_template_errors()}
-
   def delete_system_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1585,6 +1577,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   **Greengrass and Cloud Deployments** Deploys the system instance to the target
   specified in `CreateSystemInstance`.
 
@@ -1596,12 +1589,10 @@ defmodule AWS.IoTThingsGraph do
       optional("id") => String.t()
     }
   """
-
   @spec deploy_system_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deploy_system_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deploy_system_instance_errors()}
-
   def deploy_system_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1610,6 +1601,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Deprecates the specified workflow. This action marks the workflow for deletion.
   Deprecated flows can't be deployed, but existing deployments will continue to
   run.
@@ -1622,12 +1614,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec deprecate_flow_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deprecate_flow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deprecate_flow_template_errors()}
-
   def deprecate_flow_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1636,6 +1626,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Deprecates the specified system.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20DeprecateSystemTemplate&this_doc_guide=API%2520Reference)
@@ -1646,12 +1637,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec deprecate_system_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deprecate_system_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deprecate_system_template_errors()}
-
   def deprecate_system_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1660,6 +1649,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Gets the latest version of the user's namespace and the public version that it
   is tracking.
 
@@ -1671,12 +1661,10 @@ defmodule AWS.IoTThingsGraph do
       optional("namespaceName") => String.t()
     }
   """
-
   @spec describe_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_namespace_errors()}
-
   def describe_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1685,6 +1673,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Dissociates a device entity from a concrete thing. The action takes only the
   type of the entity that you need to dissociate because only one entity of a
   particular type can be associated with a thing.
@@ -1698,12 +1687,10 @@ defmodule AWS.IoTThingsGraph do
       required("thingName") => String.t()
     }
   """
-
   @spec dissociate_entity_from_thing(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, dissociate_entity_from_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, dissociate_entity_from_thing_errors()}
-
   def dissociate_entity_from_thing(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1712,6 +1699,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Gets definitions of the specified entities. Uses the latest version of the
   user's namespace by default. This API returns the following TDM entities.
 
@@ -1724,12 +1712,10 @@ defmodule AWS.IoTThingsGraph do
       required("ids") => list(String.t()())
     }
   """
-
   @spec get_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_entities_errors()}
-
   def get_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1738,6 +1724,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Gets the latest version of the `DefinitionDocument` and `FlowTemplateSummary`
   for the specified workflow.
 
@@ -1750,12 +1737,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec get_flow_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_flow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_template_errors()}
-
   def get_flow_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1764,6 +1749,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Gets revisions of the specified workflow. Only the last 100 revisions are
   stored. If the workflow has been deprecated, this action will return revisions
   that occurred before the deprecation. This action won't work for workflows
@@ -1779,12 +1765,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec get_flow_template_revisions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_flow_template_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_template_revisions_errors()}
-
   def get_flow_template_revisions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1793,6 +1777,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Gets the status of a namespace deletion task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20GetNamespaceDeletionStatus&this_doc_guide=API%2520Reference)
@@ -1803,12 +1788,10 @@ defmodule AWS.IoTThingsGraph do
       
     }
   """
-
   @spec get_namespace_deletion_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_namespace_deletion_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_namespace_deletion_status_errors()}
-
   def get_namespace_deletion_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1818,6 +1801,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Gets a system instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20GetSystemInstance&this_doc_guide=API%2520Reference)
@@ -1828,12 +1812,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec get_system_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_system_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_system_instance_errors()}
-
   def get_system_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1842,6 +1824,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Gets a system.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20GetSystemTemplate&this_doc_guide=API%2520Reference)
@@ -1853,12 +1836,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec get_system_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_system_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_system_template_errors()}
-
   def get_system_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1867,6 +1848,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Gets revisions made to the specified system template. Only the previous 100
   revisions are stored. If the system has been deprecated, this action will
   return the revisions that occurred before its deprecation. This action won't
@@ -1882,12 +1864,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec get_system_template_revisions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_system_template_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_system_template_revisions_errors()}
-
   def get_system_template_revisions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1897,6 +1877,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Gets the status of the specified upload.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20GetUploadStatus&this_doc_guide=API%2520Reference)
@@ -1907,12 +1888,10 @@ defmodule AWS.IoTThingsGraph do
       required("uploadId") => String.t()
     }
   """
-
   @spec get_upload_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_upload_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upload_status_errors()}
-
   def get_upload_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1921,6 +1900,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Returns a list of objects that contain information about events in a flow
   execution.
 
@@ -1934,12 +1914,10 @@ defmodule AWS.IoTThingsGraph do
       required("flowExecutionId") => String.t()
     }
   """
-
   @spec list_flow_execution_messages(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_flow_execution_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flow_execution_messages_errors()}
-
   def list_flow_execution_messages(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1948,6 +1926,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Lists all tags on an AWS IoT Things Graph resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -1960,12 +1939,10 @@ defmodule AWS.IoTThingsGraph do
       required("resourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1974,6 +1951,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Searches for entities of the specified type. You can search for entities in your
   namespace and the public namespace that you're tracking.
 
@@ -1989,12 +1967,10 @@ defmodule AWS.IoTThingsGraph do
       required("entityTypes") => list(list(any())())
     }
   """
-
   @spec search_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_entities_errors()}
-
   def search_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2003,6 +1979,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Searches for AWS IoT Things Graph workflow execution instances.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20SearchFlowExecutions&this_doc_guide=API%2520Reference)
@@ -2018,12 +1995,10 @@ defmodule AWS.IoTThingsGraph do
       required("systemInstanceId") => String.t()
     }
   """
-
   @spec search_flow_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_flow_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_flow_executions_errors()}
-
   def search_flow_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2032,6 +2007,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Searches for summary information about workflows.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20SearchFlowTemplates&this_doc_guide=API%2520Reference)
@@ -2044,12 +2020,10 @@ defmodule AWS.IoTThingsGraph do
       optional("nextToken") => String.t()
     }
   """
-
   @spec search_flow_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_flow_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_flow_templates_errors()}
-
   def search_flow_templates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2058,6 +2032,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Searches for system instances in the user's account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20SearchSystemInstances&this_doc_guide=API%2520Reference)
@@ -2070,12 +2045,10 @@ defmodule AWS.IoTThingsGraph do
       optional("nextToken") => String.t()
     }
   """
-
   @spec search_system_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_system_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_system_instances_errors()}
-
   def search_system_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2084,6 +2057,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Searches for summary information about systems in the user's account. You can
   filter by the ID of a workflow to return only systems that use the specified
   workflow.
@@ -2098,12 +2072,10 @@ defmodule AWS.IoTThingsGraph do
       optional("nextToken") => String.t()
     }
   """
-
   @spec search_system_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_system_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_system_templates_errors()}
-
   def search_system_templates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2112,6 +2084,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Searches for things associated with the specified entity. You can search by both
   device and device model. For example, if two different devices, camera1 and
   camera2, implement the camera device model, the user can associate thing1 to
@@ -2129,12 +2102,10 @@ defmodule AWS.IoTThingsGraph do
       required("entityId") => String.t()
     }
   """
-
   @spec search_things(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_things_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_things_errors()}
-
   def search_things(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2143,6 +2114,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Creates a tag for the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20TagResource&this_doc_guide=API%2520Reference)
@@ -2154,12 +2126,10 @@ defmodule AWS.IoTThingsGraph do
       required("tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2168,6 +2138,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Removes a system instance from its target (Cloud or Greengrass).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20UndeploySystemInstance&this_doc_guide=API%2520Reference)
@@ -2178,12 +2149,10 @@ defmodule AWS.IoTThingsGraph do
       optional("id") => String.t()
     }
   """
-
   @spec undeploy_system_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, undeploy_system_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, undeploy_system_instance_errors()}
-
   def undeploy_system_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2192,6 +2161,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Removes a tag from the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotthingsgraph%20UntagResource&this_doc_guide=API%2520Reference)
@@ -2203,12 +2173,10 @@ defmodule AWS.IoTThingsGraph do
       required("tagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2217,6 +2185,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Updates the specified workflow. All deployed systems and system instances that
   use the workflow will see the changes in the flow when it is redeployed. If
   you don't want this behavior, copy the workflow (creating a new workflow with
@@ -2233,12 +2202,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec update_flow_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_flow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_template_errors()}
-
   def update_flow_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2247,6 +2214,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Updates the specified system. You don't need to run this action after updating a
   workflow. Any deployment that uses the system will see the changes in the
   system when it is redeployed.
@@ -2261,12 +2229,10 @@ defmodule AWS.IoTThingsGraph do
       required("id") => String.t()
     }
   """
-
   @spec update_system_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_system_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_system_template_errors()}
-
   def update_system_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2275,6 +2241,7 @@ defmodule AWS.IoTThingsGraph do
   end
 
   @doc """
+   
   Asynchronously uploads one or more entity definitions to the user's namespace.
   The `document` parameter is required if `syncWithPublicNamespace` and
   `deleteExistingEntites` are false. If the `syncWithPublicNamespace` parameter
@@ -2299,12 +2266,10 @@ defmodule AWS.IoTThingsGraph do
       optional("syncWithPublicNamespace") => boolean()
     }
   """
-
   @spec upload_entity_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, upload_entity_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upload_entity_definitions_errors()}
-
   def upload_entity_definitions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

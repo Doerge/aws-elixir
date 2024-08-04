@@ -148,16 +148,14 @@ defmodule AWS.WorkMailMessageFlow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workmailmessageflow%20GetRawMessageContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:message_id` (`t:string`) The identifier of the email message to retrieve.
-
-  ## Optional parameters:
+  * `:message_id` (`t:string` required) The identifier of the email message to
+  retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_raw_message_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_raw_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_raw_message_content_errors()}
-
   def get_raw_message_content(%Client{} = client, message_id, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
 
@@ -192,16 +190,14 @@ defmodule AWS.WorkMailMessageFlow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workmailmessageflow%20PutRawMessageContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:message_id` (`t:string`) The identifier of the email message being updated.
-
-  ## Optional parameters:
+  * `:message_id` (`t:string` required) The identifier of the email message being
+  updated.
+  ## Keyword parameters:
   """
-
   @spec put_raw_message_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_raw_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_raw_message_content_errors()}
-
   def put_raw_message_content(%Client{} = client, message_id, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
 

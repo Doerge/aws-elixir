@@ -1158,18 +1158,15 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CancelJobRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the job run to cancel.
-  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which the
-  job run will be canceled.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the job run to cancel.
+  * `:virtual_cluster_id` (`t:string` required) The ID of the virtual cluster for
+  which the job run will be canceled.
+  ## Keyword parameters:
   """
-
   @spec cancel_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_run_errors()}
-
   def cancel_job_run(%Client{} = client, id, virtual_cluster_id, options \\ []) do
     url_path =
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns/#{AWS.Util.encode_uri(id)}"
@@ -1220,15 +1217,12 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateJobTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_job_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_template_errors()}
-
   def create_job_template(%Client{} = client, options \\ []) do
     url_path = "/jobtemplates"
 
@@ -1267,17 +1261,14 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateManagedEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which a
-  managed endpoint is created.
-
-  ## Optional parameters:
+  * `:virtual_cluster_id` (`t:string` required) The ID of the virtual cluster for
+  which a managed endpoint is created.
+  ## Keyword parameters:
   """
-
   @spec create_managed_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_managed_endpoint_errors()}
-
   def create_managed_endpoint(%Client{} = client, virtual_cluster_id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints"
 
@@ -1318,15 +1309,12 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateSecurityConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_security_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_configuration_errors()}
-
   def create_security_configuration(%Client{} = client, options \\ []) do
     url_path = "/securityconfigurations"
 
@@ -1368,15 +1356,12 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateVirtualCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_virtual_cluster(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_virtual_cluster_errors()}
-
   def create_virtual_cluster(%Client{} = client, options \\ []) do
     url_path = "/virtualclusters"
 
@@ -1416,16 +1401,13 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DeleteJobTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the job template that will be deleted.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the job template that will be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_template_errors()}
-
   def delete_job_template(%Client{} = client, id, options \\ []) do
     url_path = "/jobtemplates/#{AWS.Util.encode_uri(id)}"
 
@@ -1474,17 +1456,15 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DeleteManagedEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the managed endpoint.
-  * `:virtual_cluster_id` (`t:string`) The ID of the endpoint's virtual cluster.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the managed endpoint.
+  * `:virtual_cluster_id` (`t:string` required) The ID of the endpoint's virtual
+  cluster.
+  ## Keyword parameters:
   """
-
   @spec delete_managed_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_managed_endpoint_errors()}
-
   def delete_managed_endpoint(%Client{} = client, id, virtual_cluster_id, options \\ []) do
     url_path =
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints/#{AWS.Util.encode_uri(id)}"
@@ -1537,16 +1517,14 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DeleteVirtualCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the virtual cluster that will be deleted.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the virtual cluster that will be
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_virtual_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_virtual_cluster_errors()}
-
   def delete_virtual_cluster(%Client{} = client, id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(id)}"
 
@@ -1595,18 +1573,15 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DescribeJobRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the job run request.
-  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which the
-  job run is submitted.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the job run request.
+  * `:virtual_cluster_id` (`t:string` required) The ID of the virtual cluster for
+  which the job run is submitted.
+  ## Keyword parameters:
   """
-
   @spec describe_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_run_errors()}
-
   def describe_job_run(%Client{} = client, id, virtual_cluster_id, options \\ []) do
     url_path =
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns/#{AWS.Util.encode_uri(id)}"
@@ -1646,16 +1621,13 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DescribeJobTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the job template that will be described.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the job template that will be described.
+  ## Keyword parameters:
   """
-
   @spec describe_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_template_errors()}
-
   def describe_job_template(%Client{} = client, id, options \\ []) do
     url_path = "/jobtemplates/#{AWS.Util.encode_uri(id)}"
 
@@ -1692,17 +1664,15 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DescribeManagedEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) This output displays ID of the managed endpoint.
-  * `:virtual_cluster_id` (`t:string`) The ID of the endpoint's virtual cluster.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) This output displays ID of the managed endpoint.
+  * `:virtual_cluster_id` (`t:string` required) The ID of the endpoint's virtual
+  cluster.
+  ## Keyword parameters:
   """
-
   @spec describe_managed_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_managed_endpoint_errors()}
-
   def describe_managed_endpoint(%Client{} = client, id, virtual_cluster_id, options \\ []) do
     url_path =
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints/#{AWS.Util.encode_uri(id)}"
@@ -1742,16 +1712,13 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DescribeSecurityConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the security configuration.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the security configuration.
+  ## Keyword parameters:
   """
-
   @spec describe_security_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_security_configuration_errors()}
-
   def describe_security_configuration(%Client{} = client, id, options \\ []) do
     url_path = "/securityconfigurations/#{AWS.Util.encode_uri(id)}"
 
@@ -1791,16 +1758,14 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DescribeVirtualCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the virtual cluster that will be described.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the virtual cluster that will be
+  described.
+  ## Keyword parameters:
   """
-
   @spec describe_virtual_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_virtual_cluster_errors()}
-
   def describe_virtual_cluster(%Client{} = client, id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(id)}"
 
@@ -1835,14 +1800,12 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20GetManagedEndpointSessionCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:endpoint_identifier` (`t:string`) The ARN of the managed endpoint for which
-  the request is submitted.
-  * `:virtual_cluster_identifier` (`t:string`) The ARN of the Virtual Cluster
-  which the Managed Endpoint belongs to.
-
-  ## Optional parameters:
+  * `:endpoint_identifier` (`t:string` required) The ARN of the managed endpoint
+  for which the request is submitted.
+  * `:virtual_cluster_identifier` (`t:string` required) The ARN of the Virtual
+  Cluster which the Managed Endpoint belongs to.
+  ## Keyword parameters:
   """
-
   @spec get_managed_endpoint_session_credentials(
           AWS.Client.t(),
           String.t(),
@@ -1852,7 +1815,6 @@ defmodule AWS.EMRcontainers do
           {:ok, get_managed_endpoint_session_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_managed_endpoint_session_credentials_errors()}
-
   def get_managed_endpoint_session_credentials(
         %Client{} = client,
         endpoint_identifier,
@@ -1897,10 +1859,9 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListJobRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which to
-  list the job run.
-
-  ## Optional parameters:
+  * `:virtual_cluster_id` (`t:string` required) The ID of the virtual cluster for
+  which to list the job run.
+  ## Keyword parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
   job runs were submitted.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
@@ -1912,12 +1873,10 @@ defmodule AWS.EMRcontainers do
   * `:states` (`t:list[com.amazonaws.emrcontainers#JobRunState]`) The states of
   the job run.
   """
-
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_runs_errors()}
-
   def list_job_runs(%Client{} = client, virtual_cluster_id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns"
 
@@ -2008,8 +1967,7 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListJobTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
   job templates were created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
@@ -2019,12 +1977,10 @@ defmodule AWS.EMRcontainers do
   * `:next_token` (`t:string`) The token for the next set of job templates to
   return.
   """
-
   @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_templates_errors()}
-
   def list_job_templates(%Client{} = client, options \\ []) do
     url_path = "/jobtemplates"
 
@@ -2093,9 +2049,8 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListManagedEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster.
-
-  ## Optional parameters:
+  * `:virtual_cluster_id` (`t:string` required) The ID of the virtual cluster.
+  ## Keyword parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
   endpoints are created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
@@ -2109,12 +2064,10 @@ defmodule AWS.EMRcontainers do
   * `:types` (`t:list[com.amazonaws.emrcontainers#EndpointType]`) The types of the
   managed endpoints.
   """
-
   @spec list_managed_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_managed_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_endpoints_errors()}
-
   def list_managed_endpoints(%Client{} = client, virtual_cluster_id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints"
 
@@ -2213,8 +2166,7 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListSecurityConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
   security configuration was created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
@@ -2224,12 +2176,10 @@ defmodule AWS.EMRcontainers do
   * `:next_token` (`t:string`) The token for the next set of security
   configurations to return.
   """
-
   @spec list_security_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_configurations_errors()}
-
   def list_security_configurations(%Client{} = client, options \\ []) do
     url_path = "/securityconfigurations"
 
@@ -2296,16 +2246,13 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of tagged resources.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of tagged resources.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2345,8 +2292,7 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListVirtualClusters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:container_provider_id` (`t:string`) The container provider ID of the virtual
   cluster.
   * `:container_provider_type` (`t:enum["EKS"]`) The container provider type of
@@ -2366,12 +2312,10 @@ defmodule AWS.EMRcontainers do
   * `:states` (`t:list[com.amazonaws.emrcontainers#VirtualClusterState]`) The
   states of the requested virtual clusters.
   """
-
   @spec list_virtual_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_virtual_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_virtual_clusters_errors()}
-
   def list_virtual_clusters(%Client{} = client, options \\ []) do
     url_path = "/virtualclusters"
 
@@ -2485,17 +2429,14 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20StartJobRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:virtual_cluster_id` (`t:string`) The virtual cluster ID for which the job
-  run request is submitted.
-
-  ## Optional parameters:
+  * `:virtual_cluster_id` (`t:string` required) The virtual cluster ID for which
+  the job run request is submitted.
+  ## Keyword parameters:
   """
-
   @spec start_job_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_run_errors()}
-
   def start_job_run(%Client{} = client, virtual_cluster_id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns"
 
@@ -2541,16 +2482,13 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of resources.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of resources.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2587,18 +2525,15 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of resources.
-  * `:tag_keys` (`t:list[com.amazonaws.emrcontainers#String128]`) The tag keys of
-  the resources.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of resources.
+  * `:tag_keys` (`t:list[com.amazonaws.emrcontainers#String128]` required) The tag
+  keys of the resources.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

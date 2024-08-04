@@ -859,15 +859,12 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20CreateCampaign&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_campaign(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_campaign_errors()}
-
   def create_campaign(%Client{} = client, options \\ []) do
     url_path = "/campaigns"
 
@@ -904,16 +901,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DeleteCampaign&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_campaign_errors()}
-
   def delete_campaign(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}"
 
@@ -960,16 +954,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DeleteConnectInstanceConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connect_instance_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connect_instance_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_connect_instance_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connect_instance_config_errors()}
-
   def delete_connect_instance_config(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/config"
 
@@ -1017,16 +1008,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DeleteInstanceOnboardingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connect_instance_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connect_instance_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_instance_onboarding_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_onboarding_job_errors()}
-
   def delete_instance_onboarding_job(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/onboarding"
 
@@ -1073,16 +1061,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DescribeCampaign&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_campaign_errors()}
-
   def describe_campaign(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}"
 
@@ -1117,16 +1102,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetCampaignState&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_campaign_state(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_state_errors()}
-
   def get_campaign_state(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/state"
 
@@ -1161,15 +1143,12 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetCampaignStateBatch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_campaign_state_batch(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_campaign_state_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_state_batch_errors()}
-
   def get_campaign_state_batch(%Client{} = client, options \\ []) do
     url_path = "/campaigns-state"
 
@@ -1206,16 +1185,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetConnectInstanceConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connect_instance_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connect_instance_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_connect_instance_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_instance_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connect_instance_config_errors()}
-
   def get_connect_instance_config(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/config"
 
@@ -1250,16 +1226,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetInstanceOnboardingJobStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connect_instance_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connect_instance_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_instance_onboarding_job_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_instance_onboarding_job_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_onboarding_job_status_errors()}
-
   def get_instance_onboarding_job_status(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/onboarding"
 
@@ -1295,15 +1268,12 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20ListCampaigns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_campaigns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_campaigns_errors()}
-
   def list_campaigns(%Client{} = client, options \\ []) do
     url_path = "/campaigns-summary"
 
@@ -1340,16 +1310,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
 
@@ -1384,16 +1351,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20PauseCampaign&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec pause_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, pause_campaign_errors()}
-
   def pause_campaign(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/pause"
 
@@ -1431,16 +1395,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20PutDialRequestBatch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec put_dial_request_batch(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dial_request_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_dial_request_batch_errors()}
-
   def put_dial_request_batch(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/dial-requests"
 
@@ -1477,16 +1438,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20ResumeCampaign&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec resume_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_campaign_errors()}
-
   def resume_campaign(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/resume"
 
@@ -1523,16 +1481,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20StartCampaign&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_campaign_errors()}
-
   def start_campaign(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/start"
 
@@ -1569,16 +1524,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20StartInstanceOnboardingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connect_instance_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connect_instance_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_instance_onboarding_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_instance_onboarding_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_instance_onboarding_job_errors()}
-
   def start_instance_onboarding_job(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/onboarding"
 
@@ -1615,16 +1567,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20StopCampaign&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec stop_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_campaign_errors()}
-
   def stop_campaign(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/stop"
 
@@ -1661,16 +1610,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
 
@@ -1707,17 +1653,14 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`)
-  * `:tag_keys` (`t:list[com.amazonaws.connectcampaigns#TagKey]`)
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required)
+  * `:tag_keys` (`t:list[com.amazonaws.connectcampaigns#TagKey]` required)
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, arn, tag_keys, options \\ []) when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
 
@@ -1764,16 +1707,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UpdateCampaignDialerConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_campaign_dialer_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_campaign_dialer_config_errors()}
-
   def update_campaign_dialer_config(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/dialer-config"
 
@@ -1810,16 +1750,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UpdateCampaignName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_campaign_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_campaign_name_errors()}
-
   def update_campaign_name(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/name"
 
@@ -1856,16 +1793,13 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UpdateCampaignOutboundCallConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_campaign_outbound_call_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_campaign_outbound_call_config_errors()}
-
   def update_campaign_outbound_call_config(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/outbound-call-config"
 

@@ -3726,6 +3726,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Associates the specified origination identity with a pool. If the origination
   identity is a phone number and is already associated with another pool, an
   error is returned. A sender ID can be associated with multiple pools.
@@ -3741,12 +3742,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("PoolId") => String.t()
     }
   """
-
   @spec associate_origination_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_origination_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_origination_identity_errors()}
-
   def associate_origination_identity(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3756,6 +3755,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Associate a protect configuration with a configuration set. This replaces the
   configuration sets current protect configuration. A configuration set can only
   be associated with one protect configuration at a time. A protect
@@ -3770,12 +3770,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ProtectConfigurationId") => String.t()
     }
   """
-
   @spec associate_protect_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_protect_configuration_errors()}
-
   def associate_protect_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3785,6 +3783,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Creates a new configuration set. After you create the configuration set, you can
   add one or more event destinations to it. A configuration set is a set of
   rules that you apply to the SMS and voice messages that you send.
@@ -3799,12 +3798,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ConfigurationSetName") => String.t()
     }
   """
-
   @spec create_configuration_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_configuration_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_errors()}
-
   def create_configuration_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3813,6 +3810,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Creates a new event destination in a configuration set. An event destination is
   a location where you send message events. The event options are Amazon
   CloudWatch, Amazon Data Firehose, or Amazon SNS. For example, when a message
@@ -3834,12 +3832,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("MatchingEventTypes") => list(String.t()())
     }
   """
-
   @spec create_event_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_destination_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_destination_errors()}
-
   def create_event_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3848,6 +3844,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Creates a new opt-out list. If the opt-out list name already exists, an error is
   returned.
 
@@ -3861,12 +3858,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OptOutListName") => String.t()
     }
   """
-
   @spec create_opt_out_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_opt_out_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_opt_out_list_errors()}
-
   def create_opt_out_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3875,6 +3870,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Creates a new pool and associates the specified origination identity to the
   pool. A pool can include one or more phone numbers and SenderIds that are
   associated with your Amazon Web Services account. The new pool inherits its
@@ -3896,12 +3892,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OriginationIdentity") => String.t()
     }
   """
-
   @spec create_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pool_errors()}
-
   def create_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3910,6 +3904,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Create a new protect configuration. By default all country rule sets for each
   capability are set to `ALLOW`. Update the country rule sets using
   `UpdateProtectConfigurationCountryRuleSet`. A protect configurations name is
@@ -3926,12 +3921,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec create_protect_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_protect_configuration_errors()}
-
   def create_protect_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3940,6 +3933,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Creates a new registration based on the **RegistrationType** field.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20CreateRegistration&this_doc_guide=API%2520Reference)
@@ -3952,12 +3946,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationType") => String.t()
     }
   """
-
   @spec create_registration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_registration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_registration_errors()}
-
   def create_registration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3966,6 +3958,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Associate the registration with an origination identity such as a phone number
   or sender ID.
 
@@ -3978,12 +3971,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ResourceId") => String.t()
     }
   """
-
   @spec create_registration_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_registration_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_registration_association_errors()}
-
   def create_registration_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3993,6 +3984,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Create a new registration attachment to use for uploading a file or a URL to a
   file. The maximum file size is 1MiB and valid file extensions are PDF, JPEG
   and PNG. For example, many sender ID registrations require a signed “letter of
@@ -4009,12 +4001,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec create_registration_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_registration_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_registration_attachment_errors()}
-
   def create_registration_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4024,6 +4014,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Create a new version of the registration and increase the **VersionNumber**. The
   previous version of the registration becomes read-only.
 
@@ -4035,12 +4026,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationId") => String.t()
     }
   """
-
   @spec create_registration_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_registration_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_registration_version_errors()}
-
   def create_registration_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4049,6 +4038,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   You can only send messages to verified destination numbers when your account is
   in the sandbox. You can add up to 10 verified destination numbers.
 
@@ -4062,12 +4052,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("DestinationPhoneNumber") => String.t()
     }
   """
-
   @spec create_verified_destination_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_verified_destination_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_verified_destination_number_errors()}
-
   def create_verified_destination_number(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4077,6 +4065,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Removes the current account default protect configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteAccountDefaultProtectConfiguration&this_doc_guide=API%2520Reference)
@@ -4087,12 +4076,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
     }
   """
-
   @spec delete_account_default_protect_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_account_default_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_default_protect_configuration_errors()}
-
   def delete_account_default_protect_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4102,6 +4089,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an existing configuration set.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteConfigurationSet&this_doc_guide=API%2520Reference)
@@ -4112,12 +4100,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ConfigurationSetName") => String.t()
     }
   """
-
   @spec delete_configuration_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_configuration_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_errors()}
-
   def delete_configuration_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4126,6 +4112,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an existing default message type on a configuration set.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteDefaultMessageType&this_doc_guide=API%2520Reference)
@@ -4136,12 +4123,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ConfigurationSetName") => String.t()
     }
   """
-
   @spec delete_default_message_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_default_message_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_default_message_type_errors()}
-
   def delete_default_message_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4150,6 +4135,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an existing default sender ID on a configuration set.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteDefaultSenderId&this_doc_guide=API%2520Reference)
@@ -4160,12 +4146,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ConfigurationSetName") => String.t()
     }
   """
-
   @spec delete_default_sender_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_default_sender_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_default_sender_id_errors()}
-
   def delete_default_sender_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4174,6 +4158,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an existing event destination.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteEventDestination&this_doc_guide=API%2520Reference)
@@ -4185,12 +4170,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("EventDestinationName") => String.t()
     }
   """
-
   @spec delete_event_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_event_destination_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_destination_errors()}
-
   def delete_event_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4199,6 +4182,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an existing keyword from an origination phone number or pool. A keyword
   is a word that you can search for on a particular phone number or pool. It is
   also a specific word or phrase that an end user can send to your number to
@@ -4215,12 +4199,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OriginationIdentity") => String.t()
     }
   """
-
   @spec delete_keyword(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_keyword_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_keyword_errors()}
-
   def delete_keyword(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4229,6 +4211,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an account-level monthly spending limit override for sending multimedia
   messages (MMS). Deleting a spend limit override will set the `EnforcedLimit`
   to equal the `MaxLimit`, which is controlled by Amazon Web Services. For more
@@ -4244,12 +4227,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
     }
   """
-
   @spec delete_media_message_spend_limit_override(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_media_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_media_message_spend_limit_override_errors()}
-
   def delete_media_message_spend_limit_override(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4259,6 +4240,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an existing opt-out list. All opted out phone numbers in the opt-out
   list are deleted.
 
@@ -4270,12 +4252,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OptOutListName") => String.t()
     }
   """
-
   @spec delete_opt_out_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_opt_out_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_opt_out_list_errors()}
-
   def delete_opt_out_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4284,6 +4264,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an existing opted out destination phone number from the specified
   opt-out list. Each destination phone number can only be deleted once every 30
   days.
@@ -4297,12 +4278,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OptedOutNumber") => String.t()
     }
   """
-
   @spec delete_opted_out_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_opted_out_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_opted_out_number_errors()}
-
   def delete_opted_out_number(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4311,6 +4290,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an existing pool. Deleting a pool disassociates all origination
   identities from that pool. If the pool status isn't active or if deletion
   protection is enabled, an error is returned.
@@ -4323,12 +4303,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("PoolId") => String.t()
     }
   """
-
   @spec delete_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pool_errors()}
-
   def delete_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4337,6 +4315,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Permanently delete the protect configuration. The protect configuration must
   have deletion protection disabled and must not be associated as the account
   default protect configuration or associated with a configuration set.
@@ -4349,12 +4328,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ProtectConfigurationId") => String.t()
     }
   """
-
   @spec delete_protect_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_protect_configuration_errors()}
-
   def delete_protect_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4363,6 +4340,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Permanently delete an existing registration from your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteRegistration&this_doc_guide=API%2520Reference)
@@ -4373,12 +4351,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationId") => String.t()
     }
   """
-
   @spec delete_registration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_registration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_registration_errors()}
-
   def delete_registration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4387,6 +4363,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Permanently delete the specified registration attachment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteRegistrationAttachment&this_doc_guide=API%2520Reference)
@@ -4397,12 +4374,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationAttachmentId") => String.t()
     }
   """
-
   @spec delete_registration_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_registration_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_registration_attachment_errors()}
-
   def delete_registration_attachment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4412,6 +4387,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Delete the value in a registration form field.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteRegistrationFieldValue&this_doc_guide=API%2520Reference)
@@ -4423,12 +4399,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationId") => String.t()
     }
   """
-
   @spec delete_registration_field_value(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_registration_field_value_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_registration_field_value_errors()}
-
   def delete_registration_field_value(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4438,6 +4412,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an account-level monthly spending limit override for sending text
   messages. Deleting a spend limit override will set the `EnforcedLimit` to
   equal the `MaxLimit`, which is controlled by Amazon Web Services. For more
@@ -4453,12 +4428,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
     }
   """
-
   @spec delete_text_message_spend_limit_override(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_text_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_text_message_spend_limit_override_errors()}
-
   def delete_text_message_spend_limit_override(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4468,6 +4441,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Delete a verified destination phone number.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteVerifiedDestinationNumber&this_doc_guide=API%2520Reference)
@@ -4478,12 +4452,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("VerifiedDestinationNumberId") => String.t()
     }
   """
-
   @spec delete_verified_destination_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_verified_destination_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_verified_destination_number_errors()}
-
   def delete_verified_destination_number(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4493,6 +4465,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Deletes an account level monthly spend limit override for sending voice
   messages. Deleting a spend limit override sets the `EnforcedLimit` equal to
   the `MaxLimit`, which is controlled by Amazon Web Services. For more
@@ -4508,12 +4481,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
     }
   """
-
   @spec delete_voice_message_spend_limit_override(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_voice_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_message_spend_limit_override_errors()}
-
   def delete_voice_message_spend_limit_override(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4523,6 +4494,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Describes attributes of your Amazon Web Services account. The supported account
   attributes include account tier, which indicates whether your account is in
   the sandbox or production environment. When you're ready to move your account
@@ -4538,12 +4510,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_account_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_attributes_errors()}
-
   def describe_account_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4552,6 +4522,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Describes the current AWS End User Messaging SMS and Voice SMS Voice V2 resource
   quotas for your account. The description for a quota includes the quota name,
   current usage toward that quota, and the quota's maximum value.
@@ -4565,12 +4536,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_account_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_limits_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_limits_errors()}
-
   def describe_account_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4579,6 +4548,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Describes the specified configuration sets or all in your account. If you
   specify configuration set names, the output includes information for only the
   specified configuration sets. If you specify filters, the output includes
@@ -4597,12 +4567,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_configuration_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_configuration_sets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_sets_errors()}
-
   def describe_configuration_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4611,6 +4579,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Describes the specified keywords or all keywords on your origination phone
   number or pool. A keyword is a word that you can search for on a particular
   phone number or pool. It is also a specific word or phrase that an end user
@@ -4631,12 +4600,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OriginationIdentity") => String.t()
     }
   """
-
   @spec describe_keywords(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_keywords_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_keywords_errors()}
-
   def describe_keywords(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4645,6 +4612,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Describes the specified opt-out list or all opt-out lists in your account. If
   you specify opt-out list names, the output includes information for only the
   specified opt-out lists. Opt-out lists include only those that meet the filter
@@ -4661,12 +4629,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("OptOutListNames") => list(String.t()())
     }
   """
-
   @spec describe_opt_out_lists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_opt_out_lists_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_opt_out_lists_errors()}
-
   def describe_opt_out_lists(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4675,6 +4641,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Describes the specified opted out destination numbers or all opted out
   destination numbers in an opt-out list. If you specify opted out numbers, the
   output includes information for only the specified opted out numbers. If you
@@ -4695,12 +4662,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OptOutListName") => String.t()
     }
   """
-
   @spec describe_opted_out_numbers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_opted_out_numbers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_opted_out_numbers_errors()}
-
   def describe_opted_out_numbers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4709,6 +4674,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Describes the specified origination phone number, or all the phone numbers in
   your account. If you specify phone number IDs, the output includes information
   for only the specified phone numbers. If you specify filters, the output
@@ -4727,12 +4693,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("PhoneNumberIds") => list(String.t()())
     }
   """
-
   @spec describe_phone_numbers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_phone_numbers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_phone_numbers_errors()}
-
   def describe_phone_numbers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4741,6 +4705,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieves the specified pools or all pools associated with your Amazon Web
   Services account. If you specify pool IDs, the output includes information for
   only the specified pools. If you specify filters, the output includes
@@ -4758,12 +4723,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("PoolIds") => list(String.t()())
     }
   """
-
   @spec describe_pools(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pools_errors()}
-
   def describe_pools(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4772,6 +4735,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieves the protect configurations that match any of filters. If a filter
   isn’t provided then all protect configurations are returned.
 
@@ -4786,12 +4750,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("ProtectConfigurationIds") => list(String.t()())
     }
   """
-
   @spec describe_protect_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_protect_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_protect_configurations_errors()}
-
   def describe_protect_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4801,6 +4763,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieves the specified registration attachments or all registration attachments
   associated with your Amazon Web Services account.
 
@@ -4815,12 +4778,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("RegistrationAttachmentIds") => list(String.t()())
     }
   """
-
   @spec describe_registration_attachments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_registration_attachments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registration_attachments_errors()}
-
   def describe_registration_attachments(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4830,6 +4791,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieves the specified registration type field definitions. You can use
   DescribeRegistrationFieldDefinitions to view the requirements for creating,
   filling out, and submitting each registration type.
@@ -4846,12 +4808,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationType") => String.t()
     }
   """
-
   @spec describe_registration_field_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_registration_field_definitions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registration_field_definitions_errors()}
-
   def describe_registration_field_definitions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4861,6 +4821,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieves the specified registration field values.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DescribeRegistrationFieldValues&this_doc_guide=API%2520Reference)
@@ -4876,12 +4837,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationId") => String.t()
     }
   """
-
   @spec describe_registration_field_values(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_registration_field_values_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registration_field_values_errors()}
-
   def describe_registration_field_values(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4891,6 +4850,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieves the specified registration section definitions. You can use
   DescribeRegistrationSectionDefinitions to view the requirements for creating,
   filling out, and submitting each registration type.
@@ -4906,12 +4866,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationType") => String.t()
     }
   """
-
   @spec describe_registration_section_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_registration_section_definitions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registration_section_definitions_errors()}
-
   def describe_registration_section_definitions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4921,6 +4879,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieves the specified registration type definitions. You can use
   DescribeRegistrationTypeDefinitions to view the requirements for creating,
   filling out, and submitting each registration type.
@@ -4936,12 +4895,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("RegistrationTypes") => list(String.t()())
     }
   """
-
   @spec describe_registration_type_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_registration_type_definitions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registration_type_definitions_errors()}
-
   def describe_registration_type_definitions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4951,6 +4908,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieves the specified registration version.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DescribeRegistrationVersions&this_doc_guide=API%2520Reference)
@@ -4965,12 +4923,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationId") => String.t()
     }
   """
-
   @spec describe_registration_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_registration_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registration_versions_errors()}
-
   def describe_registration_versions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4980,6 +4936,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieves the specified registrations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DescribeRegistrations&this_doc_guide=API%2520Reference)
@@ -4993,12 +4950,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("RegistrationIds") => list(String.t()())
     }
   """
-
   @spec describe_registrations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_registrations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registrations_errors()}
-
   def describe_registrations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5007,6 +4962,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Describes the specified SenderIds or all SenderIds associated with your Amazon
   Web Services account. If you specify SenderIds, the output includes
   information for only the specified SenderIds. If you specify filters, the
@@ -5025,12 +4981,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("SenderIds") => list(sender_id_and_country()())
     }
   """
-
   @spec describe_sender_ids(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_sender_ids_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_sender_ids_errors()}
-
   def describe_sender_ids(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5039,6 +4993,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Describes the current monthly spend limits for sending voice and text messages.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DescribeSpendLimits&this_doc_guide=API%2520Reference)
@@ -5050,12 +5005,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_spend_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_spend_limits_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_spend_limits_errors()}
-
   def describe_spend_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5064,6 +5017,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieves the specified verified destiona numbers.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DescribeVerifiedDestinationNumbers&this_doc_guide=API%2520Reference)
@@ -5078,12 +5032,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       optional("VerifiedDestinationNumberIds") => list(String.t()())
     }
   """
-
   @spec describe_verified_destination_numbers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_verified_destination_numbers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_verified_destination_numbers_errors()}
-
   def describe_verified_destination_numbers(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5093,6 +5045,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Removes the specified origination identity from an existing pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DisassociateOriginationIdentity&this_doc_guide=API%2520Reference)
@@ -5106,12 +5059,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("PoolId") => String.t()
     }
   """
-
   @spec disassociate_origination_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_origination_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_origination_identity_errors()}
-
   def disassociate_origination_identity(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5121,6 +5072,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Disassociate a protect configuration from a configuration set.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DisassociateProtectConfiguration&this_doc_guide=API%2520Reference)
@@ -5132,12 +5084,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ProtectConfigurationId") => String.t()
     }
   """
-
   @spec disassociate_protect_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_protect_configuration_errors()}
-
   def disassociate_protect_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5147,6 +5097,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Discard the current version of the registration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DiscardRegistrationVersion&this_doc_guide=API%2520Reference)
@@ -5157,12 +5108,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationId") => String.t()
     }
   """
-
   @spec discard_registration_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, discard_registration_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, discard_registration_version_errors()}
-
   def discard_registration_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5171,6 +5120,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retrieve the CountryRuleSet for the specified NumberCapability from a protect
   configuration.
 
@@ -5183,12 +5133,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ProtectConfigurationId") => String.t()
     }
   """
-
   @spec get_protect_configuration_country_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_protect_configuration_country_rule_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_protect_configuration_country_rule_set_errors()}
-
   def get_protect_configuration_country_rule_set(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5198,6 +5146,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Lists all associated origination identities in your pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20ListPoolOriginationIdentities&this_doc_guide=API%2520Reference)
@@ -5211,12 +5160,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("PoolId") => String.t()
     }
   """
-
   @spec list_pool_origination_identities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pool_origination_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pool_origination_identities_errors()}
-
   def list_pool_origination_identities(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5226,6 +5173,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Retreive all of the origination identies that are associated with a
   registration.
 
@@ -5240,12 +5188,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationId") => String.t()
     }
   """
-
   @spec list_registration_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_registration_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_registration_associations_errors()}
-
   def list_registration_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5255,6 +5201,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   List all tags associated with a resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -5265,12 +5212,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5279,6 +5224,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Creates or updates a keyword configuration on an origination phone number or
   pool. A keyword is a word that you can search for on a particular phone number
   or pool. It is also a specific word or phrase that an end user can send to
@@ -5297,12 +5243,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OriginationIdentity") => String.t()
     }
   """
-
   @spec put_keyword(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_keyword_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_keyword_errors()}
-
   def put_keyword(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5311,6 +5255,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Creates an opted out destination phone number in the opt-out list.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20PutOptedOutNumber&this_doc_guide=API%2520Reference)
@@ -5322,12 +5267,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OptedOutNumber") => String.t()
     }
   """
-
   @spec put_opted_out_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_opted_out_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_opted_out_number_errors()}
-
   def put_opted_out_number(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5336,6 +5279,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Creates or updates a field value for a registration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20PutRegistrationFieldValue&this_doc_guide=API%2520Reference)
@@ -5350,12 +5294,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationId") => String.t()
     }
   """
-
   @spec put_registration_field_value(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_registration_field_value_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_registration_field_value_errors()}
-
   def put_registration_field_value(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5364,6 +5306,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Releases an existing origination phone number in your account. Once released, a
   phone number is no longer available for sending messages.
 
@@ -5375,12 +5318,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("PhoneNumberId") => String.t()
     }
   """
-
   @spec release_phone_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, release_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, release_phone_number_errors()}
-
   def release_phone_number(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5389,6 +5330,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Releases an existing sender ID in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20ReleaseSenderId&this_doc_guide=API%2520Reference)
@@ -5400,12 +5342,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("SenderId") => String.t()
     }
   """
-
   @spec release_sender_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, release_sender_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, release_sender_id_errors()}
-
   def release_sender_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5414,6 +5354,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Request an origination phone number for use in your account. For more
   information on phone number request see [Request a phone
   number](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html)
@@ -5436,12 +5377,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("NumberType") => String.t()
     }
   """
-
   @spec request_phone_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, request_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, request_phone_number_errors()}
-
   def request_phone_number(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5450,6 +5389,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Request a new sender ID that doesn't require registration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20RequestSenderId&this_doc_guide=API%2520Reference)
@@ -5465,12 +5405,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("SenderId") => String.t()
     }
   """
-
   @spec request_sender_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, request_sender_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, request_sender_id_errors()}
-
   def request_sender_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5479,6 +5417,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Before you can send test messages to a verified destination phone number you
   need to opt-in the verified destination phone number. Creates a new text
   message with a verification code and send it to a verified destination phone
@@ -5499,12 +5438,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("VerifiedDestinationNumberId") => String.t()
     }
   """
-
   @spec send_destination_number_verification_code(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_destination_number_verification_code_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_destination_number_verification_code_errors()}
-
   def send_destination_number_verification_code(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5514,6 +5451,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Creates a new multimedia message (MMS) and sends it to a recipient's phone
   number.
 
@@ -5534,12 +5472,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OriginationIdentity") => String.t()
     }
   """
-
   @spec send_media_message(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_media_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_media_message_errors()}
-
   def send_media_message(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5548,6 +5484,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Creates a new text message and sends it to a recipient's phone number.
   SendTextMessage only sends an SMS message to one recipient each time it is
   invoked.
@@ -5571,12 +5508,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("DestinationPhoneNumber") => String.t()
     }
   """
-
   @spec send_text_message(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_text_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_text_message_errors()}
-
   def send_text_message(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5585,6 +5520,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Allows you to send a request that sends a voice message. This operation uses
   [Amazon Polly](http://aws.amazon.com/polly/) to convert a text script into a
   voice message.
@@ -5607,12 +5543,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("OriginationIdentity") => String.t()
     }
   """
-
   @spec send_voice_message(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_voice_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_voice_message_errors()}
-
   def send_voice_message(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5621,6 +5555,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Set a protect configuration as your account default. You can only have one
   account default protect configuration at a time. The current account default
   protect configuration is replaced with the provided protect configuration.
@@ -5633,12 +5568,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ProtectConfigurationId") => String.t()
     }
   """
-
   @spec set_account_default_protect_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_account_default_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_account_default_protect_configuration_errors()}
-
   def set_account_default_protect_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5648,6 +5581,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Sets the default message type on a configuration set.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20SetDefaultMessageType&this_doc_guide=API%2520Reference)
@@ -5659,12 +5593,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("MessageType") => String.t()
     }
   """
-
   @spec set_default_message_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_default_message_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_default_message_type_errors()}
-
   def set_default_message_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5673,6 +5605,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Sets default sender ID on a configuration set.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20SetDefaultSenderId&this_doc_guide=API%2520Reference)
@@ -5684,12 +5617,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("SenderId") => String.t()
     }
   """
-
   @spec set_default_sender_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_default_sender_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_default_sender_id_errors()}
-
   def set_default_sender_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5698,6 +5629,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Sets an account level monthly spend limit override for sending MMS messages. The
   requested spend limit must be less than or equal to the `MaxLimit`, which is
   set by Amazon Web Services.
@@ -5710,12 +5642,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("MonthlyLimit") => float()
     }
   """
-
   @spec set_media_message_spend_limit_override(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_media_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_media_message_spend_limit_override_errors()}
-
   def set_media_message_spend_limit_override(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5725,6 +5655,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Sets an account level monthly spend limit override for sending text messages.
   The requested spend limit must be less than or equal to the `MaxLimit`, which
   is set by Amazon Web Services.
@@ -5737,12 +5668,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("MonthlyLimit") => float()
     }
   """
-
   @spec set_text_message_spend_limit_override(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_text_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_text_message_spend_limit_override_errors()}
-
   def set_text_message_spend_limit_override(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5752,6 +5681,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Sets an account level monthly spend limit override for sending voice messages.
   The requested spend limit must be less than or equal to the `MaxLimit`, which
   is set by Amazon Web Services.
@@ -5764,12 +5694,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("MonthlyLimit") => float()
     }
   """
-
   @spec set_voice_message_spend_limit_override(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_voice_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_voice_message_spend_limit_override_errors()}
-
   def set_voice_message_spend_limit_override(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5779,6 +5707,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Submit the specified registration for review and approval.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20SubmitRegistrationVersion&this_doc_guide=API%2520Reference)
@@ -5789,12 +5718,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("RegistrationId") => String.t()
     }
   """
-
   @spec submit_registration_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, submit_registration_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_registration_version_errors()}
-
   def submit_registration_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5803,6 +5730,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Adds or overwrites only the specified tags for the specified resource. When you
   specify an existing tag key, the value is overwritten with the new value. Each
   resource can have a maximum of 50 tags. Each tag consists of a key and an
@@ -5820,12 +5748,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5834,6 +5760,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Removes the association of the specified tags from a resource. For more
   information on tags see [Tags
   ](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-tags.html)
@@ -5848,12 +5775,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5862,6 +5787,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Updates an existing event destination in a configuration set. You can update the
   IAM role ARN for CloudWatch Logs and Firehose. You can also enable or disable
   the event destination.
@@ -5880,12 +5806,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("EventDestinationName") => String.t()
     }
   """
-
   @spec update_event_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_event_destination_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_destination_errors()}
-
   def update_event_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5894,6 +5818,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Updates the configuration of an existing origination phone number. You can
   update the opt-out list, enable or disable two-way messaging, change the
   TwoWayChannelArn, enable or disable self-managed opt-outs, and enable or
@@ -5913,12 +5838,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("PhoneNumberId") => String.t()
     }
   """
-
   @spec update_phone_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_errors()}
-
   def update_phone_number(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5927,6 +5850,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Updates the configuration of an existing pool. You can update the opt-out list,
   enable or disable two-way messaging, change the `TwoWayChannelArn`, enable or
   disable self-managed opt-outs, enable or disable deletion protection, and
@@ -5947,12 +5871,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("PoolId") => String.t()
     }
   """
-
   @spec update_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pool_errors()}
-
   def update_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5961,6 +5883,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Update the setting for an existing protect configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20UpdateProtectConfiguration&this_doc_guide=API%2520Reference)
@@ -5972,12 +5895,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ProtectConfigurationId") => String.t()
     }
   """
-
   @spec update_protect_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_protect_configuration_errors()}
-
   def update_protect_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5986,6 +5907,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Update a country rule set to `ALLOW` or `BLOCK` messages to be sent to the
   specified destination counties. You can update one or multiple countries at a
   time. The updates are only applied to the specified NumberCapability type.
@@ -6000,12 +5922,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("ProtectConfigurationId") => String.t()
     }
   """
-
   @spec update_protect_configuration_country_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_protect_configuration_country_rule_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_protect_configuration_country_rule_set_errors()}
-
   def update_protect_configuration_country_rule_set(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6015,6 +5935,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Updates the configuration of an existing sender ID.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20UpdateSenderId&this_doc_guide=API%2520Reference)
@@ -6027,12 +5948,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("SenderId") => String.t()
     }
   """
-
   @spec update_sender_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_sender_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sender_id_errors()}
-
   def update_sender_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6041,6 +5960,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+   
   Use the verification code that was received by the verified destination phone
   number to opt-in the verified destination phone number to receive more
   messages.
@@ -6054,12 +5974,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
       required("VerifiedDestinationNumberId") => String.t()
     }
   """
-
   @spec verify_destination_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_destination_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_destination_number_errors()}
-
   def verify_destination_number(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

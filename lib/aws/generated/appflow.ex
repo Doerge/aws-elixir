@@ -2903,15 +2903,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20CancelFlowExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_flow_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_flow_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_flow_executions_errors()}
-
   def cancel_flow_executions(%Client{} = client, options \\ []) do
     url_path = "/cancel-flow-executions"
 
@@ -2953,15 +2950,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20CreateConnectorProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_connector_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connector_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_profile_errors()}
-
   def create_connector_profile(%Client{} = client, options \\ []) do
     url_path = "/create-connector-profile"
 
@@ -3002,15 +2996,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20CreateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_errors()}
-
   def create_flow(%Client{} = client, options \\ []) do
     url_path = "/create-flow"
 
@@ -3047,15 +3038,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DeleteConnectorProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_connector_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_connector_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_profile_errors()}
-
   def delete_connector_profile(%Client{} = client, options \\ []) do
     url_path = "/delete-connector-profile"
 
@@ -3094,15 +3082,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DeleteFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_errors()}
-
   def delete_flow(%Client{} = client, options \\ []) do
     url_path = "/delete-flow"
 
@@ -3141,15 +3126,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connector_errors()}
-
   def describe_connector(%Client{} = client, options \\ []) do
     url_path = "/describe-connector"
 
@@ -3187,15 +3169,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeConnectorEntity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_connector_entity(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connector_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connector_entity_errors()}
-
   def describe_connector_entity(%Client{} = client, options \\ []) do
     url_path = "/describe-connector-entity"
 
@@ -3234,15 +3213,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeConnectorProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_connector_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connector_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connector_profiles_errors()}
-
   def describe_connector_profiles(%Client{} = client, options \\ []) do
     url_path = "/describe-connector-profiles"
 
@@ -3284,15 +3260,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connectors_errors()}
-
   def describe_connectors(%Client{} = client, options \\ []) do
     url_path = "/describe-connectors"
 
@@ -3329,15 +3302,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_errors()}
-
   def describe_flow(%Client{} = client, options \\ []) do
     url_path = "/describe-flow"
 
@@ -3374,15 +3344,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeFlowExecutionRecords&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_flow_execution_records(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_flow_execution_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_execution_records_errors()}
-
   def describe_flow_execution_records(%Client{} = client, options \\ []) do
     url_path = "/describe-flow-execution-records"
 
@@ -3421,15 +3388,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20ListConnectorEntities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_connector_entities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connector_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connector_entities_errors()}
-
   def list_connector_entities(%Client{} = client, options \\ []) do
     url_path = "/list-connector-entities"
 
@@ -3468,15 +3432,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20ListConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
-
   def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/list-connectors"
 
@@ -3513,15 +3474,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20ListFlows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flows_errors()}
-
   def list_flows(%Client{} = client, options \\ []) do
     url_path = "/list-flows"
 
@@ -3558,17 +3516,14 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the specified
-  flow.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  specified flow.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3605,15 +3560,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20RegisterConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_connector_errors()}
-
   def register_connector(%Client{} = client, options \\ []) do
     url_path = "/register-connector"
 
@@ -3652,15 +3604,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20ResetConnectorMetadataCache&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reset_connector_metadata_cache(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_connector_metadata_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_connector_metadata_cache_errors()}
-
   def reset_connector_metadata_cache(%Client{} = client, options \\ []) do
     url_path = "/reset-connector-metadata-cache"
 
@@ -3699,15 +3648,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20StartFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_flow_errors()}
-
   def start_flow(%Client{} = client, options \\ []) do
     url_path = "/start-flow"
 
@@ -3746,15 +3692,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20StopFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_flow_errors()}
-
   def stop_flow(%Client{} = client, options \\ []) do
     url_path = "/stop-flow"
 
@@ -3791,17 +3734,14 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the flow that
-  you want to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  flow that you want to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3839,15 +3779,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20UnregisterConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec unregister_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, unregister_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unregister_connector_errors()}
-
   def unregister_connector(%Client{} = client, options \\ []) do
     url_path = "/unregister-connector"
 
@@ -3884,19 +3821,16 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the flow that
-  you want to untag.
-  * `:tag_keys` (`t:list[com.amazonaws.appflow#TagKey]`) The tag keys associated
-  with the tag that you want to remove from your flow.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  flow that you want to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.appflow#TagKey]` required) The tag keys
+  associated with the tag that you want to remove from your flow.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3944,15 +3878,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20UpdateConnectorProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_connector_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_connector_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_profile_errors()}
-
   def update_connector_profile(%Client{} = client, options \\ []) do
     url_path = "/update-connector-profile"
 
@@ -3990,15 +3921,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20UpdateConnectorRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_connector_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_connector_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_registration_errors()}
-
   def update_connector_registration(%Client{} = client, options \\ []) do
     url_path = "/update-connector-registration"
 
@@ -4035,15 +3963,12 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20UpdateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_errors()}
-
   def update_flow(%Client{} = client, options \\ []) do
     url_path = "/update-flow"
 

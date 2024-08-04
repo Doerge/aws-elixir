@@ -3351,6 +3351,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates a batch of variables.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20BatchCreateVariable&this_doc_guide=API%2520Reference)
@@ -3362,12 +3363,10 @@ defmodule AWS.FraudDetector do
       required("variableEntries") => list(variable_entry()())
     }
   """
-
   @spec batch_create_variable(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_create_variable_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_variable_errors()}
-
   def batch_create_variable(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3376,6 +3375,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets a batch of variables.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20BatchGetVariable&this_doc_guide=API%2520Reference)
@@ -3386,12 +3386,10 @@ defmodule AWS.FraudDetector do
       required("names") => list(String.t()())
     }
   """
-
   @spec batch_get_variable(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_variable_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_variable_errors()}
-
   def batch_get_variable(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3400,6 +3398,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Cancels an in-progress batch import job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20CancelBatchImportJob&this_doc_guide=API%2520Reference)
@@ -3410,12 +3409,10 @@ defmodule AWS.FraudDetector do
       required("jobId") => String.t()
     }
   """
-
   @spec cancel_batch_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_batch_import_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_batch_import_job_errors()}
-
   def cancel_batch_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3424,6 +3421,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Cancels the specified batch prediction job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20CancelBatchPredictionJob&this_doc_guide=API%2520Reference)
@@ -3434,12 +3432,10 @@ defmodule AWS.FraudDetector do
       required("jobId") => String.t()
     }
   """
-
   @spec cancel_batch_prediction_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_batch_prediction_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_batch_prediction_job_errors()}
-
   def cancel_batch_prediction_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3448,6 +3444,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates a batch import job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20CreateBatchImportJob&this_doc_guide=API%2520Reference)
@@ -3463,12 +3460,10 @@ defmodule AWS.FraudDetector do
       required("outputPath") => String.t()
     }
   """
-
   @spec create_batch_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_batch_import_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_batch_import_job_errors()}
-
   def create_batch_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3477,6 +3472,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates a batch prediction job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20CreateBatchPredictionJob&this_doc_guide=API%2520Reference)
@@ -3494,12 +3490,10 @@ defmodule AWS.FraudDetector do
       required("outputPath") => String.t()
     }
   """
-
   @spec create_batch_prediction_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_batch_prediction_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_batch_prediction_job_errors()}
-
   def create_batch_prediction_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3508,6 +3502,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates a detector version. The detector version starts in a `DRAFT` status.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20CreateDetectorVersion&this_doc_guide=API%2520Reference)
@@ -3524,12 +3519,10 @@ defmodule AWS.FraudDetector do
       required("rules") => list(rule()())
     }
   """
-
   @spec create_detector_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_detector_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_detector_version_errors()}
-
   def create_detector_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3538,6 +3531,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates a list.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20CreateList&this_doc_guide=API%2520Reference)
@@ -3552,12 +3546,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec create_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_list_errors()}
-
   def create_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3566,6 +3558,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates a model using the specified model type.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20CreateModel&this_doc_guide=API%2520Reference)
@@ -3580,12 +3573,10 @@ defmodule AWS.FraudDetector do
       required("modelType") => list(any())
     }
   """
-
   @spec create_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_errors()}
-
   def create_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3594,6 +3585,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates a version of the model using the specified model type and model id.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20CreateModelVersion&this_doc_guide=API%2520Reference)
@@ -3610,12 +3602,10 @@ defmodule AWS.FraudDetector do
       required("trainingDataSource") => list(any())
     }
   """
-
   @spec create_model_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_version_errors()}
-
   def create_model_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3624,6 +3614,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates a rule for use with the specified detector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20CreateRule&this_doc_guide=API%2520Reference)
@@ -3640,12 +3631,10 @@ defmodule AWS.FraudDetector do
       required("ruleId") => String.t()
     }
   """
-
   @spec create_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
-
   def create_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3654,6 +3643,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates a variable.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20CreateVariable&this_doc_guide=API%2520Reference)
@@ -3670,12 +3660,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec create_variable(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_variable_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_variable_errors()}
-
   def create_variable(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3684,6 +3672,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes the specified batch import job ID record. This action does not delete
   the data that was batch imported.
 
@@ -3695,12 +3684,10 @@ defmodule AWS.FraudDetector do
       required("jobId") => String.t()
     }
   """
-
   @spec delete_batch_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_batch_import_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_batch_import_job_errors()}
-
   def delete_batch_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3709,6 +3696,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes a batch prediction job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20DeleteBatchPredictionJob&this_doc_guide=API%2520Reference)
@@ -3719,12 +3707,10 @@ defmodule AWS.FraudDetector do
       required("jobId") => String.t()
     }
   """
-
   @spec delete_batch_prediction_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_batch_prediction_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_batch_prediction_job_errors()}
-
   def delete_batch_prediction_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3733,6 +3719,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes the detector. Before deleting a detector, you must first delete all
   detector versions and rule versions associated with the detector.
 
@@ -3744,12 +3731,10 @@ defmodule AWS.FraudDetector do
       required("detectorId") => String.t()
     }
   """
-
   @spec delete_detector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_detector_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_detector_errors()}
-
   def delete_detector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3758,6 +3743,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes the detector version. You cannot delete detector versions that are in
   `ACTIVE` status.
 
@@ -3770,12 +3756,10 @@ defmodule AWS.FraudDetector do
       required("detectorVersionId") => String.t()
     }
   """
-
   @spec delete_detector_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_detector_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_detector_version_errors()}
-
   def delete_detector_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3784,6 +3768,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes an entity type. You cannot delete an entity type that is included in an
   event type.
 
@@ -3795,12 +3780,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec delete_entity_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_entity_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_entity_type_errors()}
-
   def delete_entity_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3809,6 +3792,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes the specified event.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20DeleteEvent&this_doc_guide=API%2520Reference)
@@ -3821,12 +3805,10 @@ defmodule AWS.FraudDetector do
       required("eventTypeName") => String.t()
     }
   """
-
   @spec delete_event(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_event_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_errors()}
-
   def delete_event(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3835,6 +3817,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes an event type. You cannot delete an event type that is used in a
   detector or a model.
 
@@ -3846,12 +3829,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec delete_event_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_event_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_type_errors()}
-
   def delete_event_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3860,6 +3841,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes all events of a particular event type.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20DeleteEventsByEventType&this_doc_guide=API%2520Reference)
@@ -3870,12 +3852,10 @@ defmodule AWS.FraudDetector do
       required("eventTypeName") => String.t()
     }
   """
-
   @spec delete_events_by_event_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_events_by_event_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_events_by_event_type_errors()}
-
   def delete_events_by_event_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3884,6 +3864,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Removes a SageMaker model from Amazon Fraud Detector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20DeleteExternalModel&this_doc_guide=API%2520Reference)
@@ -3894,12 +3875,10 @@ defmodule AWS.FraudDetector do
       required("modelEndpoint") => String.t()
     }
   """
-
   @spec delete_external_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_external_model_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_external_model_errors()}
-
   def delete_external_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3908,6 +3887,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes a label. You cannot delete labels that are included in an event type in
   Amazon Fraud Detector.
 
@@ -3919,12 +3899,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec delete_label(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_label_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_label_errors()}
-
   def delete_label(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3933,6 +3911,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes the list, provided it is not used in a rule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20DeleteList&this_doc_guide=API%2520Reference)
@@ -3943,12 +3922,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec delete_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_list_errors()}
-
   def delete_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3957,6 +3934,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes a model. You can delete models and model versions in Amazon Fraud
   Detector, provided that they are not associated with a detector version.
 
@@ -3969,12 +3947,10 @@ defmodule AWS.FraudDetector do
       required("modelType") => list(any())
     }
   """
-
   @spec delete_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_model_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_errors()}
-
   def delete_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3983,6 +3959,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes a model version. You can delete models and model versions in Amazon
   Fraud Detector, provided that they are not associated with a detector version.
 
@@ -3996,12 +3973,10 @@ defmodule AWS.FraudDetector do
       required("modelVersionNumber") => String.t()
     }
   """
-
   @spec delete_model_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_model_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_version_errors()}
-
   def delete_model_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4010,6 +3985,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes an outcome. You cannot delete an outcome that is used in a rule version.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20DeleteOutcome&this_doc_guide=API%2520Reference)
@@ -4020,12 +3996,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec delete_outcome(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_outcome_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_outcome_errors()}
-
   def delete_outcome(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4034,6 +4008,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes the rule. You cannot delete a rule if it is used by an `ACTIVE` or
   `INACTIVE` detector version.
 
@@ -4045,12 +4020,10 @@ defmodule AWS.FraudDetector do
       required("rule") => rule()
     }
   """
-
   @spec delete_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
-
   def delete_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4059,6 +4032,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Deletes a variable. You can't delete variables that are included in an event
   type in Amazon Fraud Detector.
 
@@ -4070,12 +4044,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec delete_variable(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_variable_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_variable_errors()}
-
   def delete_variable(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4084,6 +4056,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets all versions for a specified detector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20DescribeDetector&this_doc_guide=API%2520Reference)
@@ -4096,12 +4069,10 @@ defmodule AWS.FraudDetector do
       required("detectorId") => String.t()
     }
   """
-
   @spec describe_detector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_detector_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_detector_errors()}
-
   def describe_detector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4110,6 +4081,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets all of the model versions for the specified model type or for the specified
   model type and model ID. You can also get details for a single, specified
   model version.
@@ -4126,12 +4098,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_model_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_versions_errors()}
-
   def describe_model_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4140,6 +4110,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets all batch import jobs or a specific job of the specified ID. This is a
   paginated API. If you provide a null `maxResults`, this action retrieves a
   maximum of 50 records per page. If you provide a `maxResults`, the value must
@@ -4157,12 +4128,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_batch_import_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_batch_import_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_batch_import_jobs_errors()}
-
   def get_batch_import_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4171,6 +4140,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets all batch prediction jobs or a specific job if you specify a job ID. This
   is a paginated API. If you provide a null maxResults, this action retrieves a
   maximum of 50 records per page. If you provide a maxResults, the value must be
@@ -4188,12 +4158,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_batch_prediction_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_batch_prediction_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_batch_prediction_jobs_errors()}
-
   def get_batch_prediction_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4202,6 +4170,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Retrieves the status of a `DeleteEventsByEventType` action.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20GetDeleteEventsByEventTypeStatus&this_doc_guide=API%2520Reference)
@@ -4212,12 +4181,10 @@ defmodule AWS.FraudDetector do
       required("eventTypeName") => String.t()
     }
   """
-
   @spec get_delete_events_by_event_type_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_delete_events_by_event_type_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_delete_events_by_event_type_status_errors()}
-
   def get_delete_events_by_event_type_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4227,6 +4194,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets a particular detector version.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20GetDetectorVersion&this_doc_guide=API%2520Reference)
@@ -4238,12 +4206,10 @@ defmodule AWS.FraudDetector do
       required("detectorVersionId") => String.t()
     }
   """
-
   @spec get_detector_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_detector_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_detector_version_errors()}
-
   def get_detector_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4252,6 +4218,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets all detectors or a single detector if a `detectorId` is specified. This is
   a paginated API. If you provide a null `maxResults`, this action retrieves a
   maximum of 10 records per page. If you provide a `maxResults`, the value must
@@ -4269,12 +4236,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_detectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_detectors_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_detectors_errors()}
-
   def get_detectors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4283,6 +4248,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets all entity types or a specific entity type if a name is specified. This is
   a paginated API. If you provide a null `maxResults`, this action retrieves a
   maximum of 10 records per page. If you provide a `maxResults`, the value must
@@ -4300,12 +4266,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_entity_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_entity_types_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_entity_types_errors()}
-
   def get_entity_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4314,6 +4278,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Retrieves details of events stored with Amazon Fraud Detector. This action does
   not retrieve prediction results.
 
@@ -4326,12 +4291,10 @@ defmodule AWS.FraudDetector do
       required("eventTypeName") => String.t()
     }
   """
-
   @spec get_event(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_event_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_errors()}
-
   def get_event(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4340,6 +4303,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Evaluates an event against a detector version. If a version ID is not provided,
   the detector’s (`ACTIVE`) version is used.
 
@@ -4358,12 +4322,10 @@ defmodule AWS.FraudDetector do
       required("eventVariables") => map()
     }
   """
-
   @spec get_event_prediction(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_event_prediction_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_prediction_errors()}
-
   def get_event_prediction(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4372,6 +4334,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets details of the past fraud predictions for the specified event ID, event
   type, detector ID, and detector version ID that was generated in the specified
   time period.
@@ -4388,12 +4351,10 @@ defmodule AWS.FraudDetector do
       required("predictionTimestamp") => String.t()
     }
   """
-
   @spec get_event_prediction_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_event_prediction_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_prediction_metadata_errors()}
-
   def get_event_prediction_metadata(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4403,6 +4364,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets all event types or a specific event type if name is provided. This is a
   paginated API. If you provide a null `maxResults`, this action retrieves a
   maximum of 10 records per page. If you provide a `maxResults`, the value must
@@ -4420,12 +4382,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_event_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_event_types_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_types_errors()}
-
   def get_event_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4434,6 +4394,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets the details for one or more Amazon SageMaker models that have been imported
   into the service. This is a paginated API. If you provide a null `maxResults`,
   this actions retrieves a maximum of 10 records per page. If you provide a
@@ -4452,12 +4413,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_external_models(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_external_models_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_external_models_errors()}
-
   def get_external_models(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4466,6 +4425,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets the encryption key if a KMS key has been specified to be used to encrypt
   content in Amazon Fraud Detector.
 
@@ -4474,12 +4434,10 @@ defmodule AWS.FraudDetector do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec get_kms_encryption_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_kms_encryption_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_kms_encryption_key_errors()}
-
   def get_kms_encryption_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4488,6 +4446,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets all labels or a specific label if name is provided. This is a paginated
   API. If you provide a null `maxResults`, this action retrieves a maximum of 50
   records per page. If you provide a `maxResults`, the value must be between 10
@@ -4505,12 +4464,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_labels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_labels_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_labels_errors()}
-
   def get_labels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4519,6 +4476,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets all the elements in the specified list.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20GetListElements&this_doc_guide=API%2520Reference)
@@ -4531,12 +4489,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec get_list_elements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_list_elements_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_list_elements_errors()}
-
   def get_list_elements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4545,6 +4501,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets the metadata of either all the lists under the account or the specified
   list.
 
@@ -4558,12 +4515,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_lists_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lists_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lists_metadata_errors()}
-
   def get_lists_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4572,6 +4527,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets the details of the specified model version.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20GetModelVersion&this_doc_guide=API%2520Reference)
@@ -4584,12 +4540,10 @@ defmodule AWS.FraudDetector do
       required("modelVersionNumber") => String.t()
     }
   """
-
   @spec get_model_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_model_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_version_errors()}
-
   def get_model_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4598,6 +4552,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets one or more models. Gets all models for the Amazon Web Services account if
   no model type and no model id provided. Gets all models for the Amazon Web
   Services account and model type, if the model type is specified but model id
@@ -4615,12 +4570,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_models(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_models_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_models_errors()}
-
   def get_models(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4629,6 +4582,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets one or more outcomes. This is a paginated API. If you provide a null
   `maxResults`, this actions retrieves a maximum of 100 records per page. If you
   provide a `maxResults`, the value must be between 50 and 100. To get the next
@@ -4646,12 +4600,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_outcomes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_outcomes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outcomes_errors()}
-
   def get_outcomes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4660,6 +4612,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Get all rules for a detector (paginated) if `ruleId` and `ruleVersion` are not
   specified. Gets all rules for the detector and the `ruleId` if present
   (paginated). Gets a specific rule if both the `ruleId` and the `ruleVersion`
@@ -4677,12 +4630,10 @@ defmodule AWS.FraudDetector do
       required("detectorId") => String.t()
     }
   """
-
   @spec get_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rules_errors()}
-
   def get_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4691,6 +4642,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets all of the variables or the specific variable. This is a paginated API.
   Providing null `maxSizePerPage` results in retrieving maximum of 100 records
   per page. If you provide `maxSizePerPage` the value must be between 50 and
@@ -4708,12 +4660,10 @@ defmodule AWS.FraudDetector do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_variables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_variables_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_variables_errors()}
-
   def get_variables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4722,6 +4672,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Gets a list of past predictions. The list can be filtered by detector ID,
   detector version ID, event ID, event type, or by specifying a time period. If
   filter is not specified, the most recent prediction is returned. For example,
@@ -4742,12 +4693,10 @@ defmodule AWS.FraudDetector do
       optional("predictionTimeRange") => prediction_time_range()
     }
   """
-
   @spec list_event_predictions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_event_predictions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_predictions_errors()}
-
   def list_event_predictions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4756,6 +4705,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Lists all tags associated with the resource. This is a paginated API. To get the
   next page results, provide the pagination token from the response as part of
   your request. A null pagination token fetches the records from the beginning.
@@ -4770,12 +4720,10 @@ defmodule AWS.FraudDetector do
       required("resourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4784,6 +4732,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates or updates a detector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20PutDetector&this_doc_guide=API%2520Reference)
@@ -4797,12 +4746,10 @@ defmodule AWS.FraudDetector do
       required("eventTypeName") => String.t()
     }
   """
-
   @spec put_detector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_detector_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_detector_errors()}
-
   def put_detector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4811,6 +4758,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates or updates an entity type. An entity represents who is performing the
   event. As part of a fraud prediction, you pass the entity ID to indicate the
   specific entity who performed the event. An entity type classifies the entity.
@@ -4826,12 +4774,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec put_entity_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_entity_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_entity_type_errors()}
-
   def put_entity_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4840,6 +4786,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates or updates an event type. An event is a business activity that is
   evaluated for fraud risk. With Amazon Fraud Detector, you generate fraud
   predictions for events. An event type defines the structure for an event sent
@@ -4863,12 +4810,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec put_event_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_event_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_event_type_errors()}
-
   def put_event_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4877,6 +4822,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates or updates an Amazon SageMaker model endpoint. You can also use this
   action to update the configuration of the model endpoint, including the IAM
   role and/or the mapped variables.
@@ -4895,12 +4841,10 @@ defmodule AWS.FraudDetector do
       required("outputConfiguration") => model_output_configuration()
     }
   """
-
   @spec put_external_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_external_model_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_external_model_errors()}
-
   def put_external_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4909,6 +4853,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Specifies the KMS key to be used to encrypt content in Amazon Fraud Detector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20PutKMSEncryptionKey&this_doc_guide=API%2520Reference)
@@ -4919,12 +4864,10 @@ defmodule AWS.FraudDetector do
       required("kmsEncryptionKeyArn") => String.t()
     }
   """
-
   @spec put_kms_encryption_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_kms_encryption_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_kms_encryption_key_errors()}
-
   def put_kms_encryption_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4933,6 +4876,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates or updates label. A label classifies an event as fraudulent or
   legitimate. Labels are associated with event types and used to train
   supervised machine learning models in Amazon Fraud Detector.
@@ -4947,12 +4891,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec put_label(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_label_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_label_errors()}
-
   def put_label(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4961,6 +4903,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Creates or updates an outcome.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20PutOutcome&this_doc_guide=API%2520Reference)
@@ -4973,12 +4916,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec put_outcome(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_outcome_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_outcome_errors()}
-
   def put_outcome(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4987,6 +4928,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Stores events in Amazon Fraud Detector without generating fraud predictions for
   those events. For example, you can use `SendEvent` to upload a historical
   dataset, which you can then later use to train a model.
@@ -5005,12 +4947,10 @@ defmodule AWS.FraudDetector do
       required("eventVariables") => map()
     }
   """
-
   @spec send_event(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_event_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_event_errors()}
-
   def send_event(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5019,6 +4959,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Assigns tags to a resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20TagResource&this_doc_guide=API%2520Reference)
@@ -5030,12 +4971,10 @@ defmodule AWS.FraudDetector do
       required("tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5044,6 +4983,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Removes tags from a resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20UntagResource&this_doc_guide=API%2520Reference)
@@ -5055,12 +4995,10 @@ defmodule AWS.FraudDetector do
       required("tagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5069,6 +5007,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates a detector version. The detector version attributes that you can update
   include models, external model endpoints, rules, rule execution mode, and
   description. You can only update a `DRAFT` detector version.
@@ -5087,12 +5026,10 @@ defmodule AWS.FraudDetector do
       required("rules") => list(rule()())
     }
   """
-
   @spec update_detector_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_detector_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_detector_version_errors()}
-
   def update_detector_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5101,6 +5038,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates the detector version's description. You can update the metadata for any
   detector version (`DRAFT, ACTIVE,` or `INACTIVE`).
 
@@ -5114,12 +5052,10 @@ defmodule AWS.FraudDetector do
       required("detectorVersionId") => String.t()
     }
   """
-
   @spec update_detector_version_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_detector_version_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_detector_version_metadata_errors()}
-
   def update_detector_version_metadata(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5129,6 +5065,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates the detector version’s status. You can perform the following promotions
   or demotions using `UpdateDetectorVersionStatus`: `DRAFT` to `ACTIVE`,
   `ACTIVE` to `INACTIVE`, and `INACTIVE` to `ACTIVE`.
@@ -5143,12 +5080,10 @@ defmodule AWS.FraudDetector do
       required("status") => list(any())
     }
   """
-
   @spec update_detector_version_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_detector_version_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_detector_version_status_errors()}
-
   def update_detector_version_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5158,6 +5093,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates the specified event with a new label.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20UpdateEventLabel&this_doc_guide=API%2520Reference)
@@ -5171,12 +5107,10 @@ defmodule AWS.FraudDetector do
       required("labelTimestamp") => String.t()
     }
   """
-
   @spec update_event_label(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_event_label_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_label_errors()}
-
   def update_event_label(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5185,6 +5119,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates a list.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20UpdateList&this_doc_guide=API%2520Reference)
@@ -5199,12 +5134,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec update_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_list_errors()}
-
   def update_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5213,6 +5146,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates model description.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20UpdateModel&this_doc_guide=API%2520Reference)
@@ -5225,12 +5159,10 @@ defmodule AWS.FraudDetector do
       required("modelType") => list(any())
     }
   """
-
   @spec update_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_model_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_errors()}
-
   def update_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5239,6 +5171,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates a model version. Updating a model version retrains an existing model
   version using updated training data and produces a new minor version of the
   model. You can update the training data set location and data access role
@@ -5258,12 +5191,10 @@ defmodule AWS.FraudDetector do
       required("modelType") => list(any())
     }
   """
-
   @spec update_model_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_model_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_version_errors()}
-
   def update_model_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5272,6 +5203,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates the status of a model version. You can perform the following status
   updates:
 
@@ -5286,12 +5218,10 @@ defmodule AWS.FraudDetector do
       required("status") => list(any())
     }
   """
-
   @spec update_model_version_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_model_version_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_version_status_errors()}
-
   def update_model_version_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5300,6 +5230,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates a rule's metadata. The description attribute can be updated.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20UpdateRuleMetadata&this_doc_guide=API%2520Reference)
@@ -5311,12 +5242,10 @@ defmodule AWS.FraudDetector do
       required("rule") => rule()
     }
   """
-
   @spec update_rule_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rule_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_metadata_errors()}
-
   def update_rule_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5325,6 +5254,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates a rule version resulting in a new rule version. Updates a rule version
   resulting in a new rule version (version 1, 2, 3 ...).
 
@@ -5341,12 +5271,10 @@ defmodule AWS.FraudDetector do
       required("rule") => rule()
     }
   """
-
   @spec update_rule_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rule_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_version_errors()}
-
   def update_rule_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5355,6 +5283,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+   
   Updates a variable.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=frauddetector%20UpdateVariable&this_doc_guide=API%2520Reference)
@@ -5368,12 +5297,10 @@ defmodule AWS.FraudDetector do
       required("name") => String.t()
     }
   """
-
   @spec update_variable(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_variable_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_variable_errors()}
-
   def update_variable(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

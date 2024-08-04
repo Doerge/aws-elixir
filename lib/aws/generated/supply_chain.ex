@@ -222,16 +222,13 @@ defmodule AWS.SupplyChain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supplychain%20CreateBillOfMaterialsImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The AWS Supply Chain instance identifier.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The AWS Supply Chain instance identifier.
+  ## Keyword parameters:
   """
-
   @spec create_bill_of_materials_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bill_of_materials_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bill_of_materials_import_job_errors()}
-
   def create_bill_of_materials_import_job(%Client{} = client, instance_id, options \\ []) do
     url_path =
       "/api/configuration/instances/#{AWS.Util.encode_uri(instance_id)}/bill-of-materials-import-jobs"
@@ -269,17 +266,14 @@ defmodule AWS.SupplyChain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supplychain%20GetBillOfMaterialsImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The AWS Supply Chain instance identifier.
-  * `:job_id` (`t:string`) The BillOfMaterialsImportJob identifier.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The AWS Supply Chain instance identifier.
+  * `:job_id` (`t:string` required) The BillOfMaterialsImportJob identifier.
+  ## Keyword parameters:
   """
-
   @spec get_bill_of_materials_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bill_of_materials_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bill_of_materials_import_job_errors()}
-
   def get_bill_of_materials_import_job(%Client{} = client, instance_id, job_id, options \\ []) do
     url_path =
       "/api/configuration/instances/#{AWS.Util.encode_uri(instance_id)}/bill-of-materials-import-jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -315,16 +309,13 @@ defmodule AWS.SupplyChain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supplychain%20SendDataIntegrationEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The AWS Supply Chain instance identifier.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The AWS Supply Chain instance identifier.
+  ## Keyword parameters:
   """
-
   @spec send_data_integration_event(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_data_integration_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_data_integration_event_errors()}
-
   def send_data_integration_event(%Client{} = client, instance_id, options \\ []) do
     url_path =
       "/api-data/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-events"

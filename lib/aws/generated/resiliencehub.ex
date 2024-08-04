@@ -2926,15 +2926,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20AcceptResourceGroupingRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec accept_resource_grouping_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_resource_grouping_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_resource_grouping_recommendations_errors()}
-
   def accept_resource_grouping_recommendations(%Client{} = client, options \\ []) do
     url_path = "/accept-resource-grouping-recommendations"
 
@@ -2977,15 +2974,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20AddDraftAppVersionResourceMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec add_draft_app_version_resource_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, add_draft_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_draft_app_version_resource_mappings_errors()}
-
   def add_draft_app_version_resource_mappings(%Client{} = client, options \\ []) do
     url_path = "/add-draft-app-version-resource-mappings"
 
@@ -3022,15 +3016,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20BatchUpdateRecommendationStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_update_recommendation_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_recommendation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_recommendation_status_errors()}
-
   def batch_update_recommendation_status(%Client{} = client, options \\ []) do
     url_path = "/batch-update-recommendation-status"
 
@@ -3076,15 +3067,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
-
   def create_app(%Client{} = client, options \\ []) do
     url_path = "/create-app"
 
@@ -3121,15 +3109,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_version_app_component_errors()}
-
   def create_app_version_app_component(%Client{} = client, options \\ []) do
     url_path = "/create-app-version-app-component"
 
@@ -3168,15 +3153,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateAppVersionResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_version_resource_errors()}
-
   def create_app_version_resource(%Client{} = client, options \\ []) do
     url_path = "/create-app-version-resource"
 
@@ -3213,15 +3195,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateRecommendationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_recommendation_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_recommendation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recommendation_template_errors()}
-
   def create_recommendation_template(%Client{} = client, options \\ []) do
     url_path = "/create-recommendation-template"
 
@@ -3258,15 +3237,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateResiliencyPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resiliency_policy_errors()}
-
   def create_resiliency_policy(%Client{} = client, options \\ []) do
     url_path = "/create-resiliency-policy"
 
@@ -3304,15 +3280,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
-
   def delete_app(%Client{} = client, options \\ []) do
     url_path = "/delete-app"
 
@@ -3350,15 +3323,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_app_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_assessment_errors()}
-
   def delete_app_assessment(%Client{} = client, options \\ []) do
     url_path = "/delete-app-assessment"
 
@@ -3396,15 +3366,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppInputSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_app_input_source(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_input_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_input_source_errors()}
-
   def delete_app_input_source(%Client{} = client, options \\ []) do
     url_path = "/delete-app-input-source"
 
@@ -3441,15 +3408,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_version_app_component_errors()}
-
   def delete_app_version_app_component(%Client{} = client, options \\ []) do
     url_path = "/delete-app-version-app-component"
 
@@ -3486,15 +3450,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppVersionResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_version_resource_errors()}
-
   def delete_app_version_resource(%Client{} = client, options \\ []) do
     url_path = "/delete-app-version-resource"
 
@@ -3532,15 +3493,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteRecommendationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_recommendation_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_recommendation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recommendation_template_errors()}
-
   def delete_recommendation_template(%Client{} = client, options \\ []) do
     url_path = "/delete-recommendation-template"
 
@@ -3577,15 +3535,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteResiliencyPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resiliency_policy_errors()}
-
   def delete_resiliency_policy(%Client{} = client, options \\ []) do
     url_path = "/delete-resiliency-policy"
 
@@ -3622,15 +3577,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_errors()}
-
   def describe_app(%Client{} = client, options \\ []) do
     url_path = "/describe-app"
 
@@ -3667,15 +3619,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_app_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_assessment_errors()}
-
   def describe_app_assessment(%Client{} = client, options \\ []) do
     url_path = "/describe-app-assessment"
 
@@ -3712,15 +3661,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_errors()}
-
   def describe_app_version(%Client{} = client, options \\ []) do
     url_path = "/describe-app-version"
 
@@ -3757,15 +3703,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_app_component_errors()}
-
   def describe_app_version_app_component(%Client{} = client, options \\ []) do
     url_path = "/describe-app-version-app-component"
 
@@ -3802,15 +3745,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_resource_errors()}
-
   def describe_app_version_resource(%Client{} = client, options \\ []) do
     url_path = "/describe-app-version-resource"
 
@@ -3849,15 +3789,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionResourcesResolutionStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_app_version_resources_resolution_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_resources_resolution_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_resources_resolution_status_errors()}
-
   def describe_app_version_resources_resolution_status(%Client{} = client, options \\ []) do
     url_path = "/describe-app-version-resources-resolution-status"
 
@@ -3894,15 +3831,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_app_version_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_template_errors()}
-
   def describe_app_version_template(%Client{} = client, options \\ []) do
     url_path = "/describe-app-version-template"
 
@@ -3939,15 +3873,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeDraftAppVersionResourcesImportStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_draft_app_version_resources_import_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_draft_app_version_resources_import_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_draft_app_version_resources_import_status_errors()}
-
   def describe_draft_app_version_resources_import_status(%Client{} = client, options \\ []) do
     url_path = "/describe-draft-app-version-resources-import-status"
 
@@ -3986,15 +3917,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeResiliencyPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resiliency_policy_errors()}
-
   def describe_resiliency_policy(%Client{} = client, options \\ []) do
     url_path = "/describe-resiliency-policy"
 
@@ -4032,15 +3960,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeResourceGroupingRecommendationTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_resource_grouping_recommendation_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_resource_grouping_recommendation_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_grouping_recommendation_task_errors()}
-
   def describe_resource_grouping_recommendation_task(%Client{} = client, options \\ []) do
     url_path = "/describe-resource-grouping-recommendation-task"
 
@@ -4080,15 +4005,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ImportResourcesToDraftAppVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec import_resources_to_draft_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_resources_to_draft_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_resources_to_draft_app_version_errors()}
-
   def import_resources_to_draft_app_version(%Client{} = client, options \\ []) do
     url_path = "/import-resources-to-draft-app-version"
 
@@ -4125,15 +4047,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAlarmRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_alarm_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_alarm_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_alarm_recommendations_errors()}
-
   def list_alarm_recommendations(%Client{} = client, options \\ []) do
     url_path = "/list-alarm-recommendations"
 
@@ -4170,15 +4089,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessmentComplianceDrifts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_app_assessment_compliance_drifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessment_compliance_drifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_assessment_compliance_drifts_errors()}
-
   def list_app_assessment_compliance_drifts(%Client{} = client, options \\ []) do
     url_path = "/list-app-assessment-compliance-drifts"
 
@@ -4216,15 +4132,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessmentResourceDrifts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_app_assessment_resource_drifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessment_resource_drifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_assessment_resource_drifts_errors()}
-
   def list_app_assessment_resource_drifts(%Client{} = client, options \\ []) do
     url_path = "/list-app-assessment-resource-drifts"
 
@@ -4262,8 +4175,7 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
   application. The format for this ARN is:
   arn:partition:resiliencehub:region:account:app/app-id. For more information
@@ -4284,12 +4196,10 @@ defmodule AWS.Resiliencehub do
   * `:reverse_order` (`t:boolean`) The default is to sort by ascending startTime.
   To sort by descending startTime, set reverseOrder to true.
   """
-
   @spec list_app_assessments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_assessments_errors()}
-
   def list_app_assessments(%Client{} = client, options \\ []) do
     url_path = "/list-app-assessments"
 
@@ -4402,15 +4312,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppComponentCompliances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_app_component_compliances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_component_compliances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_component_compliances_errors()}
-
   def list_app_component_compliances(%Client{} = client, options \\ []) do
     url_path = "/list-app-component-compliances"
 
@@ -4447,15 +4354,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppComponentRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_app_component_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_component_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_component_recommendations_errors()}
-
   def list_app_component_recommendations(%Client{} = client, options \\ []) do
     url_path = "/list-app-component-recommendations"
 
@@ -4495,15 +4399,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppInputSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_app_input_sources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_input_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_input_sources_errors()}
-
   def list_app_input_sources(%Client{} = client, options \\ []) do
     url_path = "/list-app-input-sources"
 
@@ -4540,15 +4441,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionAppComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_app_version_app_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_version_app_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_version_app_components_errors()}
-
   def list_app_version_app_components(%Client{} = client, options \\ []) do
     url_path = "/list-app-version-app-components"
 
@@ -4587,15 +4485,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionResourceMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_app_version_resource_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_version_resource_mappings_errors()}
-
   def list_app_version_resource_mappings(%Client{} = client, options \\ []) do
     url_path = "/list-app-version-resource-mappings"
 
@@ -4632,15 +4527,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_app_version_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_version_resources_errors()}
-
   def list_app_version_resources(%Client{} = client, options \\ []) do
     url_path = "/list-app-version-resources"
 
@@ -4677,15 +4569,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_app_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_versions_errors()}
-
   def list_app_versions(%Client{} = client, options \\ []) do
     url_path = "/list-app-versions"
 
@@ -4722,8 +4611,7 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListApps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
   application. The format for this ARN is:
   arn:partition:resiliencehub:region:account:app/app-id. For more information
@@ -4746,12 +4634,10 @@ defmodule AWS.Resiliencehub do
   range that is used to filter the applications based on their last assessment
   times.
   """
-
   @spec list_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_apps_errors()}
-
   def list_apps(%Client{} = client, options \\ []) do
     url_path = "/list-apps"
 
@@ -4855,8 +4741,7 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListRecommendationTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:assessment_arn` (`t:string`) Amazon Resource Name (ARN) of the assessment.
   The format for this ARN is:
   arn:partition:resiliencehub:region:account:app-assessment/app-id. For more
@@ -4875,12 +4760,10 @@ defmodule AWS.Resiliencehub do
   * `:status` (`t:list[com.amazonaws.resiliencehub#RecommendationTemplateStatus]`)
   Status of the action.
   """
-
   @spec list_recommendation_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendation_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendation_templates_errors()}
-
   def list_recommendation_templates(%Client{} = client, options \\ []) do
     url_path = "/list-recommendation-templates"
 
@@ -4984,8 +4867,7 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListResiliencyPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of results to include in the
   response. If more results exist than the specified MaxResults value, a token
   is included in the response so that the remaining results can be retrieved.
@@ -4993,12 +4875,10 @@ defmodule AWS.Resiliencehub do
   next set of results.
   * `:policy_name` (`t:string`) The name of the policy
   """
-
   @spec list_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resiliency_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resiliency_policies_errors()}
-
   def list_resiliency_policies(%Client{} = client, options \\ []) do
     url_path = "/list-resiliency-policies"
 
@@ -5059,8 +4939,7 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListResourceGroupingRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
   application. The format for this ARN is:
   arn:partition:resiliencehub:region:account:app/app-id. For more information
@@ -5071,12 +4950,10 @@ defmodule AWS.Resiliencehub do
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
   next set of results.
   """
-
   @spec list_resource_grouping_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_grouping_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_grouping_recommendations_errors()}
-
   def list_resource_grouping_recommendations(%Client{} = client, options \\ []) do
     url_path = "/list-resource-grouping-recommendations"
 
@@ -5137,15 +5014,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListSopRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_sop_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sop_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sop_recommendations_errors()}
-
   def list_sop_recommendations(%Client{} = client, options \\ []) do
     url_path = "/list-sop-recommendations"
 
@@ -5182,20 +5056,17 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListSuggestedResiliencyPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of results to include in the
   response. If more results exist than the specified MaxResults value, a token
   is included in the response so that the remaining results can be retrieved.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
   next set of results.
   """
-
   @spec list_suggested_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suggested_resiliency_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suggested_resiliency_policies_errors()}
-
   def list_suggested_resiliency_policies(%Client{} = client, options \\ []) do
     url_path = "/list-suggested-resiliency-policies"
 
@@ -5248,17 +5119,14 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a specific
-  resource in your Resilience Hub application.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for a
+  specific resource in your Resilience Hub application.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5293,15 +5161,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListTestRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_test_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_recommendations_errors()}
-
   def list_test_recommendations(%Client{} = client, options \\ []) do
     url_path = "/list-test-recommendations"
 
@@ -5340,15 +5205,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListUnsupportedAppVersionResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_unsupported_app_version_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_unsupported_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_unsupported_app_version_resources_errors()}
-
   def list_unsupported_app_version_resources(%Client{} = client, options \\ []) do
     url_path = "/list-unsupported-app-version-resources"
 
@@ -5385,15 +5247,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20PublishAppVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec publish_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, publish_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_app_version_errors()}
-
   def publish_app_version(%Client{} = client, options \\ []) do
     url_path = "/publish-app-version"
 
@@ -5431,15 +5290,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20PutDraftAppVersionTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_draft_app_version_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_draft_app_version_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_draft_app_version_template_errors()}
-
   def put_draft_app_version_template(%Client{} = client, options \\ []) do
     url_path = "/put-draft-app-version-template"
 
@@ -5476,15 +5332,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20RejectResourceGroupingRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reject_resource_grouping_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, reject_resource_grouping_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_resource_grouping_recommendations_errors()}
-
   def reject_resource_grouping_recommendations(%Client{} = client, options \\ []) do
     url_path = "/reject-resource-grouping-recommendations"
 
@@ -5521,15 +5374,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20RemoveDraftAppVersionResourceMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec remove_draft_app_version_resource_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, remove_draft_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_draft_app_version_resource_mappings_errors()}
-
   def remove_draft_app_version_resource_mappings(%Client{} = client, options \\ []) do
     url_path = "/remove-draft-app-version-resource-mappings"
 
@@ -5566,15 +5416,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ResolveAppVersionResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec resolve_app_version_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, resolve_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resolve_app_version_resources_errors()}
-
   def resolve_app_version_resources(%Client{} = client, options \\ []) do
     url_path = "/resolve-app-version-resources"
 
@@ -5611,15 +5458,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20StartAppAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_app_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_app_assessment_errors()}
-
   def start_app_assessment(%Client{} = client, options \\ []) do
     url_path = "/start-app-assessment"
 
@@ -5656,15 +5500,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20StartResourceGroupingRecommendationTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_resource_grouping_recommendation_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_resource_grouping_recommendation_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_resource_grouping_recommendation_task_errors()}
-
   def start_resource_grouping_recommendation_task(%Client{} = client, options \\ []) do
     url_path = "/start-resource-grouping-recommendation-task"
 
@@ -5701,16 +5542,14 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5747,18 +5586,16 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.resiliencehub#TagKey]`) The keys of the
-  tags you want to remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.resiliencehub#TagKey]` required) The keys
+  of the tags you want to remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5806,15 +5643,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_errors()}
-
   def update_app(%Client{} = client, options \\ []) do
     url_path = "/update-app"
 
@@ -5851,15 +5685,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_version_errors()}
-
   def update_app_version(%Client{} = client, options \\ []) do
     url_path = "/update-app-version"
 
@@ -5896,15 +5727,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_version_app_component_errors()}
-
   def update_app_version_app_component(%Client{} = client, options \\ []) do
     url_path = "/update-app-version-app-component"
 
@@ -5941,15 +5769,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersionResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_version_resource_errors()}
-
   def update_app_version_resource(%Client{} = client, options \\ []) do
     url_path = "/update-app-version-resource"
 
@@ -5986,15 +5811,12 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateResiliencyPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resiliency_policy_errors()}
-
   def update_resiliency_policy(%Client{} = client, options \\ []) do
     url_path = "/update-resiliency-policy"
 

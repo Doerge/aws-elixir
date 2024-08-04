@@ -151,15 +151,12 @@ defmodule AWS.KinesisVideoMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideomedia%20GetMedia&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_media(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_media_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_errors()}
-
   def get_media(%Client{} = client, options \\ []) do
     url_path = "/getMedia"
 

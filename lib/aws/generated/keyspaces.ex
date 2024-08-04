@@ -870,6 +870,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   The `CreateKeyspace` operation adds a new keyspace to your account. In an Amazon
   Web Services account, keyspace names must be unique within each Region.
   `CreateKeyspace` is an asynchronous operation. You can monitor the creation
@@ -885,12 +886,10 @@ defmodule AWS.Keyspaces do
       required("keyspaceName") => String.t()
     }
   """
-
   @spec create_keyspace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_keyspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_keyspace_errors()}
-
   def create_keyspace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -899,6 +898,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   The `CreateTable` operation adds a new table to the specified keyspace. Within a
   keyspace, table names must be unique. `CreateTable` is an asynchronous
   operation. When the request is received, the status of the table is set to
@@ -926,12 +926,10 @@ defmodule AWS.Keyspaces do
       required("tableName") => String.t()
     }
   """
-
   @spec create_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_table_errors()}
-
   def create_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -940,6 +938,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   The `DeleteKeyspace` operation deletes a keyspace and all of its tables.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=keyspaces%20DeleteKeyspace&this_doc_guide=API%2520Reference)
@@ -950,12 +949,10 @@ defmodule AWS.Keyspaces do
       required("keyspaceName") => String.t()
     }
   """
-
   @spec delete_keyspace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_keyspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_keyspace_errors()}
-
   def delete_keyspace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -964,6 +961,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   The `DeleteTable` operation deletes a table and all of its data. After a
   `DeleteTable` request is received, the specified table is in the `DELETING`
   state until Amazon Keyspaces completes the deletion. If the table is in the
@@ -982,12 +980,10 @@ defmodule AWS.Keyspaces do
       required("tableName") => String.t()
     }
   """
-
   @spec delete_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_table_errors()}
-
   def delete_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -996,6 +992,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   Returns the name and the Amazon Resource Name (ARN) of the specified table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=keyspaces%20GetKeyspace&this_doc_guide=API%2520Reference)
@@ -1006,12 +1003,10 @@ defmodule AWS.Keyspaces do
       required("keyspaceName") => String.t()
     }
   """
-
   @spec get_keyspace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_keyspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_keyspace_errors()}
-
   def get_keyspace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1020,6 +1015,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   Returns information about the table, including the table's name and current
   status, the keyspace name, configuration settings, and metadata.
 
@@ -1032,12 +1028,10 @@ defmodule AWS.Keyspaces do
       required("tableName") => String.t()
     }
   """
-
   @spec get_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_errors()}
-
   def get_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1046,6 +1040,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   Returns auto scaling related settings of the specified table in JSON format. If
   the table is a multi-Region table, the Amazon Web Services Region specific
   auto scaling settings of the table are included. Amazon Keyspaces auto scaling
@@ -1065,12 +1060,10 @@ defmodule AWS.Keyspaces do
       required("tableName") => String.t()
     }
   """
-
   @spec get_table_auto_scaling_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_table_auto_scaling_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_auto_scaling_settings_errors()}
-
   def get_table_auto_scaling_settings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1080,6 +1073,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   Returns a list of keyspaces.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=keyspaces%20ListKeyspaces&this_doc_guide=API%2520Reference)
@@ -1091,12 +1085,10 @@ defmodule AWS.Keyspaces do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_keyspaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_keyspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keyspaces_errors()}
-
   def list_keyspaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1105,6 +1097,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   Returns a list of tables for a specified keyspace.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=keyspaces%20ListTables&this_doc_guide=API%2520Reference)
@@ -1117,12 +1110,10 @@ defmodule AWS.Keyspaces do
       required("keyspaceName") => String.t()
     }
   """
-
   @spec list_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tables_errors()}
-
   def list_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1131,6 +1122,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   Returns a list of all tags associated with the specified Amazon Keyspaces
   resource.
 
@@ -1144,12 +1136,10 @@ defmodule AWS.Keyspaces do
       required("resourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1158,6 +1148,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   Restores the table to the specified point in time within the
   `earliest_restorable_timestamp` and the current time. For more information
   about restore points, see [ Time window for PITR continuous
@@ -1187,12 +1178,10 @@ defmodule AWS.Keyspaces do
       required("targetTableName") => String.t()
     }
   """
-
   @spec restore_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_table_errors()}
-
   def restore_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1201,6 +1190,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   Associates a set of tags with a Amazon Keyspaces resource. You can then activate
   these user-defined tags so that they appear on the Cost Management Console for
   cost allocation tracking. For more information, see [Adding tags and labels to
@@ -1221,12 +1211,10 @@ defmodule AWS.Keyspaces do
       required("tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1235,6 +1223,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   Removes the association of tags from a Amazon Keyspaces resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=keyspaces%20UntagResource&this_doc_guide=API%2520Reference)
@@ -1246,12 +1235,10 @@ defmodule AWS.Keyspaces do
       required("tags") => list(tag()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1260,6 +1247,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+   
   Adds new columns to the table or updates one of the table's settings, for
   example capacity mode, auto scaling, encryption, point-in-time recovery, or
   ttl settings. Note that you can only update one specific table setting per
@@ -1283,12 +1271,10 @@ defmodule AWS.Keyspaces do
       required("tableName") => String.t()
     }
   """
-
   @spec update_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_table_errors()}
-
   def update_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

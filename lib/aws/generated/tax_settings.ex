@@ -731,15 +731,12 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20BatchDeleteTaxRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_delete_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_tax_registration_errors()}
-
   def batch_delete_tax_registration(%Client{} = client, options \\ []) do
     url_path = "/BatchDeleteTaxRegistration"
 
@@ -780,15 +777,12 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20BatchPutTaxRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_put_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_put_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_tax_registration_errors()}
-
   def batch_put_tax_registration(%Client{} = client, options \\ []) do
     url_path = "/BatchPutTaxRegistration"
 
@@ -825,15 +819,12 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20DeleteTaxRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tax_registration_errors()}
-
   def delete_tax_registration(%Client{} = client, options \\ []) do
     url_path = "/DeleteTaxRegistration"
 
@@ -870,15 +861,12 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20GetTaxRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tax_registration_errors()}
-
   def get_tax_registration(%Client{} = client, options \\ []) do
     url_path = "/GetTaxRegistration"
 
@@ -916,15 +904,12 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20GetTaxRegistrationDocument&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_tax_registration_document(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_tax_registration_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tax_registration_document_errors()}
-
   def get_tax_registration_document(%Client{} = client, options \\ []) do
     url_path = "/GetTaxRegistrationDocument"
 
@@ -963,15 +948,12 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20ListTaxRegistrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tax_registrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tax_registrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tax_registrations_errors()}
-
   def list_tax_registrations(%Client{} = client, options \\ []) do
     url_path = "/ListTaxRegistrations"
 
@@ -1011,15 +993,12 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20PutTaxRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_tax_registration_errors()}
-
   def put_tax_registration(%Client{} = client, options \\ []) do
     url_path = "/PutTaxRegistration"
 

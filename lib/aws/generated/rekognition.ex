@@ -4897,6 +4897,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Associates one or more faces with an existing UserID. Takes an array of
   `FaceIds`. Each `FaceId` that are present in the `FaceIds` list is associated
   with the provided UserID. The maximum number of total `FaceIds` per UserID is
@@ -4918,12 +4919,10 @@ defmodule AWS.Rekognition do
       required("UserId") => String.t()
     }
   """
-
   @spec associate_faces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_faces_errors()}
-
   def associate_faces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4932,6 +4931,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Compares a face in the *source* input image with each of the 100 largest faces
   detected in the *target* input image. If the source image contains multiple
   faces, the service detects the largest face and compares it with each face
@@ -4948,12 +4948,10 @@ defmodule AWS.Rekognition do
       required("TargetImage") => image()
     }
   """
-
   @spec compare_faces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, compare_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, compare_faces_errors()}
-
   def compare_faces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4962,6 +4960,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Copies a
   version of an Amazon Rekognition Custom Labels model from a source project to
   a destination project. The source and destination projects can be in different
@@ -4982,12 +4981,10 @@ defmodule AWS.Rekognition do
       required("VersionName") => String.t()
     }
   """
-
   @spec copy_project_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_project_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_project_version_errors()}
-
   def copy_project_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4996,6 +4993,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Creates a collection in an AWS Region. You can add faces to the collection using
   the `IndexFaces` operation. For example, you might create collections, one for
   each of your application users. A user can then index faces using the
@@ -5011,12 +5009,10 @@ defmodule AWS.Rekognition do
       required("CollectionId") => String.t()
     }
   """
-
   @spec create_collection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_collection_errors()}
-
   def create_collection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5025,6 +5021,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Creates a new
   Amazon Rekognition Custom Labels dataset. You can create a dataset by using an
   Amazon Sagemaker format manifest file or by copying an existing Amazon
@@ -5041,12 +5038,10 @@ defmodule AWS.Rekognition do
       required("ProjectArn") => String.t()
     }
   """
-
   @spec create_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
-
   def create_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5055,6 +5050,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This API operation initiates a Face Liveness session. It returns a `SessionId`,
   which you can use to start streaming Face Liveness video and get the results
   for a Face Liveness session. You can use the `OutputConfig` option in the
@@ -5072,12 +5068,10 @@ defmodule AWS.Rekognition do
       optional("Settings") => create_face_liveness_session_request_settings()
     }
   """
-
   @spec create_face_liveness_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_face_liveness_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_face_liveness_session_errors()}
-
   def create_face_liveness_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5086,6 +5080,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Creates a new Amazon Rekognition project. A project is a group of resources
   (datasets, model versions) that you use to create and manage a Amazon
   Rekognition Custom Labels Model or custom adapter. You can specify a feature
@@ -5105,12 +5100,10 @@ defmodule AWS.Rekognition do
       required("ProjectName") => String.t()
     }
   """
-
   @spec create_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-
   def create_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5119,6 +5112,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Creates a new version of Amazon Rekognition project (like a Custom Labels model
   or a custom adapter) and begins training. Models and adapters are managed as
   part of a Rekognition project. The response from `CreateProjectVersion` is an
@@ -5147,12 +5141,10 @@ defmodule AWS.Rekognition do
       required("VersionName") => String.t()
     }
   """
-
   @spec create_project_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_project_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_version_errors()}
-
   def create_project_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5161,6 +5153,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Creates an Amazon Rekognition stream processor that you can use to detect and
   recognize faces or to detect labels in a streaming video. Amazon Rekognition
   Video is a consumer of live video from Amazon Kinesis Video Streams. There are
@@ -5184,12 +5177,10 @@ defmodule AWS.Rekognition do
       required("Settings") => stream_processor_settings()
     }
   """
-
   @spec create_stream_processor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stream_processor_errors()}
-
   def create_stream_processor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5198,6 +5189,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Creates a new User within a collection specified by `CollectionId`. Takes
   `UserId` as a parameter, which is a user provided ID which should be unique
   within the collection. The provided `UserId` will alias the system generated
@@ -5213,12 +5205,10 @@ defmodule AWS.Rekognition do
       required("UserId") => String.t()
     }
   """
-
   @spec create_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-
   def create_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5227,6 +5217,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Deletes the specified collection. Note that this operation removes all faces in
   the collection. For an example, see [Deleting a
   collection](https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html).
@@ -5239,12 +5230,10 @@ defmodule AWS.Rekognition do
       required("CollectionId") => String.t()
     }
   """
-
   @spec delete_collection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_collection_errors()}
-
   def delete_collection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5253,6 +5242,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Deletes an
   existing Amazon Rekognition Custom Labels dataset. Deleting a dataset might
   take while. Use `DescribeDataset` to check the current status. The dataset is
@@ -5268,12 +5258,10 @@ defmodule AWS.Rekognition do
       required("DatasetArn") => String.t()
     }
   """
-
   @spec delete_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
-
   def delete_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5282,6 +5270,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Deletes faces from a collection. You specify a collection ID and an array of
   face IDs to remove from the collection.
 
@@ -5294,12 +5283,10 @@ defmodule AWS.Rekognition do
       required("FaceIds") => list(String.t()())
     }
   """
-
   @spec delete_faces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_faces_errors()}
-
   def delete_faces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5308,6 +5295,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Deletes a Amazon Rekognition project. To delete a project you must first delete
   all models or adapters associated with the project. To delete a model or
   adapter, see `DeleteProjectVersion`. `DeleteProject` is an asynchronous
@@ -5324,12 +5312,10 @@ defmodule AWS.Rekognition do
       required("ProjectArn") => String.t()
     }
   """
-
   @spec delete_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-
   def delete_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5338,6 +5324,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Deletes an
   existing project policy.
 
@@ -5351,12 +5338,10 @@ defmodule AWS.Rekognition do
       required("ProjectArn") => String.t()
     }
   """
-
   @spec delete_project_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_project_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_policy_errors()}
-
   def delete_project_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5365,6 +5350,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Deletes a Rekognition project model or project version, like a Amazon
   Rekognition Custom Labels model or a custom adapter. You can't delete a
   project version if it is running or if it is training. To check the status of
@@ -5381,12 +5367,10 @@ defmodule AWS.Rekognition do
       required("ProjectVersionArn") => String.t()
     }
   """
-
   @spec delete_project_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_project_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_version_errors()}
-
   def delete_project_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5395,6 +5379,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Deletes the stream processor identified by `Name`. You assign the value for
   `Name` when you create the stream processor with `CreateStreamProcessor`. You
   might not be able to use the same name for a stream processor for a few
@@ -5408,12 +5393,10 @@ defmodule AWS.Rekognition do
       required("Name") => String.t()
     }
   """
-
   @spec delete_stream_processor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stream_processor_errors()}
-
   def delete_stream_processor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5422,6 +5405,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Deletes the specified UserID within the collection. Faces that are associated
   with the UserID are disassociated from the UserID before deleting the
   specified UserID. If the specified `Collection` or `UserID` is already deleted
@@ -5438,12 +5422,10 @@ defmodule AWS.Rekognition do
       required("UserId") => String.t()
     }
   """
-
   @spec delete_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-
   def delete_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5452,6 +5434,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Describes the specified collection. You can use `DescribeCollection` to get
   information, such as the number of faces indexed into a collection and the
   version of the model used by the collection for face detection.
@@ -5464,12 +5447,10 @@ defmodule AWS.Rekognition do
       required("CollectionId") => String.t()
     }
   """
-
   @spec describe_collection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_collection_errors()}
-
   def describe_collection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5478,6 +5459,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Describes an
   Amazon Rekognition Custom Labels dataset. You can get information such as the
   current status of a dataset and statistics about the images and labels in a
@@ -5491,12 +5473,10 @@ defmodule AWS.Rekognition do
       required("DatasetArn") => String.t()
     }
   """
-
   @spec describe_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
-
   def describe_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5505,6 +5485,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Lists and describes the versions of an Amazon Rekognition project. You can
   specify up to 10 model or adapter versions in `ProjectVersionArns`. If you
   don't specify a value, descriptions for all model/adapter versions in the
@@ -5521,12 +5502,10 @@ defmodule AWS.Rekognition do
       required("ProjectArn") => String.t()
     }
   """
-
   @spec describe_project_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_project_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_versions_errors()}
-
   def describe_project_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5535,6 +5514,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets information about your Rekognition projects.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rekognition%20DescribeProjects&this_doc_guide=API%2520Reference)
@@ -5548,12 +5528,10 @@ defmodule AWS.Rekognition do
       optional("ProjectNames") => list(String.t()())
     }
   """
-
   @spec describe_projects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_projects_errors()}
-
   def describe_projects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5562,6 +5540,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Provides information about a stream processor created by
   `CreateStreamProcessor`. You can get information about the input and output
   streams, the input parameters for the face recognition being performed, and
@@ -5575,12 +5554,10 @@ defmodule AWS.Rekognition do
       required("Name") => String.t()
     }
   """
-
   @spec describe_stream_processor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stream_processor_errors()}
-
   def describe_stream_processor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5589,6 +5566,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Detects custom
   labels in a supplied image by using an Amazon Rekognition Custom Labels model.
 
@@ -5603,12 +5581,10 @@ defmodule AWS.Rekognition do
       required("ProjectVersionArn") => String.t()
     }
   """
-
   @spec detect_custom_labels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_custom_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_custom_labels_errors()}
-
   def detect_custom_labels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5617,6 +5593,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Detects faces within an image that is provided as input. `DetectFaces` detects
   the 100 largest faces in the image. For each face detected, the operation
   returns face details. These details include a bounding box of the face, a
@@ -5633,12 +5610,10 @@ defmodule AWS.Rekognition do
       required("Image") => image()
     }
   """
-
   @spec detect_faces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_faces_errors()}
-
   def detect_faces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5647,6 +5622,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Detects instances of real-world entities within an image (JPEG or PNG) provided
   as input. This includes objects like flower, tree, and table; events like
   wedding, graduation, and birthday party; and concepts like landscape, evening,
@@ -5665,12 +5641,10 @@ defmodule AWS.Rekognition do
       required("Image") => image()
     }
   """
-
   @spec detect_labels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_labels_errors()}
-
   def detect_labels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5679,6 +5653,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Detects unsafe content in a specified JPEG or PNG format image. Use
   `DetectModerationLabels` to moderate images depending on your requirements.
   For example, you might want to filter images that contain nudity, but not
@@ -5697,12 +5672,10 @@ defmodule AWS.Rekognition do
       required("Image") => image()
     }
   """
-
   @spec detect_moderation_labels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_moderation_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_moderation_labels_errors()}
-
   def detect_moderation_labels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5711,6 +5684,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Detects Personal Protective Equipment (PPE) worn by people detected in an image.
   Amazon Rekognition can detect the following types of PPE.
 
@@ -5723,12 +5697,10 @@ defmodule AWS.Rekognition do
       required("Image") => image()
     }
   """
-
   @spec detect_protective_equipment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_protective_equipment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_protective_equipment_errors()}
-
   def detect_protective_equipment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5737,6 +5709,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Detects text in the input image and converts it into machine-readable text. Pass
   the input image as base64-encoded image bytes or as a reference to an image in
   an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition
@@ -5753,12 +5726,10 @@ defmodule AWS.Rekognition do
       required("Image") => image()
     }
   """
-
   @spec detect_text(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_text_errors()}
-
   def detect_text(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5767,6 +5738,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Removes the association between a `Face` supplied in an array of `FaceIds` and
   the User. If the User is not present already, then a `ResourceNotFound`
   exception is thrown. If successful, an array of faces that are disassociated
@@ -5787,12 +5759,10 @@ defmodule AWS.Rekognition do
       required("UserId") => String.t()
     }
   """
-
   @spec disassociate_faces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_faces_errors()}
-
   def disassociate_faces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5801,6 +5771,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Distributes the
   entries (images) in a training dataset across the training dataset and the
   test dataset for a project. `DistributeDatasetEntries` moves 20% of the
@@ -5815,12 +5786,10 @@ defmodule AWS.Rekognition do
       required("Datasets") => list(distribute_dataset()())
     }
   """
-
   @spec distribute_dataset_entries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, distribute_dataset_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, distribute_dataset_entries_errors()}
-
   def distribute_dataset_entries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5829,6 +5798,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets the name and additional information about a celebrity based on their Amazon
   Rekognition ID. The additional information is returned as an array of URLs. If
   there is no additional information about the celebrity, this list is empty.
@@ -5843,12 +5813,10 @@ defmodule AWS.Rekognition do
       required("Id") => String.t()
     }
   """
-
   @spec get_celebrity_info(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_celebrity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_celebrity_info_errors()}
-
   def get_celebrity_info(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5857,6 +5825,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets the celebrity recognition results for a Amazon Rekognition Video analysis
   started by `StartCelebrityRecognition`. Celebrity recognition in a video is an
   asynchronous operation. Analysis is started by a call to
@@ -5873,12 +5842,10 @@ defmodule AWS.Rekognition do
       required("JobId") => String.t()
     }
   """
-
   @spec get_celebrity_recognition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_celebrity_recognition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_celebrity_recognition_errors()}
-
   def get_celebrity_recognition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5887,6 +5854,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets the inappropriate, unwanted, or offensive content analysis results for a
   Amazon Rekognition Video analysis started by `StartContentModeration`. For a
   list of moderation labels in Amazon Rekognition, see [Using the image and
@@ -5914,12 +5882,10 @@ defmodule AWS.Rekognition do
       required("JobId") => String.t()
     }
   """
-
   @spec get_content_moderation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_content_moderation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_content_moderation_errors()}
-
   def get_content_moderation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5928,6 +5894,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets face detection results for a Amazon Rekognition Video analysis started by
   `StartFaceDetection`. Face detection with Amazon Rekognition Video is an
   asynchronous operation. You start face detection by calling
@@ -5949,12 +5916,10 @@ defmodule AWS.Rekognition do
       required("JobId") => String.t()
     }
   """
-
   @spec get_face_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_face_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_face_detection_errors()}
-
   def get_face_detection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5963,6 +5928,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Retrieves the results of a specific Face Liveness session. It requires the
   `sessionId` as input, which was created using `CreateFaceLivenessSession`.
   Returns the corresponding Face Liveness confidence score, a reference image
@@ -5977,12 +5943,10 @@ defmodule AWS.Rekognition do
       required("SessionId") => String.t()
     }
   """
-
   @spec get_face_liveness_session_results(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_face_liveness_session_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_face_liveness_session_results_errors()}
-
   def get_face_liveness_session_results(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5992,6 +5956,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets the face search results for Amazon Rekognition Video face search started by
   `StartFaceSearch`. The search returns faces in a collection that match the
   faces of persons detected in a video. It also includes the time(s) that faces
@@ -6015,12 +5980,10 @@ defmodule AWS.Rekognition do
       required("JobId") => String.t()
     }
   """
-
   @spec get_face_search(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_face_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_face_search_errors()}
-
   def get_face_search(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6029,6 +5992,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets the label detection results of a Amazon Rekognition Video analysis started
   by `StartLabelDetection`. The label detection operation is started by a call
   to `StartLabelDetection` which returns a job identifier (`JobId`). When the
@@ -6048,12 +6012,10 @@ defmodule AWS.Rekognition do
       required("JobId") => String.t()
     }
   """
-
   @spec get_label_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_label_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_label_detection_errors()}
-
   def get_label_detection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6062,6 +6024,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Retrieves the results for a given media analysis job. Takes a `JobId` returned
   by StartMediaAnalysisJob.
 
@@ -6073,12 +6036,10 @@ defmodule AWS.Rekognition do
       required("JobId") => String.t()
     }
   """
-
   @spec get_media_analysis_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_media_analysis_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_analysis_job_errors()}
-
   def get_media_analysis_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6087,6 +6048,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets the path tracking results of a Amazon Rekognition Video analysis started by
   `StartPersonTracking`. The person path tracking operation is started by a call
   to `StartPersonTracking` which returns a job identifier (`JobId`). When the
@@ -6105,12 +6067,10 @@ defmodule AWS.Rekognition do
       required("JobId") => String.t()
     }
   """
-
   @spec get_person_tracking(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_person_tracking_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_person_tracking_errors()}
-
   def get_person_tracking(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6119,6 +6079,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets the segment detection results of a Amazon Rekognition Video analysis
   started by `StartSegmentDetection`. Segment detection with Amazon Rekognition
   Video is an asynchronous operation. You start segment detection by calling
@@ -6141,12 +6102,10 @@ defmodule AWS.Rekognition do
       required("JobId") => String.t()
     }
   """
-
   @spec get_segment_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_segment_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_detection_errors()}
-
   def get_segment_detection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6155,6 +6114,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets the text detection results of a Amazon Rekognition Video analysis started
   by `StartTextDetection`. Text detection with Amazon Rekognition Video is an
   asynchronous operation. You start text detection by calling
@@ -6176,12 +6136,10 @@ defmodule AWS.Rekognition do
       required("JobId") => String.t()
     }
   """
-
   @spec get_text_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_text_detection_errors()}
-
   def get_text_detection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6190,6 +6148,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Detects faces in the input image and adds them to the specified collection.
   Amazon Rekognition doesn't save the actual faces that are detected. Instead,
   the underlying detection algorithm first detects the faces in the input image.
@@ -6211,12 +6170,10 @@ defmodule AWS.Rekognition do
       required("Image") => image()
     }
   """
-
   @spec index_faces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, index_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, index_faces_errors()}
-
   def index_faces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6225,6 +6182,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Returns list of collection IDs in your account. If the result is truncated, the
   response also provides a `NextToken` that you can use in the subsequent
   request to fetch the next set of collection IDs. For an example, see Listing
@@ -6239,12 +6197,10 @@ defmodule AWS.Rekognition do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_collections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collections_errors()}
-
   def list_collections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6253,6 +6209,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Lists the
   entries (images) within a dataset. An entry is a JSON Line that contains the
   information for a single image, including the image location, assigned labels,
@@ -6274,12 +6231,10 @@ defmodule AWS.Rekognition do
       required("DatasetArn") => String.t()
     }
   """
-
   @spec list_dataset_entries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dataset_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_entries_errors()}
-
   def list_dataset_entries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6288,6 +6243,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Lists the
   labels in a dataset. Amazon Rekognition Custom Labels uses labels to describe
   images. For more information, see [Labeling
@@ -6303,12 +6259,10 @@ defmodule AWS.Rekognition do
       required("DatasetArn") => String.t()
     }
   """
-
   @spec list_dataset_labels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dataset_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_labels_errors()}
-
   def list_dataset_labels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6317,6 +6271,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Returns metadata for faces in the specified collection. This metadata includes
   information such as the bounding box coordinates, the confidence (that the
   bounding box contains a face), and face ID. For an example, see Listing Faces
@@ -6334,12 +6289,10 @@ defmodule AWS.Rekognition do
       required("CollectionId") => String.t()
     }
   """
-
   @spec list_faces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_faces_errors()}
-
   def list_faces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6348,6 +6301,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Returns a list of media analysis jobs. Results are sorted by `CreationTimestamp`
   in descending order.
 
@@ -6360,12 +6314,10 @@ defmodule AWS.Rekognition do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_media_analysis_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_media_analysis_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_media_analysis_jobs_errors()}
-
   def list_media_analysis_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6374,6 +6326,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Gets a list of
   the project policies attached to a project.
 
@@ -6387,12 +6340,10 @@ defmodule AWS.Rekognition do
       required("ProjectArn") => String.t()
     }
   """
-
   @spec list_project_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_project_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_project_policies_errors()}
-
   def list_project_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6401,6 +6352,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Gets a list of stream processors that you have created with
   `CreateStreamProcessor`.
 
@@ -6413,12 +6365,10 @@ defmodule AWS.Rekognition do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_stream_processors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stream_processors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stream_processors_errors()}
-
   def list_stream_processors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6427,6 +6377,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Returns a list of tags in an Amazon Rekognition collection, stream processor, or
   Custom Labels model.
 
@@ -6438,12 +6389,10 @@ defmodule AWS.Rekognition do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6452,6 +6401,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Returns metadata of the User such as `UserID` in the specified collection.
   Anonymous User (to reserve faces without any identity) is not returned as part
   of this request. The results are sorted by system generated primary key ID. If
@@ -6468,12 +6418,10 @@ defmodule AWS.Rekognition do
       required("CollectionId") => String.t()
     }
   """
-
   @spec list_users(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-
   def list_users(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6482,6 +6430,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Attaches a
   project policy to a Amazon Rekognition Custom Labels project in a trusting AWS
   account. A project policy specifies that a trusted AWS account can copy a
@@ -6500,12 +6449,10 @@ defmodule AWS.Rekognition do
       required("ProjectArn") => String.t()
     }
   """
-
   @spec put_project_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_project_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_project_policy_errors()}
-
   def put_project_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6514,6 +6461,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Returns an array of celebrities recognized in the input image. For more
   information, see Recognizing celebrities in the Amazon Rekognition Developer
   Guide. `RecognizeCelebrities` returns the 64 largest faces in the image. It
@@ -6530,12 +6478,10 @@ defmodule AWS.Rekognition do
       required("Image") => image()
     }
   """
-
   @spec recognize_celebrities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, recognize_celebrities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, recognize_celebrities_errors()}
-
   def recognize_celebrities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6544,6 +6490,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   For a given input face ID, searches for matching faces in the collection the
   face belongs to. You get a face ID when you add a face to the collection using
   the `IndexFaces` operation. The operation compares the features of the input
@@ -6561,12 +6508,10 @@ defmodule AWS.Rekognition do
       required("FaceId") => String.t()
     }
   """
-
   @spec search_faces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_faces_errors()}
-
   def search_faces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6575,6 +6520,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   For a given input image, first detects the largest face in the image, and then
   searches the specified collection for matching faces. The operation compares
   the features of the input face with faces in the specified collection. To
@@ -6596,12 +6542,10 @@ defmodule AWS.Rekognition do
       required("Image") => image()
     }
   """
-
   @spec search_faces_by_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_faces_by_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_faces_by_image_errors()}
-
   def search_faces_by_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6610,6 +6554,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Searches for UserIDs within a collection based on a `FaceId` or `UserId`. This
   API can be used to find the closest UserID (with a highest similarity) to
   associate a face. The request must be provided with either `FaceId` or
@@ -6628,12 +6573,10 @@ defmodule AWS.Rekognition do
       required("CollectionId") => String.t()
     }
   """
-
   @spec search_users(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_users_errors()}
-
   def search_users(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6642,6 +6585,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Searches for UserIDs using a supplied image. It first detects the largest face
   in the image, and then searches a specified collection for matching UserIDs.
   The operation returns an array of UserIDs that match the face in the supplied
@@ -6660,12 +6604,10 @@ defmodule AWS.Rekognition do
       required("Image") => image()
     }
   """
-
   @spec search_users_by_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_users_by_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_users_by_image_errors()}
-
   def search_users_by_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6674,6 +6616,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Starts asynchronous recognition of celebrities in a stored video. Amazon
   Rekognition Video can detect celebrities in a video must be stored in an
   Amazon S3 bucket. Use `Video` to specify the bucket name and the filename of
@@ -6697,12 +6640,10 @@ defmodule AWS.Rekognition do
       required("Video") => video()
     }
   """
-
   @spec start_celebrity_recognition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_celebrity_recognition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_celebrity_recognition_errors()}
-
   def start_celebrity_recognition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6711,6 +6652,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Starts asynchronous detection of inappropriate, unwanted, or offensive content
   in a stored video. For a list of moderation labels in Amazon Rekognition, see
   [Using the image and video moderation
@@ -6734,12 +6676,10 @@ defmodule AWS.Rekognition do
       required("Video") => video()
     }
   """
-
   @spec start_content_moderation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_content_moderation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_content_moderation_errors()}
-
   def start_content_moderation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6748,6 +6688,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Starts asynchronous detection of faces in a stored video. Amazon Rekognition
   Video can detect faces in a video stored in an Amazon S3 bucket. Use `Video`
   to specify the bucket name and the filename of the video. `StartFaceDetection`
@@ -6771,12 +6712,10 @@ defmodule AWS.Rekognition do
       required("Video") => video()
     }
   """
-
   @spec start_face_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_face_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_face_detection_errors()}
-
   def start_face_detection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6785,6 +6724,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Starts the asynchronous search for faces in a collection that match the faces of
   persons detected in a stored video.
 
@@ -6801,12 +6741,10 @@ defmodule AWS.Rekognition do
       required("Video") => video()
     }
   """
-
   @spec start_face_search(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_face_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_face_search_errors()}
-
   def start_face_search(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6815,6 +6753,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Starts asynchronous detection of labels in a stored video. Amazon Rekognition
   Video can detect labels in a video. Labels are instances of real-world
   entities. This includes objects like flower, tree, and table; events like
@@ -6835,12 +6774,10 @@ defmodule AWS.Rekognition do
       required("Video") => video()
     }
   """
-
   @spec start_label_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_label_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_label_detection_errors()}
-
   def start_label_detection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6849,6 +6786,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Initiates a new media analysis job. Accepts a manifest file in an Amazon S3
   bucket. The output is a manifest file and a summary of the manifest stored in
   the Amazon S3 bucket.
@@ -6866,12 +6804,10 @@ defmodule AWS.Rekognition do
       required("OutputConfig") => media_analysis_output_config()
     }
   """
-
   @spec start_media_analysis_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_media_analysis_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_media_analysis_job_errors()}
-
   def start_media_analysis_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6880,6 +6816,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Starts the asynchronous tracking of a person's path in a stored video. Amazon
   Rekognition Video can track the path of people in a video stored in an Amazon
   S3 bucket. Use `Video` to specify the bucket name and the filename of the
@@ -6899,12 +6836,10 @@ defmodule AWS.Rekognition do
       required("Video") => video()
     }
   """
-
   @spec start_person_tracking(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_person_tracking_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_person_tracking_errors()}
-
   def start_person_tracking(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6913,6 +6848,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Starts the
   running of the version of a model. Starting a model takes a while to complete.
   To check the current state of the model, use `DescribeProjectVersions`.
@@ -6927,12 +6863,10 @@ defmodule AWS.Rekognition do
       required("ProjectVersionArn") => String.t()
     }
   """
-
   @spec start_project_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_project_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_project_version_errors()}
-
   def start_project_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6941,6 +6875,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Starts asynchronous detection of segment detection in a stored video. Amazon
   Rekognition Video can detect segments in a video stored in an Amazon S3
   bucket. Use `Video` to specify the bucket name and the filename of the video.
@@ -6962,12 +6897,10 @@ defmodule AWS.Rekognition do
       required("Video") => video()
     }
   """
-
   @spec start_segment_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_segment_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_segment_detection_errors()}
-
   def start_segment_detection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6976,6 +6909,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Starts processing a stream processor. You create a stream processor by calling
   `CreateStreamProcessor`. To tell `StartStreamProcessor` which stream processor
   to start, use the value of the `Name` field specified in the call to
@@ -6991,12 +6925,10 @@ defmodule AWS.Rekognition do
       required("Name") => String.t()
     }
   """
-
   @spec start_stream_processor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_stream_processor_errors()}
-
   def start_stream_processor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7005,6 +6937,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Starts asynchronous detection of text in a stored video. Amazon Rekognition
   Video can detect text in a video stored in an Amazon S3 bucket. Use `Video` to
   specify the bucket name and the filename of the video. `StartTextDetection`
@@ -7025,12 +6958,10 @@ defmodule AWS.Rekognition do
       required("Video") => video()
     }
   """
-
   @spec start_text_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_text_detection_errors()}
-
   def start_text_detection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7039,6 +6970,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Stops a running
   model. The operation might take a while to complete. To check the current
   status, call `DescribeProjectVersions`. Only applies to Custom Labels
@@ -7052,12 +6984,10 @@ defmodule AWS.Rekognition do
       required("ProjectVersionArn") => String.t()
     }
   """
-
   @spec stop_project_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_project_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_project_version_errors()}
-
   def stop_project_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7066,6 +6996,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Stops a running stream processor that was created by `CreateStreamProcessor`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rekognition%20StopStreamProcessor&this_doc_guide=API%2520Reference)
@@ -7076,12 +7007,10 @@ defmodule AWS.Rekognition do
       required("Name") => String.t()
     }
   """
-
   @spec stop_stream_processor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_stream_processor_errors()}
-
   def stop_stream_processor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7090,6 +7019,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Adds one or more key-value tags to an Amazon Rekognition collection, stream
   processor, or Custom Labels model. For more information, see [Tagging AWS
   Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
@@ -7103,12 +7033,10 @@ defmodule AWS.Rekognition do
       required("Tags") => map()
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7117,6 +7045,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Removes one or more tags from an Amazon Rekognition collection, stream
   processor, or Custom Labels model.
 
@@ -7129,12 +7058,10 @@ defmodule AWS.Rekognition do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7143,6 +7070,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   This operation applies only to Amazon Rekognition Custom Labels. Adds or updates
   one or more entries (images) in a dataset. An entry is a JSON Line which
   contains the information for a single image, including the image location,
@@ -7159,12 +7087,10 @@ defmodule AWS.Rekognition do
       required("DatasetArn") => String.t()
     }
   """
-
   @spec update_dataset_entries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_dataset_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_entries_errors()}
-
   def update_dataset_entries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7173,6 +7099,7 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+   
   Allows you to update a stream processor. You can change some settings and
   regions of interest and delete certain parameters.
 
@@ -7188,12 +7115,10 @@ defmodule AWS.Rekognition do
       required("Name") => String.t()
     }
   """
-
   @spec update_stream_processor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stream_processor_errors()}
-
   def update_stream_processor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

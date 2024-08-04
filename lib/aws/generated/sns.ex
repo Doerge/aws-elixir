@@ -1706,6 +1706,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Adds a statement to a topic's access control policy, granting access for the
   specified Amazon Web Services accounts to the specified actions.
 
@@ -1720,12 +1721,10 @@ defmodule AWS.SNS do
       required("TopicArn") => String.t()
     }
   """
-
   @spec add_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_permission_errors()}
-
   def add_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1734,6 +1733,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Accepts a phone number and indicates whether the phone holder has opted out of
   receiving SMS messages from your Amazon Web Services account. You cannot send
   SMS messages to a number that is opted out.
@@ -1746,12 +1746,10 @@ defmodule AWS.SNS do
       required("phoneNumber") => String.t()
     }
   """
-
   @spec check_if_phone_number_is_opted_out(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, check_if_phone_number_is_opted_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_if_phone_number_is_opted_out_errors()}
-
   def check_if_phone_number_is_opted_out(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1761,6 +1759,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Verifies an endpoint owner's intent to receive messages by validating the token
   sent to the endpoint by an earlier `Subscribe` action. If the token is valid,
   the action creates a new subscription and returns its Amazon Resource Name
@@ -1777,12 +1776,10 @@ defmodule AWS.SNS do
       required("TopicArn") => String.t()
     }
   """
-
   @spec confirm_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, confirm_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, confirm_subscription_errors()}
-
   def confirm_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1791,6 +1788,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Creates a platform application object for one of the supported push notification
   services, such as APNS and GCM (Firebase Cloud Messaging), to which devices
   and mobile apps may register. You must specify `PlatformPrincipal` and
@@ -1808,12 +1806,10 @@ defmodule AWS.SNS do
       required("Platform") => String.t()
     }
   """
-
   @spec create_platform_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_platform_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_platform_application_errors()}
-
   def create_platform_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1822,6 +1818,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Creates an endpoint for a device and mobile app on one of the supported push
   notification services, such as GCM (Firebase Cloud Messaging) and APNS.
   `CreatePlatformEndpoint` requires the `PlatformApplicationArn` that is
@@ -1848,12 +1845,10 @@ defmodule AWS.SNS do
       required("Token") => String.t()
     }
   """
-
   @spec create_platform_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_platform_endpoint_errors()}
-
   def create_platform_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1862,6 +1857,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Adds a destination phone number to an Amazon Web Services account in the SMS
   sandbox and sends a one-time password (OTP) to that phone number.
 
@@ -1874,12 +1870,10 @@ defmodule AWS.SNS do
       required("PhoneNumber") => String.t()
     }
   """
-
   @spec create_sms_sandbox_phone_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_sms_sandbox_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sms_sandbox_phone_number_errors()}
-
   def create_sms_sandbox_phone_number(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1889,6 +1883,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Creates a topic to which notifications can be published. Users can create at
   most 100,000 standard topics (at most 1,000 FIFO topics). For more
   information, see [Creating an Amazon SNS
@@ -1908,12 +1903,10 @@ defmodule AWS.SNS do
       required("Name") => String.t()
     }
   """
-
   @spec create_topic(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_topic_errors()}
-
   def create_topic(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1922,6 +1915,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Deletes the endpoint for a device and mobile app from Amazon SNS. This action is
   idempotent. For more information, see [Using Amazon SNS Mobile Push
   Notifications](https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html).
@@ -1934,12 +1928,10 @@ defmodule AWS.SNS do
       required("EndpointArn") => String.t()
     }
   """
-
   @spec delete_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_errors()}
-
   def delete_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1948,6 +1940,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Deletes a platform application object for one of the supported push notification
   services, such as APNS and GCM (Firebase Cloud Messaging). For more
   information, see [Using Amazon SNS Mobile Push
@@ -1961,12 +1954,10 @@ defmodule AWS.SNS do
       required("PlatformApplicationArn") => String.t()
     }
   """
-
   @spec delete_platform_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_platform_application_errors()}
-
   def delete_platform_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1975,6 +1966,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Deletes an Amazon Web Services account's verified or pending phone number from
   the SMS sandbox.
 
@@ -1986,12 +1978,10 @@ defmodule AWS.SNS do
       required("PhoneNumber") => String.t()
     }
   """
-
   @spec delete_sms_sandbox_phone_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_sms_sandbox_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sms_sandbox_phone_number_errors()}
-
   def delete_sms_sandbox_phone_number(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2001,6 +1991,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Deletes a topic and all its subscriptions. Deleting a topic might prevent some
   messages previously sent to the topic from being delivered to subscribers.
   This action is idempotent, so deleting a topic that does not exist does not
@@ -2014,12 +2005,10 @@ defmodule AWS.SNS do
       required("TopicArn") => String.t()
     }
   """
-
   @spec delete_topic(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_topic_errors()}
-
   def delete_topic(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2028,6 +2017,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Retrieves the specified inline `DataProtectionPolicy` document that is stored in
   the specified Amazon SNS topic.
 
@@ -2039,12 +2029,10 @@ defmodule AWS.SNS do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec get_data_protection_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_data_protection_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_protection_policy_errors()}
-
   def get_data_protection_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2053,6 +2041,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Retrieves the endpoint attributes for a device on one of the supported push
   notification services, such as GCM (Firebase Cloud Messaging) and APNS. For
   more information, see [Using Amazon SNS Mobile Push
@@ -2066,12 +2055,10 @@ defmodule AWS.SNS do
       required("EndpointArn") => String.t()
     }
   """
-
   @spec get_endpoint_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_endpoint_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_endpoint_attributes_errors()}
-
   def get_endpoint_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2080,6 +2067,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Retrieves the attributes of the platform application object for the supported
   push notification services, such as APNS and GCM (Firebase Cloud Messaging).
   For more information, see [Using Amazon SNS Mobile Push
@@ -2093,12 +2081,10 @@ defmodule AWS.SNS do
       required("PlatformApplicationArn") => String.t()
     }
   """
-
   @spec get_platform_application_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_platform_application_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_platform_application_attributes_errors()}
-
   def get_platform_application_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2108,6 +2094,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Returns the settings for sending SMS messages from your Amazon Web Services
   account.
 
@@ -2119,12 +2106,10 @@ defmodule AWS.SNS do
       optional("attributes") => list(String.t()())
     }
   """
-
   @spec get_sms_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_sms_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sms_attributes_errors()}
-
   def get_sms_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2133,6 +2118,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Retrieves the SMS sandbox status for the calling Amazon Web Services account in
   the target Amazon Web Services Region.
 
@@ -2144,12 +2130,10 @@ defmodule AWS.SNS do
       
     }
   """
-
   @spec get_sms_sandbox_account_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_sms_sandbox_account_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sms_sandbox_account_status_errors()}
-
   def get_sms_sandbox_account_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2159,6 +2143,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Returns all of the properties of a subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sns%20GetSubscriptionAttributes&this_doc_guide=API%2520Reference)
@@ -2169,12 +2154,10 @@ defmodule AWS.SNS do
       required("SubscriptionArn") => String.t()
     }
   """
-
   @spec get_subscription_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_subscription_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_attributes_errors()}
-
   def get_subscription_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2183,6 +2166,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Returns all of the properties of a topic. Topic properties returned might differ
   based on the authorization of the user.
 
@@ -2194,12 +2178,10 @@ defmodule AWS.SNS do
       required("TopicArn") => String.t()
     }
   """
-
   @spec get_topic_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_topic_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_topic_attributes_errors()}
-
   def get_topic_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2208,6 +2190,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Lists the endpoints and endpoint attributes for devices in a supported push
   notification service, such as GCM (Firebase Cloud Messaging) and APNS. The
   results for `ListEndpointsByPlatformApplication` are paginated and return a
@@ -2228,12 +2211,10 @@ defmodule AWS.SNS do
       required("PlatformApplicationArn") => String.t()
     }
   """
-
   @spec list_endpoints_by_platform_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_endpoints_by_platform_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_endpoints_by_platform_application_errors()}
-
   def list_endpoints_by_platform_application(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2243,6 +2224,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Lists the calling Amazon Web Services account's dedicated origination numbers
   and their metadata. For more information about origination numbers, see
   [Origination
@@ -2258,12 +2240,10 @@ defmodule AWS.SNS do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_origination_numbers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_origination_numbers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_origination_numbers_errors()}
-
   def list_origination_numbers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2272,6 +2252,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Returns a list of phone numbers that are opted out, meaning you cannot send SMS
   messages to them.
 
@@ -2283,12 +2264,10 @@ defmodule AWS.SNS do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_phone_numbers_opted_out(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_phone_numbers_opted_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_opted_out_errors()}
-
   def list_phone_numbers_opted_out(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2297,6 +2276,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Lists the platform application objects for the supported push notification
   services, such as APNS and GCM (Firebase Cloud Messaging). The results for
   `ListPlatformApplications` are paginated and return a limited list of
@@ -2315,12 +2295,10 @@ defmodule AWS.SNS do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_platform_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_platform_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_platform_applications_errors()}
-
   def list_platform_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2329,6 +2307,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Lists the calling Amazon Web Services account's current verified and pending
   destination phone numbers in the SMS sandbox.
 
@@ -2341,12 +2320,10 @@ defmodule AWS.SNS do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_sms_sandbox_phone_numbers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_sms_sandbox_phone_numbers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sms_sandbox_phone_numbers_errors()}
-
   def list_sms_sandbox_phone_numbers(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2356,6 +2333,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Returns a list of the requester's subscriptions. Each call returns a limited
   list of subscriptions, up to 100. If there are more subscriptions, a
   `NextToken` is also returned. Use the `NextToken` parameter in a new
@@ -2369,12 +2347,10 @@ defmodule AWS.SNS do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscriptions_errors()}
-
   def list_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2383,6 +2359,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Returns a list of the subscriptions to a specific topic. Each call returns a
   limited list of subscriptions, up to 100. If there are more subscriptions, a
   `NextToken` is also returned. Use the `NextToken` parameter in a new
@@ -2397,12 +2374,10 @@ defmodule AWS.SNS do
       required("TopicArn") => String.t()
     }
   """
-
   @spec list_subscriptions_by_topic(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_subscriptions_by_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscriptions_by_topic_errors()}
-
   def list_subscriptions_by_topic(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2411,6 +2386,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   List all tags added to the specified Amazon SNS topic. For an overview, see
   [Amazon SNS Tags](https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html) in
   the *Amazon Simple Notification Service Developer Guide*.
@@ -2423,12 +2399,10 @@ defmodule AWS.SNS do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2437,6 +2411,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Returns a list of the requester's topics. Each call returns a limited list of
   topics, up to 100. If there are more topics, a `NextToken` is also returned.
   Use the `NextToken` parameter in a new `ListTopics` call to get further
@@ -2450,12 +2425,10 @@ defmodule AWS.SNS do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_topics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_topics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_topics_errors()}
-
   def list_topics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2464,6 +2437,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Use this request to opt in a phone number that is opted out, which enables you
   to resume sending SMS messages to the number.
 
@@ -2475,12 +2449,10 @@ defmodule AWS.SNS do
       required("phoneNumber") => String.t()
     }
   """
-
   @spec opt_in_phone_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, opt_in_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, opt_in_phone_number_errors()}
-
   def opt_in_phone_number(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2489,6 +2461,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Sends a message to an Amazon SNS topic, a text message (SMS message) directly to
   a phone number, or a message to a mobile platform endpoint (when you specify
   the `TargetArn`). If you send a message to a topic, Amazon SNS delivers the
@@ -2511,12 +2484,10 @@ defmodule AWS.SNS do
       required("Message") => String.t()
     }
   """
-
   @spec publish(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, publish_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_errors()}
-
   def publish(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2525,6 +2496,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Publishes up to ten messages to the specified topic. This is a batch version of
   `Publish`. For FIFO topics, multiple messages within a single batch are
   published in the order they are sent, and messages are deduplicated within the
@@ -2542,12 +2514,10 @@ defmodule AWS.SNS do
       required("TopicArn") => String.t()
     }
   """
-
   @spec publish_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, publish_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_batch_errors()}
-
   def publish_batch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2556,6 +2526,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Adds or updates an inline policy document that is stored in the specified Amazon
   SNS topic.
 
@@ -2568,12 +2539,10 @@ defmodule AWS.SNS do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec put_data_protection_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_data_protection_policy_errors()}
-
   def put_data_protection_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2582,6 +2551,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Removes a statement from a topic's access control policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sns%20RemovePermission&this_doc_guide=API%2520Reference)
@@ -2593,12 +2563,10 @@ defmodule AWS.SNS do
       required("TopicArn") => String.t()
     }
   """
-
   @spec remove_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_permission_errors()}
-
   def remove_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2607,6 +2575,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Sets the attributes for an endpoint for a device on one of the supported push
   notification services, such as GCM (Firebase Cloud Messaging) and APNS. For
   more information, see [Using Amazon SNS Mobile Push
@@ -2621,12 +2590,10 @@ defmodule AWS.SNS do
       required("EndpointArn") => String.t()
     }
   """
-
   @spec set_endpoint_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_endpoint_attributes_errors()}
-
   def set_endpoint_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2635,6 +2602,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Sets the attributes of the platform application object for the supported push
   notification services, such as APNS and GCM (Firebase Cloud Messaging). For
   more information, see [Using Amazon SNS Mobile Push
@@ -2652,12 +2620,10 @@ defmodule AWS.SNS do
       required("PlatformApplicationArn") => String.t()
     }
   """
-
   @spec set_platform_application_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_platform_application_attributes_errors()}
-
   def set_platform_application_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2667,6 +2633,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Use this request to set the default settings for sending SMS messages and
   receiving daily SMS usage reports. You can override some of these settings for
   a single message when you use the `Publish` action with the
@@ -2683,12 +2650,10 @@ defmodule AWS.SNS do
       required("attributes") => map()
     }
   """
-
   @spec set_sms_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_sms_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_sms_attributes_errors()}
-
   def set_sms_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2697,6 +2662,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Allows a subscription owner to set an attribute of the subscription to a new
   value.
 
@@ -2710,12 +2676,10 @@ defmodule AWS.SNS do
       required("SubscriptionArn") => String.t()
     }
   """
-
   @spec set_subscription_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_subscription_attributes_errors()}
-
   def set_subscription_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2724,6 +2688,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Allows a topic owner to set an attribute of the topic to a new value.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sns%20SetTopicAttributes&this_doc_guide=API%2520Reference)
@@ -2736,12 +2701,10 @@ defmodule AWS.SNS do
       required("TopicArn") => String.t()
     }
   """
-
   @spec set_topic_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_topic_attributes_errors()}
-
   def set_topic_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2750,6 +2713,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or
   email, or if the endpoint and the topic are not in the same Amazon Web
   Services account, the endpoint owner must run the `ConfirmSubscription` action
@@ -2769,12 +2733,10 @@ defmodule AWS.SNS do
       required("TopicArn") => String.t()
     }
   """
-
   @spec subscribe(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, subscribe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, subscribe_errors()}
-
   def subscribe(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2783,6 +2745,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Add tags to the specified Amazon SNS topic. For an overview, see [Amazon SNS
   Tags](https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html) in the *Amazon
   SNS Developer Guide*. When you use topic tags, keep the following guidelines
@@ -2797,12 +2760,10 @@ defmodule AWS.SNS do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2811,6 +2772,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Deletes a subscription. If the subscription requires authentication for
   deletion, only the owner of the subscription or the topic's owner can
   unsubscribe, and an Amazon Web Services signature is required. If the
@@ -2830,12 +2792,10 @@ defmodule AWS.SNS do
       required("SubscriptionArn") => String.t()
     }
   """
-
   @spec unsubscribe(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unsubscribe_errors()}
-
   def unsubscribe(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2844,6 +2804,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Remove tags from the specified Amazon SNS topic. For an overview, see [Amazon
   SNS Tags](https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html) in the
   *Amazon SNS Developer Guide*.
@@ -2857,12 +2818,10 @@ defmodule AWS.SNS do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2871,6 +2830,7 @@ defmodule AWS.SNS do
   end
 
   @doc """
+   
   Verifies a destination phone number with a one-time password (OTP) for the
   calling Amazon Web Services account.
 
@@ -2883,12 +2843,10 @@ defmodule AWS.SNS do
       required("PhoneNumber") => String.t()
     }
   """
-
   @spec verify_sms_sandbox_phone_number(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_sms_sandbox_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_sms_sandbox_phone_number_errors()}
-
   def verify_sms_sandbox_phone_number(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

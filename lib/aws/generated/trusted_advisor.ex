@@ -679,15 +679,12 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20BatchUpdateRecommendationResourceExclusion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_update_recommendation_resource_exclusion(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_recommendation_resource_exclusion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_recommendation_resource_exclusion_errors()}
-
   def batch_update_recommendation_resource_exclusion(%Client{} = client, options \\ []) do
     url_path = "/v1/batch-update-recommendation-resource-exclusion"
 
@@ -725,17 +722,14 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20GetOrganizationRecommendation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:organization_recommendation_identifier` (`t:string`) The Recommendation
-  identifier
-
-  ## Optional parameters:
+  * `:organization_recommendation_identifier` (`t:string` required) The
+  Recommendation identifier
+  ## Keyword parameters:
   """
-
   @spec get_organization_recommendation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_organization_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_organization_recommendation_errors()}
-
   def get_organization_recommendation(
         %Client{} = client,
         organization_recommendation_identifier,
@@ -775,16 +769,14 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20GetRecommendation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:recommendation_identifier` (`t:string`) The Recommendation identifier
-
-  ## Optional parameters:
+  * `:recommendation_identifier` (`t:string` required) The Recommendation
+  identifier
+  ## Keyword parameters:
   """
-
   @spec get_recommendation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendation_errors()}
-
   def get_recommendation(%Client{} = client, recommendation_identifier, options \\ []) do
     url_path = "/v1/recommendations/#{AWS.Util.encode_uri(recommendation_identifier)}"
 
@@ -819,8 +811,7 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListChecks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:aws_service` (`t:string`) The aws service associated with the check
   * `:language`
   (`t:enum["BAHASA_INDONESIA|BRAZILIAN_PORTUGUESE|CHINESE|ENGLISH|FRENCH|GERMAN|ITALIAN|JAPANESE|KOREAN|SPANISH|TRADITIONAL_CHINESE"]`)
@@ -836,12 +827,10 @@ defmodule AWS.TrustedAdvisor do
   (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
   The source of the check
   """
-
   @spec list_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_checks_errors()}
-
   def list_checks(%Client{} = client, options \\ []) do
     url_path = "/v1/checks"
 
@@ -930,10 +919,9 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListOrganizationRecommendationAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:organization_recommendation_identifier` (`t:string`) The Recommendation
-  identifier
-
-  ## Optional parameters:
+  * `:organization_recommendation_identifier` (`t:string` required) The
+  Recommendation identifier
+  ## Keyword parameters:
   * `:affected_account_id` (`t:string`) An account affected by this organization
   recommendation
   * `:max_results` (`t:string`) The maximum number of results to return per page.
@@ -941,12 +929,10 @@ defmodule AWS.TrustedAdvisor do
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_organization_recommendation_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_organization_recommendation_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_recommendation_accounts_errors()}
-
   def list_organization_recommendation_accounts(
         %Client{} = client,
         organization_recommendation_identifier,
@@ -1012,10 +998,9 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListOrganizationRecommendationResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:organization_recommendation_identifier` (`t:string`) The AWS Organization
-  organization's Recommendation identifier
-
-  ## Optional parameters:
+  * `:organization_recommendation_identifier` (`t:string` required) The AWS
+  Organization organization's Recommendation identifier
+  ## Keyword parameters:
   * `:affected_account_id` (`t:string`) An account affected by this organization
   recommendation
   * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of
@@ -1027,12 +1012,10 @@ defmodule AWS.TrustedAdvisor do
   * `:region_code` (`t:string`) The AWS Region code of the resource
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the resource
   """
-
   @spec list_organization_recommendation_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_organization_recommendation_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_recommendation_resources_errors()}
-
   def list_organization_recommendation_resources(
         %Client{} = client,
         organization_recommendation_identifier,
@@ -1133,8 +1116,7 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListOrganizationRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:after_last_updated_at` (`t:string`) After the last update of the
   Recommendation
   * `:aws_service` (`t:string`) The aws service associated with the Recommendation
@@ -1154,12 +1136,10 @@ defmodule AWS.TrustedAdvisor do
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the Recommendation
   * `:type` (`t:enum["PRIORITY|STANDARD"]`) The type of the Recommendation
   """
-
   @spec list_organization_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_recommendations_errors()}
-
   def list_organization_recommendations(%Client{} = client, options \\ []) do
     url_path = "/v1/organization-recommendations"
 
@@ -1290,9 +1270,9 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListRecommendationResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:recommendation_identifier` (`t:string`) The Recommendation identifier
-
-  ## Optional parameters:
+  * `:recommendation_identifier` (`t:string` required) The Recommendation
+  identifier
+  ## Keyword parameters:
   * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of
   the resource
   * `:max_results` (`t:string`) The maximum number of results to return per page.
@@ -1302,12 +1282,10 @@ defmodule AWS.TrustedAdvisor do
   * `:region_code` (`t:string`) The AWS Region code of the resource
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the resource
   """
-
   @spec list_recommendation_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recommendation_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendation_resources_errors()}
-
   def list_recommendation_resources(%Client{} = client, recommendation_identifier, options \\ []) do
     url_path = "/v1/recommendations/#{AWS.Util.encode_uri(recommendation_identifier)}/resources"
 
@@ -1387,8 +1365,7 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:after_last_updated_at` (`t:string`) After the last update of the
   Recommendation
   * `:aws_service` (`t:string`) The aws service associated with the Recommendation
@@ -1408,12 +1385,10 @@ defmodule AWS.TrustedAdvisor do
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the Recommendation
   * `:type` (`t:enum["PRIORITY|STANDARD"]`) The type of the Recommendation
   """
-
   @spec list_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendations_errors()}
-
   def list_recommendations(%Client{} = client, options \\ []) do
     url_path = "/v1/recommendations"
 
@@ -1545,17 +1520,14 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20UpdateOrganizationRecommendationLifecycle&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:organization_recommendation_identifier` (`t:string`) The Recommendation
-  identifier for AWS Trusted Advisor Priority recommendations
-
-  ## Optional parameters:
+  * `:organization_recommendation_identifier` (`t:string` required) The
+  Recommendation identifier for AWS Trusted Advisor Priority recommendations
+  ## Keyword parameters:
   """
-
   @spec update_organization_recommendation_lifecycle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_organization_recommendation_lifecycle_errors()}
-
   def update_organization_recommendation_lifecycle(
         %Client{} = client,
         organization_recommendation_identifier,
@@ -1598,17 +1570,14 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20UpdateRecommendationLifecycle&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:recommendation_identifier` (`t:string`) The Recommendation identifier for
-  AWS Trusted Advisor Priority recommendations
-
-  ## Optional parameters:
+  * `:recommendation_identifier` (`t:string` required) The Recommendation
+  identifier for AWS Trusted Advisor Priority recommendations
+  ## Keyword parameters:
   """
-
   @spec update_recommendation_lifecycle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recommendation_lifecycle_errors()}
-
   def update_recommendation_lifecycle(
         %Client{} = client,
         recommendation_identifier,

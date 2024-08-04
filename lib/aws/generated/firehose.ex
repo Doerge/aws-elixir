@@ -1881,6 +1881,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Creates a Firehose delivery stream. By default, you can create up to 50 delivery
   streams per Amazon Web Services Region.
 
@@ -1907,12 +1908,10 @@ defmodule AWS.Firehose do
       required("DeliveryStreamName") => String.t()
     }
   """
-
   @spec create_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_delivery_stream_errors()}
-
   def create_delivery_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1921,6 +1920,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Deletes a delivery stream and its data. You can delete a delivery stream only if
   it is in one of the following states: `ACTIVE`, `DELETING`, `CREATING_FAILED`,
   or `DELETING_FAILED`. You can't delete a delivery stream that is in the
@@ -1936,12 +1936,10 @@ defmodule AWS.Firehose do
       required("DeliveryStreamName") => String.t()
     }
   """
-
   @spec delete_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_delivery_stream_errors()}
-
   def delete_delivery_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1950,6 +1948,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Describes the specified delivery stream and its status. For example, after your
   delivery stream is created, call `DescribeDeliveryStream` to see whether the
   delivery stream is `ACTIVE` and therefore ready for data to be sent to it.
@@ -1964,12 +1963,10 @@ defmodule AWS.Firehose do
       required("DeliveryStreamName") => String.t()
     }
   """
-
   @spec describe_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_delivery_stream_errors()}
-
   def describe_delivery_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1978,6 +1975,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Lists your delivery streams in alphabetical order of their names.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20ListDeliveryStreams&this_doc_guide=API%2520Reference)
@@ -1990,11 +1988,9 @@ defmodule AWS.Firehose do
       optional("Limit") => integer()
     }
   """
-
   @spec list_delivery_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_delivery_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_delivery_streams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2003,6 +1999,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Lists the tags for the specified delivery stream. This operation has a limit of
   five transactions per second per account.
 
@@ -2016,12 +2013,10 @@ defmodule AWS.Firehose do
       required("DeliveryStreamName") => String.t()
     }
   """
-
   @spec list_tags_for_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_delivery_stream_errors()}
-
   def list_tags_for_delivery_stream(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2031,6 +2026,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Writes a single data record into an Amazon Firehose delivery stream. To write
   multiple data records into a delivery stream, use `PutRecordBatch`.
   Applications using these operations are referred to as producers. By default,
@@ -2050,12 +2046,10 @@ defmodule AWS.Firehose do
       required("Record") => record()
     }
   """
-
   @spec put_record(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_record_errors()}
-
   def put_record(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2064,6 +2058,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Writes multiple data records into a delivery stream in a single call, which can
   achieve higher throughput per producer than when writing single records. To
   write single data records into a delivery stream, use `PutRecord`.
@@ -2083,12 +2078,10 @@ defmodule AWS.Firehose do
       required("Records") => list(record()())
     }
   """
-
   @spec put_record_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_record_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_record_batch_errors()}
-
   def put_record_batch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2097,6 +2090,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Enables server-side encryption (SSE) for the delivery stream. This operation is
   asynchronous. It returns immediately. When you invoke it, Firehose first sets
   the encryption status of the stream to `ENABLING`, and then to `ENABLED`. The
@@ -2119,12 +2113,10 @@ defmodule AWS.Firehose do
       required("DeliveryStreamName") => String.t()
     }
   """
-
   @spec start_delivery_stream_encryption(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_delivery_stream_encryption_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_delivery_stream_encryption_errors()}
-
   def start_delivery_stream_encryption(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2134,6 +2126,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Disables server-side encryption (SSE) for the delivery stream. This operation is
   asynchronous. It returns immediately. When you invoke it, Firehose first sets
   the encryption status of the stream to `DISABLING`, and then to `DISABLED`.
@@ -2152,12 +2145,10 @@ defmodule AWS.Firehose do
       required("DeliveryStreamName") => String.t()
     }
   """
-
   @spec stop_delivery_stream_encryption(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_delivery_stream_encryption_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_delivery_stream_encryption_errors()}
-
   def stop_delivery_stream_encryption(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2167,6 +2158,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Adds or updates tags for the specified delivery stream. A tag is a key-value
   pair that you can define and assign to Amazon Web Services resources. If you
   specify a tag that already exists, the tag value is replaced with the value
@@ -2187,12 +2179,10 @@ defmodule AWS.Firehose do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_delivery_stream_errors()}
-
   def tag_delivery_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2201,6 +2191,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Removes tags from the specified delivery stream. Removed tags are deleted, and
   you can't recover them after this operation successfully completes. If you
   specify a tag that doesn't exist, the operation ignores it.
@@ -2214,12 +2205,10 @@ defmodule AWS.Firehose do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_delivery_stream_errors()}
-
   def untag_delivery_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2228,6 +2217,7 @@ defmodule AWS.Firehose do
   end
 
   @doc """
+   
   Updates the specified destination of the specified delivery stream. Use this
   operation to change the destination type (for example, to replace the Amazon
   S3 destination with Amazon Redshift) or change the parameters associated with
@@ -2257,12 +2247,10 @@ defmodule AWS.Firehose do
       required("DestinationId") => String.t()
     }
   """
-
   @spec update_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_destination_errors()}
-
   def update_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

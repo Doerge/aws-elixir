@@ -302,6 +302,7 @@ defmodule AWS.Route53RecoveryCluster do
   end
 
   @doc """
+   
   Get the state for a routing control. A routing control is a simple on/off switch
   that you can use to route traffic to cells. When a routing control state is
   set to ON, traffic flows to a cell. When the state is set to OFF, traffic does
@@ -323,12 +324,10 @@ defmodule AWS.Route53RecoveryCluster do
       required("RoutingControlArn") => String.t()
     }
   """
-
   @spec get_routing_control_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_routing_control_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_routing_control_state_errors()}
-
   def get_routing_control_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -337,6 +336,7 @@ defmodule AWS.Route53RecoveryCluster do
   end
 
   @doc """
+   
   List routing control names and Amazon Resource Names (ARNs), as well as the
   routing control state for each routing control, along with the control panel
   name and control panel ARN for the routing controls. If you specify a control
@@ -356,12 +356,10 @@ defmodule AWS.Route53RecoveryCluster do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_routing_controls(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_routing_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_controls_errors()}
-
   def list_routing_controls(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -370,6 +368,7 @@ defmodule AWS.Route53RecoveryCluster do
   end
 
   @doc """
+   
   Set the state of the routing control to reroute traffic. You can set the value
   to ON or OFF. When the state is ON, traffic flows to a cell. When the state is
   OFF, traffic does not flow. With Route 53 ARC, you can add safety rules for
@@ -393,12 +392,10 @@ defmodule AWS.Route53RecoveryCluster do
       required("RoutingControlState") => list(any())
     }
   """
-
   @spec update_routing_control_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_routing_control_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_control_state_errors()}
-
   def update_routing_control_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -407,6 +404,7 @@ defmodule AWS.Route53RecoveryCluster do
   end
 
   @doc """
+   
   Set multiple routing control states. You can set the value for each state to be
   ON or OFF. When the state is ON, traffic flows to a cell. When it's OFF,
   traffic does not flow. With Route 53 ARC, you can add safety rules for routing
@@ -429,12 +427,10 @@ defmodule AWS.Route53RecoveryCluster do
       required("UpdateRoutingControlStateEntries") => list(update_routing_control_state_entry()())
     }
   """
-
   @spec update_routing_control_states(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_routing_control_states_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_control_states_errors()}
-
   def update_routing_control_states(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

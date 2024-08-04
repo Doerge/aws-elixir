@@ -764,15 +764,12 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20BatchGetFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_findings_errors()}
-
   def batch_get_findings(%Client{} = client, options \\ []) do
     url_path = "/batchGetFindings"
 
@@ -809,15 +806,12 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20CreateScan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_scan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scan_errors()}
-
   def create_scan(%Client{} = client, options \\ []) do
     url_path = "/scans"
 
@@ -855,15 +849,12 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20CreateUploadUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_upload_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_upload_url_errors()}
-
   def create_upload_url(%Client{} = client, options \\ []) do
     url_path = "/uploadUrl"
 
@@ -900,15 +891,12 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20GetAccountConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_account_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_configuration_errors()}
-
   def get_account_configuration(%Client{} = client, options \\ []) do
     url_path = "/accountConfiguration/get"
 
@@ -943,10 +931,9 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20GetFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:scan_name` (`t:string`) The name of the scan you want to retrieve findings
-  from.
-
-  ## Optional parameters:
+  * `:scan_name` (`t:string` required) The name of the scan you want to retrieve
+  findings from.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
   response. Use this parameter when paginating results. If additional results
   exist beyond the number you specify, the nextToken element is returned in
@@ -959,12 +946,10 @@ defmodule AWS.CodeGuruSecurity do
   * `:status` (`t:enum["ALL|CLOSED|OPEN"]`) The status of the findings you want to
   get. Pass either Open, Closed, or All.
   """
-
   @spec get_findings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_errors()}
-
   def get_findings(%Client{} = client, scan_name, options \\ []) do
     url_path = "/findings/#{AWS.Util.encode_uri(scan_name)}"
 
@@ -1026,17 +1011,15 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20GetMetricsSummary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:date` (`t:string`) The date you want to retrieve summary metrics from,
-  rounded to the nearest day. The date must be within the past two years.
-
-  ## Optional parameters:
+  * `:date` (`t:string` required) The date you want to retrieve summary metrics
+  from, rounded to the nearest day. The date must be within the past two
+  years.
+  ## Keyword parameters:
   """
-
   @spec get_metrics_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_metrics_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metrics_summary_errors()}
-
   def get_metrics_summary(%Client{} = client, date, options \\ []) when is_binary(date) do
     url_path = "/metrics/summary"
 
@@ -1071,19 +1054,17 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20GetScan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:scan_name` (`t:string`) The name of the scan you want to view details about.
-
-  ## Optional parameters:
+  * `:scan_name` (`t:string` required) The name of the scan you want to view
+  details about.
+  ## Keyword parameters:
   * `:run_id` (`t:string`) UUID that identifies the individual scan run you want
   to view details about. You retrieve this when you call the CreateScan
   operation. Defaults to the latest scan run if missing.
   """
-
   @spec get_scan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_scan_errors()}
-
   def get_scan(%Client{} = client, scan_name, options \\ []) do
     url_path = "/scans/#{AWS.Util.encode_uri(scan_name)}"
 
@@ -1129,12 +1110,11 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20ListFindingsMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:end_date` (`t:string`) The end date of the interval which you want to
-  retrieve metrics from. Round to the nearest day.
-  * `:start_date` (`t:string`) The start date of the interval which you want to
-  retrieve metrics from. Rounds to the nearest day.
-
-  ## Optional parameters:
+  * `:end_date` (`t:string` required) The end date of the interval which you want
+  to retrieve metrics from. Round to the nearest day.
+  * `:start_date` (`t:string` required) The start date of the interval which you
+  want to retrieve metrics from. Rounds to the nearest day.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
   response. Use this parameter when paginating results. If additional results
   exist beyond the number you specify, the nextToken element is returned in
@@ -1145,12 +1125,10 @@ defmodule AWS.CodeGuruSecurity do
   first request. For subsequent calls, use the nextToken value returned from
   the previous request to continue listing results after the first page.
   """
-
   @spec list_findings_metrics(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_findings_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_metrics_errors()}
-
   def list_findings_metrics(%Client{} = client, end_date, start_date, options \\ [])
       when is_binary(end_date) and is_binary(start_date) do
     url_path = "/metrics/findings"
@@ -1204,8 +1182,7 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20ListScans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
   response. Use this parameter when paginating results. If additional results
   exist beyond the number you specify, the nextToken element is returned in
@@ -1216,12 +1193,10 @@ defmodule AWS.CodeGuruSecurity do
   first request. For subsequent calls, use the nextToken value returned from
   the previous request to continue listing results after the first page.
   """
-
   @spec list_scans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scans_errors()}
-
   def list_scans(%Client{} = client, options \\ []) do
     url_path = "/scans"
 
@@ -1274,17 +1249,14 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the ScanName object. You can retrieve
-  this ARN by calling CreateScan, ListScans, or GetScan.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the ScanName object. You can
+  retrieve this ARN by calling CreateScan, ListScans, or GetScan.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1319,17 +1291,14 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the ScanName object. You can retrieve
-  this ARN by calling CreateScan, ListScans, or GetScan.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the ScanName object. You can
+  retrieve this ARN by calling CreateScan, ListScans, or GetScan.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1366,19 +1335,16 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the ScanName object. You can retrieve
-  this ARN by calling CreateScan, ListScans, or GetScan.
-  * `:tag_keys` (`t:list[com.amazonaws.codegurusecurity#TagKey]`) A list of keys
-  for each tag you want to remove from a scan.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the ScanName object. You can
+  retrieve this ARN by calling CreateScan, ListScans, or GetScan.
+  * `:tag_keys` (`t:list[com.amazonaws.codegurusecurity#TagKey]` required) A list
+  of keys for each tag you want to remove from a scan.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1426,15 +1392,12 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20UpdateAccountConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_account_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_configuration_errors()}
-
   def update_account_configuration(%Client{} = client, options \\ []) do
     url_path = "/updateAccountConfiguration"
 

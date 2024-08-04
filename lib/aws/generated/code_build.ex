@@ -2433,6 +2433,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Deletes one or more builds.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20BatchDeleteBuilds&this_doc_guide=API%2520Reference)
@@ -2443,12 +2444,10 @@ defmodule AWS.CodeBuild do
       required("ids") => list(String.t()())
     }
   """
-
   @spec batch_delete_builds(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_builds_errors()}
-
   def batch_delete_builds(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2457,6 +2456,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Retrieves information about one or more batch builds.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20BatchGetBuildBatches&this_doc_guide=API%2520Reference)
@@ -2467,12 +2467,10 @@ defmodule AWS.CodeBuild do
       required("ids") => list(String.t()())
     }
   """
-
   @spec batch_get_build_batches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_build_batches_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_build_batches_errors()}
-
   def batch_get_build_batches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2481,6 +2479,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets information about one or more builds.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20BatchGetBuilds&this_doc_guide=API%2520Reference)
@@ -2491,12 +2490,10 @@ defmodule AWS.CodeBuild do
       required("ids") => list(String.t()())
     }
   """
-
   @spec batch_get_builds(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_builds_errors()}
-
   def batch_get_builds(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2505,6 +2502,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets information about one or more compute fleets.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20BatchGetFleets&this_doc_guide=API%2520Reference)
@@ -2515,12 +2513,10 @@ defmodule AWS.CodeBuild do
       required("names") => list(String.t()())
     }
   """
-
   @spec batch_get_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_fleets_errors()}
-
   def batch_get_fleets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2529,6 +2525,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets information about one or more build projects.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20BatchGetProjects&this_doc_guide=API%2520Reference)
@@ -2539,12 +2536,10 @@ defmodule AWS.CodeBuild do
       required("names") => list(String.t()())
     }
   """
-
   @spec batch_get_projects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_projects_errors()}
-
   def batch_get_projects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2553,6 +2548,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Returns an array of report groups.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20BatchGetReportGroups&this_doc_guide=API%2520Reference)
@@ -2563,12 +2559,10 @@ defmodule AWS.CodeBuild do
       required("reportGroupArns") => list(String.t()())
     }
   """
-
   @spec batch_get_report_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_report_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_report_groups_errors()}
-
   def batch_get_report_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2577,6 +2571,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Returns an array of reports.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20BatchGetReports&this_doc_guide=API%2520Reference)
@@ -2587,12 +2582,10 @@ defmodule AWS.CodeBuild do
       required("reportArns") => list(String.t()())
     }
   """
-
   @spec batch_get_reports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_reports_errors()}
-
   def batch_get_reports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2601,6 +2594,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Creates a compute fleet.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20CreateFleet&this_doc_guide=API%2520Reference)
@@ -2619,12 +2613,10 @@ defmodule AWS.CodeBuild do
       required("name") => String.t()
     }
   """
-
   @spec create_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
-
   def create_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2633,6 +2625,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Creates a build project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20CreateProject&this_doc_guide=API%2520Reference)
@@ -2663,12 +2656,10 @@ defmodule AWS.CodeBuild do
       required("source") => project_source()
     }
   """
-
   @spec create_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-
   def create_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2677,6 +2668,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Creates a report group. A report group contains a collection of reports.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20CreateReportGroup&this_doc_guide=API%2520Reference)
@@ -2690,12 +2682,10 @@ defmodule AWS.CodeBuild do
       required("type") => list(any())
     }
   """
-
   @spec create_report_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_report_group_errors()}
-
   def create_report_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2704,6 +2694,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   For an existing CodeBuild build project that has its source code stored in a
   GitHub or Bitbucket repository, enables CodeBuild to start rebuilding the
   source code every time a code change is pushed to the repository.
@@ -2721,12 +2712,10 @@ defmodule AWS.CodeBuild do
       required("projectName") => String.t()
     }
   """
-
   @spec create_webhook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_webhook_errors()}
-
   def create_webhook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2735,6 +2724,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Deletes a batch build.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20DeleteBuildBatch&this_doc_guide=API%2520Reference)
@@ -2745,12 +2735,10 @@ defmodule AWS.CodeBuild do
       required("id") => String.t()
     }
   """
-
   @spec delete_build_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_build_batch_errors()}
-
   def delete_build_batch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2759,6 +2747,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Deletes a compute fleet. When you delete a compute fleet, its builds are not
   deleted.
 
@@ -2770,12 +2759,10 @@ defmodule AWS.CodeBuild do
       required("arn") => String.t()
     }
   """
-
   @spec delete_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
-
   def delete_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2784,6 +2771,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Deletes a build project. When you delete a project, its builds are not deleted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20DeleteProject&this_doc_guide=API%2520Reference)
@@ -2794,12 +2782,10 @@ defmodule AWS.CodeBuild do
       required("name") => String.t()
     }
   """
-
   @spec delete_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-
   def delete_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2808,6 +2794,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Deletes a report.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20DeleteReport&this_doc_guide=API%2520Reference)
@@ -2818,12 +2805,10 @@ defmodule AWS.CodeBuild do
       required("arn") => String.t()
     }
   """
-
   @spec delete_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_report_errors()}
-
   def delete_report(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2832,6 +2817,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Deletes a report group. Before you delete a report group, you must delete its
   reports.
 
@@ -2844,12 +2830,10 @@ defmodule AWS.CodeBuild do
       required("arn") => String.t()
     }
   """
-
   @spec delete_report_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_report_group_errors()}
-
   def delete_report_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2858,6 +2842,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Deletes a resource policy that is identified by its resource ARN.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
@@ -2868,12 +2853,10 @@ defmodule AWS.CodeBuild do
       required("resourceArn") => String.t()
     }
   """
-
   @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2882,6 +2865,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20DeleteSourceCredentials&this_doc_guide=API%2520Reference)
@@ -2892,12 +2876,10 @@ defmodule AWS.CodeBuild do
       required("arn") => String.t()
     }
   """
-
   @spec delete_source_credentials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_source_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_source_credentials_errors()}
-
   def delete_source_credentials(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2906,6 +2888,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   For an existing CodeBuild build project that has its source code stored in a
   GitHub or Bitbucket repository, stops CodeBuild from rebuilding the source
   code every time a code change is pushed to the repository.
@@ -2918,12 +2901,10 @@ defmodule AWS.CodeBuild do
       required("projectName") => String.t()
     }
   """
-
   @spec delete_webhook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_webhook_errors()}
-
   def delete_webhook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2932,6 +2913,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Retrieves one or more code coverage reports.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20DescribeCodeCoverages&this_doc_guide=API%2520Reference)
@@ -2948,12 +2930,10 @@ defmodule AWS.CodeBuild do
       required("reportArn") => String.t()
     }
   """
-
   @spec describe_code_coverages(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_code_coverages_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_code_coverages_errors()}
-
   def describe_code_coverages(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2962,6 +2942,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Returns a list of details about test cases for a report.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20DescribeTestCases&this_doc_guide=API%2520Reference)
@@ -2975,12 +2956,10 @@ defmodule AWS.CodeBuild do
       required("reportArn") => String.t()
     }
   """
-
   @spec describe_test_cases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_test_cases_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_test_cases_errors()}
-
   def describe_test_cases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2989,6 +2968,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Analyzes and accumulates test report values for the specified test reports.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20GetReportGroupTrend&this_doc_guide=API%2520Reference)
@@ -3001,12 +2981,10 @@ defmodule AWS.CodeBuild do
       required("trendField") => list(any())
     }
   """
-
   @spec get_report_group_trend(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_report_group_trend_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_report_group_trend_errors()}
-
   def get_report_group_trend(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3015,6 +2993,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets a resource policy that is identified by its resource ARN.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20GetResourcePolicy&this_doc_guide=API%2520Reference)
@@ -3025,12 +3004,10 @@ defmodule AWS.CodeBuild do
       required("resourceArn") => String.t()
     }
   """
-
   @spec get_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-
   def get_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3039,6 +3016,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Imports the source repository credentials for an CodeBuild project that has its
   source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.
 
@@ -3054,12 +3032,10 @@ defmodule AWS.CodeBuild do
       required("token") => String.t()
     }
   """
-
   @spec import_source_credentials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_source_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_source_credentials_errors()}
-
   def import_source_credentials(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3068,6 +3044,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Resets the cache for a project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20InvalidateProjectCache&this_doc_guide=API%2520Reference)
@@ -3078,12 +3055,10 @@ defmodule AWS.CodeBuild do
       required("projectName") => String.t()
     }
   """
-
   @spec invalidate_project_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, invalidate_project_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invalidate_project_cache_errors()}
-
   def invalidate_project_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3092,6 +3067,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Retrieves the identifiers of your build batches in the current region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20ListBuildBatches&this_doc_guide=API%2520Reference)
@@ -3105,12 +3081,10 @@ defmodule AWS.CodeBuild do
       optional("sortOrder") => list(any())
     }
   """
-
   @spec list_build_batches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_build_batches_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_build_batches_errors()}
-
   def list_build_batches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3119,6 +3093,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Retrieves the identifiers of the build batches for a specific project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20ListBuildBatchesForProject&this_doc_guide=API%2520Reference)
@@ -3133,12 +3108,10 @@ defmodule AWS.CodeBuild do
       optional("sortOrder") => list(any())
     }
   """
-
   @spec list_build_batches_for_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_build_batches_for_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_build_batches_for_project_errors()}
-
   def list_build_batches_for_project(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3148,6 +3121,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets a list of build IDs, with each build ID representing a single build.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20ListBuilds&this_doc_guide=API%2520Reference)
@@ -3159,12 +3133,10 @@ defmodule AWS.CodeBuild do
       optional("sortOrder") => list(any())
     }
   """
-
   @spec list_builds(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_builds_errors()}
-
   def list_builds(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3173,6 +3145,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets a list of build identifiers for the specified build project, with each
   build identifier representing a single build.
 
@@ -3186,12 +3159,10 @@ defmodule AWS.CodeBuild do
       required("projectName") => String.t()
     }
   """
-
   @spec list_builds_for_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_builds_for_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_builds_for_project_errors()}
-
   def list_builds_for_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3200,6 +3171,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets information about Docker images that are managed by CodeBuild.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20ListCuratedEnvironmentImages&this_doc_guide=API%2520Reference)
@@ -3210,11 +3182,9 @@ defmodule AWS.CodeBuild do
       
     }
   """
-
   @spec list_curated_environment_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_curated_environment_images_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_curated_environment_images(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3224,6 +3194,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets a list of compute fleet names with each compute fleet name representing a
   single compute fleet.
 
@@ -3238,12 +3209,10 @@ defmodule AWS.CodeBuild do
       optional("sortOrder") => list(any())
     }
   """
-
   @spec list_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_errors()}
-
   def list_fleets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3252,6 +3221,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets a list of build project names, with each build project name representing a
   single build project.
 
@@ -3265,12 +3235,10 @@ defmodule AWS.CodeBuild do
       optional("sortOrder") => list(any())
     }
   """
-
   @spec list_projects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-
   def list_projects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3279,6 +3247,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets a list ARNs for the report groups in the current Amazon Web Services
   account.
 
@@ -3293,12 +3262,10 @@ defmodule AWS.CodeBuild do
       optional("sortOrder") => list(any())
     }
   """
-
   @spec list_report_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_report_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_report_groups_errors()}
-
   def list_report_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3307,6 +3274,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Returns a list of ARNs for the reports in the current Amazon Web Services
   account.
 
@@ -3321,12 +3289,10 @@ defmodule AWS.CodeBuild do
       optional("sortOrder") => list(any())
     }
   """
-
   @spec list_reports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reports_errors()}
-
   def list_reports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3335,6 +3301,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Returns a list of ARNs for the reports that belong to a `ReportGroup`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20ListReportsForReportGroup&this_doc_guide=API%2520Reference)
@@ -3349,12 +3316,10 @@ defmodule AWS.CodeBuild do
       required("reportGroupArn") => String.t()
     }
   """
-
   @spec list_reports_for_report_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_reports_for_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reports_for_report_group_errors()}
-
   def list_reports_for_report_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3364,6 +3329,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets a list of projects that are shared with other Amazon Web Services accounts
   or users.
 
@@ -3378,12 +3344,10 @@ defmodule AWS.CodeBuild do
       optional("sortOrder") => list(any())
     }
   """
-
   @spec list_shared_projects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_shared_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_shared_projects_errors()}
-
   def list_shared_projects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3392,6 +3356,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Gets a list of report groups that are shared with other Amazon Web Services
   accounts or users.
 
@@ -3406,12 +3371,10 @@ defmodule AWS.CodeBuild do
       optional("sortOrder") => list(any())
     }
   """
-
   @spec list_shared_report_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_shared_report_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_shared_report_groups_errors()}
-
   def list_shared_report_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3420,6 +3383,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Returns a list of `SourceCredentialsInfo` objects.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20ListSourceCredentials&this_doc_guide=API%2520Reference)
@@ -3430,12 +3394,10 @@ defmodule AWS.CodeBuild do
       
     }
   """
-
   @spec list_source_credentials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_source_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_source_credentials_errors()}
-
   def list_source_credentials(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3444,6 +3406,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Stores a resource policy for the ARN of a `Project` or `ReportGroup` object.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20PutResourcePolicy&this_doc_guide=API%2520Reference)
@@ -3455,12 +3418,10 @@ defmodule AWS.CodeBuild do
       required("resourceArn") => String.t()
     }
   """
-
   @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3469,6 +3430,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Restarts a build.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20RetryBuild&this_doc_guide=API%2520Reference)
@@ -3480,12 +3442,10 @@ defmodule AWS.CodeBuild do
       optional("idempotencyToken") => String.t()
     }
   """
-
   @spec retry_build(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, retry_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_build_errors()}
-
   def retry_build(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3494,6 +3454,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Restarts a failed batch build. Only batch builds that have failed can be
   retried.
 
@@ -3507,12 +3468,10 @@ defmodule AWS.CodeBuild do
       optional("retryType") => list(any())
     }
   """
-
   @spec retry_build_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, retry_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_build_batch_errors()}
-
   def retry_build_batch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3521,6 +3480,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Starts running a build with the settings defined in the project. These setting
   include: how to run a build, where to get the source code, which build
   environment to use, which build commands to run, and where to store the build
@@ -3565,12 +3525,10 @@ defmodule AWS.CodeBuild do
       required("projectName") => String.t()
     }
   """
-
   @spec start_build(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_build_errors()}
-
   def start_build(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3579,6 +3537,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Starts a batch build for a project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20StartBuildBatch&this_doc_guide=API%2520Reference)
@@ -3619,12 +3578,10 @@ defmodule AWS.CodeBuild do
       required("projectName") => String.t()
     }
   """
-
   @spec start_build_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_build_batch_errors()}
-
   def start_build_batch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3633,6 +3590,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Attempts to stop running a build.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20StopBuild&this_doc_guide=API%2520Reference)
@@ -3643,12 +3601,10 @@ defmodule AWS.CodeBuild do
       required("id") => String.t()
     }
   """
-
   @spec stop_build(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_build_errors()}
-
   def stop_build(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3657,6 +3613,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Stops a running batch build.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20StopBuildBatch&this_doc_guide=API%2520Reference)
@@ -3667,12 +3624,10 @@ defmodule AWS.CodeBuild do
       required("id") => String.t()
     }
   """
-
   @spec stop_build_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_build_batch_errors()}
-
   def stop_build_batch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3681,6 +3636,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Updates a compute fleet.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20UpdateFleet&this_doc_guide=API%2520Reference)
@@ -3699,12 +3655,10 @@ defmodule AWS.CodeBuild do
       required("arn") => String.t()
     }
   """
-
   @spec update_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_errors()}
-
   def update_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3713,6 +3667,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Changes the settings of a build project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20UpdateProject&this_doc_guide=API%2520Reference)
@@ -3743,12 +3698,10 @@ defmodule AWS.CodeBuild do
       required("name") => String.t()
     }
   """
-
   @spec update_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-
   def update_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3757,6 +3710,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Changes the public visibility for a project. The project's build results, logs,
   and artifacts are available to the general public. For more information, see
   [Public build
@@ -3790,12 +3744,10 @@ defmodule AWS.CodeBuild do
       required("projectVisibility") => list(any())
     }
   """
-
   @spec update_project_visibility(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_project_visibility_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_visibility_errors()}
-
   def update_project_visibility(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3804,6 +3756,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Updates a report group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20UpdateReportGroup&this_doc_guide=API%2520Reference)
@@ -3816,12 +3769,10 @@ defmodule AWS.CodeBuild do
       required("arn") => String.t()
     }
   """
-
   @spec update_report_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_report_group_errors()}
-
   def update_report_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3830,6 +3781,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+   
   Updates the webhook associated with an CodeBuild build project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codebuild%20UpdateWebhook&this_doc_guide=API%2520Reference)
@@ -3844,12 +3796,10 @@ defmodule AWS.CodeBuild do
       required("projectName") => String.t()
     }
   """
-
   @spec update_webhook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_webhook_errors()}
-
   def update_webhook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

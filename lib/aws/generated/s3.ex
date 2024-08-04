@@ -4168,24 +4168,24 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20AbortMultipartUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name to which the upload was taking place.
-  * `:key` (`t:string`) Key of the object for which the multipart upload was
-  initiated.
-  * `:upload_id` (`t:string`) Upload ID that identifies the multipart upload.
+  * `:bucket` (`t:string` required) The bucket name to which the upload was taking
+    place.
+  * `:key` (`t:string` required) Key of the object for which the multipart upload
+    was initiated.
+  * `:upload_id` (`t:string` required) Upload ID that identifies the multipart
+    upload.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec abort_multipart_upload(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, abort_multipart_upload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, abort_multipart_upload_errors()}
-
   def abort_multipart_upload(%Client{} = client, bucket, key, upload_id, options \\ [])
       when is_binary(upload_id) do
     url_path =
@@ -4222,13 +4222,6 @@ defmodule AWS.S3 do
     query_params = [{"uploadId", upload_id}]
 
     # Optional query params
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"x-amz-request-charged", "RequestCharged"}]
-      )
-
     options =
       Keyword.put(
         options,
@@ -4291,55 +4284,55 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20CompleteMultipartUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Name of the bucket to which the multipart upload was
-  initiated.
-  * `:key` (`t:string`) Object key for which the multipart upload was initiated.
-  * `:upload_id` (`t:string`) ID for the initiated multipart upload.
+  * `:bucket` (`t:string` required) Name of the bucket to which the multipart
+    upload was initiated.
+  * `:key` (`t:string` required) Object key for which the multipart upload was
+    initiated.
+  * `:upload_id` (`t:string` required) ID for the initiated multipart upload.
   * `:input` (`t:map | nil`):
     * `:multipart_upload` (`t:structure`) The container for the multipart upload
-  request information.
+    request information.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_c_r_c32` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 32-bit CRC32 checksum of the
-  object. For more information, see Checking object integrity in the Amazon S3
-  User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 32-bit CRC32 checksum of the
+    object. For more information, see Checking object integrity in the Amazon S3
+    User Guide.
   * `:checksum_c_r_c32_c` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 32-bit CRC32C checksum of
-  the object. For more information, see Checking object integrity in the
-  Amazon S3 User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 32-bit CRC32C checksum of
+    the object. For more information, see Checking object integrity in the
+    Amazon S3 User Guide.
   * `:checksum_s_h_a1` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 160-bit SHA-1 digest of the
-  object. For more information, see Checking object integrity in the Amazon S3
-  User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 160-bit SHA-1 digest of the
+    object. For more information, see Checking object integrity in the Amazon S3
+    User Guide.
   * `:checksum_s_h_a256` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 256-bit SHA-256 digest of
-  the object. For more information, see Checking object integrity in the
-  Amazon S3 User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 256-bit SHA-256 digest of
+    the object. For more information, see Checking object integrity in the
+    Amazon S3 User Guide.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   * `:sse_customer_algorithm` (`t:string`) The server-side encryption (SSE)
-  algorithm used to encrypt the object. This parameter is required only when
-  the object was created using a checksum algorithm or if your bucket policy
-  requires the use of SSE-C. For more information, see Protecting data using
-  SSE-C keys in the Amazon S3 User Guide.
+    algorithm used to encrypt the object. This parameter is required only when
+    the object was created using a checksum algorithm or if your bucket policy
+    requires the use of SSE-C. For more information, see Protecting data using
+    SSE-C keys in the Amazon S3 User Guide.
   * `:sse_customer_key` (`t:string`) The server-side encryption (SSE) customer
-  managed key. This parameter is needed only when the object was created using
-  a checksum algorithm. For more information, see Protecting data using SSE-C
-  keys in the Amazon S3 User Guide.
+    managed key. This parameter is needed only when the object was created using
+    a checksum algorithm. For more information, see Protecting data using SSE-C
+    keys in the Amazon S3 User Guide.
   * `:sse_customer_key_md5` (`t:string`) The MD5 server-side encryption (SSE)
-  customer managed key. This parameter is needed only when the object was
-  created using a checksum algorithm. For more information, see Protecting
-  data using SSE-C keys in the Amazon S3 User Guide.
+    customer managed key. This parameter is needed only when the object was
+    created using a checksum algorithm. For more information, see Protecting
+    data using SSE-C keys in the Amazon S3 User Guide.
   """
-
   @spec complete_multipart_upload(
           AWS.Client.t(),
           String.t(),
@@ -4350,7 +4343,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, complete_multipart_upload_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def complete_multipart_upload(%Client{} = client, bucket, key, upload_id, input, options \\ [])
       when (is_map(input) or is_nil(input)) and is_binary(upload_id) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
@@ -4459,20 +4451,6 @@ defmodule AWS.S3 do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"x-amz-expiration", "Expiration"},
-          {"x-amz-request-charged", "RequestCharged"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          {"x-amz-version-id", "VersionId"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -4510,142 +4488,140 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20CopyObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the destination bucket.
-  * `:key` (`t:string`) The key of the destination object.
-  * `:copy_source` (`t:string`) Specifies the source object for the copy
-  operation. The source object can be up to 5 GB. If the source object is an
-  object that was uploaded by using a multipart upload, the object copy will
-  be a single part object after the source object is copied to the destination
-  bucket.
+  * `:bucket` (`t:string` required) The name of the destination bucket.
+  * `:key` (`t:string` required) The key of the destination object.
+  * `:copy_source` (`t:string` required) Specifies the source object for the copy
+    operation. The source object can be up to 5 GB. If the source object is an
+    object that was uploaded by using a multipart upload, the object copy will
+    be a single part object after the source object is copied to the destination
+    bucket.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm that you want Amazon S3 to use to create the checksum for the
-  object. For more information, see Checking object integrity in the Amazon S3
-  User Guide.
+    algorithm that you want Amazon S3 to use to create the checksum for the
+    object. For more information, see Checking object integrity in the Amazon S3
+    User Guide.
   * `:copy_source_sse_customer_algorithm` (`t:string`) Specifies the algorithm to
-  use when decrypting the source object (for example, AES256).
+    use when decrypting the source object (for example, AES256).
   * `:sse_customer_key` (`t:string`) Specifies the customer-provided encryption
-  key for Amazon S3 to use in encrypting data. This value is used to store the
-  object and then it is discarded. Amazon S3 does not store the encryption
-  key. The key must be appropriate for use with the algorithm specified in the
-  x-amz-server-side-encryption-customer-algorithm header.
+    key for Amazon S3 to use in encrypting data. This value is used to store the
+    object and then it is discarded. Amazon S3 does not store the encryption
+    key. The key must be appropriate for use with the algorithm specified in the
+    x-amz-server-side-encryption-customer-algorithm header.
   * `:grant_full_control` (`t:string`) Gives the grantee READ, READ_ACP, and
-  WRITE_ACP permissions on the object.
+    WRITE_ACP permissions on the object.
   * `:acl`
-  (`t:enum["authenticated_read|aws_exec_read|bucket_owner_full_control|bucket_owner_read|private|public_read|public_read_write"]`)
-  The canned access control list (ACL) to apply to the object.
+    (`t:enum["authenticated_read|aws_exec_read|bucket_owner_full_control|bucket_owner_read|private|public_read|public_read_write"]`)
+    The canned access control list (ACL) to apply to the object.
   * `:object_lock_retain_until_date` (`t:timestamp[date-time]`) The date and time
-  when you want the Object Lock of the object copy to expire.
+    when you want the Object Lock of the object copy to expire.
   * `:request_payer` (`t:enum["requester"]`)
   * `:bucket_key_enabled` (`t:boolean`) Specifies whether Amazon S3 should use an
-  S3 Bucket Key for object encryption with server-side encryption using Key
-  Management Service (KMS) keys (SSE-KMS). If a target object uses SSE-KMS,
-  you can enable an S3 Bucket Key for the object.
+    S3 Bucket Key for object encryption with server-side encryption using Key
+    Management Service (KMS) keys (SSE-KMS). If a target object uses SSE-KMS,
+    you can enable an S3 Bucket Key for the object.
   * `:content_type` (`t:string`) A standard MIME type that describes the format of
-  the object data.
+    the object data.
   * `:sse_customer_key_md5` (`t:string`) Specifies the 128-bit MD5 digest of the
-  encryption key according to RFC 1321. Amazon S3 uses this header for a
-  message integrity check to ensure that the encryption key was transmitted
-  without error.
+    encryption key according to RFC 1321. Amazon S3 uses this header for a
+    message integrity check to ensure that the encryption key was transmitted
+    without error.
   * `:object_lock_legal_hold_status` (`t:enum["OFF|ON"]`) Specifies whether you
-  want to apply a legal hold to the object copy.
+    want to apply a legal hold to the object copy.
   * `:tagging` (`t:string`) The tag-set for the object copy in the destination
-  bucket. This value must be used in conjunction with the
-  x-amz-tagging-directive if you choose REPLACE for the
-  x-amz-tagging-directive. If you choose COPY for the x-amz-tagging-directive,
-  you don't need to set the x-amz-tagging header, because the tag-set will be
-  copied from the source object directly. The tag-set must be encoded as URL
-  Query parameters.
+    bucket. This value must be used in conjunction with the
+    x-amz-tagging-directive if you choose REPLACE for the
+    x-amz-tagging-directive. If you choose COPY for the x-amz-tagging-directive,
+    you don't need to set the x-amz-tagging header, because the tag-set will be
+    copied from the source object directly. The tag-set must be encoded as URL
+    Query parameters.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected
-  destination bucket owner. If the account ID that you provide does not match
-  the actual owner of the destination bucket, the request fails with the HTTP
-  status code 403 Forbidden (access denied).
+    destination bucket owner. If the account ID that you provide does not match
+    the actual owner of the destination bucket, the request fails with the HTTP
+    status code 403 Forbidden (access denied).
   * `:copy_source_sse_customer_key` (`t:string`) Specifies the customer-provided
-  encryption key for Amazon S3 to use to decrypt the source object. The
-  encryption key provided in this header must be the same one that was used
-  when the source object was created.
+    encryption key for Amazon S3 to use to decrypt the source object. The
+    encryption key provided in this header must be the same one that was used
+    when the source object was created.
   * `:website_redirect_location` (`t:string`) If the destination bucket is
-  configured as a website, redirects requests for this object copy to another
-  object in the same bucket or to an external URL. Amazon S3 stores the value
-  of this header in the object metadata. This value is unique to each object
-  and is not copied when using the x-amz-metadata-directive header. Instead,
-  you may opt to provide this header in combination with the
-  x-amz-metadata-directive header.
+    configured as a website, redirects requests for this object copy to another
+    object in the same bucket or to an external URL. Amazon S3 stores the value
+    of this header in the object metadata. This value is unique to each object
+    and is not copied when using the x-amz-metadata-directive header. Instead,
+    you may opt to provide this header in combination with the
+    x-amz-metadata-directive header.
   * `:content_language` (`t:string`) The language the content is in.
   * `:sse_customer_algorithm` (`t:string`) Specifies the algorithm to use when
-  encrypting the object (for example, AES256).
+    encrypting the object (for example, AES256).
   * `:content_encoding` (`t:string`) Specifies what content encodings have been
-  applied to the object and thus what decoding mechanisms must be applied to
-  obtain the media-type referenced by the Content-Type header field.
+    applied to the object and thus what decoding mechanisms must be applied to
+    obtain the media-type referenced by the Content-Type header field.
   * `:copy_source_sse_customer_key_md5` (`t:string`) Specifies the 128-bit MD5
-  digest of the encryption key according to RFC 1321. Amazon S3 uses this
-  header for a message integrity check to ensure that the encryption key was
-  transmitted without error.
+    digest of the encryption key according to RFC 1321. Amazon S3 uses this
+    header for a message integrity check to ensure that the encryption key was
+    transmitted without error.
   * `:copy_source_if_match` (`t:string`) Copies the object if its entity tag
-  (ETag) matches the specified tag.
+    (ETag) matches the specified tag.
   * `:copy_source_if_unmodified_since` (`t:timestamp`) Copies the object if it
-  hasn't been modified since the specified time.
+    hasn't been modified since the specified time.
   * `:expires` (`t:timestamp`) The date and time at which the object is no longer
-  cacheable.
+    cacheable.
   * `:grant_write_a_c_p` (`t:string`) Allows grantee to write the ACL for the
-  applicable object.
+    applicable object.
   * `:sse_kms_encryption_context` (`t:string`) Specifies the Amazon Web Services
-  KMS Encryption Context to use for object encryption. The value of this
-  header is a base64-encoded UTF-8 string holding JSON with the encryption
-  context key-value pairs. This value must be explicitly added to specify
-  encryption context for CopyObject requests.
+    KMS Encryption Context to use for object encryption. The value of this
+    header is a base64-encoded UTF-8 string holding JSON with the encryption
+    context key-value pairs. This value must be explicitly added to specify
+    encryption context for CopyObject requests.
   * `:cache_control` (`t:string`) Specifies the caching behavior along the
-  request/reply chain.
+    request/reply chain.
   * `:expected_source_bucket_owner` (`t:string`) The account ID of the expected
-  source bucket owner. If the account ID that you provide does not match the
-  actual owner of the source bucket, the request fails with the HTTP status
-  code 403 Forbidden (access denied).
+    source bucket owner. If the account ID that you provide does not match the
+    actual owner of the source bucket, the request fails with the HTTP status
+    code 403 Forbidden (access denied).
   * `:metadata_directive` (`t:enum["COPY|REPLACE"]`) Specifies whether the
-  metadata is copied from the source object or replaced with metadata that's
-  provided in the request. When copying an object, you can preserve all
-  metadata (the default) or specify new metadata. If this header isn’t
-  specified, COPY is the default behavior.
+    metadata is copied from the source object or replaced with metadata that's
+    provided in the request. When copying an object, you can preserve all
+    metadata (the default) or specify new metadata. If this header isn’t
+    specified, COPY is the default behavior.
   * `:storage_class`
-  (`t:enum["DEEP_ARCHIVE|EXPRESS_ONEZONE|GLACIER|GLACIER_IR|INTELLIGENT_TIERING|ONEZONE_IA|OUTPOSTS|REDUCED_REDUNDANCY|SNOW|STANDARD|STANDARD_IA"]`)
-  If the x-amz-storage-class header is not used, the copied object will be
-  stored in the STANDARD Storage Class by default. The STANDARD storage class
-  provides high durability and high availability. Depending on performance
-  needs, you can specify a different Storage Class.
+    (`t:enum["DEEP_ARCHIVE|EXPRESS_ONEZONE|GLACIER|GLACIER_IR|INTELLIGENT_TIERING|ONEZONE_IA|OUTPOSTS|REDUCED_REDUNDANCY|SNOW|STANDARD|STANDARD_IA"]`)
+    If the x-amz-storage-class header is not used, the copied object will be
+    stored in the STANDARD Storage Class by default. The STANDARD storage class
+    provides high durability and high availability. Depending on performance
+    needs, you can specify a different Storage Class.
   * `:copy_source_if_modified_since` (`t:timestamp`) Copies the object if it has
-  been modified since the specified time.
+    been modified since the specified time.
   * `:grant_read` (`t:string`) Allows grantee to read the object data and its
-  metadata.
+    metadata.
   * `:tagging_directive` (`t:enum["COPY|REPLACE"]`) Specifies whether the object
-  tag-set is copied from the source object or replaced with the tag-set that's
-  provided in the request.
+    tag-set is copied from the source object or replaced with the tag-set that's
+    provided in the request.
   * `:object_lock_mode` (`t:enum["COMPLIANCE|GOVERNANCE"]`) The Object Lock mode
-  that you want to apply to the object copy.
+    that you want to apply to the object copy.
   * `:content_disposition` (`t:string`) Specifies presentational information for
-  the object. Indicates whether an object should be displayed in a web browser
-  or downloaded as a file. It allows specifying the desired filename for the
-  downloaded file.
+    the object. Indicates whether an object should be displayed in a web browser
+    or downloaded as a file. It allows specifying the desired filename for the
+    downloaded file.
   * `:server_side_encryption` (`t:enum["AES256|aws_kms|aws_kms_dsse"]`) The
-  server-side encryption algorithm used when storing this object in Amazon S3
-  (for example, AES256, aws:kms, aws:kms:dsse). Unrecognized or unsupported
-  values won’t write a destination object and will receive a 400 Bad Request
-  response.
+    server-side encryption algorithm used when storing this object in Amazon S3
+    (for example, AES256, aws:kms, aws:kms:dsse). Unrecognized or unsupported
+    values won’t write a destination object and will receive a 400 Bad Request
+    response.
   * `:copy_source_if_none_match` (`t:string`) Copies the object if its entity tag
-  (ETag) is different than the specified ETag.
+    (ETag) is different than the specified ETag.
   * `:sse_kms_key_id` (`t:string`) Specifies the KMS ID (Key ID, Key ARN, or Key
-  Alias) to use for object encryption. All GET and PUT requests for an object
-  protected by KMS will fail if they're not made via SSL or using SigV4. For
-  information about configuring any of the officially supported Amazon Web
-  Services SDKs and Amazon Web Services CLI, see Specifying the Signature
-  Version in Request Authentication in the Amazon S3 User Guide.
+    Alias) to use for object encryption. All GET and PUT requests for an object
+    protected by KMS will fail if they're not made via SSL or using SigV4. For
+    information about configuring any of the officially supported Amazon Web
+    Services SDKs and Amazon Web Services CLI, see Specifying the Signature
+    Version in Request Authentication in the Amazon S3 User Guide.
   * `:grant_read_a_c_p` (`t:string`) Allows grantee to read the object ACL.
   """
-
   @spec copy_object(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, copy_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_object_errors()}
-
   def copy_object(%Client{} = client, bucket, key, copy_source, options \\ [])
       when is_binary(copy_source) do
     url_path =
@@ -4983,24 +4959,6 @@ defmodule AWS.S3 do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"x-amz-copy-source-version-id", "CopySourceVersionId"},
-          {"x-amz-expiration", "Expiration"},
-          {"x-amz-request-charged", "RequestCharged"},
-          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          {"x-amz-version-id", "VersionId"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -5068,33 +5026,31 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20CreateBucket&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket to create.
+  * `:bucket` (`t:string` required) The name of the bucket to create.
   * `:input` (`t:map | nil`):
     * `:create_bucket_configuration` (`t:structure`) The configuration information
-  for the bucket.
+    for the bucket.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:acl` (`t:enum["authenticated_read|private|public_read|public_read_write"]`)
-  The canned ACL to apply to the bucket.
+    The canned ACL to apply to the bucket.
   * `:grant_full_control` (`t:string`) Allows grantee the read, write, read ACP,
-  and write ACP permissions on the bucket.
+    and write ACP permissions on the bucket.
   * `:grant_read` (`t:string`) Allows grantee to list the objects in the bucket.
   * `:grant_read_a_c_p` (`t:string`) Allows grantee to read the bucket ACL.
   * `:grant_write` (`t:string`) Allows grantee to create new objects in the
-  bucket.
+    bucket.
   * `:grant_write_a_c_p` (`t:string`) Allows grantee to write the ACL for the
-  applicable bucket.
+    applicable bucket.
   * `:object_lock_enabled_for_bucket` (`t:boolean`) Specifies whether you want S3
-  Object Lock to be enabled for the new bucket.
+    Object Lock to be enabled for the new bucket.
   * `:object_ownership`
-  (`t:enum["BucketOwnerEnforced|BucketOwnerPreferred|ObjectWriter"]`)
+    (`t:enum["BucketOwnerEnforced|BucketOwnerPreferred|ObjectWriter"]`)
   """
-
   @spec create_bucket(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_bucket_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bucket_errors()}
-
   def create_bucket(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}"
@@ -5188,13 +5144,6 @@ defmodule AWS.S3 do
         [{"Location", "Location"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"Location", "Location"}]
-      )
-
     meta =
       metadata()
 
@@ -5242,97 +5191,95 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20CreateMultipartUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket where the multipart upload is
-  initiated and where the object is uploaded.
-  * `:key` (`t:string`) Object key for which the multipart upload is to be
-  initiated.
+  * `:bucket` (`t:string` required) The name of the bucket where the multipart
+    upload is initiated and where the object is uploaded.
+  * `:key` (`t:string` required) Object key for which the multipart upload is to
+    be initiated.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:acl`
-  (`t:enum["authenticated_read|aws_exec_read|bucket_owner_full_control|bucket_owner_read|private|public_read|public_read_write"]`)
-  The canned ACL to apply to the object. Amazon S3 supports a set of
-  predefined ACLs, known as canned ACLs. Each canned ACL has a predefined set
-  of grantees and permissions. For more information, see Canned ACL in the
-  Amazon S3 User Guide.
+    (`t:enum["authenticated_read|aws_exec_read|bucket_owner_full_control|bucket_owner_read|private|public_read|public_read_write"]`)
+    The canned ACL to apply to the object. Amazon S3 supports a set of
+    predefined ACLs, known as canned ACLs. Each canned ACL has a predefined set
+    of grantees and permissions. For more information, see Canned ACL in the
+    Amazon S3 User Guide.
   * `:bucket_key_enabled` (`t:boolean`) Specifies whether Amazon S3 should use an
-  S3 Bucket Key for object encryption with server-side encryption using Key
-  Management Service (KMS) keys (SSE-KMS). Setting this header to true causes
-  Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.
+    S3 Bucket Key for object encryption with server-side encryption using Key
+    Management Service (KMS) keys (SSE-KMS). Setting this header to true causes
+    Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.
   * `:cache_control` (`t:string`) Specifies caching behavior along the
-  request/reply chain.
+    request/reply chain.
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm that you want Amazon S3 to use to create the checksum for the
-  object. For more information, see Checking object integrity in the Amazon S3
-  User Guide.
+    algorithm that you want Amazon S3 to use to create the checksum for the
+    object. For more information, see Checking object integrity in the Amazon S3
+    User Guide.
   * `:content_disposition` (`t:string`) Specifies presentational information for
-  the object.
+    the object.
   * `:content_encoding` (`t:string`) Specifies what content encodings have been
-  applied to the object and thus what decoding mechanisms must be applied to
-  obtain the media-type referenced by the Content-Type header field.
+    applied to the object and thus what decoding mechanisms must be applied to
+    obtain the media-type referenced by the Content-Type header field.
   * `:content_language` (`t:string`) The language that the content is in.
   * `:content_type` (`t:string`) A standard MIME type describing the format of the
-  object data.
+    object data.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:expires` (`t:timestamp`) The date and time at which the object is no longer
-  cacheable.
+    cacheable.
   * `:grant_full_control` (`t:string`) Specify access permissions explicitly to
-  give the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+    give the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
   * `:grant_read` (`t:string`) Specify access permissions explicitly to allow
-  grantee to read the object data and its metadata.
+    grantee to read the object data and its metadata.
   * `:grant_read_a_c_p` (`t:string`) Specify access permissions explicitly to
-  allows grantee to read the object ACL.
+    allows grantee to read the object ACL.
   * `:grant_write_a_c_p` (`t:string`) Specify access permissions explicitly to
-  allows grantee to allow grantee to write the ACL for the applicable object.
+    allows grantee to allow grantee to write the ACL for the applicable object.
   * `:object_lock_legal_hold_status` (`t:enum["OFF|ON"]`) Specifies whether you
-  want to apply a legal hold to the uploaded object.
+    want to apply a legal hold to the uploaded object.
   * `:object_lock_mode` (`t:enum["COMPLIANCE|GOVERNANCE"]`) Specifies the Object
-  Lock mode that you want to apply to the uploaded object.
+    Lock mode that you want to apply to the uploaded object.
   * `:object_lock_retain_until_date` (`t:timestamp[date-time]`) Specifies the date
-  and time when you want the Object Lock to expire.
+    and time when you want the Object Lock to expire.
   * `:request_payer` (`t:enum["requester"]`)
   * `:sse_customer_algorithm` (`t:string`) Specifies the algorithm to use when
-  encrypting the object (for example, AES256).
+    encrypting the object (for example, AES256).
   * `:sse_customer_key` (`t:string`) Specifies the customer-provided encryption
-  key for Amazon S3 to use in encrypting data. This value is used to store the
-  object and then it is discarded; Amazon S3 does not store the encryption
-  key. The key must be appropriate for use with the algorithm specified in the
-  x-amz-server-side-encryption-customer-algorithm header.
+    key for Amazon S3 to use in encrypting data. This value is used to store the
+    object and then it is discarded; Amazon S3 does not store the encryption
+    key. The key must be appropriate for use with the algorithm specified in the
+    x-amz-server-side-encryption-customer-algorithm header.
   * `:sse_customer_key_md5` (`t:string`) Specifies the 128-bit MD5 digest of the
-  customer-provided encryption key according to RFC 1321. Amazon S3 uses this
-  header for a message integrity check to ensure that the encryption key was
-  transmitted without error.
+    customer-provided encryption key according to RFC 1321. Amazon S3 uses this
+    header for a message integrity check to ensure that the encryption key was
+    transmitted without error.
   * `:sse_kms_encryption_context` (`t:string`) Specifies the Amazon Web Services
-  KMS Encryption Context to use for object encryption. The value of this
-  header is a base64-encoded UTF-8 string holding JSON with the encryption
-  context key-value pairs.
+    KMS Encryption Context to use for object encryption. The value of this
+    header is a base64-encoded UTF-8 string holding JSON with the encryption
+    context key-value pairs.
   * `:sse_kms_key_id` (`t:string`) Specifies the ID (Key ID, Key ARN, or Key
-  Alias) of the symmetric encryption customer managed key to use for object
-  encryption.
+    Alias) of the symmetric encryption customer managed key to use for object
+    encryption.
   * `:server_side_encryption` (`t:enum["AES256|aws_kms|aws_kms_dsse"]`) The
-  server-side encryption algorithm used when you store this object in Amazon
-  S3 (for example, AES256, aws:kms).
+    server-side encryption algorithm used when you store this object in Amazon
+    S3 (for example, AES256, aws:kms).
   * `:storage_class`
-  (`t:enum["DEEP_ARCHIVE|EXPRESS_ONEZONE|GLACIER|GLACIER_IR|INTELLIGENT_TIERING|ONEZONE_IA|OUTPOSTS|REDUCED_REDUNDANCY|SNOW|STANDARD|STANDARD_IA"]`)
-  By default, Amazon S3 uses the STANDARD Storage Class to store newly created
-  objects. The STANDARD storage class provides high durability and high
-  availability. Depending on performance needs, you can specify a different
-  Storage Class. For more information, see Storage Classes in the Amazon S3
-  User Guide.
+    (`t:enum["DEEP_ARCHIVE|EXPRESS_ONEZONE|GLACIER|GLACIER_IR|INTELLIGENT_TIERING|ONEZONE_IA|OUTPOSTS|REDUCED_REDUNDANCY|SNOW|STANDARD|STANDARD_IA"]`)
+    By default, Amazon S3 uses the STANDARD Storage Class to store newly created
+    objects. The STANDARD storage class provides high durability and high
+    availability. Depending on performance needs, you can specify a different
+    Storage Class. For more information, see Storage Classes in the Amazon S3
+    User Guide.
   * `:tagging` (`t:string`) The tag-set for the object. The tag-set must be
-  encoded as URL Query parameters.
+    encoded as URL Query parameters.
   * `:website_redirect_location` (`t:string`) If the bucket is configured as a
-  website, redirects requests for this object to another object in the same
-  bucket or to an external URL. Amazon S3 stores the value of this header in
-  the object metadata.
+    website, redirects requests for this object to another object in the same
+    bucket or to an external URL. Amazon S3 stores the value of this header in
+    the object metadata.
   """
-
   @spec create_multipart_upload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_multipart_upload_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_multipart_upload(%Client{} = client, bucket, key, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?uploads"
 
@@ -5588,24 +5535,6 @@ defmodule AWS.S3 do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amz-abort-date", "AbortDate"},
-          {"x-amz-abort-rule-id", "AbortRuleId"},
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"x-amz-checksum-algorithm", "ChecksumAlgorithm"},
-          {"x-amz-request-charged", "RequestCharged"},
-          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -5682,23 +5611,22 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20CreateSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket that you create a session for.
+  * `:bucket` (`t:string` required) The name of the bucket that you create a
+    session for.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:session_mode` (`t:enum["ReadOnly|ReadWrite"]`) Specifies the mode of the
-  session that will be created, either ReadWrite or ReadOnly. By default, a
-  ReadWrite session is created. A ReadWrite session is capable of executing
-  all the Zonal endpoint APIs on a directory bucket. A ReadOnly session is
-  constrained to execute the following Zonal endpoint APIs: GetObject,
-  HeadObject, ListObjectsV2, GetObjectAttributes, ListParts, and
-  ListMultipartUploads.
+    session that will be created, either ReadWrite or ReadOnly. By default, a
+    ReadWrite session is created. A ReadWrite session is capable of executing
+    all the Zonal endpoint APIs on a directory bucket. A ReadOnly session is
+    constrained to execute the following Zonal endpoint APIs: GetObject,
+    HeadObject, ListObjectsV2, GetObjectAttributes, ListParts, and
+    ListMultipartUploads.
   """
-
   @spec create_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_session_errors()}
-
   def create_session(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?session"
 
@@ -5755,19 +5683,17 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucket&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket being deleted.
+  * `:bucket` (`t:string` required) Specifies the bucket being deleted.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}"
 
@@ -5826,21 +5752,20 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketAnalyticsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket from which an analytics
-  configuration is deleted.
-  * `:id` (`t:string`) The ID that identifies the analytics configuration.
+  * `:bucket` (`t:string` required) The name of the bucket from which an analytics
+    configuration is deleted.
+  * `:id` (`t:string` required) The ID that identifies the analytics
+    configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_analytics_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_analytics_configuration(%Client{} = client, bucket, id, options \\ [])
       when is_binary(id) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics"
@@ -5900,20 +5825,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketCors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket whose cors configuration is being
-  deleted.
+  * `:bucket` (`t:string` required) Specifies the bucket whose cors configuration
+    is being deleted.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_cors(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_cors(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
 
@@ -5985,20 +5908,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketEncryption&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket containing the server-side
-  encryption configuration to delete.
+  * `:bucket` (`t:string` required) The name of the bucket containing the
+    server-side encryption configuration to delete.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_encryption(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_encryption(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?encryption"
 
@@ -6057,14 +5978,11 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketIntelligentTieringConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the Amazon S3 bucket whose configuration
-  you want to modify or retrieve.
-  * `:id` (`t:string`) The ID used to identify the S3 Intelligent-Tiering
-  configuration.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose
+    configuration you want to modify or retrieve.
+  * `:id` (`t:string` required) The ID used to identify the S3 Intelligent-Tiering
+    configuration.
   """
-
   @spec delete_bucket_intelligent_tiering_configuration(
           AWS.Client.t(),
           String.t(),
@@ -6073,7 +5991,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_intelligent_tiering_configuration(
         %Client{} = client,
         bucket,
@@ -6127,21 +6044,20 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketInventoryConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket containing the inventory
-  configuration to delete.
-  * `:id` (`t:string`) The ID used to identify the inventory configuration.
+  * `:bucket` (`t:string` required) The name of the bucket containing the
+    inventory configuration to delete.
+  * `:id` (`t:string` required) The ID used to identify the inventory
+    configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_inventory_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_inventory_configuration(%Client{} = client, bucket, id, options \\ [])
       when is_binary(id) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory"
@@ -6205,19 +6121,17 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketLifecycle&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name of the lifecycle to delete.
+  * `:bucket` (`t:string` required) The bucket name of the lifecycle to delete.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_lifecycle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_lifecycle(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
 
@@ -6278,23 +6192,21 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketMetricsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket containing the metrics
-  configuration to delete.
-  * `:id` (`t:string`) The ID used to identify the metrics configuration. The ID
-  has a 64 character limit and can only contain letters, numbers, periods,
-  dashes, and underscores.
+  * `:bucket` (`t:string` required) The name of the bucket containing the metrics
+    configuration to delete.
+  * `:id` (`t:string` required) The ID used to identify the metrics configuration.
+    The ID has a 64 character limit and can only contain letters, numbers,
+    periods, dashes, and underscores.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_metrics_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_metrics_configuration(%Client{} = client, bucket, id, options \\ [])
       when is_binary(id) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics"
@@ -6359,20 +6271,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketOwnershipControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The Amazon S3 bucket whose OwnershipControls you want
-  to delete.
+  * `:bucket` (`t:string` required) The Amazon S3 bucket whose OwnershipControls
+    you want to delete.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_ownership_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_ownership_controls(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?ownershipControls"
 
@@ -6437,19 +6347,17 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name.
+  * `:bucket` (`t:string` required) The bucket name.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_policy(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
 
@@ -6508,19 +6416,17 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name.
+  * `:bucket` (`t:string` required) The bucket name.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_replication(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_replication(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?replication"
 
@@ -6579,19 +6485,17 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket that has the tag set to be removed.
+  * `:bucket` (`t:string` required) The bucket that has the tag set to be removed.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_tagging(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_tagging(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
 
@@ -6654,20 +6558,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteBucketWebsite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name for which you want to remove the
-  website configuration.
+  * `:bucket` (`t:string` required) The bucket name for which you want to remove
+    the website configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_bucket_website(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_website(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
 
@@ -6726,30 +6628,29 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name of the bucket containing the object.
-  * `:key` (`t:string`) Key name of the object to delete.
+  * `:bucket` (`t:string` required) The bucket name of the bucket containing the
+    object.
+  * `:key` (`t:string` required) Key name of the object to delete.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) Version ID used to reference a specific version of
-  the object.
+    the object.
   * `:bypass_governance_retention` (`t:boolean`) Indicates whether S3 Object Lock
-  should bypass Governance-mode restrictions to process this operation. To use
-  this header, you must have the s3:BypassGovernanceRetention permission.
+    should bypass Governance-mode restrictions to process this operation. To use
+    this header, you must have the s3:BypassGovernanceRetention permission.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:mfa` (`t:string`) The concatenation of the authentication device's serial
-  number, a space, and the value that is displayed on your authentication
-  device. Required to permanently delete a versioned object if versioning is
-  configured with MFA delete enabled.
+    number, a space, and the value that is displayed on your authentication
+    device. Required to permanently delete a versioned object if versioning is
+    configured with MFA delete enabled.
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec delete_object(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_object(%Client{} = client, bucket, key, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=DeleteObject"
@@ -6823,17 +6724,6 @@ defmodule AWS.S3 do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amz-delete-marker", "DeleteMarker"},
-          {"x-amz-request-charged", "RequestCharged"},
-          {"x-amz-version-id", "VersionId"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -6874,24 +6764,22 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteObjectTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name containing the objects from which to
-  remove the tags.
-  * `:key` (`t:string`) The key that identifies the object in the bucket from
-  which to remove all tags.
+  * `:bucket` (`t:string` required) The bucket name containing the objects from
+    which to remove the tags.
+  * `:key` (`t:string` required) The key that identifies the object in the bucket
+    from which to remove all tags.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The versionId of the object that the tag-set will
-  be removed from.
+    be removed from.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_object_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_object_tagging_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_object_tagging(%Client{} = client, bucket, key, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?tagging"
 
@@ -6925,13 +6813,6 @@ defmodule AWS.S3 do
       else
         query_params
       end
-
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"x-amz-version-id", "VersionId"}]
-      )
 
     options =
       Keyword.put(
@@ -6978,35 +6859,34 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeleteObjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name containing the objects to delete.
+  * `:bucket` (`t:string` required) The bucket name containing the objects to
+    delete.
   * `:input` (`t:map`):
-    * `:delete` (`t:structure`) Container for the request.
+    * `:delete` (`t:structure` required) Container for the request.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:bypass_governance_retention` (`t:boolean`) Specifies whether you want to
-  delete this object even if it has a Governance-type Object Lock in place. To
-  use this header, you must have the s3:BypassGovernanceRetention permission.
+    delete this object even if it has a Governance-type Object Lock in place. To
+    use this header, you must have the s3:BypassGovernanceRetention permission.
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum-algorithm or x-amz-trailer header sent. Otherwise, Amazon S3
-  fails the request with the HTTP status code 400 Bad Request.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum-algorithm or x-amz-trailer header sent. Otherwise, Amazon S3
+    fails the request with the HTTP status code 400 Bad Request.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:mfa` (`t:string`) The concatenation of the authentication device's serial
-  number, a space, and the value that is displayed on your authentication
-  device. Required to permanently delete a versioned object if versioning is
-  configured with MFA delete enabled.
+    number, a space, and the value that is displayed on your authentication
+    device. Required to permanently delete a versioned object if versioning is
+    configured with MFA delete enabled.
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec delete_objects(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_objects_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_objects(%Client{} = client, bucket, input, options \\ []) when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?delete"
 
@@ -7078,13 +6958,6 @@ defmodule AWS.S3 do
     options =
       Keyword.put(
         options,
-        :response_header_parameters,
-        [{"x-amz-request-charged", "RequestCharged"}]
-      )
-
-    options =
-      Keyword.put(
-        options,
         :append_sha256_content_hash,
         true
       )
@@ -7122,20 +6995,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20DeletePublicAccessBlock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The Amazon S3 bucket whose PublicAccessBlock
-  configuration you want to delete.
+  * `:bucket` (`t:string` required) The Amazon S3 bucket whose PublicAccessBlock
+    configuration you want to delete.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec delete_public_access_block(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_public_access_block(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?publicAccessBlock"
 
@@ -7197,21 +7068,19 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketAccelerateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which the accelerate
-  configuration is retrieved.
+  * `:bucket` (`t:string` required) The name of the bucket for which the
+    accelerate configuration is retrieved.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec get_bucket_accelerate_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_accelerate_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_accelerate_configuration(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?accelerate"
 
@@ -7275,19 +7144,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketAcl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the S3 bucket whose ACL is being requested.
+  * `:bucket` (`t:string` required) Specifies the S3 bucket whose ACL is being
+    requested.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_acl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_acl_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_acl(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?acl"
 
@@ -7335,21 +7203,20 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketAnalyticsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket from which an analytics
-  configuration is retrieved.
-  * `:id` (`t:string`) The ID that identifies the analytics configuration.
+  * `:bucket` (`t:string` required) The name of the bucket from which an analytics
+    configuration is retrieved.
+  * `:id` (`t:string` required) The ID that identifies the analytics
+    configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_analytics_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_analytics_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_analytics_configuration(%Client{} = client, bucket, id, options \\ [])
       when is_binary(id) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics&x-id=GetBucketAnalyticsConfiguration"
@@ -7397,20 +7264,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketCors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name for which to get the cors
-  configuration.
+  * `:bucket` (`t:string` required) The bucket name for which to get the cors
+    configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_cors(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_cors_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_cors(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
 
@@ -7470,20 +7335,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketEncryption&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket from which the server-side
-  encryption configuration is retrieved.
+  * `:bucket` (`t:string` required) The name of the bucket from which the
+    server-side encryption configuration is retrieved.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_encryption(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_encryption_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_encryption(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?encryption"
 
@@ -7530,14 +7393,11 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketIntelligentTieringConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the Amazon S3 bucket whose configuration
-  you want to modify or retrieve.
-  * `:id` (`t:string`) The ID used to identify the S3 Intelligent-Tiering
-  configuration.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose
+    configuration you want to modify or retrieve.
+  * `:id` (`t:string` required) The ID used to identify the S3 Intelligent-Tiering
+    configuration.
   """
-
   @spec get_bucket_intelligent_tiering_configuration(
           AWS.Client.t(),
           String.t(),
@@ -7546,7 +7406,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_bucket_intelligent_tiering_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_intelligent_tiering_configuration(%Client{} = client, bucket, id, options \\ [])
       when is_binary(id) do
     url_path =
@@ -7584,21 +7443,20 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketInventoryConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket containing the inventory
-  configuration to retrieve.
-  * `:id` (`t:string`) The ID used to identify the inventory configuration.
+  * `:bucket` (`t:string` required) The name of the bucket containing the
+    inventory configuration to retrieve.
+  * `:id` (`t:string` required) The ID used to identify the inventory
+    configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_inventory_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_inventory_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_inventory_configuration(%Client{} = client, bucket, id, options \\ [])
       when is_binary(id) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory&x-id=GetBucketInventoryConfiguration"
@@ -7659,20 +7517,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketLifecycleConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which to get the lifecycle
-  information.
+  * `:bucket` (`t:string` required) The name of the bucket for which to get the
+    lifecycle information.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_lifecycle_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_lifecycle_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_lifecycle_configuration(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
 
@@ -7723,19 +7579,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which to get the location.
+  * `:bucket` (`t:string` required) The name of the bucket for which to get the
+    location.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_location(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_location_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_location(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?location"
 
@@ -7782,20 +7637,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketLogging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name for which to get the logging
-  information.
+  * `:bucket` (`t:string` required) The bucket name for which to get the logging
+    information.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_logging(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_logging_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_logging(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?logging"
 
@@ -7843,23 +7696,21 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketMetricsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket containing the metrics
-  configuration to retrieve.
-  * `:id` (`t:string`) The ID used to identify the metrics configuration. The ID
-  has a 64 character limit and can only contain letters, numbers, periods,
-  dashes, and underscores.
+  * `:bucket` (`t:string` required) The name of the bucket containing the metrics
+    configuration to retrieve.
+  * `:id` (`t:string` required) The ID used to identify the metrics configuration.
+    The ID has a 64 character limit and can only contain letters, numbers,
+    periods, dashes, and underscores.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_metrics_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_metrics_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_metrics_configuration(%Client{} = client, bucket, id, options \\ [])
       when is_binary(id) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics&x-id=GetBucketMetricsConfiguration"
@@ -7907,20 +7758,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketNotificationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which to get the
-  notification configuration.
+  * `:bucket` (`t:string` required) The name of the bucket for which to get the
+    notification configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_notification_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, notification_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_notification_configuration(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?notification"
 
@@ -7972,20 +7821,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketOwnershipControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the Amazon S3 bucket whose
-  OwnershipControls you want to retrieve.
+  * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose
+    OwnershipControls you want to retrieve.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_ownership_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_ownership_controls_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_ownership_controls(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?ownershipControls"
 
@@ -8038,19 +7885,17 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name to get the bucket policy for.
+  * `:bucket` (`t:string` required) The bucket name to get the bucket policy for.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_policy(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
 
@@ -8104,20 +7949,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketPolicyStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the Amazon S3 bucket whose policy status
-  you want to retrieve.
+  * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose policy
+    status you want to retrieve.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_policy_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_policy_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_policy_status(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?policyStatus"
 
@@ -8164,20 +8007,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name for which to get the replication
-  information.
+  * `:bucket` (`t:string` required) The bucket name for which to get the
+    replication information.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_replication(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_replication_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_replication(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?replication"
 
@@ -8227,20 +8068,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketRequestPayment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which to get the payment
-  request configuration
+  * `:bucket` (`t:string` required) The name of the bucket for which to get the
+    payment request configuration
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_request_payment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_request_payment_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_request_payment(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?requestPayment"
 
@@ -8287,20 +8126,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which to get the tagging
-  information.
+  * `:bucket` (`t:string` required) The name of the bucket for which to get the
+    tagging information.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_tagging(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_tagging_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_tagging(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
 
@@ -8347,20 +8184,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketVersioning&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which to get the versioning
-  information.
+  * `:bucket` (`t:string` required) The name of the bucket for which to get the
+    versioning information.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_versioning(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_versioning_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_versioning(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?versioning"
 
@@ -8414,20 +8249,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetBucketWebsite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name for which to get the website
-  configuration.
+  * `:bucket` (`t:string` required) The bucket name for which to get the website
+    configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_bucket_website(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_website_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_website(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
 
@@ -8474,69 +8307,67 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name containing the object.
-  * `:key` (`t:string`) Key of the object to get.
+  * `:bucket` (`t:string` required) The bucket name containing the object.
+  * `:key` (`t:string` required) Key of the object to get.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:part_number` (`t:integer`) Part number of the object being read. This is a
-  positive integer between 1 and 10,000. Effectively performs a 'ranged' GET
-  request for the part specified. Useful for downloading just a part of an
-  object.
+    positive integer between 1 and 10,000. Effectively performs a 'ranged' GET
+    request for the part specified. Useful for downloading just a part of an
+    object.
   * `:response_cache_control` (`t:string`) Sets the Cache-Control header of the
-  response.
+    response.
   * `:response_content_disposition` (`t:string`) Sets the Content-Disposition
-  header of the response.
+    header of the response.
   * `:response_content_encoding` (`t:string`) Sets the Content-Encoding header of
-  the response.
+    the response.
   * `:response_content_language` (`t:string`) Sets the Content-Language header of
-  the response.
+    the response.
   * `:response_content_type` (`t:string`) Sets the Content-Type header of the
-  response.
+    response.
   * `:response_expires` (`t:timestamp[http-date]`) Sets the Expires header of the
-  response.
+    response.
   * `:version_id` (`t:string`) Version ID used to reference a specific version of
-  the object.
+    the object.
   * `:checksum_mode` (`t:enum["ENABLED"]`) To retrieve the checksum, this mode
-  must be enabled.
+    must be enabled.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:if_match` (`t:string`) Return the object only if its entity tag (ETag) is
-  the same as the one specified in this header; otherwise, return a 412
-  Precondition Failed error.
+    the same as the one specified in this header; otherwise, return a 412
+    Precondition Failed error.
   * `:if_modified_since` (`t:timestamp`) Return the object only if it has been
-  modified since the specified time; otherwise, return a 304 Not Modified
-  error.
+    modified since the specified time; otherwise, return a 304 Not Modified
+    error.
   * `:if_none_match` (`t:string`) Return the object only if its entity tag (ETag)
-  is different from the one specified in this header; otherwise, return a 304
-  Not Modified error.
+    is different from the one specified in this header; otherwise, return a 304
+    Not Modified error.
   * `:if_unmodified_since` (`t:timestamp`) Return the object only if it has not
-  been modified since the specified time; otherwise, return a 412 Precondition
-  Failed error.
+    been modified since the specified time; otherwise, return a 412 Precondition
+    Failed error.
   * `:range` (`t:string`) Downloads the specified byte range of an object. For
-  more information about the HTTP Range header, see
-  https://www.rfc-editor.org/rfc/rfc9110.html#name-range.
+    more information about the HTTP Range header, see
+    https://www.rfc-editor.org/rfc/rfc9110.html#name-range.
   * `:request_payer` (`t:enum["requester"]`)
   * `:sse_customer_algorithm` (`t:string`) Specifies the algorithm to use when
-  decrypting the object (for example, AES256).
+    decrypting the object (for example, AES256).
   * `:sse_customer_key` (`t:string`) Specifies the customer-provided encryption
-  key that you originally provided for Amazon S3 to encrypt the data before
-  storing it. This value is used to decrypt the object when recovering it and
-  must match the one used when storing the data. The key must be appropriate
-  for use with the algorithm specified in the
-  x-amz-server-side-encryption-customer-algorithm header.
+    key that you originally provided for Amazon S3 to encrypt the data before
+    storing it. This value is used to decrypt the object when recovering it and
+    must match the one used when storing the data. The key must be appropriate
+    for use with the algorithm specified in the
+    x-amz-server-side-encryption-customer-algorithm header.
   * `:sse_customer_key_md5` (`t:string`) Specifies the 128-bit MD5 digest of the
-  customer-provided encryption key according to RFC 1321. Amazon S3 uses this
-  header for a message integrity check to ensure that the encryption key was
-  transmitted without error.
+    customer-provided encryption key according to RFC 1321. Amazon S3 uses this
+    header for a message integrity check to ensure that the encryption key was
+    transmitted without error.
   """
-
   @spec get_object(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_object_errors()}
-
   def get_object(%Client{} = client, bucket, key, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=GetObject"
@@ -8803,26 +8634,24 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetObjectAcl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name that contains the object for which to
-  get the ACL information.
-  * `:key` (`t:string`) The key of the object for which to get the ACL
-  information.
+  * `:bucket` (`t:string` required) The bucket name that contains the object for
+    which to get the ACL information.
+  * `:key` (`t:string` required) The key of the object for which to get the ACL
+    information.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) Version ID used to reference a specific version of
-  the object.
+    the object.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec get_object_acl(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_acl_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_object_acl_errors()}
-
   def get_object_acl(%Client{} = client, bucket, key, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?acl"
 
@@ -8892,41 +8721,40 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetObjectAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket that contains the object.
-  * `:key` (`t:string`) The object key.
-  * `:object_attributes` (`t:list[com.amazonaws.s3#ObjectAttributes]`) Specifies
-  the fields at the root level that you want returned in the response. Fields
-  that you do not specify are not returned.
+  * `:bucket` (`t:string` required) The name of the bucket that contains the
+    object.
+  * `:key` (`t:string` required) The object key.
+  * `:object_attributes` (`t:list[com.amazonaws.s3#ObjectAttributes]` required)
+    Specifies the fields at the root level that you want returned in the
+    response. Fields that you do not specify are not returned.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The version ID used to reference a specific version
-  of the object.
+    of the object.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:max_parts` (`t:integer`) Sets the maximum number of parts to return.
   * `:part_number_marker` (`t:string`) Specifies the part after which listing
-  should begin. Only parts with higher part numbers will be listed.
+    should begin. Only parts with higher part numbers will be listed.
   * `:request_payer` (`t:enum["requester"]`)
   * `:sse_customer_algorithm` (`t:string`) Specifies the algorithm to use when
-  encrypting the object (for example, AES256).
+    encrypting the object (for example, AES256).
   * `:sse_customer_key` (`t:string`) Specifies the customer-provided encryption
-  key for Amazon S3 to use in encrypting data. This value is used to store the
-  object and then it is discarded; Amazon S3 does not store the encryption
-  key. The key must be appropriate for use with the algorithm specified in the
-  x-amz-server-side-encryption-customer-algorithm header.
+    key for Amazon S3 to use in encrypting data. This value is used to store the
+    object and then it is discarded; Amazon S3 does not store the encryption
+    key. The key must be appropriate for use with the algorithm specified in the
+    x-amz-server-side-encryption-customer-algorithm header.
   * `:sse_customer_key_md5` (`t:string`) Specifies the 128-bit MD5 digest of the
-  encryption key according to RFC 1321. Amazon S3 uses this header for a
-  message integrity check to ensure that the encryption key was transmitted
-  without error.
+    encryption key according to RFC 1321. Amazon S3 uses this header for a
+    message integrity check to ensure that the encryption key was transmitted
+    without error.
   """
-
   @spec get_object_attributes(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_object_attributes_errors()}
-
   def get_object_attributes(%Client{} = client, bucket, key, object_attributes, options \\ [])
       when is_binary(object_attributes) do
     url_path =
@@ -9055,25 +8883,23 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetObjectLegalHold&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name containing the object whose legal hold
-  status you want to retrieve.
-  * `:key` (`t:string`) The key name for the object whose legal hold status you
-  want to retrieve.
+  * `:bucket` (`t:string` required) The bucket name containing the object whose
+    legal hold status you want to retrieve.
+  * `:key` (`t:string` required) The key name for the object whose legal hold
+    status you want to retrieve.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The version ID of the object whose legal hold
-  status you want to retrieve.
+    status you want to retrieve.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec get_object_legal_hold(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_object_legal_hold(%Client{} = client, bucket, key, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?legal-hold"
@@ -9138,20 +8964,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetObjectLockConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket whose Object Lock configuration you want to
-  retrieve.
+  * `:bucket` (`t:string` required) The bucket whose Object Lock configuration you
+    want to retrieve.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_object_lock_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_lock_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_object_lock_configuration(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?object-lock"
 
@@ -9200,25 +9024,23 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetObjectRetention&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name containing the object whose retention
-  settings you want to retrieve.
-  * `:key` (`t:string`) The key name for the object whose retention settings you
-  want to retrieve.
+  * `:bucket` (`t:string` required) The bucket name containing the object whose
+    retention settings you want to retrieve.
+  * `:key` (`t:string` required) The key name for the object whose retention
+    settings you want to retrieve.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The version ID for the object whose retention
-  settings you want to retrieve.
+    settings you want to retrieve.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec get_object_retention(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_retention_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_object_retention(%Client{} = client, bucket, key, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?retention"
@@ -9280,24 +9102,23 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetObjectTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name containing the object for which to get
-  the tagging information.
-  * `:key` (`t:string`) Object key for which to get the tagging information.
+  * `:bucket` (`t:string` required) The bucket name containing the object for
+    which to get the tagging information.
+  * `:key` (`t:string` required) Object key for which to get the tagging
+    information.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The versionId of the object for which to get the
-  tagging information.
+    tagging information.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec get_object_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_tagging_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_object_tagging(%Client{} = client, bucket, key, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?tagging"
 
@@ -9365,22 +9186,20 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetObjectTorrent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket containing the object for which
-  to get the torrent files.
-  * `:key` (`t:string`) The object key for which to get the information.
+  * `:bucket` (`t:string` required) The name of the bucket containing the object
+    for which to get the torrent files.
+  * `:key` (`t:string` required) The object key for which to get the information.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec get_object_torrent(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_torrent_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_object_torrent(%Client{} = client, bucket, key, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?torrent"
 
@@ -9456,20 +9275,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20GetPublicAccessBlock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the Amazon S3 bucket whose
-  PublicAccessBlock configuration you want to retrieve.
+  * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose
+    PublicAccessBlock configuration you want to retrieve.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec get_public_access_block(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_public_access_block_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_public_access_block(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?publicAccessBlock"
 
@@ -9521,20 +9338,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20HeadBucket&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name.
+  * `:bucket` (`t:string` required) The bucket name.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec head_bucket(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, head_bucket_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, head_bucket_errors()}
-
   def head_bucket(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}"
 
@@ -9574,18 +9389,6 @@ defmodule AWS.S3 do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amz-access-point-alias", "AccessPointAlias"},
-          {"x-amz-bucket-location-name", "BucketLocationName"},
-          {"x-amz-bucket-location-type", "BucketLocationType"},
-          {"x-amz-bucket-region", "BucketRegion"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -9613,69 +9416,68 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20HeadObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket that contains the object.
-  * `:key` (`t:string`) The object key.
+  * `:bucket` (`t:string` required) The name of the bucket that contains the
+    object.
+  * `:key` (`t:string` required) The object key.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:part_number` (`t:integer`) Part number of the object being read. This is a
-  positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD
-  request for the part specified. Useful querying about the size of the part
-  and the number of parts in this object.
+    positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD
+    request for the part specified. Useful querying about the size of the part
+    and the number of parts in this object.
   * `:response_cache_control` (`t:string`) Sets the Cache-Control header of the
-  response.
+    response.
   * `:response_content_disposition` (`t:string`) Sets the Content-Disposition
-  header of the response.
+    header of the response.
   * `:response_content_encoding` (`t:string`) Sets the Content-Encoding header of
-  the response.
+    the response.
   * `:response_content_language` (`t:string`) Sets the Content-Language header of
-  the response.
+    the response.
   * `:response_content_type` (`t:string`) Sets the Content-Type header of the
-  response.
+    response.
   * `:response_expires` (`t:timestamp[http-date]`) Sets the Expires header of the
-  response.
+    response.
   * `:version_id` (`t:string`) Version ID used to reference a specific version of
-  the object.
+    the object.
   * `:checksum_mode` (`t:enum["ENABLED"]`) To retrieve the checksum, this
-  parameter must be enabled.
+    parameter must be enabled.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:if_match` (`t:string`) Return the object only if its entity tag (ETag) is
-  the same as the one specified; otherwise, return a 412 (precondition failed)
-  error.
+    the same as the one specified; otherwise, return a 412 (precondition failed)
+    error.
   * `:if_modified_since` (`t:timestamp`) Return the object only if it has been
-  modified since the specified time; otherwise, return a 304 (not modified)
-  error.
+    modified since the specified time; otherwise, return a 304 (not modified)
+    error.
   * `:if_none_match` (`t:string`) Return the object only if its entity tag (ETag)
-  is different from the one specified; otherwise, return a 304 (not modified)
-  error.
+    is different from the one specified; otherwise, return a 304 (not modified)
+    error.
   * `:if_unmodified_since` (`t:timestamp`) Return the object only if it has not
-  been modified since the specified time; otherwise, return a 412
-  (precondition failed) error.
+    been modified since the specified time; otherwise, return a 412
+    (precondition failed) error.
   * `:range` (`t:string`) HeadObject returns only the metadata for an object. If
-  the Range is satisfiable, only the ContentLength is affected in the
-  response. If the Range is not satisfiable, S3 returns a 416 - Requested
-  Range Not Satisfiable error.
+    the Range is satisfiable, only the ContentLength is affected in the
+    response. If the Range is not satisfiable, S3 returns a 416 - Requested
+    Range Not Satisfiable error.
   * `:request_payer` (`t:enum["requester"]`)
   * `:sse_customer_algorithm` (`t:string`) Specifies the algorithm to use when
-  encrypting the object (for example, AES256).
+    encrypting the object (for example, AES256).
   * `:sse_customer_key` (`t:string`) Specifies the customer-provided encryption
-  key for Amazon S3 to use in encrypting data. This value is used to store the
-  object and then it is discarded; Amazon S3 does not store the encryption
-  key. The key must be appropriate for use with the algorithm specified in the
-  x-amz-server-side-encryption-customer-algorithm header.
+    key for Amazon S3 to use in encrypting data. This value is used to store the
+    object and then it is discarded; Amazon S3 does not store the encryption
+    key. The key must be appropriate for use with the algorithm specified in the
+    x-amz-server-side-encryption-customer-algorithm header.
   * `:sse_customer_key_md5` (`t:string`) Specifies the 128-bit MD5 digest of the
-  encryption key according to RFC 1321. Amazon S3 uses this header for a
-  message integrity check to ensure that the encryption key was transmitted
-  without error.
+    encryption key according to RFC 1321. Amazon S3 uses this header for a
+    message integrity check to ensure that the encryption key was transmitted
+    without error.
   """
-
   @spec head_object(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, head_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, head_object_errors()}
-
   def head_object(%Client{} = client, bucket, key, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
@@ -9890,47 +9692,6 @@ defmodule AWS.S3 do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
-          {"x-amz-delete-marker", "DeleteMarker"},
-          {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
-          {"x-amz-restore", "Restore"},
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"Content-Type", "ContentType"},
-          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
-          {"x-amz-version-id", "VersionId"},
-          {"accept-ranges", "AcceptRanges"},
-          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"},
-          {"Content-Language", "ContentLanguage"},
-          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-          {"Content-Encoding", "ContentEncoding"},
-          {"x-amz-checksum-sha256", "ChecksumSHA256"},
-          {"ETag", "ETag"},
-          {"x-amz-archive-status", "ArchiveStatus"},
-          {"Last-Modified", "LastModified"},
-          {"Expires", "Expires"},
-          {"x-amz-expiration", "Expiration"},
-          {"x-amz-replication-status", "ReplicationStatus"},
-          {"Cache-Control", "CacheControl"},
-          {"x-amz-storage-class", "StorageClass"},
-          {"x-amz-missing-meta", "MissingMeta"},
-          {"Content-Length", "ContentLength"},
-          {"x-amz-object-lock-mode", "ObjectLockMode"},
-          {"Content-Disposition", "ContentDisposition"},
-          {"x-amz-request-charged", "RequestCharged"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          {"x-amz-mp-parts-count", "PartsCount"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-checksum-crc32", "ChecksumCRC32"},
-          {"x-amz-checksum-sha1", "ChecksumSHA1"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -9972,22 +9733,20 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20ListBucketAnalyticsConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket from which analytics
-  configurations are retrieved.
+  * `:bucket` (`t:string` required) The name of the bucket from which analytics
+    configurations are retrieved.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:continuation_token` (`t:string`) The ContinuationToken that represents a
-  placeholder from where this request should begin.
+    placeholder from where this request should begin.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec list_bucket_analytics_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bucket_analytics_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_bucket_analytics_configurations(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics&x-id=ListBucketAnalyticsConfigurations"
 
@@ -10040,18 +9799,16 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20ListBucketIntelligentTieringConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the Amazon S3 bucket whose configuration
-  you want to modify or retrieve.
+  * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose
+    configuration you want to modify or retrieve.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:continuation_token` (`t:string`) The ContinuationToken that represents a
-  placeholder from where this request should begin.
+    placeholder from where this request should begin.
   """
-
   @spec list_bucket_intelligent_tiering_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bucket_intelligent_tiering_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_bucket_intelligent_tiering_configurations(%Client{} = client, bucket, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}?intelligent-tiering&x-id=ListBucketIntelligentTieringConfigurations"
@@ -10100,24 +9857,22 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20ListBucketInventoryConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket containing the inventory
-  configurations to retrieve.
+  * `:bucket` (`t:string` required) The name of the bucket containing the
+    inventory configurations to retrieve.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:continuation_token` (`t:string`) The marker used to continue an inventory
-  configuration listing that has been truncated. Use the NextContinuationToken
-  from a previously truncated list response to continue the listing. The
-  continuation token is an opaque value that Amazon S3 understands.
+    configuration listing that has been truncated. Use the NextContinuationToken
+    from a previously truncated list response to continue the listing. The
+    continuation token is an opaque value that Amazon S3 understands.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec list_bucket_inventory_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bucket_inventory_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_bucket_inventory_configurations(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory&x-id=ListBucketInventoryConfigurations"
 
@@ -10172,25 +9927,23 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20ListBucketMetricsConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket containing the metrics
-  configurations to retrieve.
+  * `:bucket` (`t:string` required) The name of the bucket containing the metrics
+    configurations to retrieve.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:continuation_token` (`t:string`) The marker that is used to continue a
-  metrics configuration listing that has been truncated. Use the
-  NextContinuationToken from a previously truncated list response to continue
-  the listing. The continuation token is an opaque value that Amazon S3
-  understands.
+    metrics configuration listing that has been truncated. Use the
+    NextContinuationToken from a previously truncated list response to continue
+    the listing. The continuation token is an opaque value that Amazon S3
+    understands.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec list_bucket_metrics_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bucket_metrics_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_bucket_metrics_configurations(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics&x-id=ListBucketMetricsConfigurations"
 
@@ -10244,14 +9997,10 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20ListBuckets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
   """
-
   @spec list_buckets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_buckets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_buckets(%Client{} = client, options \\ []) do
     url_path = "/?x-id=ListBuckets"
 
@@ -10298,21 +10047,19 @@ defmodule AWS.S3 do
 
   ## Parameters:
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:continuation_token` (`t:string`) ContinuationToken indicates to Amazon S3
-  that the list is being continued on this bucket with a token.
-  ContinuationToken is obfuscated and is not a real key. You can use this
-  ContinuationToken for pagination of the list results.
+    that the list is being continued on this bucket with a token.
+    ContinuationToken is obfuscated and is not a real key. You can use this
+    ContinuationToken for pagination of the list results.
   * `:max_directory_buckets` (`t:integer`) Maximum number of buckets to be
-  returned in response. When the number is more than the count of buckets that
-  are owned by an Amazon Web Services account, return all the buckets in
-  response.
+    returned in response. When the number is more than the count of buckets that
+    are owned by an Amazon Web Services account, return all the buckets in
+    response.
   """
-
   @spec list_directory_buckets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_directory_buckets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_directory_buckets(%Client{} = client, options \\ []) do
     url_path = "/?x-id=ListDirectoryBuckets"
 
@@ -10370,38 +10117,36 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20ListMultipartUploads&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket to which the multipart upload
-  was initiated.
+  * `:bucket` (`t:string` required) The name of the bucket to which the multipart
+    upload was initiated.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:delimiter` (`t:string`) Character you use to group keys.
   * `:encoding_type` (`t:enum["url"]`)
   * `:key_marker` (`t:string`) Specifies the multipart upload after which listing
-  should begin.
+    should begin.
   * `:max_uploads` (`t:integer`) Sets the maximum number of multipart uploads,
-  from 1 to 1,000, to return in the response body. 1,000 is the maximum number
-  of uploads that can be returned in a response.
+    from 1 to 1,000, to return in the response body. 1,000 is the maximum number
+    of uploads that can be returned in a response.
   * `:prefix` (`t:string`) Lists in-progress uploads only for those keys that
-  begin with the specified prefix. You can use prefixes to separate a bucket
-  into different grouping of keys. (You can think of using prefix to make
-  groups in the same way that you'd use a folder in a file system.)
+    begin with the specified prefix. You can use prefixes to separate a bucket
+    into different grouping of keys. (You can think of using prefix to make
+    groups in the same way that you'd use a folder in a file system.)
   * `:upload_id_marker` (`t:string`) Together with key-marker, specifies the
-  multipart upload after which listing should begin. If key-marker is not
-  specified, the upload-id-marker parameter is ignored. Otherwise, any
-  multipart uploads for a key equal to the key-marker might be included in the
-  list only if they have an upload ID lexicographically greater than the
-  specified upload-id-marker.
+    multipart upload after which listing should begin. If key-marker is not
+    specified, the upload-id-marker parameter is ignored. Otherwise, any
+    multipart uploads for a key equal to the key-marker might be included in the
+    list only if they have an upload ID lexicographically greater than the
+    specified upload-id-marker.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec list_multipart_uploads(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multipart_uploads_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_multipart_uploads(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?uploads"
 
@@ -10523,46 +10268,44 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20ListObjectVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name that contains the objects.
+  * `:bucket` (`t:string` required) The bucket name that contains the objects.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:delimiter` (`t:string`) A delimiter is a character that you specify to group
-  keys. All keys that contain the same string between the prefix and the first
-  occurrence of the delimiter are grouped under a single result element in
-  CommonPrefixes. These groups are counted as one result against the max-keys
-  limitation. These keys are not returned elsewhere in the response.
+    keys. All keys that contain the same string between the prefix and the first
+    occurrence of the delimiter are grouped under a single result element in
+    CommonPrefixes. These groups are counted as one result against the max-keys
+    limitation. These keys are not returned elsewhere in the response.
   * `:encoding_type` (`t:enum["url"]`)
   * `:key_marker` (`t:string`) Specifies the key to start with when listing
-  objects in a bucket.
+    objects in a bucket.
   * `:max_keys` (`t:integer`) Sets the maximum number of keys returned in the
-  response. By default, the action returns up to 1,000 key names. The response
-  might contain fewer keys but will never contain more. If additional keys
-  satisfy the search criteria, but were not returned because max-keys was
-  exceeded, the response contains true. To return the additional keys, see
-  key-marker and version-id-marker.
+    response. By default, the action returns up to 1,000 key names. The response
+    might contain fewer keys but will never contain more. If additional keys
+    satisfy the search criteria, but were not returned because max-keys was
+    exceeded, the response contains true. To return the additional keys, see
+    key-marker and version-id-marker.
   * `:prefix` (`t:string`) Use this parameter to select only those keys that begin
-  with the specified prefix. You can use prefixes to separate a bucket into
-  different groupings of keys. (You can think of using prefix to make groups
-  in the same way that you'd use a folder in a file system.) You can use
-  prefix with delimiter to roll up numerous objects into a single result under
-  CommonPrefixes.
+    with the specified prefix. You can use prefixes to separate a bucket into
+    different groupings of keys. (You can think of using prefix to make groups
+    in the same way that you'd use a folder in a file system.) You can use
+    prefix with delimiter to roll up numerous objects into a single result under
+    CommonPrefixes.
   * `:version_id_marker` (`t:string`) Specifies the object version you want to
-  start listing from.
+    start listing from.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:optional_object_attributes`
-  (`t:list[com.amazonaws.s3#OptionalObjectAttributes]`) Specifies the optional
-  fields that you want returned in the response. Fields that you do not
-  specify are not returned.
+    (`t:list[com.amazonaws.s3#OptionalObjectAttributes]`) Specifies the optional
+    fields that you want returned in the response. Fields that you do not
+    specify are not returned.
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec list_object_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_object_versions(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?versions"
 
@@ -10694,38 +10437,36 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20ListObjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket containing the objects.
+  * `:bucket` (`t:string` required) The name of the bucket containing the objects.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:delimiter` (`t:string`) A delimiter is a character that you use to group
-  keys.
+    keys.
   * `:encoding_type` (`t:enum["url"]`)
   * `:marker` (`t:string`) Marker is where you want Amazon S3 to start listing
-  from. Amazon S3 starts listing after this specified key. Marker can be any
-  key in the bucket.
+    from. Amazon S3 starts listing after this specified key. Marker can be any
+    key in the bucket.
   * `:max_keys` (`t:integer`) Sets the maximum number of keys returned in the
-  response. By default, the action returns up to 1,000 key names. The response
-  might contain fewer keys but will never contain more.
+    response. By default, the action returns up to 1,000 key names. The response
+    might contain fewer keys but will never contain more.
   * `:prefix` (`t:string`) Limits the response to keys that begin with the
-  specified prefix.
+    specified prefix.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:optional_object_attributes`
-  (`t:list[com.amazonaws.s3#OptionalObjectAttributes]`) Specifies the optional
-  fields that you want returned in the response. Fields that you do not
-  specify are not returned.
+    (`t:list[com.amazonaws.s3#OptionalObjectAttributes]`) Specifies the optional
+    fields that you want returned in the response. Fields that you do not
+    specify are not returned.
   * `:request_payer` (`t:enum["requester"]`) Confirms that the requester knows
-  that she or he will be charged for the list objects request. Bucket owners
-  need not specify this parameter in their requests.
+    that she or he will be charged for the list objects request. Bucket owners
+    need not specify this parameter in their requests.
   """
-
   @spec list_objects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_objects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_objects_errors()}
-
   def list_objects(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}"
 
@@ -10860,55 +10601,53 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20ListObjectsV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Directory buckets - When you use this operation with a
-  directory bucket, you must use virtual-hosted-style requests in the format
-  Bucket_name.s3express-az_id.region.amazonaws.com. Path-style requests are
-  not supported. Directory bucket names must be unique in the chosen
-  Availability Zone. Bucket names must follow the format
-  bucket_base_name--az-id--x-s3 (for example,
-  DOC-EXAMPLE-BUCKET--usw2-az1--x-s3). For information about bucket naming
-  restrictions, see Directory bucket naming rules in the Amazon S3 User Guide.
+  * `:bucket` (`t:string` required) Directory buckets - When you use this
+    operation with a directory bucket, you must use virtual-hosted-style
+    requests in the format Bucket_name.s3express-az_id.region.amazonaws.com.
+    Path-style requests are not supported. Directory bucket names must be unique
+    in the chosen Availability Zone. Bucket names must follow the format
+    bucket_base_name--az-id--x-s3 (for example,
+    DOC-EXAMPLE-BUCKET--usw2-az1--x-s3). For information about bucket naming
+    restrictions, see Directory bucket naming rules in the Amazon S3 User Guide.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:continuation_token` (`t:string`) ContinuationToken indicates to Amazon S3
-  that the list is being continued on this bucket with a token.
-  ContinuationToken is obfuscated and is not a real key. You can use this
-  ContinuationToken for pagination of the list results.
+    that the list is being continued on this bucket with a token.
+    ContinuationToken is obfuscated and is not a real key. You can use this
+    ContinuationToken for pagination of the list results.
   * `:delimiter` (`t:string`) A delimiter is a character that you use to group
-  keys.
+    keys.
   * `:encoding_type` (`t:enum["url"]`) Encoding type used by Amazon S3 to encode
-  object keys in the response. If using url, non-ASCII characters used in an
-  object's key name will be URL encoded. For example, the object
-  test_file(3).png will appear as test_file%283%29.png.
+    object keys in the response. If using url, non-ASCII characters used in an
+    object's key name will be URL encoded. For example, the object
+    test_file(3).png will appear as test_file%283%29.png.
   * `:fetch_owner` (`t:boolean`) The owner field is not present in ListObjectsV2
-  by default. If you want to return the owner field with each key in the
-  result, then set the FetchOwner field to true.
+    by default. If you want to return the owner field with each key in the
+    result, then set the FetchOwner field to true.
   * `:max_keys` (`t:integer`) Sets the maximum number of keys returned in the
-  response. By default, the action returns up to 1,000 key names. The response
-  might contain fewer keys but will never contain more.
+    response. By default, the action returns up to 1,000 key names. The response
+    might contain fewer keys but will never contain more.
   * `:prefix` (`t:string`) Limits the response to keys that begin with the
-  specified prefix.
+    specified prefix.
   * `:start_after` (`t:string`) StartAfter is where you want Amazon S3 to start
-  listing from. Amazon S3 starts listing after this specified key. StartAfter
-  can be any key in the bucket.
+    listing from. Amazon S3 starts listing after this specified key. StartAfter
+    can be any key in the bucket.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:optional_object_attributes`
-  (`t:list[com.amazonaws.s3#OptionalObjectAttributes]`) Specifies the optional
-  fields that you want returned in the response. Fields that you do not
-  specify are not returned.
+    (`t:list[com.amazonaws.s3#OptionalObjectAttributes]`) Specifies the optional
+    fields that you want returned in the response. Fields that you do not
+    specify are not returned.
   * `:request_payer` (`t:enum["requester"]`) Confirms that the requester knows
-  that she or he will be charged for the list objects request in V2 style.
-  Bucket owners need not specify this parameter in their requests.
+    that she or he will be charged for the list objects request in V2 style.
+    Bucket owners need not specify this parameter in their requests.
   """
-
   @spec list_objects_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_objects_v2_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_objects_v2_errors()}
-
   def list_objects_v2(%Client{} = client, bucket, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?list-type=2"
 
@@ -11056,39 +10795,38 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20ListParts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket to which the parts are being
-  uploaded.
-  * `:key` (`t:string`) Object key for which the multipart upload was initiated.
-  * `:upload_id` (`t:string`) Upload ID identifying the multipart upload whose
-  parts are being listed.
+  * `:bucket` (`t:string` required) The name of the bucket to which the parts are
+    being uploaded.
+  * `:key` (`t:string` required) Object key for which the multipart upload was
+    initiated.
+  * `:upload_id` (`t:string` required) Upload ID identifying the multipart upload
+    whose parts are being listed.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_parts` (`t:integer`) Sets the maximum number of parts to return.
   * `:part_number_marker` (`t:string`) Specifies the part after which listing
-  should begin. Only parts with higher part numbers will be listed.
+    should begin. Only parts with higher part numbers will be listed.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   * `:sse_customer_algorithm` (`t:string`) The server-side encryption (SSE)
-  algorithm used to encrypt the object. This parameter is needed only when the
-  object was created using a checksum algorithm. For more information, see
-  Protecting data using SSE-C keys in the Amazon S3 User Guide.
+    algorithm used to encrypt the object. This parameter is needed only when the
+    object was created using a checksum algorithm. For more information, see
+    Protecting data using SSE-C keys in the Amazon S3 User Guide.
   * `:sse_customer_key` (`t:string`) The server-side encryption (SSE) customer
-  managed key. This parameter is needed only when the object was created using
-  a checksum algorithm. For more information, see Protecting data using SSE-C
-  keys in the Amazon S3 User Guide.
+    managed key. This parameter is needed only when the object was created using
+    a checksum algorithm. For more information, see Protecting data using SSE-C
+    keys in the Amazon S3 User Guide.
   * `:sse_customer_key_md5` (`t:string`) The MD5 server-side encryption (SSE)
-  customer managed key. This parameter is needed only when the object was
-  created using a checksum algorithm. For more information, see Protecting
-  data using SSE-C keys in the Amazon S3 User Guide.
+    customer managed key. This parameter is needed only when the object was
+    created using a checksum algorithm. For more information, see Protecting
+    data using SSE-C keys in the Amazon S3 User Guide.
   """
-
   @spec list_parts(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_parts_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_parts(%Client{} = client, bucket, key, upload_id, options \\ [])
       when is_binary(upload_id) do
     url_path =
@@ -11207,26 +10945,25 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketAccelerateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which the accelerate
-  configuration is set.
+  * `:bucket` (`t:string` required) The name of the bucket for which the
+    accelerate configuration is set.
   * `:input` (`t:map`):
-    * `:accelerate_configuration` (`t:structure`) Container for setting the transfer
-  acceleration state.
+    * `:accelerate_configuration` (`t:structure` required) Container for setting the
+    transfer acceleration state.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_accelerate_configuration(
           AWS.Client.t(),
           String.t(),
@@ -11235,7 +10972,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_accelerate_configuration(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?accelerate"
@@ -11296,43 +11032,41 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketAcl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket to which to apply the ACL.
+  * `:bucket` (`t:string` required) The bucket to which to apply the ACL.
   * `:input` (`t:map | nil`):
     * `:access_control_policy` (`t:structure`) Contains the elements that set the
-  ACL permissions for an object per grantee.
+    ACL permissions for an object per grantee.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:acl` (`t:enum["authenticated_read|private|public_read|public_read_write"]`)
-  The canned ACL to apply to the bucket.
+    The canned ACL to apply to the bucket.
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The base64-encoded 128-bit MD5 digest of the data.
-  This header must be used as a message integrity check to verify that the
-  request body was not corrupted in transit. For more information, go to RFC
-  1864.
+    This header must be used as a message integrity check to verify that the
+    request body was not corrupted in transit. For more information, go to RFC
+    1864.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:grant_full_control` (`t:string`) Allows grantee the read, write, read ACP,
-  and write ACP permissions on the bucket.
+    and write ACP permissions on the bucket.
   * `:grant_read` (`t:string`) Allows grantee to list the objects in the bucket.
   * `:grant_read_a_c_p` (`t:string`) Allows grantee to read the bucket ACL.
   * `:grant_write` (`t:string`) Allows grantee to create new objects in the
-  bucket.
+    bucket.
   * `:grant_write_a_c_p` (`t:string`) Allows grantee to write the ACL for the
-  applicable bucket.
+    applicable bucket.
   """
-
   @spec put_bucket_acl(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_acl(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?acl"
@@ -11459,20 +11193,20 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketAnalyticsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket to which an analytics
-  configuration is stored.
-  * `:id` (`t:string`) The ID that identifies the analytics configuration.
+  * `:bucket` (`t:string` required) The name of the bucket to which an analytics
+    configuration is stored.
+  * `:id` (`t:string` required) The ID that identifies the analytics
+    configuration.
   * `:input` (`t:map`):
-    * `:analytics_configuration` (`t:structure`) The configuration and any analyses
-  for the analytics filter.
+    * `:analytics_configuration` (`t:structure` required) The configuration and any
+    analyses for the analytics filter.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_analytics_configuration(
           AWS.Client.t(),
           String.t(),
@@ -11482,7 +11216,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_analytics_configuration(%Client{} = client, bucket, id, input, options \\ [])
       when is_map(input) and is_binary(id) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics"
@@ -11533,34 +11266,34 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketCors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket impacted by the corsconfiguration.
+  * `:bucket` (`t:string` required) Specifies the bucket impacted by the
+    corsconfiguration.
   * `:input` (`t:map`):
-    * `:c_o_r_s_configuration` (`t:structure`) Describes the cross-origin access
-  configuration for objects in an Amazon S3 bucket. For more information, see
-  Enabling Cross-Origin Resource Sharing in the Amazon S3 User Guide.
+    * `:c_o_r_s_configuration` (`t:structure` required) Describes the cross-origin
+    access configuration for objects in an Amazon S3 bucket. For more
+    information, see Enabling Cross-Origin Resource Sharing in the Amazon S3
+    User Guide.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The base64-encoded 128-bit MD5 digest of the data.
-  This header must be used as a message integrity check to verify that the
-  request body was not corrupted in transit. For more information, go to RFC
-  1864.
+    This header must be used as a message integrity check to verify that the
+    request body was not corrupted in transit. For more information, go to RFC
+    1864.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_cors(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_cors(%Client{} = client, bucket, input, options \\ []) when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
 
@@ -11631,37 +11364,35 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketEncryption&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies default encryption for a bucket using
-  server-side encryption with different key options. By default, all buckets
-  have a default encryption configuration that uses server-side encryption
-  with Amazon S3 managed keys (SSE-S3). You can optionally configure default
-  encryption for a bucket by using server-side encryption with an Amazon Web
-  Services KMS key (SSE-KMS) or a customer-provided key (SSE-C). For
-  information about the bucket default encryption feature, see Amazon S3
-  Bucket Default Encryption in the Amazon S3 User Guide.
+  * `:bucket` (`t:string` required) Specifies default encryption for a bucket
+    using server-side encryption with different key options. By default, all
+    buckets have a default encryption configuration that uses server-side
+    encryption with Amazon S3 managed keys (SSE-S3). You can optionally
+    configure default encryption for a bucket by using server-side encryption
+    with an Amazon Web Services KMS key (SSE-KMS) or a customer-provided key
+    (SSE-C). For information about the bucket default encryption feature, see
+    Amazon S3 Bucket Default Encryption in the Amazon S3 User Guide.
   * `:input` (`t:map`):
-    * `:server_side_encryption_configuration` (`t:structure`)
+    * `:server_side_encryption_configuration` (`t:structure` required)
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The base64-encoded 128-bit MD5 digest of the
-  server-side encryption configuration.
+    server-side encryption configuration.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_encryption(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_encryption(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?encryption"
@@ -11726,17 +11457,14 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketIntelligentTieringConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the Amazon S3 bucket whose configuration
-  you want to modify or retrieve.
-  * `:id` (`t:string`) The ID used to identify the S3 Intelligent-Tiering
-  configuration.
+  * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose
+    configuration you want to modify or retrieve.
+  * `:id` (`t:string` required) The ID used to identify the S3 Intelligent-Tiering
+    configuration.
   * `:input` (`t:map`):
-    * `:intelligent_tiering_configuration` (`t:structure`) Container for S3
-  Intelligent-Tiering configuration.
-
-  ## Optional parameters:
+    * `:intelligent_tiering_configuration` (`t:structure` required) Container for S3
+    Intelligent-Tiering configuration.
   """
-
   @spec put_bucket_intelligent_tiering_configuration(
           AWS.Client.t(),
           String.t(),
@@ -11746,7 +11474,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_intelligent_tiering_configuration(
         %Client{} = client,
         bucket,
@@ -11792,20 +11519,20 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketInventoryConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket where the inventory
-  configuration will be stored.
-  * `:id` (`t:string`) The ID used to identify the inventory configuration.
+  * `:bucket` (`t:string` required) The name of the bucket where the inventory
+    configuration will be stored.
+  * `:id` (`t:string` required) The ID used to identify the inventory
+    configuration.
   * `:input` (`t:map`):
-    * `:inventory_configuration` (`t:structure`) Specifies the inventory
-  configuration.
+    * `:inventory_configuration` (`t:structure` required) Specifies the inventory
+    configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_inventory_configuration(
           AWS.Client.t(),
           String.t(),
@@ -11815,7 +11542,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_inventory_configuration(%Client{} = client, bucket, id, input, options \\ [])
       when is_map(input) and is_binary(id) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory"
@@ -11877,26 +11603,25 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketLifecycleConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which to set the
-  configuration.
+  * `:bucket` (`t:string` required) The name of the bucket for which to set the
+    configuration.
   * `:input` (`t:map | nil`):
     * `:lifecycle_configuration` (`t:structure`) Container for lifecycle rules. You
-  can add as many as 1,000 rules.
+    can add as many as 1,000 rules.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_lifecycle_configuration(
           AWS.Client.t(),
           String.t(),
@@ -11905,7 +11630,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
@@ -11965,31 +11689,29 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketLogging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which to set the logging
-  parameters.
+  * `:bucket` (`t:string` required) The name of the bucket for which to set the
+    logging parameters.
   * `:input` (`t:map`):
-    * `:bucket_logging_status` (`t:structure`) Container for logging status
-  information.
+    * `:bucket_logging_status` (`t:structure` required) Container for logging status
+    information.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The MD5 hash of the PutBucketLogging request body.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_logging(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_logging(%Client{} = client, bucket, input, options \\ []) when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?logging"
 
@@ -12056,21 +11778,21 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketMetricsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which the metrics
-  configuration is set.
-  * `:id` (`t:string`) The ID used to identify the metrics configuration. The ID
-  has a 64 character limit and can only contain letters, numbers, periods,
-  dashes, and underscores.
+  * `:bucket` (`t:string` required) The name of the bucket for which the metrics
+    configuration is set.
+  * `:id` (`t:string` required) The ID used to identify the metrics configuration.
+    The ID has a 64 character limit and can only contain letters, numbers,
+    periods, dashes, and underscores.
   * `:input` (`t:map`):
-    * `:metrics_configuration` (`t:structure`) Specifies the metrics configuration.
+    * `:metrics_configuration` (`t:structure` required) Specifies the metrics
+    configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_metrics_configuration(
           AWS.Client.t(),
           String.t(),
@@ -12080,7 +11802,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_metrics_configuration(%Client{} = client, bucket, id, input, options \\ [])
       when is_map(input) and is_binary(id) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics"
@@ -12136,19 +11857,18 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketNotificationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket.
+  * `:bucket` (`t:string` required) The name of the bucket.
   * `:input` (`t:map`):
-    * `:notification_configuration` (`t:structure`)
+    * `:notification_configuration` (`t:structure` required)
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:skip_destination_validation` (`t:boolean`) Skips validation of Amazon SQS,
-  Amazon SNS, and Lambda destinations. True or false value.
+    Amazon SNS, and Lambda destinations. True or false value.
   """
-
   @spec put_bucket_notification_configuration(
           AWS.Client.t(),
           String.t(),
@@ -12157,7 +11877,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_notification_configuration(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?notification"
@@ -12219,26 +11938,24 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketOwnershipControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the Amazon S3 bucket whose
-  OwnershipControls you want to set.
+  * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose
+    OwnershipControls you want to set.
   * `:input` (`t:map`):
-    * `:ownership_controls` (`t:structure`) The OwnershipControls
-  (BucketOwnerEnforced, BucketOwnerPreferred, or ObjectWriter) that you want
-  to apply to this Amazon S3 bucket.
+    * `:ownership_controls` (`t:structure` required) The OwnershipControls
+    (BucketOwnerEnforced, BucketOwnerPreferred, or ObjectWriter) that you want
+    to apply to this Amazon S3 bucket.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:content_md5` (`t:string`) The MD5 hash of the OwnershipControls request
-  body.
+    body.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_ownership_controls(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_ownership_controls(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?ownershipControls"
@@ -12301,31 +12018,29 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket.
+  * `:bucket` (`t:string` required) The name of the bucket.
   * `:input` (`t:map`):
-    * `:policy` (`t:string`) The bucket policy as a JSON document.
+    * `:policy` (`t:string` required) The bucket policy as a JSON document.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum-algorithm or x-amz-trailer header sent. Otherwise, Amazon S3
-  fails the request with the HTTP status code 400 Bad Request.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum-algorithm or x-amz-trailer header sent. Otherwise, Amazon S3
+    fails the request with the HTTP status code 400 Bad Request.
   * `:confirm_remove_self_bucket_access` (`t:boolean`) Set this parameter to true
-  to confirm that you want to remove your permissions to change this bucket
-  policy in the future.
+    to confirm that you want to remove your permissions to change this bucket
+    policy in the future.
   * `:content_md5` (`t:string`) The MD5 hash of the request body.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_policy(%Client{} = client, bucket, input, options \\ []) when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
 
@@ -12414,34 +12129,32 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket
+  * `:bucket` (`t:string` required) The name of the bucket
   * `:input` (`t:map`):
-    * `:replication_configuration` (`t:structure`)
+    * `:replication_configuration` (`t:structure` required)
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The base64-encoded 128-bit MD5 digest of the data.
-  You must use this header as a message integrity check to verify that the
-  request body was not corrupted in transit. For more information, see RFC
-  1864.
+    You must use this header as a message integrity check to verify that the
+    request body was not corrupted in transit. For more information, see RFC
+    1864.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:token` (`t:string`) A token to allow Object Lock to be enabled for an
-  existing bucket.
+    existing bucket.
   """
-
   @spec put_bucket_replication(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_replication(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?replication"
@@ -12522,32 +12235,30 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketRequestPayment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name.
+  * `:bucket` (`t:string` required) The bucket name.
   * `:input` (`t:map`):
-    * `:request_payment_configuration` (`t:structure`) Container for Payer.
+    * `:request_payment_configuration` (`t:structure` required) Container for Payer.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The base64-encoded 128-bit MD5 digest of the data.
-  You must use this header as a message integrity check to verify that the
-  request body was not corrupted in transit. For more information, see RFC
-  1864.
+    You must use this header as a message integrity check to verify that the
+    request body was not corrupted in transit. For more information, see RFC
+    1864.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_request_payment(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_request_payment(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?requestPayment"
@@ -12611,32 +12322,30 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name.
+  * `:bucket` (`t:string` required) The bucket name.
   * `:input` (`t:map`):
-    * `:tagging` (`t:structure`) Container for the TagSet and Tag elements.
+    * `:tagging` (`t:structure` required) Container for the TagSet and Tag elements.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The base64-encoded 128-bit MD5 digest of the data.
-  You must use this header as a message integrity check to verify that the
-  request body was not corrupted in transit. For more information, see RFC
-  1864.
+    You must use this header as a message integrity check to verify that the
+    request body was not corrupted in transit. For more information, see RFC
+    1864.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_tagging(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_tagging(%Client{} = client, bucket, input, options \\ []) when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
 
@@ -12706,36 +12415,34 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketVersioning&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name.
+  * `:bucket` (`t:string` required) The bucket name.
   * `:input` (`t:map`):
-    * `:versioning_configuration` (`t:structure`) Container for setting the
-  versioning state.
+    * `:versioning_configuration` (`t:structure` required) Container for setting the
+    versioning state.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) >The base64-encoded 128-bit MD5 digest of the
-  data. You must use this header as a message integrity check to verify that
-  the request body was not corrupted in transit. For more information, see RFC
-  1864.
+    data. You must use this header as a message integrity check to verify that
+    the request body was not corrupted in transit. For more information, see RFC
+    1864.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:mfa` (`t:string`) The concatenation of the authentication device's serial
-  number, a space, and the value that is displayed on your authentication
-  device.
+    number, a space, and the value that is displayed on your authentication
+    device.
   """
-
   @spec put_bucket_versioning(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_versioning(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?versioning"
@@ -12819,32 +12526,30 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutBucketWebsite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name.
+  * `:bucket` (`t:string` required) The bucket name.
   * `:input` (`t:map`):
-    * `:website_configuration` (`t:structure`) Container for the request.
+    * `:website_configuration` (`t:structure` required) Container for the request.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The base64-encoded 128-bit MD5 digest of the data.
-  You must use this header as a message integrity check to verify that the
-  request body was not corrupted in transit. For more information, see RFC
-  1864.
+    You must use this header as a message integrity check to verify that the
+    request body was not corrupted in transit. For more information, see RFC
+    1864.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_bucket_website(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_website(%Client{} = client, bucket, input, options \\ []) when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
 
@@ -12923,145 +12628,145 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name to which the PUT action was initiated.
-  * `:key` (`t:string`) Object key for which the PUT action was initiated.
-  * `:input` (`t:binary`)
+  * `:bucket` (`t:string` required) The bucket name to which the PUT action was
+    initiated.
+  * `:key` (`t:string` required) Object key for which the PUT action was
+    initiated.
+  * `:input` (`t:binary` required)
 
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum-algorithm or x-amz-trailer header sent. Otherwise, Amazon S3
-  fails the request with the HTTP status code 400 Bad Request.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum-algorithm or x-amz-trailer header sent. Otherwise, Amazon S3
+    fails the request with the HTTP status code 400 Bad Request.
   * `:sse_customer_key` (`t:string`) Specifies the customer-provided encryption
-  key for Amazon S3 to use in encrypting data. This value is used to store the
-  object and then it is discarded; Amazon S3 does not store the encryption
-  key. The key must be appropriate for use with the algorithm specified in the
-  x-amz-server-side-encryption-customer-algorithm header.
+    key for Amazon S3 to use in encrypting data. This value is used to store the
+    object and then it is discarded; Amazon S3 does not store the encryption
+    key. The key must be appropriate for use with the algorithm specified in the
+    x-amz-server-side-encryption-customer-algorithm header.
   * `:grant_full_control` (`t:string`) Gives the grantee READ, READ_ACP, and
-  WRITE_ACP permissions on the object.
+    WRITE_ACP permissions on the object.
   * `:acl`
-  (`t:enum["authenticated_read|aws_exec_read|bucket_owner_full_control|bucket_owner_read|private|public_read|public_read_write"]`)
-  The canned ACL to apply to the object. For more information, see Canned ACL
-  in the Amazon S3 User Guide.
+    (`t:enum["authenticated_read|aws_exec_read|bucket_owner_full_control|bucket_owner_read|private|public_read|public_read_write"]`)
+    The canned ACL to apply to the object. For more information, see Canned ACL
+    in the Amazon S3 User Guide.
   * `:checksum_c_r_c32_c` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 32-bit CRC32C checksum of
-  the object. For more information, see Checking object integrity in the
-  Amazon S3 User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 32-bit CRC32C checksum of
+    the object. For more information, see Checking object integrity in the
+    Amazon S3 User Guide.
   * `:object_lock_retain_until_date` (`t:timestamp[date-time]`) The date and time
-  when you want this object's Object Lock to expire. Must be formatted as a
-  timestamp parameter.
+    when you want this object's Object Lock to expire. Must be formatted as a
+    timestamp parameter.
   * `:request_payer` (`t:enum["requester"]`)
   * `:bucket_key_enabled` (`t:boolean`) Specifies whether Amazon S3 should use an
-  S3 Bucket Key for object encryption with server-side encryption using Key
-  Management Service (KMS) keys (SSE-KMS). Setting this header to true causes
-  Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.
+    S3 Bucket Key for object encryption with server-side encryption using Key
+    Management Service (KMS) keys (SSE-KMS). Setting this header to true causes
+    Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.
   * `:content_type` (`t:string`) A standard MIME type describing the format of the
-  contents. For more information, see
-  https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type.
+    contents. For more information, see
+    https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type.
   * `:sse_customer_key_md5` (`t:string`) Specifies the 128-bit MD5 digest of the
-  encryption key according to RFC 1321. Amazon S3 uses this header for a
-  message integrity check to ensure that the encryption key was transmitted
-  without error.
+    encryption key according to RFC 1321. Amazon S3 uses this header for a
+    message integrity check to ensure that the encryption key was transmitted
+    without error.
   * `:object_lock_legal_hold_status` (`t:enum["OFF|ON"]`) Specifies whether a
-  legal hold will be applied to this object. For more information about S3
-  Object Lock, see Object Lock in the Amazon S3 User Guide.
+    legal hold will be applied to this object. For more information about S3
+    Object Lock, see Object Lock in the Amazon S3 User Guide.
   * `:tagging` (`t:string`) The tag-set for the object. The tag-set must be
-  encoded as URL Query parameters. (For example, "Key1=Value1")
+    encoded as URL Query parameters. (For example, "Key1=Value1")
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:website_redirect_location` (`t:string`) If the bucket is configured as a
-  website, redirects requests for this object to another object in the same
-  bucket or to an external URL. Amazon S3 stores the value of this header in
-  the object metadata. For information about object metadata, see Object Key
-  and Metadata in the Amazon S3 User Guide.
+    website, redirects requests for this object to another object in the same
+    bucket or to an external URL. Amazon S3 stores the value of this header in
+    the object metadata. For information about object metadata, see Object Key
+    and Metadata in the Amazon S3 User Guide.
   * `:content_language` (`t:string`) The language the content is in.
   * `:sse_customer_algorithm` (`t:string`) Specifies the algorithm to use when
-  encrypting the object (for example, AES256).
+    encrypting the object (for example, AES256).
   * `:content_encoding` (`t:string`) Specifies what content encodings have been
-  applied to the object and thus what decoding mechanisms must be applied to
-  obtain the media-type referenced by the Content-Type header field. For more
-  information, see
-  https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding.
+    applied to the object and thus what decoding mechanisms must be applied to
+    obtain the media-type referenced by the Content-Type header field. For more
+    information, see
+    https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding.
   * `:checksum_s_h_a256` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 256-bit SHA-256 digest of
-  the object. For more information, see Checking object integrity in the
-  Amazon S3 User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 256-bit SHA-256 digest of
+    the object. For more information, see Checking object integrity in the
+    Amazon S3 User Guide.
   * `:expires` (`t:timestamp`) The date and time at which the object is no longer
-  cacheable. For more information, see
-  https://www.rfc-editor.org/rfc/rfc7234#section-5.3.
+    cacheable. For more information, see
+    https://www.rfc-editor.org/rfc/rfc7234#section-5.3.
   * `:content_md5` (`t:string`) The base64-encoded 128-bit MD5 digest of the
-  message (without the headers) according to RFC 1864. This header can be used
-  as a message integrity check to verify that the data is the same data that
-  was originally sent. Although it is optional, we recommend using the
-  Content-MD5 mechanism as an end-to-end integrity check. For more information
-  about REST request authentication, see REST Authentication.
+    message (without the headers) according to RFC 1864. This header can be used
+    as a message integrity check to verify that the data is the same data that
+    was originally sent. Although it is optional, we recommend using the
+    Content-MD5 mechanism as an end-to-end integrity check. For more information
+    about REST request authentication, see REST Authentication.
   * `:grant_write_a_c_p` (`t:string`) Allows grantee to write the ACL for the
-  applicable object.
+    applicable object.
   * `:sse_kms_encryption_context` (`t:string`) Specifies the Amazon Web Services
-  KMS Encryption Context to use for object encryption. The value of this
-  header is a base64-encoded UTF-8 string holding JSON with the encryption
-  context key-value pairs. This value is stored as object metadata and
-  automatically gets passed on to Amazon Web Services KMS for future GetObject
-  or CopyObject operations on this object. This value must be explicitly added
-  during CopyObject operations.
+    KMS Encryption Context to use for object encryption. The value of this
+    header is a base64-encoded UTF-8 string holding JSON with the encryption
+    context key-value pairs. This value is stored as object metadata and
+    automatically gets passed on to Amazon Web Services KMS for future GetObject
+    or CopyObject operations on this object. This value must be explicitly added
+    during CopyObject operations.
   * `:cache_control` (`t:string`) Can be used to specify caching behavior along
-  the request/reply chain. For more information, see
-  http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.
+    the request/reply chain. For more information, see
+    http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.
   * `:storage_class`
-  (`t:enum["DEEP_ARCHIVE|EXPRESS_ONEZONE|GLACIER|GLACIER_IR|INTELLIGENT_TIERING|ONEZONE_IA|OUTPOSTS|REDUCED_REDUNDANCY|SNOW|STANDARD|STANDARD_IA"]`)
-  By default, Amazon S3 uses the STANDARD Storage Class to store newly created
-  objects. The STANDARD storage class provides high durability and high
-  availability. Depending on performance needs, you can specify a different
-  Storage Class. For more information, see Storage Classes in the Amazon S3
-  User Guide.
+    (`t:enum["DEEP_ARCHIVE|EXPRESS_ONEZONE|GLACIER|GLACIER_IR|INTELLIGENT_TIERING|ONEZONE_IA|OUTPOSTS|REDUCED_REDUNDANCY|SNOW|STANDARD|STANDARD_IA"]`)
+    By default, Amazon S3 uses the STANDARD Storage Class to store newly created
+    objects. The STANDARD storage class provides high durability and high
+    availability. Depending on performance needs, you can specify a different
+    Storage Class. For more information, see Storage Classes in the Amazon S3
+    User Guide.
   * `:grant_read` (`t:string`) Allows grantee to read the object data and its
-  metadata.
+    metadata.
   * `:content_length` (`t:long`) Size of the body in bytes. This parameter is
-  useful when the size of the body cannot be determined automatically. For
-  more information, see
-  https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length.
+    useful when the size of the body cannot be determined automatically. For
+    more information, see
+    https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length.
   * `:object_lock_mode` (`t:enum["COMPLIANCE|GOVERNANCE"]`) The Object Lock mode
-  that you want to apply to this object.
+    that you want to apply to this object.
   * `:content_disposition` (`t:string`) Specifies presentational information for
-  the object. For more information, see
-  https://www.rfc-editor.org/rfc/rfc6266#section-4.
+    the object. For more information, see
+    https://www.rfc-editor.org/rfc/rfc6266#section-4.
   * `:server_side_encryption` (`t:enum["AES256|aws_kms|aws_kms_dsse"]`) The
-  server-side encryption algorithm that was used when you store this object in
-  Amazon S3 (for example, AES256, aws:kms, aws:kms:dsse).
+    server-side encryption algorithm that was used when you store this object in
+    Amazon S3 (for example, AES256, aws:kms, aws:kms:dsse).
   * `:sse_kms_key_id` (`t:string`) If x-amz-server-side-encryption has a valid
-  value of aws:kms or aws:kms:dsse, this header specifies the ID (Key ID, Key
-  ARN, or Key Alias) of the Key Management Service (KMS) symmetric encryption
-  customer managed key that was used for the object. If you specify
-  x-amz-server-side-encryption:aws:kms or
-  x-amz-server-side-encryption:aws:kms:dsse, but do not provide
-  x-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the Amazon Web
-  Services managed key (aws/s3) to protect the data. If the KMS key does not
-  exist in the same account that's issuing the command, you must use the full
-  ARN and not just the ID.
+    value of aws:kms or aws:kms:dsse, this header specifies the ID (Key ID, Key
+    ARN, or Key Alias) of the Key Management Service (KMS) symmetric encryption
+    customer managed key that was used for the object. If you specify
+    x-amz-server-side-encryption:aws:kms or
+    x-amz-server-side-encryption:aws:kms:dsse, but do not provide
+    x-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the Amazon Web
+    Services managed key (aws/s3) to protect the data. If the KMS key does not
+    exist in the same account that's issuing the command, you must use the full
+    ARN and not just the ID.
   * `:grant_read_a_c_p` (`t:string`) Allows grantee to read the object ACL.
   * `:checksum_c_r_c32` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 32-bit CRC32 checksum of the
-  object. For more information, see Checking object integrity in the Amazon S3
-  User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 32-bit CRC32 checksum of the
+    object. For more information, see Checking object integrity in the Amazon S3
+    User Guide.
   * `:checksum_s_h_a1` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 160-bit SHA-1 digest of the
-  object. For more information, see Checking object integrity in the Amazon S3
-  User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 160-bit SHA-1 digest of the
+    object. For more information, see Checking object integrity in the Amazon S3
+    User Guide.
   """
-
   @spec put_object(AWS.Client.t(), String.t(), String.t(), input :: binary(), Keyword.t()) ::
           {:ok, put_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_object(%Client{} = client, bucket, key, input, options \\ []) when is_binary(input) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=PutObject"
@@ -13373,28 +13078,6 @@ defmodule AWS.S3 do
     options =
       Keyword.put(
         options,
-        :response_header_parameters,
-        [
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"x-amz-checksum-crc32", "ChecksumCRC32"},
-          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
-          {"x-amz-checksum-sha1", "ChecksumSHA1"},
-          {"x-amz-checksum-sha256", "ChecksumSHA256"},
-          {"ETag", "ETag"},
-          {"x-amz-expiration", "Expiration"},
-          {"x-amz-request-charged", "RequestCharged"},
-          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          {"x-amz-version-id", "VersionId"}
-        ]
-      )
-
-    options =
-      Keyword.put(
-        options,
         :send_body_as_binary?,
         true
       )
@@ -13458,50 +13141,48 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutObjectAcl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name that contains the object to which you
-  want to attach the ACL.
-  * `:key` (`t:string`) Key for which the PUT action was initiated.
+  * `:bucket` (`t:string` required) The bucket name that contains the object to
+    which you want to attach the ACL.
+  * `:key` (`t:string` required) Key for which the PUT action was initiated.
   * `:input` (`t:map | nil`):
     * `:access_control_policy` (`t:structure`) Contains the elements that set the
-  ACL permissions for an object per grantee.
+    ACL permissions for an object per grantee.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) Version ID used to reference a specific version of
-  the object.
+    the object.
   * `:acl`
-  (`t:enum["authenticated_read|aws_exec_read|bucket_owner_full_control|bucket_owner_read|private|public_read|public_read_write"]`)
-  The canned ACL to apply to the object. For more information, see Canned ACL.
+    (`t:enum["authenticated_read|aws_exec_read|bucket_owner_full_control|bucket_owner_read|private|public_read|public_read_write"]`)
+    The canned ACL to apply to the object. For more information, see Canned ACL.
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The base64-encoded 128-bit MD5 digest of the data.
-  This header must be used as a message integrity check to verify that the
-  request body was not corrupted in transit. For more information, go to RFC
-  1864.>
+    This header must be used as a message integrity check to verify that the
+    request body was not corrupted in transit. For more information, go to RFC
+    1864.>
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:grant_full_control` (`t:string`) Allows grantee the read, write, read ACP,
-  and write ACP permissions on the bucket.
+    and write ACP permissions on the bucket.
   * `:grant_read` (`t:string`) Allows grantee to list the objects in the bucket.
   * `:grant_read_a_c_p` (`t:string`) Allows grantee to read the bucket ACL.
   * `:grant_write` (`t:string`) Allows grantee to create new objects in the
-  bucket.
+    bucket.
   * `:grant_write_a_c_p` (`t:string`) Allows grantee to write the ACL for the
-  applicable bucket.
+    applicable bucket.
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec put_object_acl(AWS.Client.t(), String.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, put_object_acl_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_object_acl_errors()}
-
   def put_object_acl(%Client{} = client, bucket, key, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?acl"
@@ -13619,13 +13300,6 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"x-amz-request-charged", "RequestCharged"}]
-      )
-
     meta =
       metadata()
 
@@ -13659,32 +13333,31 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutObjectLegalHold&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name containing the object that you want to
-  place a legal hold on.
-  * `:key` (`t:string`) The key name for the object that you want to place a legal
-  hold on.
+  * `:bucket` (`t:string` required) The bucket name containing the object that you
+    want to place a legal hold on.
+  * `:key` (`t:string` required) The key name for the object that you want to
+    place a legal hold on.
   * `:input` (`t:map | nil`):
     * `:legal_hold` (`t:structure`) Container element for the legal hold
-  configuration you want to apply to the specified object.
+    configuration you want to apply to the specified object.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The version ID of the object that you want to place
-  a legal hold on.
+    a legal hold on.
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The MD5 hash for the request body.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec put_object_legal_hold(
           AWS.Client.t(),
           String.t(),
@@ -13694,7 +13367,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, put_object_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_object_legal_hold(%Client{} = client, bucket, key, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path =
@@ -13765,13 +13437,6 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"x-amz-request-charged", "RequestCharged"}]
-      )
-
     meta =
       metadata()
 
@@ -13797,30 +13462,29 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutObjectLockConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket whose Object Lock configuration you want to
-  create or replace.
+  * `:bucket` (`t:string` required) The bucket whose Object Lock configuration you
+    want to create or replace.
   * `:input` (`t:map | nil`):
     * `:object_lock_configuration` (`t:structure`) The Object Lock configuration
-  that you want to apply to the specified bucket.
+    that you want to apply to the specified bucket.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The MD5 hash for the request body.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   * `:token` (`t:string`) A token to allow Object Lock to be enabled for an
-  existing bucket.
+    existing bucket.
   """
-
   @spec put_object_lock_configuration(
           AWS.Client.t(),
           String.t(),
@@ -13829,7 +13493,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, put_object_lock_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_object_lock_configuration(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?object-lock"
@@ -13899,13 +13562,6 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"x-amz-request-charged", "RequestCharged"}]
-      )
-
     meta =
       metadata()
 
@@ -13937,34 +13593,33 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutObjectRetention&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name that contains the object you want to
-  apply this Object Retention configuration to.
-  * `:key` (`t:string`) The key name for the object that you want to apply this
-  Object Retention configuration to.
+  * `:bucket` (`t:string` required) The bucket name that contains the object you
+    want to apply this Object Retention configuration to.
+  * `:key` (`t:string` required) The key name for the object that you want to
+    apply this Object Retention configuration to.
   * `:input` (`t:map | nil`):
     * `:retention` (`t:structure`) The container element for the Object Retention
-  configuration.
+    configuration.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The version ID for the object that you want to
-  apply this Object Retention configuration to.
+    apply this Object Retention configuration to.
   * `:bypass_governance_retention` (`t:boolean`) Indicates whether this action
-  should bypass Governance-mode restrictions.
+    should bypass Governance-mode restrictions.
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The MD5 hash for the request body.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec put_object_retention(
           AWS.Client.t(),
           String.t(),
@@ -13974,7 +13629,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, put_object_retention_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_object_retention(%Client{} = client, bucket, key, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path =
@@ -14053,13 +13707,6 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"x-amz-request-charged", "RequestCharged"}]
-      )
-
     meta =
       metadata()
 
@@ -14093,33 +13740,31 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutObjectTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name containing the object.
-  * `:key` (`t:string`) Name of the object key.
+  * `:bucket` (`t:string` required) The bucket name containing the object.
+  * `:key` (`t:string` required) Name of the object key.
   * `:input` (`t:map`):
-    * `:tagging` (`t:structure`) Container for the TagSet and Tag elements
+    * `:tagging` (`t:structure` required) Container for the TagSet and Tag elements
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The versionId of the object that the tag-set will
-  be added to.
+    be added to.
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The MD5 hash for the request body.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec put_object_tagging(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_object_tagging_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_object_tagging(%Client{} = client, bucket, key, input, options \\ [])
       when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?tagging"
@@ -14189,13 +13834,6 @@ defmodule AWS.S3 do
         [{"x-amz-version-id", "VersionId"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"x-amz-version-id", "VersionId"}]
-      )
-
     meta =
       metadata()
 
@@ -14231,35 +13869,33 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20PutPublicAccessBlock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the Amazon S3 bucket whose
-  PublicAccessBlock configuration you want to set.
+  * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose
+    PublicAccessBlock configuration you want to set.
   * `:input` (`t:map`):
-    * `:public_access_block_configuration` (`t:structure`) The PublicAccessBlock
-  configuration that you want to apply to this Amazon S3 bucket. You can
-  enable the configuration options in any combination. For more information
-  about when Amazon S3 considers a bucket or object public, see The Meaning of
-  "Public" in the Amazon S3 User Guide.
+    * `:public_access_block_configuration` (`t:structure` required) The
+    PublicAccessBlock configuration that you want to apply to this Amazon S3
+    bucket. You can enable the configuration options in any combination. For
+    more information about when Amazon S3 considers a bucket or object public,
+    see The Meaning of "Public" in the Amazon S3 User Guide.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:content_md5` (`t:string`) The MD5 hash of the PutPublicAccessBlock request
-  body.
+    body.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   """
-
   @spec put_public_access_block(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_public_access_block(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?publicAccessBlock"
@@ -14323,33 +13959,32 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20RestoreObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name containing the object to restore.
-  * `:key` (`t:string`) Object key for which the action was initiated.
+  * `:bucket` (`t:string` required) The bucket name containing the object to
+    restore.
+  * `:key` (`t:string` required) Object key for which the action was initiated.
   * `:input` (`t:map | nil`):
     * `:restore_request` (`t:structure`)
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:version_id` (`t:string`) VersionId used to reference a specific version of
-  the object.
+    the object.
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   """
-
   @spec restore_object(AWS.Client.t(), String.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, restore_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_object_errors()}
-
   def restore_object(%Client{} = client, bucket, key, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?restore"
@@ -14414,16 +14049,6 @@ defmodule AWS.S3 do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amz-request-charged", "RequestCharged"},
-          {"x-amz-restore-output-path", "RestoreOutputPath"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -14449,32 +14074,30 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20SelectObjectContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The S3 bucket.
-  * `:key` (`t:string`) The object key.
+  * `:bucket` (`t:string` required) The S3 bucket.
+  * `:key` (`t:string` required) The object key.
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:sse_customer_algorithm` (`t:string`) The server-side encryption (SSE)
-  algorithm used to encrypt the object. This parameter is needed only when the
-  object was created using a checksum algorithm. For more information, see
-  Protecting data using SSE-C keys in the Amazon S3 User Guide.
+    algorithm used to encrypt the object. This parameter is needed only when the
+    object was created using a checksum algorithm. For more information, see
+    Protecting data using SSE-C keys in the Amazon S3 User Guide.
   * `:sse_customer_key` (`t:string`) The server-side encryption (SSE) customer
-  managed key. This parameter is needed only when the object was created using
-  a checksum algorithm. For more information, see Protecting data using SSE-C
-  keys in the Amazon S3 User Guide.
+    managed key. This parameter is needed only when the object was created using
+    a checksum algorithm. For more information, see Protecting data using SSE-C
+    keys in the Amazon S3 User Guide.
   * `:sse_customer_key_md5` (`t:string`) The MD5 server-side encryption (SSE)
-  customer managed key. This parameter is needed only when the object was
-  created using a checksum algorithm. For more information, see Protecting
-  data using SSE-C keys in the Amazon S3 User Guide.
+    customer managed key. This parameter is needed only when the object was
+    created using a checksum algorithm. For more information, see Protecting
+    data using SSE-C keys in the Amazon S3 User Guide.
   """
-
   @spec select_object_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, select_object_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def select_object_content(%Client{} = client, bucket, key, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?select&select-type=2"
@@ -14563,68 +14186,68 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20UploadPart&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket to which the multipart upload
-  was initiated.
-  * `:key` (`t:string`) Object key for which the multipart upload was initiated.
-  * `:part_number` (`t:integer`) Part number of part being uploaded. This is a
-  positive integer between 1 and 10,000.
-  * `:upload_id` (`t:string`) Upload ID identifying the multipart upload whose
-  part is being uploaded.
-  * `:input` (`t:binary`)
+  * `:bucket` (`t:string` required) The name of the bucket to which the multipart
+    upload was initiated.
+  * `:key` (`t:string` required) Object key for which the multipart upload was
+    initiated.
+  * `:part_number` (`t:integer` required) Part number of part being uploaded. This
+    is a positive integer between 1 and 10,000.
+  * `:upload_id` (`t:string` required) Upload ID identifying the multipart upload
+    whose part is being uploaded.
+  * `:input` (`t:binary` required)
 
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
-  algorithm used to create the checksum for the object when you use the SDK.
-  This header will not provide any additional functionality if you don't use
-  the SDK. When you send this header, there must be a corresponding
-  x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
-  request with the HTTP status code 400 Bad Request. For more information, see
-  Checking object integrity in the Amazon S3 User Guide.
+    algorithm used to create the checksum for the object when you use the SDK.
+    This header will not provide any additional functionality if you don't use
+    the SDK. When you send this header, there must be a corresponding
+    x-amz-checksum or x-amz-trailer header sent. Otherwise, Amazon S3 fails the
+    request with the HTTP status code 400 Bad Request. For more information, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:checksum_c_r_c32` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 32-bit CRC32 checksum of the
-  object. For more information, see Checking object integrity in the Amazon S3
-  User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 32-bit CRC32 checksum of the
+    object. For more information, see Checking object integrity in the Amazon S3
+    User Guide.
   * `:checksum_c_r_c32_c` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 32-bit CRC32C checksum of
-  the object. For more information, see Checking object integrity in the
-  Amazon S3 User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 32-bit CRC32C checksum of
+    the object. For more information, see Checking object integrity in the
+    Amazon S3 User Guide.
   * `:checksum_s_h_a1` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 160-bit SHA-1 digest of the
-  object. For more information, see Checking object integrity in the Amazon S3
-  User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 160-bit SHA-1 digest of the
+    object. For more information, see Checking object integrity in the Amazon S3
+    User Guide.
   * `:checksum_s_h_a256` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This header specifies the base64-encoded, 256-bit SHA-256 digest of
-  the object. For more information, see Checking object integrity in the
-  Amazon S3 User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This header specifies the base64-encoded, 256-bit SHA-256 digest of
+    the object. For more information, see Checking object integrity in the
+    Amazon S3 User Guide.
   * `:content_length` (`t:long`) Size of the body in bytes. This parameter is
-  useful when the size of the body cannot be determined automatically.
+    useful when the size of the body cannot be determined automatically.
   * `:content_md5` (`t:string`) The base64-encoded 128-bit MD5 digest of the part
-  data. This parameter is auto-populated when using the command from the CLI.
-  This parameter is required if object lock parameters are specified.
+    data. This parameter is auto-populated when using the command from the CLI.
+    This parameter is required if object lock parameters are specified.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
-  owner. If the account ID that you provide does not match the actual owner of
-  the bucket, the request fails with the HTTP status code 403 Forbidden
-  (access denied).
+    owner. If the account ID that you provide does not match the actual owner of
+    the bucket, the request fails with the HTTP status code 403 Forbidden
+    (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   * `:sse_customer_algorithm` (`t:string`) Specifies the algorithm to use when
-  encrypting the object (for example, AES256).
+    encrypting the object (for example, AES256).
   * `:sse_customer_key` (`t:string`) Specifies the customer-provided encryption
-  key for Amazon S3 to use in encrypting data. This value is used to store the
-  object and then it is discarded; Amazon S3 does not store the encryption
-  key. The key must be appropriate for use with the algorithm specified in the
-  x-amz-server-side-encryption-customer-algorithm header. This must be the
-  same encryption key specified in the initiate multipart upload request.
+    key for Amazon S3 to use in encrypting data. This value is used to store the
+    object and then it is discarded; Amazon S3 does not store the encryption
+    key. The key must be appropriate for use with the algorithm specified in the
+    x-amz-server-side-encryption-customer-algorithm header. This must be the
+    same encryption key specified in the initiate multipart upload request.
   * `:sse_customer_key_md5` (`t:string`) Specifies the 128-bit MD5 digest of the
-  encryption key according to RFC 1321. Amazon S3 uses this header for a
-  message integrity check to ensure that the encryption key was transmitted
-  without error.
+    encryption key according to RFC 1321. Amazon S3 uses this header for a
+    message integrity check to ensure that the encryption key was transmitted
+    without error.
   """
-
   @spec upload_part(
           AWS.Client.t(),
           String.t(),
@@ -14636,7 +14259,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, upload_part_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def upload_part(%Client{} = client, bucket, key, part_number, upload_id, input, options \\ [])
       when is_binary(input) and is_integer(part_number) and is_binary(upload_id) do
     url_path =
@@ -14778,25 +14400,6 @@ defmodule AWS.S3 do
     options =
       Keyword.put(
         options,
-        :response_header_parameters,
-        [
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"x-amz-checksum-crc32", "ChecksumCRC32"},
-          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
-          {"x-amz-checksum-sha1", "ChecksumSHA1"},
-          {"x-amz-checksum-sha256", "ChecksumSHA256"},
-          {"ETag", "ETag"},
-          {"x-amz-request-charged", "RequestCharged"},
-          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"}
-        ]
-      )
-
-    options =
-      Keyword.put(
-        options,
         :send_body_as_binary?,
         true
       )
@@ -14843,63 +14446,63 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20UploadPartCopy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket name.
-  * `:key` (`t:string`) Object key for which the multipart upload was initiated.
-  * `:part_number` (`t:integer`) Part number of part being copied. This is a
-  positive integer between 1 and 10,000.
-  * `:upload_id` (`t:string`) Upload ID identifying the multipart upload whose
-  part is being copied.
-  * `:copy_source` (`t:string`) Specifies the source object for the copy
-  operation. You specify the value in one of two formats, depending on whether
-  you want to access the source object through an access point:
+  * `:bucket` (`t:string` required) The bucket name.
+  * `:key` (`t:string` required) Object key for which the multipart upload was
+    initiated.
+  * `:part_number` (`t:integer` required) Part number of part being copied. This
+    is a positive integer between 1 and 10,000.
+  * `:upload_id` (`t:string` required) Upload ID identifying the multipart upload
+    whose part is being copied.
+  * `:copy_source` (`t:string` required) Specifies the source object for the copy
+    operation. You specify the value in one of two formats, depending on whether
+    you want to access the source object through an access point:
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:copy_source_if_match` (`t:string`) Copies the object if its entity tag
-  (ETag) matches the specified tag.
+    (ETag) matches the specified tag.
   * `:copy_source_if_modified_since` (`t:timestamp`) Copies the object if it has
-  been modified since the specified time.
+    been modified since the specified time.
   * `:copy_source_if_none_match` (`t:string`) Copies the object if its entity tag
-  (ETag) is different than the specified ETag.
+    (ETag) is different than the specified ETag.
   * `:copy_source_if_unmodified_since` (`t:timestamp`) Copies the object if it
-  hasn't been modified since the specified time.
+    hasn't been modified since the specified time.
   * `:copy_source_range` (`t:string`) The range of bytes to copy from the source
-  object. The range value must use the form bytes=first-last, where the first
-  and last are the zero-based byte offsets to copy. For example, bytes=0-9
-  indicates that you want to copy the first 10 bytes of the source. You can
-  copy a range only if the source object is greater than 5 MB.
+    object. The range value must use the form bytes=first-last, where the first
+    and last are the zero-based byte offsets to copy. For example, bytes=0-9
+    indicates that you want to copy the first 10 bytes of the source. You can
+    copy a range only if the source object is greater than 5 MB.
   * `:copy_source_sse_customer_algorithm` (`t:string`) Specifies the algorithm to
-  use when decrypting the source object (for example, AES256).
+    use when decrypting the source object (for example, AES256).
   * `:copy_source_sse_customer_key` (`t:string`) Specifies the customer-provided
-  encryption key for Amazon S3 to use to decrypt the source object. The
-  encryption key provided in this header must be one that was used when the
-  source object was created.
+    encryption key for Amazon S3 to use to decrypt the source object. The
+    encryption key provided in this header must be one that was used when the
+    source object was created.
   * `:copy_source_sse_customer_key_md5` (`t:string`) Specifies the 128-bit MD5
-  digest of the encryption key according to RFC 1321. Amazon S3 uses this
-  header for a message integrity check to ensure that the encryption key was
-  transmitted without error.
+    digest of the encryption key according to RFC 1321. Amazon S3 uses this
+    header for a message integrity check to ensure that the encryption key was
+    transmitted without error.
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected
-  destination bucket owner. If the account ID that you provide does not match
-  the actual owner of the destination bucket, the request fails with the HTTP
-  status code 403 Forbidden (access denied).
+    destination bucket owner. If the account ID that you provide does not match
+    the actual owner of the destination bucket, the request fails with the HTTP
+    status code 403 Forbidden (access denied).
   * `:expected_source_bucket_owner` (`t:string`) The account ID of the expected
-  source bucket owner. If the account ID that you provide does not match the
-  actual owner of the source bucket, the request fails with the HTTP status
-  code 403 Forbidden (access denied).
+    source bucket owner. If the account ID that you provide does not match the
+    actual owner of the source bucket, the request fails with the HTTP status
+    code 403 Forbidden (access denied).
   * `:request_payer` (`t:enum["requester"]`)
   * `:sse_customer_algorithm` (`t:string`) Specifies the algorithm to use when
-  encrypting the object (for example, AES256).
+    encrypting the object (for example, AES256).
   * `:sse_customer_key` (`t:string`) Specifies the customer-provided encryption
-  key for Amazon S3 to use in encrypting data. This value is used to store the
-  object and then it is discarded; Amazon S3 does not store the encryption
-  key. The key must be appropriate for use with the algorithm specified in the
-  x-amz-server-side-encryption-customer-algorithm header. This must be the
-  same encryption key specified in the initiate multipart upload request.
+    key for Amazon S3 to use in encrypting data. This value is used to store the
+    object and then it is discarded; Amazon S3 does not store the encryption
+    key. The key must be appropriate for use with the algorithm specified in the
+    x-amz-server-side-encryption-customer-algorithm header. This must be the
+    same encryption key specified in the initiate multipart upload request.
   * `:sse_customer_key_md5` (`t:string`) Specifies the 128-bit MD5 digest of the
-  encryption key according to RFC 1321. Amazon S3 uses this header for a
-  message integrity check to ensure that the encryption key was transmitted
-  without error.
+    encryption key according to RFC 1321. Amazon S3 uses this header for a
+    message integrity check to ensure that the encryption key was transmitted
+    without error.
   """
-
   @spec upload_part_copy(
           AWS.Client.t(),
           String.t(),
@@ -14911,7 +14514,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, upload_part_copy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def upload_part_copy(
         %Client{} = client,
         bucket,
@@ -15070,21 +14672,6 @@ defmodule AWS.S3 do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"x-amz-copy-source-version-id", "CopySourceVersionId"},
-          {"x-amz-request-charged", "RequestCharged"},
-          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -15133,128 +14720,127 @@ defmodule AWS.S3 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3%20WriteGetObjectResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:request_token` (`t:string`) A single use encrypted token that maps
-  WriteGetObjectResponse to the end user GetObject request.
-  * `:request_route` (`t:string`) Route prefix to the HTTP URL generated.
-  * `:input` (`t:binary`)
+  * `:request_token` (`t:string` required) A single use encrypted token that maps
+    WriteGetObjectResponse to the end user GetObject request.
+  * `:request_route` (`t:string` required) Route prefix to the HTTP URL generated.
+  * `:input` (`t:binary` required)
 
 
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:error_message` (`t:string`) Contains a generic description of the error
-  condition. Returned in the tag of the error XML response for a corresponding
-  GetObject call. Cannot be used with a successful StatusCode header or when
-  the transformed object is provided in body.
+    condition. Returned in the tag of the error XML response for a corresponding
+    GetObject call. Cannot be used with a successful StatusCode header or when
+    the transformed object is provided in body.
   * `:checksum_c_r_c32_c` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This specifies the base64-encoded, 32-bit CRC32C checksum of the
-  object returned by the Object Lambda function. This may not match the
-  checksum for the object stored in Amazon S3. Amazon S3 will perform
-  validation of the checksum values only when the original GetObject request
-  required checksum validation. For more information about checksums, see
-  Checking object integrity in the Amazon S3 User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This specifies the base64-encoded, 32-bit CRC32C checksum of the
+    object returned by the Object Lambda function. This may not match the
+    checksum for the object stored in Amazon S3. Amazon S3 will perform
+    validation of the checksum values only when the original GetObject request
+    required checksum validation. For more information about checksums, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:delete_marker` (`t:boolean`) Specifies whether an object stored in Amazon S3
-  is (true) or is not (false) a delete marker.
+    is (true) or is not (false) a delete marker.
   * `:object_lock_retain_until_date` (`t:timestamp[date-time]`) The date and time
-  when Object Lock is configured to expire.
+    when Object Lock is configured to expire.
   * `:restore` (`t:string`) Provides information about object restoration
-  operation and expiration time of the restored object copy.
+    operation and expiration time of the restored object copy.
   * `:status_code` (`t:integer`) The integer status code for an HTTP response of a
-  corresponding GetObject request. The following is a list of status codes.
+    corresponding GetObject request. The following is a list of status codes.
   * `:bucket_key_enabled` (`t:boolean`) Indicates whether the object stored in
-  Amazon S3 uses an S3 bucket key for server-side encryption with Amazon Web
-  Services KMS (SSE-KMS).
+    Amazon S3 uses an S3 bucket key for server-side encryption with Amazon Web
+    Services KMS (SSE-KMS).
   * `:content_type` (`t:string`) A standard MIME type describing the format of the
-  object data.
+    object data.
   * `:sse_customer_key_md5` (`t:string`) 128-bit MD5 digest of customer-provided
-  encryption key used in Amazon S3 to encrypt data stored in S3. For more
-  information, see Protecting data using server-side encryption with
-  customer-provided encryption keys (SSE-C).
+    encryption key used in Amazon S3 to encrypt data stored in S3. For more
+    information, see Protecting data using server-side encryption with
+    customer-provided encryption keys (SSE-C).
   * `:object_lock_legal_hold_status` (`t:enum["OFF|ON"]`) Indicates whether an
-  object stored in Amazon S3 has an active legal hold.
+    object stored in Amazon S3 has an active legal hold.
   * `:version_id` (`t:string`) An ID used to reference a specific version of the
-  object.
+    object.
   * `:accept_ranges` (`t:string`) Indicates that a range of bytes was specified.
   * `:content_language` (`t:string`) The language the content is in.
   * `:sse_customer_algorithm` (`t:string`) Encryption algorithm used if
-  server-side encryption with a customer-provided encryption key was specified
-  for object stored in Amazon S3.
+    server-side encryption with a customer-provided encryption key was specified
+    for object stored in Amazon S3.
   * `:content_encoding` (`t:string`) Specifies what content encodings have been
-  applied to the object and thus what decoding mechanisms must be applied to
-  obtain the media-type referenced by the Content-Type header field.
+    applied to the object and thus what decoding mechanisms must be applied to
+    obtain the media-type referenced by the Content-Type header field.
   * `:checksum_s_h_a256` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This specifies the base64-encoded, 256-bit SHA-256 digest of the
-  object returned by the Object Lambda function. This may not match the
-  checksum for the object stored in Amazon S3. Amazon S3 will perform
-  validation of the checksum values only when the original GetObject request
-  required checksum validation. For more information about checksums, see
-  Checking object integrity in the Amazon S3 User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This specifies the base64-encoded, 256-bit SHA-256 digest of the
+    object returned by the Object Lambda function. This may not match the
+    checksum for the object stored in Amazon S3. Amazon S3 will perform
+    validation of the checksum values only when the original GetObject request
+    required checksum validation. For more information about checksums, see
+    Checking object integrity in the Amazon S3 User Guide.
   * `:e_tag` (`t:string`) An opaque identifier assigned by a web server to a
-  specific version of a resource found at a URL.
+    specific version of a resource found at a URL.
   * `:last_modified` (`t:timestamp`) The date and time that the object was last
-  modified.
+    modified.
   * `:error_code` (`t:string`) A string that uniquely identifies an error
-  condition. Returned in the tag of the error XML response for a corresponding
-  GetObject call. Cannot be used with a successful StatusCode header or when
-  the transformed object is provided in the body. All error codes from S3 are
-  sentence-cased. The regular expression (regex) value is "^[A-Z][a-zA-Z]+$".
+    condition. Returned in the tag of the error XML response for a corresponding
+    GetObject call. Cannot be used with a successful StatusCode header or when
+    the transformed object is provided in the body. All error codes from S3 are
+    sentence-cased. The regular expression (regex) value is "^[A-Z][a-zA-Z]+$".
   * `:content_range` (`t:string`) The portion of the object returned in the
-  response.
+    response.
   * `:expires` (`t:timestamp`) The date and time at which the object is no longer
-  cacheable.
+    cacheable.
   * `:tag_count` (`t:integer`) The number of tags, if any, on the object.
   * `:expiration` (`t:string`) If the object expiration is configured (see PUT
-  Bucket lifecycle), the response includes this header. It includes the
-  expiry-date and rule-id key-value pairs that provide the object expiration
-  information. The value of the rule-id is URL-encoded.
+    Bucket lifecycle), the response includes this header. It includes the
+    expiry-date and rule-id key-value pairs that provide the object expiration
+    information. The value of the rule-id is URL-encoded.
   * `:replication_status` (`t:enum["COMPLETE|COMPLETED|FAILED|PENDING|REPLICA"]`)
-  Indicates if request involves bucket that is either a source or destination
-  in a Replication rule. For more information about S3 Replication, see
-  Replication.
+    Indicates if request involves bucket that is either a source or destination
+    in a Replication rule. For more information about S3 Replication, see
+    Replication.
   * `:cache_control` (`t:string`) Specifies caching behavior along the
-  request/reply chain.
+    request/reply chain.
   * `:storage_class`
-  (`t:enum["DEEP_ARCHIVE|EXPRESS_ONEZONE|GLACIER|GLACIER_IR|INTELLIGENT_TIERING|ONEZONE_IA|OUTPOSTS|REDUCED_REDUNDANCY|SNOW|STANDARD|STANDARD_IA"]`)
-  Provides storage class information of the object. Amazon S3 returns this
-  header for all objects except for S3 Standard storage class objects.
+    (`t:enum["DEEP_ARCHIVE|EXPRESS_ONEZONE|GLACIER|GLACIER_IR|INTELLIGENT_TIERING|ONEZONE_IA|OUTPOSTS|REDUCED_REDUNDANCY|SNOW|STANDARD|STANDARD_IA"]`)
+    Provides storage class information of the object. Amazon S3 returns this
+    header for all objects except for S3 Standard storage class objects.
   * `:missing_meta` (`t:integer`) Set to the number of metadata entries not
-  returned in x-amz-meta headers. This can happen if you create metadata using
-  an API like SOAP that supports more flexible metadata than the REST API. For
-  example, using SOAP, you can create metadata whose values are not legal HTTP
-  headers.
+    returned in x-amz-meta headers. This can happen if you create metadata using
+    an API like SOAP that supports more flexible metadata than the REST API. For
+    example, using SOAP, you can create metadata whose values are not legal HTTP
+    headers.
   * `:content_length` (`t:long`) The size of the content body in bytes.
   * `:object_lock_mode` (`t:enum["COMPLIANCE|GOVERNANCE"]`) Indicates whether an
-  object stored in Amazon S3 has Object Lock enabled. For more information
-  about S3 Object Lock, see Object Lock.
+    object stored in Amazon S3 has Object Lock enabled. For more information
+    about S3 Object Lock, see Object Lock.
   * `:content_disposition` (`t:string`) Specifies presentational information for
-  the object.
+    the object.
   * `:request_charged` (`t:enum["requester"]`)
   * `:server_side_encryption` (`t:enum["AES256|aws_kms|aws_kms_dsse"]`) The
-  server-side encryption algorithm used when storing requested object in
-  Amazon S3 (for example, AES256, aws:kms).
+    server-side encryption algorithm used when storing requested object in
+    Amazon S3 (for example, AES256, aws:kms).
   * `:parts_count` (`t:integer`) The count of parts this object has.
   * `:sse_kms_key_id` (`t:string`) If present, specifies the ID (Key ID, Key ARN,
-  or Key Alias) of the Amazon Web Services Key Management Service (Amazon Web
-  Services KMS) symmetric encryption customer managed key that was used for
-  stored in Amazon S3 object.
+    or Key Alias) of the Amazon Web Services Key Management Service (Amazon Web
+    Services KMS) symmetric encryption customer managed key that was used for
+    stored in Amazon S3 object.
   * `:checksum_c_r_c32` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This specifies the base64-encoded, 32-bit CRC32 checksum of the object
-  returned by the Object Lambda function. This may not match the checksum for
-  the object stored in Amazon S3. Amazon S3 will perform validation of the
-  checksum values only when the original GetObject request required checksum
-  validation. For more information about checksums, see Checking object
-  integrity in the Amazon S3 User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This specifies the base64-encoded, 32-bit CRC32 checksum of the object
+    returned by the Object Lambda function. This may not match the checksum for
+    the object stored in Amazon S3. Amazon S3 will perform validation of the
+    checksum values only when the original GetObject request required checksum
+    validation. For more information about checksums, see Checking object
+    integrity in the Amazon S3 User Guide.
   * `:checksum_s_h_a1` (`t:string`) This header can be used as a data integrity
-  check to verify that the data received is the same data that was originally
-  sent. This specifies the base64-encoded, 160-bit SHA-1 digest of the object
-  returned by the Object Lambda function. This may not match the checksum for
-  the object stored in Amazon S3. Amazon S3 will perform validation of the
-  checksum values only when the original GetObject request required checksum
-  validation. For more information about checksums, see Checking object
-  integrity in the Amazon S3 User Guide.
+    check to verify that the data received is the same data that was originally
+    sent. This specifies the base64-encoded, 160-bit SHA-1 digest of the object
+    returned by the Object Lambda function. This may not match the checksum for
+    the object stored in Amazon S3. Amazon S3 will perform validation of the
+    checksum values only when the original GetObject request required checksum
+    validation. For more information about checksums, see Checking object
+    integrity in the Amazon S3 User Guide.
   """
-
   @spec write_get_object_response(
           AWS.Client.t(),
           String.t(),
@@ -15264,7 +14850,6 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def write_get_object_response(
         %Client{} = client,
         request_token,

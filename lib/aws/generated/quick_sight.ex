@@ -17144,20 +17144,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20BatchCreateTopicReviewedAnswer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  you want to create a reviewed answer in.
-  * `:topic_id` (`t:string`) The ID for the topic reviewed answer that you want to
-  create. This ID is unique per Amazon Web Services Region for each Amazon Web
-  Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that you want to create a reviewed answer in.
+  * `:topic_id` (`t:string` required) The ID for the topic reviewed answer that
+  you want to create. This ID is unique per Amazon Web Services Region for
+  each Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec batch_create_topic_reviewed_answer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_topic_reviewed_answer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_topic_reviewed_answer_errors()}
-
   def batch_create_topic_reviewed_answer(
         %Client{} = client,
         aws_account_id,
@@ -17200,20 +17197,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20BatchDeleteTopicReviewedAnswer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  you want to delete a reviewed answers in.
-  * `:topic_id` (`t:string`) The ID for the topic reviewed answer that you want to
-  delete. This ID is unique per Amazon Web Services Region for each Amazon Web
-  Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that you want to delete a reviewed answers in.
+  * `:topic_id` (`t:string` required) The ID for the topic reviewed answer that
+  you want to delete. This ID is unique per Amazon Web Services Region for
+  each Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec batch_delete_topic_reviewed_answer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_topic_reviewed_answer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_topic_reviewed_answer_errors()}
-
   def batch_delete_topic_reviewed_answer(
         %Client{} = client,
         aws_account_id,
@@ -17256,18 +17250,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CancelIngestion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset used in the ingestion.
-  * `:ingestion_id` (`t:string`) An ID for the ingestion.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset used in the
+  ingestion.
+  * `:ingestion_id` (`t:string` required) An ID for the ingestion.
+  ## Keyword parameters:
   """
-
   @spec cancel_ingestion(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_ingestion_errors()}
-
   def cancel_ingestion(
         %Client{} = client,
         aws_account_id,
@@ -17331,19 +17323,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateAccountCustomization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to customize Amazon QuickSight for.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to customize Amazon QuickSight for.
+  ## Keyword parameters:
   * `:namespace` (`t:string`) The Amazon QuickSight namespace that you want to add
   customizations to.
   """
-
   @spec create_account_customization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_customization_errors()}
-
   def create_account_customization(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
 
@@ -17393,17 +17382,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateAccountSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-  account that you're using to create your Amazon QuickSight account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID of
+  the account that you're using to create your Amazon QuickSight account.
+  ## Keyword parameters:
   """
-
   @spec create_account_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_account_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_subscription_errors()}
-
   def create_account_subscription(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
 
@@ -17441,19 +17427,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateAnalysis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_id` (`t:string`) The ID for the analysis that you're creating. This
-  ID displays in the URL of the analysis.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where
-  you are creating an analysis.
-
-  ## Optional parameters:
+  * `:analysis_id` (`t:string` required) The ID for the analysis that you're
+  creating. This ID displays in the URL of the analysis.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account where you are creating an analysis.
+  ## Keyword parameters:
   """
-
   @spec create_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_analysis_errors()}
-
   def create_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
@@ -17494,19 +17477,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateDashboard&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where
-  you want to create the dashboard.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard, also added to the IAM
-  policy.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account where you want to create the dashboard.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard, also added to
+  the IAM policy.
+  ## Keyword parameters:
   """
-
   @spec create_dashboard(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dashboard_errors()}
-
   def create_dashboard(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
@@ -17545,16 +17525,13 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  ## Keyword parameters:
   """
-
   @spec create_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_set_errors()}
-
   def create_data_set(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets"
 
@@ -17591,16 +17568,13 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  ## Keyword parameters:
   """
-
   @spec create_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_errors()}
-
   def create_data_source(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
 
@@ -17637,18 +17611,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account
-  where you want to create the folder.
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account where you want to create the folder.
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   """
-
   @spec create_folder(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_folder_errors()}
-
   def create_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
@@ -17686,17 +17657,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateFolderMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder.
-  * `:folder_id` (`t:string`) The ID of the folder.
-  * `:member_id` (`t:string`) The ID of the asset that you want to add to the
-  folder.
-  * `:member_type` (`t:enum["ANALYSIS|DASHBOARD|DATASET|DATASOURCE|TOPIC"]`) The
-  member type of the asset that you want to add to a folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder.
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  * `:member_id` (`t:string` required) The ID of the asset that you want to add to
+  the folder.
+  * `:member_type` (`t:enum["ANALYSIS|DASHBOARD|DATASET|DATASOURCE|TOPIC"]`
+  required) The member type of the asset that you want to add to a folder.
+  ## Keyword parameters:
   """
-
   @spec create_folder_membership(
           AWS.Client.t(),
           String.t(),
@@ -17708,7 +17677,6 @@ defmodule AWS.QuickSight do
           {:ok, create_folder_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_folder_membership_errors()}
-
   def create_folder_membership(
         %Client{} = client,
         aws_account_id,
@@ -17756,20 +17724,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace that you want the group to be a part
-  of.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace that you want the group to be
+  a part of.
+  ## Keyword parameters:
   """
-
   @spec create_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-
   def create_group(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups"
@@ -17807,19 +17772,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateGroupMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:group_name` (`t:string`) The name of the group that you want to add the user
-  to.
-  * `:member_name` (`t:string`) The name of the user that you want to add to the
-  group membership.
-  * `:namespace` (`t:string`) The namespace that you want the user to be a part
-  of.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string` required) The name of the group that you want to add
+  the user to.
+  * `:member_name` (`t:string` required) The name of the user that you want to add
+  to the group membership.
+  * `:namespace` (`t:string` required) The namespace that you want the user to be
+  a part of.
+  ## Keyword parameters:
   """
-
   @spec create_group_membership(
           AWS.Client.t(),
           String.t(),
@@ -17831,7 +17794,6 @@ defmodule AWS.QuickSight do
           {:ok, create_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_membership_errors()}
-
   def create_group_membership(
         %Client{} = client,
         aws_account_id,
@@ -17880,18 +17842,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateIAMPolicyAssignment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where
-  you want to assign an IAM policy to Amazon QuickSight users or groups.
-  * `:namespace` (`t:string`) The namespace that contains the assignment.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account where you want to assign an IAM policy to Amazon QuickSight users or
+  groups.
+  * `:namespace` (`t:string` required) The namespace that contains the assignment.
+  ## Keyword parameters:
   """
-
   @spec create_iam_policy_assignment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_iam_policy_assignment_errors()}
-
   def create_iam_policy_assignment(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments"
@@ -17933,18 +17893,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateIngestion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset used in the ingestion.
-  * `:ingestion_id` (`t:string`) An ID for the ingestion.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset used in the
+  ingestion.
+  * `:ingestion_id` (`t:string` required) An ID for the ingestion.
+  ## Keyword parameters:
   """
-
   @spec create_ingestion(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ingestion_errors()}
-
   def create_ingestion(
         %Client{} = client,
         aws_account_id,
@@ -17989,17 +17947,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateNamespace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to create the Amazon QuickSight namespace in.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to create the Amazon QuickSight namespace in.
+  ## Keyword parameters:
   """
-
   @spec create_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_namespace_errors()}
-
   def create_namespace(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}"
 
@@ -18037,17 +17992,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateRefreshSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset.
+  ## Keyword parameters:
   """
-
   @spec create_refresh_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_refresh_schedule_errors()}
-
   def create_refresh_schedule(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
@@ -18086,19 +18038,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateRoleMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to create a group in. The Amazon Web Services account ID that you
-  provide must be the same Amazon Web Services account that contains your
-  Amazon QuickSight account.
-  * `:member_name` (`t:string`) The name of the group that you want to add to the
-  role.
-  * `:namespace` (`t:string`) The namespace that the role belongs to.
-  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-  role that you want to add a group to.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to create a group in. The Amazon Web Services account
+  ID that you provide must be the same Amazon Web Services account that
+  contains your Amazon QuickSight account.
+  * `:member_name` (`t:string` required) The name of the group that you want to
+  add to the role.
+  * `:namespace` (`t:string` required) The namespace that the role belongs to.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`
+  required) The role that you want to add a group to.
+  ## Keyword parameters:
   """
-
   @spec create_role_membership(
           AWS.Client.t(),
           String.t(),
@@ -18110,7 +18060,6 @@ defmodule AWS.QuickSight do
           {:ok, create_role_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_role_membership_errors()}
-
   def create_role_membership(
         %Client{} = client,
         aws_account_id,
@@ -18157,21 +18106,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. You use the ID for the Amazon Web Services account that
-  contains your Amazon QuickSight account.
-  * `:template_id` (`t:string`) An ID for the template that you want to create.
-  This template is unique per Amazon Web Services Region; in each Amazon Web
-  Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. You use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
+  * `:template_id` (`t:string` required) An ID for the template that you want to
+  create. This template is unique per Amazon Web Services Region; in each
+  Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec create_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
-
   def create_template(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
@@ -18209,21 +18155,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateTemplateAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_name` (`t:string`) The name that you want to give to the template
-  alias that you're creating. Don't start the alias name with the $ character.
-  Alias names that start with $ are reserved by Amazon QuickSight.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the template that you creating an alias for.
-  * `:template_id` (`t:string`) An ID for the template.
-
-  ## Optional parameters:
+  * `:alias_name` (`t:string` required) The name that you want to give to the
+  template alias that you're creating. Don't start the alias name with the $
+  character. Alias names that start with $ are reserved by Amazon QuickSight.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the template that you creating an alias for.
+  * `:template_id` (`t:string` required) An ID for the template.
+  ## Keyword parameters:
   """
-
   @spec create_template_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_alias_errors()}
-
   def create_template_alias(
         %Client{} = client,
         alias_name,
@@ -18267,20 +18210,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateTheme&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where
-  you want to store the new theme.
-  * `:theme_id` (`t:string`) An ID for the theme that you want to create. The
-  theme ID is unique per Amazon Web Services Region in each Amazon Web
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account where you want to store the new theme.
+  * `:theme_id` (`t:string` required) An ID for the theme that you want to create.
+  The theme ID is unique per Amazon Web Services Region in each Amazon Web
   Services account.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_theme(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_theme_errors()}
-
   def create_theme(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
@@ -18318,21 +18258,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateThemeAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_name` (`t:string`) The name that you want to give to the theme alias
-  that you are creating. The alias name can't begin with a $. Alias names that
-  start with $ are reserved by Amazon QuickSight.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the theme for the new theme alias.
-  * `:theme_id` (`t:string`) An ID for the theme alias.
-
-  ## Optional parameters:
+  * `:alias_name` (`t:string` required) The name that you want to give to the
+  theme alias that you are creating. The alias name can't begin with a $.
+  Alias names that start with $ are reserved by Amazon QuickSight.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the theme for the new theme alias.
+  * `:theme_id` (`t:string` required) An ID for the theme alias.
+  ## Keyword parameters:
   """
-
   @spec create_theme_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_theme_alias_errors()}
-
   def create_theme_alias(%Client{} = client, alias_name, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
@@ -18370,17 +18307,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateTopic&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  you want to create a topic in.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that you want to create a topic in.
+  ## Keyword parameters:
   """
-
   @spec create_topic(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_topic_errors()}
-
   def create_topic(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics"
 
@@ -18417,20 +18351,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateTopicRefreshSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the topic you're creating a refresh schedule for.
-  * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID
-  is unique per Amazon Web Services Region for each Amazon Web Services
-  account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the topic you're creating a refresh schedule for.
+  * `:topic_id` (`t:string` required) The ID of the topic that you want to modify.
+  This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
+  ## Keyword parameters:
   """
-
   @spec create_topic_refresh_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_topic_refresh_schedule_errors()}
-
   def create_topic_refresh_schedule(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules"
@@ -18468,17 +18399,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20CreateVPCConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-  account where you want to create a new VPC connection.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID of
+  the account where you want to create a new VPC connection.
+  ## Keyword parameters:
   """
-
   @spec create_vpc_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_connection_errors()}
-
   def create_vpc_connection(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections"
 
@@ -18516,20 +18444,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteAccountCustomization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to delete Amazon QuickSight customizations from in this Amazon Web
-  Services Region.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to delete Amazon QuickSight customizations from in
+  this Amazon Web Services Region.
+  ## Keyword parameters:
   * `:namespace` (`t:string`) The Amazon QuickSight namespace that you're deleting
   the customizations from.
   """
-
   @spec delete_account_customization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_customization_errors()}
-
   def delete_account_customization(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
 
@@ -18592,17 +18517,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteAccountSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-  account that you want to delete.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID of
+  the account that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_account_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_account_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_subscription_errors()}
-
   def delete_account_subscription(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
 
@@ -18658,11 +18580,11 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteAnalysis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_id` (`t:string`) The ID of the analysis that you're deleting.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where
-  you want to delete an analysis.
-
-  ## Optional parameters:
+  * `:analysis_id` (`t:string` required) The ID of the analysis that you're
+  deleting.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account where you want to delete an analysis.
+  ## Keyword parameters:
   * `:force_delete_without_recovery` (`t:boolean`) This option defaults to the
   value NoForceDeleteWithoutRecovery. To immediately delete the analysis, add
   the ForceDeleteWithoutRecovery option. You can't restore an analysis after
@@ -18672,12 +18594,10 @@ defmodule AWS.QuickSight do
   use this parameter with the ForceDeleteWithoutRecovery option in the same
   API call. The default value is 30.
   """
-
   @spec delete_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_analysis_errors()}
-
   def delete_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
@@ -18743,21 +18663,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteDashboard&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the dashboard that you're deleting.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the dashboard that you're deleting.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard.
+  ## Keyword parameters:
   * `:version_number` (`t:long`) The version number of the dashboard. If the
   version number property is provided, only the specified version of the
   dashboard is deleted.
   """
-
   @spec delete_dashboard(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dashboard_errors()}
-
   def delete_dashboard(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
@@ -18816,19 +18733,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID for the dataset that you want to create.
-  This ID is unique per Amazon Web Services Region for each Amazon Web
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID for the dataset that you want to
+  create. This ID is unique per Amazon Web Services Region for each Amazon Web
   Services account.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_data_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_set_errors()}
-
   def delete_data_set(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
@@ -18876,17 +18790,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteDataSetRefreshProperties&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset.
+  ## Keyword parameters:
   """
-
   @spec delete_data_set_refresh_properties(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_set_refresh_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_set_refresh_properties_errors()}
-
   def delete_data_set_refresh_properties(
         %Client{} = client,
         aws_account_id,
@@ -18940,18 +18851,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique
-  per Amazon Web Services Region for each Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_source_id` (`t:string` required) The ID of the data source. This ID is
+  unique per Amazon Web Services Region for each Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec delete_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
-
   def delete_data_source(%Client{} = client, aws_account_id, data_source_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
@@ -18999,18 +18907,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder.
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder.
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   """
-
   @spec delete_folder(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_folder_errors()}
-
   def delete_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
@@ -19058,16 +18963,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteFolderMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder.
-  * `:folder_id` (`t:string`) The Folder ID.
-  * `:member_id` (`t:string`) The ID of the asset that you want to delete.
-  * `:member_type` (`t:enum["ANALYSIS|DASHBOARD|DATASET|DATASOURCE|TOPIC"]`) The
-  member type of the asset that you want to delete from a folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder.
+  * `:folder_id` (`t:string` required) The Folder ID.
+  * `:member_id` (`t:string` required) The ID of the asset that you want to
+  delete.
+  * `:member_type` (`t:enum["ANALYSIS|DASHBOARD|DATASET|DATASOURCE|TOPIC"]`
+  required) The member type of the asset that you want to delete from a
+  folder.
+  ## Keyword parameters:
   """
-
   @spec delete_folder_membership(
           AWS.Client.t(),
           String.t(),
@@ -19079,7 +18984,6 @@ defmodule AWS.QuickSight do
           {:ok, delete_folder_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_folder_membership_errors()}
-
   def delete_folder_membership(
         %Client{} = client,
         aws_account_id,
@@ -19134,20 +19038,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:group_name` (`t:string`) The name of the group that you want to delete.
-  * `:namespace` (`t:string`) The namespace of the group that you want to delete.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string` required) The name of the group that you want to
+  delete.
+  * `:namespace` (`t:string` required) The namespace of the group that you want to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-
   def delete_group(%Client{} = client, aws_account_id, group_name, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
@@ -19195,19 +19098,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteGroupMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:group_name` (`t:string`) The name of the group that you want to delete the
-  user from.
-  * `:member_name` (`t:string`) The name of the user that you want to delete from
-  the group membership.
-  * `:namespace` (`t:string`) The namespace of the group that you want to remove a
-  user from.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string` required) The name of the group that you want to
+  delete the user from.
+  * `:member_name` (`t:string` required) The name of the user that you want to
+  delete from the group membership.
+  * `:namespace` (`t:string` required) The namespace of the group that you want to
+  remove a user from.
+  ## Keyword parameters:
   """
-
   @spec delete_group_membership(
           AWS.Client.t(),
           String.t(),
@@ -19219,7 +19120,6 @@ defmodule AWS.QuickSight do
           {:ok, delete_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_membership_errors()}
-
   def delete_group_membership(
         %Client{} = client,
         aws_account_id,
@@ -19274,14 +19174,12 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteIAMPolicyAssignment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assignment_name` (`t:string`) The name of the assignment.
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID where you
-  want to delete the IAM policy assignment.
-  * `:namespace` (`t:string`) The namespace that contains the assignment.
-
-  ## Optional parameters:
+  * `:assignment_name` (`t:string` required) The name of the assignment.
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID
+  where you want to delete the IAM policy assignment.
+  * `:namespace` (`t:string` required) The namespace that contains the assignment.
+  ## Keyword parameters:
   """
-
   @spec delete_iam_policy_assignment(
           AWS.Client.t(),
           String.t(),
@@ -19292,7 +19190,6 @@ defmodule AWS.QuickSight do
           {:ok, delete_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_iam_policy_assignment_errors()}
-
   def delete_iam_policy_assignment(
         %Client{} = client,
         assignment_name,
@@ -19347,20 +19244,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteIdentityPropagationConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  you want to delete an identity propagation configuration from.
-  * `:service` (`t:enum["REDSHIFT"]`) The name of the Amazon Web Services service
-  that you want to delete the associated access scopes and authorized targets
-  from.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that you want to delete an identity propagation configuration from.
+  * `:service` (`t:enum["REDSHIFT"]` required) The name of the Amazon Web Services
+  service that you want to delete the associated access scopes and authorized
+  targets from.
+  ## Keyword parameters:
   """
-
   @spec delete_identity_propagation_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_identity_propagation_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_identity_propagation_config_errors()}
-
   def delete_identity_propagation_config(
         %Client{} = client,
         aws_account_id,
@@ -19416,18 +19310,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteNamespace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to delete the Amazon QuickSight namespace from.
-  * `:namespace` (`t:string`) The namespace that you want to delete.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to delete the Amazon QuickSight namespace from.
+  * `:namespace` (`t:string` required) The namespace that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_namespace_errors()}
-
   def delete_namespace(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
@@ -19475,18 +19366,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteRefreshSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset.
-  * `:schedule_id` (`t:string`) The ID of the refresh schedule.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset.
+  * `:schedule_id` (`t:string` required) The ID of the refresh schedule.
+  ## Keyword parameters:
   """
-
   @spec delete_refresh_schedule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_refresh_schedule_errors()}
-
   def delete_refresh_schedule(
         %Client{} = client,
         aws_account_id,
@@ -19540,16 +19428,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteRoleCustomPermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace that includes the role.
-  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-  role that you want to remove permissions from.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace that includes the role.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`
+  required) The role that you want to remove permissions from.
+  ## Keyword parameters:
   """
-
   @spec delete_role_custom_permission(
           AWS.Client.t(),
           String.t(),
@@ -19560,7 +19446,6 @@ defmodule AWS.QuickSight do
           {:ok, delete_role_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_role_custom_permission_errors()}
-
   def delete_role_custom_permission(
         %Client{} = client,
         aws_account_id,
@@ -19614,18 +19499,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteRoleMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to create a group in. The Amazon Web Services account ID that you
-  provide must be the same Amazon Web Services account that contains your
-  Amazon QuickSight account.
-  * `:member_name` (`t:string`) The name of the group.
-  * `:namespace` (`t:string`) The namespace that contains the role.
-  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-  role that you want to remove permissions from.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to create a group in. The Amazon Web Services account
+  ID that you provide must be the same Amazon Web Services account that
+  contains your Amazon QuickSight account.
+  * `:member_name` (`t:string` required) The name of the group.
+  * `:namespace` (`t:string` required) The namespace that contains the role.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`
+  required) The role that you want to remove permissions from.
+  ## Keyword parameters:
   """
-
   @spec delete_role_membership(
           AWS.Client.t(),
           String.t(),
@@ -19637,7 +19520,6 @@ defmodule AWS.QuickSight do
           {:ok, delete_role_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_role_membership_errors()}
-
   def delete_role_membership(
         %Client{} = client,
         aws_account_id,
@@ -19692,21 +19574,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the template that you're deleting.
-  * `:template_id` (`t:string`) An ID for the template you want to delete.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the template that you're deleting.
+  * `:template_id` (`t:string` required) An ID for the template you want to
+  delete.
+  ## Keyword parameters:
   * `:version_number` (`t:long`) Specifies the version of the template that you
   want to delete. If you don't provide a version number, DeleteTemplate
   deletes all versions of the template.
   """
-
   @spec delete_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_errors()}
-
   def delete_template(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
@@ -19767,23 +19647,20 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteTemplateAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_name` (`t:string`) The name for the template alias. To delete a
-  specific alias, you delete the version that the alias points to. You can
+  * `:alias_name` (`t:string` required) The name for the template alias. To delete
+  a specific alias, you delete the version that the alias points to. You can
   specify the alias name, or specify the latest version of the template by
   providing the keyword $LATEST in the AliasName parameter.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the item to delete.
-  * `:template_id` (`t:string`) The ID for the template that the specified alias
-  is for.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the item to delete.
+  * `:template_id` (`t:string` required) The ID for the template that the
+  specified alias is for.
+  ## Keyword parameters:
   """
-
   @spec delete_template_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_alias_errors()}
-
   def delete_template_alias(
         %Client{} = client,
         alias_name,
@@ -19837,19 +19714,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteTheme&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the theme that you're deleting.
-  * `:theme_id` (`t:string`) An ID for the theme that you want to delete.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the theme that you're deleting.
+  * `:theme_id` (`t:string` required) An ID for the theme that you want to delete.
+  ## Keyword parameters:
   * `:version_number` (`t:long`) The version of the theme that you want to delete.
   """
-
   @spec delete_theme(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_theme_errors()}
-
   def delete_theme(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
@@ -19910,19 +19784,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteThemeAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_name` (`t:string`) The unique name for the theme alias to delete.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the theme alias to delete.
-  * `:theme_id` (`t:string`) The ID for the theme that the specified alias is for.
-
-  ## Optional parameters:
+  * `:alias_name` (`t:string` required) The unique name for the theme alias to
+  delete.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the theme alias to delete.
+  * `:theme_id` (`t:string` required) The ID for the theme that the specified
+  alias is for.
+  ## Keyword parameters:
   """
-
   @spec delete_theme_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_theme_alias_errors()}
-
   def delete_theme_alias(%Client{} = client, alias_name, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
@@ -19970,20 +19843,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteTopic&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the topic that you want to delete.
-  * `:topic_id` (`t:string`) The ID of the topic that you want to delete. This ID
-  is unique per Amazon Web Services Region for each Amazon Web Services
-  account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the topic that you want to delete.
+  * `:topic_id` (`t:string` required) The ID of the topic that you want to delete.
+  This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
+  ## Keyword parameters:
   """
-
   @spec delete_topic(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_topic_errors()}
-
   def delete_topic(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
@@ -20031,15 +19901,13 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteTopicRefreshSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:dataset_id` (`t:string`) The ID of the dataset.
-  * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID
-  is unique per Amazon Web Services Region for each Amazon Web Services
-  account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:dataset_id` (`t:string` required) The ID of the dataset.
+  * `:topic_id` (`t:string` required) The ID of the topic that you want to modify.
+  This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
+  ## Keyword parameters:
   """
-
   @spec delete_topic_refresh_schedule(
           AWS.Client.t(),
           String.t(),
@@ -20050,7 +19918,6 @@ defmodule AWS.QuickSight do
           {:ok, delete_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_topic_refresh_schedule_errors()}
-
   def delete_topic_refresh_schedule(
         %Client{} = client,
         aws_account_id,
@@ -20106,21 +19973,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the user is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-  default.
-  * `:user_name` (`t:string`) The name of the user that you want to delete.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the user is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace. Currently, you should set
+  this to default.
+  * `:user_name` (`t:string` required) The name of the user that you want to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_user(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-
   def delete_user(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
@@ -20168,16 +20033,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteUserByPrincipalId&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the user is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-  default.
-  * `:principal_id` (`t:string`) The principal ID of the user.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the user is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace. Currently, you should set
+  this to default.
+  * `:principal_id` (`t:string` required) The principal ID of the user.
+  ## Keyword parameters:
   """
-
   @spec delete_user_by_principal_id(
           AWS.Client.t(),
           String.t(),
@@ -20188,7 +20051,6 @@ defmodule AWS.QuickSight do
           {:ok, delete_user_by_principal_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_by_principal_id_errors()}
-
   def delete_user_by_principal_id(
         %Client{} = client,
         aws_account_id,
@@ -20242,20 +20104,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DeleteVPCConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-  account where you want to delete a VPC connection.
-  * `:vpc_connection_id` (`t:string`) The ID of the VPC connection that you're
-  creating. This ID is a unique identifier for each Amazon Web Services Region
-  in an Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID of
+  the account where you want to delete a VPC connection.
+  * `:vpc_connection_id` (`t:string` required) The ID of the VPC connection that
+  you're creating. This ID is a unique identifier for each Amazon Web Services
+  Region in an Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec delete_vpc_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_connection_errors()}
-
   def delete_vpc_connection(%Client{} = client, aws_account_id, vpc_connection_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections/#{AWS.Util.encode_uri(vpc_connection_id)}"
@@ -20308,10 +20167,9 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeAccountCustomization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to describe Amazon QuickSight customizations for.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to describe Amazon QuickSight customizations for.
+  ## Keyword parameters:
   * `:namespace` (`t:string`) The Amazon QuickSight namespace that you want to
   describe Amazon QuickSight customizations for.
   * `:resolved` (`t:boolean`) The Resolved flag works with the other parameters to
@@ -20321,12 +20179,10 @@ defmodule AWS.QuickSight do
   Omit this flag, or set it to no-resolved, to reveal customizations that are
   configured at different levels.
   """
-
   @spec describe_account_customization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_customization_errors()}
-
   def describe_account_customization(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
 
@@ -20380,17 +20236,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the settings that you want to list.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the settings that you want to list.
+  ## Keyword parameters:
   """
-
   @spec describe_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_settings_errors()}
-
   def describe_account_settings(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/settings"
 
@@ -20428,17 +20281,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeAccountSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID associated
-  with your Amazon QuickSight account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID
+  associated with your Amazon QuickSight account.
+  ## Keyword parameters:
   """
-
   @spec describe_account_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_account_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_subscription_errors()}
-
   def describe_account_subscription(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
 
@@ -20473,20 +20323,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeAnalysis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_id` (`t:string`) The ID of the analysis that you're describing. The
-  ID is part of the URL of the analysis.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the analysis. You must be using the Amazon Web Services account
-  that the analysis is in.
-
-  ## Optional parameters:
+  * `:analysis_id` (`t:string` required) The ID of the analysis that you're
+  describing. The ID is part of the URL of the analysis.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the analysis. You must be using the Amazon Web
+  Services account that the analysis is in.
+  ## Keyword parameters:
   """
-
   @spec describe_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_analysis_errors()}
-
   def describe_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
@@ -20522,20 +20369,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeAnalysisDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_id` (`t:string`) The ID of the analysis that you're describing. The
-  ID is part of the URL of the analysis.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the analysis. You must be using the Amazon Web Services account
-  that the analysis is in.
-
-  ## Optional parameters:
+  * `:analysis_id` (`t:string` required) The ID of the analysis that you're
+  describing. The ID is part of the URL of the analysis.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the analysis. You must be using the Amazon Web
+  Services account that the analysis is in.
+  ## Keyword parameters:
   """
-
   @spec describe_analysis_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_analysis_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_analysis_definition_errors()}
-
   def describe_analysis_definition(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}/definition"
@@ -20571,20 +20415,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeAnalysisPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_id` (`t:string`) The ID of the analysis whose permissions you're
-  describing. The ID is part of the analysis URL.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the analysis whose permissions you're describing. You must be using
-  the Amazon Web Services account that the analysis is in.
-
-  ## Optional parameters:
+  * `:analysis_id` (`t:string` required) The ID of the analysis whose permissions
+  you're describing. The ID is part of the analysis URL.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the analysis whose permissions you're describing. You
+  must be using the Amazon Web Services account that the analysis is in.
+  ## Keyword parameters:
   """
-
   @spec describe_analysis_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_analysis_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_analysis_permissions_errors()}
-
   def describe_analysis_permissions(
         %Client{} = client,
         analysis_id,
@@ -20629,20 +20470,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeAssetBundleExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_bundle_export_job_id` (`t:string`) The ID of the job that you want
-  described. The job ID is set when you start a new job with a
+  * `:asset_bundle_export_job_id` (`t:string` required) The ID of the job that you
+  want described. The job ID is set when you start a new job with a
   StartAssetBundleExportJob API call.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account the
-  export job is executed in.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account the export job is executed in.
+  ## Keyword parameters:
   """
-
   @spec describe_asset_bundle_export_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_bundle_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_bundle_export_job_errors()}
-
   def describe_asset_bundle_export_job(
         %Client{} = client,
         asset_bundle_export_job_id,
@@ -20683,19 +20521,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeAssetBundleImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_bundle_import_job_id` (`t:string`) The ID of the job. The job ID is
-  set when you start a new job with a StartAssetBundleImportJob API call.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account the
-  import job was executed in.
-
-  ## Optional parameters:
+  * `:asset_bundle_import_job_id` (`t:string` required) The ID of the job. The job
+  ID is set when you start a new job with a StartAssetBundleImportJob API
+  call.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account the import job was executed in.
+  ## Keyword parameters:
   """
-
   @spec describe_asset_bundle_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_bundle_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_bundle_import_job_errors()}
-
   def describe_asset_bundle_import_job(
         %Client{} = client,
         asset_bundle_import_job_id,
@@ -20736,22 +20572,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeDashboard&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the dashboard that you're describing.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the dashboard that you're describing.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard.
+  ## Keyword parameters:
   * `:alias_name` (`t:string`) The alias name.
   * `:version_number` (`t:long`) The version number for the dashboard. If a
   version number isn't passed, the latest published dashboard version is
   described.
   """
-
   @spec describe_dashboard(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_errors()}
-
   def describe_dashboard(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
@@ -20805,22 +20638,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeDashboardDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the dashboard that you're describing.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the dashboard that you're describing.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard.
+  ## Keyword parameters:
   * `:alias_name` (`t:string`) The alias name.
   * `:version_number` (`t:long`) The version number for the dashboard. If a
   version number isn't passed, the latest published dashboard version is
   described.
   """
-
   @spec describe_dashboard_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_definition_errors()}
-
   def describe_dashboard_definition(
         %Client{} = client,
         aws_account_id,
@@ -20879,19 +20709,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeDashboardPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the dashboard that you're describing permissions for.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard, also added to the IAM
-  policy.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the dashboard that you're describing permissions for.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard, also added to
+  the IAM policy.
+  ## Keyword parameters:
   """
-
   @spec describe_dashboard_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_permissions_errors()}
-
   def describe_dashboard_permissions(
         %Client{} = client,
         aws_account_id,
@@ -20932,16 +20759,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeDashboardSnapshotJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  the dashboard snapshot job is executed in.
-  * `:dashboard_id` (`t:string`) The ID of the dashboard that you have started a
-  snapshot job for.
-  * `:snapshot_job_id` (`t:string`) The ID of the job to be described. The job ID
-  is set when you start a new job with a StartDashboardSnapshotJob API call.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that the dashboard snapshot job is executed in.
+  * `:dashboard_id` (`t:string` required) The ID of the dashboard that you have
+  started a snapshot job for.
+  * `:snapshot_job_id` (`t:string` required) The ID of the job to be described.
+  The job ID is set when you start a new job with a StartDashboardSnapshotJob
+  API call.
+  ## Keyword parameters:
   """
-
   @spec describe_dashboard_snapshot_job(
           AWS.Client.t(),
           String.t(),
@@ -20952,7 +20778,6 @@ defmodule AWS.QuickSight do
           {:ok, describe_dashboard_snapshot_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_snapshot_job_errors()}
-
   def describe_dashboard_snapshot_job(
         %Client{} = client,
         aws_account_id,
@@ -20996,16 +20821,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeDashboardSnapshotJobResult&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  the dashboard snapshot job is executed in.
-  * `:dashboard_id` (`t:string`) The ID of the dashboard that you have started a
-  snapshot job for.
-  * `:snapshot_job_id` (`t:string`) The ID of the job to be described. The job ID
-  is set when you start a new job with a StartDashboardSnapshotJob API call.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that the dashboard snapshot job is executed in.
+  * `:dashboard_id` (`t:string` required) The ID of the dashboard that you have
+  started a snapshot job for.
+  * `:snapshot_job_id` (`t:string` required) The ID of the job to be described.
+  The job ID is set when you start a new job with a StartDashboardSnapshotJob
+  API call.
+  ## Keyword parameters:
   """
-
   @spec describe_dashboard_snapshot_job_result(
           AWS.Client.t(),
           String.t(),
@@ -21016,7 +20840,6 @@ defmodule AWS.QuickSight do
           {:ok, describe_dashboard_snapshot_job_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_snapshot_job_result_errors()}
-
   def describe_dashboard_snapshot_job_result(
         %Client{} = client,
         aws_account_id,
@@ -21059,19 +20882,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID for the dataset that you want to create.
-  This ID is unique per Amazon Web Services Region for each Amazon Web
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID for the dataset that you want to
+  create. This ID is unique per Amazon Web Services Region for each Amazon Web
   Services account.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_data_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_set_errors()}
-
   def describe_data_set(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
@@ -21107,19 +20927,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeDataSetPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID for the dataset that you want to create.
-  This ID is unique per Amazon Web Services Region for each Amazon Web
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID for the dataset that you want to
+  create. This ID is unique per Amazon Web Services Region for each Amazon Web
   Services account.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_data_set_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_data_set_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_set_permissions_errors()}
-
   def describe_data_set_permissions(
         %Client{} = client,
         aws_account_id,
@@ -21160,17 +20977,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeDataSetRefreshProperties&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset.
+  ## Keyword parameters:
   """
-
   @spec describe_data_set_refresh_properties(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_data_set_refresh_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_set_refresh_properties_errors()}
-
   def describe_data_set_refresh_properties(
         %Client{} = client,
         aws_account_id,
@@ -21211,18 +21025,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique
-  per Amazon Web Services Region for each Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_source_id` (`t:string` required) The ID of the data source. This ID is
+  unique per Amazon Web Services Region for each Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec describe_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_source_errors()}
-
   def describe_data_source(%Client{} = client, aws_account_id, data_source_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
@@ -21258,18 +21069,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeDataSourcePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique
-  per Amazon Web Services Region for each Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_source_id` (`t:string` required) The ID of the data source. This ID is
+  unique per Amazon Web Services Region for each Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec describe_data_source_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_data_source_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_source_permissions_errors()}
-
   def describe_data_source_permissions(
         %Client{} = client,
         aws_account_id,
@@ -21310,18 +21118,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder.
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder.
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   """
-
   @spec describe_folder(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_folder_errors()}
-
   def describe_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
@@ -21357,23 +21162,20 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeFolderPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder.
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder.
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:namespace` (`t:string`) The namespace of the folder whose permissions you
   want described.
   * `:next_token` (`t:string`) A pagination token for the next set of results.
   """
-
   @spec describe_folder_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_folder_permissions_errors()}
-
   def describe_folder_permissions(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/permissions"
@@ -21435,23 +21237,20 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeFolderResolvedPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder.
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder.
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:namespace` (`t:string`) The namespace of the folder whose permissions you
   want described.
   * `:next_token` (`t:string`) A pagination token for the next set of results.
   """
-
   @spec describe_folder_resolved_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_resolved_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_folder_resolved_permissions_errors()}
-
   def describe_folder_resolved_permissions(
         %Client{} = client,
         aws_account_id,
@@ -21517,20 +21316,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:group_name` (`t:string`) The name of the group that you want to describe.
-  * `:namespace` (`t:string`) The namespace of the group that you want described.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string` required) The name of the group that you want to
+  describe.
+  * `:namespace` (`t:string` required) The namespace of the group that you want
+  described.
+  ## Keyword parameters:
   """
-
   @spec describe_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_group_errors()}
-
   def describe_group(%Client{} = client, aws_account_id, group_name, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
@@ -21568,18 +21366,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeGroupMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:group_name` (`t:string`) The name of the group that you want to search.
-  * `:member_name` (`t:string`) The user name of the user that you want to search
-  for.
-  * `:namespace` (`t:string`) The namespace that includes the group you are
-  searching within.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string` required) The name of the group that you want to
+  search.
+  * `:member_name` (`t:string` required) The user name of the user that you want
+  to search for.
+  * `:namespace` (`t:string` required) The namespace that includes the group you
+  are searching within.
+  ## Keyword parameters:
   """
-
   @spec describe_group_membership(
           AWS.Client.t(),
           String.t(),
@@ -21591,7 +21388,6 @@ defmodule AWS.QuickSight do
           {:ok, describe_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_group_membership_errors()}
-
   def describe_group_membership(
         %Client{} = client,
         aws_account_id,
@@ -21635,15 +21431,13 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeIAMPolicyAssignment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assignment_name` (`t:string`) The name of the assignment, also called a
-  rule.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the assignment that you want to describe.
-  * `:namespace` (`t:string`) The namespace that contains the assignment.
-
-  ## Optional parameters:
+  * `:assignment_name` (`t:string` required) The name of the assignment, also
+  called a rule.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the assignment that you want to describe.
+  * `:namespace` (`t:string` required) The namespace that contains the assignment.
+  ## Keyword parameters:
   """
-
   @spec describe_iam_policy_assignment(
           AWS.Client.t(),
           String.t(),
@@ -21654,7 +21448,6 @@ defmodule AWS.QuickSight do
           {:ok, describe_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_iam_policy_assignment_errors()}
-
   def describe_iam_policy_assignment(
         %Client{} = client,
         assignment_name,
@@ -21696,18 +21489,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeIngestion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset used in the ingestion.
-  * `:ingestion_id` (`t:string`) An ID for the ingestion.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset used in the
+  ingestion.
+  * `:ingestion_id` (`t:string` required) An ID for the ingestion.
+  ## Keyword parameters:
   """
-
   @spec describe_ingestion(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ingestion_errors()}
-
   def describe_ingestion(
         %Client{} = client,
         aws_account_id,
@@ -21749,17 +21540,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeIpRestriction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the IP rules.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the IP rules.
+  ## Keyword parameters:
   """
-
   @spec describe_ip_restriction(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ip_restriction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ip_restriction_errors()}
-
   def describe_ip_restriction(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
 
@@ -21794,19 +21582,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeKeyRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the customer managed key registration that you want to describe.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the customer managed key registration that you want to
+  describe.
+  ## Keyword parameters:
   * `:default_key_only` (`t:boolean`) Determines whether the request returns the
   default key only.
   """
-
   @spec describe_key_registration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_registration_errors()}
-
   def describe_key_registration(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/key-registration"
 
@@ -21852,18 +21638,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeNamespace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the Amazon QuickSight namespace that you want to describe.
-  * `:namespace` (`t:string`) The namespace that you want to describe.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the Amazon QuickSight namespace that you want to
+  describe.
+  * `:namespace` (`t:string` required) The namespace that you want to describe.
+  ## Keyword parameters:
   """
-
   @spec describe_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_namespace_errors()}
-
   def describe_namespace(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
@@ -21899,18 +21683,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeRefreshSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset.
-  * `:schedule_id` (`t:string`) The ID of the refresh schedule.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset.
+  * `:schedule_id` (`t:string` required) The ID of the refresh schedule.
+  ## Keyword parameters:
   """
-
   @spec describe_refresh_schedule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_refresh_schedule_errors()}
-
   def describe_refresh_schedule(
         %Client{} = client,
         aws_account_id,
@@ -21952,17 +21733,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeRoleCustomPermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to create a group in. The Amazon Web Services account ID that you
-  provide must be the same Amazon Web Services account that contains your
-  Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace that contains the role.
-  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-  name of the role whose permissions you want described.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to create a group in. The Amazon Web Services account
+  ID that you provide must be the same Amazon Web Services account that
+  contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace that contains the role.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`
+  required) The name of the role whose permissions you want described.
+  ## Keyword parameters:
   """
-
   @spec describe_role_custom_permission(
           AWS.Client.t(),
           String.t(),
@@ -21973,7 +21752,6 @@ defmodule AWS.QuickSight do
           {:ok, describe_role_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_role_custom_permission_errors()}
-
   def describe_role_custom_permission(
         %Client{} = client,
         aws_account_id,
@@ -22015,11 +21793,10 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the template that you're describing.
-  * `:template_id` (`t:string`) The ID for the template.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the template that you're describing.
+  * `:template_id` (`t:string` required) The ID for the template.
+  ## Keyword parameters:
   * `:alias_name` (`t:string`) The alias of the template that you want to
   describe. If you name a specific alias, you describe the version that the
   alias points to. You can specify the latest version of the template by
@@ -22029,12 +21806,10 @@ defmodule AWS.QuickSight do
   describe. If a VersionNumber parameter value isn't provided, the latest
   version of the template is described.
   """
-
   @spec describe_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_template_errors()}
-
   def describe_template(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
@@ -22088,23 +21863,20 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeTemplateAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_name` (`t:string`) The name of the template alias that you want to
-  describe. If you name a specific alias, you describe the version that the
-  alias points to. You can specify the latest version of the template by
-  providing the keyword $LATEST in the AliasName parameter. The keyword
+  * `:alias_name` (`t:string` required) The name of the template alias that you
+  want to describe. If you name a specific alias, you describe the version
+  that the alias points to. You can specify the latest version of the template
+  by providing the keyword $LATEST in the AliasName parameter. The keyword
   $PUBLISHED doesn't apply to templates.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the template alias that you're describing.
-  * `:template_id` (`t:string`) The ID for the template.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the template alias that you're describing.
+  * `:template_id` (`t:string` required) The ID for the template.
+  ## Keyword parameters:
   """
-
   @spec describe_template_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_template_alias_errors()}
-
   def describe_template_alias(
         %Client{} = client,
         alias_name,
@@ -22146,12 +21918,12 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeTemplateDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the template. You must be using the Amazon Web Services account
-  that the template is in.
-  * `:template_id` (`t:string`) The ID of the template that you're describing.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the template. You must be using the Amazon Web
+  Services account that the template is in.
+  * `:template_id` (`t:string` required) The ID of the template that you're
+  describing.
+  ## Keyword parameters:
   * `:alias_name` (`t:string`) The alias of the template that you want to
   describe. If you name a specific alias, you describe the version that the
   alias points to. You can specify the latest version of the template by
@@ -22159,12 +21931,10 @@ defmodule AWS.QuickSight do
   $PUBLISHED doesn't apply to templates.
   * `:version_number` (`t:long`) The version number of the template.
   """
-
   @spec describe_template_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_template_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_template_definition_errors()}
-
   def describe_template_definition(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/definition"
@@ -22218,18 +21988,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeTemplatePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the template that you're describing.
-  * `:template_id` (`t:string`) The ID for the template.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the template that you're describing.
+  * `:template_id` (`t:string` required) The ID for the template.
+  ## Keyword parameters:
   """
-
   @spec describe_template_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_template_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_template_permissions_errors()}
-
   def describe_template_permissions(
         %Client{} = client,
         aws_account_id,
@@ -22270,11 +22037,10 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeTheme&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the theme that you're describing.
-  * `:theme_id` (`t:string`) The ID for the theme.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the theme that you're describing.
+  * `:theme_id` (`t:string` required) The ID for the theme.
+  ## Keyword parameters:
   * `:alias_name` (`t:string`) The alias of the theme that you want to describe.
   If you name a specific alias, you describe the version that the alias points
   to. You can specify the latest version of the theme by providing the keyword
@@ -22284,12 +22050,10 @@ defmodule AWS.QuickSight do
   If a VersionNumber parameter value isn't provided, the latest version of the
   theme is described.
   """
-
   @spec describe_theme(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_theme_errors()}
-
   def describe_theme(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
@@ -22343,20 +22107,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeThemeAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_name` (`t:string`) The name of the theme alias that you want to
-  describe.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the theme alias that you're describing.
-  * `:theme_id` (`t:string`) The ID for the theme.
-
-  ## Optional parameters:
+  * `:alias_name` (`t:string` required) The name of the theme alias that you want
+  to describe.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the theme alias that you're describing.
+  * `:theme_id` (`t:string` required) The ID for the theme.
+  ## Keyword parameters:
   """
-
   @spec describe_theme_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_theme_alias_errors()}
-
   def describe_theme_alias(
         %Client{} = client,
         alias_name,
@@ -22398,19 +22159,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeThemePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the theme that you're describing.
-  * `:theme_id` (`t:string`) The ID for the theme that you want to describe
-  permissions for.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the theme that you're describing.
+  * `:theme_id` (`t:string` required) The ID for the theme that you want to
+  describe permissions for.
+  ## Keyword parameters:
   """
-
   @spec describe_theme_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_theme_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_theme_permissions_errors()}
-
   def describe_theme_permissions(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/permissions"
@@ -22446,19 +22204,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeTopic&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:topic_id` (`t:string`) The ID of the topic that you want to describe. This
-  ID is unique per Amazon Web Services Region for each Amazon Web Services
-  account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:topic_id` (`t:string` required) The ID of the topic that you want to
+  describe. This ID is unique per Amazon Web Services Region for each Amazon
+  Web Services account.
+  ## Keyword parameters:
   """
-
   @spec describe_topic(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_topic_errors()}
-
   def describe_topic(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
@@ -22494,20 +22249,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeTopicPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the topic that you want described.
-  * `:topic_id` (`t:string`) The ID of the topic that you want to describe. This
-  ID is unique per Amazon Web Services Region for each Amazon Web Services
-  account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the topic that you want described.
+  * `:topic_id` (`t:string` required) The ID of the topic that you want to
+  describe. This ID is unique per Amazon Web Services Region for each Amazon
+  Web Services account.
+  ## Keyword parameters:
   """
-
   @spec describe_topic_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_topic_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_topic_permissions_errors()}
-
   def describe_topic_permissions(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/permissions"
@@ -22543,22 +22295,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeTopicRefresh&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the topic whose refresh you want to describe.
-  * `:refresh_id` (`t:string`) The ID of the refresh, which is performed when the
-  topic is created or updated.
-  * `:topic_id` (`t:string`) The ID of the topic that you want to describe. This
-  ID is unique per Amazon Web Services Region for each Amazon Web Services
-  account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the topic whose refresh you want to describe.
+  * `:refresh_id` (`t:string` required) The ID of the refresh, which is performed
+  when the topic is created or updated.
+  * `:topic_id` (`t:string` required) The ID of the topic that you want to
+  describe. This ID is unique per Amazon Web Services Region for each Amazon
+  Web Services account.
+  ## Keyword parameters:
   """
-
   @spec describe_topic_refresh(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_topic_refresh_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_topic_refresh_errors()}
-
   def describe_topic_refresh(
         %Client{} = client,
         aws_account_id,
@@ -22600,15 +22349,13 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeTopicRefreshSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:dataset_id` (`t:string`) The ID of the dataset.
-  * `:topic_id` (`t:string`) The ID of the topic that contains the refresh
-  schedule that you want to describe. This ID is unique per Amazon Web
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:dataset_id` (`t:string` required) The ID of the dataset.
+  * `:topic_id` (`t:string` required) The ID of the topic that contains the
+  refresh schedule that you want to describe. This ID is unique per Amazon Web
   Services Region for each Amazon Web Services account.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_topic_refresh_schedule(
           AWS.Client.t(),
           String.t(),
@@ -22619,7 +22366,6 @@ defmodule AWS.QuickSight do
           {:ok, describe_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_topic_refresh_schedule_errors()}
-
   def describe_topic_refresh_schedule(
         %Client{} = client,
         aws_account_id,
@@ -22661,21 +22407,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the user is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-  default.
-  * `:user_name` (`t:string`) The name of the user that you want to describe.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the user is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace. Currently, you should set
+  this to default.
+  * `:user_name` (`t:string` required) The name of the user that you want to
+  describe.
+  ## Keyword parameters:
   """
-
   @spec describe_user(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
-
   def describe_user(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
@@ -22711,20 +22455,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20DescribeVPCConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-  account that contains the VPC connection that you want described.
-  * `:vpc_connection_id` (`t:string`) The ID of the VPC connection that you're
-  creating. This ID is a unique identifier for each Amazon Web Services Region
-  in an Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID of
+  the account that contains the VPC connection that you want described.
+  * `:vpc_connection_id` (`t:string` required) The ID of the VPC connection that
+  you're creating. This ID is a unique identifier for each Amazon Web Services
+  Region in an Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec describe_vpc_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_connection_errors()}
-
   def describe_vpc_connection(
         %Client{} = client,
         aws_account_id,
@@ -22768,17 +22509,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20GenerateEmbedUrlForAnonymousUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the dashboard that you're embedding.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the dashboard that you're embedding.
+  ## Keyword parameters:
   """
-
   @spec generate_embed_url_for_anonymous_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, generate_embed_url_for_anonymous_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_embed_url_for_anonymous_user_errors()}
-
   def generate_embed_url_for_anonymous_user(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/embed-url/anonymous-user"
 
@@ -22819,17 +22557,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20GenerateEmbedUrlForRegisteredUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the dashboard that you're embedding.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the dashboard that you're embedding.
+  ## Keyword parameters:
   """
-
   @spec generate_embed_url_for_registered_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, generate_embed_url_for_registered_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_embed_url_for_registered_user_errors()}
-
   def generate_embed_url_for_registered_user(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/embed-url/registered-user"
 
@@ -22871,14 +22606,13 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20GetDashboardEmbedUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the dashboard that you're embedding.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard, also added to the
-  Identity and Access Management (IAM) policy.
-  * `:identity_type` (`t:enum["ANONYMOUS|IAM|QUICKSIGHT"]`) The authentication
-  method that the user uses to sign in.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the dashboard that you're embedding.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard, also added to
+  the Identity and Access Management (IAM) policy.
+  * `:identity_type` (`t:enum["ANONYMOUS|IAM|QUICKSIGHT"]` required) The
+  authentication method that the user uses to sign in.
+  ## Keyword parameters:
   * `:additional_dashboard_ids`
   (`t:list[com.amazonaws.quicksight#ShortRestrictiveResourceId]`) A list of
   one or more dashboard IDs that you want anonymous users to have tempporary
@@ -22910,12 +22644,10 @@ defmodule AWS.QuickSight do
   Amazon QuickSight users in your account (readers, authors, or admins)
   authenticated as one of the following:
   """
-
   @spec get_dashboard_embed_url(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_dashboard_embed_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dashboard_embed_url_errors()}
-
   def get_dashboard_embed_url(
         %Client{} = client,
         aws_account_id,
@@ -23039,10 +22771,9 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20GetSessionEmbedUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account
-  associated with your Amazon QuickSight subscription.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account associated with your Amazon QuickSight subscription.
+  ## Keyword parameters:
   * `:entry_point` (`t:string`) The URL you use to access the embedded session.
   The entry point URL is constrained to the following paths:
   * `:session_lifetime_in_minutes` (`t:long`) How many minutes the session is
@@ -23052,12 +22783,10 @@ defmodule AWS.QuickSight do
   of Amazon QuickSight users in your account (readers, authors, or admins).
   They need to be authenticated as one of the following:
   """
-
   @spec get_session_embed_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_embed_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_embed_url_errors()}
-
   def get_session_embed_url(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/session-embed-url"
 
@@ -23118,20 +22847,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListAnalyses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the analyses.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the analyses.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
   request.
   """
-
   @spec list_analyses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_analyses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analyses_errors()}
-
   def list_analyses(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses"
 
@@ -23188,21 +22914,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListAssetBundleExportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  the export jobs were executed in.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that the export jobs were executed in.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_asset_bundle_export_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_bundle_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_bundle_export_jobs_errors()}
-
   def list_asset_bundle_export_jobs(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-export-jobs"
 
@@ -23259,21 +22982,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListAssetBundleImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  the import jobs were executed in.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that the import jobs were executed in.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_asset_bundle_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_bundle_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_bundle_import_jobs_errors()}
-
   def list_asset_bundle_import_jobs(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs"
 
@@ -23326,22 +23046,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListDashboardVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the dashboard that you're listing versions for.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the dashboard that you're listing versions for.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_dashboard_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_dashboard_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dashboard_versions_errors()}
-
   def list_dashboard_versions(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/versions"
@@ -23395,21 +23112,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListDashboards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the dashboards that you're listing.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the dashboards that you're listing.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_dashboards(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dashboards_errors()}
-
   def list_dashboards(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards"
 
@@ -23463,20 +23177,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListDataSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_data_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sets_errors()}
-
   def list_data_sets(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets"
 
@@ -23530,20 +23241,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListDataSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_data_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
-
   def list_data_sources(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
 
@@ -23596,22 +23304,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListFolderMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder.
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder.
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_folder_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_folder_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_folder_members_errors()}
-
   def list_folder_members(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/members"
@@ -23665,21 +23370,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListFolders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_folders(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_folders_errors()}
-
   def list_folders(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders"
 
@@ -23732,26 +23434,23 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListGroupMemberships&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:group_name` (`t:string`) The name of the group that you want to see a
-  membership list of.
-  * `:namespace` (`t:string`) The namespace of the group that you want a list of
-  users from.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string` required) The name of the group that you want to see
+  a membership list of.
+  * `:namespace` (`t:string` required) The namespace of the group that you want a
+  list of users from.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return from this
   request.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
   request.
   """
-
   @spec list_group_memberships(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_memberships_errors()}
-
   def list_group_memberships(
         %Client{} = client,
         aws_account_id,
@@ -23811,22 +23510,20 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace that you want a list of groups from.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace that you want a list of
+  groups from.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
   request.
   """
-
   @spec list_groups(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
-
   def list_groups(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups"
@@ -23880,11 +23577,10 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListIAMPolicyAssignments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains these IAM policy assignments.
-  * `:namespace` (`t:string`) The namespace for the assignments.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains these IAM policy assignments.
+  * `:namespace` (`t:string` required) The namespace for the assignments.
+  ## Keyword parameters:
   * `:assignment_status` (`t:enum["DISABLED|DRAFT|ENABLED"]`) The status of the
   assignments.
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
@@ -23892,12 +23588,10 @@ defmodule AWS.QuickSight do
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_iam_policy_assignments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_iam_policy_assignments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_iam_policy_assignments_errors()}
-
   def list_iam_policy_assignments(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/v2/iam-policy-assignments"
@@ -23960,18 +23654,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListIAMPolicyAssignmentsForUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the assignments.
-  * `:namespace` (`t:string`) The namespace of the assignment.
-  * `:user_name` (`t:string`) The name of the user.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the assignments.
+  * `:namespace` (`t:string` required) The namespace of the assignment.
+  * `:user_name` (`t:string` required) The name of the user.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_iam_policy_assignments_for_user(
           AWS.Client.t(),
           String.t(),
@@ -23982,7 +23674,6 @@ defmodule AWS.QuickSight do
           {:ok, list_iam_policy_assignments_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_iam_policy_assignments_for_user_errors()}
-
   def list_iam_policy_assignments_for_user(
         %Client{} = client,
         aws_account_id,
@@ -24043,20 +23734,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListIdentityPropagationConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contain the identity propagation configurations of.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contain the identity propagation configurations of.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_identity_propagation_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_propagation_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_propagation_configs_errors()}
-
   def list_identity_propagation_configs(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/identity-propagation-config"
 
@@ -24109,21 +23797,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListIngestions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset used in the ingestion.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset used in the
+  ingestion.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_ingestions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ingestions_errors()}
-
   def list_ingestions(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions"
@@ -24178,10 +23864,10 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListNamespaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the Amazon QuickSight namespaces that you want to list.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the Amazon QuickSight namespaces that you want to
+  list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A unique pagination token that can be used in a
   subsequent request. You will receive a pagination token in the response body
@@ -24191,12 +23877,10 @@ defmodule AWS.QuickSight do
   hours. If you try to make a ListNamespaces API call with an expired token,
   you will receive a HTTP 400 InvalidNextTokenException error.
   """
-
   @spec list_namespaces(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_namespaces_errors()}
-
   def list_namespaces(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces"
 
@@ -24250,17 +23934,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListRefreshSchedules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset.
+  ## Keyword parameters:
   """
-
   @spec list_refresh_schedules(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_refresh_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_refresh_schedules_errors()}
-
   def list_refresh_schedules(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
@@ -24296,25 +23977,22 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListRoleMemberships&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to create a group in. The Amazon Web Services account ID that you
-  provide must be the same Amazon Web Services account that contains your
-  Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace that includes the role.
-  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-  name of the role.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to create a group in. The Amazon Web Services account
+  ID that you provide must be the same Amazon Web Services account that
+  contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace that includes the role.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`
+  required) The name of the role.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
   request.
   """
-
   @spec list_role_memberships(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_role_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_role_memberships_errors()}
-
   def list_role_memberships(%Client{} = client, aws_account_id, namespace, role, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/members"
@@ -24368,17 +24046,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want a list of tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want a list of tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
 
@@ -24413,22 +24088,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListTemplateAliases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the template aliases that you're listing.
-  * `:template_id` (`t:string`) The ID for the template.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the template aliases that you're listing.
+  * `:template_id` (`t:string` required) The ID for the template.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_template_aliases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_aliases_errors()}
-
   def list_template_aliases(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases"
@@ -24483,22 +24155,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListTemplateVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the templates that you're listing.
-  * `:template_id` (`t:string`) The ID for the template.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the templates that you're listing.
+  * `:template_id` (`t:string` required) The ID for the template.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_template_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_versions_errors()}
-
   def list_template_versions(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/versions"
@@ -24552,21 +24221,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the templates that you're listing.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the templates that you're listing.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
-
   def list_templates(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates"
 
@@ -24619,22 +24285,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListThemeAliases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the theme aliases that you're listing.
-  * `:theme_id` (`t:string`) The ID for the theme.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the theme aliases that you're listing.
+  * `:theme_id` (`t:string` required) The ID for the theme.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_theme_aliases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_theme_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_theme_aliases_errors()}
-
   def list_theme_aliases(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases"
@@ -24688,22 +24351,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListThemeVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the themes that you're listing.
-  * `:theme_id` (`t:string`) The ID for the theme.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the themes that you're listing.
+  * `:theme_id` (`t:string` required) The ID for the theme.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_theme_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_theme_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_theme_versions_errors()}
-
   def list_theme_versions(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/versions"
@@ -24757,10 +24417,9 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListThemes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the themes that you're listing.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the themes that you're listing.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
@@ -24768,12 +24427,10 @@ defmodule AWS.QuickSight do
   * `:type` (`t:enum["ALL|CUSTOM|QUICKSIGHT"]`) The type of themes that you want
   to list. Valid options include the following:
   """
-
   @spec list_themes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_themes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_themes_errors()}
-
   def list_themes(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes"
 
@@ -24833,20 +24490,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListTopicRefreshSchedules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the topic whose refresh schedule you want described.
-  * `:topic_id` (`t:string`) The ID for the topic that you want to describe. This
-  ID is unique per Amazon Web Services Region for each Amazon Web Services
-  account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the topic whose refresh schedule you want described.
+  * `:topic_id` (`t:string` required) The ID for the topic that you want to
+  describe. This ID is unique per Amazon Web Services Region for each Amazon
+  Web Services account.
+  ## Keyword parameters:
   """
-
   @spec list_topic_refresh_schedules(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_topic_refresh_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_topic_refresh_schedules_errors()}
-
   def list_topic_refresh_schedules(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules"
@@ -24882,20 +24536,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListTopicReviewedAnswers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  containd the reviewed answers that you want listed.
-  * `:topic_id` (`t:string`) The ID for the topic that contains the reviewed
-  answer that you want to list. This ID is unique per Amazon Web Services
-  Region for each Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that containd the reviewed answers that you want listed.
+  * `:topic_id` (`t:string` required) The ID for the topic that contains the
+  reviewed answer that you want to list. This ID is unique per Amazon Web
+  Services Region for each Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec list_topic_reviewed_answers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_topic_reviewed_answers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_topic_reviewed_answers_errors()}
-
   def list_topic_reviewed_answers(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/reviewed-answers"
@@ -24931,21 +24582,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListTopics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the topics that you want to list.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the topics that you want to list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_topics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_topics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_topics_errors()}
-
   def list_topics(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics"
 
@@ -24999,26 +24647,23 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListUserGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID that the
-  user is in. Currently, you use the ID for the Amazon Web Services account
-  that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-  default.
-  * `:user_name` (`t:string`) The Amazon QuickSight user name that you want to
-  list group memberships for.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID
+  that the user is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace. Currently, you should set
+  this to default.
+  * `:user_name` (`t:string` required) The Amazon QuickSight user name that you
+  want to list group memberships for.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return from this
   request.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
   request.
   """
-
   @spec list_user_groups(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_groups_errors()}
-
   def list_user_groups(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}/groups"
@@ -25072,24 +24717,21 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the user is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-  default.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the user is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace. Currently, you should set
+  this to default.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return from this
   request.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
   request.
   """
-
   @spec list_users(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-
   def list_users(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users"
@@ -25144,21 +24786,18 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20ListVPCConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-  account that contains the VPC connections that you want to list.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID of
+  the account that contains the VPC connections that you want to list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_vpc_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_connections_errors()}
-
   def list_vpc_connections(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections"
 
@@ -25211,17 +24850,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20PutDataSetRefreshProperties&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset.
+  ## Keyword parameters:
   """
-
   @spec put_data_set_refresh_properties(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_data_set_refresh_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_data_set_refresh_properties_errors()}
-
   def put_data_set_refresh_properties(
         %Client{} = client,
         aws_account_id,
@@ -25273,20 +24909,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20RegisterUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the user is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-  default.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the user is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace. Currently, you should set
+  this to default.
+  ## Keyword parameters:
   """
-
   @spec register_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, register_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_user_errors()}
-
   def register_user(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users"
@@ -25324,18 +24957,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20RestoreAnalysis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_id` (`t:string`) The ID of the analysis that you're restoring.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the analysis.
-
-  ## Optional parameters:
+  * `:analysis_id` (`t:string` required) The ID of the analysis that you're
+  restoring.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the analysis.
+  ## Keyword parameters:
   """
-
   @spec restore_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, restore_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_analysis_errors()}
-
   def restore_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/restore/analyses/#{AWS.Util.encode_uri(analysis_id)}"
@@ -25373,17 +25004,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20SearchAnalyses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the analyses that you're searching for.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the analyses that you're searching for.
+  ## Keyword parameters:
   """
-
   @spec search_analyses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_analyses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_analyses_errors()}
-
   def search_analyses(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/analyses"
 
@@ -25420,17 +25048,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20SearchDashboards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the user whose dashboards you're searching for.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the user whose dashboards you're searching for.
+  ## Keyword parameters:
   """
-
   @spec search_dashboards(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_dashboards_errors()}
-
   def search_dashboards(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/dashboards"
 
@@ -25468,16 +25093,13 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20SearchDataSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  ## Keyword parameters:
   """
-
   @spec search_data_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_data_sets_errors()}
-
   def search_data_sets(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sets"
 
@@ -25515,16 +25137,13 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20SearchDataSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  ## Keyword parameters:
   """
-
   @spec search_data_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_data_sources_errors()}
-
   def search_data_sources(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sources"
 
@@ -25561,17 +25180,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20SearchFolders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder.
+  ## Keyword parameters:
   """
-
   @spec search_folders(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_folders_errors()}
-
   def search_folders(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/folders"
 
@@ -25609,23 +25225,20 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20SearchGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace that you want to search.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace that you want to search.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return from this
   request.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
   request.
   """
-
   @spec search_groups(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, search_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_groups_errors()}
-
   def search_groups(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups-search"
@@ -25687,17 +25300,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20StartAssetBundleExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account to
-  export assets from.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account to export assets from.
+  ## Keyword parameters:
   """
-
   @spec start_asset_bundle_export_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_asset_bundle_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_asset_bundle_export_job_errors()}
-
   def start_asset_bundle_export_job(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-export-jobs/export"
 
@@ -25739,17 +25349,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20StartAssetBundleImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account to
-  import assets into.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account to import assets into.
+  ## Keyword parameters:
   """
-
   @spec start_asset_bundle_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_asset_bundle_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_asset_bundle_import_job_errors()}
-
   def start_asset_bundle_import_job(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs/import"
 
@@ -25788,19 +25395,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20StartDashboardSnapshotJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  the dashboard snapshot job is executed in.
-  * `:dashboard_id` (`t:string`) The ID of the dashboard that you want to start a
-  snapshot job for.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that the dashboard snapshot job is executed in.
+  * `:dashboard_id` (`t:string` required) The ID of the dashboard that you want to
+  start a snapshot job for.
+  ## Keyword parameters:
   """
-
   @spec start_dashboard_snapshot_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_dashboard_snapshot_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_dashboard_snapshot_job_errors()}
-
   def start_dashboard_snapshot_job(
         %Client{} = client,
         aws_account_id,
@@ -25851,17 +25455,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
 
@@ -25898,19 +25499,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to untag.
-  * `:tag_keys` (`t:list[com.amazonaws.quicksight#TagKey]`) The keys of the
-  key-value pairs for the resource tag or tags assigned to the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.quicksight#TagKey]` required) The keys of
+  the key-value pairs for the resource tag or tags assigned to the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
@@ -25959,19 +25557,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateAccountCustomization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to update Amazon QuickSight customizations for.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to update Amazon QuickSight customizations for.
+  ## Keyword parameters:
   * `:namespace` (`t:string`) The namespace that you want to update Amazon
   QuickSight customizations for.
   """
-
   @spec update_account_customization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_customization_errors()}
-
   def update_account_customization(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
 
@@ -26019,17 +25614,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the Amazon QuickSight settings that you want to list.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the Amazon QuickSight settings that you want to list.
+  ## Keyword parameters:
   """
-
   @spec update_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_settings_errors()}
-
   def update_account_settings(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/settings"
 
@@ -26066,19 +25658,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateAnalysis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_id` (`t:string`) The ID for the analysis that you're updating. This
-  ID displays in the URL of the analysis.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the analysis that you're updating.
-
-  ## Optional parameters:
+  * `:analysis_id` (`t:string` required) The ID for the analysis that you're
+  updating. This ID displays in the URL of the analysis.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the analysis that you're updating.
+  ## Keyword parameters:
   """
-
   @spec update_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_analysis_errors()}
-
   def update_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
@@ -26116,20 +25705,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateAnalysisPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_id` (`t:string`) The ID of the analysis whose permissions you're
-  updating. The ID is part of the analysis URL.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the analysis whose permissions you're updating. You must be using
-  the Amazon Web Services account that the analysis is in.
-
-  ## Optional parameters:
+  * `:analysis_id` (`t:string` required) The ID of the analysis whose permissions
+  you're updating. The ID is part of the analysis URL.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the analysis whose permissions you're updating. You
+  must be using the Amazon Web Services account that the analysis is in.
+  ## Keyword parameters:
   """
-
   @spec update_analysis_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_analysis_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_analysis_permissions_errors()}
-
   def update_analysis_permissions(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}/permissions"
@@ -26167,18 +25753,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateDashboard&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the dashboard that you're updating.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the dashboard that you're updating.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard.
+  ## Keyword parameters:
   """
-
   @spec update_dashboard(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_errors()}
-
   def update_dashboard(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
@@ -26216,18 +25799,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateDashboardLinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the dashboard whose links you want to update.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the dashboard whose links you want to update.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard.
+  ## Keyword parameters:
   """
-
   @spec update_dashboard_links(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_dashboard_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_links_errors()}
-
   def update_dashboard_links(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/linked-entities"
@@ -26265,18 +25845,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateDashboardPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the dashboard whose permissions you're updating.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the dashboard whose permissions you're updating.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard.
+  ## Keyword parameters:
   """
-
   @spec update_dashboard_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_dashboard_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_permissions_errors()}
-
   def update_dashboard_permissions(
         %Client{} = client,
         aws_account_id,
@@ -26319,14 +25896,12 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateDashboardPublishedVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the dashboard that you're updating.
-  * `:dashboard_id` (`t:string`) The ID for the dashboard.
-  * `:version_number` (`t:long`) The version number of the dashboard.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the dashboard that you're updating.
+  * `:dashboard_id` (`t:string` required) The ID for the dashboard.
+  * `:version_number` (`t:long` required) The version number of the dashboard.
+  ## Keyword parameters:
   """
-
   @spec update_dashboard_published_version(
           AWS.Client.t(),
           String.t(),
@@ -26337,7 +25912,6 @@ defmodule AWS.QuickSight do
           {:ok, update_dashboard_published_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_published_version_errors()}
-
   def update_dashboard_published_version(
         %Client{} = client,
         aws_account_id,
@@ -26382,19 +25956,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID for the dataset that you want to update.
-  This ID is unique per Amazon Web Services Region for each Amazon Web
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID for the dataset that you want to
+  update. This ID is unique per Amazon Web Services Region for each Amazon Web
   Services account.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_data_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_set_errors()}
-
   def update_data_set(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
@@ -26432,19 +26003,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateDataSetPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID for the dataset whose permissions you want
-  to update. This ID is unique per Amazon Web Services Region for each Amazon
-  Web Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID for the dataset whose permissions
+  you want to update. This ID is unique per Amazon Web Services Region for
+  each Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec update_data_set_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_set_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_set_permissions_errors()}
-
   def update_data_set_permissions(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/permissions"
@@ -26482,18 +26050,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique
-  per Amazon Web Services Region for each Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_source_id` (`t:string` required) The ID of the data source. This ID is
+  unique per Amazon Web Services Region for each Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec update_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
-
   def update_data_source(%Client{} = client, aws_account_id, data_source_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
@@ -26531,18 +26096,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateDataSourcePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique
-  per Amazon Web Services Region for each Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_source_id` (`t:string` required) The ID of the data source. This ID is
+  unique per Amazon Web Services Region for each Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec update_data_source_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_permissions_errors()}
-
   def update_data_source_permissions(
         %Client{} = client,
         aws_account_id,
@@ -26585,18 +26147,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder to update.
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder to update.
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   """
-
   @spec update_folder(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_folder_errors()}
-
   def update_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
@@ -26634,18 +26193,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateFolderPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  contains the folder to update.
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that contains the folder to update.
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   """
-
   @spec update_folder_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_folder_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_folder_permissions_errors()}
-
   def update_folder_permissions(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/permissions"
@@ -26683,20 +26239,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the group is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:group_name` (`t:string`) The name of the group that you want to update.
-  * `:namespace` (`t:string`) The namespace of the group that you want to update.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the group is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string` required) The name of the group that you want to
+  update.
+  * `:namespace` (`t:string` required) The namespace of the group that you want to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
-
   def update_group(%Client{} = client, aws_account_id, group_name, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
@@ -26736,15 +26291,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateIAMPolicyAssignment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assignment_name` (`t:string`) The name of the assignment, also called a
-  rule. The name must be unique within the Amazon Web Services account.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the IAM policy assignment.
-  * `:namespace` (`t:string`) The namespace of the assignment.
-
-  ## Optional parameters:
+  * `:assignment_name` (`t:string` required) The name of the assignment, also
+  called a rule. The name must be unique within the Amazon Web Services
+  account.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the IAM policy assignment.
+  * `:namespace` (`t:string` required) The namespace of the assignment.
+  ## Keyword parameters:
   """
-
   @spec update_iam_policy_assignment(
           AWS.Client.t(),
           String.t(),
@@ -26755,7 +26309,6 @@ defmodule AWS.QuickSight do
           {:ok, update_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_iam_policy_assignment_errors()}
-
   def update_iam_policy_assignment(
         %Client{} = client,
         assignment_name,
@@ -26800,19 +26353,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateIdentityPropagationConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the identity propagation configuration that you want to update.
-  * `:service` (`t:enum["REDSHIFT"]`) The name of the Amazon Web Services service
-  that contains the authorized targets that you want to add or update.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the identity propagation configuration that you want
+  to update.
+  * `:service` (`t:enum["REDSHIFT"]` required) The name of the Amazon Web Services
+  service that contains the authorized targets that you want to add or update.
+  ## Keyword parameters:
   """
-
   @spec update_identity_propagation_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_identity_propagation_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_identity_propagation_config_errors()}
-
   def update_identity_propagation_config(
         %Client{} = client,
         aws_account_id,
@@ -26859,17 +26410,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateIpRestriction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the IP rules.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the IP rules.
+  ## Keyword parameters:
   """
-
   @spec update_ip_restriction(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_ip_restriction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ip_restriction_errors()}
-
   def update_ip_restriction(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
 
@@ -26906,17 +26454,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateKeyRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the customer managed key registration that you want to update.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the customer managed key registration that you want to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_key_registration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_key_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_key_registration_errors()}
-
   def update_key_registration(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/key-registration"
 
@@ -26956,17 +26502,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdatePublicSharingSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID associated
-  with your Amazon QuickSight subscription.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID
+  associated with your Amazon QuickSight subscription.
+  ## Keyword parameters:
   """
-
   @spec update_public_sharing_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_public_sharing_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_public_sharing_settings_errors()}
-
   def update_public_sharing_settings(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/public-sharing-settings"
 
@@ -27003,17 +26546,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateRefreshSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
-  * `:data_set_id` (`t:string`) The ID of the dataset.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string` required) The ID of the dataset.
+  ## Keyword parameters:
   """
-
   @spec update_refresh_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_refresh_schedule_errors()}
-
   def update_refresh_schedule(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
@@ -27051,18 +26591,16 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateRoleCustomPermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  you want to create a group in. The Amazon Web Services account ID that you
-  provide must be the same Amazon Web Services account that contains your
-  Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace that contains the role that you want
-  to update.
-  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-  name of role tht you want to update.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that you want to create a group in. The Amazon Web Services account
+  ID that you provide must be the same Amazon Web Services account that
+  contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace that contains the role that
+  you want to update.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`
+  required) The name of role tht you want to update.
+  ## Keyword parameters:
   """
-
   @spec update_role_custom_permission(
           AWS.Client.t(),
           String.t(),
@@ -27073,7 +26611,6 @@ defmodule AWS.QuickSight do
           {:ok, update_role_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_role_custom_permission_errors()}
-
   def update_role_custom_permission(
         %Client{} = client,
         aws_account_id,
@@ -27117,17 +26654,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateSPICECapacityConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the SPICE configuration that you want to update.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the SPICE configuration that you want to update.
+  ## Keyword parameters:
   """
-
   @spec update_s_p_i_c_e_capacity_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_s_p_i_c_e_capacity_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_s_p_i_c_e_capacity_configuration_errors()}
-
   def update_s_p_i_c_e_capacity_configuration(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spice-capacity-configuration"
 
@@ -27165,18 +26699,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the template that you're updating.
-  * `:template_id` (`t:string`) The ID for the template.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the template that you're updating.
+  * `:template_id` (`t:string` required) The ID for the template.
+  ## Keyword parameters:
   """
-
   @spec update_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
-
   def update_template(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
@@ -27214,23 +26745,20 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateTemplateAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_name` (`t:string`) The alias of the template that you want to update.
-  If you name a specific alias, you update the version that the alias points
-  to. You can specify the latest version of the template by providing the
-  keyword $LATEST in the AliasName parameter. The keyword $PUBLISHED doesn't
-  apply to templates.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the template alias that you're updating.
-  * `:template_id` (`t:string`) The ID for the template.
-
-  ## Optional parameters:
+  * `:alias_name` (`t:string` required) The alias of the template that you want to
+  update. If you name a specific alias, you update the version that the alias
+  points to. You can specify the latest version of the template by providing
+  the keyword $LATEST in the AliasName parameter. The keyword $PUBLISHED
+  doesn't apply to templates.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the template alias that you're updating.
+  * `:template_id` (`t:string` required) The ID for the template.
+  ## Keyword parameters:
   """
-
   @spec update_template_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_alias_errors()}
-
   def update_template_alias(
         %Client{} = client,
         alias_name,
@@ -27274,18 +26802,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateTemplatePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the template.
-  * `:template_id` (`t:string`) The ID for the template.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the template.
+  * `:template_id` (`t:string` required) The ID for the template.
+  ## Keyword parameters:
   """
-
   @spec update_template_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_permissions_errors()}
-
   def update_template_permissions(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/permissions"
@@ -27323,18 +26848,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateTheme&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the theme that you're updating.
-  * `:theme_id` (`t:string`) The ID for the theme.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the theme that you're updating.
+  * `:theme_id` (`t:string` required) The ID for the theme.
+  ## Keyword parameters:
   """
-
   @spec update_theme(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_theme_errors()}
-
   def update_theme(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
@@ -27372,20 +26894,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateThemeAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_name` (`t:string`) The name of the theme alias that you want to
-  update.
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the theme alias that you're updating.
-  * `:theme_id` (`t:string`) The ID for the theme.
-
-  ## Optional parameters:
+  * `:alias_name` (`t:string` required) The name of the theme alias that you want
+  to update.
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the theme alias that you're updating.
+  * `:theme_id` (`t:string` required) The ID for the theme.
+  ## Keyword parameters:
   """
-
   @spec update_theme_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_theme_alias_errors()}
-
   def update_theme_alias(%Client{} = client, alias_name, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
@@ -27426,18 +26945,15 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateThemePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the theme.
-  * `:theme_id` (`t:string`) The ID for the theme.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the theme.
+  * `:theme_id` (`t:string` required) The ID for the theme.
+  ## Keyword parameters:
   """
-
   @spec update_theme_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_theme_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_theme_permissions_errors()}
-
   def update_theme_permissions(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/permissions"
@@ -27475,20 +26991,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateTopic&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the topic that you want to update.
-  * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID
-  is unique per Amazon Web Services Region for each Amazon Web Services
-  account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the topic that you want to update.
+  * `:topic_id` (`t:string` required) The ID of the topic that you want to modify.
+  This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
+  ## Keyword parameters:
   """
-
   @spec update_topic(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_topic_errors()}
-
   def update_topic(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
@@ -27526,20 +27039,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateTopicPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the topic that you want to update the permissions for.
-  * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID
-  is unique per Amazon Web Services Region for each Amazon Web Services
-  account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the topic that you want to update the permissions for.
+  * `:topic_id` (`t:string` required) The ID of the topic that you want to modify.
+  This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
+  ## Keyword parameters:
   """
-
   @spec update_topic_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_topic_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_topic_permissions_errors()}
-
   def update_topic_permissions(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/permissions"
@@ -27577,16 +27087,14 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateTopicRefreshSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-  contains the topic whose refresh schedule you want to update.
-  * `:dataset_id` (`t:string`) The ID of the dataset.
-  * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID
-  is unique per Amazon Web Services Region for each Amazon Web Services
-  account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID of the Amazon Web Services
+  account that contains the topic whose refresh schedule you want to update.
+  * `:dataset_id` (`t:string` required) The ID of the dataset.
+  * `:topic_id` (`t:string` required) The ID of the topic that you want to modify.
+  This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
+  ## Keyword parameters:
   """
-
   @spec update_topic_refresh_schedule(
           AWS.Client.t(),
           String.t(),
@@ -27597,7 +27105,6 @@ defmodule AWS.QuickSight do
           {:ok, update_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_topic_refresh_schedule_errors()}
-
   def update_topic_refresh_schedule(
         %Client{} = client,
         aws_account_id,
@@ -27641,22 +27148,19 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-  the user is in. Currently, you use the ID for the Amazon Web Services
-  account that contains your Amazon QuickSight account.
-  * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-  default.
-  * `:user_name` (`t:string`) The Amazon QuickSight user name that you want to
-  update.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The ID for the Amazon Web Services
+  account that the user is in. Currently, you use the ID for the Amazon Web
+  Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string` required) The namespace. Currently, you should set
+  this to default.
+  * `:user_name` (`t:string` required) The Amazon QuickSight user name that you
+  want to update.
+  ## Keyword parameters:
   """
-
   @spec update_user(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-
   def update_user(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
@@ -27694,20 +27198,17 @@ defmodule AWS.QuickSight do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=quicksight%20UpdateVPCConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-  account that contains the VPC connection that you want to update.
-  * `:vpc_connection_id` (`t:string`) The ID of the VPC connection that you're
-  updating. This ID is a unique identifier for each Amazon Web Services Region
-  in an Amazon Web Services account.
-
-  ## Optional parameters:
+  * `:aws_account_id` (`t:string` required) The Amazon Web Services account ID of
+  the account that contains the VPC connection that you want to update.
+  * `:vpc_connection_id` (`t:string` required) The ID of the VPC connection that
+  you're updating. This ID is a unique identifier for each Amazon Web Services
+  Region in an Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec update_vpc_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_connection_errors()}
-
   def update_vpc_connection(%Client{} = client, aws_account_id, vpc_connection_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections/#{AWS.Util.encode_uri(vpc_connection_id)}"

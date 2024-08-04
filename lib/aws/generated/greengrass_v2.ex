@@ -1530,18 +1530,15 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:role_arn` (`t:string`) The Amazon Resource Name (ARN) of the service role to
-  associate with IoT Greengrass for your Amazon Web Services account in this
-  Amazon Web Services Region.
-
-  ## Optional parameters:
+    * `:role_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  service role to associate with IoT Greengrass for your Amazon Web Services
+  account in this Amazon Web Services Region.
+  ## Keyword parameters:
   """
-
   @spec associate_service_role_to_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_service_role_to_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_service_role_to_account_errors()}
-
   def associate_service_role_to_account(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/greengrass/servicerole"
@@ -1592,17 +1589,14 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20BatchAssociateClientDeviceWithCoreDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
-  also the name of the IoT thing.
-
-  ## Optional parameters:
+  * `:core_device_thing_name` (`t:string` required) The name of the core device.
+  This is also the name of the IoT thing.
+  ## Keyword parameters:
   """
-
   @spec batch_associate_client_device_with_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_associate_client_device_with_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_client_device_with_core_device_errors()}
-
   def batch_associate_client_device_with_core_device(
         %Client{} = client,
         core_device_thing_name,
@@ -1647,17 +1641,14 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20BatchDisassociateClientDeviceFromCoreDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
-  also the name of the IoT thing.
-
-  ## Optional parameters:
+  * `:core_device_thing_name` (`t:string` required) The name of the core device.
+  This is also the name of the IoT thing.
+  ## Keyword parameters:
   """
-
   @spec batch_disassociate_client_device_from_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_disassociate_client_device_from_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_client_device_from_core_device_errors()}
-
   def batch_disassociate_client_device_from_core_device(
         %Client{} = client,
         core_device_thing_name,
@@ -1701,16 +1692,13 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20CancelDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:deployment_id` (`t:string`) The ID of the deployment.
-
-  ## Optional parameters:
+  * `:deployment_id` (`t:string` required) The ID of the deployment.
+  ## Keyword parameters:
   """
-
   @spec cancel_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_deployment_errors()}
-
   def cancel_deployment(%Client{} = client, deployment_id, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}/cancel"
 
@@ -1751,15 +1739,12 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20CreateComponentVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_component_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_component_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_component_version_errors()}
-
   def create_component_version(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/createComponentVersion"
 
@@ -1802,15 +1787,12 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20CreateDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_deployment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
-
   def create_deployment(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/deployments"
 
@@ -1847,16 +1829,13 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DeleteComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The ARN of the component version.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The ARN of the component version.
+  ## Keyword parameters:
   """
-
   @spec delete_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_component_errors()}
-
   def delete_component(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
 
@@ -1907,17 +1886,14 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DeleteCoreDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
-  also the name of the IoT thing.
-
-  ## Optional parameters:
+  * `:core_device_thing_name` (`t:string` required) The name of the core device.
+  This is also the name of the IoT thing.
+  ## Keyword parameters:
   """
-
   @spec delete_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_core_device_errors()}
-
   def delete_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
 
@@ -1966,16 +1942,13 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DeleteDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:deployment_id` (`t:string`) The ID of the deployment.
-
-  ## Optional parameters:
+  * `:deployment_id` (`t:string` required) The ID of the deployment.
+  ## Keyword parameters:
   """
-
   @spec delete_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_errors()}
-
   def delete_deployment(%Client{} = client, deployment_id, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
 
@@ -2022,16 +1995,13 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DescribeComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The ARN of the component version.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The ARN of the component version.
+  ## Keyword parameters:
   """
-
   @spec describe_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_component_errors()}
-
   def describe_component(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/metadata"
 
@@ -2072,15 +2042,12 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DisassociateServiceRoleFromAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_service_role_from_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_service_role_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_service_role_from_account_errors()}
-
   def disassociate_service_role_from_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
 
@@ -2127,17 +2094,14 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The ARN of the component version.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The ARN of the component version.
+  ## Keyword parameters:
   * `:recipe_output_format` (`t:enum["JSON|YAML"]`) The format of the recipe.
   """
-
   @spec get_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_errors()}
-
   def get_component(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
 
@@ -2185,11 +2149,10 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetComponentVersionArtifact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The ARN of the component version. Specify the ARN of a
-  public or a Lambda component version.
-  * `:artifact_name` (`t:string`) The name of the artifact.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The ARN of the component version. Specify the ARN
+  of a public or a Lambda component version.
+  * `:artifact_name` (`t:string` required) The name of the artifact.
+  ## Keyword parameters:
   * `:s3_endpoint_type` (`t:enum["GLOBAL|REGIONAL"]`) Specifies the endpoint to
   use when getting Amazon S3 pre-signed URLs.
   * `:iot_endpoint_type` (`t:enum["fips|standard"]`) Determines if the Amazon S3
@@ -2197,12 +2160,10 @@ defmodule AWS.GreengrassV2 do
   returned Amazon S3 pre-signed URL to point to an Amazon S3 FIPS endpoint. If
   you don't specify a value, the default is standard.
   """
-
   @spec get_component_version_artifact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_version_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_version_artifact_errors()}
-
   def get_component_version_artifact(%Client{} = client, arn, artifact_name, options \\ []) do
     url_path =
       "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/artifacts/#{AWS.Util.encode_multi_segment_uri(artifact_name)}"
@@ -2255,17 +2216,14 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetConnectivityInfo&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`) The name of the core device. This is also the name
-  of the IoT thing.
-
-  ## Optional parameters:
+  * `:thing_name` (`t:string` required) The name of the core device. This is also
+  the name of the IoT thing.
+  ## Keyword parameters:
   """
-
   @spec get_connectivity_info(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connectivity_info_errors()}
-
   def get_connectivity_info(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
 
@@ -2300,17 +2258,14 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetCoreDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
-  also the name of the IoT thing.
-
-  ## Optional parameters:
+  * `:core_device_thing_name` (`t:string` required) The name of the core device.
+  This is also the name of the IoT thing.
+  ## Keyword parameters:
   """
-
   @spec get_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_device_errors()}
-
   def get_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
 
@@ -2346,16 +2301,13 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:deployment_id` (`t:string`) The ID of the deployment.
-
-  ## Optional parameters:
+  * `:deployment_id` (`t:string` required) The ID of the deployment.
+  ## Keyword parameters:
   """
-
   @spec get_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
-
   def get_deployment(%Client{} = client, deployment_id, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
 
@@ -2395,15 +2347,12 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetServiceRoleForAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_service_role_for_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_role_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_role_for_account_errors()}
-
   def get_service_role_for_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
 
@@ -2439,21 +2388,18 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListClientDevicesAssociatedWithCoreDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
-  also the name of the IoT thing.
-
-  ## Optional parameters:
+  * `:core_device_thing_name` (`t:string` required) The name of the core device.
+  This is also the name of the IoT thing.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_client_devices_associated_with_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_client_devices_associated_with_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_client_devices_associated_with_core_device_errors()}
-
   def list_client_devices_associated_with_core_device(
         %Client{} = client,
         core_device_thing_name,
@@ -2512,20 +2458,17 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListComponentVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The ARN of the component.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The ARN of the component.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_component_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_component_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_component_versions_errors()}
-
   def list_component_versions(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/versions"
 
@@ -2579,20 +2522,17 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   * `:scope` (`t:enum["PRIVATE|PUBLIC"]`) The scope of the components to list.
   """
-
   @spec list_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
-
   def list_components(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/components"
 
@@ -2652,8 +2592,7 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListCoreDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
@@ -2667,12 +2606,10 @@ defmodule AWS.GreengrassV2 do
   When you remove a core device from a thing group, the list continues to
   include that core device.
   """
-
   @spec list_core_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_core_devices_errors()}
-
   def list_core_devices(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/coreDevices"
 
@@ -2739,8 +2676,7 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:history_filter` (`t:enum["ALL|LATEST_ONLY"]`) The filter for the list of
   deployments. Choose one of the following options:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
@@ -2751,12 +2687,10 @@ defmodule AWS.GreengrassV2 do
   subdeployment.
   * `:target_arn` (`t:string`) The ARN of the target IoT thing or thing group.
   """
-
   @spec list_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
-
   def list_deployments(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/deployments"
 
@@ -2843,21 +2777,18 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListEffectiveDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
-  also the name of the IoT thing.
-
-  ## Optional parameters:
+  * `:core_device_thing_name` (`t:string` required) The name of the core device.
+  This is also the name of the IoT thing.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_effective_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_effective_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_effective_deployments_errors()}
-
   def list_effective_deployments(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path =
       "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/effectiveDeployments"
@@ -2914,10 +2845,9 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListInstalledComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
-  also the name of the IoT thing.
-
-  ## Optional parameters:
+  * `:core_device_thing_name` (`t:string` required) The name of the core device.
+  This is also the name of the IoT thing.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
@@ -2925,12 +2855,10 @@ defmodule AWS.GreengrassV2 do
   * `:topology_filter` (`t:enum["ALL|ROOT"]`) The filter for the list of
   components. Choose from the following options:
   """
-
   @spec list_installed_components(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_installed_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_installed_components_errors()}
-
   def list_installed_components(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path =
       "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/installedComponents"
@@ -2991,16 +2919,13 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3042,15 +2967,12 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ResolveComponentCandidates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec resolve_component_candidates(AWS.Client.t(), Keyword.t()) ::
           {:ok, resolve_component_candidates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resolve_component_candidates_errors()}
-
   def resolve_component_candidates(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/resolveComponentCandidates"
 
@@ -3088,16 +3010,13 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3134,18 +3053,15 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to untag.
-  * `:tag_keys` (`t:list[com.amazonaws.greengrassv2#TagKey]`) A list of keys for
-  tags to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.greengrassv2#TagKey]` required) A list of
+  keys for tags to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3193,22 +3109,19 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20UpdateConnectivityInfo&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`) The name of the core device. This is also the name
-  of the IoT thing.
+  * `:thing_name` (`t:string` required) The name of the core device. This is also
+  the name of the IoT thing.
   * `:input` (`t:map`):
-    * `:connectivity_info` (`t:list[com.amazonaws.greengrassv2#ConnectivityInfo]`)
-  The connectivity information for the core device.
-    * `:thing_name` (`t:string`) The name of the core device. This is also the name
-  of the IoT thing.
-
-  ## Optional parameters:
+    * `:connectivity_info` (`t:list[com.amazonaws.greengrassv2#ConnectivityInfo]`
+  required) The connectivity information for the core device.
+    * `:thing_name` (`t:string` required) The name of the core device. This is also
+  the name of the IoT thing.
+  ## Keyword parameters:
   """
-
   @spec update_connectivity_info(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connectivity_info_errors()}
-
   def update_connectivity_info(%Client{} = client, thing_name, input, options \\ [])
       when is_map(input) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"

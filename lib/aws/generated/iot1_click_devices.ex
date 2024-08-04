@@ -508,17 +508,14 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ClaimDevicesByClaimCode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:claim_code` (`t:string`) The claim code, starting with "C-", as provided by
-  the device manufacturer.
-
-  ## Optional parameters:
+  * `:claim_code` (`t:string` required) The claim code, starting with "C-", as
+  provided by the device manufacturer.
+  ## Keyword parameters:
   """
-
   @spec claim_devices_by_claim_code(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, claim_devices_by_claim_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, claim_devices_by_claim_code_errors()}
-
   def claim_devices_by_claim_code(%Client{} = client, claim_code, options \\ []) do
     url_path = "/claims/#{AWS.Util.encode_uri(claim_code)}"
 
@@ -556,16 +553,13 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20DescribeDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The unique identifier of the device.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The unique identifier of the device.
+  ## Keyword parameters:
   """
-
   @spec describe_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_errors()}
-
   def describe_device(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
 
@@ -600,20 +594,17 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20FinalizeDeviceClaim&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The unique identifier of the device.
+  * `:device_id` (`t:string` required) The unique identifier of the device.
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) A collection of key/value pairs defining the resource tags.
   For example, { "tags": {"key1": "value1", "key2": "value2"} }. For more
   information, see AWS Tagging Strategies.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec finalize_device_claim(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, finalize_device_claim_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, finalize_device_claim_errors()}
-
   def finalize_device_claim(%Client{} = client, device_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/finalize-claim"
@@ -651,16 +642,13 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20GetDeviceMethods&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The unique identifier of the device.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The unique identifier of the device.
+  ## Keyword parameters:
   """
-
   @spec get_device_methods(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_methods_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_methods_errors()}
-
   def get_device_methods(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/methods"
 
@@ -695,16 +683,13 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20InitiateDeviceClaim&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The unique identifier of the device.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The unique identifier of the device.
+  ## Keyword parameters:
   """
-
   @spec initiate_device_claim(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, initiate_device_claim_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initiate_device_claim_errors()}
-
   def initiate_device_claim(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/initiate-claim"
 
@@ -742,20 +727,17 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20InvokeDeviceMethod&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The unique identifier of the device.
+  * `:device_id` (`t:string` required) The unique identifier of the device.
   * `:input` (`t:map | nil`):
     * `:device_method` (`t:structure`) The device method to invoke.
     * `:device_method_parameters` (`t:string`) A JSON encoded string containing the
   device method request parameters.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec invoke_device_method(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, invoke_device_method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_device_method_errors()}
-
   def invoke_device_method(%Client{} = client, device_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/methods"
@@ -794,23 +776,20 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ListDeviceEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The unique identifier of the device.
-  * `:from_time_stamp` (`t:timestamp[date-time]`) The start date for the device
-  event query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
-  * `:to_time_stamp` (`t:timestamp[date-time]`) The end date for the device event
-  query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The unique identifier of the device.
+  * `:from_time_stamp` (`t:timestamp[date-time]` required) The start date for the
+  device event query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
+  * `:to_time_stamp` (`t:timestamp[date-time]` required) The end date for the
+  device event query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per
   request. If not set, a default value of 100 is used.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
-
   @spec list_device_events(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_events_errors()}
-
   def list_device_events(
         %Client{} = client,
         device_id,
@@ -870,19 +849,16 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ListDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:device_type` (`t:string`) The type of the device, such as "button".
   * `:max_results` (`t:integer`) The maximum number of results to return per
   request. If not set, a default value of 100 is used.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
-
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-
   def list_devices(%Client{} = client, options \\ []) do
     url_path = "/devices"
 
@@ -942,16 +918,13 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -989,20 +962,17 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
   * `:input` (`t:map`):
-    * `:tags` (`t:map`) A collection of key/value pairs defining the resource tags.
-  For example, { "tags": {"key1": "value1", "key2": "value2"} }. For more
-  information, see AWS Tagging Strategies.
-
-  ## Optional parameters:
+    * `:tags` (`t:map` required) A collection of key/value pairs defining the
+  resource tags. For example, { "tags": {"key1": "value1", "key2": "value2"}
+  }. For more information, see AWS Tagging Strategies.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1039,16 +1009,13 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20UnclaimDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The unique identifier of the device.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The unique identifier of the device.
+  ## Keyword parameters:
   """
-
   @spec unclaim_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, unclaim_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unclaim_device_errors()}
-
   def unclaim_device(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/unclaim"
 
@@ -1086,18 +1053,15 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.iot1clickdevicesservice#__string]`) A
-  collections of tag keys. For example, {"key1","key2"}
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iot1clickdevicesservice#__string]`
+  required) A collections of tag keys. For example, {"key1","key2"}
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1146,19 +1110,16 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20UpdateDeviceState&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The unique identifier of the device.
+  * `:device_id` (`t:string` required) The unique identifier of the device.
   * `:input` (`t:map | nil`):
     * `:enabled` (`t:boolean`) If true, the device is enabled. If false, the device
   is disabled.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_device_state(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_device_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_state_errors()}
-
   def update_device_state(%Client{} = client, device_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/state"

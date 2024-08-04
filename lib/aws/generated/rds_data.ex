@@ -562,15 +562,12 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20BatchExecuteStatement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_execute_statement(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_execute_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_execute_statement_errors()}
-
   def batch_execute_statement(%Client{} = client, options \\ []) do
     url_path = "/BatchExecute"
 
@@ -607,15 +604,12 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20BeginTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec begin_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, begin_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, begin_transaction_errors()}
-
   def begin_transaction(%Client{} = client, options \\ []) do
     url_path = "/BeginTransaction"
 
@@ -653,15 +647,12 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20CommitTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec commit_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, commit_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, commit_transaction_errors()}
-
   def commit_transaction(%Client{} = client, options \\ []) do
     url_path = "/CommitTransaction"
 
@@ -698,15 +689,12 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20ExecuteSql&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec execute_sql(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_sql_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_sql_errors()}
-
   def execute_sql(%Client{} = client, options \\ []) do
     url_path = "/ExecuteSql"
 
@@ -743,15 +731,12 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20ExecuteStatement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec execute_statement(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_statement_errors()}
-
   def execute_statement(%Client{} = client, options \\ []) do
     url_path = "/Execute"
 
@@ -789,15 +774,12 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20RollbackTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec rollback_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, rollback_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rollback_transaction_errors()}
-
   def rollback_transaction(%Client{} = client, options \\ []) do
     url_path = "/RollbackTransaction"
 

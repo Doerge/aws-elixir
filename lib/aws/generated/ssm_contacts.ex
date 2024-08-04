@@ -1728,6 +1728,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Used to acknowledge an engagement to a contact channel during an incident.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20AcceptPage&this_doc_guide=API%2520Reference)
@@ -1743,12 +1744,10 @@ defmodule AWS.SSMContacts do
       required("PageId") => String.t()
     }
   """
-
   @spec accept_page(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_page_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_page_errors()}
-
   def accept_page(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1757,6 +1756,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Activates a contact's contact channel. Incident Manager can't engage a contact
   until the contact channel has been activated.
 
@@ -1769,12 +1769,10 @@ defmodule AWS.SSMContacts do
       required("ContactChannelId") => String.t()
     }
   """
-
   @spec activate_contact_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activate_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_contact_channel_errors()}
-
   def activate_contact_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1783,6 +1781,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Contacts are either the contacts that Incident Manager engages during an
   incident or the escalation plans that Incident Manager uses to engage contacts
   in phases during an incident.
@@ -1800,12 +1799,10 @@ defmodule AWS.SSMContacts do
       required("Type") => list(any())
     }
   """
-
   @spec create_contact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_errors()}
-
   def create_contact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1814,6 +1811,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   A contact channel is the method that Incident Manager uses to engage your
   contact.
 
@@ -1830,12 +1828,10 @@ defmodule AWS.SSMContacts do
       required("Type") => list(any())
     }
   """
-
   @spec create_contact_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_channel_errors()}
-
   def create_contact_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1844,6 +1840,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Creates a rotation in an on-call schedule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20CreateRotation&this_doc_guide=API%2520Reference)
@@ -1860,12 +1857,10 @@ defmodule AWS.SSMContacts do
       required("TimeZoneId") => String.t()
     }
   """
-
   @spec create_rotation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rotation_errors()}
-
   def create_rotation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1874,6 +1869,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Creates an override for a rotation in an on-call schedule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20CreateRotationOverride&this_doc_guide=API%2520Reference)
@@ -1888,12 +1884,10 @@ defmodule AWS.SSMContacts do
       required("StartTime") => non_neg_integer()
     }
   """
-
   @spec create_rotation_override(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rotation_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rotation_override_errors()}
-
   def create_rotation_override(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1902,6 +1896,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   To no longer receive Incident Manager engagements to a contact channel, you can
   deactivate the channel.
 
@@ -1913,12 +1908,10 @@ defmodule AWS.SSMContacts do
       required("ContactChannelId") => String.t()
     }
   """
-
   @spec deactivate_contact_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deactivate_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_contact_channel_errors()}
-
   def deactivate_contact_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1927,6 +1920,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   To remove a contact from Incident Manager, you can delete the contact. Deleting
   a contact removes them from all escalation plans and related response plans.
   Deleting an escalation plan removes it from all related response plans. You
@@ -1941,12 +1935,10 @@ defmodule AWS.SSMContacts do
       required("ContactId") => String.t()
     }
   """
-
   @spec delete_contact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_errors()}
-
   def delete_contact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1955,6 +1947,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   To no longer receive engagements on a contact channel, you can delete the
   channel from a contact. Deleting the contact channel removes it from the
   contact's engagement plan. If you delete the only contact channel for a
@@ -1968,12 +1961,10 @@ defmodule AWS.SSMContacts do
       required("ContactChannelId") => String.t()
     }
   """
-
   @spec delete_contact_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_channel_errors()}
-
   def delete_contact_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1982,6 +1973,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Deletes a rotation from the system. If a rotation belongs to more than one
   on-call schedule, this operation deletes it from all of them.
 
@@ -1993,12 +1985,10 @@ defmodule AWS.SSMContacts do
       required("RotationId") => String.t()
     }
   """
-
   @spec delete_rotation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rotation_errors()}
-
   def delete_rotation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2007,6 +1997,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Deletes an existing override for an on-call rotation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20DeleteRotationOverride&this_doc_guide=API%2520Reference)
@@ -2018,12 +2009,10 @@ defmodule AWS.SSMContacts do
       required("RotationOverrideId") => String.t()
     }
   """
-
   @spec delete_rotation_override(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rotation_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rotation_override_errors()}
-
   def delete_rotation_override(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2032,6 +2021,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Incident Manager uses engagements to engage contacts and escalation plans during
   an incident. Use this command to describe the engagement that occurred during
   an incident.
@@ -2044,12 +2034,10 @@ defmodule AWS.SSMContacts do
       required("EngagementId") => String.t()
     }
   """
-
   @spec describe_engagement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_engagement_errors()}
-
   def describe_engagement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2058,6 +2046,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Lists details of the engagement to a contact channel.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20DescribePage&this_doc_guide=API%2520Reference)
@@ -2068,12 +2057,10 @@ defmodule AWS.SSMContacts do
       required("PageId") => String.t()
     }
   """
-
   @spec describe_page(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_page_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_page_errors()}
-
   def describe_page(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2082,6 +2069,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Retrieves information about the specified contact or escalation plan.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20GetContact&this_doc_guide=API%2520Reference)
@@ -2092,12 +2080,10 @@ defmodule AWS.SSMContacts do
       required("ContactId") => String.t()
     }
   """
-
   @spec get_contact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_errors()}
-
   def get_contact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2106,6 +2092,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   List details about a specific contact channel.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20GetContactChannel&this_doc_guide=API%2520Reference)
@@ -2116,12 +2103,10 @@ defmodule AWS.SSMContacts do
       required("ContactChannelId") => String.t()
     }
   """
-
   @spec get_contact_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_channel_errors()}
-
   def get_contact_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2130,6 +2115,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Retrieves the resource policies attached to the specified contact or escalation
   plan.
 
@@ -2141,12 +2127,10 @@ defmodule AWS.SSMContacts do
       required("ContactArn") => String.t()
     }
   """
-
   @spec get_contact_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_contact_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_policy_errors()}
-
   def get_contact_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2155,6 +2139,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Retrieves information about an on-call rotation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20GetRotation&this_doc_guide=API%2520Reference)
@@ -2165,12 +2150,10 @@ defmodule AWS.SSMContacts do
       required("RotationId") => String.t()
     }
   """
-
   @spec get_rotation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rotation_errors()}
-
   def get_rotation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2179,6 +2162,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Retrieves information about an override to an on-call rotation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20GetRotationOverride&this_doc_guide=API%2520Reference)
@@ -2190,12 +2174,10 @@ defmodule AWS.SSMContacts do
       required("RotationOverrideId") => String.t()
     }
   """
-
   @spec get_rotation_override(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rotation_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rotation_override_errors()}
-
   def get_rotation_override(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2204,6 +2186,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Lists all contact channels for the specified contact.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListContactChannels&this_doc_guide=API%2520Reference)
@@ -2216,12 +2199,10 @@ defmodule AWS.SSMContacts do
       required("ContactId") => String.t()
     }
   """
-
   @spec list_contact_channels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_contact_channels_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_channels_errors()}
-
   def list_contact_channels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2230,6 +2211,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Lists all contacts and escalation plans in Incident Manager.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListContacts&this_doc_guide=API%2520Reference)
@@ -2243,12 +2225,10 @@ defmodule AWS.SSMContacts do
       optional("Type") => list(any())
     }
   """
-
   @spec list_contacts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_contacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contacts_errors()}
-
   def list_contacts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2257,6 +2237,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Lists all engagements that have happened in an incident.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListEngagements&this_doc_guide=API%2520Reference)
@@ -2270,12 +2251,10 @@ defmodule AWS.SSMContacts do
       optional("TimeRangeValue") => time_range()
     }
   """
-
   @spec list_engagements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_engagements_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_engagements_errors()}
-
   def list_engagements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2284,6 +2263,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Lists all of the engagements to contact channels that have been acknowledged.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListPageReceipts&this_doc_guide=API%2520Reference)
@@ -2296,12 +2276,10 @@ defmodule AWS.SSMContacts do
       required("PageId") => String.t()
     }
   """
-
   @spec list_page_receipts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_page_receipts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_page_receipts_errors()}
-
   def list_page_receipts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2310,6 +2288,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Returns the resolution path of an engagement. For example, the escalation plan
   engaged in an incident might target an on-call schedule that includes several
   contacts in a rotation, but just one contact on-call when the incident starts.
@@ -2325,12 +2304,10 @@ defmodule AWS.SSMContacts do
       required("PageId") => String.t()
     }
   """
-
   @spec list_page_resolutions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_page_resolutions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_page_resolutions_errors()}
-
   def list_page_resolutions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2339,6 +2316,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Lists the engagements to a contact's contact channels.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListPagesByContact&this_doc_guide=API%2520Reference)
@@ -2351,12 +2329,10 @@ defmodule AWS.SSMContacts do
       required("ContactId") => String.t()
     }
   """
-
   @spec list_pages_by_contact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pages_by_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pages_by_contact_errors()}
-
   def list_pages_by_contact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2365,6 +2341,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Lists the engagements to contact channels that occurred by engaging a contact.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListPagesByEngagement&this_doc_guide=API%2520Reference)
@@ -2377,12 +2354,10 @@ defmodule AWS.SSMContacts do
       required("EngagementId") => String.t()
     }
   """
-
   @spec list_pages_by_engagement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pages_by_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pages_by_engagement_errors()}
-
   def list_pages_by_engagement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2391,6 +2366,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Returns a list of shifts based on rotation configuration parameters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListPreviewRotationShifts&this_doc_guide=API%2520Reference)
@@ -2409,12 +2385,10 @@ defmodule AWS.SSMContacts do
       required("TimeZoneId") => String.t()
     }
   """
-
   @spec list_preview_rotation_shifts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_preview_rotation_shifts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_preview_rotation_shifts_errors()}
-
   def list_preview_rotation_shifts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2423,6 +2397,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Retrieves a list of overrides currently specified for an on-call rotation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListRotationOverrides&this_doc_guide=API%2520Reference)
@@ -2437,12 +2412,10 @@ defmodule AWS.SSMContacts do
       required("StartTime") => non_neg_integer()
     }
   """
-
   @spec list_rotation_overrides(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rotation_overrides_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rotation_overrides_errors()}
-
   def list_rotation_overrides(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2451,6 +2424,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Returns a list of shifts generated by an existing rotation in the system.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListRotationShifts&this_doc_guide=API%2520Reference)
@@ -2465,12 +2439,10 @@ defmodule AWS.SSMContacts do
       required("RotationId") => String.t()
     }
   """
-
   @spec list_rotation_shifts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rotation_shifts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rotation_shifts_errors()}
-
   def list_rotation_shifts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2479,6 +2451,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Retrieves a list of on-call rotations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListRotations&this_doc_guide=API%2520Reference)
@@ -2491,12 +2464,10 @@ defmodule AWS.SSMContacts do
       optional("RotationNamePrefix") => String.t()
     }
   """
-
   @spec list_rotations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rotations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rotations_errors()}
-
   def list_rotations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2505,6 +2476,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Lists the tags of an escalation plan or contact.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -2515,12 +2487,10 @@ defmodule AWS.SSMContacts do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2529,6 +2499,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Adds a resource policy to the specified contact or escalation plan. The resource
   policy is used to share the contact or escalation plan using Resource Access
   Manager (RAM). For more information about cross-account sharing, see [Setting
@@ -2544,12 +2515,10 @@ defmodule AWS.SSMContacts do
       required("Policy") => String.t()
     }
   """
-
   @spec put_contact_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_contact_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_contact_policy_errors()}
-
   def put_contact_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2558,6 +2527,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Sends an activation code to a contact channel. The contact can use this code to
   activate the contact channel in the console or with the `ActivateChannel`
   operation. Incident Manager can't engage a contact channel until it has been
@@ -2571,12 +2541,10 @@ defmodule AWS.SSMContacts do
       required("ContactChannelId") => String.t()
     }
   """
-
   @spec send_activation_code(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_activation_code_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_activation_code_errors()}
-
   def send_activation_code(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2585,6 +2553,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Starts an engagement to a contact or escalation plan. The engagement engages
   each contact specified in the incident.
 
@@ -2603,12 +2572,10 @@ defmodule AWS.SSMContacts do
       required("Subject") => String.t()
     }
   """
-
   @spec start_engagement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_engagement_errors()}
-
   def start_engagement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2617,6 +2584,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Stops an engagement before it finishes the final stage of the escalation plan or
   engagement plan. Further contacts aren't engaged.
 
@@ -2629,12 +2597,10 @@ defmodule AWS.SSMContacts do
       required("EngagementId") => String.t()
     }
   """
-
   @spec stop_engagement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_engagement_errors()}
-
   def stop_engagement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2643,6 +2609,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Tags a contact or escalation plan. You can tag only contacts and escalation
   plans in the first region of your replication set.
 
@@ -2655,12 +2622,10 @@ defmodule AWS.SSMContacts do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2669,6 +2634,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Removes tags from the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20UntagResource&this_doc_guide=API%2520Reference)
@@ -2680,12 +2646,10 @@ defmodule AWS.SSMContacts do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2694,6 +2658,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Updates the contact or escalation plan specified.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20UpdateContact&this_doc_guide=API%2520Reference)
@@ -2706,12 +2671,10 @@ defmodule AWS.SSMContacts do
       required("ContactId") => String.t()
     }
   """
-
   @spec update_contact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_errors()}
-
   def update_contact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2720,6 +2683,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Updates a contact's contact channel.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20UpdateContactChannel&this_doc_guide=API%2520Reference)
@@ -2732,12 +2696,10 @@ defmodule AWS.SSMContacts do
       required("ContactChannelId") => String.t()
     }
   """
-
   @spec update_contact_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_channel_errors()}
-
   def update_contact_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2746,6 +2708,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
+   
   Updates the information specified for an on-call rotation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmcontacts%20UpdateRotation&this_doc_guide=API%2520Reference)
@@ -2760,12 +2723,10 @@ defmodule AWS.SSMContacts do
       required("RotationId") => String.t()
     }
   """
-
   @spec update_rotation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rotation_errors()}
-
   def update_rotation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

@@ -3028,21 +3028,18 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20AddLayerVersionPermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
-  layer.
-  * `:version_number` (`t:long`) The version number.
-
-  ## Optional parameters:
+  * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
+  the layer.
+  * `:version_number` (`t:long` required) The version number.
+  ## Keyword parameters:
   * `:revision_id` (`t:string`) Only update the policy if the revision ID matches
   the ID specified. Use this option to avoid modifying a policy that has
   changed since you last read it.
   """
-
   @spec add_layer_version_permission(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, add_layer_version_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_layer_version_permission_errors()}
-
   def add_layer_version_permission(%Client{} = client, layer_name, version_number, options \\ []) do
     url_path =
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}/policy"
@@ -3105,19 +3102,16 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20AddPermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
-  or alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
+  version, or alias.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to add permissions to a
   published version of the function.
   """
-
   @spec add_permission(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_permission_errors()}
-
   def add_permission(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
 
@@ -3168,16 +3162,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   """
-
   @spec create_alias(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alias_errors()}
-
   def create_alias(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases"
 
@@ -3217,15 +3208,12 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateCodeSigningConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_code_signing_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_code_signing_config_errors()}
-
   def create_code_signing_config(%Client{} = client, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs"
 
@@ -3264,15 +3252,12 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateEventSourceMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_event_source_mapping(AWS.Client.t(), Keyword.t()) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_source_mapping_errors()}
-
   def create_event_source_mapping(%Client{} = client, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings"
 
@@ -3335,15 +3320,12 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_function(AWS.Client.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_function_errors()}
-
   def create_function(%Client{} = client, options \\ []) do
     url_path = "/2015-03-31/functions"
 
@@ -3382,17 +3364,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateFunctionUrlConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) The alias name.
   """
-
   @spec create_function_url_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_function_url_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_function_url_config_errors()}
-
   def create_function_url_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
 
@@ -3441,17 +3420,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-  * `:name` (`t:string`) The name of the alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  * `:name` (`t:string` required) The name of the alias.
+  ## Keyword parameters:
   """
-
   @spec delete_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alias_errors()}
-
   def delete_alias(%Client{} = client, function_name, name, options \\ []) do
     url_path =
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
@@ -3500,17 +3476,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteCodeSigningConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of
-  the code signing configuration.
-
-  ## Optional parameters:
+  * `:code_signing_config_arn` (`t:string` required) The The Amazon Resource Name
+  (ARN) of the code signing configuration.
+  ## Keyword parameters:
   """
-
   @spec delete_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_code_signing_config_errors()}
-
   def delete_code_signing_config(%Client{} = client, code_signing_config_arn, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
 
@@ -3560,16 +3533,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteEventSourceMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:uuid` (`t:string`) The identifier of the event source mapping.
-
-  ## Optional parameters:
+  * `:uuid` (`t:string` required) The identifier of the event source mapping.
+  ## Keyword parameters:
   """
-
   @spec delete_event_source_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_source_mapping_errors()}
-
   def delete_event_source_mapping(%Client{} = client, uuid, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
 
@@ -3618,19 +3588,16 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function or
-  version.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function
+  or version.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version to delete. You can't delete a
   version that an alias references.
   """
-
   @spec delete_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_function_errors()}
-
   def delete_function(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
 
@@ -3688,16 +3655,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteFunctionCodeSigningConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   """
-
   @spec delete_function_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_function_code_signing_config_errors()}
-
   def delete_function_code_signing_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
 
@@ -3744,16 +3708,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteFunctionConcurrency&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   """
-
   @spec delete_function_concurrency(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_function_concurrency_errors()}
-
   def delete_function_concurrency(%Client{} = client, function_name, options \\ []) do
     url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
 
@@ -3801,18 +3762,15 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteFunctionEventInvokeConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
-  or alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
+  version, or alias.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) A version number or alias name.
   """
-
   @spec delete_function_event_invoke_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_function_event_invoke_config_errors()}
-
   def delete_function_event_invoke_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
 
@@ -3871,17 +3829,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteFunctionUrlConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) The alias name.
   """
-
   @spec delete_function_url_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_function_url_config_errors()}
-
   def delete_function_url_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
 
@@ -3943,18 +3898,15 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteLayerVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
-  layer.
-  * `:version_number` (`t:long`) The version number.
-
-  ## Optional parameters:
+  * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
+  the layer.
+  * `:version_number` (`t:long` required) The version number.
+  ## Keyword parameters:
   """
-
   @spec delete_layer_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_layer_version_errors()}
-
   def delete_layer_version(%Client{} = client, layer_name, version_number, options \\ []) do
     url_path =
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}"
@@ -4002,17 +3954,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteProvisionedConcurrencyConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-  * `:qualifier` (`t:string`) The version number or alias name.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  * `:qualifier` (`t:string` required) The version number or alias name.
+  ## Keyword parameters:
   """
-
   @spec delete_provisioned_concurrency_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_provisioned_concurrency_config_errors()}
-
   def delete_provisioned_concurrency_config(
         %Client{} = client,
         function_name,
@@ -4068,15 +4017,12 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
-
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/2016-08-19/account-settings"
 
@@ -4112,17 +4058,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-  * `:name` (`t:string`) The name of the alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  * `:name` (`t:string` required) The name of the alias.
+  ## Keyword parameters:
   """
-
   @spec get_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_alias_errors()}
-
   def get_alias(%Client{} = client, function_name, name, options \\ []) do
     url_path =
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
@@ -4158,17 +4101,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetCodeSigningConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of
-  the code signing configuration.
-
-  ## Optional parameters:
+  * `:code_signing_config_arn` (`t:string` required) The The Amazon Resource Name
+  (ARN) of the code signing configuration.
+  ## Keyword parameters:
   """
-
   @spec get_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_code_signing_config_errors()}
-
   def get_code_signing_config(%Client{} = client, code_signing_config_arn, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
 
@@ -4204,16 +4144,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetEventSourceMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:uuid` (`t:string`) The identifier of the event source mapping.
-
-  ## Optional parameters:
+  * `:uuid` (`t:string` required) The identifier of the event source mapping.
+  ## Keyword parameters:
   """
-
   @spec get_event_source_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_source_mapping_errors()}
-
   def get_event_source_mapping(%Client{} = client, uuid, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
 
@@ -4250,19 +4187,16 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
-  or alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
+  version, or alias.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to get details about a
   published version of the function.
   """
-
   @spec get_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_errors()}
-
   def get_function(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
 
@@ -4308,16 +4242,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunctionCodeSigningConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   """
-
   @spec get_function_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_code_signing_config_errors()}
-
   def get_function_code_signing_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
 
@@ -4353,16 +4284,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunctionConcurrency&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   """
-
   @spec get_function_concurrency(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_concurrency_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_concurrency_errors()}
-
   def get_function_concurrency(%Client{} = client, function_name, options \\ []) do
     url_path = "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
 
@@ -4399,19 +4327,16 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunctionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
-  or alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
+  version, or alias.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to get details about a
   published version of the function.
   """
-
   @spec get_function_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_configuration_errors()}
-
   def get_function_configuration(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/configuration"
 
@@ -4458,18 +4383,15 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunctionEventInvokeConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
-  or alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
+  version, or alias.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) A version number or alias name.
   """
-
   @spec get_function_event_invoke_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_event_invoke_config(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_event_invoke_config_errors()}
-
   def get_function_event_invoke_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
 
@@ -4515,17 +4437,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunctionUrlConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) The alias name.
   """
-
   @spec get_function_url_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_url_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_url_config_errors()}
-
   def get_function_url_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
 
@@ -4573,18 +4492,15 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetLayerVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
-  layer.
-  * `:version_number` (`t:long`) The version number.
-
-  ## Optional parameters:
+  * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
+  the layer.
+  * `:version_number` (`t:long` required) The version number.
+  ## Keyword parameters:
   """
-
   @spec get_layer_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_layer_version_errors()}
-
   def get_layer_version(%Client{} = client, layer_name, version_number, options \\ []) do
     url_path =
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}"
@@ -4622,16 +4538,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetLayerVersionByArn&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The ARN of the layer version.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The ARN of the layer version.
+  ## Keyword parameters:
   """
-
   @spec get_layer_version_by_arn(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_layer_version_by_arn_errors()}
-
   def get_layer_version_by_arn(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/2018-10-31/layers?find=LayerVersion"
 
@@ -4668,18 +4581,15 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetLayerVersionPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
-  layer.
-  * `:version_number` (`t:long`) The version number.
-
-  ## Optional parameters:
+  * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
+  the layer.
+  * `:version_number` (`t:long` required) The version number.
+  ## Keyword parameters:
   """
-
   @spec get_layer_version_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_layer_version_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_layer_version_policy_errors()}
-
   def get_layer_version_policy(%Client{} = client, layer_name, version_number, options \\ []) do
     url_path =
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}/policy"
@@ -4717,19 +4627,16 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
-  or alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
+  version, or alias.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to get the policy for
   that resource.
   """
-
   @spec get_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
-
   def get_policy(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
 
@@ -4776,17 +4683,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetProvisionedConcurrencyConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-  * `:qualifier` (`t:string`) The version number or alias name.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  * `:qualifier` (`t:string` required) The version number or alias name.
+  ## Keyword parameters:
   """
-
   @spec get_provisioned_concurrency_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_provisioned_concurrency_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_provisioned_concurrency_config_errors()}
-
   def get_provisioned_concurrency_config(
         %Client{} = client,
         function_name,
@@ -4833,19 +4737,16 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetRuntimeManagementConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version of the function. This can be
   $LATEST or a published version number. If no value is specified, the
   configuration for the $LATEST version is returned.
   """
-
   @spec get_runtime_management_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_runtime_management_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_runtime_management_config_errors()}
-
   def get_runtime_management_config(%Client{} = client, function_name, options \\ []) do
     url_path =
       "/2021-07-20/functions/#{AWS.Util.encode_uri(function_name)}/runtime-management-config"
@@ -4909,13 +4810,12 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20Invoke&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
-  or alias.
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
+  version, or alias.
   * `:input` (`t:map | nil`):
     * `:payload` (`t:blob`) The JSON that you want to provide to your Lambda
   function as input.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to invoke a published
   version of the function.
   * `:client_context` (`t:string`) Up to 3,583 bytes of base64-encoded data about
@@ -4927,12 +4827,10 @@ defmodule AWS.Lambda do
   * `:log_type` (`t:enum["None|Tail"]`) Set to Tail to include the execution log
   in the response. Applies to synchronously invoked functions only.
   """
-
   @spec invoke(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, invocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_errors()}
-
   def invoke(%Client{} = client, function_name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/invocations"
@@ -5024,19 +4922,16 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20InvokeAsync&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
   * `:input` (`t:map`):
-    * `:invoke_args` (`t:blob`) The JSON that you want to provide to your Lambda
-  function as input.
-
-  ## Optional parameters:
+    * `:invoke_args` (`t:blob` required) The JSON that you want to provide to your
+  Lambda function as input.
+  ## Keyword parameters:
   """
-
   @spec invoke_async(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, invoke_async_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_async_errors()}
-
   def invoke_async(%Client{} = client, function_name, input, options \\ []) when is_map(input) do
     url_path = "/2014-11-13/functions/#{AWS.Util.encode_uri(function_name)}/invoke-async"
 
@@ -5080,12 +4975,11 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20InvokeWithResponseStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
   * `:input` (`t:map | nil`):
     * `:payload` (`t:blob`) The JSON that you want to provide to your Lambda
   function as input.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) The alias name.
   * `:client_context` (`t:string`) Up to 3,583 bytes of base64-encoded data about
   the invoking client to pass to the function in the context object.
@@ -5094,12 +4988,10 @@ defmodule AWS.Lambda do
   * `:log_type` (`t:enum["None|Tail"]`) Set to Tail to include the execution log
   in the response. Applies to synchronously invoked functions only.
   """
-
   @spec invoke_with_response_stream(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, invoke_with_response_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_with_response_stream_errors()}
-
   def invoke_with_response_stream(%Client{} = client, function_name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path =
@@ -5191,21 +5083,18 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListAliases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:function_version` (`t:string`) Specify a function version to only list
   aliases that invoke that version.
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
   previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) Limit the number of aliases returned.
   """
-
   @spec list_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aliases_errors()}
-
   def list_aliases(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases"
 
@@ -5268,18 +5157,15 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListCodeSigningConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
   previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) Maximum number of items to return.
   """
-
   @spec list_code_signing_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_code_signing_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_code_signing_configs_errors()}
-
   def list_code_signing_configs(%Client{} = client, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs"
 
@@ -5333,8 +5219,7 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListEventSourceMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:event_source_arn` (`t:string`) The Amazon Resource Name (ARN) of the event
   source.
   * `:function_name` (`t:string`) The name or ARN of the Lambda function.
@@ -5343,12 +5228,10 @@ defmodule AWS.Lambda do
   return. Note that ListEventSourceMappings returns a maximum of 100 items in
   each response, even if you set the number higher.
   """
-
   @spec list_event_source_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_source_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_source_mappings_errors()}
-
   def list_event_source_mappings(%Client{} = client, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings"
 
@@ -5415,19 +5298,16 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListFunctionEventInvokeConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
   previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) The maximum number of configurations to return.
   """
-
   @spec list_function_event_invoke_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_event_invoke_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_function_event_invoke_configs_errors()}
-
   def list_function_event_invoke_configs(%Client{} = client, function_name, options \\ []) do
     url_path =
       "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config/list"
@@ -5481,21 +5361,18 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListFunctionUrlConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
   previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) The maximum number of function URLs to return in
   the response. Note that ListFunctionUrlConfigs returns a maximum of 50 items
   in each response, even if you set the number higher.
   """
-
   @spec list_function_url_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_url_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_function_url_configs_errors()}
-
   def list_function_url_configs(%Client{} = client, function_name, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/urls"
 
@@ -5551,8 +5428,7 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListFunctions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:function_version` (`t:enum["ALL"]`) Set to ALL to include entries for all
   published versions of each function.
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
@@ -5566,12 +5442,10 @@ defmodule AWS.Lambda do
   response. Note that ListFunctions returns a maximum of 50 items in each
   response, even if you set the number higher.
   """
-
   @spec list_functions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_functions_errors()}
-
   def list_functions(%Client{} = client, options \\ []) do
     url_path = "/2015-03-31/functions"
 
@@ -5640,20 +5514,17 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListFunctionsByCodeSigningConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of
-  the code signing configuration.
-
-  ## Optional parameters:
+  * `:code_signing_config_arn` (`t:string` required) The The Amazon Resource Name
+  (ARN) of the code signing configuration.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
   previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) Maximum number of items to return.
   """
-
   @spec list_functions_by_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_functions_by_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_functions_by_code_signing_config_errors()}
-
   def list_functions_by_code_signing_config(
         %Client{} = client,
         code_signing_config_arn,
@@ -5717,10 +5588,9 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListLayerVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
-  layer.
-
-  ## Optional parameters:
+  * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
+  the layer.
+  ## Keyword parameters:
   * `:compatible_architecture` (`t:enum["arm64|x86_64"]`) The compatible
   instruction set architecture.
   * `:compatible_runtime`
@@ -5729,12 +5599,10 @@ defmodule AWS.Lambda do
   * `:marker` (`t:string`) A pagination token returned by a previous call.
   * `:max_items` (`t:integer`) The maximum number of versions to return.
   """
-
   @spec list_layer_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_layer_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_layer_versions_errors()}
-
   def list_layer_versions(%Client{} = client, layer_name, options \\ []) do
     url_path = "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions"
 
@@ -5813,8 +5681,7 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListLayers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:compatible_architecture` (`t:enum["arm64|x86_64"]`) The compatible
   instruction set architecture.
   * `:compatible_runtime`
@@ -5823,12 +5690,10 @@ defmodule AWS.Lambda do
   * `:marker` (`t:string`) A pagination token returned by a previous call.
   * `:max_items` (`t:integer`) The maximum number of layers to return.
   """
-
   @spec list_layers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_layers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_layers_errors()}
-
   def list_layers(%Client{} = client, options \\ []) do
     url_path = "/2018-10-31/layers"
 
@@ -5900,20 +5765,17 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListProvisionedConcurrencyConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
   previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) Specify a number to limit the number of
   configurations returned.
   """
-
   @spec list_provisioned_concurrency_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_provisioned_concurrency_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provisioned_concurrency_configs_errors()}
-
   def list_provisioned_concurrency_configs(%Client{} = client, function_name, options \\ []) do
     url_path =
       "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/provisioned-concurrency?List=ALL"
@@ -5969,17 +5831,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource` (`t:string`) The function's Amazon Resource Name (ARN). Note:
-  Lambda does not support adding tags to aliases or versions.
-
-  ## Optional parameters:
+  * `:resource` (`t:string` required) The function's Amazon Resource Name (ARN).
+  Note: Lambda does not support adding tags to aliases or versions.
+  ## Keyword parameters:
   """
-
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-
   def list_tags(%Client{} = client, resource, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
 
@@ -6017,21 +5876,18 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListVersionsByFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
   previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) The maximum number of versions to return. Note that
   ListVersionsByFunction returns a maximum of 50 items in each response, even
   if you set the number higher.
   """
-
   @spec list_versions_by_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_versions_by_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_versions_by_function_errors()}
-
   def list_versions_by_function(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/versions"
 
@@ -6087,17 +5943,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PublishLayerVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
-  layer.
-
-  ## Optional parameters:
+  * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
+  the layer.
+  ## Keyword parameters:
   """
-
   @spec publish_layer_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, publish_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_layer_version_errors()}
-
   def publish_layer_version(%Client{} = client, layer_name, options \\ []) do
     url_path = "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions"
 
@@ -6141,16 +5994,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PublishVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   """
-
   @spec publish_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_version_errors()}
-
   def publish_version(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/versions"
 
@@ -6189,16 +6039,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PutFunctionCodeSigningConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   """
-
   @spec put_function_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_function_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_function_code_signing_config_errors()}
-
   def put_function_code_signing_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
 
@@ -6241,16 +6088,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PutFunctionConcurrency&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   """
-
   @spec put_function_concurrency(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, concurrency(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_function_concurrency_errors()}
-
   def put_function_concurrency(%Client{} = client, function_name, options \\ []) do
     url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
 
@@ -6297,18 +6141,15 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PutFunctionEventInvokeConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
-  or alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
+  version, or alias.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) A version number or alias name.
   """
-
   @spec put_function_event_invoke_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_event_invoke_config(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_function_event_invoke_config_errors()}
-
   def put_function_event_invoke_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
 
@@ -6356,17 +6197,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PutProvisionedConcurrencyConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-  * `:qualifier` (`t:string`) The version number or alias name.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  * `:qualifier` (`t:string` required) The version number or alias name.
+  ## Keyword parameters:
   """
-
   @spec put_provisioned_concurrency_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_provisioned_concurrency_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_provisioned_concurrency_config_errors()}
-
   def put_provisioned_concurrency_config(
         %Client{} = client,
         function_name,
@@ -6412,19 +6250,16 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PutRuntimeManagementConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version of the function. This can be
   $LATEST or a published version number. If no value is specified, the
   configuration for the $LATEST version is returned.
   """
-
   @spec put_runtime_management_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_runtime_management_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_runtime_management_config_errors()}
-
   def put_runtime_management_config(%Client{} = client, function_name, options \\ []) do
     url_path =
       "/2021-07-20/functions/#{AWS.Util.encode_uri(function_name)}/runtime-management-config"
@@ -6475,18 +6310,16 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20RemoveLayerVersionPermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
-  layer.
-  * `:statement_id` (`t:string`) The identifier that was specified when the
-  statement was added.
-  * `:version_number` (`t:long`) The version number.
-
-  ## Optional parameters:
+  * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
+  the layer.
+  * `:statement_id` (`t:string` required) The identifier that was specified when
+  the statement was added.
+  * `:version_number` (`t:long` required) The version number.
+  ## Keyword parameters:
   * `:revision_id` (`t:string`) Only update the policy if the revision ID matches
   the ID specified. Use this option to avoid modifying a policy that has
   changed since you last read it.
   """
-
   @spec remove_layer_version_permission(
           AWS.Client.t(),
           String.t(),
@@ -6497,7 +6330,6 @@ defmodule AWS.Lambda do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_layer_version_permission_errors()}
-
   def remove_layer_version_permission(
         %Client{} = client,
         layer_name,
@@ -6564,23 +6396,21 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20RemovePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
-  or alias.
-  * `:statement_id` (`t:string`) Statement ID of the permission to remove.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
+  version, or alias.
+  * `:statement_id` (`t:string` required) Statement ID of the permission to
+  remove.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to remove permissions
   from a published version of the function.
   * `:revision_id` (`t:string`) Update the policy only if the revision ID matches
   the ID that's specified. Use this option to avoid modifying a policy that
   has changed since you last read it.
   """
-
   @spec remove_permission(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_permission_errors()}
-
   def remove_permission(%Client{} = client, function_name, statement_id, options \\ []) do
     url_path =
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy/#{AWS.Util.encode_uri(statement_id)}"
@@ -6647,16 +6477,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource` (`t:string`) The function's Amazon Resource Name (ARN).
-
-  ## Optional parameters:
+  * `:resource` (`t:string` required) The function's Amazon Resource Name (ARN).
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
 
@@ -6694,18 +6521,15 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource` (`t:string`) The function's Amazon Resource Name (ARN).
-  * `:tag_keys` (`t:list[com.amazonaws.lambda#TagKey]`) A list of tag keys to
-  remove from the function.
-
-  ## Optional parameters:
+  * `:resource` (`t:string` required) The function's Amazon Resource Name (ARN).
+  * `:tag_keys` (`t:list[com.amazonaws.lambda#TagKey]` required) A list of tag
+  keys to remove from the function.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
@@ -6754,17 +6578,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-  * `:name` (`t:string`) The name of the alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  * `:name` (`t:string` required) The name of the alias.
+  ## Keyword parameters:
   """
-
   @spec update_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alias_errors()}
-
   def update_alias(%Client{} = client, function_name, name, options \\ []) do
     url_path =
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
@@ -6804,17 +6625,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateCodeSigningConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of
-  the code signing configuration.
-
-  ## Optional parameters:
+  * `:code_signing_config_arn` (`t:string` required) The The Amazon Resource Name
+  (ARN) of the code signing configuration.
+  ## Keyword parameters:
   """
-
   @spec update_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_code_signing_config_errors()}
-
   def update_code_signing_config(%Client{} = client, code_signing_config_arn, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
 
@@ -6854,16 +6672,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateEventSourceMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:uuid` (`t:string`) The identifier of the event source mapping.
-
-  ## Optional parameters:
+  * `:uuid` (`t:string` required) The identifier of the event source mapping.
+  ## Keyword parameters:
   """
-
   @spec update_event_source_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_source_mapping_errors()}
-
   def update_event_source_mapping(%Client{} = client, uuid, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
 
@@ -6911,16 +6726,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateFunctionCode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   """
-
   @spec update_function_code(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_function_code_errors()}
-
   def update_function_code(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/code"
 
@@ -6966,16 +6778,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateFunctionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   """
-
   @spec update_function_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_function_configuration_errors()}
-
   def update_function_configuration(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/configuration"
 
@@ -7013,18 +6822,15 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateFunctionEventInvokeConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
-  or alias.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
+  version, or alias.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) A version number or alias name.
   """
-
   @spec update_function_event_invoke_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_event_invoke_config(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_function_event_invoke_config_errors()}
-
   def update_function_event_invoke_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
 
@@ -7072,17 +6878,14 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateFunctionUrlConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
-
-  ## Optional parameters:
+  * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+  ## Keyword parameters:
   * `:qualifier` (`t:string`) The alias name.
   """
-
   @spec update_function_url_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_function_url_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_function_url_config_errors()}
-
   def update_function_url_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
 

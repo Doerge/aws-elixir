@@ -1528,20 +1528,18 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CloneBackend&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:target_environment_name` (`t:string`) The name of the destination backend
-  environment to be created.
-
-  ## Optional parameters:
+    * `:target_environment_name` (`t:string` required) The name of the destination
+  backend environment to be created.
+  ## Keyword parameters:
   """
-
   @spec clone_backend(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, clone_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, clone_backend_errors()}
-
   def clone_backend(%Client{} = client, app_id, backend_environment_name, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -1582,21 +1580,19 @@ defmodule AWS.AmplifyBackend do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:app_id` (`t:string`) The app ID.
-    * `:app_name` (`t:string`) The name of the app.
-    * `:backend_environment_name` (`t:string`) The name of the backend environment.
+    * `:app_id` (`t:string` required) The app ID.
+    * `:app_name` (`t:string` required) The name of the app.
+    * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
     * `:resource_config` (`t:structure`) The resource configuration for creating a
   backend.
     * `:resource_name` (`t:string`) The name of the resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_backend(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backend_errors()}
-
   def create_backend(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/backend"
 
@@ -1633,21 +1629,19 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateBackendAPI&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
+  * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map`):
-    * `:backend_environment_name` (`t:string`) The name of the backend environment.
-    * `:resource_config` (`t:structure`) The resource configuration for this
-  request.
-    * `:resource_name` (`t:string`) The name of this resource.
-
-  ## Optional parameters:
+    * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
+    * `:resource_config` (`t:structure` required) The resource configuration for
+  this request.
+    * `:resource_name` (`t:string` required) The name of this resource.
+  ## Keyword parameters:
   """
-
   @spec create_backend_api(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backend_api_errors()}
-
   def create_backend_api(%Client{} = client, app_id, input, options \\ []) when is_map(input) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/api"
 
@@ -1684,21 +1678,19 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateBackendAuth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
+  * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map`):
-    * `:backend_environment_name` (`t:string`) The name of the backend environment.
-    * `:resource_config` (`t:structure`) The resource configuration for this request
-  object.
-    * `:resource_name` (`t:string`) The name of this resource.
-
-  ## Optional parameters:
+    * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
+    * `:resource_config` (`t:structure` required) The resource configuration for
+  this request object.
+    * `:resource_name` (`t:string` required) The name of this resource.
+  ## Keyword parameters:
   """
-
   @spec create_backend_auth(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backend_auth_errors()}
-
   def create_backend_auth(%Client{} = client, app_id, input, options \\ []) when is_map(input) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/auth"
 
@@ -1735,18 +1727,15 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateBackendConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
+  * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map | nil`):
     * `:backend_manager_app_id` (`t:string`) The app ID for the backend manager.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_backend_config(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_backend_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backend_config_errors()}
-
   def create_backend_config(%Client{} = client, app_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config"
@@ -1784,21 +1773,19 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateBackendStorage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
+  * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map`):
-    * `:backend_environment_name` (`t:string`) The name of the backend environment.
-    * `:resource_config` (`t:structure`) The resource configuration for creating
-  backend storage.
-    * `:resource_name` (`t:string`) The name of the storage resource.
-
-  ## Optional parameters:
+    * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
+    * `:resource_config` (`t:structure` required) The resource configuration for
+  creating backend storage.
+    * `:resource_name` (`t:string` required) The name of the storage resource.
+  ## Keyword parameters:
   """
-
   @spec create_backend_storage(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backend_storage_errors()}
-
   def create_backend_storage(%Client{} = client, app_id, input, options \\ [])
       when is_map(input) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/storage"
@@ -1837,16 +1824,13 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The app ID.
+  ## Keyword parameters:
   """
-
   @spec create_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_token_errors()}
-
   def create_token(%Client{} = client, app_id, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/challenge"
 
@@ -1883,17 +1867,15 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20DeleteBackend&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
+  ## Keyword parameters:
   """
-
   @spec delete_backend(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backend_errors()}
-
   def delete_backend(%Client{} = client, app_id, backend_environment_name, options \\ []) do
     url_path =
       "/backend/#{AWS.Util.encode_uri(app_id)}/environments/#{AWS.Util.encode_uri(backend_environment_name)}/remove"
@@ -1931,21 +1913,19 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20DeleteBackendAPI&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string`) The name of this resource.
+    * `:resource_name` (`t:string` required) The name of this resource.
     * `:resource_config` (`t:structure`) Defines the resource configuration for the
   data model in your Amplify project.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_backend_api(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backend_api_errors()}
-
   def delete_backend_api(
         %Client{} = client,
         app_id,
@@ -1990,19 +1970,17 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20DeleteBackendAuth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string`) The name of this resource.
-
-  ## Optional parameters:
+    * `:resource_name` (`t:string` required) The name of this resource.
+  ## Keyword parameters:
   """
-
   @spec delete_backend_auth(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backend_auth_errors()}
-
   def delete_backend_auth(
         %Client{} = client,
         app_id,
@@ -2047,15 +2025,14 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20DeleteBackendStorage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string`) The name of the storage resource.
-    * `:service_name` (`t:enum["S3"]`) The name of the storage service.
-
-  ## Optional parameters:
+    * `:resource_name` (`t:string` required) The name of the storage resource.
+    * `:service_name` (`t:enum["S3"]` required) The name of the storage service.
+  ## Keyword parameters:
   """
-
   @spec delete_backend_storage(
           AWS.Client.t(),
           String.t(),
@@ -2066,7 +2043,6 @@ defmodule AWS.AmplifyBackend do
           {:ok, delete_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backend_storage_errors()}
-
   def delete_backend_storage(
         %Client{} = client,
         app_id,
@@ -2111,17 +2087,14 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20DeleteToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:session_id` (`t:string`) The session ID.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The app ID.
+  * `:session_id` (`t:string` required) The session ID.
+  ## Keyword parameters:
   """
-
   @spec delete_token(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_token_errors()}
-
   def delete_token(%Client{} = client, app_id, session_id, options \\ []) do
     url_path =
       "/backend/#{AWS.Util.encode_uri(app_id)}/challenge/#{AWS.Util.encode_uri(session_id)}/remove"
@@ -2159,14 +2132,13 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GenerateBackendAPIModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string`) The name of this resource.
-
-  ## Optional parameters:
+    * `:resource_name` (`t:string` required) The name of this resource.
+  ## Keyword parameters:
   """
-
   @spec generate_backend_api_models(
           AWS.Client.t(),
           String.t(),
@@ -2177,7 +2149,6 @@ defmodule AWS.AmplifyBackend do
           {:ok, generate_backend_api_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_backend_api_models_errors()}
-
   def generate_backend_api_models(
         %Client{} = client,
         app_id,
@@ -2222,18 +2193,15 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackend&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
+  * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map | nil`):
     * `:backend_environment_name` (`t:string`) The name of the backend environment.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_backend(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, get_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backend_errors()}
-
   def get_backend(%Client{} = client, app_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/details"
@@ -2271,21 +2239,19 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackendAPI&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string`) The name of this resource.
+    * `:resource_name` (`t:string` required) The name of this resource.
     * `:resource_config` (`t:structure`) Defines the resource configuration for the
   data model in your Amplify project.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_backend_api(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backend_api_errors()}
-
   def get_backend_api(%Client{} = client, app_id, backend_environment_name, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -2324,14 +2290,13 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackendAPIModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string`) The name of this resource.
-
-  ## Optional parameters:
+    * `:resource_name` (`t:string` required) The name of this resource.
+  ## Keyword parameters:
   """
-
   @spec get_backend_api_models(
           AWS.Client.t(),
           String.t(),
@@ -2342,7 +2307,6 @@ defmodule AWS.AmplifyBackend do
           {:ok, get_backend_api_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backend_api_models_errors()}
-
   def get_backend_api_models(
         %Client{} = client,
         app_id,
@@ -2387,19 +2351,17 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackendAuth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string`) The name of this resource.
-
-  ## Optional parameters:
+    * `:resource_name` (`t:string` required) The name of this resource.
+  ## Keyword parameters:
   """
-
   @spec get_backend_auth(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backend_auth_errors()}
-
   def get_backend_auth(%Client{} = client, app_id, backend_environment_name, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -2438,18 +2400,16 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackendJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
-  * `:job_id` (`t:string`) The ID for the job.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
+  * `:job_id` (`t:string` required) The ID for the job.
+  ## Keyword parameters:
   """
-
   @spec get_backend_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_backend_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backend_job_errors()}
-
   def get_backend_job(%Client{} = client, app_id, backend_environment_name, job_id, options \\ []) do
     url_path =
       "/backend/#{AWS.Util.encode_uri(app_id)}/job/#{AWS.Util.encode_uri(backend_environment_name)}/#{AWS.Util.encode_uri(job_id)}"
@@ -2485,19 +2445,17 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackendStorage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string`) The name of the storage resource.
-
-  ## Optional parameters:
+    * `:resource_name` (`t:string` required) The name of the storage resource.
+  ## Keyword parameters:
   """
-
   @spec get_backend_storage(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backend_storage_errors()}
-
   def get_backend_storage(
         %Client{} = client,
         app_id,
@@ -2542,17 +2500,14 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:session_id` (`t:string`) The session ID.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The app ID.
+  * `:session_id` (`t:string` required) The session ID.
+  ## Keyword parameters:
   """
-
   @spec get_token(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_token_errors()}
-
   def get_token(%Client{} = client, app_id, session_id, options \\ []) do
     url_path =
       "/backend/#{AWS.Util.encode_uri(app_id)}/challenge/#{AWS.Util.encode_uri(session_id)}"
@@ -2588,22 +2543,22 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20ImportBackendAuth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:native_client_id` (`t:string`) The ID of the Amazon Cognito native client.
-    * `:user_pool_id` (`t:string`) The ID of the Amazon Cognito user pool.
-    * `:web_client_id` (`t:string`) The ID of the Amazon Cognito web client.
+    * `:native_client_id` (`t:string` required) The ID of the Amazon Cognito native
+  client.
+    * `:user_pool_id` (`t:string` required) The ID of the Amazon Cognito user pool.
+    * `:web_client_id` (`t:string` required) The ID of the Amazon Cognito web
+  client.
     * `:identity_pool_id` (`t:string`) The ID of the Amazon Cognito identity pool.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec import_backend_auth(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, import_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_backend_auth_errors()}
-
   def import_backend_auth(
         %Client{} = client,
         app_id,
@@ -2648,15 +2603,14 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20ImportBackendStorage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:service_name` (`t:enum["S3"]`) The name of the storage service.
+    * `:service_name` (`t:enum["S3"]` required) The name of the storage service.
     * `:bucket_name` (`t:string`) The name of the S3 bucket.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec import_backend_storage(
           AWS.Client.t(),
           String.t(),
@@ -2667,7 +2621,6 @@ defmodule AWS.AmplifyBackend do
           {:ok, import_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_backend_storage_errors()}
-
   def import_backend_storage(
         %Client{} = client,
         app_id,
@@ -2712,8 +2665,9 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20ListBackendJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map | nil`):
     * `:job_id` (`t:string`) The ID for the job.
     * `:max_results` (`t:integer`) The maximum number of results that you want in
@@ -2723,10 +2677,8 @@ defmodule AWS.AmplifyBackend do
   those with the specified operation name.
     * `:status` (`t:string`) Filters the list of response objects to include only
   those with the specified status.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_backend_jobs(
           AWS.Client.t(),
           String.t(),
@@ -2737,7 +2689,6 @@ defmodule AWS.AmplifyBackend do
           {:ok, list_backend_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backend_jobs_errors()}
-
   def list_backend_jobs(
         %Client{} = client,
         app_id,
@@ -2784,15 +2735,12 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:input` (`t:map | nil`):
     * `:next_token` (`t:string`) Reserved for future use.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_s3_buckets(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, list_s3_buckets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_s3_buckets_errors()}
-
   def list_s3_buckets(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/s3Buckets"
@@ -2830,19 +2778,16 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20RemoveAllBackends&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
+  * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map | nil`):
     * `:clean_amplify_app` (`t:boolean`) Cleans up the Amplify Console app if this
   value is set to true.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec remove_all_backends(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, remove_all_backends_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_all_backends_errors()}
-
   def remove_all_backends(%Client{} = client, app_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/remove"
@@ -2880,16 +2825,13 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20RemoveBackendConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The app ID.
+  ## Keyword parameters:
   """
-
   @spec remove_backend_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, remove_backend_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_backend_config_errors()}
-
   def remove_backend_config(%Client{} = client, app_id, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config/remove"
 
@@ -2926,21 +2868,19 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20UpdateBackendAPI&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string`) The name of this resource.
+    * `:resource_name` (`t:string` required) The name of this resource.
     * `:resource_config` (`t:structure`) Defines the resource configuration for the
   data model in your Amplify project.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_backend_api(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_backend_api_errors()}
-
   def update_backend_api(
         %Client{} = client,
         app_id,
@@ -2985,21 +2925,19 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20UpdateBackendAuth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_config` (`t:structure`) The resource configuration for this request
-  object.
-    * `:resource_name` (`t:string`) The name of this resource.
-
-  ## Optional parameters:
+    * `:resource_config` (`t:structure` required) The resource configuration for
+  this request object.
+    * `:resource_name` (`t:string` required) The name of this resource.
+  ## Keyword parameters:
   """
-
   @spec update_backend_auth(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_backend_auth_errors()}
-
   def update_backend_auth(
         %Client{} = client,
         app_id,
@@ -3044,19 +2982,16 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20UpdateBackendConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
+  * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map | nil`):
     * `:login_auth_config` (`t:structure`) Describes the Amazon Cognito
   configuration for Admin UI access.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_backend_config(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_backend_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_backend_config_errors()}
-
   def update_backend_config(%Client{} = client, app_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config/update"
@@ -3094,18 +3029,17 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20UpdateBackendJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
-  * `:job_id` (`t:string`) The ID for the job.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
+  * `:job_id` (`t:string` required) The ID for the job.
   * `:input` (`t:map | nil`):
     * `:operation` (`t:string`) Filters the list of response objects to include only
   those with the specified operation name.
     * `:status` (`t:string`) Filters the list of response objects to include only
   those with the specified status.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_backend_job(
           AWS.Client.t(),
           String.t(),
@@ -3117,7 +3051,6 @@ defmodule AWS.AmplifyBackend do
           {:ok, update_backend_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_backend_job_errors()}
-
   def update_backend_job(
         %Client{} = client,
         app_id,
@@ -3163,16 +3096,15 @@ defmodule AWS.AmplifyBackend do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20UpdateBackendStorage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The app ID.
-  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:app_id` (`t:string` required) The app ID.
+  * `:backend_environment_name` (`t:string` required) The name of the backend
+  environment.
   * `:input` (`t:map`):
-    * `:resource_config` (`t:structure`) The resource configuration for updating
-  backend storage.
-    * `:resource_name` (`t:string`) The name of the storage resource.
-
-  ## Optional parameters:
+    * `:resource_config` (`t:structure` required) The resource configuration for
+  updating backend storage.
+    * `:resource_name` (`t:string` required) The name of the storage resource.
+  ## Keyword parameters:
   """
-
   @spec update_backend_storage(
           AWS.Client.t(),
           String.t(),
@@ -3183,7 +3115,6 @@ defmodule AWS.AmplifyBackend do
           {:ok, update_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_backend_storage_errors()}
-
   def update_backend_storage(
         %Client{} = client,
         app_id,

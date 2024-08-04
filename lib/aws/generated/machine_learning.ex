@@ -1283,6 +1283,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Adds one or more tags to an object, up to a limit of 10. Each tag consists of a
   key and an optional value. If you add a tag using a key that is already
   associated with the ML object, `AddTags` updates the tag's value.
@@ -1297,12 +1298,10 @@ defmodule AWS.MachineLearning do
       required("Tags") => list(tag()())
     }
   """
-
   @spec add_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
-
   def add_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1311,6 +1310,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Generates predictions for a group of observations. The observations to process
   exist in one or more data files referenced by a `DataSource`. This operation
   creates a new `BatchPrediction`, and uses an `MLModel` and the data files
@@ -1328,12 +1328,10 @@ defmodule AWS.MachineLearning do
       required("OutputUri") => String.t()
     }
   """
-
   @spec create_batch_prediction(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_batch_prediction_errors()}
-
   def create_batch_prediction(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1342,6 +1340,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Creates a `DataSource` object from an [ Amazon Relational Database
   Service](http://aws.amazon.com/rds/) (Amazon RDS). A `DataSource` references
   data that can be used to perform `CreateMLModel`, `CreateEvaluation`, or
@@ -1359,12 +1358,10 @@ defmodule AWS.MachineLearning do
       required("RoleARN") => String.t()
     }
   """
-
   @spec create_data_source_from_rds(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_source_from_rds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_from_rds_errors()}
-
   def create_data_source_from_rds(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1373,6 +1370,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Creates a `DataSource` from a database hosted on an Amazon Redshift cluster. A
   `DataSource` references data that can be used to perform either
   `CreateMLModel`, `CreateEvaluation`, or `CreateBatchPrediction` operations.
@@ -1389,12 +1387,10 @@ defmodule AWS.MachineLearning do
       required("RoleARN") => String.t()
     }
   """
-
   @spec create_data_source_from_redshift(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_source_from_redshift_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_from_redshift_errors()}
-
   def create_data_source_from_redshift(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1404,6 +1400,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Creates a `DataSource` object. A `DataSource` references data that can be used
   to perform `CreateMLModel`, `CreateEvaluation`, or `CreateBatchPrediction`
   operations.
@@ -1419,12 +1416,10 @@ defmodule AWS.MachineLearning do
       required("DataSpec") => s3_data_spec()
     }
   """
-
   @spec create_data_source_from_s3(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_source_from_s3_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_from_s3_errors()}
-
   def create_data_source_from_s3(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1433,6 +1428,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Creates a new `Evaluation` of an `MLModel`. An `MLModel` is evaluated on a set
   of observations associated to a `DataSource`. Like a `DataSource` for an
   `MLModel`, the `DataSource` for an `Evaluation` contains values for the
@@ -1458,12 +1454,10 @@ defmodule AWS.MachineLearning do
       required("MLModelId") => String.t()
     }
   """
-
   @spec create_evaluation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_evaluation_errors()}
-
   def create_evaluation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1472,6 +1466,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Creates a new `MLModel` using the `DataSource` and the recipe as information
   sources. An `MLModel` is nearly immutable. Users can update only the
   `MLModelName` and the `ScoreThreshold` in an `MLModel` without creating a new
@@ -1491,12 +1486,10 @@ defmodule AWS.MachineLearning do
       required("TrainingDataSourceId") => String.t()
     }
   """
-
   @spec create_ml_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ml_model_errors()}
-
   def create_ml_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1505,6 +1498,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Creates a real-time endpoint for the `MLModel`. The endpoint contains the URI of
   the `MLModel`; that is, the location to send real-time prediction requests for
   the specified `MLModel`.
@@ -1517,12 +1511,10 @@ defmodule AWS.MachineLearning do
       required("MLModelId") => String.t()
     }
   """
-
   @spec create_realtime_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_realtime_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_realtime_endpoint_errors()}
-
   def create_realtime_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1531,6 +1523,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Assigns the DELETED status to a `BatchPrediction`, rendering it unusable. After
   using the `DeleteBatchPrediction` operation, you can use the
   `GetBatchPrediction` operation to verify that the status of the
@@ -1544,12 +1537,10 @@ defmodule AWS.MachineLearning do
       required("BatchPredictionId") => String.t()
     }
   """
-
   @spec delete_batch_prediction(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_batch_prediction_errors()}
-
   def delete_batch_prediction(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1558,6 +1549,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Assigns the DELETED status to a `DataSource`, rendering it unusable. After using
   the `DeleteDataSource` operation, you can use the `GetDataSource` operation to
   verify that the status of the `DataSource` changed to DELETED.
@@ -1570,12 +1562,10 @@ defmodule AWS.MachineLearning do
       required("DataSourceId") => String.t()
     }
   """
-
   @spec delete_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
-
   def delete_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1584,6 +1574,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Assigns the `DELETED` status to an `Evaluation`, rendering it unusable. After
   invoking the `DeleteEvaluation` operation, you can use the `GetEvaluation`
   operation to verify that the status of the `Evaluation` changed to `DELETED`.
@@ -1596,12 +1587,10 @@ defmodule AWS.MachineLearning do
       required("EvaluationId") => String.t()
     }
   """
-
   @spec delete_evaluation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_evaluation_errors()}
-
   def delete_evaluation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1610,6 +1599,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Assigns the `DELETED` status to an `MLModel`, rendering it unusable. After using
   the `DeleteMLModel` operation, you can use the `GetMLModel` operation to
   verify that the status of the `MLModel` changed to DELETED.
@@ -1622,12 +1612,10 @@ defmodule AWS.MachineLearning do
       required("MLModelId") => String.t()
     }
   """
-
   @spec delete_ml_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ml_model_errors()}
-
   def delete_ml_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1636,6 +1624,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Deletes a real time endpoint of an `MLModel`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=machinelearning%20DeleteRealtimeEndpoint&this_doc_guide=API%2520Reference)
@@ -1646,12 +1635,10 @@ defmodule AWS.MachineLearning do
       required("MLModelId") => String.t()
     }
   """
-
   @spec delete_realtime_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_realtime_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_realtime_endpoint_errors()}
-
   def delete_realtime_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1660,6 +1647,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Deletes the specified tags associated with an ML object. After this operation is
   complete, you can't recover deleted tags.
 
@@ -1673,12 +1661,10 @@ defmodule AWS.MachineLearning do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec delete_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
-
   def delete_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1687,6 +1673,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Returns a list of `BatchPrediction` operations that match the search criteria in
   the request.
 
@@ -1708,12 +1695,10 @@ defmodule AWS.MachineLearning do
       optional("SortOrder") => list(any())
     }
   """
-
   @spec describe_batch_predictions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_batch_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_batch_predictions_errors()}
-
   def describe_batch_predictions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1722,6 +1707,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Returns a list of `DataSource` that match the search criteria in the request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=machinelearning%20DescribeDataSources&this_doc_guide=API%2520Reference)
@@ -1742,12 +1728,10 @@ defmodule AWS.MachineLearning do
       optional("SortOrder") => list(any())
     }
   """
-
   @spec describe_data_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_sources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_sources_errors()}
-
   def describe_data_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1756,6 +1740,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Returns a list of `DescribeEvaluations` that match the search criteria in the
   request.
 
@@ -1777,12 +1762,10 @@ defmodule AWS.MachineLearning do
       optional("SortOrder") => list(any())
     }
   """
-
   @spec describe_evaluations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_evaluations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_evaluations_errors()}
-
   def describe_evaluations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1791,6 +1774,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Returns a list of `MLModel` that match the search criteria in the request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=machinelearning%20DescribeMLModels&this_doc_guide=API%2520Reference)
@@ -1811,12 +1795,10 @@ defmodule AWS.MachineLearning do
       optional("SortOrder") => list(any())
     }
   """
-
   @spec describe_ml_models(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ml_models_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ml_models_errors()}
-
   def describe_ml_models(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1825,6 +1807,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Describes one or more of the tags for your Amazon ML object.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=machinelearning%20DescribeTags&this_doc_guide=API%2520Reference)
@@ -1836,12 +1819,10 @@ defmodule AWS.MachineLearning do
       required("ResourceType") => list(any())
     }
   """
-
   @spec describe_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
-
   def describe_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1850,6 +1831,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Returns a `BatchPrediction` that includes detailed metadata, status, and data
   file information for a `Batch Prediction` request.
 
@@ -1861,12 +1843,10 @@ defmodule AWS.MachineLearning do
       required("BatchPredictionId") => String.t()
     }
   """
-
   @spec get_batch_prediction(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_batch_prediction_errors()}
-
   def get_batch_prediction(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1875,6 +1855,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Returns a `DataSource` that includes metadata and data file information, as well
   as the current status of the `DataSource`.
 
@@ -1887,12 +1868,10 @@ defmodule AWS.MachineLearning do
       required("DataSourceId") => String.t()
     }
   """
-
   @spec get_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_errors()}
-
   def get_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1901,6 +1880,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Returns an `Evaluation` that includes metadata as well as the current status of
   the `Evaluation`.
 
@@ -1912,12 +1892,10 @@ defmodule AWS.MachineLearning do
       required("EvaluationId") => String.t()
     }
   """
-
   @spec get_evaluation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evaluation_errors()}
-
   def get_evaluation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1926,6 +1904,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Returns an `MLModel` that includes detailed metadata, data source information,
   and the current status of the `MLModel`.
 
@@ -1938,12 +1917,10 @@ defmodule AWS.MachineLearning do
       required("MLModelId") => String.t()
     }
   """
-
   @spec get_ml_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_model_errors()}
-
   def get_ml_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1952,6 +1929,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Generates a prediction for the observation using the specified `ML Model`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=machinelearning%20Predict&this_doc_guide=API%2520Reference)
@@ -1964,12 +1942,10 @@ defmodule AWS.MachineLearning do
       required("Record") => map()
     }
   """
-
   @spec predict(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, predict_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, predict_errors()}
-
   def predict(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1978,6 +1954,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Updates the `BatchPredictionName` of a `BatchPrediction`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=machinelearning%20UpdateBatchPrediction&this_doc_guide=API%2520Reference)
@@ -1989,12 +1966,10 @@ defmodule AWS.MachineLearning do
       required("BatchPredictionName") => String.t()
     }
   """
-
   @spec update_batch_prediction(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_batch_prediction_errors()}
-
   def update_batch_prediction(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2003,6 +1978,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Updates the `DataSourceName` of a `DataSource`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=machinelearning%20UpdateDataSource&this_doc_guide=API%2520Reference)
@@ -2014,12 +1990,10 @@ defmodule AWS.MachineLearning do
       required("DataSourceName") => String.t()
     }
   """
-
   @spec update_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
-
   def update_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2028,6 +2002,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Updates the `EvaluationName` of an `Evaluation`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=machinelearning%20UpdateEvaluation&this_doc_guide=API%2520Reference)
@@ -2039,12 +2014,10 @@ defmodule AWS.MachineLearning do
       required("EvaluationName") => String.t()
     }
   """
-
   @spec update_evaluation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_evaluation_errors()}
-
   def update_evaluation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2053,6 +2026,7 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
+   
   Updates the `MLModelName` and the `ScoreThreshold` of an `MLModel`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=machinelearning%20UpdateMLModel&this_doc_guide=API%2520Reference)
@@ -2065,12 +2039,10 @@ defmodule AWS.MachineLearning do
       required("MLModelId") => String.t()
     }
   """
-
   @spec update_ml_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ml_model_errors()}
-
   def update_ml_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

@@ -2733,17 +2733,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AcceptInboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound
-  connection that you want to accept.
-
-  ## Optional parameters:
+  * `:cross_cluster_search_connection_id` (`t:string` required) The id of the
+  inbound connection that you want to accept.
+  ## Keyword parameters:
   """
-
   @spec accept_inbound_cross_cluster_search_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_inbound_cross_cluster_search_connection_errors()}
-
   def accept_inbound_cross_cluster_search_connection(
         %Client{} = client,
         cross_cluster_search_connection_id,
@@ -2788,15 +2785,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AddTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec add_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
-
   def add_tags(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/tags"
 
@@ -2833,19 +2827,16 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AssociatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) Name of the domain that you want to associate the
-  package with.
-  * `:package_id` (`t:string`) Internal ID of the package that you want to
-  associate with a domain. Use DescribePackages to find this value.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) Name of the domain that you want to
+  associate the package with.
+  * `:package_id` (`t:string` required) Internal ID of the package that you want
+  to associate with a domain. Use DescribePackages to find this value.
+  ## Keyword parameters:
   """
-
   @spec associate_package(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_package_errors()}
-
   def associate_package(%Client{} = client, domain_name, package_id, options \\ []) do
     url_path =
       "/2015-01-01/packages/associate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
@@ -2884,17 +2875,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AuthorizeVpcEndpointAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
-  provide access to.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the OpenSearch Service domain
+  to provide access to.
+  ## Keyword parameters:
   """
-
   @spec authorize_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, authorize_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, authorize_vpc_endpoint_access_errors()}
-
   def authorize_vpc_endpoint_access(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/authorizeVpcEndpointAccess"
@@ -2932,17 +2920,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CancelDomainConfigChange&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) Name of the OpenSearch Service domain
+  * `:domain_name` (`t:string` required) Name of the OpenSearch Service domain
   configuration request to cancel.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_domain_config_change(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_domain_config_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_domain_config_change_errors()}
-
   def cancel_domain_config_change(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config/cancel"
 
@@ -2981,15 +2966,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CancelElasticsearchServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_elasticsearch_service_software_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_elasticsearch_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_elasticsearch_service_software_update_errors()}
-
   def cancel_elasticsearch_service_software_update(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/serviceSoftwareUpdate/cancel"
 
@@ -3029,15 +3011,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreateElasticsearchDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_elasticsearch_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_elasticsearch_domain_errors()}
-
   def create_elasticsearch_domain(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/domain"
 
@@ -3075,15 +3054,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreateOutboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_outbound_cross_cluster_search_connection(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_outbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_outbound_cross_cluster_search_connection_errors()}
-
   def create_outbound_cross_cluster_search_connection(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/ccs/outboundConnection"
 
@@ -3120,15 +3096,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_package_errors()}
-
   def create_package(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/packages"
 
@@ -3165,15 +3138,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreateVpcEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_vpc_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_endpoint_errors()}
-
   def create_vpc_endpoint(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints"
 
@@ -3211,17 +3181,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteElasticsearchDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the Elasticsearch domain that you want
-  to permanently delete.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the Elasticsearch domain that
+  you want to permanently delete.
+  ## Keyword parameters:
   """
-
   @spec delete_elasticsearch_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_elasticsearch_domain_errors()}
-
   def delete_elasticsearch_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -3273,15 +3240,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteElasticsearchServiceRole&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_elasticsearch_service_role(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_elasticsearch_service_role_errors()}
-
   def delete_elasticsearch_service_role(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/role"
 
@@ -3329,17 +3293,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteInboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound
-  connection that you want to permanently delete.
-
-  ## Optional parameters:
+  * `:cross_cluster_search_connection_id` (`t:string` required) The id of the
+  inbound connection that you want to permanently delete.
+  ## Keyword parameters:
   """
-
   @spec delete_inbound_cross_cluster_search_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_inbound_cross_cluster_search_connection_errors()}
-
   def delete_inbound_cross_cluster_search_connection(
         %Client{} = client,
         cross_cluster_search_connection_id,
@@ -3392,17 +3353,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteOutboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cross_cluster_search_connection_id` (`t:string`) The id of the outbound
-  connection that you want to permanently delete.
-
-  ## Optional parameters:
+  * `:cross_cluster_search_connection_id` (`t:string` required) The id of the
+  outbound connection that you want to permanently delete.
+  ## Keyword parameters:
   """
-
   @spec delete_outbound_cross_cluster_search_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_outbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_outbound_cross_cluster_search_connection_errors()}
-
   def delete_outbound_cross_cluster_search_connection(
         %Client{} = client,
         cross_cluster_search_connection_id,
@@ -3454,17 +3412,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeletePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) Internal ID of the package that you want to delete.
-  Use DescribePackages to find this value.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) Internal ID of the package that you want
+  to delete. Use DescribePackages to find this value.
+  ## Keyword parameters:
   """
-
   @spec delete_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_package_errors()}
-
   def delete_package(%Client{} = client, package_id, options \\ []) do
     url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}"
 
@@ -3511,17 +3466,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteVpcEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vpc_endpoint_id` (`t:string`) The unique identifier of the endpoint to be
-  deleted.
-
-  ## Optional parameters:
+  * `:vpc_endpoint_id` (`t:string` required) The unique identifier of the endpoint
+  to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_vpc_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_endpoint_errors()}
-
   def delete_vpc_endpoint(%Client{} = client, vpc_endpoint_id, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/#{AWS.Util.encode_uri(vpc_endpoint_id)}"
 
@@ -3569,17 +3521,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeDomainAutoTunes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) Specifies the domain name for which you want
-  Auto-Tune action details.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) Specifies the domain name for which you
+  want Auto-Tune action details.
+  ## Keyword parameters:
   """
-
   @spec describe_domain_auto_tunes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_auto_tunes_errors()}
-
   def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
 
@@ -3615,20 +3564,17 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeDomainChangeProgress&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The domain you want to get the progress
+  * `:domain_name` (`t:string` required) The domain you want to get the progress
   information about.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:change_id` (`t:string`) The specific change ID for which you want to get
   progress information. This is an optional parameter. If omitted, the service
   returns information about the most recent configuration change.
   """
-
   @spec describe_domain_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_change_progress_errors()}
-
   def describe_domain_change_progress(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/progress"
 
@@ -3675,17 +3621,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the Elasticsearch domain for which you
-  want information.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the Elasticsearch domain for
+  which you want information.
+  ## Keyword parameters:
   """
-
   @spec describe_elasticsearch_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_elasticsearch_domain_errors()}
-
   def describe_elasticsearch_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -3722,17 +3665,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchDomainConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The Elasticsearch domain that you want to get
-  information about.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The Elasticsearch domain that you want to
+  get information about.
+  ## Keyword parameters:
   """
-
   @spec describe_elasticsearch_domain_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_elasticsearch_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_elasticsearch_domain_config_errors()}
-
   def describe_elasticsearch_domain_config(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config"
 
@@ -3768,15 +3708,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_elasticsearch_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_elasticsearch_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_elasticsearch_domains_errors()}
-
   def describe_elasticsearch_domains(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/domain-info"
 
@@ -3815,19 +3752,17 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchInstanceTypeLimits&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:elasticsearch_version` (`t:string`) Version of Elasticsearch for which
-  Limits are needed.
+  * `:elasticsearch_version` (`t:string` required) Version of Elasticsearch for
+  which Limits are needed.
   * `:instance_type`
-  (`t:enum["m5_xlarge_elasticsearch|i3_xlarge_elasticsearch|d2_2xlarge_elasticsearch|i3_2xlarge_elasticsearch|c4_large_elasticsearch|i3_4xlarge_elasticsearch|m4_xlarge_elasticsearch|c4_4xlarge_elasticsearch|m5_large_elasticsearch|c5_large_elasticsearch|t2_micro_elasticsearch|r3_8xlarge_elasticsearch|r4_8xlarge_elasticsearch|c5_2xlarge_elasticsearch|r4_16xlarge_elasticsearch|r4_4xlarge_elasticsearch|r3_xlarge_elasticsearch|m3_medium_elasticsearch|m5_12xlarge_elasticsearch|d2_xlarge_elasticsearch|r4_xlarge_elasticsearch|c5_xlarge_elasticsearch|ultrawarm1_medium_elasticsearch|c5_4xlarge_elasticsearch|r3_2xlarge_elasticsearch|r5_xlarge_elasticsearch|m3_large_elasticsearch|t2_small_elasticsearch|d2_8xlarge_elasticsearch|m4_2xlarge_elasticsearch|m4_4xlarge_elasticsearch|r4_large_elasticsearch|i2_xlarge_elasticsearch|r4_2xlarge_elasticsearch|m3_2xlarge_elasticsearch|r3_large_elasticsearch|m5_4xlarge_elasticsearch|t2_medium_elasticsearch|c4_8xlarge_elasticsearch|c5_18xlarge_elasticsearch|r5_4xlarge_elasticsearch|d2_4xlarge_elasticsearch|m4_large_elasticsearch|i3_8xlarge_elasticsearch|c5_9xlarge_elasticsearch|i3_large_elasticsearch|ultrawarm1_large_elasticsearch|r5_12xlarge_elasticsearch|m5_2xlarge_elasticsearch|r3_4xlarge_elasticsearch|i3_16xlarge_elasticsearch|r5_large_elasticsearch|m4_10xlarge_elasticsearch|c4_2xlarge_elasticsearch|i2_2xlarge_elasticsearch|c4_xlarge_elasticsearch|m3_xlarge_elasticsearch|r5_2xlarge_elasticsearch"]`)
-  The instance type for an Elasticsearch cluster for which Elasticsearch
-  Limits are needed.
-
-  ## Optional parameters:
+  (`t:enum["m5_xlarge_elasticsearch|i3_xlarge_elasticsearch|d2_2xlarge_elasticsearch|i3_2xlarge_elasticsearch|c4_large_elasticsearch|i3_4xlarge_elasticsearch|m4_xlarge_elasticsearch|c4_4xlarge_elasticsearch|m5_large_elasticsearch|c5_large_elasticsearch|t2_micro_elasticsearch|r3_8xlarge_elasticsearch|r4_8xlarge_elasticsearch|c5_2xlarge_elasticsearch|r4_16xlarge_elasticsearch|r4_4xlarge_elasticsearch|r3_xlarge_elasticsearch|m3_medium_elasticsearch|m5_12xlarge_elasticsearch|d2_xlarge_elasticsearch|r4_xlarge_elasticsearch|c5_xlarge_elasticsearch|ultrawarm1_medium_elasticsearch|c5_4xlarge_elasticsearch|r3_2xlarge_elasticsearch|r5_xlarge_elasticsearch|m3_large_elasticsearch|t2_small_elasticsearch|d2_8xlarge_elasticsearch|m4_2xlarge_elasticsearch|m4_4xlarge_elasticsearch|r4_large_elasticsearch|i2_xlarge_elasticsearch|r4_2xlarge_elasticsearch|m3_2xlarge_elasticsearch|r3_large_elasticsearch|m5_4xlarge_elasticsearch|t2_medium_elasticsearch|c4_8xlarge_elasticsearch|c5_18xlarge_elasticsearch|r5_4xlarge_elasticsearch|d2_4xlarge_elasticsearch|m4_large_elasticsearch|i3_8xlarge_elasticsearch|c5_9xlarge_elasticsearch|i3_large_elasticsearch|ultrawarm1_large_elasticsearch|r5_12xlarge_elasticsearch|m5_2xlarge_elasticsearch|r3_4xlarge_elasticsearch|i3_16xlarge_elasticsearch|r5_large_elasticsearch|m4_10xlarge_elasticsearch|c4_2xlarge_elasticsearch|i2_2xlarge_elasticsearch|c4_xlarge_elasticsearch|m3_xlarge_elasticsearch|r5_2xlarge_elasticsearch"]`
+  required) The instance type for an Elasticsearch cluster for which
+  Elasticsearch Limits are needed.
+  ## Keyword parameters:
   * `:domain_name` (`t:string`) DomainName represents the name of the Domain that
   we are trying to modify. This should be present only if we are querying for
   Elasticsearch Limits for existing domain.
   """
-
   @spec describe_elasticsearch_instance_type_limits(
           AWS.Client.t(),
           String.t(),
@@ -3837,7 +3772,6 @@ defmodule AWS.Elasticsearch do
           {:ok, describe_elasticsearch_instance_type_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_elasticsearch_instance_type_limits_errors()}
-
   def describe_elasticsearch_instance_type_limits(
         %Client{} = client,
         elasticsearch_version,
@@ -3889,15 +3823,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeInboundCrossClusterSearchConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_inbound_cross_cluster_search_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_inbound_cross_cluster_search_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inbound_cross_cluster_search_connections_errors()}
-
   def describe_inbound_cross_cluster_search_connections(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/ccs/inboundConnection/search"
 
@@ -3934,15 +3865,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeOutboundCrossClusterSearchConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_outbound_cross_cluster_search_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_outbound_cross_cluster_search_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_outbound_cross_cluster_search_connections_errors()}
-
   def describe_outbound_cross_cluster_search_connections(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/ccs/outboundConnection/search"
 
@@ -3980,15 +3908,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribePackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_packages_errors()}
-
   def describe_packages(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/packages/describe"
 
@@ -4025,8 +3950,7 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeReservedElasticsearchInstanceOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Set this value to limit the number of results
   returned. If not specified, defaults to 100.
   * `:next_token` (`t:string`) NextToken should be sent in case if earlier API
@@ -4035,12 +3959,10 @@ defmodule AWS.Elasticsearch do
   identifier filter value. Use this parameter to show only the available
   offering that matches the specified reservation identifier.
   """
-
   @spec describe_reserved_elasticsearch_instance_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_elasticsearch_instance_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_elasticsearch_instance_offerings_errors()}
-
   def describe_reserved_elasticsearch_instance_offerings(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/reservedInstanceOfferings"
 
@@ -4104,8 +4026,7 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeReservedElasticsearchInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Set this value to limit the number of results
   returned. If not specified, defaults to 100.
   * `:next_token` (`t:string`) NextToken should be sent in case if earlier API
@@ -4114,12 +4035,10 @@ defmodule AWS.Elasticsearch do
   identifier filter value. Use this parameter to show only the reservation
   that matches the specified reserved Elasticsearch instance ID.
   """
-
   @spec describe_reserved_elasticsearch_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_elasticsearch_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_elasticsearch_instances_errors()}
-
   def describe_reserved_elasticsearch_instances(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/reservedInstances"
 
@@ -4179,15 +4098,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeVpcEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_endpoints_errors()}
-
   def describe_vpc_endpoints(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/describe"
 
@@ -4224,19 +4140,16 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DissociatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) Name of the domain that you want to associate the
-  package with.
-  * `:package_id` (`t:string`) Internal ID of the package that you want to
-  associate with a domain. Use DescribePackages to find this value.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) Name of the domain that you want to
+  associate the package with.
+  * `:package_id` (`t:string` required) Internal ID of the package that you want
+  to associate with a domain. Use DescribePackages to find this value.
+  ## Keyword parameters:
   """
-
   @spec dissociate_package(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, dissociate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, dissociate_package_errors()}
-
   def dissociate_package(%Client{} = client, domain_name, package_id, options \\ []) do
     url_path =
       "/2015-01-01/packages/dissociate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
@@ -4276,16 +4189,13 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetCompatibleElasticsearchVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:domain_name` (`t:string`)
   """
-
   @spec get_compatible_elasticsearch_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_elasticsearch_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compatible_elasticsearch_versions_errors()}
-
   def get_compatible_elasticsearch_versions(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/compatibleVersions"
 
@@ -4332,21 +4242,18 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetPackageVersionHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) Returns an audit history of versions of the
-  package.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) Returns an audit history of versions of
+  the package.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Limits results to a maximum number of versions.
   * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous
   API call includes a non-null NextToken value. If provided, returns results
   for the next page.
   """
-
   @spec get_package_version_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_version_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_package_version_history_errors()}
-
   def get_package_version_history(%Client{} = client, package_id, options \\ []) do
     url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}/history"
 
@@ -4400,18 +4307,15 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetUpgradeHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec get_upgrade_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upgrade_history_errors()}
-
   def get_upgrade_history(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/history"
 
@@ -4465,16 +4369,13 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetUpgradeStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_upgrade_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upgrade_status_errors()}
-
   def get_upgrade_status(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
 
@@ -4510,18 +4411,15 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListDomainNames&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`) Optional parameter to
   filter the output by domain engine type. Acceptable values are
   'Elasticsearch' and 'OpenSearch'.
   """
-
   @spec list_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_names_errors()}
-
   def list_domain_names(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/domain"
 
@@ -4567,20 +4465,17 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListDomainsForPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) The package for which to list domains.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) The package for which to list domains.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Limits results to a maximum number of domains.
   * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous
   API call includes a non-null NextToken value. If provided, returns results
   for the next page.
   """
-
   @spec list_domains_for_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domains_for_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_for_package_errors()}
-
   def list_domains_for_package(%Client{} = client, package_id, options \\ []) do
     url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}/domains"
 
@@ -4634,10 +4529,9 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListElasticsearchInstanceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:elasticsearch_version` (`t:string`) Version of Elasticsearch for which list
-  of supported elasticsearch instance types are needed.
-
-  ## Optional parameters:
+  * `:elasticsearch_version` (`t:string` required) Version of Elasticsearch for
+  which list of supported elasticsearch instance types are needed.
+  ## Keyword parameters:
   * `:domain_name` (`t:string`) DomainName represents the name of the Domain that
   we are trying to modify. This should be present only if we are querying for
   list of available Elasticsearch instance types when modifying existing
@@ -4647,12 +4541,10 @@ defmodule AWS.Elasticsearch do
   * `:next_token` (`t:string`) NextToken should be sent in case if earlier API
   call produced result containing NextToken. It is used for pagination.
   """
-
   @spec list_elasticsearch_instance_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_elasticsearch_instance_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_elasticsearch_instance_types_errors()}
-
   def list_elasticsearch_instance_types(%Client{} = client, elasticsearch_version, options \\ []) do
     url_path = "/2015-01-01/es/instanceTypes/#{AWS.Util.encode_uri(elasticsearch_version)}"
 
@@ -4712,18 +4604,15 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListElasticsearchVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Set this value to limit the number of results
   returned. Value provided must be greater than 10 else it wont be honored.
   * `:next_token` (`t:string`)
   """
-
   @spec list_elasticsearch_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_elasticsearch_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_elasticsearch_versions_errors()}
-
   def list_elasticsearch_versions(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/versions"
 
@@ -4776,21 +4665,18 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListPackagesForDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the domain for which you want to list
-  associated packages.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the domain for which you want
+  to list associated packages.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Limits results to a maximum number of packages.
   * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous
   API call includes a non-null NextToken value. If provided, returns results
   for the next page.
   """
-
   @spec list_packages_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packages_for_domain_errors()}
-
   def list_packages_for_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/domain/#{AWS.Util.encode_uri(domain_name)}/packages"
 
@@ -4843,17 +4729,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) Specify the ARN for the Elasticsearch domain to which the
-  tags are attached that you want to view.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) Specify the ARN for the Elasticsearch domain to
+  which the tags are attached that you want to view.
+  ## Keyword parameters:
   """
-
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-
   def list_tags(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/2015-01-01/tags"
 
@@ -4889,19 +4772,16 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListVpcEndpointAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
-  retrieve access information for.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the OpenSearch Service domain
+  to retrieve access information for.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) Provides an identifier to allow retrieval of
   paginated results.
   """
-
   @spec list_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoint_access_errors()}
-
   def list_vpc_endpoint_access(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/listVpcEndpointAccess"
 
@@ -4948,16 +4828,13 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListVpcEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) Identifier to allow retrieval of paginated results.
   """
-
   @spec list_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoints_errors()}
-
   def list_vpc_endpoints(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints"
 
@@ -5004,19 +4881,16 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListVpcEndpointsForDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) Name of the ElasticSearch domain whose VPC
-  endpoints are to be listed.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) Name of the ElasticSearch domain whose
+  VPC endpoints are to be listed.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) Provides an identifier to allow retrieval of
   paginated results.
   """
-
   @spec list_vpc_endpoints_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoints_for_domain_errors()}
-
   def list_vpc_endpoints_for_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/vpcEndpoints"
 
@@ -5062,15 +4936,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20PurchaseReservedElasticsearchInstanceOffering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec purchase_reserved_elasticsearch_instance_offering(AWS.Client.t(), Keyword.t()) ::
           {:ok, purchase_reserved_elasticsearch_instance_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_reserved_elasticsearch_instance_offering_errors()}
-
   def purchase_reserved_elasticsearch_instance_offering(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/purchaseReservedInstanceOffering"
 
@@ -5108,17 +4979,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20RejectInboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound
-  connection that you want to reject.
-
-  ## Optional parameters:
+  * `:cross_cluster_search_connection_id` (`t:string` required) The id of the
+  inbound connection that you want to reject.
+  ## Keyword parameters:
   """
-
   @spec reject_inbound_cross_cluster_search_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reject_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_inbound_cross_cluster_search_connection_errors()}
-
   def reject_inbound_cross_cluster_search_connection(
         %Client{} = client,
         cross_cluster_search_connection_id,
@@ -5160,15 +5028,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20RemoveTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec remove_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_errors()}
-
   def remove_tags(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/tags-removal"
 
@@ -5206,16 +5071,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20RevokeVpcEndpointAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the OpenSearch Service
+  domain.
+  ## Keyword parameters:
   """
-
   @spec revoke_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, revoke_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_vpc_endpoint_access_errors()}
-
   def revoke_vpc_endpoint_access(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
 
@@ -5252,15 +5115,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20StartElasticsearchServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_elasticsearch_service_software_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_elasticsearch_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_elasticsearch_service_software_update_errors()}
-
   def start_elasticsearch_service_software_update(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/serviceSoftwareUpdate/start"
 
@@ -5298,17 +5158,14 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpdateElasticsearchDomainConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the Elasticsearch domain that you are
-  updating.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the Elasticsearch domain that
+  you are updating.
+  ## Keyword parameters:
   """
-
   @spec update_elasticsearch_domain_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_elasticsearch_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_elasticsearch_domain_config_errors()}
-
   def update_elasticsearch_domain_config(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config"
 
@@ -5345,15 +5202,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpdatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_package_errors()}
-
   def update_package(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/packages/update"
 
@@ -5390,15 +5244,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpdateVpcEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_vpc_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_endpoint_errors()}
-
   def update_vpc_endpoint(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/update"
 
@@ -5436,15 +5287,12 @@ defmodule AWS.Elasticsearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpgradeElasticsearchDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec upgrade_elasticsearch_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, upgrade_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_elasticsearch_domain_errors()}
-
   def upgrade_elasticsearch_domain(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/upgradeDomain"
 

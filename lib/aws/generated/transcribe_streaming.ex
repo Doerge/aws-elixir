@@ -615,18 +615,18 @@ defmodule AWS.TranscribeStreaming do
 
   ## Parameters:
   * `:language_code`
-  (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|IT_IT|PT_BR"]`) Specify
-  the language code that represents the language spoken in your audio.
-  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]`) Specify the encoding of your
-  input audio. Supported formats are:
-  * `:media_sample_rate_hertz` (`t:integer`) The sample rate of the input audio
-  (in hertz). Low-quality audio, such as telephone audio, is typically around
-  8,000 Hz. High-quality audio typically ranges from 16,000 Hz to 48,000 Hz.
-  Note that the sample rate you specify must match that of your audio.
+  (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|IT_IT|PT_BR"]` required)
+  Specify the language code that represents the language spoken in your audio.
+  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]` required) Specify the
+  encoding of your input audio. Supported formats are:
+  * `:media_sample_rate_hertz` (`t:integer` required) The sample rate of the input
+  audio (in hertz). Low-quality audio, such as telephone audio, is typically
+  around 8,000 Hz. High-quality audio typically ranges from 16,000 Hz to
+  48,000 Hz. Note that the sample rate you specify must match that of your
+  audio.
   * `:input` (`t:map`):
-    * `:audio_stream` (`t:union`)
-
-  ## Optional parameters:
+    * `:audio_stream` (`t:union` required)
+  ## Keyword parameters:
   * `:content_identification_type` (`t:enum["PII"]`) Labels all personally
   identifiable information (PII) identified in your transcript.
   * `:content_redaction_type` (`t:enum["PII"]`) Redacts all personally
@@ -656,7 +656,6 @@ defmodule AWS.TranscribeStreaming do
   you want to use when processing your transcription. Note that vocabulary
   names are case sensitive.
   """
-
   @spec start_call_analytics_stream_transcription(
           AWS.Client.t(),
           String.t(),
@@ -668,7 +667,6 @@ defmodule AWS.TranscribeStreaming do
           {:ok, start_call_analytics_stream_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_call_analytics_stream_transcription_errors()}
-
   def start_call_analytics_stream_transcription(
         %Client{} = client,
         language_code,
@@ -862,24 +860,25 @@ defmodule AWS.TranscribeStreaming do
 
   ## Parameters:
   * `:language_code`
-  (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|TH_TH|ZH_CN"]`)
-  Specify the language code that represents the language spoken in your audio.
-  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]`) Specify the encoding used
-  for the input audio. Supported formats are:
-  * `:media_sample_rate_hertz` (`t:integer`) The sample rate of the input audio
-  (in hertz). Amazon Transcribe Medical supports a range from 16,000 Hz to
-  48,000 Hz. Note that the sample rate you specify must match that of your
+  (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|TH_TH|ZH_CN"]`
+  required) Specify the language code that represents the language spoken in
+  your audio.
+  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]` required) Specify the
+  encoding used for the input audio. Supported formats are:
+  * `:media_sample_rate_hertz` (`t:integer` required) The sample rate of the input
+  audio (in hertz). Amazon Transcribe Medical supports a range from 16,000 Hz
+  to 48,000 Hz. Note that the sample rate you specify must match that of your
   audio.
   * `:specialty`
-  (`t:enum["CARDIOLOGY|NEUROLOGY|ONCOLOGY|PRIMARYCARE|RADIOLOGY|UROLOGY"]`)
-  Specify the medical specialty contained in your audio.
-  * `:type` (`t:enum["CONVERSATION|DICTATION"]`) Specify the type of input audio.
-  For example, choose DICTATION for a provider dictating patient notes and
-  CONVERSATION for a dialogue between a patient and a medical professional.
+  (`t:enum["CARDIOLOGY|NEUROLOGY|ONCOLOGY|PRIMARYCARE|RADIOLOGY|UROLOGY"]`
+  required) Specify the medical specialty contained in your audio.
+  * `:type` (`t:enum["CONVERSATION|DICTATION"]` required) Specify the type of
+  input audio. For example, choose DICTATION for a provider dictating patient
+  notes and CONVERSATION for a dialogue between a patient and a medical
+  professional.
   * `:input` (`t:map`):
-    * `:audio_stream` (`t:union`)
-
-  ## Optional parameters:
+    * `:audio_stream` (`t:union` required)
+  ## Keyword parameters:
   * `:content_identification_type` (`t:enum["PHI"]`) Labels all personal health
   information (PHI) identified in your transcript.
   * `:enable_channel_identification` (`t:boolean`) Enables channel identification
@@ -896,7 +895,6 @@ defmodule AWS.TranscribeStreaming do
   you want to use when processing your transcription. Note that vocabulary
   names are case sensitive.
   """
-
   @spec start_medical_stream_transcription(
           AWS.Client.t(),
           String.t(),
@@ -910,7 +908,6 @@ defmodule AWS.TranscribeStreaming do
           {:ok, start_medical_stream_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_medical_stream_transcription_errors()}
-
   def start_medical_stream_transcription(
         %Client{} = client,
         language_code,
@@ -1065,17 +1062,17 @@ defmodule AWS.TranscribeStreaming do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribestreaming%20StartStreamTranscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]`) Specify the encoding of your
-  input audio. Supported formats are:
-  * `:media_sample_rate_hertz` (`t:integer`) The sample rate of the input audio
-  (in hertz). Low-quality audio, such as telephone audio, is typically around
-  8,000 Hz. High-quality audio typically ranges from 16,000 Hz to 48,000 Hz.
-  Note that the sample rate you specify must match that of your audio.
+  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]` required) Specify the
+  encoding of your input audio. Supported formats are:
+  * `:media_sample_rate_hertz` (`t:integer` required) The sample rate of the input
+  audio (in hertz). Low-quality audio, such as telephone audio, is typically
+  around 8,000 Hz. High-quality audio typically ranges from 16,000 Hz to
+  48,000 Hz. Note that the sample rate you specify must match that of your
+  audio.
   * `:input` (`t:map`):
-    * `:audio_stream` (`t:union`) An encoded stream of audio blobs. Audio streams
-  are encoded as either HTTP/2 or WebSocket data frames.
-
-  ## Optional parameters:
+    * `:audio_stream` (`t:union` required) An encoded stream of audio blobs. Audio
+  streams are encoded as either HTTP/2 or WebSocket data frames.
+  ## Keyword parameters:
   * `:content_identification_type` (`t:enum["PII"]`) Labels all personally
   identifiable information (PII) identified in your transcript.
   * `:content_redaction_type` (`t:enum["PII"]`) Redacts all personally
@@ -1135,7 +1132,6 @@ defmodule AWS.TranscribeStreaming do
   that you want to use when processing your transcription. Note that
   vocabulary names are case sensitive.
   """
-
   @spec start_stream_transcription(
           AWS.Client.t(),
           String.t(),
@@ -1146,7 +1142,6 @@ defmodule AWS.TranscribeStreaming do
           {:ok, start_stream_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_stream_transcription_errors()}
-
   def start_stream_transcription(
         %Client{} = client,
         media_encoding,

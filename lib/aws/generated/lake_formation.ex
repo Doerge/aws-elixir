@@ -2527,15 +2527,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20AddLFTagsToResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec add_l_f_tags_to_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, add_l_f_tags_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_l_f_tags_to_resource_errors()}
-
   def add_l_f_tags_to_resource(%Client{} = client, options \\ []) do
     url_path = "/AddLFTagsToResource"
 
@@ -2578,15 +2575,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20AssumeDecoratedRoleWithSAML&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec assume_decorated_role_with_saml(AWS.Client.t(), Keyword.t()) ::
           {:ok, assume_decorated_role_with_saml_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_decorated_role_with_saml_errors()}
-
   def assume_decorated_role_with_saml(%Client{} = client, options \\ []) do
     url_path = "/AssumeDecoratedRoleWithSAML"
 
@@ -2623,15 +2617,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20BatchGrantPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_grant_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_grant_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_grant_permissions_errors()}
-
   def batch_grant_permissions(%Client{} = client, options \\ []) do
     url_path = "/BatchGrantPermissions"
 
@@ -2668,15 +2659,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20BatchRevokePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_revoke_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_revoke_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_revoke_permissions_errors()}
-
   def batch_revoke_permissions(%Client{} = client, options \\ []) do
     url_path = "/BatchRevokePermissions"
 
@@ -2714,15 +2702,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20CancelTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_transaction_errors()}
-
   def cancel_transaction(%Client{} = client, options \\ []) do
     url_path = "/CancelTransaction"
 
@@ -2761,15 +2746,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20CommitTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec commit_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, commit_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, commit_transaction_errors()}
-
   def commit_transaction(%Client{} = client, options \\ []) do
     url_path = "/CommitTransaction"
 
@@ -2807,15 +2789,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20CreateDataCellsFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_data_cells_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_data_cells_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_cells_filter_errors()}
-
   def create_data_cells_filter(%Client{} = client, options \\ []) do
     url_path = "/CreateDataCellsFilter"
 
@@ -2852,15 +2831,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20CreateLFTag&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_l_f_tag(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_l_f_tag_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_l_f_tag_errors()}
-
   def create_l_f_tag(%Client{} = client, options \\ []) do
     url_path = "/CreateLFTag"
 
@@ -2898,15 +2874,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20CreateLakeFormationIdentityCenterConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_lake_formation_identity_center_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_lake_formation_identity_center_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lake_formation_identity_center_configuration_errors()}
-
   def create_lake_formation_identity_center_configuration(%Client{} = client, options \\ []) do
     url_path = "/CreateLakeFormationIdentityCenterConfiguration"
 
@@ -2944,15 +2917,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20CreateLakeFormationOptIn&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_lake_formation_opt_in(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_lake_formation_opt_in_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lake_formation_opt_in_errors()}
-
   def create_lake_formation_opt_in(%Client{} = client, options \\ []) do
     url_path = "/CreateLakeFormationOptIn"
 
@@ -2989,15 +2959,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20DeleteDataCellsFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_data_cells_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_data_cells_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_cells_filter_errors()}
-
   def delete_data_cells_filter(%Client{} = client, options \\ []) do
     url_path = "/DeleteDataCellsFilter"
 
@@ -3038,15 +3005,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20DeleteLFTag&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_l_f_tag(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_l_f_tag_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_l_f_tag_errors()}
-
   def delete_l_f_tag(%Client{} = client, options \\ []) do
     url_path = "/DeleteLFTag"
 
@@ -3083,15 +3047,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20DeleteLakeFormationIdentityCenterConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_lake_formation_identity_center_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_lake_formation_identity_center_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lake_formation_identity_center_configuration_errors()}
-
   def delete_lake_formation_identity_center_configuration(%Client{} = client, options \\ []) do
     url_path = "/DeleteLakeFormationIdentityCenterConfiguration"
 
@@ -3129,15 +3090,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20DeleteLakeFormationOptIn&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_lake_formation_opt_in(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_lake_formation_opt_in_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lake_formation_opt_in_errors()}
-
   def delete_lake_formation_opt_in(%Client{} = client, options \\ []) do
     url_path = "/DeleteLakeFormationOptIn"
 
@@ -3177,15 +3135,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20DeleteObjectsOnCancel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_objects_on_cancel(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_objects_on_cancel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_objects_on_cancel_errors()}
-
   def delete_objects_on_cancel(%Client{} = client, options \\ []) do
     url_path = "/DeleteObjectsOnCancel"
 
@@ -3222,15 +3177,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20DeregisterResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec deregister_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_resource_errors()}
-
   def deregister_resource(%Client{} = client, options \\ []) do
     url_path = "/DeregisterResource"
 
@@ -3267,15 +3219,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20DescribeLakeFormationIdentityCenterConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_lake_formation_identity_center_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_lake_formation_identity_center_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_lake_formation_identity_center_configuration_errors()}
-
   def describe_lake_formation_identity_center_configuration(%Client{} = client, options \\ []) do
     url_path = "/DescribeLakeFormationIdentityCenterConfiguration"
 
@@ -3313,15 +3262,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20DescribeResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_errors()}
-
   def describe_resource(%Client{} = client, options \\ []) do
     url_path = "/DescribeResource"
 
@@ -3358,15 +3304,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20DescribeTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_transaction_errors()}
-
   def describe_transaction(%Client{} = client, options \\ []) do
     url_path = "/DescribeTransaction"
 
@@ -3404,15 +3347,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20ExtendTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec extend_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, extend_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, extend_transaction_errors()}
-
   def extend_transaction(%Client{} = client, options \\ []) do
     url_path = "/ExtendTransaction"
 
@@ -3449,15 +3389,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetDataCellsFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_data_cells_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_data_cells_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_cells_filter_errors()}
-
   def get_data_cells_filter(%Client{} = client, options \\ []) do
     url_path = "/GetDataCellsFilter"
 
@@ -3494,15 +3431,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetDataLakePrincipal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_data_lake_principal(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_data_lake_principal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_lake_principal_errors()}
-
   def get_data_lake_principal(%Client{} = client, options \\ []) do
     url_path = "/GetDataLakePrincipal"
 
@@ -3540,15 +3474,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetDataLakeSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_data_lake_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_data_lake_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_lake_settings_errors()}
-
   def get_data_lake_settings(%Client{} = client, options \\ []) do
     url_path = "/GetDataLakeSettings"
 
@@ -3587,15 +3518,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetEffectivePermissionsForPath&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_effective_permissions_for_path(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_effective_permissions_for_path_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_effective_permissions_for_path_errors()}
-
   def get_effective_permissions_for_path(%Client{} = client, options \\ []) do
     url_path = "/GetEffectivePermissionsForPath"
 
@@ -3632,15 +3560,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetLFTag&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_l_f_tag(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_l_f_tag_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_l_f_tag_errors()}
-
   def get_l_f_tag(%Client{} = client, options \\ []) do
     url_path = "/GetLFTag"
 
@@ -3680,15 +3605,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetQueryState&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_query_state(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_query_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_state_errors()}
-
   def get_query_state(%Client{} = client, options \\ []) do
     url_path = "/GetQueryState"
 
@@ -3725,15 +3647,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetQueryStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_query_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_query_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_statistics_errors()}
-
   def get_query_statistics(%Client{} = client, options \\ []) do
     url_path = "/GetQueryStatistics"
 
@@ -3770,15 +3689,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetResourceLFTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_resource_l_f_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_l_f_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_l_f_tags_errors()}
-
   def get_resource_l_f_tags(%Client{} = client, options \\ []) do
     url_path = "/GetResourceLFTags"
 
@@ -3816,15 +3732,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetTableObjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_table_objects(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_table_objects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_objects_errors()}
-
   def get_table_objects(%Client{} = client, options \\ []) do
     url_path = "/GetTableObjects"
 
@@ -3864,15 +3777,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetTemporaryGluePartitionCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_temporary_glue_partition_credentials(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_temporary_glue_partition_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_temporary_glue_partition_credentials_errors()}
-
   def get_temporary_glue_partition_credentials(%Client{} = client, options \\ []) do
     url_path = "/GetTemporaryGluePartitionCredentials"
 
@@ -3913,15 +3823,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetTemporaryGlueTableCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_temporary_glue_table_credentials(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_temporary_glue_table_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_temporary_glue_table_credentials_errors()}
-
   def get_temporary_glue_table_credentials(%Client{} = client, options \\ []) do
     url_path = "/GetTemporaryGlueTableCredentials"
 
@@ -3959,15 +3866,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetWorkUnitResults&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_work_unit_results(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_work_unit_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_work_unit_results_errors()}
-
   def get_work_unit_results(%Client{} = client, options \\ []) do
     url_path = "/GetWorkUnitResults"
 
@@ -4004,15 +3908,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GetWorkUnits&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_work_units(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_work_units_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_work_units_errors()}
-
   def get_work_units(%Client{} = client, options \\ []) do
     url_path = "/GetWorkUnits"
 
@@ -4050,15 +3951,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20GrantPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec grant_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, grant_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, grant_permissions_errors()}
-
   def grant_permissions(%Client{} = client, options \\ []) do
     url_path = "/GrantPermissions"
 
@@ -4095,15 +3993,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20ListDataCellsFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_data_cells_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_cells_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_cells_filter_errors()}
-
   def list_data_cells_filter(%Client{} = client, options \\ []) do
     url_path = "/ListDataCellsFilter"
 
@@ -4140,15 +4035,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20ListLFTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_l_f_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_l_f_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_l_f_tags_errors()}
-
   def list_l_f_tags(%Client{} = client, options \\ []) do
     url_path = "/ListLFTags"
 
@@ -4186,15 +4078,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20ListLakeFormationOptIns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_lake_formation_opt_ins(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lake_formation_opt_ins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lake_formation_opt_ins_errors()}
-
   def list_lake_formation_opt_ins(%Client{} = client, options \\ []) do
     url_path = "/ListLakeFormationOptIns"
 
@@ -4234,15 +4123,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20ListPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permissions_errors()}
-
   def list_permissions(%Client{} = client, options \\ []) do
     url_path = "/ListPermissions"
 
@@ -4279,15 +4165,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20ListResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_errors()}
-
   def list_resources(%Client{} = client, options \\ []) do
     url_path = "/ListResources"
 
@@ -4325,15 +4208,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20ListTableStorageOptimizers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_table_storage_optimizers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_table_storage_optimizers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_table_storage_optimizers_errors()}
-
   def list_table_storage_optimizers(%Client{} = client, options \\ []) do
     url_path = "/ListTableStorageOptimizers"
 
@@ -4372,15 +4252,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20ListTransactions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_transactions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_transactions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_transactions_errors()}
-
   def list_transactions(%Client{} = client, options \\ []) do
     url_path = "/ListTransactions"
 
@@ -4420,15 +4297,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20PutDataLakeSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_data_lake_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_data_lake_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_data_lake_settings_errors()}
-
   def put_data_lake_settings(%Client{} = client, options \\ []) do
     url_path = "/PutDataLakeSettings"
 
@@ -4472,15 +4346,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20RegisterResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_resource_errors()}
-
   def register_resource(%Client{} = client, options \\ []) do
     url_path = "/RegisterResource"
 
@@ -4519,15 +4390,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20RemoveLFTagsFromResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec remove_l_f_tags_from_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, remove_l_f_tags_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_l_f_tags_from_resource_errors()}
-
   def remove_l_f_tags_from_resource(%Client{} = client, options \\ []) do
     url_path = "/RemoveLFTagsFromResource"
 
@@ -4565,15 +4433,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20RevokePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec revoke_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, revoke_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_permissions_errors()}
-
   def revoke_permissions(%Client{} = client, options \\ []) do
     url_path = "/RevokePermissions"
 
@@ -4614,15 +4479,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20SearchDatabasesByLFTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_databases_by_l_f_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_databases_by_l_f_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_databases_by_l_f_tags_errors()}
-
   def search_databases_by_l_f_tags(%Client{} = client, options \\ []) do
     url_path = "/SearchDatabasesByLFTags"
 
@@ -4663,15 +4525,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20SearchTablesByLFTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_tables_by_l_f_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_tables_by_l_f_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_tables_by_l_f_tags_errors()}
-
   def search_tables_by_l_f_tags(%Client{} = client, options \\ []) do
     url_path = "/SearchTablesByLFTags"
 
@@ -4708,15 +4567,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20StartQueryPlanning&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_query_planning(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_query_planning_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_query_planning_errors()}
-
   def start_query_planning(%Client{} = client, options \\ []) do
     url_path = "/StartQueryPlanning"
 
@@ -4754,15 +4610,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20StartTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_transaction_errors()}
-
   def start_transaction(%Client{} = client, options \\ []) do
     url_path = "/StartTransaction"
 
@@ -4799,15 +4652,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20UpdateDataCellsFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_data_cells_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_data_cells_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_cells_filter_errors()}
-
   def update_data_cells_filter(%Client{} = client, options \\ []) do
     url_path = "/UpdateDataCellsFilter"
 
@@ -4849,15 +4699,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20UpdateLFTag&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_l_f_tag(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_l_f_tag_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_l_f_tag_errors()}
-
   def update_l_f_tag(%Client{} = client, options \\ []) do
     url_path = "/UpdateLFTag"
 
@@ -4894,15 +4741,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20UpdateLakeFormationIdentityCenterConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_lake_formation_identity_center_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_lake_formation_identity_center_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lake_formation_identity_center_configuration_errors()}
-
   def update_lake_formation_identity_center_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateLakeFormationIdentityCenterConfiguration"
 
@@ -4940,15 +4784,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20UpdateResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_errors()}
-
   def update_resource(%Client{} = client, options \\ []) do
     url_path = "/UpdateResource"
 
@@ -4986,15 +4827,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20UpdateTableObjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_table_objects(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_table_objects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_table_objects_errors()}
-
   def update_table_objects(%Client{} = client, options \\ []) do
     url_path = "/UpdateTableObjects"
 
@@ -5031,15 +4869,12 @@ defmodule AWS.LakeFormation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lakeformation%20UpdateTableStorageOptimizer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_table_storage_optimizer(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_table_storage_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_table_storage_optimizer_errors()}
-
   def update_table_storage_optimizer(%Client{} = client, options \\ []) do
     url_path = "/UpdateTableStorageOptimizer"
 

@@ -4403,6 +4403,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Determines the dominant language of the input text for a batch of documents. For
   a list of languages that Amazon Comprehend can detect, see [Amazon Comprehend
   Supported
@@ -4416,12 +4417,10 @@ defmodule AWS.Comprehend do
       required("TextList") => list(String.t()())
     }
   """
-
   @spec batch_detect_dominant_language(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_detect_dominant_language_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_detect_dominant_language_errors()}
-
   def batch_detect_dominant_language(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4431,6 +4430,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Inspects the text of a batch of documents for named entities and returns
   information about them. For more information about named entities, see
   [Entities](https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html)
@@ -4445,12 +4445,10 @@ defmodule AWS.Comprehend do
       required("TextList") => list(String.t()())
     }
   """
-
   @spec batch_detect_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_detect_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_detect_entities_errors()}
-
   def batch_detect_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4459,6 +4457,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Detects the key noun phrases found in a batch of documents.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20BatchDetectKeyPhrases&this_doc_guide=API%2520Reference)
@@ -4470,12 +4469,10 @@ defmodule AWS.Comprehend do
       required("TextList") => list(String.t()())
     }
   """
-
   @spec batch_detect_key_phrases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_detect_key_phrases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_detect_key_phrases_errors()}
-
   def batch_detect_key_phrases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4484,6 +4481,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Inspects a batch of documents and returns an inference of the prevailing
   sentiment, `POSITIVE`, `NEUTRAL`, `MIXED`, or `NEGATIVE`, in each one.
 
@@ -4496,12 +4494,10 @@ defmodule AWS.Comprehend do
       required("TextList") => list(String.t()())
     }
   """
-
   @spec batch_detect_sentiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_detect_sentiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_detect_sentiment_errors()}
-
   def batch_detect_sentiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4510,6 +4506,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Inspects the text of a batch of documents for the syntax and part of speech of
   the words in the document and returns information about them. For more
   information, see
@@ -4525,12 +4522,10 @@ defmodule AWS.Comprehend do
       required("TextList") => list(String.t()())
     }
   """
-
   @spec batch_detect_syntax(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_detect_syntax_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_detect_syntax_errors()}
-
   def batch_detect_syntax(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4539,6 +4534,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Inspects a batch of documents and returns a sentiment analysis for each entity
   identified in the documents.
 
@@ -4551,12 +4547,10 @@ defmodule AWS.Comprehend do
       required("TextList") => list(String.t()())
     }
   """
-
   @spec batch_detect_targeted_sentiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_detect_targeted_sentiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_detect_targeted_sentiment_errors()}
-
   def batch_detect_targeted_sentiment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4566,6 +4560,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Creates a classification request to analyze a single document in real-time.
   `ClassifyDocument` supports the following model types:
 
@@ -4580,12 +4575,10 @@ defmodule AWS.Comprehend do
       required("EndpointArn") => String.t()
     }
   """
-
   @spec classify_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, classify_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, classify_document_errors()}
-
   def classify_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4594,6 +4587,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Analyzes input text for the presence of personally identifiable information
   (PII) and returns the labels of identified PII entity types such as name,
   address, bank account number, or phone number.
@@ -4607,12 +4601,10 @@ defmodule AWS.Comprehend do
       required("Text") => String.t()
     }
   """
-
   @spec contains_pii_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, contains_pii_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, contains_pii_entities_errors()}
-
   def contains_pii_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4621,6 +4613,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Creates a dataset to upload training or test data for a model associated with a
   flywheel. For more information about datasets, see [ Flywheel
   overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
@@ -4640,12 +4633,10 @@ defmodule AWS.Comprehend do
       required("InputDataConfig") => dataset_input_data_config()
     }
   """
-
   @spec create_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
-
   def create_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4654,6 +4645,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Creates a new document classifier that you can use to categorize documents. To
   create a classifier, you provide a set of training documents that are labeled
   with the categories that you want to use. For more information, see [Training
@@ -4681,12 +4673,10 @@ defmodule AWS.Comprehend do
       required("LanguageCode") => list(any())
     }
   """
-
   @spec create_document_classifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_document_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_document_classifier_errors()}
-
   def create_document_classifier(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4695,6 +4685,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Creates a model-specific endpoint for synchronous inference for a previously
   trained custom model For information about endpoints, see [Managing
   endpoints](https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html).
@@ -4713,12 +4704,10 @@ defmodule AWS.Comprehend do
       required("EndpointName") => String.t()
     }
   """
-
   @spec create_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_errors()}
-
   def create_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4727,6 +4716,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Creates an entity recognizer using submitted files. After your
   `CreateEntityRecognizer` request is submitted, you can check job status using
   the `DescribeEntityRecognizer` API.
@@ -4749,12 +4739,10 @@ defmodule AWS.Comprehend do
       required("RecognizerName") => String.t()
     }
   """
-
   @spec create_entity_recognizer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_entity_recognizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_entity_recognizer_errors()}
-
   def create_entity_recognizer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4763,6 +4751,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   A flywheel is an Amazon Web Services resource that orchestrates the ongoing
   training of a model for custom classification or custom entity recognition.
   You can create a flywheel to start with an existing trained model, or
@@ -4786,12 +4775,10 @@ defmodule AWS.Comprehend do
       required("FlywheelName") => String.t()
     }
   """
-
   @spec create_flywheel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_flywheel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flywheel_errors()}
-
   def create_flywheel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4800,6 +4787,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Deletes a previously created document classifier Only those classifiers that are
   in terminated states (IN_ERROR, TRAINED) will be deleted. If an active
   inference job is using the model, a `ResourceInUseException` will be returned.
@@ -4812,12 +4800,10 @@ defmodule AWS.Comprehend do
       required("DocumentClassifierArn") => String.t()
     }
   """
-
   @spec delete_document_classifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_document_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_document_classifier_errors()}
-
   def delete_document_classifier(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4826,6 +4812,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Deletes a model-specific endpoint for a previously-trained custom model. All
   endpoints must be deleted in order for the model to be deleted. For
   information about endpoints, see [Managing
@@ -4839,12 +4826,10 @@ defmodule AWS.Comprehend do
       required("EndpointArn") => String.t()
     }
   """
-
   @spec delete_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_errors()}
-
   def delete_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4853,6 +4838,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Deletes an entity recognizer. Only those recognizers that are in terminated
   states (IN_ERROR, TRAINED) will be deleted. If an active inference job is
   using the model, a `ResourceInUseException` will be returned.
@@ -4865,12 +4851,10 @@ defmodule AWS.Comprehend do
       required("EntityRecognizerArn") => String.t()
     }
   """
-
   @spec delete_entity_recognizer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_entity_recognizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_entity_recognizer_errors()}
-
   def delete_entity_recognizer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4879,6 +4863,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Deletes a flywheel. When you delete the flywheel, Amazon Comprehend does not
   delete the data lake or the model associated with the flywheel.
 
@@ -4890,12 +4875,10 @@ defmodule AWS.Comprehend do
       required("FlywheelArn") => String.t()
     }
   """
-
   @spec delete_flywheel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_flywheel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flywheel_errors()}
-
   def delete_flywheel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4904,6 +4887,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Deletes a resource-based policy that is attached to a custom model.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
@@ -4915,12 +4899,10 @@ defmodule AWS.Comprehend do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4929,6 +4911,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Returns information about the dataset that you specify. For more information
   about datasets, see [ Flywheel
   overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
@@ -4942,12 +4925,10 @@ defmodule AWS.Comprehend do
       required("DatasetArn") => String.t()
     }
   """
-
   @spec describe_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
-
   def describe_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4956,6 +4937,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the properties associated with a document classification job. Use this
   operation to get the status of a classification job.
 
@@ -4967,12 +4949,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_document_classification_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_document_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_document_classification_job_errors()}
-
   def describe_document_classification_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4982,6 +4962,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the properties associated with a document classifier.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20DescribeDocumentClassifier&this_doc_guide=API%2520Reference)
@@ -4992,12 +4973,10 @@ defmodule AWS.Comprehend do
       required("DocumentClassifierArn") => String.t()
     }
   """
-
   @spec describe_document_classifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_document_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_document_classifier_errors()}
-
   def describe_document_classifier(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5006,6 +4985,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the properties associated with a dominant language detection job. Use this
   operation to get the status of a detection job.
 
@@ -5017,12 +4997,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_dominant_language_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dominant_language_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dominant_language_detection_job_errors()}
-
   def describe_dominant_language_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5032,6 +5010,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the properties associated with a specific endpoint. Use this operation to
   get the status of an endpoint. For information about endpoints, see [Managing
   endpoints](https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html).
@@ -5044,12 +5023,10 @@ defmodule AWS.Comprehend do
       required("EndpointArn") => String.t()
     }
   """
-
   @spec describe_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoint_errors()}
-
   def describe_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5058,6 +5035,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the properties associated with an entities detection job. Use this
   operation to get the status of a detection job.
 
@@ -5069,12 +5047,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_entities_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_entities_detection_job_errors()}
-
   def describe_entities_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5084,6 +5060,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Provides details about an entity recognizer including status, S3 buckets
   containing training data, recognizer metadata, metrics, and so on.
 
@@ -5095,12 +5072,10 @@ defmodule AWS.Comprehend do
       required("EntityRecognizerArn") => String.t()
     }
   """
-
   @spec describe_entity_recognizer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_entity_recognizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_entity_recognizer_errors()}
-
   def describe_entity_recognizer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5109,6 +5084,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the status and details of an events detection job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20DescribeEventsDetectionJob&this_doc_guide=API%2520Reference)
@@ -5119,12 +5095,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_events_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_events_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_events_detection_job_errors()}
-
   def describe_events_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5134,6 +5108,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Provides configuration information about the flywheel. For more information
   about flywheels, see [ Flywheel
   overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
@@ -5147,12 +5122,10 @@ defmodule AWS.Comprehend do
       required("FlywheelArn") => String.t()
     }
   """
-
   @spec describe_flywheel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_flywheel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flywheel_errors()}
-
   def describe_flywheel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5161,6 +5134,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Retrieve the configuration properties of a flywheel iteration. For more
   information about flywheels, see [ Flywheel
   overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
@@ -5175,12 +5149,10 @@ defmodule AWS.Comprehend do
       required("FlywheelIterationId") => String.t()
     }
   """
-
   @spec describe_flywheel_iteration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_flywheel_iteration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flywheel_iteration_errors()}
-
   def describe_flywheel_iteration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5189,6 +5161,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the properties associated with a key phrases detection job. Use this
   operation to get the status of a detection job.
 
@@ -5200,12 +5173,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_key_phrases_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_key_phrases_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_phrases_detection_job_errors()}
-
   def describe_key_phrases_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5215,6 +5186,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the properties associated with a PII entities detection job. For example,
   you can use this operation to get the job status.
 
@@ -5226,12 +5198,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_pii_entities_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_pii_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pii_entities_detection_job_errors()}
-
   def describe_pii_entities_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5241,6 +5211,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the details of a resource-based policy that is attached to a custom model,
   including the JSON body of the policy.
 
@@ -5252,12 +5223,10 @@ defmodule AWS.Comprehend do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec describe_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_policy_errors()}
-
   def describe_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5266,6 +5235,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the properties associated with a sentiment detection job. Use this
   operation to get the status of a detection job.
 
@@ -5277,12 +5247,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_sentiment_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_sentiment_detection_job_errors()}
-
   def describe_sentiment_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5292,6 +5260,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the properties associated with a targeted sentiment detection job. Use this
   operation to get the status of the job.
 
@@ -5303,12 +5272,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_targeted_sentiment_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_targeted_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_targeted_sentiment_detection_job_errors()}
-
   def describe_targeted_sentiment_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5318,6 +5285,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets the properties associated with a topic detection job. Use this operation to
   get the status of a detection job.
 
@@ -5329,12 +5297,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_topics_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_topics_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_topics_detection_job_errors()}
-
   def describe_topics_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5344,6 +5310,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Determines the dominant language of the input text. For a list of languages that
   Amazon Comprehend can detect, see [Amazon Comprehend Supported
   Languages](https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html).
@@ -5356,12 +5323,10 @@ defmodule AWS.Comprehend do
       required("Text") => String.t()
     }
   """
-
   @spec detect_dominant_language(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_dominant_language_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_dominant_language_errors()}
-
   def detect_dominant_language(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5370,6 +5335,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Detects named entities in input text when you use the pre-trained model. Detects
   custom entities if you have a custom entity recognition model. When detecting
   named entities using the pre-trained model, use plain text as the input. For
@@ -5391,12 +5357,10 @@ defmodule AWS.Comprehend do
       optional("Text") => String.t()
     }
   """
-
   @spec detect_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_entities_errors()}
-
   def detect_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5405,6 +5369,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Detects the key noun phrases found in the text.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20DetectKeyPhrases&this_doc_guide=API%2520Reference)
@@ -5416,12 +5381,10 @@ defmodule AWS.Comprehend do
       required("Text") => String.t()
     }
   """
-
   @spec detect_key_phrases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_key_phrases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_key_phrases_errors()}
-
   def detect_key_phrases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5430,6 +5393,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Inspects the input text for entities that contain personally identifiable
   information (PII) and returns information about them.
 
@@ -5442,12 +5406,10 @@ defmodule AWS.Comprehend do
       required("Text") => String.t()
     }
   """
-
   @spec detect_pii_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_pii_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_pii_entities_errors()}
-
   def detect_pii_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5456,6 +5418,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Inspects text and returns an inference of the prevailing sentiment (`POSITIVE`,
   `NEUTRAL`, `MIXED`, or `NEGATIVE`).
 
@@ -5468,12 +5431,10 @@ defmodule AWS.Comprehend do
       required("Text") => String.t()
     }
   """
-
   @spec detect_sentiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_sentiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_sentiment_errors()}
-
   def detect_sentiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5482,6 +5443,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Inspects text for syntax and the part of speech of words in the document. For
   more information, see
   [Syntax](https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html) in
@@ -5496,12 +5458,10 @@ defmodule AWS.Comprehend do
       required("Text") => String.t()
     }
   """
-
   @spec detect_syntax(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_syntax_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_syntax_errors()}
-
   def detect_syntax(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5510,6 +5470,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Inspects the input text and returns a sentiment analysis for each entity
   identified in the text.
 
@@ -5522,12 +5483,10 @@ defmodule AWS.Comprehend do
       required("Text") => String.t()
     }
   """
-
   @spec detect_targeted_sentiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_targeted_sentiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_targeted_sentiment_errors()}
-
   def detect_targeted_sentiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5536,6 +5495,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Performs toxicity analysis on the list of text strings that you provide as
   input. The API response contains a results list that matches the size of the
   input list. For more information about toxicity detection, see [Toxicity
@@ -5551,12 +5511,10 @@ defmodule AWS.Comprehend do
       required("TextSegments") => list(text_segment()())
     }
   """
-
   @spec detect_toxic_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_toxic_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_toxic_content_errors()}
-
   def detect_toxic_content(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5565,6 +5523,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Creates a new custom model that replicates a source custom model that you
   import. The source model can be in your Amazon Web Services account or another
   one. If the source model is in another Amazon Web Services account, then it
@@ -5583,12 +5542,10 @@ defmodule AWS.Comprehend do
       required("SourceModelArn") => String.t()
     }
   """
-
   @spec import_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_model_errors()}
-
   def import_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5597,6 +5554,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   List the datasets that you have configured in this Region. For more information
   about datasets, see [ Flywheel
   overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
@@ -5613,12 +5571,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_datasets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-
   def list_datasets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5627,6 +5583,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of the documentation classification jobs that you have submitted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListDocumentClassificationJobs&this_doc_guide=API%2520Reference)
@@ -5639,12 +5596,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_document_classification_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_document_classification_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_document_classification_jobs_errors()}
-
   def list_document_classification_jobs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5654,6 +5609,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of summaries of the document classifiers that you have created
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListDocumentClassifierSummaries&this_doc_guide=API%2520Reference)
@@ -5665,12 +5621,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_document_classifier_summaries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_document_classifier_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_document_classifier_summaries_errors()}
-
   def list_document_classifier_summaries(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5680,6 +5634,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of the document classifiers that you have created.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListDocumentClassifiers&this_doc_guide=API%2520Reference)
@@ -5692,12 +5647,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_document_classifiers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_document_classifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_document_classifiers_errors()}
-
   def list_document_classifiers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5706,6 +5659,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of the dominant language detection jobs that you have submitted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListDominantLanguageDetectionJobs&this_doc_guide=API%2520Reference)
@@ -5718,12 +5672,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_dominant_language_detection_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dominant_language_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dominant_language_detection_jobs_errors()}
-
   def list_dominant_language_detection_jobs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5733,6 +5685,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of all existing endpoints that you've created. For information about
   endpoints, see [Managing
   endpoints](https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html).
@@ -5747,12 +5700,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_endpoints_errors()}
-
   def list_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5761,6 +5712,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of the entity detection jobs that you have submitted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListEntitiesDetectionJobs&this_doc_guide=API%2520Reference)
@@ -5773,12 +5725,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_entities_detection_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_entities_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entities_detection_jobs_errors()}
-
   def list_entities_detection_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5787,6 +5737,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of summaries for the entity recognizers that you have created.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListEntityRecognizerSummaries&this_doc_guide=API%2520Reference)
@@ -5798,12 +5749,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_entity_recognizer_summaries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_entity_recognizer_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entity_recognizer_summaries_errors()}
-
   def list_entity_recognizer_summaries(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5813,6 +5762,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of the properties of all entity recognizers that you created,
   including recognizers currently in training. Allows you to filter the list of
   recognizers based on criteria such as status and submission time. This call
@@ -5829,12 +5779,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_entity_recognizers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_entity_recognizers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entity_recognizers_errors()}
-
   def list_entity_recognizers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5843,6 +5791,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of the events detection jobs that you have submitted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListEventsDetectionJobs&this_doc_guide=API%2520Reference)
@@ -5855,12 +5804,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_events_detection_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_events_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_events_detection_jobs_errors()}
-
   def list_events_detection_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5869,6 +5816,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Information about the history of a flywheel iteration. For more information
   about flywheels, see [ Flywheel
   overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
@@ -5885,12 +5833,10 @@ defmodule AWS.Comprehend do
       required("FlywheelArn") => String.t()
     }
   """
-
   @spec list_flywheel_iteration_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_flywheel_iteration_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flywheel_iteration_history_errors()}
-
   def list_flywheel_iteration_history(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5900,6 +5846,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of the flywheels that you have created.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListFlywheels&this_doc_guide=API%2520Reference)
@@ -5912,12 +5859,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_flywheels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_flywheels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flywheels_errors()}
-
   def list_flywheels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5926,6 +5871,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Get a list of key phrase detection jobs that you have submitted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListKeyPhrasesDetectionJobs&this_doc_guide=API%2520Reference)
@@ -5938,12 +5884,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_key_phrases_detection_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_key_phrases_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_key_phrases_detection_jobs_errors()}
-
   def list_key_phrases_detection_jobs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5953,6 +5897,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of the PII entity detection jobs that you have submitted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListPiiEntitiesDetectionJobs&this_doc_guide=API%2520Reference)
@@ -5965,12 +5910,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_pii_entities_detection_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pii_entities_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pii_entities_detection_jobs_errors()}
-
   def list_pii_entities_detection_jobs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5980,6 +5923,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of sentiment detection jobs that you have submitted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListSentimentDetectionJobs&this_doc_guide=API%2520Reference)
@@ -5992,12 +5936,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_sentiment_detection_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_sentiment_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sentiment_detection_jobs_errors()}
-
   def list_sentiment_detection_jobs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6007,6 +5949,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Lists all tags associated with a given Amazon Comprehend resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -6017,12 +5960,10 @@ defmodule AWS.Comprehend do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6031,6 +5972,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of targeted sentiment detection jobs that you have submitted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListTargetedSentimentDetectionJobs&this_doc_guide=API%2520Reference)
@@ -6043,12 +5985,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_targeted_sentiment_detection_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_targeted_sentiment_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_targeted_sentiment_detection_jobs_errors()}
-
   def list_targeted_sentiment_detection_jobs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6058,6 +5998,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Gets a list of the topic detection jobs that you have submitted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20ListTopicsDetectionJobs&this_doc_guide=API%2520Reference)
@@ -6070,12 +6011,10 @@ defmodule AWS.Comprehend do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_topics_detection_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_topics_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_topics_detection_jobs_errors()}
-
   def list_topics_detection_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6084,6 +6023,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Attaches a resource-based policy to a custom model. You can use this policy to
   authorize an entity in another Amazon Web Services account to import the
   custom model, which replicates it in Amazon Comprehend in their account.
@@ -6098,12 +6038,10 @@ defmodule AWS.Comprehend do
       required("ResourcePolicy") => String.t()
     }
   """
-
   @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6112,6 +6050,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Starts an asynchronous document classification job using a custom classification
   model. Use the `DescribeDocumentClassificationJob` operation to track the
   progress of the job.
@@ -6133,12 +6072,10 @@ defmodule AWS.Comprehend do
       required("OutputDataConfig") => output_data_config()
     }
   """
-
   @spec start_document_classification_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_document_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_document_classification_job_errors()}
-
   def start_document_classification_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6148,6 +6085,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Starts an asynchronous dominant language detection job for a collection of
   documents. Use the operation to track the status of a job.
 
@@ -6166,12 +6104,10 @@ defmodule AWS.Comprehend do
       required("OutputDataConfig") => output_data_config()
     }
   """
-
   @spec start_dominant_language_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_dominant_language_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_dominant_language_detection_job_errors()}
-
   def start_dominant_language_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6181,6 +6117,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Starts an asynchronous entity detection job for a collection of documents. Use
   the operation to track the status of a job.
 
@@ -6202,12 +6139,10 @@ defmodule AWS.Comprehend do
       required("OutputDataConfig") => output_data_config()
     }
   """
-
   @spec start_entities_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_entities_detection_job_errors()}
-
   def start_entities_detection_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6216,6 +6151,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Starts an asynchronous event detection job for a collection of documents.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20StartEventsDetectionJob&this_doc_guide=API%2520Reference)
@@ -6233,12 +6169,10 @@ defmodule AWS.Comprehend do
       required("TargetEventTypes") => list(String.t()())
     }
   """
-
   @spec start_events_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_events_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_events_detection_job_errors()}
-
   def start_events_detection_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6247,6 +6181,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Start the flywheel iteration.This operation uses any new datasets to train a new
   model version. For more information about flywheels, see [ Flywheel
   overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
@@ -6261,12 +6196,10 @@ defmodule AWS.Comprehend do
       required("FlywheelArn") => String.t()
     }
   """
-
   @spec start_flywheel_iteration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_flywheel_iteration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_flywheel_iteration_errors()}
-
   def start_flywheel_iteration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6275,6 +6208,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Starts an asynchronous key phrase detection job for a collection of documents.
   Use the operation to track the status of a job.
 
@@ -6294,12 +6228,10 @@ defmodule AWS.Comprehend do
       required("OutputDataConfig") => output_data_config()
     }
   """
-
   @spec start_key_phrases_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_key_phrases_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_key_phrases_detection_job_errors()}
-
   def start_key_phrases_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6309,6 +6241,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Starts an asynchronous PII entity detection job for a collection of documents.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20StartPiiEntitiesDetectionJob&this_doc_guide=API%2520Reference)
@@ -6327,12 +6260,10 @@ defmodule AWS.Comprehend do
       required("OutputDataConfig") => output_data_config()
     }
   """
-
   @spec start_pii_entities_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_pii_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_pii_entities_detection_job_errors()}
-
   def start_pii_entities_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6342,6 +6273,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Starts an asynchronous sentiment detection job for a collection of documents.
   Use the operation to track the status of a job.
 
@@ -6361,12 +6293,10 @@ defmodule AWS.Comprehend do
       required("OutputDataConfig") => output_data_config()
     }
   """
-
   @spec start_sentiment_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_sentiment_detection_job_errors()}
-
   def start_sentiment_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6376,6 +6306,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Starts an asynchronous targeted sentiment detection job for a collection of
   documents. Use the `DescribeTargetedSentimentDetectionJob` operation to track
   the status of a job.
@@ -6396,12 +6327,10 @@ defmodule AWS.Comprehend do
       required("OutputDataConfig") => output_data_config()
     }
   """
-
   @spec start_targeted_sentiment_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_targeted_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_targeted_sentiment_detection_job_errors()}
-
   def start_targeted_sentiment_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6411,6 +6340,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Starts an asynchronous topic detection job. Use the `DescribeTopicDetectionJob`
   operation to track the status of a job.
 
@@ -6430,12 +6360,10 @@ defmodule AWS.Comprehend do
       required("OutputDataConfig") => output_data_config()
     }
   """
-
   @spec start_topics_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_topics_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_topics_detection_job_errors()}
-
   def start_topics_detection_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6444,6 +6372,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Stops a dominant language detection job in progress. If the job state is
   `IN_PROGRESS` the job is marked for termination and put into the
   `STOP_REQUESTED` state. If the job completes before it can be stopped, it is
@@ -6458,12 +6387,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec stop_dominant_language_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_dominant_language_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_dominant_language_detection_job_errors()}
-
   def stop_dominant_language_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6473,6 +6400,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Stops an entities detection job in progress. If the job state is `IN_PROGRESS`
   the job is marked for termination and put into the `STOP_REQUESTED` state. If
   the job completes before it can be stopped, it is put into the `COMPLETED`
@@ -6486,12 +6414,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec stop_entities_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_entities_detection_job_errors()}
-
   def stop_entities_detection_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6500,6 +6426,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Stops an events detection job in progress.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20StopEventsDetectionJob&this_doc_guide=API%2520Reference)
@@ -6510,12 +6437,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec stop_events_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_events_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_events_detection_job_errors()}
-
   def stop_events_detection_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6524,6 +6449,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Stops a key phrases detection job in progress. If the job state is `IN_PROGRESS`
   the job is marked for termination and put into the `STOP_REQUESTED` state. If
   the job completes before it can be stopped, it is put into the `COMPLETED`
@@ -6537,12 +6463,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec stop_key_phrases_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_key_phrases_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_key_phrases_detection_job_errors()}
-
   def stop_key_phrases_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6552,6 +6476,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Stops a PII entities detection job in progress.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20StopPiiEntitiesDetectionJob&this_doc_guide=API%2520Reference)
@@ -6562,12 +6487,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec stop_pii_entities_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_pii_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_pii_entities_detection_job_errors()}
-
   def stop_pii_entities_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6577,6 +6500,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Stops a sentiment detection job in progress. If the job state is `IN_PROGRESS`,
   the job is marked for termination and put into the `STOP_REQUESTED` state. If
   the job completes before it can be stopped, it is put into the `COMPLETED`
@@ -6590,12 +6514,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec stop_sentiment_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_sentiment_detection_job_errors()}
-
   def stop_sentiment_detection_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6604,6 +6526,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Stops a targeted sentiment detection job in progress. If the job state is
   `IN_PROGRESS`, the job is marked for termination and put into the
   `STOP_REQUESTED` state. If the job completes before it can be stopped, it is
@@ -6618,12 +6541,10 @@ defmodule AWS.Comprehend do
       required("JobId") => String.t()
     }
   """
-
   @spec stop_targeted_sentiment_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_targeted_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_targeted_sentiment_detection_job_errors()}
-
   def stop_targeted_sentiment_detection_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6633,6 +6554,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Stops a document classifier training job while in progress.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20StopTrainingDocumentClassifier&this_doc_guide=API%2520Reference)
@@ -6643,12 +6565,10 @@ defmodule AWS.Comprehend do
       required("DocumentClassifierArn") => String.t()
     }
   """
-
   @spec stop_training_document_classifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_training_document_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_training_document_classifier_errors()}
-
   def stop_training_document_classifier(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6658,6 +6578,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Stops an entity recognizer training job while in progress.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20StopTrainingEntityRecognizer&this_doc_guide=API%2520Reference)
@@ -6668,12 +6589,10 @@ defmodule AWS.Comprehend do
       required("EntityRecognizerArn") => String.t()
     }
   """
-
   @spec stop_training_entity_recognizer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_training_entity_recognizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_training_entity_recognizer_errors()}
-
   def stop_training_entity_recognizer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6683,6 +6602,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Associates a specific tag with an Amazon Comprehend resource. A tag is a
   key-value pair that adds as a metadata to a resource used by Amazon
   Comprehend. For example, a tag with "Sales" as the key might be added to a
@@ -6697,12 +6617,10 @@ defmodule AWS.Comprehend do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6711,6 +6629,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Removes a specific tag associated with an Amazon Comprehend resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20UntagResource&this_doc_guide=API%2520Reference)
@@ -6722,12 +6641,10 @@ defmodule AWS.Comprehend do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6736,6 +6653,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Updates information about the specified endpoint. For information about
   endpoints, see [Managing
   endpoints](https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html).
@@ -6752,12 +6670,10 @@ defmodule AWS.Comprehend do
       required("EndpointArn") => String.t()
     }
   """
-
   @spec update_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoint_errors()}
-
   def update_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6766,6 +6682,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+   
   Update the configuration information for an existing flywheel.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehend%20UpdateFlywheel&this_doc_guide=API%2520Reference)
@@ -6779,12 +6696,10 @@ defmodule AWS.Comprehend do
       required("FlywheelArn") => String.t()
     }
   """
-
   @spec update_flywheel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_flywheel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flywheel_errors()}
-
   def update_flywheel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

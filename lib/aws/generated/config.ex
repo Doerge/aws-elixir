@@ -4546,6 +4546,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the current configuration items for resources that are present in your
   Config aggregator. The operation also returns a list of resources that are not
   processed in the current request. If there are no unprocessed resources, the
@@ -4560,12 +4561,10 @@ defmodule AWS.Config do
       required("ResourceIdentifiers") => list(aggregate_resource_identifier()())
     }
   """
-
   @spec batch_get_aggregate_resource_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_aggregate_resource_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_aggregate_resource_config_errors()}
-
   def batch_get_aggregate_resource_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4575,6 +4574,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the `BaseConfigurationItem` for one or more requested resources. The
   operation also returns a list of resources that are not processed in the
   current request. If there are no unprocessed resources, the operation returns
@@ -4588,12 +4588,10 @@ defmodule AWS.Config do
       required("resourceKeys") => list(resource_key()())
     }
   """
-
   @spec batch_get_resource_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_resource_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_resource_config_errors()}
-
   def batch_get_resource_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4602,6 +4600,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the authorization granted to the specified configuration aggregator
   account in a specified region.
 
@@ -4614,12 +4613,10 @@ defmodule AWS.Config do
       required("AuthorizedAwsRegion") => String.t()
     }
   """
-
   @spec delete_aggregation_authorization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_aggregation_authorization_errors()}
-
   def delete_aggregation_authorization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4629,6 +4626,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the specified Config rule and all of its evaluation results. Config sets
   the state of a rule to `DELETING` until the deletion is complete. You cannot
   update a rule while it is in this state. If you make a `PutConfigRule` or
@@ -4643,12 +4641,10 @@ defmodule AWS.Config do
       required("ConfigRuleName") => String.t()
     }
   """
-
   @spec delete_config_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_config_rule_errors()}
-
   def delete_config_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4657,6 +4653,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the specified configuration aggregator and the aggregated data
   associated with the aggregator.
 
@@ -4668,12 +4665,10 @@ defmodule AWS.Config do
       required("ConfigurationAggregatorName") => String.t()
     }
   """
-
   @spec delete_configuration_aggregator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_aggregator_errors()}
-
   def delete_configuration_aggregator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4683,6 +4678,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the configuration recorder. After the configuration recorder is deleted,
   Config will not record resource configuration changes until you create a new
   configuration recorder.
@@ -4695,12 +4691,10 @@ defmodule AWS.Config do
       required("ConfigurationRecorderName") => String.t()
     }
   """
-
   @spec delete_configuration_recorder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_recorder_errors()}
-
   def delete_configuration_recorder(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4710,6 +4704,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the specified conformance pack and all the Config rules, remediation
   actions, and all evaluation results within that conformance pack.
 
@@ -4721,12 +4716,10 @@ defmodule AWS.Config do
       required("ConformancePackName") => String.t()
     }
   """
-
   @spec delete_conformance_pack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_conformance_pack_errors()}
-
   def delete_conformance_pack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4735,6 +4728,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the delivery channel.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DeleteDeliveryChannel&this_doc_guide=API%2520Reference)
@@ -4745,12 +4739,10 @@ defmodule AWS.Config do
       required("DeliveryChannelName") => String.t()
     }
   """
-
   @spec delete_delivery_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_delivery_channel_errors()}
-
   def delete_delivery_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4759,6 +4751,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the evaluation results for the specified Config rule. You can specify
   one Config rule per request. After you delete the evaluation results, you can
   call the `StartConfigRulesEvaluation` API to start evaluating your Amazon Web
@@ -4772,12 +4765,10 @@ defmodule AWS.Config do
       required("ConfigRuleName") => String.t()
     }
   """
-
   @spec delete_evaluation_results(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_evaluation_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_evaluation_results_errors()}
-
   def delete_evaluation_results(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4786,6 +4777,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the specified organization Config rule and all of its evaluation results
   from all member accounts in that organization. Only a management account and a
   delegated administrator account can delete an organization Config rule. When
@@ -4800,12 +4792,10 @@ defmodule AWS.Config do
       required("OrganizationConfigRuleName") => String.t()
     }
   """
-
   @spec delete_organization_config_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_organization_config_rule_errors()}
-
   def delete_organization_config_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4815,6 +4805,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the specified organization conformance pack and all of the Config rules
   and remediation actions from all member accounts in that organization. Only a
   management account or a delegated administrator account can delete an
@@ -4830,12 +4821,10 @@ defmodule AWS.Config do
       required("OrganizationConformancePackName") => String.t()
     }
   """
-
   @spec delete_organization_conformance_pack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_organization_conformance_pack_errors()}
-
   def delete_organization_conformance_pack(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4845,6 +4834,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes pending authorization requests for a specified aggregator account in a
   specified region.
 
@@ -4857,12 +4847,10 @@ defmodule AWS.Config do
       required("RequesterAwsRegion") => String.t()
     }
   """
-
   @spec delete_pending_aggregation_request(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pending_aggregation_request_errors()}
-
   def delete_pending_aggregation_request(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4872,6 +4860,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the remediation configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DeleteRemediationConfiguration&this_doc_guide=API%2520Reference)
@@ -4883,12 +4872,10 @@ defmodule AWS.Config do
       required("ConfigRuleName") => String.t()
     }
   """
-
   @spec delete_remediation_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_remediation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_remediation_configuration_errors()}
-
   def delete_remediation_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4898,6 +4885,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes one or more remediation exceptions mentioned in the resource keys.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DeleteRemediationExceptions&this_doc_guide=API%2520Reference)
@@ -4909,12 +4897,10 @@ defmodule AWS.Config do
       required("ResourceKeys") => list(remediation_exception_resource_key()())
     }
   """
-
   @spec delete_remediation_exceptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_remediation_exceptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_remediation_exceptions_errors()}
-
   def delete_remediation_exceptions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4924,6 +4910,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Records the configuration state for a custom resource that has been deleted.
   This API records a new ConfigurationItem with a ResourceDeleted status. You
   can retrieve the ConfigurationItems recorded for this resource in your Config
@@ -4938,12 +4925,10 @@ defmodule AWS.Config do
       required("ResourceType") => String.t()
     }
   """
-
   @spec delete_resource_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_config_errors()}
-
   def delete_resource_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4952,6 +4937,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the retention configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DeleteRetentionConfiguration&this_doc_guide=API%2520Reference)
@@ -4962,12 +4948,10 @@ defmodule AWS.Config do
       required("RetentionConfigurationName") => String.t()
     }
   """
-
   @spec delete_retention_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_retention_configuration_errors()}
-
   def delete_retention_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4977,6 +4961,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes the stored query for a single Amazon Web Services account and a single
   Amazon Web Services Region.
 
@@ -4988,12 +4973,10 @@ defmodule AWS.Config do
       required("QueryName") => String.t()
     }
   """
-
   @spec delete_stored_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_stored_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stored_query_errors()}
-
   def delete_stored_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5002,6 +4985,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the
   specified delivery channel. After the delivery has started, Config sends the
   following notifications using an Amazon SNS topic that you have specified.
@@ -5014,12 +4998,10 @@ defmodule AWS.Config do
       required("deliveryChannelName") => String.t()
     }
   """
-
   @spec deliver_config_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deliver_config_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deliver_config_snapshot_errors()}
-
   def deliver_config_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5028,6 +5010,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns a list of compliant and noncompliant rules with the number of resources
   for compliant and noncompliant rules. Does not display rules that do not have
   compliance results.
@@ -5043,12 +5026,10 @@ defmodule AWS.Config do
       required("ConfigurationAggregatorName") => String.t()
     }
   """
-
   @spec describe_aggregate_compliance_by_config_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_aggregate_compliance_by_config_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_aggregate_compliance_by_config_rules_errors()}
-
   def describe_aggregate_compliance_by_config_rules(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5058,6 +5039,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns a list of the conformance packs and their associated compliance status
   with the count of compliant and noncompliant Config rules within each
   conformance pack. Also returns the total rule count which includes compliant
@@ -5075,7 +5057,6 @@ defmodule AWS.Config do
       required("ConfigurationAggregatorName") => String.t()
     }
   """
-
   @spec describe_aggregate_compliance_by_conformance_packs(
           AWS.Client.t(),
           input :: map(),
@@ -5084,7 +5065,6 @@ defmodule AWS.Config do
           {:ok, describe_aggregate_compliance_by_conformance_packs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_aggregate_compliance_by_conformance_packs_errors()}
-
   def describe_aggregate_compliance_by_conformance_packs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5100,6 +5080,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns a list of authorizations granted to various aggregator accounts and
   regions.
 
@@ -5112,12 +5093,10 @@ defmodule AWS.Config do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_aggregation_authorizations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_aggregation_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_aggregation_authorizations_errors()}
-
   def describe_aggregation_authorizations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5127,6 +5106,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Indicates whether the specified Config rules are compliant. If a rule is
   noncompliant, this action returns the number of Amazon Web Services resources
   that do not comply with the rule. A rule is compliant if all of the evaluated
@@ -5143,12 +5123,10 @@ defmodule AWS.Config do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_compliance_by_config_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_compliance_by_config_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_compliance_by_config_rule_errors()}
-
   def describe_compliance_by_config_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5158,6 +5136,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Indicates whether the specified Amazon Web Services resources are compliant. If
   a resource is noncompliant, this action returns the number of Config rules
   that the resource does not comply with. A resource is compliant if it complies
@@ -5176,12 +5155,10 @@ defmodule AWS.Config do
       optional("ResourceType") => String.t()
     }
   """
-
   @spec describe_compliance_by_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_compliance_by_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_compliance_by_resource_errors()}
-
   def describe_compliance_by_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5191,6 +5168,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns status information for each of your Config managed rules. The status
   includes information such as the last time Config invoked the rule, the last
   time Config failed to invoke the rule, and the related error for the last
@@ -5206,12 +5184,10 @@ defmodule AWS.Config do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_config_rule_evaluation_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_config_rule_evaluation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_config_rule_evaluation_status_errors()}
-
   def describe_config_rule_evaluation_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5221,6 +5197,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns details about your Config rules.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DescribeConfigRules&this_doc_guide=API%2520Reference)
@@ -5233,12 +5210,10 @@ defmodule AWS.Config do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_config_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_config_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_config_rules_errors()}
-
   def describe_config_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5247,6 +5222,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns status information for sources within an aggregator. The status includes
   information about the last time Config verified authorization between the
   source account and an aggregator account. In case of a failure, the status
@@ -5263,7 +5239,6 @@ defmodule AWS.Config do
       required("ConfigurationAggregatorName") => String.t()
     }
   """
-
   @spec describe_configuration_aggregator_sources_status(
           AWS.Client.t(),
           input :: map(),
@@ -5272,7 +5247,6 @@ defmodule AWS.Config do
           {:ok, describe_configuration_aggregator_sources_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_aggregator_sources_status_errors()}
-
   def describe_configuration_aggregator_sources_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5288,6 +5262,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the details of one or more configuration aggregators. If the
   configuration aggregator is not specified, this action returns the details for
   all the configuration aggregators associated with the account.
@@ -5302,12 +5277,10 @@ defmodule AWS.Config do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_configuration_aggregators(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_configuration_aggregators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_aggregators_errors()}
-
   def describe_configuration_aggregators(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5317,6 +5290,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the current status of the specified configuration recorder as well as
   the status of the last recording event for the recorder. If a configuration
   recorder is not specified, this action returns the status of all configuration
@@ -5330,12 +5304,10 @@ defmodule AWS.Config do
       optional("ConfigurationRecorderNames") => list(String.t()())
     }
   """
-
   @spec describe_configuration_recorder_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_configuration_recorder_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_recorder_status_errors()}
-
   def describe_configuration_recorder_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5345,6 +5317,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the details for the specified configuration recorders. If the
   configuration recorder is not specified, this action returns the details for
   all configuration recorders associated with the account.
@@ -5357,12 +5330,10 @@ defmodule AWS.Config do
       optional("ConfigurationRecorderNames") => list(String.t()())
     }
   """
-
   @spec describe_configuration_recorders(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_configuration_recorders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_recorders_errors()}
-
   def describe_configuration_recorders(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5372,6 +5343,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns compliance details for each rule in that conformance pack.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DescribeConformancePackCompliance&this_doc_guide=API%2520Reference)
@@ -5385,12 +5357,10 @@ defmodule AWS.Config do
       required("ConformancePackName") => String.t()
     }
   """
-
   @spec describe_conformance_pack_compliance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_conformance_pack_compliance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_conformance_pack_compliance_errors()}
-
   def describe_conformance_pack_compliance(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5400,6 +5370,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Provides one or more conformance packs deployment status.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DescribeConformancePackStatus&this_doc_guide=API%2520Reference)
@@ -5412,12 +5383,10 @@ defmodule AWS.Config do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_conformance_pack_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_conformance_pack_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_conformance_pack_status_errors()}
-
   def describe_conformance_pack_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5427,6 +5396,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns a list of one or more conformance packs.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DescribeConformancePacks&this_doc_guide=API%2520Reference)
@@ -5439,12 +5409,10 @@ defmodule AWS.Config do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_conformance_packs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_conformance_packs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_conformance_packs_errors()}
-
   def describe_conformance_packs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5453,6 +5421,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the current status of the specified delivery channel. If a delivery
   channel is not specified, this action returns the current status of all
   delivery channels associated with the account.
@@ -5465,12 +5434,10 @@ defmodule AWS.Config do
       optional("DeliveryChannelNames") => list(String.t()())
     }
   """
-
   @spec describe_delivery_channel_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_delivery_channel_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_delivery_channel_status_errors()}
-
   def describe_delivery_channel_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5480,6 +5447,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns details about the specified delivery channel. If a delivery channel is
   not specified, this action returns the details of all delivery channels
   associated with the account.
@@ -5492,12 +5460,10 @@ defmodule AWS.Config do
       optional("DeliveryChannelNames") => list(String.t()())
     }
   """
-
   @spec describe_delivery_channels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_delivery_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_delivery_channels_errors()}
-
   def describe_delivery_channels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5506,6 +5472,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Provides organization Config rule deployment status for an organization.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DescribeOrganizationConfigRuleStatuses&this_doc_guide=API%2520Reference)
@@ -5518,12 +5485,10 @@ defmodule AWS.Config do
       optional("OrganizationConfigRuleNames") => list(String.t()())
     }
   """
-
   @spec describe_organization_config_rule_statuses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_organization_config_rule_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_config_rule_statuses_errors()}
-
   def describe_organization_config_rule_statuses(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5533,6 +5498,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns a list of organization Config rules.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DescribeOrganizationConfigRules&this_doc_guide=API%2520Reference)
@@ -5545,12 +5511,10 @@ defmodule AWS.Config do
       optional("OrganizationConfigRuleNames") => list(String.t()())
     }
   """
-
   @spec describe_organization_config_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_organization_config_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_config_rules_errors()}
-
   def describe_organization_config_rules(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5560,6 +5524,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Provides organization conformance pack deployment status for an organization.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DescribeOrganizationConformancePackStatuses&this_doc_guide=API%2520Reference)
@@ -5572,7 +5537,6 @@ defmodule AWS.Config do
       optional("OrganizationConformancePackNames") => list(String.t()())
     }
   """
-
   @spec describe_organization_conformance_pack_statuses(
           AWS.Client.t(),
           input :: map(),
@@ -5581,7 +5545,6 @@ defmodule AWS.Config do
           {:ok, describe_organization_conformance_pack_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_conformance_pack_statuses_errors()}
-
   def describe_organization_conformance_pack_statuses(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5597,6 +5560,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns a list of organization conformance packs.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DescribeOrganizationConformancePacks&this_doc_guide=API%2520Reference)
@@ -5609,12 +5573,10 @@ defmodule AWS.Config do
       optional("OrganizationConformancePackNames") => list(String.t()())
     }
   """
-
   @spec describe_organization_conformance_packs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_organization_conformance_packs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_conformance_packs_errors()}
-
   def describe_organization_conformance_packs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5624,6 +5586,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns a list of all pending aggregation requests.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DescribePendingAggregationRequests&this_doc_guide=API%2520Reference)
@@ -5635,12 +5598,10 @@ defmodule AWS.Config do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_pending_aggregation_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_pending_aggregation_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pending_aggregation_requests_errors()}
-
   def describe_pending_aggregation_requests(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5650,6 +5611,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the details of one or more remediation configurations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20DescribeRemediationConfigurations&this_doc_guide=API%2520Reference)
@@ -5660,11 +5622,9 @@ defmodule AWS.Config do
       required("ConfigRuleNames") => list(String.t()())
     }
   """
-
   @spec describe_remediation_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_remediation_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_remediation_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5674,6 +5634,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the details of one or more remediation exceptions. A detailed view of a
   remediation exception for a set of resources that includes an explanation of
   an exception and the time when the exception will be deleted. When you specify
@@ -5690,12 +5651,10 @@ defmodule AWS.Config do
       required("ConfigRuleName") => String.t()
     }
   """
-
   @spec describe_remediation_exceptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_remediation_exceptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_remediation_exceptions_errors()}
-
   def describe_remediation_exceptions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5705,6 +5664,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Provides a detailed view of a Remediation Execution for a set of resources
   including state, timestamps for when steps for the remediation execution
   occur, and any error messages for steps that have failed. When you specify the
@@ -5721,12 +5681,10 @@ defmodule AWS.Config do
       required("ConfigRuleName") => String.t()
     }
   """
-
   @spec describe_remediation_execution_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_remediation_execution_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_remediation_execution_status_errors()}
-
   def describe_remediation_execution_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5736,6 +5694,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the details of one or more retention configurations. If the retention
   configuration name is not specified, this action returns the details for all
   the retention configurations for that account.
@@ -5749,12 +5708,10 @@ defmodule AWS.Config do
       optional("RetentionConfigurationNames") => list(String.t()())
     }
   """
-
   @spec describe_retention_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_retention_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_retention_configurations_errors()}
-
   def describe_retention_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5764,6 +5721,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the evaluation results for the specified Config rule for a specific
   resource in a rule. The results indicate which Amazon Web Services resources
   were evaluated by the rule, when each resource was last evaluated, and whether
@@ -5783,7 +5741,6 @@ defmodule AWS.Config do
       required("ConfigurationAggregatorName") => String.t()
     }
   """
-
   @spec get_aggregate_compliance_details_by_config_rule(
           AWS.Client.t(),
           input :: map(),
@@ -5792,7 +5749,6 @@ defmodule AWS.Config do
           {:ok, get_aggregate_compliance_details_by_config_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_aggregate_compliance_details_by_config_rule_errors()}
-
   def get_aggregate_compliance_details_by_config_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5808,6 +5764,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the number of compliant and noncompliant rules for one or more accounts
   and regions in an aggregator.
 
@@ -5823,12 +5780,10 @@ defmodule AWS.Config do
       required("ConfigurationAggregatorName") => String.t()
     }
   """
-
   @spec get_aggregate_config_rule_compliance_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_aggregate_config_rule_compliance_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_aggregate_config_rule_compliance_summary_errors()}
-
   def get_aggregate_config_rule_compliance_summary(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5838,6 +5793,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the count of compliant and noncompliant conformance packs across all
   Amazon Web Services accounts and Amazon Web Services Regions in an aggregator.
   You can filter based on Amazon Web Services account ID or Amazon Web Services
@@ -5855,7 +5811,6 @@ defmodule AWS.Config do
       required("ConfigurationAggregatorName") => String.t()
     }
   """
-
   @spec get_aggregate_conformance_pack_compliance_summary(
           AWS.Client.t(),
           input :: map(),
@@ -5864,7 +5819,6 @@ defmodule AWS.Config do
           {:ok, get_aggregate_conformance_pack_compliance_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_aggregate_conformance_pack_compliance_summary_errors()}
-
   def get_aggregate_conformance_pack_compliance_summary(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5880,6 +5834,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the resource counts across accounts and regions that are present in your
   Config aggregator. You can request the resource counts by providing filters
   and GroupByKey.
@@ -5896,12 +5851,10 @@ defmodule AWS.Config do
       required("ConfigurationAggregatorName") => String.t()
     }
   """
-
   @spec get_aggregate_discovered_resource_counts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_aggregate_discovered_resource_counts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_aggregate_discovered_resource_counts_errors()}
-
   def get_aggregate_discovered_resource_counts(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5911,6 +5864,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns configuration item that is aggregated for your specific resource in a
   specific source account and region.
 
@@ -5923,12 +5877,10 @@ defmodule AWS.Config do
       required("ResourceIdentifier") => aggregate_resource_identifier()
     }
   """
-
   @spec get_aggregate_resource_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_aggregate_resource_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_aggregate_resource_config_errors()}
-
   def get_aggregate_resource_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5938,6 +5890,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the evaluation results for the specified Config rule. The results
   indicate which Amazon Web Services resources were evaluated by the rule, when
   each resource was last evaluated, and whether each resource complies with the
@@ -5954,12 +5907,10 @@ defmodule AWS.Config do
       required("ConfigRuleName") => String.t()
     }
   """
-
   @spec get_compliance_details_by_config_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_compliance_details_by_config_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compliance_details_by_config_rule_errors()}
-
   def get_compliance_details_by_config_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5969,6 +5920,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the evaluation results for the specified Amazon Web Services resource.
   The results indicate which Config rules were used to evaluate the resource,
   when each rule was last invoked, and whether the resource complies with each
@@ -5986,12 +5938,10 @@ defmodule AWS.Config do
       optional("ResourceType") => String.t()
     }
   """
-
   @spec get_compliance_details_by_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_compliance_details_by_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compliance_details_by_resource_errors()}
-
   def get_compliance_details_by_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6001,6 +5951,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the number of Config rules that are compliant and noncompliant, up to a
   maximum of 25 for each.
 
@@ -6009,11 +5960,9 @@ defmodule AWS.Config do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec get_compliance_summary_by_config_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_compliance_summary_by_config_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_compliance_summary_by_config_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6023,6 +5972,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the number of resources that are compliant and the number that are
   noncompliant. You can specify one or more resource types to get these numbers
   for each resource type. The maximum number returned is 100.
@@ -6035,12 +5985,10 @@ defmodule AWS.Config do
       optional("ResourceTypes") => list(String.t()())
     }
   """
-
   @spec get_compliance_summary_by_resource_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_compliance_summary_by_resource_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compliance_summary_by_resource_type_errors()}
-
   def get_compliance_summary_by_resource_type(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6050,6 +5998,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns compliance details of a conformance pack for all Amazon Web Services
   resources that are monitered by conformance pack.
 
@@ -6064,12 +6013,10 @@ defmodule AWS.Config do
       required("ConformancePackName") => String.t()
     }
   """
-
   @spec get_conformance_pack_compliance_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_conformance_pack_compliance_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_conformance_pack_compliance_details_errors()}
-
   def get_conformance_pack_compliance_details(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6079,6 +6026,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns compliance details for the conformance pack based on the cumulative
   compliance results of all the rules in that conformance pack.
 
@@ -6092,12 +6040,10 @@ defmodule AWS.Config do
       required("ConformancePackNames") => list(String.t()())
     }
   """
-
   @spec get_conformance_pack_compliance_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_conformance_pack_compliance_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_conformance_pack_compliance_summary_errors()}
-
   def get_conformance_pack_compliance_summary(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6107,6 +6053,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the policy definition containing the logic for your Config Custom Policy
   rule.
 
@@ -6118,12 +6065,10 @@ defmodule AWS.Config do
       optional("ConfigRuleName") => String.t()
     }
   """
-
   @spec get_custom_rule_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_custom_rule_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_rule_policy_errors()}
-
   def get_custom_rule_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6132,6 +6077,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the resource types, the number of each resource type, and the total
   number of resources that Config is recording in this region for your Amazon
   Web Services account. **Example**
@@ -6146,12 +6092,10 @@ defmodule AWS.Config do
       optional("resourceTypes") => list(String.t()())
     }
   """
-
   @spec get_discovered_resource_counts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_discovered_resource_counts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_discovered_resource_counts_errors()}
-
   def get_discovered_resource_counts(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6161,6 +6105,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns detailed status for each member account within an organization for a
   given organization Config rule.
 
@@ -6175,12 +6120,10 @@ defmodule AWS.Config do
       required("OrganizationConfigRuleName") => String.t()
     }
   """
-
   @spec get_organization_config_rule_detailed_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_organization_config_rule_detailed_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_organization_config_rule_detailed_status_errors()}
-
   def get_organization_config_rule_detailed_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6190,6 +6133,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns detailed status for each member account within an organization for a
   given organization conformance pack.
 
@@ -6204,7 +6148,6 @@ defmodule AWS.Config do
       required("OrganizationConformancePackName") => String.t()
     }
   """
-
   @spec get_organization_conformance_pack_detailed_status(
           AWS.Client.t(),
           input :: map(),
@@ -6213,7 +6156,6 @@ defmodule AWS.Config do
           {:ok, get_organization_conformance_pack_detailed_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_organization_conformance_pack_detailed_status_errors()}
-
   def get_organization_conformance_pack_detailed_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6229,6 +6171,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the policy definition containing the logic for your organization Config
   Custom Policy rule.
 
@@ -6240,12 +6183,10 @@ defmodule AWS.Config do
       required("OrganizationConfigRuleName") => String.t()
     }
   """
-
   @spec get_organization_custom_rule_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_organization_custom_rule_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_organization_custom_rule_policy_errors()}
-
   def get_organization_custom_rule_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6255,6 +6196,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   For accurate reporting on the compliance status, you must record the
   `AWS::Config::ResourceCompliance` resource type. For more information, see
   [Selecting Which Resources Config
@@ -6280,12 +6222,10 @@ defmodule AWS.Config do
       required("resourceType") => list(any())
     }
   """
-
   @spec get_resource_config_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_config_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_config_history_errors()}
-
   def get_resource_config_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6294,6 +6234,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns a summary of resource evaluation for the specified resource evaluation
   ID from the proactive rules that were run. The results indicate which
   evaluation context was used to evaluate the rules, which resource details were
@@ -6308,12 +6249,10 @@ defmodule AWS.Config do
       required("ResourceEvaluationId") => String.t()
     }
   """
-
   @spec get_resource_evaluation_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_evaluation_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_evaluation_summary_errors()}
-
   def get_resource_evaluation_summary(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6323,6 +6262,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns the details of a specific stored query.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20GetStoredQuery&this_doc_guide=API%2520Reference)
@@ -6333,12 +6273,10 @@ defmodule AWS.Config do
       required("QueryName") => String.t()
     }
   """
-
   @spec get_stored_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_stored_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stored_query_errors()}
-
   def get_stored_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6347,6 +6285,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Accepts a resource type and returns a list of resource identifiers that are
   aggregated for a specific resource type across accounts and regions. A
   resource identifier includes the resource type, ID, (if available) the custom
@@ -6366,12 +6305,10 @@ defmodule AWS.Config do
       required("ResourceType") => list(any())
     }
   """
-
   @spec list_aggregate_discovered_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_aggregate_discovered_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aggregate_discovered_resources_errors()}
-
   def list_aggregate_discovered_resources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6381,6 +6318,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns a list of conformance pack compliance scores. A compliance score is the
   percentage of the number of compliant rule-resource combinations in a
   conformance pack compared to the number of total possible rule-resource
@@ -6401,12 +6339,10 @@ defmodule AWS.Config do
       optional("SortOrder") => list(any())
     }
   """
-
   @spec list_conformance_pack_compliance_scores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_conformance_pack_compliance_scores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_conformance_pack_compliance_scores_errors()}
-
   def list_conformance_pack_compliance_scores(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6416,6 +6352,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Accepts a resource type and returns a list of resource identifiers for the
   resources of that type. A resource identifier includes the resource type, ID,
   and (if available) the custom resource name. The results consist of resources
@@ -6437,12 +6374,10 @@ defmodule AWS.Config do
       required("resourceType") => list(any())
     }
   """
-
   @spec list_discovered_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_discovered_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_discovered_resources_errors()}
-
   def list_discovered_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6451,6 +6386,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Returns a list of proactive resource evaluations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20ListResourceEvaluations&this_doc_guide=API%2520Reference)
@@ -6463,12 +6399,10 @@ defmodule AWS.Config do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_resource_evaluations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_evaluations_errors()}
-
   def list_resource_evaluations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6477,6 +6411,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Lists the stored queries for a single Amazon Web Services account and a single
   Amazon Web Services Region. The default is 100.
 
@@ -6489,12 +6424,10 @@ defmodule AWS.Config do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_stored_queries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stored_queries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stored_queries_errors()}
-
   def list_stored_queries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6503,6 +6436,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   List the tags for Config resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -6515,12 +6449,10 @@ defmodule AWS.Config do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6529,6 +6461,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Authorizes the aggregator account and region to collect data from the source
   account and region.
 
@@ -6542,12 +6475,10 @@ defmodule AWS.Config do
       required("AuthorizedAwsRegion") => String.t()
     }
   """
-
   @spec put_aggregation_authorization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_aggregation_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_aggregation_authorization_errors()}
-
   def put_aggregation_authorization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6557,6 +6488,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Adds or updates an Config rule to evaluate if your Amazon Web Services resources
   comply with your desired configurations. For information on how many Config
   rules you can have per account, see [ **Service Limits**
@@ -6579,12 +6511,10 @@ defmodule AWS.Config do
       required("ConfigRule") => config_rule()
     }
   """
-
   @spec put_config_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_config_rule_errors()}
-
   def put_config_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6593,6 +6523,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Creates and updates the configuration aggregator with the selected source
   accounts and regions. The source account can be individual account(s) or an
   organization. `accountIds` that are passed will be replaced with existing
@@ -6611,12 +6542,10 @@ defmodule AWS.Config do
       required("ConfigurationAggregatorName") => String.t()
     }
   """
-
   @spec put_configuration_aggregator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_configuration_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_aggregator_errors()}
-
   def put_configuration_aggregator(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6625,6 +6554,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Creates a new configuration recorder to record configuration changes for
   specified resource types. You can also use this action to change the `roleARN`
   or the `recordingGroup` of an existing recorder. For more information, see [
@@ -6640,12 +6570,10 @@ defmodule AWS.Config do
       required("ConfigurationRecorder") => configuration_recorder()
     }
   """
-
   @spec put_configuration_recorder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_recorder_errors()}
-
   def put_configuration_recorder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6654,6 +6582,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Creates or updates a conformance pack. A conformance pack is a collection of
   Config rules that can be easily deployed in an account and a region and across
   an organization. For information on how many conformance packs you can have
@@ -6677,12 +6606,10 @@ defmodule AWS.Config do
       required("ConformancePackName") => String.t()
     }
   """
-
   @spec put_conformance_pack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_conformance_pack_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_conformance_pack_errors()}
-
   def put_conformance_pack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6691,6 +6618,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Creates a delivery channel object to deliver configuration information and other
   compliance information to an Amazon S3 bucket and Amazon SNS topic. For more
   information, see [Notifications that Config Sends to an Amazon SNS
@@ -6706,12 +6634,10 @@ defmodule AWS.Config do
       required("DeliveryChannel") => delivery_channel()
     }
   """
-
   @spec put_delivery_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_delivery_channel_errors()}
-
   def put_delivery_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6720,6 +6646,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Used by an Lambda function to deliver evaluation results to Config. This action
   is required in every Lambda function that is invoked by an Config rule.
 
@@ -6733,12 +6660,10 @@ defmodule AWS.Config do
       required("ResultToken") => String.t()
     }
   """
-
   @spec put_evaluations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_evaluations_errors()}
-
   def put_evaluations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6747,6 +6672,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Add or updates the evaluations for process checks. This API checks if the rule
   is a process check when the name of the Config rule is provided.
 
@@ -6759,12 +6685,10 @@ defmodule AWS.Config do
       required("ExternalEvaluation") => external_evaluation()
     }
   """
-
   @spec put_external_evaluation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_external_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_external_evaluation_errors()}
-
   def put_external_evaluation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6773,6 +6697,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Adds or updates an Config rule for your entire organization to evaluate if your
   Amazon Web Services resources comply with your desired configurations. For
   information on how many organization Config rules you can have per account,
@@ -6801,12 +6726,10 @@ defmodule AWS.Config do
       required("OrganizationConfigRuleName") => String.t()
     }
   """
-
   @spec put_organization_config_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_organization_config_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_organization_config_rule_errors()}
-
   def put_organization_config_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6815,6 +6738,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deploys conformance packs across member accounts in an Amazon Web Services
   Organization. For information on how many organization conformance packs and
   how many Config rules you can have per account, see [ **Service Limits**
@@ -6839,12 +6763,10 @@ defmodule AWS.Config do
       required("OrganizationConformancePackName") => String.t()
     }
   """
-
   @spec put_organization_conformance_pack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_organization_conformance_pack_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_organization_conformance_pack_errors()}
-
   def put_organization_conformance_pack(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6854,6 +6776,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Adds or updates the remediation configuration with a specific Config rule with
   the selected target or action. The API creates the `RemediationConfiguration`
   object for the Config rule. The Config rule must already exist for you to add
@@ -6873,12 +6796,10 @@ defmodule AWS.Config do
       required("RemediationConfigurations") => list(remediation_configuration()())
     }
   """
-
   @spec put_remediation_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_remediation_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_remediation_configurations_errors()}
-
   def put_remediation_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6888,6 +6809,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   A remediation exception is when a specified resource is no longer considered for
   auto-remediation. This API adds a new exception or updates an existing
   exception for a specified resource with a specified Config rule. **Exceptions
@@ -6906,12 +6828,10 @@ defmodule AWS.Config do
       required("ResourceKeys") => list(remediation_exception_resource_key()())
     }
   """
-
   @spec put_remediation_exceptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_remediation_exceptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_remediation_exceptions_errors()}
-
   def put_remediation_exceptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6920,6 +6840,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Records the configuration state for the resource provided in the request. The
   configuration state of a resource is represented in Config as Configuration
   Items. Once this API records the configuration item, you can retrieve the list
@@ -6939,12 +6860,10 @@ defmodule AWS.Config do
       required("SchemaVersionId") => String.t()
     }
   """
-
   @spec put_resource_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_config_errors()}
-
   def put_resource_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6953,6 +6872,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Creates and updates the retention configuration with details about retention
   period (number of days) that Config stores your historical information. The
   API creates the `RetentionConfiguration` object and names the object as
@@ -6967,12 +6887,10 @@ defmodule AWS.Config do
       required("RetentionPeriodInDays") => integer()
     }
   """
-
   @spec put_retention_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_retention_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_retention_configuration_errors()}
-
   def put_retention_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6981,6 +6899,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Saves a new query or updates an existing saved query. The `QueryName` must be
   unique for a single Amazon Web Services account and a single Amazon Web
   Services Region. You can create upto 300 queries in a single Amazon Web
@@ -6995,12 +6914,10 @@ defmodule AWS.Config do
       required("StoredQuery") => stored_query()
     }
   """
-
   @spec put_stored_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_stored_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_stored_query_errors()}
-
   def put_stored_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7009,6 +6926,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Accepts a structured query language (SQL) SELECT command and an aggregator to
   query configuration state of Amazon Web Services resources across multiple
   accounts and regions, performs the corresponding search, and returns resource
@@ -7029,12 +6947,10 @@ defmodule AWS.Config do
       required("Expression") => String.t()
     }
   """
-
   @spec select_aggregate_resource_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, select_aggregate_resource_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, select_aggregate_resource_config_errors()}
-
   def select_aggregate_resource_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7044,6 +6960,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Accepts a structured query language (SQL) `SELECT` command, performs the
   corresponding search, and returns resource configurations matching the
   properties.
@@ -7058,12 +6975,10 @@ defmodule AWS.Config do
       required("Expression") => String.t()
     }
   """
-
   @spec select_resource_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, select_resource_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, select_resource_config_errors()}
-
   def select_resource_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7072,6 +6987,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Runs an on-demand evaluation for the specified Config rules against the last
   known configuration state of the resources. Use `StartConfigRulesEvaluation`
   when you want to test that a rule you updated is working as expected.
@@ -7087,12 +7003,10 @@ defmodule AWS.Config do
       optional("ConfigRuleNames") => list(String.t()())
     }
   """
-
   @spec start_config_rules_evaluation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_config_rules_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_config_rules_evaluation_errors()}
-
   def start_config_rules_evaluation(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7102,6 +7016,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Starts recording configurations of the Amazon Web Services resources you have
   selected to record in your Amazon Web Services account.
 
@@ -7113,12 +7028,10 @@ defmodule AWS.Config do
       required("ConfigurationRecorderName") => String.t()
     }
   """
-
   @spec start_configuration_recorder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_configuration_recorder_errors()}
-
   def start_configuration_recorder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7127,6 +7040,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Runs an on-demand remediation for the specified Config rules against the last
   known remediation configuration. It runs an execution against the current
   state of your resources. Remediation execution is asynchronous.
@@ -7140,12 +7054,10 @@ defmodule AWS.Config do
       required("ResourceKeys") => list(resource_key()())
     }
   """
-
   @spec start_remediation_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_remediation_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_remediation_execution_errors()}
-
   def start_remediation_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7154,6 +7066,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Runs an on-demand evaluation for the specified resource to determine whether the
   resource details will comply with configured Config rules. You can also use it
   for evaluation purposes. Config recommends using an evaluation context. It
@@ -7172,12 +7085,10 @@ defmodule AWS.Config do
       required("ResourceDetails") => resource_details()
     }
   """
-
   @spec start_resource_evaluation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_resource_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_resource_evaluation_errors()}
-
   def start_resource_evaluation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7186,6 +7097,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Stops recording configurations of the Amazon Web Services resources you have
   selected to record in your Amazon Web Services account.
 
@@ -7197,12 +7109,10 @@ defmodule AWS.Config do
       required("ConfigurationRecorderName") => String.t()
     }
   """
-
   @spec stop_configuration_recorder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_configuration_recorder_errors()}
-
   def stop_configuration_recorder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7211,6 +7121,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Associates the specified tags to a resource with the specified resourceArn. If
   existing tags on a resource are not specified in the request parameters, they
   are not changed. If existing tags are specified, however, then their values
@@ -7226,12 +7137,10 @@ defmodule AWS.Config do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7240,6 +7149,7 @@ defmodule AWS.Config do
   end
 
   @doc """
+   
   Deletes specified tags from a resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=configservice%20UntagResource&this_doc_guide=API%2520Reference)
@@ -7251,12 +7161,10 @@ defmodule AWS.Config do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

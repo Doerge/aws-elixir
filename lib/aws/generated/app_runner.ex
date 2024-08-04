@@ -1645,6 +1645,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Associate your own domain name with the App Runner subdomain URL of your App
   Runner service.
 
@@ -1658,12 +1659,10 @@ defmodule AWS.AppRunner do
       required("ServiceArn") => String.t()
     }
   """
-
   @spec associate_custom_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_custom_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_custom_domain_errors()}
-
   def associate_custom_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1672,6 +1671,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Create an App Runner automatic scaling configuration resource. App Runner
   requires this resource when you create or update App Runner services and you
   require non-default auto scaling settings. You can share an auto scaling
@@ -1695,12 +1695,10 @@ defmodule AWS.AppRunner do
       required("AutoScalingConfigurationName") => String.t()
     }
   """
-
   @spec create_auto_scaling_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_auto_scaling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_auto_scaling_configuration_errors()}
-
   def create_auto_scaling_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1710,6 +1708,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Create an App Runner connection resource. App Runner requires a connection
   resource when you create App Runner services that access private repositories
   from certain third-party providers. You can share a connection across multiple
@@ -1725,12 +1724,10 @@ defmodule AWS.AppRunner do
       required("ProviderType") => list(any())
     }
   """
-
   @spec create_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_errors()}
-
   def create_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1739,6 +1736,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Create an App Runner observability configuration resource. App Runner requires
   this resource when you create or update App Runner services and you want to
   enable non-default observability features. You can share an observability
@@ -1760,12 +1758,10 @@ defmodule AWS.AppRunner do
       required("ObservabilityConfigurationName") => String.t()
     }
   """
-
   @spec create_observability_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_observability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_observability_configuration_errors()}
-
   def create_observability_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1775,6 +1771,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Create an App Runner service. After the service is created, the action also
   automatically starts a deployment.
 
@@ -1794,12 +1791,10 @@ defmodule AWS.AppRunner do
       required("SourceConfiguration") => source_configuration()
     }
   """
-
   @spec create_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_errors()}
-
   def create_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1808,6 +1803,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Create an App Runner VPC connector resource. App Runner requires this resource
   when you want to associate your App Runner service to a custom Amazon Virtual
   Private Cloud (Amazon VPC).
@@ -1823,12 +1819,10 @@ defmodule AWS.AppRunner do
       required("VpcConnectorName") => String.t()
     }
   """
-
   @spec create_vpc_connector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_connector_errors()}
-
   def create_vpc_connector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1837,6 +1831,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Create an App Runner VPC Ingress Connection resource. App Runner requires this
   resource when you want to associate your App Runner service with an Amazon VPC
   endpoint.
@@ -1852,12 +1847,10 @@ defmodule AWS.AppRunner do
       required("VpcIngressConnectionName") => String.t()
     }
   """
-
   @spec create_vpc_ingress_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_ingress_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_ingress_connection_errors()}
-
   def create_vpc_ingress_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1867,6 +1860,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Delete an App Runner automatic scaling configuration resource. You can delete a
   top level auto scaling configuration, a specific revision of one, or all
   revisions associated with the top level configuration. You can't delete the
@@ -1882,12 +1876,10 @@ defmodule AWS.AppRunner do
       required("AutoScalingConfigurationArn") => String.t()
     }
   """
-
   @spec delete_auto_scaling_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_auto_scaling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_auto_scaling_configuration_errors()}
-
   def delete_auto_scaling_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1897,6 +1889,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Delete an App Runner connection. You must first ensure that there are no running
   App Runner services that use this connection. If there are any, the
   `DeleteConnection` action fails.
@@ -1909,12 +1902,10 @@ defmodule AWS.AppRunner do
       required("ConnectionArn") => String.t()
     }
   """
-
   @spec delete_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-
   def delete_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1923,6 +1914,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Delete an App Runner observability configuration resource. You can delete a
   specific revision or the latest active revision. You can't delete a
   configuration that's used by one or more App Runner services.
@@ -1935,12 +1927,10 @@ defmodule AWS.AppRunner do
       required("ObservabilityConfigurationArn") => String.t()
     }
   """
-
   @spec delete_observability_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_observability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_observability_configuration_errors()}
-
   def delete_observability_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1950,6 +1940,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Delete an App Runner service. This is an asynchronous operation. On a successful
   call, you can use the returned `OperationId` and the `ListOperations` call to
   track the operation's progress.
@@ -1962,12 +1953,10 @@ defmodule AWS.AppRunner do
       required("ServiceArn") => String.t()
     }
   """
-
   @spec delete_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_errors()}
-
   def delete_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1976,6 +1965,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Delete an App Runner VPC connector resource. You can't delete a connector that's
   used by one or more App Runner services.
 
@@ -1987,12 +1977,10 @@ defmodule AWS.AppRunner do
       required("VpcConnectorArn") => String.t()
     }
   """
-
   @spec delete_vpc_connector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vpc_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_connector_errors()}
-
   def delete_vpc_connector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2001,6 +1989,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Delete an App Runner VPC Ingress Connection resource that's associated with an
   App Runner service. The VPC Ingress Connection must be in one of the following
   states to be deleted:
@@ -2013,12 +2002,10 @@ defmodule AWS.AppRunner do
       required("VpcIngressConnectionArn") => String.t()
     }
   """
-
   @spec delete_vpc_ingress_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vpc_ingress_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_ingress_connection_errors()}
-
   def delete_vpc_ingress_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2028,6 +2015,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Return a full description of an App Runner automatic scaling configuration
   resource.
 
@@ -2039,12 +2027,10 @@ defmodule AWS.AppRunner do
       required("AutoScalingConfigurationArn") => String.t()
     }
   """
-
   @spec describe_auto_scaling_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_auto_scaling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_auto_scaling_configuration_errors()}
-
   def describe_auto_scaling_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2054,6 +2040,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Return a description of custom domain names that are associated with an App
   Runner service.
 
@@ -2067,12 +2054,10 @@ defmodule AWS.AppRunner do
       required("ServiceArn") => String.t()
     }
   """
-
   @spec describe_custom_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_custom_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_domains_errors()}
-
   def describe_custom_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2081,6 +2066,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Return a full description of an App Runner observability configuration resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apprunner%20DescribeObservabilityConfiguration&this_doc_guide=API%2520Reference)
@@ -2091,12 +2077,10 @@ defmodule AWS.AppRunner do
       required("ObservabilityConfigurationArn") => String.t()
     }
   """
-
   @spec describe_observability_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_observability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_observability_configuration_errors()}
-
   def describe_observability_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2106,6 +2090,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Return a full description of an App Runner service.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apprunner%20DescribeService&this_doc_guide=API%2520Reference)
@@ -2116,12 +2101,10 @@ defmodule AWS.AppRunner do
       required("ServiceArn") => String.t()
     }
   """
-
   @spec describe_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_service_errors()}
-
   def describe_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2130,6 +2113,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Return a description of an App Runner VPC connector resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apprunner%20DescribeVpcConnector&this_doc_guide=API%2520Reference)
@@ -2140,12 +2124,10 @@ defmodule AWS.AppRunner do
       required("VpcConnectorArn") => String.t()
     }
   """
-
   @spec describe_vpc_connector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_connector_errors()}
-
   def describe_vpc_connector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2154,6 +2136,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Return a full description of an App Runner VPC Ingress Connection resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apprunner%20DescribeVpcIngressConnection&this_doc_guide=API%2520Reference)
@@ -2164,12 +2147,10 @@ defmodule AWS.AppRunner do
       required("VpcIngressConnectionArn") => String.t()
     }
   """
-
   @spec describe_vpc_ingress_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_ingress_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_ingress_connection_errors()}
-
   def describe_vpc_ingress_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2179,6 +2160,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Disassociate a custom domain name from an App Runner service.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apprunner%20DisassociateCustomDomain&this_doc_guide=API%2520Reference)
@@ -2190,12 +2172,10 @@ defmodule AWS.AppRunner do
       required("ServiceArn") => String.t()
     }
   """
-
   @spec disassociate_custom_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_custom_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_custom_domain_errors()}
-
   def disassociate_custom_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2204,6 +2184,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Returns a list of active App Runner automatic scaling configurations in your
   Amazon Web Services account. You can query the revisions for a specific
   configuration name or the revisions for all active configurations in your
@@ -2221,12 +2202,10 @@ defmodule AWS.AppRunner do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_auto_scaling_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_auto_scaling_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_auto_scaling_configurations_errors()}
-
   def list_auto_scaling_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2236,6 +2215,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Returns a list of App Runner connections that are associated with your Amazon
   Web Services account.
 
@@ -2249,12 +2229,10 @@ defmodule AWS.AppRunner do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connections_errors()}
-
   def list_connections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2263,6 +2241,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Returns a list of active App Runner observability configurations in your Amazon
   Web Services account. You can query the revisions for a specific configuration
   name or the revisions for all active configurations in your account. You can
@@ -2279,12 +2258,10 @@ defmodule AWS.AppRunner do
       optional("ObservabilityConfigurationName") => String.t()
     }
   """
-
   @spec list_observability_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_observability_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_observability_configurations_errors()}
-
   def list_observability_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2294,6 +2271,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Return a list of operations that occurred on an App Runner service.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apprunner%20ListOperations&this_doc_guide=API%2520Reference)
@@ -2306,12 +2284,10 @@ defmodule AWS.AppRunner do
       required("ServiceArn") => String.t()
     }
   """
-
   @spec list_operations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_operations_errors()}
-
   def list_operations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2320,6 +2296,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Returns a list of running App Runner services in your Amazon Web Services
   account.
 
@@ -2332,12 +2309,10 @@ defmodule AWS.AppRunner do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
-
   def list_services(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2346,6 +2321,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Returns a list of the associated App Runner services using an auto scaling
   configuration.
 
@@ -2359,12 +2335,10 @@ defmodule AWS.AppRunner do
       required("AutoScalingConfigurationArn") => String.t()
     }
   """
-
   @spec list_services_for_auto_scaling_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_services_for_auto_scaling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_for_auto_scaling_configuration_errors()}
-
   def list_services_for_auto_scaling_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2374,6 +2348,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   List tags that are associated with for an App Runner resource. The response
   contains a list of tag key-value pairs.
 
@@ -2385,12 +2360,10 @@ defmodule AWS.AppRunner do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2399,6 +2372,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Returns a list of App Runner VPC connectors in your Amazon Web Services account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apprunner%20ListVpcConnectors&this_doc_guide=API%2520Reference)
@@ -2410,12 +2384,10 @@ defmodule AWS.AppRunner do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_vpc_connectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_vpc_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_connectors_errors()}
-
   def list_vpc_connectors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2424,6 +2396,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Return a list of App Runner VPC Ingress Connections in your Amazon Web Services
   account.
 
@@ -2437,12 +2410,10 @@ defmodule AWS.AppRunner do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_vpc_ingress_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_vpc_ingress_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_ingress_connections_errors()}
-
   def list_vpc_ingress_connections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2451,6 +2422,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Pause an active App Runner service. App Runner reduces compute capacity for the
   service to zero and loses state (for example, ephemeral storage is removed).
 
@@ -2462,12 +2434,10 @@ defmodule AWS.AppRunner do
       required("ServiceArn") => String.t()
     }
   """
-
   @spec pause_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, pause_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, pause_service_errors()}
-
   def pause_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2476,6 +2446,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Resume an active App Runner service. App Runner provisions compute capacity for
   the service.
 
@@ -2487,12 +2458,10 @@ defmodule AWS.AppRunner do
       required("ServiceArn") => String.t()
     }
   """
-
   @spec resume_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resume_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_service_errors()}
-
   def resume_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2501,6 +2470,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Initiate a manual deployment of the latest commit in a source code repository or
   the latest image in a source image repository to an App Runner service. For a
   source code repository, App Runner retrieves the commit and builds a Docker
@@ -2516,12 +2486,10 @@ defmodule AWS.AppRunner do
       required("ServiceArn") => String.t()
     }
   """
-
   @spec start_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_deployment_errors()}
-
   def start_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2530,6 +2498,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Add tags to, or update the tag values of, an App Runner resource. A tag is a
   key-value pair.
 
@@ -2542,12 +2511,10 @@ defmodule AWS.AppRunner do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2556,6 +2523,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Remove tags from an App Runner resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apprunner%20UntagResource&this_doc_guide=API%2520Reference)
@@ -2567,12 +2535,10 @@ defmodule AWS.AppRunner do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2581,6 +2547,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Update an auto scaling configuration to be the default. The existing default
   auto scaling configuration will be set to non-default automatically.
 
@@ -2592,12 +2559,10 @@ defmodule AWS.AppRunner do
       required("AutoScalingConfigurationArn") => String.t()
     }
   """
-
   @spec update_default_auto_scaling_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_default_auto_scaling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_default_auto_scaling_configuration_errors()}
-
   def update_default_auto_scaling_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2607,6 +2572,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Update an App Runner service. You can update the source configuration and
   instance configuration of the service. You can also update the ARN of the auto
   scaling configuration resource that's associated with the service. However,
@@ -2628,12 +2594,10 @@ defmodule AWS.AppRunner do
       required("ServiceArn") => String.t()
     }
   """
-
   @spec update_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_errors()}
-
   def update_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2642,6 +2606,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+   
   Update an existing App Runner VPC Ingress Connection resource. The VPC Ingress
   Connection must be in one of the following states to be updated:
 
@@ -2654,12 +2619,10 @@ defmodule AWS.AppRunner do
       required("VpcIngressConnectionArn") => String.t()
     }
   """
-
   @spec update_vpc_ingress_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_vpc_ingress_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_ingress_connection_errors()}
-
   def update_vpc_ingress_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

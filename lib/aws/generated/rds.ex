@@ -8863,6 +8863,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Associates an Identity and Access Management (IAM) role with a DB cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20AddRoleToDBCluster&this_doc_guide=API%2520Reference)
@@ -8875,12 +8876,10 @@ defmodule AWS.RDS do
       required("RoleArn") => String.t()
     }
   """
-
   @spec add_role_to_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_role_to_db_cluster_errors()}
-
   def add_role_to_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8889,6 +8888,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Associates an Amazon Web Services Identity and Access Management (IAM) role with
   a DB instance. To add a role to a DB instance, the status of the DB instance
   must be `available`.
@@ -8903,12 +8903,10 @@ defmodule AWS.RDS do
       required("RoleArn") => String.t()
     }
   """
-
   @spec add_role_to_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_role_to_db_instance_errors()}
-
   def add_role_to_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8917,6 +8915,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Adds a source identifier to an existing RDS event notification subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20AddSourceIdentifierToSubscription&this_doc_guide=API%2520Reference)
@@ -8928,12 +8927,10 @@ defmodule AWS.RDS do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec add_source_identifier_to_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_source_identifier_to_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_source_identifier_to_subscription_errors()}
-
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8943,6 +8940,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Adds metadata tags to an Amazon RDS resource. These tags can also be used with
   cost allocation reporting to track cost associated with Amazon RDS resources,
   or used in a Condition statement in an IAM policy for Amazon RDS.
@@ -8956,12 +8954,10 @@ defmodule AWS.RDS do
       required("Tags") => list(tag()())
     }
   """
-
   @spec add_tags_to_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
-
   def add_tags_to_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8970,6 +8966,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Applies a pending maintenance action to a resource (for example, to a DB
   instance).
 
@@ -8983,12 +8980,10 @@ defmodule AWS.RDS do
       required("ResourceIdentifier") => String.t()
     }
   """
-
   @spec apply_pending_maintenance_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, apply_pending_maintenance_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_pending_maintenance_action_errors()}
-
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8998,6 +8993,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Enables ingress to a DBSecurityGroup using one of two forms of authorization.
   First, EC2 or VPC security groups can be added to the DBSecurityGroup if the
   application using the database is running on EC2 or VPC instances. Second, IP
@@ -9021,12 +9017,10 @@ defmodule AWS.RDS do
       required("DBSecurityGroupName") => String.t()
     }
   """
-
   @spec authorize_db_security_group_ingress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, authorize_db_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, authorize_db_security_group_ingress_errors()}
-
   def authorize_db_security_group_ingress(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9036,6 +9030,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Backtracks a DB cluster to a specific time, without creating a new DB cluster.
   For more information on backtracking, see [ Backtracking an Aurora DB
   Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html)
@@ -9052,12 +9047,10 @@ defmodule AWS.RDS do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec backtrack_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_backtrack(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, backtrack_db_cluster_errors()}
-
   def backtrack_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9066,6 +9059,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Cancels an export task in progress that is exporting a snapshot or cluster to
   Amazon S3. Any data that has already been written to the S3 bucket isn't
   removed.
@@ -9078,12 +9072,10 @@ defmodule AWS.RDS do
       required("ExportTaskIdentifier") => String.t()
     }
   """
-
   @spec cancel_export_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_task(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_export_task_errors()}
-
   def cancel_export_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9092,6 +9084,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Copies the specified DB cluster parameter group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20CopyDBClusterParameterGroup&this_doc_guide=API%2520Reference)
@@ -9105,12 +9098,10 @@ defmodule AWS.RDS do
       required("TargetDBClusterParameterGroupIdentifier") => String.t()
     }
   """
-
   @spec copy_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_cluster_parameter_group_errors()}
-
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9120,6 +9111,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Copies a snapshot of a DB cluster. To copy a DB cluster snapshot from a shared
   manual DB cluster snapshot, `SourceDBClusterSnapshotIdentifier` must be the
   Amazon Resource Name (ARN) of the shared DB cluster snapshot.
@@ -9137,12 +9129,10 @@ defmodule AWS.RDS do
       required("TargetDBClusterSnapshotIdentifier") => String.t()
     }
   """
-
   @spec copy_db_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_cluster_snapshot_errors()}
-
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9151,6 +9141,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Copies the specified DB parameter group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20CopyDBParameterGroup&this_doc_guide=API%2520Reference)
@@ -9164,12 +9155,10 @@ defmodule AWS.RDS do
       required("TargetDBParameterGroupIdentifier") => String.t()
     }
   """
-
   @spec copy_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_db_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_parameter_group_errors()}
-
   def copy_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9178,6 +9167,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Copies the specified DB snapshot. The source DB snapshot must be in the
   `available` state. You can copy a snapshot from one Amazon Web Services Region
   to another. In that case, the Amazon Web Services Region where you call the
@@ -9200,12 +9190,10 @@ defmodule AWS.RDS do
       required("TargetDBSnapshotIdentifier") => String.t()
     }
   """
-
   @spec copy_db_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_db_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_snapshot_errors()}
-
   def copy_db_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9214,6 +9202,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Copies the specified option group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20CopyOptionGroup&this_doc_guide=API%2520Reference)
@@ -9227,12 +9216,10 @@ defmodule AWS.RDS do
       required("TargetOptionGroupIdentifier") => String.t()
     }
   """
-
   @spec copy_option_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_option_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_option_group_errors()}
-
   def copy_option_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9241,6 +9228,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a blue/green deployment. A blue/green deployment creates a staging
   environment that copies the production environment. In a blue/green
   deployment, the blue environment is the current production environment. The
@@ -9262,12 +9250,10 @@ defmodule AWS.RDS do
       required("Source") => String.t()
     }
   """
-
   @spec create_blue_green_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_blue_green_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_blue_green_deployment_errors()}
-
   def create_blue_green_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9276,6 +9262,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a custom DB engine version (CEV).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20CreateCustomDBEngineVersion&this_doc_guide=API%2520Reference)
@@ -9296,12 +9283,10 @@ defmodule AWS.RDS do
       required("EngineVersion") => String.t()
     }
   """
-
   @spec create_custom_db_engine_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_engine_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_db_engine_version_errors()}
-
   def create_custom_db_engine_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9311,6 +9296,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster. If you create an
   Aurora DB cluster, the request creates an empty cluster. You must explicitly
   create the writer instance for your DB cluster using the
@@ -9385,12 +9371,10 @@ defmodule AWS.RDS do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec create_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_errors()}
-
   def create_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9399,6 +9383,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new custom endpoint and associates it with an Amazon Aurora DB
   cluster.
 
@@ -9415,12 +9400,10 @@ defmodule AWS.RDS do
       required("EndpointType") => String.t()
     }
   """
-
   @spec create_db_cluster_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_endpoint(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_endpoint_errors()}
-
   def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9429,6 +9412,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new DB cluster parameter group. Parameters in a DB cluster parameter
   group apply to all of the instances in a DB cluster.
 
@@ -9443,12 +9427,10 @@ defmodule AWS.RDS do
       required("Description") => String.t()
     }
   """
-
   @spec create_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_parameter_group_errors()}
-
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9458,6 +9440,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a snapshot of a DB cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20CreateDBClusterSnapshot&this_doc_guide=API%2520Reference)
@@ -9470,12 +9453,10 @@ defmodule AWS.RDS do
       required("DBClusterSnapshotIdentifier") => String.t()
     }
   """
-
   @spec create_db_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_snapshot_errors()}
-
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9484,6 +9465,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new DB instance. The new DB instance can be an RDS DB instance, or it
   can be a DB instance in an Aurora DB cluster. For an Aurora DB cluster, you
   can call this operation multiple times to add more than one DB instance to the
@@ -9559,12 +9541,10 @@ defmodule AWS.RDS do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec create_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_instance_errors()}
-
   def create_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9573,6 +9553,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new DB instance that acts as a read replica for an existing source DB
   instance or Multi-AZ DB cluster. You can create a read replica for a DB
   instance running Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You
@@ -9637,12 +9618,10 @@ defmodule AWS.RDS do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec create_db_instance_read_replica(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_instance_read_replica_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_instance_read_replica_errors()}
-
   def create_db_instance_read_replica(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -9652,6 +9631,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new DB parameter group. A DB parameter group is initially created with
   the default parameters for the database engine used by the DB instance. To
   provide custom values for any of the parameters, you must modify the group
@@ -9672,12 +9652,10 @@ defmodule AWS.RDS do
       required("Description") => String.t()
     }
   """
-
   @spec create_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_parameter_group_errors()}
-
   def create_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9686,6 +9664,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new DB proxy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20CreateDBProxy&this_doc_guide=API%2520Reference)
@@ -9705,12 +9684,10 @@ defmodule AWS.RDS do
       required("VpcSubnetIds") => list(String.t()())
     }
   """
-
   @spec create_db_proxy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_proxy_errors()}
-
   def create_db_proxy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9719,6 +9696,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a `DBProxyEndpoint`. Only applies to proxies that are associated with
   Aurora DB clusters. You can use DB proxy endpoints to specify read/write or
   read-only access to the DB cluster. You can also use DB proxy endpoints to
@@ -9737,12 +9715,10 @@ defmodule AWS.RDS do
       required("VpcSubnetIds") => list(String.t()())
     }
   """
-
   @spec create_db_proxy_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_proxy_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_proxy_endpoint_errors()}
-
   def create_db_proxy_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9751,6 +9727,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new DB security group. DB security groups control access to a DB
   instance. A DB security group controls access to EC2-Classic DB instances that
   are not in a VPC.
@@ -9765,12 +9742,10 @@ defmodule AWS.RDS do
       required("DBSecurityGroupName") => String.t()
     }
   """
-
   @spec create_db_security_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_security_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_security_group_errors()}
-
   def create_db_security_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9779,6 +9754,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new DB shard group for Aurora Limitless Database. You must enable
   Aurora Limitless Database to create a DB shard group.
 
@@ -9795,12 +9771,10 @@ defmodule AWS.RDS do
       required("MaxACU") => float()
     }
   """
-
   @spec create_db_shard_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_shard_group(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_shard_group_errors()}
-
   def create_db_shard_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9809,6 +9783,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a snapshot of a DB instance. The source DB instance must be in the
   `available` or `storage-optimization` state.
 
@@ -9822,12 +9797,10 @@ defmodule AWS.RDS do
       required("DBSnapshotIdentifier") => String.t()
     }
   """
-
   @spec create_db_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_snapshot_errors()}
-
   def create_db_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9836,6 +9809,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new DB subnet group. DB subnet groups must contain at least one subnet
   in at least two AZs in the Amazon Web Services Region.
 
@@ -9850,12 +9824,10 @@ defmodule AWS.RDS do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec create_db_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_subnet_group_errors()}
-
   def create_db_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9864,6 +9836,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates an RDS event notification subscription. This operation requires a topic
   Amazon Resource Name (ARN) created by either the RDS console, the SNS console,
   or the SNS API. To obtain an ARN with SNS, you must create a topic in Amazon
@@ -9889,12 +9862,10 @@ defmodule AWS.RDS do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec create_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_subscription_errors()}
-
   def create_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9903,6 +9874,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates an Aurora global database spread across multiple Amazon Web Services
   Regions. The global database contains a single primary cluster with read-write
   capability, and a read-only secondary cluster that receives data from the
@@ -9927,12 +9899,10 @@ defmodule AWS.RDS do
       optional("StorageEncrypted") => boolean()
     }
   """
-
   @spec create_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_global_cluster_errors()}
-
   def create_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9941,6 +9911,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a zero-ETL integration with Amazon Redshift.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20CreateIntegration&this_doc_guide=API%2520Reference)
@@ -9958,12 +9929,10 @@ defmodule AWS.RDS do
       required("TargetArn") => String.t()
     }
   """
-
   @spec create_integration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_integration_errors()}
-
   def create_integration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -9972,6 +9941,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new option group. You can create up to 20 option groups.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20CreateOptionGroup&this_doc_guide=API%2520Reference)
@@ -9986,12 +9956,10 @@ defmodule AWS.RDS do
       required("OptionGroupName") => String.t()
     }
   """
-
   @spec create_option_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_option_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_option_group_errors()}
-
   def create_option_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10000,6 +9968,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a tenant database in a DB instance that uses the multi-tenant
   configuration. Only RDS for Oracle container database (CDB) instances are
   supported.
@@ -10018,12 +9987,10 @@ defmodule AWS.RDS do
       required("TenantDBName") => String.t()
     }
   """
-
   @spec create_tenant_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_tenant_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tenant_database_errors()}
-
   def create_tenant_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10032,6 +9999,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a blue/green deployment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DeleteBlueGreenDeployment&this_doc_guide=API%2520Reference)
@@ -10043,12 +10011,10 @@ defmodule AWS.RDS do
       required("BlueGreenDeploymentIdentifier") => String.t()
     }
   """
-
   @spec delete_blue_green_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_blue_green_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_blue_green_deployment_errors()}
-
   def delete_blue_green_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10057,6 +10023,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a custom engine version. To run this command, make sure you meet the
   following prerequisites:
 
@@ -10069,12 +10036,10 @@ defmodule AWS.RDS do
       required("EngineVersion") => String.t()
     }
   """
-
   @spec delete_custom_db_engine_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_engine_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_db_engine_version_errors()}
-
   def delete_custom_db_engine_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10084,6 +10049,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   The DeleteDBCluster action deletes a previously provisioned DB cluster. When you
   delete a DB cluster, all automated backups for that DB cluster are deleted and
   can't be recovered. Manual DB cluster snapshots of the specified DB cluster
@@ -10102,12 +10068,10 @@ defmodule AWS.RDS do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec delete_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_errors()}
-
   def delete_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10116,6 +10080,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes automated backups using the `DbClusterResourceId` value of the source DB
   cluster or the Amazon Resource Name (ARN) of the automated backups.
 
@@ -10127,12 +10092,10 @@ defmodule AWS.RDS do
       required("DbClusterResourceId") => String.t()
     }
   """
-
   @spec delete_db_cluster_automated_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_cluster_automated_backup_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_automated_backup_errors()}
-
   def delete_db_cluster_automated_backup(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10142,6 +10105,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DeleteDBClusterEndpoint&this_doc_guide=API%2520Reference)
@@ -10152,12 +10116,10 @@ defmodule AWS.RDS do
       required("DBClusterEndpointIdentifier") => String.t()
     }
   """
-
   @spec delete_db_cluster_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_endpoint(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_endpoint_errors()}
-
   def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10166,6 +10128,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a specified DB cluster parameter group. The DB cluster parameter group
   to be deleted can't be associated with any DB clusters.
 
@@ -10177,12 +10140,10 @@ defmodule AWS.RDS do
       required("DBClusterParameterGroupName") => String.t()
     }
   """
-
   @spec delete_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_parameter_group_errors()}
-
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10192,6 +10153,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a DB cluster snapshot. If the snapshot is being copied, the copy
   operation is terminated. The DB cluster snapshot must be in the `available`
   state to be deleted.
@@ -10204,12 +10166,10 @@ defmodule AWS.RDS do
       required("DBClusterSnapshotIdentifier") => String.t()
     }
   """
-
   @spec delete_db_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_snapshot_errors()}
-
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10218,6 +10178,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a previously provisioned DB instance. When you delete a DB instance, all
   automated backups for that instance are deleted and can't be recovered.
   However, manual DB snapshots of the DB instance aren't deleted. If you request
@@ -10237,12 +10198,10 @@ defmodule AWS.RDS do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec delete_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_instance_errors()}
-
   def delete_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10251,6 +10210,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes automated backups using the `DbiResourceId` value of the source DB
   instance or the Amazon Resource Name (ARN) of the automated backups.
 
@@ -10263,12 +10223,10 @@ defmodule AWS.RDS do
       optional("DbiResourceId") => String.t()
     }
   """
-
   @spec delete_db_instance_automated_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_instance_automated_backup_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_instance_automated_backup_errors()}
-
   def delete_db_instance_automated_backup(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10278,6 +10236,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a specified DB parameter group. The DB parameter group to be deleted
   can't be associated with any DB instances.
 
@@ -10289,12 +10248,10 @@ defmodule AWS.RDS do
       required("DBParameterGroupName") => String.t()
     }
   """
-
   @spec delete_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_parameter_group_errors()}
-
   def delete_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10303,6 +10260,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes an existing DB proxy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DeleteDBProxy&this_doc_guide=API%2520Reference)
@@ -10313,12 +10271,10 @@ defmodule AWS.RDS do
       required("DBProxyName") => String.t()
     }
   """
-
   @spec delete_db_proxy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_proxy_errors()}
-
   def delete_db_proxy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10327,6 +10283,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a `DBProxyEndpoint`. Doing so removes the ability to access the DB proxy
   using the endpoint that you defined. The endpoint that you delete might have
   provided capabilities such as read/write or read-only operations, or using a
@@ -10340,12 +10297,10 @@ defmodule AWS.RDS do
       required("DBProxyEndpointName") => String.t()
     }
   """
-
   @spec delete_db_proxy_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_proxy_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_proxy_endpoint_errors()}
-
   def delete_db_proxy_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10354,6 +10309,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a DB security group. The specified DB security group must not be
   associated with any DB instances.
 
@@ -10365,12 +10321,10 @@ defmodule AWS.RDS do
       required("DBSecurityGroupName") => String.t()
     }
   """
-
   @spec delete_db_security_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_security_group_errors()}
-
   def delete_db_security_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10379,6 +10333,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes an Aurora Limitless Database DB shard group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DeleteDBShardGroup&this_doc_guide=API%2520Reference)
@@ -10389,12 +10344,10 @@ defmodule AWS.RDS do
       required("DBShardGroupIdentifier") => String.t()
     }
   """
-
   @spec delete_db_shard_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_shard_group(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_shard_group_errors()}
-
   def delete_db_shard_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10403,6 +10356,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
   terminated.
 
@@ -10414,12 +10368,10 @@ defmodule AWS.RDS do
       required("DBSnapshotIdentifier") => String.t()
     }
   """
-
   @spec delete_db_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_snapshot_errors()}
-
   def delete_db_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10428,6 +10380,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a DB subnet group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DeleteDBSubnetGroup&this_doc_guide=API%2520Reference)
@@ -10438,12 +10391,10 @@ defmodule AWS.RDS do
       required("DBSubnetGroupName") => String.t()
     }
   """
-
   @spec delete_db_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_subnet_group_errors()}
-
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10452,6 +10403,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes an RDS event notification subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DeleteEventSubscription&this_doc_guide=API%2520Reference)
@@ -10462,12 +10414,10 @@ defmodule AWS.RDS do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec delete_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_subscription_errors()}
-
   def delete_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10476,6 +10426,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a global database cluster. The primary and secondary clusters must
   already be detached or destroyed first.
 
@@ -10487,12 +10438,10 @@ defmodule AWS.RDS do
       required("GlobalClusterIdentifier") => String.t()
     }
   """
-
   @spec delete_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_global_cluster_errors()}
-
   def delete_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10501,6 +10450,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a zero-ETL integration with Amazon Redshift.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DeleteIntegration&this_doc_guide=API%2520Reference)
@@ -10511,12 +10461,10 @@ defmodule AWS.RDS do
       required("IntegrationIdentifier") => String.t()
     }
   """
-
   @spec delete_integration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_integration_errors()}
-
   def delete_integration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10525,6 +10473,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes an existing option group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DeleteOptionGroup&this_doc_guide=API%2520Reference)
@@ -10535,12 +10484,10 @@ defmodule AWS.RDS do
       required("OptionGroupName") => String.t()
     }
   """
-
   @spec delete_option_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_option_group_errors()}
-
   def delete_option_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10549,6 +10496,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Deletes a tenant database from your DB instance. This command only applies to
   RDS for Oracle container database (CDB) instances.
 
@@ -10563,12 +10511,10 @@ defmodule AWS.RDS do
       required("TenantDBName") => String.t()
     }
   """
-
   @spec delete_tenant_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_tenant_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tenant_database_errors()}
-
   def delete_tenant_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10577,6 +10523,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Remove the association between one or more `DBProxyTarget` data structures and a
   `DBProxyTargetGroup`.
 
@@ -10591,12 +10538,10 @@ defmodule AWS.RDS do
       required("DBProxyName") => String.t()
     }
   """
-
   @spec deregister_db_proxy_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_db_proxy_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_db_proxy_targets_errors()}
-
   def deregister_db_proxy_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10605,6 +10550,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Lists all of the attributes for a customer account. The attributes include
   Amazon RDS quotas for the account, such as the number of DB instances allowed.
   The description for a quota includes the quota name, current usage toward that
@@ -10618,11 +10564,9 @@ defmodule AWS.RDS do
       
     }
   """
-
   @spec describe_account_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, account_attributes_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_account_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10631,6 +10575,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes one or more blue/green deployments.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeBlueGreenDeployments&this_doc_guide=API%2520Reference)
@@ -10644,12 +10589,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_blue_green_deployments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_blue_green_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_blue_green_deployments_errors()}
-
   def describe_blue_green_deployments(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10659,6 +10602,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Lists the set of certificate authority (CA) certificates provided by Amazon RDS
   for this Amazon Web Services account.
 
@@ -10673,12 +10617,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, certificate_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificates_errors()}
-
   def describe_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10687,6 +10629,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Displays backups for both current and deleted DB clusters. For example, use this
   operation to find details about automated backups for previously deleted
   clusters. Current clusters are returned for both the
@@ -10704,12 +10647,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_cluster_automated_backups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_automated_backup_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_automated_backups_errors()}
-
   def describe_db_cluster_automated_backups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10719,6 +10660,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about backtracks for a DB cluster. For more information on
   Amazon Aurora, see [ What is Amazon
   Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
@@ -10736,12 +10678,10 @@ defmodule AWS.RDS do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec describe_db_cluster_backtracks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_backtrack_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_backtracks_errors()}
-
   def describe_db_cluster_backtracks(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10751,6 +10691,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about endpoints for an Amazon Aurora DB cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBClusterEndpoints&this_doc_guide=API%2520Reference)
@@ -10765,12 +10706,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_cluster_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_endpoint_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_endpoints_errors()}
-
   def describe_db_cluster_endpoints(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10780,6 +10719,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns a list of `DBClusterParameterGroup` descriptions. If a
   `DBClusterParameterGroupName` parameter is specified, the list will contain
   only the description of the specified DB cluster parameter group.
@@ -10795,12 +10735,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_cluster_parameter_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_parameter_groups_errors()}
-
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10810,6 +10748,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns the detailed parameter list for a particular DB cluster parameter group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBClusterParameters&this_doc_guide=API%2520Reference)
@@ -10824,12 +10763,10 @@ defmodule AWS.RDS do
       required("DBClusterParameterGroupName") => String.t()
     }
   """
-
   @spec describe_db_cluster_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_parameters_errors()}
-
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10839,6 +10776,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns a list of DB cluster snapshot attribute names and values for a manual DB
   cluster snapshot. When sharing snapshots with other Amazon Web Services
   accounts, `DescribeDBClusterSnapshotAttributes` returns the `restore`
@@ -10856,12 +10794,10 @@ defmodule AWS.RDS do
       required("DBClusterSnapshotIdentifier") => String.t()
     }
   """
-
   @spec describe_db_cluster_snapshot_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_db_cluster_snapshot_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
-
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10871,6 +10807,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about DB cluster snapshots. This API action supports
   pagination.
 
@@ -10890,12 +10827,10 @@ defmodule AWS.RDS do
       optional("SnapshotType") => String.t()
     }
   """
-
   @spec describe_db_cluster_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_snapshots_errors()}
-
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -10905,6 +10840,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters. This API
   supports pagination. For more information on Amazon Aurora DB clusters, see [
   What is Amazon
@@ -10926,12 +10862,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_clusters_errors()}
-
   def describe_db_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10940,6 +10874,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes the properties of specific versions of DB engines.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBEngineVersions&this_doc_guide=API%2520Reference)
@@ -10959,11 +10894,9 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_engine_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_engine_version_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -10972,6 +10905,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Displays backups for both current and deleted instances. For example, use this
   operation to find details about automated backups for previously deleted
   instances. Current instances with retention periods greater than zero (0) are
@@ -10991,12 +10925,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_instance_automated_backups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_instance_automated_backup_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_instance_automated_backups_errors()}
-
   def describe_db_instance_automated_backups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11006,6 +10938,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes provisioned RDS instances. This API supports pagination.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBInstances&this_doc_guide=API%2520Reference)
@@ -11019,12 +10952,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_instance_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_instances_errors()}
-
   def describe_db_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11033,6 +10964,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns a list of DB log files for the DB instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBLogFiles&this_doc_guide=API%2520Reference)
@@ -11049,12 +10981,10 @@ defmodule AWS.RDS do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec describe_db_log_files(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_db_log_files_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_log_files_errors()}
-
   def describe_db_log_files(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11063,6 +10993,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns a list of `DBParameterGroup` descriptions. If a `DBParameterGroupName`
   is specified, the list will contain only the description of the specified DB
   parameter group.
@@ -11078,12 +11009,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_parameter_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_parameter_groups_errors()}
-
   def describe_db_parameter_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11092,6 +11021,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns the detailed parameter list for a particular DB parameter group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBParameters&this_doc_guide=API%2520Reference)
@@ -11106,12 +11036,10 @@ defmodule AWS.RDS do
       required("DBParameterGroupName") => String.t()
     }
   """
-
   @spec describe_db_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_parameters_errors()}
-
   def describe_db_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11120,6 +11048,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about DB proxies.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBProxies&this_doc_guide=API%2520Reference)
@@ -11133,12 +11062,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_proxies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_db_proxies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_proxies_errors()}
-
   def describe_db_proxies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11147,6 +11074,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about DB proxy endpoints.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBProxyEndpoints&this_doc_guide=API%2520Reference)
@@ -11161,12 +11089,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_proxy_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_db_proxy_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_proxy_endpoints_errors()}
-
   def describe_db_proxy_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11175,6 +11101,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about DB proxy target groups, represented by
   `DBProxyTargetGroup` data structures.
 
@@ -11190,12 +11117,10 @@ defmodule AWS.RDS do
       required("DBProxyName") => String.t()
     }
   """
-
   @spec describe_db_proxy_target_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_db_proxy_target_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_proxy_target_groups_errors()}
-
   def describe_db_proxy_target_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11205,6 +11130,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about `DBProxyTarget` objects. This API supports pagination.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBProxyTargets&this_doc_guide=API%2520Reference)
@@ -11219,12 +11145,10 @@ defmodule AWS.RDS do
       required("DBProxyName") => String.t()
     }
   """
-
   @spec describe_db_proxy_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_db_proxy_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_proxy_targets_errors()}
-
   def describe_db_proxy_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11233,6 +11157,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes the recommendations to resolve the issues for your DB instances, DB
   clusters, and DB parameter groups.
 
@@ -11249,11 +11174,9 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_recommendations_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_db_recommendations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11262,6 +11185,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns a list of `DBSecurityGroup` descriptions. If a `DBSecurityGroupName` is
   specified, the list will contain only the descriptions of the specified DB
   security group.
@@ -11277,12 +11201,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_security_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_security_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_security_groups_errors()}
-
   def describe_db_security_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11291,6 +11213,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes existing Aurora Limitless Database DB shard groups.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBShardGroups&this_doc_guide=API%2520Reference)
@@ -11304,12 +11227,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_shard_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_db_shard_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_shard_groups_errors()}
-
   def describe_db_shard_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11318,6 +11239,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns a list of DB snapshot attribute names and values for a manual DB
   snapshot. When sharing snapshots with other Amazon Web Services accounts,
   `DescribeDBSnapshotAttributes` returns the `restore` attribute and a list of
@@ -11334,12 +11256,10 @@ defmodule AWS.RDS do
       required("DBSnapshotIdentifier") => String.t()
     }
   """
-
   @spec describe_db_snapshot_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_db_snapshot_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_snapshot_attributes_errors()}
-
   def describe_db_snapshot_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11349,6 +11269,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes the tenant databases that exist in a DB snapshot. This command only
   applies to RDS for Oracle DB instances in the multi-tenant configuration.
 
@@ -11366,12 +11287,10 @@ defmodule AWS.RDS do
       optional("SnapshotType") => String.t()
     }
   """
-
   @spec describe_db_snapshot_tenant_databases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_snapshot_tenant_databases_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_snapshot_tenant_databases_errors()}
-
   def describe_db_snapshot_tenant_databases(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11381,6 +11300,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about DB snapshots. This API action supports pagination.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeDBSnapshots&this_doc_guide=API%2520Reference)
@@ -11399,12 +11319,10 @@ defmodule AWS.RDS do
       optional("SnapshotType") => String.t()
     }
   """
-
   @spec describe_db_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_snapshots_errors()}
-
   def describe_db_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11413,6 +11331,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is
   specified, the list will contain only the descriptions of the specified
   DBSubnetGroup.
@@ -11428,12 +11347,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_subnet_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_subnet_groups_errors()}
-
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11442,6 +11359,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns the default engine and system parameter information for the cluster
   database engine.
 
@@ -11456,11 +11374,9 @@ defmodule AWS.RDS do
       required("DBParameterGroupFamily") => String.t()
     }
   """
-
   @spec describe_engine_default_cluster_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_engine_default_cluster_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11470,6 +11386,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns the default engine and system parameter information for the specified
   database engine.
 
@@ -11484,11 +11401,9 @@ defmodule AWS.RDS do
       required("DBParameterGroupFamily") => String.t()
     }
   """
-
   @spec describe_engine_default_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_engine_default_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_engine_default_parameters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11498,6 +11413,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Displays a list of categories for all event source types, or, if specified, for
   a specified source type. You can also see this list in the "Amazon RDS event
   categories and event messages" section of the [ *Amazon RDS User Guide*
@@ -11514,11 +11430,9 @@ defmodule AWS.RDS do
       optional("SourceType") => String.t()
     }
   """
-
   @spec describe_event_categories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, event_categories_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_event_categories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11527,6 +11441,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Lists all the subscription descriptions for a customer account. The description
   for a subscription includes `SubscriptionName`, `SNSTopicARN`, `CustomerID`,
   `SourceType`, `SourceID`, `CreationTime`, and `Status`.
@@ -11542,12 +11457,10 @@ defmodule AWS.RDS do
       optional("SubscriptionName") => String.t()
     }
   """
-
   @spec describe_event_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, event_subscriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_subscriptions_errors()}
-
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11556,6 +11469,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns events related to DB instances, DB clusters, DB parameter groups, DB
   security groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the
   past 14 days. Events specific to a particular DB instance, DB cluster, DB
@@ -11583,11 +11497,9 @@ defmodule AWS.RDS do
       optional("StartTime") => non_neg_integer()
     }
   """
-
   @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11596,6 +11508,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about a snapshot or cluster export to Amazon S3. This API
   operation supports pagination.
 
@@ -11612,12 +11525,10 @@ defmodule AWS.RDS do
       optional("SourceType") => list(any())
     }
   """
-
   @spec describe_export_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_tasks_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_export_tasks_errors()}
-
   def describe_export_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11626,6 +11537,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about Aurora global database clusters. This API supports
   pagination. For more information on Amazon Aurora, see [ What is Amazon
   Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
@@ -11642,12 +11554,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_global_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, global_clusters_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_clusters_errors()}
-
   def describe_global_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11656,6 +11566,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describe one or more zero-ETL integrations with Amazon Redshift.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeIntegrations&this_doc_guide=API%2520Reference)
@@ -11669,12 +11580,10 @@ defmodule AWS.RDS do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_integrations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_integrations_errors()}
-
   def describe_integrations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11683,6 +11592,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes all available options for the specified engine.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeOptionGroupOptions&this_doc_guide=API%2520Reference)
@@ -11697,11 +11607,9 @@ defmodule AWS.RDS do
       required("EngineName") => String.t()
     }
   """
-
   @spec describe_option_group_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, option_group_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_option_group_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11711,6 +11619,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes the available option groups.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeOptionGroups&this_doc_guide=API%2520Reference)
@@ -11726,12 +11635,10 @@ defmodule AWS.RDS do
       optional("OptionGroupName") => String.t()
     }
   """
-
   @spec describe_option_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, option_groups(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_option_groups_errors()}
-
   def describe_option_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11740,6 +11647,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes the orderable DB instance options for a specified DB engine.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeOrderableDBInstanceOptions&this_doc_guide=API%2520Reference)
@@ -11758,11 +11666,9 @@ defmodule AWS.RDS do
       required("Engine") => String.t()
     }
   """
-
   @spec describe_orderable_db_instance_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, orderable_db_instance_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11772,6 +11678,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns a list of resources (for example, DB instances) that have at least one
   pending maintenance action.
 
@@ -11786,12 +11693,10 @@ defmodule AWS.RDS do
       optional("ResourceIdentifier") => String.t()
     }
   """
-
   @spec describe_pending_maintenance_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, pending_maintenance_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pending_maintenance_actions_errors()}
-
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11801,6 +11706,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns information about reserved DB instances for this account, or about a
   specified reserved DB instance.
 
@@ -11822,12 +11728,10 @@ defmodule AWS.RDS do
       optional("ReservedDBInstancesOfferingId") => String.t()
     }
   """
-
   @spec describe_reserved_db_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reserved_db_instance_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_db_instances_errors()}
-
   def describe_reserved_db_instances(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11837,6 +11741,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Lists available reserved DB instance offerings.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DescribeReservedDBInstancesOfferings&this_doc_guide=API%2520Reference)
@@ -11855,12 +11760,10 @@ defmodule AWS.RDS do
       optional("ReservedDBInstancesOfferingId") => String.t()
     }
   """
-
   @spec describe_reserved_db_instances_offerings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reserved_db_instances_offering_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_db_instances_offerings_errors()}
-
   def describe_reserved_db_instances_offerings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11870,6 +11773,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Returns a list of the source Amazon Web Services Regions where the current
   Amazon Web Services Region can create a read replica, copy a DB snapshot from,
   or replicate automated backups from. Use this operation to determine whether
@@ -11887,11 +11791,9 @@ defmodule AWS.RDS do
       optional("RegionName") => String.t()
     }
   """
-
   @spec describe_source_regions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, source_region_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_source_regions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11900,6 +11802,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Describes the tenant databases in a DB instance that uses the multi-tenant
   configuration. Only RDS for Oracle CDB instances are supported.
 
@@ -11915,12 +11818,10 @@ defmodule AWS.RDS do
       optional("TenantDBName") => String.t()
     }
   """
-
   @spec describe_tenant_databases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tenant_databases_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tenant_databases_errors()}
-
   def describe_tenant_databases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11929,6 +11830,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   You can call `DescribeValidDBInstanceModifications` to learn what modifications
   you can make to your DB instance. You can use this information when you call
   `ModifyDBInstance`.
@@ -11941,12 +11843,10 @@ defmodule AWS.RDS do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec describe_valid_db_instance_modifications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_valid_db_instance_modifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_valid_db_instance_modifications_errors()}
-
   def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -11956,6 +11856,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Disables the HTTP endpoint for the specified DB cluster. Disabling this endpoint
   disables RDS Data API. For more information, see [Using RDS Data
   API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
@@ -11969,12 +11870,10 @@ defmodule AWS.RDS do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec disable_http_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_http_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_http_endpoint_errors()}
-
   def disable_http_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -11983,6 +11882,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Downloads all or a portion of the specified log file, up to 1 MB in size.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20DownloadDBLogFilePortion&this_doc_guide=API%2520Reference)
@@ -11996,12 +11896,10 @@ defmodule AWS.RDS do
       required("LogFileName") => String.t()
     }
   """
-
   @spec download_db_log_file_portion(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, download_db_log_file_portion_details(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, download_db_log_file_portion_errors()}
-
   def download_db_log_file_portion(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12010,6 +11908,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Enables the HTTP endpoint for the DB cluster. By default, the HTTP endpoint
   isn't enabled. When enabled, this endpoint provides a connectionless web
   service API (RDS Data API) for running SQL queries on the Aurora DB cluster.
@@ -12024,12 +11923,10 @@ defmodule AWS.RDS do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec enable_http_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_http_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_http_endpoint_errors()}
-
   def enable_http_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12038,6 +11935,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Forces a failover for a DB cluster. For an Aurora DB cluster, failover for a DB
   cluster promotes one of the Aurora Replicas (read-only instances) in the DB
   cluster to be the primary DB instance (the cluster writer).
@@ -12051,12 +11949,10 @@ defmodule AWS.RDS do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec failover_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, failover_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, failover_db_cluster_errors()}
-
   def failover_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12065,6 +11961,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Promotes the specified secondary DB cluster to be the primary DB cluster in the
   global database cluster to fail over or switch over a global database.
   Switchover operations were previously called "managed planned failovers."
@@ -12084,12 +11981,10 @@ defmodule AWS.RDS do
       required("TargetDbClusterIdentifier") => String.t()
     }
   """
-
   @spec failover_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, failover_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, failover_global_cluster_errors()}
-
   def failover_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12098,6 +11993,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Lists all tags on an Amazon RDS resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -12109,12 +12005,10 @@ defmodule AWS.RDS do
       required("ResourceName") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12123,6 +12017,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Changes the audit policy state of a database activity stream to either locked
   (default) or unlocked. A locked policy is read-only, whereas an unlocked
   policy is read/write. If your activity stream is started and locked, you can
@@ -12141,12 +12036,10 @@ defmodule AWS.RDS do
       optional("ResourceArn") => String.t()
     }
   """
-
   @spec modify_activity_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_activity_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_activity_stream_errors()}
-
   def modify_activity_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12155,6 +12048,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Override the system-default Secure Sockets Layer/Transport Layer Security
   (SSL/TLS) certificate for Amazon RDS for new DB instances, or remove the
   override. By using this operation, you can specify an RDS-approved SSL/TLS
@@ -12172,12 +12066,10 @@ defmodule AWS.RDS do
       optional("RemoveCustomerOverride") => boolean()
     }
   """
-
   @spec modify_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_certificates_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_certificates_errors()}
-
   def modify_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12186,6 +12078,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Set the capacity of an Aurora Serverless v1 DB cluster to a specific value.
   Aurora Serverless v1 scales seamlessly based on the workload on the DB
   cluster. In some cases, the capacity might not scale fast enough to meet a
@@ -12203,12 +12096,10 @@ defmodule AWS.RDS do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec modify_current_db_cluster_capacity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_capacity_info(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_current_db_cluster_capacity_errors()}
-
   def modify_current_db_cluster_capacity(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -12218,6 +12109,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies the status of a custom engine version (CEV). You can find CEVs to
   modify by calling `DescribeDBEngineVersions`. The MediaImport service that
   imports files from Amazon S3 to create CEVs isn't integrated with Amazon Web
@@ -12238,12 +12130,10 @@ defmodule AWS.RDS do
       required("EngineVersion") => String.t()
     }
   """
-
   @spec modify_custom_db_engine_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_engine_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_custom_db_engine_version_errors()}
-
   def modify_custom_db_engine_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -12253,6 +12143,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies the settings of an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
   You can change one or more settings by specifying these parameters and the new
   values in the request.
@@ -12309,12 +12200,10 @@ defmodule AWS.RDS do
       optional("PreferredMaintenanceWindow") => String.t()
     }
   """
-
   @spec modify_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_errors()}
-
   def modify_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12323,6 +12212,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies the properties of an endpoint in an Amazon Aurora DB cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20ModifyDBClusterEndpoint&this_doc_guide=API%2520Reference)
@@ -12336,12 +12226,10 @@ defmodule AWS.RDS do
       required("DBClusterEndpointIdentifier") => String.t()
     }
   """
-
   @spec modify_db_cluster_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_endpoint(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_endpoint_errors()}
-
   def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12350,6 +12238,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies the parameters of a DB cluster parameter group. To modify more than one
   parameter, submit a list of the following: `ParameterName`, `ParameterValue`,
   and `ApplyMethod`. A maximum of 20 parameters can be modified in a single
@@ -12381,12 +12270,10 @@ defmodule AWS.RDS do
       required("Parameters") => list(parameter()())
     }
   """
-
   @spec modify_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_parameter_group_errors()}
-
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -12396,6 +12283,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Adds an attribute and values to, or removes an attribute and values from, a
   manual DB cluster snapshot. To share a manual DB cluster snapshot with other
   Amazon Web Services accounts, specify `restore` as the `AttributeName` and use
@@ -12415,12 +12303,10 @@ defmodule AWS.RDS do
       required("DBClusterSnapshotIdentifier") => String.t()
     }
   """
-
   @spec modify_db_cluster_snapshot_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_cluster_snapshot_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
-
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -12430,6 +12316,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies settings for a DB instance. You can change one or more database
   configuration parameters by specifying these parameters and the new values in
   the request. To learn what modifications you can make to your DB instance,
@@ -12503,12 +12390,10 @@ defmodule AWS.RDS do
       optional("UseDefaultProcessorFeatures") => boolean()
     }
   """
-
   @spec modify_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_instance_errors()}
-
   def modify_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12517,6 +12402,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies the parameters of a DB parameter group. To modify more than one
   parameter, submit a list of the following: `ParameterName`, `ParameterValue`,
   and `ApplyMethod`. A maximum of 20 parameters can be modified in a single
@@ -12531,12 +12417,10 @@ defmodule AWS.RDS do
       required("Parameters") => list(parameter()())
     }
   """
-
   @spec modify_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_parameter_group_errors()}
-
   def modify_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12545,6 +12429,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Changes the settings for an existing DB proxy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20ModifyDBProxy&this_doc_guide=API%2520Reference)
@@ -12562,12 +12447,10 @@ defmodule AWS.RDS do
       required("DBProxyName") => String.t()
     }
   """
-
   @spec modify_db_proxy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_proxy_errors()}
-
   def modify_db_proxy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12576,6 +12459,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Changes the settings for an existing DB proxy endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20ModifyDBProxyEndpoint&this_doc_guide=API%2520Reference)
@@ -12588,12 +12472,10 @@ defmodule AWS.RDS do
       required("DBProxyEndpointName") => String.t()
     }
   """
-
   @spec modify_db_proxy_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_proxy_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_proxy_endpoint_errors()}
-
   def modify_db_proxy_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12602,6 +12484,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies the properties of a `DBProxyTargetGroup`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20ModifyDBProxyTargetGroup&this_doc_guide=API%2520Reference)
@@ -12615,12 +12498,10 @@ defmodule AWS.RDS do
       required("TargetGroupName") => String.t()
     }
   """
-
   @spec modify_db_proxy_target_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_proxy_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_proxy_target_group_errors()}
-
   def modify_db_proxy_target_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12629,6 +12510,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Updates the recommendation status and recommended action status for the
   specified recommendation.
 
@@ -12643,11 +12525,9 @@ defmodule AWS.RDS do
       required("RecommendationId") => String.t()
     }
   """
-
   @spec modify_db_recommendation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_recommendation_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def modify_db_recommendation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12656,6 +12536,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies the settings of an Aurora Limitless Database DB shard group. You can
   change one or more settings by specifying these parameters and the new values
   in the request.
@@ -12670,12 +12551,10 @@ defmodule AWS.RDS do
       required("DBShardGroupIdentifier") => String.t()
     }
   """
-
   @spec modify_db_shard_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_shard_group(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_shard_group_errors()}
-
   def modify_db_shard_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12684,6 +12563,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Updates a manual DB snapshot with a new engine version. The snapshot can be
   encrypted or unencrypted, but not shared or public.
 
@@ -12697,12 +12577,10 @@ defmodule AWS.RDS do
       required("DBSnapshotIdentifier") => String.t()
     }
   """
-
   @spec modify_db_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_snapshot_errors()}
-
   def modify_db_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12711,6 +12589,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Adds an attribute and values to, or removes an attribute and values from, a
   manual DB snapshot. To share a manual DB snapshot with other Amazon Web
   Services accounts, specify `restore` as the `AttributeName` and use the
@@ -12730,12 +12609,10 @@ defmodule AWS.RDS do
       required("DBSnapshotIdentifier") => String.t()
     }
   """
-
   @spec modify_db_snapshot_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_snapshot_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_snapshot_attribute_errors()}
-
   def modify_db_snapshot_attribute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12744,6 +12621,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies an existing DB subnet group. DB subnet groups must contain at least one
   subnet in at least two AZs in the Amazon Web Services Region.
 
@@ -12757,12 +12635,10 @@ defmodule AWS.RDS do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec modify_db_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_subnet_group_errors()}
-
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12771,6 +12647,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies an existing RDS event notification subscription. You can't modify the
   source identifiers using this call. To change source identifiers for a
   subscription, use the `AddSourceIdentifierToSubscription` and
@@ -12788,12 +12665,10 @@ defmodule AWS.RDS do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec modify_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_event_subscription_errors()}
-
   def modify_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12802,6 +12677,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies a setting for an Amazon Aurora global database cluster. You can change
   one or more database configuration parameters by specifying these parameters
   and the new values in the request. For more information on Amazon Aurora, see
@@ -12821,12 +12697,10 @@ defmodule AWS.RDS do
       optional("NewGlobalClusterIdentifier") => String.t()
     }
   """
-
   @spec modify_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_global_cluster_errors()}
-
   def modify_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12835,6 +12709,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies a zero-ETL integration with Amazon Redshift.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20ModifyIntegration&this_doc_guide=API%2520Reference)
@@ -12848,12 +12723,10 @@ defmodule AWS.RDS do
       required("IntegrationIdentifier") => String.t()
     }
   """
-
   @spec modify_integration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_integration_errors()}
-
   def modify_integration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12862,6 +12735,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies an existing option group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20ModifyOptionGroup&this_doc_guide=API%2520Reference)
@@ -12875,12 +12749,10 @@ defmodule AWS.RDS do
       required("OptionGroupName") => String.t()
     }
   """
-
   @spec modify_option_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_option_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_option_group_errors()}
-
   def modify_option_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12889,6 +12761,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies an existing tenant database in a DB instance. You can change the tenant
   database name or the master user password. This operation is supported only
   for RDS for Oracle CDB instances using the multi-tenant configuration.
@@ -12904,12 +12777,10 @@ defmodule AWS.RDS do
       required("TenantDBName") => String.t()
     }
   """
-
   @spec modify_tenant_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_tenant_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_tenant_database_errors()}
-
   def modify_tenant_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12918,6 +12789,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Promotes a read replica DB instance to a standalone DB instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20PromoteReadReplica&this_doc_guide=API%2520Reference)
@@ -12930,12 +12802,10 @@ defmodule AWS.RDS do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec promote_read_replica(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, promote_read_replica_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, promote_read_replica_errors()}
-
   def promote_read_replica(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -12944,6 +12814,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Promotes a read replica DB cluster to a standalone DB cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20PromoteReadReplicaDBCluster&this_doc_guide=API%2520Reference)
@@ -12954,12 +12825,10 @@ defmodule AWS.RDS do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec promote_read_replica_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, promote_read_replica_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, promote_read_replica_db_cluster_errors()}
-
   def promote_read_replica_db_cluster(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -12969,6 +12838,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Purchases a reserved DB instance offering.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20PurchaseReservedDBInstancesOffering&this_doc_guide=API%2520Reference)
@@ -12982,12 +12852,10 @@ defmodule AWS.RDS do
       required("ReservedDBInstancesOfferingId") => String.t()
     }
   """
-
   @spec purchase_reserved_db_instances_offering(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_reserved_db_instances_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_reserved_db_instances_offering_errors()}
-
   def purchase_reserved_db_instances_offering(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -12997,6 +12865,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   You might need to reboot your DB cluster, usually for maintenance reasons. For
   example, if you make certain modifications, or if you change the DB cluster
   parameter group associated with the DB cluster, reboot the DB cluster for the
@@ -13012,12 +12881,10 @@ defmodule AWS.RDS do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec reboot_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_db_cluster_errors()}
-
   def reboot_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13026,6 +12893,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   You might need to reboot your DB instance, usually for maintenance reasons. For
   example, if you make certain modifications, or if you change the DB parameter
   group associated with the DB instance, you must reboot the instance for the
@@ -13042,12 +12910,10 @@ defmodule AWS.RDS do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec reboot_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_db_instance_errors()}
-
   def reboot_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13056,6 +12922,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   You might need to reboot your DB shard group, usually for maintenance reasons.
   For example, if you make certain modifications, reboot the DB shard group for
   the changes to take effect.
@@ -13068,12 +12935,10 @@ defmodule AWS.RDS do
       required("DBShardGroupIdentifier") => String.t()
     }
   """
-
   @spec reboot_db_shard_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_shard_group(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_db_shard_group_errors()}
-
   def reboot_db_shard_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13082,6 +12947,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Associate one or more `DBProxyTarget` data structures with a
   `DBProxyTargetGroup`.
 
@@ -13096,12 +12962,10 @@ defmodule AWS.RDS do
       required("DBProxyName") => String.t()
     }
   """
-
   @spec register_db_proxy_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_db_proxy_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_db_proxy_targets_errors()}
-
   def register_db_proxy_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13110,6 +12974,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Detaches an Aurora secondary cluster from an Aurora global database cluster. The
   cluster becomes a standalone cluster with read-write capability instead of
   being read-only and receiving data from a primary cluster in a different
@@ -13124,12 +12989,10 @@ defmodule AWS.RDS do
       optional("GlobalClusterIdentifier") => String.t()
     }
   """
-
   @spec remove_from_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_from_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_from_global_cluster_errors()}
-
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13138,6 +13001,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Removes the asssociation of an Amazon Web Services Identity and Access
   Management (IAM) role from a DB cluster.
 
@@ -13151,12 +13015,10 @@ defmodule AWS.RDS do
       required("RoleArn") => String.t()
     }
   """
-
   @spec remove_role_from_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_role_from_db_cluster_errors()}
-
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13165,6 +13027,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Disassociates an Amazon Web Services Identity and Access Management (IAM) role
   from a DB instance.
 
@@ -13178,12 +13041,10 @@ defmodule AWS.RDS do
       required("RoleArn") => String.t()
     }
   """
-
   @spec remove_role_from_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_role_from_db_instance_errors()}
-
   def remove_role_from_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13192,6 +13053,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Removes a source identifier from an existing RDS event notification
   subscription.
 
@@ -13204,12 +13066,10 @@ defmodule AWS.RDS do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec remove_source_identifier_from_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_source_identifier_from_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_source_identifier_from_subscription_errors()}
-
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -13219,6 +13079,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Removes metadata tags from an Amazon RDS resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rds%20RemoveTagsFromResource&this_doc_guide=API%2520Reference)
@@ -13230,12 +13091,10 @@ defmodule AWS.RDS do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec remove_tags_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
-
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13244,6 +13103,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies the parameters of a DB cluster parameter group to the default value. To
   reset specific parameters submit a list of the following: `ParameterName` and
   `ApplyMethod`. To reset the entire DB cluster parameter group, specify the
@@ -13264,12 +13124,10 @@ defmodule AWS.RDS do
       required("DBClusterParameterGroupName") => String.t()
     }
   """
-
   @spec reset_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_db_cluster_parameter_group_errors()}
-
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -13279,6 +13137,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Modifies the parameters of a DB parameter group to the engine/system default
   value. To reset specific parameters, provide a list of the following:
   `ParameterName` and `ApplyMethod`. To reset the entire DB parameter group,
@@ -13297,12 +13156,10 @@ defmodule AWS.RDS do
       required("DBParameterGroupName") => String.t()
     }
   """
-
   @spec reset_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_db_parameter_group_errors()}
-
   def reset_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13311,6 +13168,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3
   bucket. Amazon RDS must be authorized to access the Amazon S3 bucket and the
   data must be created using the Percona XtraBackup utility as described in [
@@ -13370,12 +13228,10 @@ defmodule AWS.RDS do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec restore_db_cluster_from_s3(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_db_cluster_from_s3_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_cluster_from_s3_errors()}
-
   def restore_db_cluster_from_s3(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13384,6 +13240,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new DB cluster from a DB snapshot or DB cluster snapshot. The target
   DB cluster is created from the source snapshot with a default configuration.
   If you don't specify a security group, the new DB cluster is associated with
@@ -13426,12 +13283,10 @@ defmodule AWS.RDS do
       required("SnapshotIdentifier") => String.t()
     }
   """
-
   @spec restore_db_cluster_from_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_db_cluster_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_cluster_from_snapshot_errors()}
-
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -13441,6 +13296,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Restores a DB cluster to an arbitrary point in time. Users can restore to any
   point in time before `LatestRestorableTime` for up to `BackupRetentionPeriod`
   days. The target DB cluster is created from the source DB cluster with the
@@ -13490,12 +13346,10 @@ defmodule AWS.RDS do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec restore_db_cluster_to_point_in_time(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_db_cluster_to_point_in_time_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
-
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -13505,6 +13359,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Creates a new DB instance from a DB snapshot. The target database is created
   from the source database restore point with most of the source's original
   configuration, including the default security group and DB parameter group. By
@@ -13569,12 +13424,10 @@ defmodule AWS.RDS do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec restore_db_instance_from_db_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_db_instance_from_db_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_instance_from_db_snapshot_errors()}
-
   def restore_db_instance_from_db_snapshot(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -13584,6 +13437,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Amazon Relational Database Service (Amazon RDS) supports importing MySQL
   databases by using backup files. You can create a backup of your on-premises
   database, store it on Amazon Simple Storage Service (Amazon S3), and then
@@ -13650,12 +13504,10 @@ defmodule AWS.RDS do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec restore_db_instance_from_s3(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_db_instance_from_s3_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_instance_from_s3_errors()}
-
   def restore_db_instance_from_s3(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13664,6 +13516,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Restores a DB instance to an arbitrary point in time. You can restore to any
   point in time before the time identified by the `LatestRestorableTime`
   property. You can restore to a point up to the number of days specified by the
@@ -13728,12 +13581,10 @@ defmodule AWS.RDS do
       optional("Tags") => list(tag()())
     }
   """
-
   @spec restore_db_instance_to_point_in_time(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_db_instance_to_point_in_time_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_instance_to_point_in_time_errors()}
-
   def restore_db_instance_to_point_in_time(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -13743,6 +13594,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or
   EC2 or VPC security groups. Required parameters for this API are one of
   CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either
@@ -13760,12 +13612,10 @@ defmodule AWS.RDS do
       required("DBSecurityGroupName") => String.t()
     }
   """
-
   @spec revoke_db_security_group_ingress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, revoke_db_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_db_security_group_ingress_errors()}
-
   def revoke_db_security_group_ingress(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -13775,6 +13625,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Starts a database activity stream to monitor activity on the database. For more
   information, see [ Monitoring Amazon Aurora with Database Activity
   Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html)
@@ -13795,12 +13646,10 @@ defmodule AWS.RDS do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec start_activity_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_activity_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_activity_stream_errors()}
-
   def start_activity_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13809,6 +13658,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web
   Services console, the stop-db-cluster CLI command, or the `StopDBCluster`
   operation. For more information, see [ Stopping and Starting an Aurora
@@ -13823,12 +13673,10 @@ defmodule AWS.RDS do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec start_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_db_cluster_errors()}
-
   def start_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13837,6 +13685,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services
   console, the stop-db-instance CLI command, or the `StopDBInstance` operation.
   For more information, see [ Starting an Amazon RDS DB instance That Was
@@ -13852,12 +13701,10 @@ defmodule AWS.RDS do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec start_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_db_instance_errors()}
-
   def start_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13866,6 +13713,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Enables replication of automated backups to a different Amazon Web Services
   Region. This command doesn't apply to RDS Custom.
 
@@ -13880,7 +13728,6 @@ defmodule AWS.RDS do
       required("SourceDBInstanceArn") => String.t()
     }
   """
-
   @spec start_db_instance_automated_backups_replication(
           AWS.Client.t(),
           input :: map(),
@@ -13889,7 +13736,6 @@ defmodule AWS.RDS do
           {:ok, start_db_instance_automated_backups_replication_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_db_instance_automated_backups_replication_errors()}
-
   def start_db_instance_automated_backups_replication(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -13905,6 +13751,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Starts an export of DB snapshot or DB cluster data to Amazon S3. The provided
   IAM role must have access to the S3 bucket. You can't export snapshot data
   from Db2 or RDS Custom DB instances.
@@ -13923,12 +13770,10 @@ defmodule AWS.RDS do
       required("SourceArn") => String.t()
     }
   """
-
   @spec start_export_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_task(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_export_task_errors()}
-
   def start_export_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13937,6 +13782,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Stops a database activity stream that was started using the Amazon Web Services
   console, the `start-activity-stream` CLI command, or the `StartActivityStream`
   operation.
@@ -13950,12 +13796,10 @@ defmodule AWS.RDS do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec stop_activity_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_activity_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_activity_stream_errors()}
-
   def stop_activity_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13964,6 +13808,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Stops an Amazon Aurora DB cluster. When you stop a DB cluster, Aurora retains
   the DB cluster's metadata, including its endpoints and DB parameter groups.
   Aurora also retains the transaction logs so you can do a point-in-time restore
@@ -13979,12 +13824,10 @@ defmodule AWS.RDS do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec stop_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_db_cluster_errors()}
-
   def stop_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -13993,6 +13836,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains
   the DB instance's metadata, including its endpoint, DB parameter group, and
   option group membership. Amazon RDS also retains the transaction logs so you
@@ -14010,12 +13854,10 @@ defmodule AWS.RDS do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec stop_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_db_instance_errors()}
-
   def stop_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -14024,6 +13866,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Stops automated backup replication for a DB instance. This command doesn't apply
   to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
 
@@ -14035,7 +13878,6 @@ defmodule AWS.RDS do
       required("SourceDBInstanceArn") => String.t()
     }
   """
-
   @spec stop_db_instance_automated_backups_replication(
           AWS.Client.t(),
           input :: map(),
@@ -14044,7 +13886,6 @@ defmodule AWS.RDS do
           {:ok, stop_db_instance_automated_backups_replication_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_db_instance_automated_backups_replication_errors()}
-
   def stop_db_instance_automated_backups_replication(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -14060,6 +13901,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Switches over a blue/green deployment. Before you switch over, production
   traffic is routed to the databases in the blue environment. After you switch
   over, production traffic is routed to the databases in the green environment.
@@ -14073,12 +13915,10 @@ defmodule AWS.RDS do
       required("BlueGreenDeploymentIdentifier") => String.t()
     }
   """
-
   @spec switchover_blue_green_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, switchover_blue_green_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, switchover_blue_green_deployment_errors()}
-
   def switchover_blue_green_deployment(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -14088,6 +13928,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Switches over the specified secondary DB cluster to be the new primary DB
   cluster in the global database cluster. Switchover operations were previously
   called "managed planned failovers." Aurora promotes the specified secondary
@@ -14111,12 +13952,10 @@ defmodule AWS.RDS do
       required("TargetDbClusterIdentifier") => String.t()
     }
   """
-
   @spec switchover_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, switchover_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, switchover_global_cluster_errors()}
-
   def switchover_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -14125,6 +13964,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
+   
   Switches over an Oracle standby database in an Oracle Data Guard environment,
   making it the new primary database. Issue this command in the Region that
   hosts the current standby database.
@@ -14137,12 +13977,10 @@ defmodule AWS.RDS do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec switchover_read_replica(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, switchover_read_replica_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, switchover_read_replica_errors()}
-
   def switchover_read_replica(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

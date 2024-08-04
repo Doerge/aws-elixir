@@ -392,15 +392,12 @@ defmodule AWS.ControlCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20GetControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_control_errors()}
-
   def get_control(%Client{} = client, options \\ []) do
     url_path = "/get-control"
 
@@ -438,19 +435,16 @@ defmodule AWS.ControlCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListCommonControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results on a page or for an
   API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_common_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_common_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_common_controls_errors()}
-
   def list_common_controls(%Client{} = client, options \\ []) do
     url_path = "/common-controls"
 
@@ -508,19 +502,16 @@ defmodule AWS.ControlCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results on a page or for an
   API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_controls_errors()}
-
   def list_controls(%Client{} = client, options \\ []) do
     url_path = "/list-controls"
 
@@ -576,19 +567,16 @@ defmodule AWS.ControlCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results on a page or for an
   API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-
   def list_domains(%Client{} = client, options \\ []) do
     url_path = "/domains"
 
@@ -644,19 +632,16 @@ defmodule AWS.ControlCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListObjectives&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results on a page or for an
   API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_objectives(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_objectives_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_objectives_errors()}
-
   def list_objectives(%Client{} = client, options \\ []) do
     url_path = "/objectives"
 

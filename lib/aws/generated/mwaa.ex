@@ -576,17 +576,14 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20CreateCliToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
-  MyMWAAEnvironment.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Amazon MWAA environment. For
+  example, MyMWAAEnvironment.
+  ## Keyword parameters:
   """
-
   @spec create_cli_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_cli_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cli_token_errors()}
-
   def create_cli_token(%Client{} = client, name, options \\ []) do
     url_path = "/clitoken/#{AWS.Util.encode_uri(name)}"
 
@@ -623,17 +620,14 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20CreateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
-  MyMWAAEnvironment.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Amazon MWAA environment. For
+  example, MyMWAAEnvironment.
+  ## Keyword parameters:
   """
-
   @spec create_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-
   def create_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
 
@@ -672,17 +666,14 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20CreateWebLoginToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
-  MyMWAAEnvironment.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Amazon MWAA environment. For
+  example, MyMWAAEnvironment.
+  ## Keyword parameters:
   """
-
   @spec create_web_login_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_web_login_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_web_login_token_errors()}
-
   def create_web_login_token(%Client{} = client, name, options \\ []) do
     url_path = "/webtoken/#{AWS.Util.encode_uri(name)}"
 
@@ -719,17 +710,14 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20DeleteEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
-  MyMWAAEnvironment.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Amazon MWAA environment. For
+  example, MyMWAAEnvironment.
+  ## Keyword parameters:
   """
-
   @spec delete_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-
   def delete_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
 
@@ -776,17 +764,14 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20GetEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
-  MyMWAAEnvironment.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Amazon MWAA environment. For
+  example, MyMWAAEnvironment.
+  ## Keyword parameters:
   """
-
   @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
-
   def get_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
 
@@ -821,18 +806,15 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20ListEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to retrieve per
   page. For example, 5 environments per page.
   * `:next_token` (`t:string`) Retrieves the next page of the results.
   """
-
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-
   def list_environments(%Client{} = client, options \\ []) do
     url_path = "/environments"
 
@@ -886,18 +868,15 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA
-  environment. For example,
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Amazon MWAA environment. For example,
   arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -932,16 +911,14 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20PublishMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:environment_name` (`t:string`) Internal only. The name of the environment.
-
-  ## Optional parameters:
+  * `:environment_name` (`t:string` required) Internal only. The name of the
+  environment.
+  ## Keyword parameters:
   """
-
   @spec publish_metrics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, publish_metrics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_metrics_errors()}
-
   def publish_metrics(%Client{} = client, environment_name, options \\ []) do
     url_path = "/metrics/environments/#{AWS.Util.encode_uri(environment_name)}"
 
@@ -979,18 +956,15 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA
-  environment. For example,
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Amazon MWAA environment. For example,
   arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1028,20 +1002,17 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA
-  environment. For example,
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Amazon MWAA environment. For example,
   arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
-  * `:tag_keys` (`t:list[com.amazonaws.mwaa#TagKey]`) The key-value tag pair you
-  want to remove. For example, "Environment": "Staging".
-
-  ## Optional parameters:
+  * `:tag_keys` (`t:list[com.amazonaws.mwaa#TagKey]` required) The key-value tag
+  pair you want to remove. For example, "Environment": "Staging".
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1089,17 +1060,14 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20UpdateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of your Amazon MWAA environment. For example,
-  MyMWAAEnvironment.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of your Amazon MWAA environment. For
+  example, MyMWAAEnvironment.
+  ## Keyword parameters:
   """
-
   @spec update_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
-
   def update_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
 

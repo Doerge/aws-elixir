@@ -965,17 +965,14 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20DecryptData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:key_identifier` (`t:string`) The keyARN of the encryption key that Amazon
-  Web Services Payment Cryptography uses for ciphertext decryption.
-
-  ## Optional parameters:
+  * `:key_identifier` (`t:string` required) The keyARN of the encryption key that
+  Amazon Web Services Payment Cryptography uses for ciphertext decryption.
+  ## Keyword parameters:
   """
-
   @spec decrypt_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, decrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decrypt_data_errors()}
-
   def decrypt_data(%Client{} = client, key_identifier, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/decrypt"
 
@@ -1032,17 +1029,14 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20EncryptData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:key_identifier` (`t:string`) The keyARN of the encryption key that Amazon
-  Web Services Payment Cryptography uses for plaintext encryption.
-
-  ## Optional parameters:
+  * `:key_identifier` (`t:string` required) The keyARN of the encryption key that
+  Amazon Web Services Payment Cryptography uses for plaintext encryption.
+  ## Keyword parameters:
   """
-
   @spec encrypt_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, encrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, encrypt_data_errors()}
-
   def encrypt_data(%Client{} = client, key_identifier, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/encrypt"
 
@@ -1101,15 +1095,12 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20GenerateCardValidationData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec generate_card_validation_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, generate_card_validation_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_card_validation_data_errors()}
-
   def generate_card_validation_data(%Client{} = client, options \\ []) do
     url_path = "/cardvalidationdata/generate"
 
@@ -1153,15 +1144,12 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20GenerateMac&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec generate_mac(AWS.Client.t(), Keyword.t()) ::
           {:ok, generate_mac_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_mac_errors()}
-
   def generate_mac(%Client{} = client, options \\ []) do
     url_path = "/mac/generate"
 
@@ -1212,15 +1200,12 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20GeneratePinData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec generate_pin_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, generate_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_pin_data_errors()}
-
   def generate_pin_data(%Client{} = client, options \\ []) do
     url_path = "/pindata/generate"
 
@@ -1269,17 +1254,14 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20ReEncryptData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:incoming_key_identifier` (`t:string`) The keyARN of the encryption key of
-  incoming ciphertext data.
-
-  ## Optional parameters:
+  * `:incoming_key_identifier` (`t:string` required) The keyARN of the encryption
+  key of incoming ciphertext data.
+  ## Keyword parameters:
   """
-
   @spec re_encrypt_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, re_encrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, re_encrypt_data_errors()}
-
   def re_encrypt_data(%Client{} = client, incoming_key_identifier, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(incoming_key_identifier)}/reencrypt"
 
@@ -1331,15 +1313,12 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20TranslatePinData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec translate_pin_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, translate_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, translate_pin_data_errors()}
-
   def translate_pin_data(%Client{} = client, options \\ []) do
     url_path = "/pindata/translate"
 
@@ -1399,15 +1378,12 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20VerifyAuthRequestCryptogram&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec verify_auth_request_cryptogram(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_auth_request_cryptogram_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_auth_request_cryptogram_errors()}
-
   def verify_auth_request_cryptogram(%Client{} = client, options \\ []) do
     url_path = "/cryptogram/verify"
 
@@ -1461,15 +1437,12 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20VerifyCardValidationData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec verify_card_validation_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_card_validation_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_card_validation_data_errors()}
-
   def verify_card_validation_data(%Client{} = client, options \\ []) do
     url_path = "/cardvalidationdata/verify"
 
@@ -1511,15 +1484,12 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20VerifyMac&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec verify_mac(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_mac_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_mac_errors()}
-
   def verify_mac(%Client{} = client, options \\ []) do
     url_path = "/mac/verify"
 
@@ -1570,15 +1540,12 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20VerifyPinData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec verify_pin_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_pin_data_errors()}
-
   def verify_pin_data(%Client{} = client, options \\ []) do
     url_path = "/pindata/verify"
 

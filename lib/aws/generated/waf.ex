@@ -3249,6 +3249,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3271,12 +3272,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_byte_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_byte_match_set_errors()}
-
   def create_byte_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3285,6 +3284,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3307,12 +3307,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_geo_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_geo_match_set_errors()}
-
   def create_geo_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3321,6 +3319,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3343,12 +3342,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ip_set_errors()}
-
   def create_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3357,6 +3354,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3383,12 +3381,10 @@ defmodule AWS.WAF do
       required("RateLimit") => float()
     }
   """
-
   @spec create_rate_based_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rate_based_rule_errors()}
-
   def create_rate_based_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3397,6 +3393,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3421,12 +3418,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_regex_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_regex_match_set_errors()}
-
   def create_regex_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3435,6 +3430,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3456,12 +3452,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_regex_pattern_set_errors()}
-
   def create_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3470,6 +3464,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3493,12 +3488,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
-
   def create_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3507,6 +3500,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3528,12 +3522,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_group_errors()}
-
   def create_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3542,6 +3534,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3565,12 +3558,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_size_constraint_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_size_constraint_set_errors()}
-
   def create_size_constraint_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3579,6 +3570,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3599,12 +3591,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_sql_injection_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sql_injection_match_set_errors()}
-
   def create_sql_injection_match_set(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3614,6 +3604,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3636,12 +3627,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_web_acl_errors()}
-
   def create_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3650,6 +3639,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   Creates an AWS CloudFormation WAFV2 template for the specified web ACL in the
   specified Amazon S3 bucket. Then, in CloudFormation, you create a stack from
   the template, to create the web ACL and its resources in AWS WAFV2. Use this
@@ -3665,12 +3655,10 @@ defmodule AWS.WAF do
       required("WebACLId") => String.t()
     }
   """
-
   @spec create_web_acl_migration_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_web_acl_migration_stack_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_web_acl_migration_stack_errors()}
-
   def create_web_acl_migration_stack(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3680,6 +3668,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3700,12 +3689,10 @@ defmodule AWS.WAF do
       required("Name") => String.t()
     }
   """
-
   @spec create_xss_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_xss_match_set_errors()}
-
   def create_xss_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3714,6 +3701,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3731,12 +3719,10 @@ defmodule AWS.WAF do
       required("ChangeToken") => String.t()
     }
   """
-
   @spec delete_byte_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_byte_match_set_errors()}
-
   def delete_byte_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3745,6 +3731,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3762,12 +3749,10 @@ defmodule AWS.WAF do
       required("GeoMatchSetId") => String.t()
     }
   """
-
   @spec delete_geo_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_geo_match_set_errors()}
-
   def delete_geo_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3776,6 +3761,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3793,12 +3779,10 @@ defmodule AWS.WAF do
       required("IPSetId") => String.t()
     }
   """
-
   @spec delete_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ip_set_errors()}
-
   def delete_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3807,6 +3791,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3823,12 +3808,10 @@ defmodule AWS.WAF do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec delete_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_logging_configuration_errors()}
-
   def delete_logging_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3837,6 +3820,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3853,12 +3837,10 @@ defmodule AWS.WAF do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec delete_permission_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_policy_errors()}
-
   def delete_permission_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3867,6 +3849,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3884,12 +3867,10 @@ defmodule AWS.WAF do
       required("RuleId") => String.t()
     }
   """
-
   @spec delete_rate_based_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rate_based_rule_errors()}
-
   def delete_rate_based_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3898,6 +3879,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3915,12 +3897,10 @@ defmodule AWS.WAF do
       required("RegexMatchSetId") => String.t()
     }
   """
-
   @spec delete_regex_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_regex_match_set_errors()}
-
   def delete_regex_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3929,6 +3909,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3946,12 +3927,10 @@ defmodule AWS.WAF do
       required("RegexPatternSetId") => String.t()
     }
   """
-
   @spec delete_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_regex_pattern_set_errors()}
-
   def delete_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3960,6 +3939,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -3977,12 +3957,10 @@ defmodule AWS.WAF do
       required("RuleId") => String.t()
     }
   """
-
   @spec delete_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
-
   def delete_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3991,6 +3969,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4008,12 +3987,10 @@ defmodule AWS.WAF do
       required("RuleGroupId") => String.t()
     }
   """
-
   @spec delete_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_group_errors()}
-
   def delete_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4022,6 +3999,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4039,12 +4017,10 @@ defmodule AWS.WAF do
       required("SizeConstraintSetId") => String.t()
     }
   """
-
   @spec delete_size_constraint_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_size_constraint_set_errors()}
-
   def delete_size_constraint_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4053,6 +4029,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4070,12 +4047,10 @@ defmodule AWS.WAF do
       required("SqlInjectionMatchSetId") => String.t()
     }
   """
-
   @spec delete_sql_injection_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sql_injection_match_set_errors()}
-
   def delete_sql_injection_match_set(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4085,6 +4060,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4102,12 +4078,10 @@ defmodule AWS.WAF do
       required("WebACLId") => String.t()
     }
   """
-
   @spec delete_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_web_acl_errors()}
-
   def delete_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4116,6 +4090,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4133,12 +4108,10 @@ defmodule AWS.WAF do
       required("XssMatchSetId") => String.t()
     }
   """
-
   @spec delete_xss_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_xss_match_set_errors()}
-
   def delete_xss_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4147,6 +4120,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4163,12 +4137,10 @@ defmodule AWS.WAF do
       required("ByteMatchSetId") => String.t()
     }
   """
-
   @spec get_byte_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_byte_match_set_errors()}
-
   def get_byte_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4177,6 +4149,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4193,12 +4166,10 @@ defmodule AWS.WAF do
       
     }
   """
-
   @spec get_change_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_change_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_change_token_errors()}
-
   def get_change_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4207,6 +4178,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4223,12 +4195,10 @@ defmodule AWS.WAF do
       required("ChangeToken") => String.t()
     }
   """
-
   @spec get_change_token_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_change_token_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_change_token_status_errors()}
-
   def get_change_token_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4237,6 +4207,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4253,12 +4224,10 @@ defmodule AWS.WAF do
       required("GeoMatchSetId") => String.t()
     }
   """
-
   @spec get_geo_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_geo_match_set_errors()}
-
   def get_geo_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4267,6 +4236,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4283,12 +4253,10 @@ defmodule AWS.WAF do
       required("IPSetId") => String.t()
     }
   """
-
   @spec get_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ip_set_errors()}
-
   def get_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4297,6 +4265,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4313,12 +4282,10 @@ defmodule AWS.WAF do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec get_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logging_configuration_errors()}
-
   def get_logging_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4327,6 +4294,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4343,12 +4311,10 @@ defmodule AWS.WAF do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec get_permission_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_permission_policy_errors()}
-
   def get_permission_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4357,6 +4323,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4373,12 +4340,10 @@ defmodule AWS.WAF do
       required("RuleId") => String.t()
     }
   """
-
   @spec get_rate_based_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rate_based_rule_errors()}
-
   def get_rate_based_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4387,6 +4352,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4404,12 +4370,10 @@ defmodule AWS.WAF do
       required("RuleId") => String.t()
     }
   """
-
   @spec get_rate_based_rule_managed_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rate_based_rule_managed_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rate_based_rule_managed_keys_errors()}
-
   def get_rate_based_rule_managed_keys(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4419,6 +4383,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4435,12 +4400,10 @@ defmodule AWS.WAF do
       required("RegexMatchSetId") => String.t()
     }
   """
-
   @spec get_regex_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_regex_match_set_errors()}
-
   def get_regex_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4449,6 +4412,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4465,12 +4429,10 @@ defmodule AWS.WAF do
       required("RegexPatternSetId") => String.t()
     }
   """
-
   @spec get_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_regex_pattern_set_errors()}
-
   def get_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4479,6 +4441,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4495,12 +4458,10 @@ defmodule AWS.WAF do
       required("RuleId") => String.t()
     }
   """
-
   @spec get_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_errors()}
-
   def get_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4509,6 +4470,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4525,12 +4487,10 @@ defmodule AWS.WAF do
       required("RuleGroupId") => String.t()
     }
   """
-
   @spec get_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_group_errors()}
-
   def get_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4539,6 +4499,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4558,12 +4519,10 @@ defmodule AWS.WAF do
       required("WebAclId") => String.t()
     }
   """
-
   @spec get_sampled_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_sampled_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampled_requests_errors()}
-
   def get_sampled_requests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4572,6 +4531,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4588,12 +4548,10 @@ defmodule AWS.WAF do
       required("SizeConstraintSetId") => String.t()
     }
   """
-
   @spec get_size_constraint_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_size_constraint_set_errors()}
-
   def get_size_constraint_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4602,6 +4560,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4618,12 +4577,10 @@ defmodule AWS.WAF do
       required("SqlInjectionMatchSetId") => String.t()
     }
   """
-
   @spec get_sql_injection_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sql_injection_match_set_errors()}
-
   def get_sql_injection_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4632,6 +4589,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4648,12 +4606,10 @@ defmodule AWS.WAF do
       required("WebACLId") => String.t()
     }
   """
-
   @spec get_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_web_acl_errors()}
-
   def get_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4662,6 +4618,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4678,12 +4635,10 @@ defmodule AWS.WAF do
       required("XssMatchSetId") => String.t()
     }
   """
-
   @spec get_xss_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_xss_match_set_errors()}
-
   def get_xss_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4692,6 +4647,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4710,12 +4666,10 @@ defmodule AWS.WAF do
       optional("RuleGroupId") => String.t()
     }
   """
-
   @spec list_activated_rules_in_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_activated_rules_in_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_activated_rules_in_rule_group_errors()}
-
   def list_activated_rules_in_rule_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4725,6 +4679,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4742,12 +4697,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_byte_match_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_byte_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_byte_match_sets_errors()}
-
   def list_byte_match_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4756,6 +4709,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4773,12 +4727,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_geo_match_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_geo_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_geo_match_sets_errors()}
-
   def list_geo_match_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4787,6 +4739,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4804,12 +4757,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_ip_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ip_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ip_sets_errors()}
-
   def list_ip_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4818,6 +4769,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4835,12 +4787,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_logging_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_logging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_logging_configurations_errors()}
-
   def list_logging_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4849,6 +4799,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4866,12 +4817,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_rate_based_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rate_based_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rate_based_rules_errors()}
-
   def list_rate_based_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4880,6 +4829,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4897,12 +4847,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_regex_match_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_regex_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_regex_match_sets_errors()}
-
   def list_regex_match_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4911,6 +4859,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4928,12 +4877,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_regex_pattern_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_regex_pattern_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_regex_pattern_sets_errors()}
-
   def list_regex_pattern_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4942,6 +4889,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4959,12 +4907,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_rule_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_groups_errors()}
-
   def list_rule_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4973,6 +4919,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -4990,12 +4937,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-
   def list_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5004,6 +4949,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5021,12 +4967,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_size_constraint_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_size_constraint_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_size_constraint_sets_errors()}
-
   def list_size_constraint_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5035,6 +4979,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5052,12 +4997,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_sql_injection_match_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_sql_injection_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sql_injection_match_sets_errors()}
-
   def list_sql_injection_match_sets(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5067,6 +5010,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5084,12 +5028,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_subscribed_rule_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_subscribed_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscribed_rule_groups_errors()}
-
   def list_subscribed_rule_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5098,6 +5040,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5116,12 +5059,10 @@ defmodule AWS.WAF do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5130,6 +5071,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5147,12 +5089,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_web_acls(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_web_acls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_web_acls_errors()}
-
   def list_web_acls(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5161,6 +5101,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5178,12 +5119,10 @@ defmodule AWS.WAF do
       optional("NextMarker") => String.t()
     }
   """
-
   @spec list_xss_match_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_xss_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_xss_match_sets_errors()}
-
   def list_xss_match_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5192,6 +5131,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5208,12 +5148,10 @@ defmodule AWS.WAF do
       required("LoggingConfiguration") => logging_configuration()
     }
   """
-
   @spec put_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_configuration_errors()}
-
   def put_logging_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5222,6 +5160,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5240,12 +5179,10 @@ defmodule AWS.WAF do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec put_permission_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_permission_policy_errors()}
-
   def put_permission_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5254,6 +5191,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5271,12 +5209,10 @@ defmodule AWS.WAF do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5285,6 +5221,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5302,12 +5239,10 @@ defmodule AWS.WAF do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5316,6 +5251,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5336,12 +5272,10 @@ defmodule AWS.WAF do
       required("Updates") => list(byte_match_set_update()())
     }
   """
-
   @spec update_byte_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_byte_match_set_errors()}
-
   def update_byte_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5350,6 +5284,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5370,12 +5305,10 @@ defmodule AWS.WAF do
       required("Updates") => list(geo_match_set_update()())
     }
   """
-
   @spec update_geo_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_geo_match_set_errors()}
-
   def update_geo_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5384,6 +5317,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5403,12 +5337,10 @@ defmodule AWS.WAF do
       required("Updates") => list(ip_set_update()())
     }
   """
-
   @spec update_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ip_set_errors()}
-
   def update_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5417,6 +5349,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5436,12 +5369,10 @@ defmodule AWS.WAF do
       required("Updates") => list(rule_update()())
     }
   """
-
   @spec update_rate_based_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rate_based_rule_errors()}
-
   def update_rate_based_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5450,6 +5381,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5470,12 +5402,10 @@ defmodule AWS.WAF do
       required("Updates") => list(regex_match_set_update()())
     }
   """
-
   @spec update_regex_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_regex_match_set_errors()}
-
   def update_regex_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5484,6 +5414,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5504,12 +5435,10 @@ defmodule AWS.WAF do
       required("Updates") => list(regex_pattern_set_update()())
     }
   """
-
   @spec update_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_regex_pattern_set_errors()}
-
   def update_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5518,6 +5447,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5541,12 +5471,10 @@ defmodule AWS.WAF do
       required("Updates") => list(rule_update()())
     }
   """
-
   @spec update_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_errors()}
-
   def update_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5555,6 +5483,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5573,12 +5502,10 @@ defmodule AWS.WAF do
       required("Updates") => list(rule_group_update()())
     }
   """
-
   @spec update_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_group_errors()}
-
   def update_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5587,6 +5514,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5607,12 +5535,10 @@ defmodule AWS.WAF do
       required("Updates") => list(size_constraint_set_update()())
     }
   """
-
   @spec update_size_constraint_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_size_constraint_set_errors()}
-
   def update_size_constraint_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5621,6 +5547,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5641,12 +5568,10 @@ defmodule AWS.WAF do
       required("Updates") => list(sql_injection_match_set_update()())
     }
   """
-
   @spec update_sql_injection_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sql_injection_match_set_errors()}
-
   def update_sql_injection_match_set(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5656,6 +5581,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5677,12 +5603,10 @@ defmodule AWS.WAF do
       required("WebACLId") => String.t()
     }
   """
-
   @spec update_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_web_acl_errors()}
-
   def update_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5691,6 +5615,7 @@ defmodule AWS.WAF do
   end
 
   @doc """
+   
   This is **AWS WAF Classic** documentation. For more information, see [AWS WAF
   Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
   in the developer guide. **For the latest version of AWS WAF**, use the AWS
@@ -5711,12 +5636,10 @@ defmodule AWS.WAF do
       required("XssMatchSetId") => String.t()
     }
   """
-
   @spec update_xss_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_xss_match_set_errors()}
-
   def update_xss_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

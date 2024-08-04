@@ -1206,21 +1206,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:cell_name` (`t:string`) The name of the cell to create.
+    * `:cell_name` (`t:string` required) The name of the cell to create.
     * `:cells` (`t:list[com.amazonaws.route53recoveryreadiness#__string]`) A list of
   cell Amazon Resource Names (ARNs) contained within this cell, for use in
   nested cells. For example, Availability Zones within specific Amazon Web
   Services Regions.
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cell(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cell_errors()}
-
   def create_cell(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/cells"
 
@@ -1260,16 +1257,14 @@ defmodule AWS.Route53RecoveryReadiness do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:cross_account_authorization` (`t:string`) The cross-account authorization.
-
-  ## Optional parameters:
+    * `:cross_account_authorization` (`t:string` required) The cross-account
+  authorization.
+  ## Keyword parameters:
   """
-
   @spec create_cross_account_authorization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cross_account_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cross_account_authorization_errors()}
-
   def create_cross_account_authorization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/crossaccountauthorizations"
@@ -1312,19 +1307,17 @@ defmodule AWS.Route53RecoveryReadiness do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:readiness_check_name` (`t:string`) The name of the readiness check to
-  create.
-    * `:resource_set_name` (`t:string`) The name of the resource set to check.
+    * `:readiness_check_name` (`t:string` required) The name of the readiness check
+  to create.
+    * `:resource_set_name` (`t:string` required) The name of the resource set to
+  check.
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_readiness_check(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_readiness_check_errors()}
-
   def create_readiness_check(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/readinesschecks"
 
@@ -1363,19 +1356,17 @@ defmodule AWS.Route53RecoveryReadiness do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:recovery_group_name` (`t:string`) The name of the recovery group to create.
+    * `:recovery_group_name` (`t:string` required) The name of the recovery group to
+  create.
     * `:cells` (`t:list[com.amazonaws.route53recoveryreadiness#__string]`) A list of
   the cell Amazon Resource Names (ARNs) in the recovery group.
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_recovery_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recovery_group_errors()}
-
   def create_recovery_group(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/recoverygroups"
 
@@ -1415,21 +1406,19 @@ defmodule AWS.Route53RecoveryReadiness do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:resource_set_name` (`t:string`) The name of the resource set to create.
-    * `:resource_set_type` (`t:string`) The resource type of the resources in the
-  resource set. Enter one of the following values for resource type:
-    * `:resources` (`t:list[com.amazonaws.route53recoveryreadiness#Resource]`) A
-  list of resource objects in the resource set.
+    * `:resource_set_name` (`t:string` required) The name of the resource set to
+  create.
+    * `:resource_set_type` (`t:string` required) The resource type of the resources
+  in the resource set. Enter one of the following values for resource type:
+    * `:resources` (`t:list[com.amazonaws.route53recoveryreadiness#Resource]`
+  required) A list of resource objects in the resource set.
     * `:tags` (`t:map`) A tag to associate with the parameters for a resource set.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_resource_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_set_errors()}
-
   def create_resource_set(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/resourcesets"
 
@@ -1466,16 +1455,13 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteCell&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cell_name` (`t:string`) The name of the cell.
-
-  ## Optional parameters:
+  * `:cell_name` (`t:string` required) The name of the cell.
+  ## Keyword parameters:
   """
-
   @spec delete_cell(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cell_errors()}
-
   def delete_cell(%Client{} = client, cell_name, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
 
@@ -1522,16 +1508,14 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteCrossAccountAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cross_account_authorization` (`t:string`) The cross-account authorization.
-
-  ## Optional parameters:
+  * `:cross_account_authorization` (`t:string` required) The cross-account
+  authorization.
+  ## Keyword parameters:
   """
-
   @spec delete_cross_account_authorization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cross_account_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cross_account_authorization_errors()}
-
   def delete_cross_account_authorization(
         %Client{} = client,
         cross_account_authorization,
@@ -1582,16 +1566,13 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteReadinessCheck&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:readiness_check_name` (`t:string`) Name of a readiness check.
-
-  ## Optional parameters:
+  * `:readiness_check_name` (`t:string` required) Name of a readiness check.
+  ## Keyword parameters:
   """
-
   @spec delete_readiness_check(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_readiness_check_errors()}
-
   def delete_readiness_check(%Client{} = client, readiness_check_name, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
 
@@ -1638,16 +1619,13 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteRecoveryGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:recovery_group_name` (`t:string`) The name of a recovery group.
-
-  ## Optional parameters:
+  * `:recovery_group_name` (`t:string` required) The name of a recovery group.
+  ## Keyword parameters:
   """
-
   @spec delete_recovery_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recovery_group_errors()}
-
   def delete_recovery_group(%Client{} = client, recovery_group_name, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
 
@@ -1694,16 +1672,13 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteResourceSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_set_name` (`t:string`) Name of a resource set.
-
-  ## Optional parameters:
+  * `:resource_set_name` (`t:string` required) Name of a resource set.
+  ## Keyword parameters:
   """
-
   @spec delete_resource_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_set_errors()}
-
   def delete_resource_set(%Client{} = client, resource_set_name, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
 
@@ -1751,20 +1726,17 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetArchitectureRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:recovery_group_name` (`t:string`) The name of a recovery group.
-
-  ## Optional parameters:
+  * `:recovery_group_name` (`t:string` required) The name of a recovery group.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec get_architecture_recommendations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_architecture_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_architecture_recommendations_errors()}
-
   def get_architecture_recommendations(%Client{} = client, recovery_group_name, options \\ []) do
     url_path =
       "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}/architectureRecommendations"
@@ -1820,16 +1792,13 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetCell&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cell_name` (`t:string`) The name of the cell.
-
-  ## Optional parameters:
+  * `:cell_name` (`t:string` required) The name of the cell.
+  ## Keyword parameters:
   """
-
   @spec get_cell(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cell_errors()}
-
   def get_cell(%Client{} = client, cell_name, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
 
@@ -1865,20 +1834,17 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetCellReadinessSummary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cell_name` (`t:string`) The name of the cell.
-
-  ## Optional parameters:
+  * `:cell_name` (`t:string` required) The name of the cell.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec get_cell_readiness_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cell_readiness_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cell_readiness_summary_errors()}
-
   def get_cell_readiness_summary(%Client{} = client, cell_name, options \\ []) do
     url_path = "/cellreadiness/#{AWS.Util.encode_uri(cell_name)}"
 
@@ -1931,16 +1897,13 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetReadinessCheck&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:readiness_check_name` (`t:string`) Name of a readiness check.
-
-  ## Optional parameters:
+  * `:readiness_check_name` (`t:string` required) Name of a readiness check.
+  ## Keyword parameters:
   """
-
   @spec get_readiness_check(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_readiness_check_errors()}
-
   def get_readiness_check(%Client{} = client, readiness_check_name, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
 
@@ -1978,23 +1941,20 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetReadinessCheckResourceStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:readiness_check_name` (`t:string`) Name of a readiness check.
-  * `:resource_identifier` (`t:string`) The resource identifier, which is the
-  Amazon Resource Name (ARN) or the identifier generated for the resource by
-  Application Recovery Controller (for example, for a DNS target resource).
-
-  ## Optional parameters:
+  * `:readiness_check_name` (`t:string` required) Name of a readiness check.
+  * `:resource_identifier` (`t:string` required) The resource identifier, which is
+  the Amazon Resource Name (ARN) or the identifier generated for the resource
+  by Application Recovery Controller (for example, for a DNS target resource).
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec get_readiness_check_resource_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_readiness_check_resource_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_readiness_check_resource_status_errors()}
-
   def get_readiness_check_resource_status(
         %Client{} = client,
         readiness_check_name,
@@ -2056,20 +2016,17 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetReadinessCheckStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:readiness_check_name` (`t:string`) Name of a readiness check.
-
-  ## Optional parameters:
+  * `:readiness_check_name` (`t:string` required) Name of a readiness check.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec get_readiness_check_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_readiness_check_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_readiness_check_status_errors()}
-
   def get_readiness_check_status(%Client{} = client, readiness_check_name, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}/status"
 
@@ -2123,16 +2080,13 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetRecoveryGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:recovery_group_name` (`t:string`) The name of a recovery group.
-
-  ## Optional parameters:
+  * `:recovery_group_name` (`t:string` required) The name of a recovery group.
+  ## Keyword parameters:
   """
-
   @spec get_recovery_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recovery_group_errors()}
-
   def get_recovery_group(%Client{} = client, recovery_group_name, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
 
@@ -2169,20 +2123,17 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetRecoveryGroupReadinessSummary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:recovery_group_name` (`t:string`) The name of a recovery group.
-
-  ## Optional parameters:
+  * `:recovery_group_name` (`t:string` required) The name of a recovery group.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec get_recovery_group_readiness_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recovery_group_readiness_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recovery_group_readiness_summary_errors()}
-
   def get_recovery_group_readiness_summary(%Client{} = client, recovery_group_name, options \\ []) do
     url_path = "/recoverygroupreadiness/#{AWS.Util.encode_uri(recovery_group_name)}"
 
@@ -2236,16 +2187,13 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetResourceSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_set_name` (`t:string`) Name of a resource set.
-
-  ## Optional parameters:
+  * `:resource_set_name` (`t:string` required) Name of a resource set.
+  ## Keyword parameters:
   """
-
   @spec get_resource_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_set_errors()}
-
   def get_resource_set(%Client{} = client, resource_set_name, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
 
@@ -2280,19 +2228,16 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListCells&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec list_cells(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cells_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cells_errors()}
-
   def list_cells(%Client{} = client, options \\ []) do
     url_path = "/cells"
 
@@ -2346,19 +2291,16 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListCrossAccountAuthorizations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec list_cross_account_authorizations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cross_account_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cross_account_authorizations_errors()}
-
   def list_cross_account_authorizations(%Client{} = client, options \\ []) do
     url_path = "/crossaccountauthorizations"
 
@@ -2411,19 +2353,16 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListReadinessChecks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec list_readiness_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_readiness_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_readiness_checks_errors()}
-
   def list_readiness_checks(%Client{} = client, options \\ []) do
     url_path = "/readinesschecks"
 
@@ -2476,19 +2415,16 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListRecoveryGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec list_recovery_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recovery_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recovery_groups_errors()}
-
   def list_recovery_groups(%Client{} = client, options \\ []) do
     url_path = "/recoverygroups"
 
@@ -2541,19 +2477,16 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListResourceSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec list_resource_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_sets_errors()}
-
   def list_resource_sets(%Client{} = client, options \\ []) do
     url_path = "/resourcesets"
 
@@ -2607,8 +2540,7 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
@@ -2616,12 +2548,10 @@ defmodule AWS.Route53RecoveryReadiness do
   * `:resource_type` (`t:string`) The resource type that a readiness rule applies
   to.
   """
-
   @spec list_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-
   def list_rules(%Client{} = client, options \\ []) do
     url_path = "/rules"
 
@@ -2681,16 +2611,14 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListTagsForResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for a
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resources_errors()}
-
   def list_tags_for_resources(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2725,18 +2653,16 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for a
+  resource.
   * `:input` (`t:map`):
-    * `:tags` (`t:map`)
-
-  ## Optional parameters:
+    * `:tags` (`t:map` required)
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2773,18 +2699,16 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
-  * `:tag_keys` (`t:list[com.amazonaws.route53recoveryreadiness#__string]`) The
-  keys for tags you add to resources.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for a
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.route53recoveryreadiness#__string]`
+  required) The keys for tags you add to resources.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2833,20 +2757,17 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateCell&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cell_name` (`t:string`) The name of the cell.
+  * `:cell_name` (`t:string` required) The name of the cell.
   * `:input` (`t:map`):
-    * `:cells` (`t:list[com.amazonaws.route53recoveryreadiness#__string]`) A list of
-  cell Amazon Resource Names (ARNs), which completely replaces the previous
-  list.
-
-  ## Optional parameters:
+    * `:cells` (`t:list[com.amazonaws.route53recoveryreadiness#__string]` required)
+  A list of cell Amazon Resource Names (ARNs), which completely replaces the
+  previous list.
+  ## Keyword parameters:
   """
-
   @spec update_cell(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cell_errors()}
-
   def update_cell(%Client{} = client, cell_name, input, options \\ []) when is_map(input) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
 
@@ -2883,18 +2804,16 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateReadinessCheck&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:readiness_check_name` (`t:string`) Name of a readiness check.
+  * `:readiness_check_name` (`t:string` required) Name of a readiness check.
   * `:input` (`t:map`):
-    * `:resource_set_name` (`t:string`) The name of the resource set to be checked.
-
-  ## Optional parameters:
+    * `:resource_set_name` (`t:string` required) The name of the resource set to be
+  checked.
+  ## Keyword parameters:
   """
-
   @spec update_readiness_check(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_readiness_check_errors()}
-
   def update_readiness_check(%Client{} = client, readiness_check_name, input, options \\ [])
       when is_map(input) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
@@ -2932,20 +2851,17 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateRecoveryGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:recovery_group_name` (`t:string`) The name of a recovery group.
+  * `:recovery_group_name` (`t:string` required) The name of a recovery group.
   * `:input` (`t:map`):
-    * `:cells` (`t:list[com.amazonaws.route53recoveryreadiness#__string]`) A list of
-  cell Amazon Resource Names (ARNs). This list completely replaces the
-  previous list.
-
-  ## Optional parameters:
+    * `:cells` (`t:list[com.amazonaws.route53recoveryreadiness#__string]` required)
+  A list of cell Amazon Resource Names (ARNs). This list completely replaces
+  the previous list.
+  ## Keyword parameters:
   """
-
   @spec update_recovery_group(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recovery_group_errors()}
-
   def update_recovery_group(%Client{} = client, recovery_group_name, input, options \\ [])
       when is_map(input) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
@@ -2983,21 +2899,18 @@ defmodule AWS.Route53RecoveryReadiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateResourceSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_set_name` (`t:string`) Name of a resource set.
+  * `:resource_set_name` (`t:string` required) Name of a resource set.
   * `:input` (`t:map`):
-    * `:resource_set_type` (`t:string`) The resource type of the resources in the
-  resource set. Enter one of the following values for resource type:
-    * `:resources` (`t:list[com.amazonaws.route53recoveryreadiness#Resource]`) A
-  list of resource objects.
-
-  ## Optional parameters:
+    * `:resource_set_type` (`t:string` required) The resource type of the resources
+  in the resource set. Enter one of the following values for resource type:
+    * `:resources` (`t:list[com.amazonaws.route53recoveryreadiness#Resource]`
+  required) A list of resource objects.
+  ## Keyword parameters:
   """
-
   @spec update_resource_set(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_set_errors()}
-
   def update_resource_set(%Client{} = client, resource_set_name, input, options \\ [])
       when is_map(input) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"

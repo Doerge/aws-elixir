@@ -452,15 +452,12 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20CreateSpace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_space(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_space_errors()}
-
   def create_space(%Client{} = client, options \\ []) do
     url_path = "/spaces"
 
@@ -497,16 +494,13 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20DeleteSpace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:space_id` (`t:string`) The unique ID of the private re:Post.
-
-  ## Optional parameters:
+  * `:space_id` (`t:string` required) The unique ID of the private re:Post.
+  ## Keyword parameters:
   """
-
   @spec delete_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_space_errors()}
-
   def delete_space(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
 
@@ -554,18 +548,15 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20DeregisterAdmin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:admin_id` (`t:string`) The ID of the admin to remove.
-  * `:space_id` (`t:string`) The ID of the private re:Post to remove the admin
-  from.
-
-  ## Optional parameters:
+  * `:admin_id` (`t:string` required) The ID of the admin to remove.
+  * `:space_id` (`t:string` required) The ID of the private re:Post to remove the
+  admin from.
+  ## Keyword parameters:
   """
-
   @spec deregister_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_admin_errors()}
-
   def deregister_admin(%Client{} = client, admin_id, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/admins/#{AWS.Util.encode_uri(admin_id)}"
 
@@ -612,16 +603,13 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20GetSpace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:space_id` (`t:string`) The ID of the private re:Post.
-
-  ## Optional parameters:
+  * `:space_id` (`t:string` required) The ID of the private re:Post.
+  ## Keyword parameters:
   """
-
   @spec get_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_space_errors()}
-
   def get_space(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
 
@@ -657,19 +645,16 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20ListSpaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of private re:Posts to include
   in the results.
   * `:next_token` (`t:string`) The token for the next set of private re:Posts to
   return. You receive this token from a previous ListSpaces operation.
   """
-
   @spec list_spaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_spaces_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_spaces_errors()}
-
   def list_spaces(%Client{} = client, options \\ []) do
     url_path = "/spaces"
 
@@ -724,17 +709,14 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that the tags are
-  associated with.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource that the tags
+  are associated with.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -769,17 +751,14 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20RegisterAdmin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:admin_id` (`t:string`) The ID of the administrator.
-  * `:space_id` (`t:string`) The ID of the private re:Post.
-
-  ## Optional parameters:
+  * `:admin_id` (`t:string` required) The ID of the administrator.
+  * `:space_id` (`t:string` required) The ID of the private re:Post.
+  ## Keyword parameters:
   """
-
   @spec register_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_admin_errors()}
-
   def register_admin(%Client{} = client, admin_id, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/admins/#{AWS.Util.encode_uri(admin_id)}"
 
@@ -816,16 +795,13 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20SendInvites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:space_id` (`t:string`) The ID of the private re:Post.
-
-  ## Optional parameters:
+  * `:space_id` (`t:string` required) The ID of the private re:Post.
+  ## Keyword parameters:
   """
-
   @spec send_invites(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_invites_errors()}
-
   def send_invites(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/invite"
 
@@ -867,17 +843,14 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that the tag is
+  * `:resource_arn` (`t:string` required) The ARN of the resource that the tag is
   associated with.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -914,18 +887,15 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.repostspace#TagKey]`) The key values of the
-  tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.repostspace#TagKey]` required) The key
+  values of the tag.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -973,16 +943,13 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20UpdateSpace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:space_id` (`t:string`) The unique ID of this private re:Post.
-
-  ## Optional parameters:
+  * `:space_id` (`t:string` required) The unique ID of this private re:Post.
+  ## Keyword parameters:
   """
-
   @spec update_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_space_errors()}
-
   def update_space(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
 

@@ -1427,6 +1427,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Associates the fraudsters with the watchlist specified in the same domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20AssociateFraudster&this_doc_guide=API%2520Reference)
@@ -1439,12 +1440,10 @@ defmodule AWS.VoiceID do
       required("WatchlistId") => String.t()
     }
   """
-
   @spec associate_fraudster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_fraudster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_fraudster_errors()}
-
   def associate_fraudster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1453,6 +1452,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Creates a domain that contains all Amazon Connect Voice ID data, such as
   speakers, fraudsters, customer audio, and voiceprints. Every domain is created
   with a default watchlist that fraudsters can be a part of.
@@ -1469,12 +1469,10 @@ defmodule AWS.VoiceID do
       required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
     }
   """
-
   @spec create_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-
   def create_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1483,6 +1481,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Creates a watchlist that fraudsters can be a part of.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20CreateWatchlist&this_doc_guide=API%2520Reference)
@@ -1496,12 +1495,10 @@ defmodule AWS.VoiceID do
       required("Name") => String.t()
     }
   """
-
   @spec create_watchlist(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_watchlist_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_watchlist_errors()}
-
   def create_watchlist(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1510,6 +1507,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Deletes the specified domain from Voice ID.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20DeleteDomain&this_doc_guide=API%2520Reference)
@@ -1520,12 +1518,10 @@ defmodule AWS.VoiceID do
       required("DomainId") => String.t()
     }
   """
-
   @spec delete_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-
   def delete_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1534,6 +1530,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Deletes the specified fraudster from Voice ID. This action disassociates the
   fraudster from any watchlists it is a part of.
 
@@ -1546,12 +1543,10 @@ defmodule AWS.VoiceID do
       required("FraudsterId") => String.t()
     }
   """
-
   @spec delete_fraudster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fraudster_errors()}
-
   def delete_fraudster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1560,6 +1555,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Deletes the specified speaker from Voice ID.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20DeleteSpeaker&this_doc_guide=API%2520Reference)
@@ -1571,12 +1567,10 @@ defmodule AWS.VoiceID do
       required("SpeakerId") => String.t()
     }
   """
-
   @spec delete_speaker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_speaker_errors()}
-
   def delete_speaker(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1585,6 +1579,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Deletes the specified watchlist from Voice ID. This API throws an exception when
   there are fraudsters in the watchlist that you are trying to delete. You must
   delete the fraudsters, and then delete the watchlist. Every domain has a
@@ -1599,12 +1594,10 @@ defmodule AWS.VoiceID do
       required("WatchlistId") => String.t()
     }
   """
-
   @spec delete_watchlist(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_watchlist_errors()}
-
   def delete_watchlist(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1613,6 +1606,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Describes the specified domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20DescribeDomain&this_doc_guide=API%2520Reference)
@@ -1623,12 +1617,10 @@ defmodule AWS.VoiceID do
       required("DomainId") => String.t()
     }
   """
-
   @spec describe_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_errors()}
-
   def describe_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1637,6 +1629,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Describes the specified fraudster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20DescribeFraudster&this_doc_guide=API%2520Reference)
@@ -1648,12 +1641,10 @@ defmodule AWS.VoiceID do
       required("FraudsterId") => String.t()
     }
   """
-
   @spec describe_fraudster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fraudster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fraudster_errors()}
-
   def describe_fraudster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1662,6 +1653,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Describes the specified fraudster registration job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20DescribeFraudsterRegistrationJob&this_doc_guide=API%2520Reference)
@@ -1673,12 +1665,10 @@ defmodule AWS.VoiceID do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_fraudster_registration_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fraudster_registration_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fraudster_registration_job_errors()}
-
   def describe_fraudster_registration_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1688,6 +1678,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Describes the specified speaker.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20DescribeSpeaker&this_doc_guide=API%2520Reference)
@@ -1699,12 +1690,10 @@ defmodule AWS.VoiceID do
       required("SpeakerId") => String.t()
     }
   """
-
   @spec describe_speaker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_speaker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_speaker_errors()}
-
   def describe_speaker(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1713,6 +1702,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Describes the specified speaker enrollment job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20DescribeSpeakerEnrollmentJob&this_doc_guide=API%2520Reference)
@@ -1724,12 +1714,10 @@ defmodule AWS.VoiceID do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_speaker_enrollment_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_speaker_enrollment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_speaker_enrollment_job_errors()}
-
   def describe_speaker_enrollment_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1739,6 +1727,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Describes the specified watchlist.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20DescribeWatchlist&this_doc_guide=API%2520Reference)
@@ -1750,12 +1739,10 @@ defmodule AWS.VoiceID do
       required("WatchlistId") => String.t()
     }
   """
-
   @spec describe_watchlist(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_watchlist_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_watchlist_errors()}
-
   def describe_watchlist(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1764,6 +1751,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Disassociates the fraudsters from the watchlist specified. Voice ID always
   expects a fraudster to be a part of at least one watchlist. If you try to
   disassociate a fraudster from its only watchlist, a `ValidationException` is
@@ -1779,12 +1767,10 @@ defmodule AWS.VoiceID do
       required("WatchlistId") => String.t()
     }
   """
-
   @spec disassociate_fraudster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_fraudster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_fraudster_errors()}
-
   def disassociate_fraudster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1793,6 +1779,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Evaluates a specified session based on audio data accumulated during a streaming
   Amazon Connect Voice ID call.
 
@@ -1805,12 +1792,10 @@ defmodule AWS.VoiceID do
       required("SessionNameOrId") => String.t()
     }
   """
-
   @spec evaluate_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, evaluate_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, evaluate_session_errors()}
-
   def evaluate_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1819,6 +1804,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Lists all the domains in the Amazon Web Services account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20ListDomains&this_doc_guide=API%2520Reference)
@@ -1830,12 +1816,10 @@ defmodule AWS.VoiceID do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-
   def list_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1844,6 +1828,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Lists all the fraudster registration jobs in the domain with the given
   `JobStatus`. If `JobStatus` is not provided, this lists all fraudster
   registration jobs in the given domain.
@@ -1859,12 +1844,10 @@ defmodule AWS.VoiceID do
       required("DomainId") => String.t()
     }
   """
-
   @spec list_fraudster_registration_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_fraudster_registration_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fraudster_registration_jobs_errors()}
-
   def list_fraudster_registration_jobs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1874,6 +1857,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Lists all fraudsters in a specified watchlist or domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20ListFraudsters&this_doc_guide=API%2520Reference)
@@ -1887,12 +1871,10 @@ defmodule AWS.VoiceID do
       required("DomainId") => String.t()
     }
   """
-
   @spec list_fraudsters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_fraudsters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fraudsters_errors()}
-
   def list_fraudsters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1901,6 +1883,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Lists all the speaker enrollment jobs in the domain with the specified
   `JobStatus`. If `JobStatus` is not provided, this lists all jobs with all
   possible speaker enrollment job statuses.
@@ -1916,12 +1899,10 @@ defmodule AWS.VoiceID do
       required("DomainId") => String.t()
     }
   """
-
   @spec list_speaker_enrollment_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_speaker_enrollment_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_speaker_enrollment_jobs_errors()}
-
   def list_speaker_enrollment_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1930,6 +1911,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Lists all speakers in a specified domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20ListSpeakers&this_doc_guide=API%2520Reference)
@@ -1942,12 +1924,10 @@ defmodule AWS.VoiceID do
       required("DomainId") => String.t()
     }
   """
-
   @spec list_speakers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_speakers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_speakers_errors()}
-
   def list_speakers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1956,6 +1936,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Lists all tags associated with a specified Voice ID resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -1966,12 +1947,10 @@ defmodule AWS.VoiceID do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1980,6 +1959,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Lists all watchlists in a specified domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20ListWatchlists&this_doc_guide=API%2520Reference)
@@ -1992,12 +1972,10 @@ defmodule AWS.VoiceID do
       required("DomainId") => String.t()
     }
   """
-
   @spec list_watchlists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_watchlists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_watchlists_errors()}
-
   def list_watchlists(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2006,6 +1984,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Opts out a speaker from Voice ID. A speaker can be opted out regardless of
   whether or not they already exist in Voice ID. If they don't yet exist, a new
   speaker is created in an opted out state. If they already exist, their
@@ -2022,12 +2001,10 @@ defmodule AWS.VoiceID do
       required("SpeakerId") => String.t()
     }
   """
-
   @spec opt_out_speaker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, opt_out_speaker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, opt_out_speaker_errors()}
-
   def opt_out_speaker(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2036,6 +2013,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Starts a new batch fraudster registration job using provided details.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20StartFraudsterRegistrationJob&this_doc_guide=API%2520Reference)
@@ -2052,12 +2030,10 @@ defmodule AWS.VoiceID do
       required("OutputDataConfig") => output_data_config()
     }
   """
-
   @spec start_fraudster_registration_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_fraudster_registration_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fraudster_registration_job_errors()}
-
   def start_fraudster_registration_job(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2067,6 +2043,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Starts a new batch speaker enrollment job using specified details.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20StartSpeakerEnrollmentJob&this_doc_guide=API%2520Reference)
@@ -2083,12 +2060,10 @@ defmodule AWS.VoiceID do
       required("OutputDataConfig") => output_data_config()
     }
   """
-
   @spec start_speaker_enrollment_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_speaker_enrollment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_speaker_enrollment_job_errors()}
-
   def start_speaker_enrollment_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2097,6 +2072,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Tags a Voice ID resource with the provided list of tags.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20TagResource&this_doc_guide=API%2520Reference)
@@ -2108,12 +2084,10 @@ defmodule AWS.VoiceID do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2122,6 +2096,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Removes specified tags from a specified Amazon Connect Voice ID resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=voiceid%20UntagResource&this_doc_guide=API%2520Reference)
@@ -2133,12 +2108,10 @@ defmodule AWS.VoiceID do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2147,6 +2120,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Updates the specified domain. This API has clobber behavior, and clears and
   replaces all attributes. If an optional field, such as 'Description' is not
   provided, it is removed from the domain.
@@ -2162,12 +2136,10 @@ defmodule AWS.VoiceID do
       required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
     }
   """
-
   @spec update_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_errors()}
-
   def update_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2176,6 +2148,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+   
   Updates the specified watchlist. Every domain has a default watchlist which
   cannot be updated.
 
@@ -2190,12 +2163,10 @@ defmodule AWS.VoiceID do
       required("WatchlistId") => String.t()
     }
   """
-
   @spec update_watchlist(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_watchlist_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_watchlist_errors()}
-
   def update_watchlist(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

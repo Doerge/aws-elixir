@@ -1541,16 +1541,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CancelContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_id` (`t:string`) UUID of a contact.
-
-  ## Optional parameters:
+  * `:contact_id` (`t:string` required) UUID of a contact.
+  ## Keyword parameters:
   """
-
   @spec cancel_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, contact_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_contact_errors()}
-
   def cancel_contact(%Client{} = client, contact_id, options \\ []) do
     url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}"
 
@@ -1597,15 +1594,12 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, config_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_config_errors()}
-
   def create_config(%Client{} = client, options \\ []) do
     url_path = "/config"
 
@@ -1645,15 +1639,12 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateDataflowEndpointGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_dataflow_endpoint_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, dataflow_endpoint_group_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataflow_endpoint_group_errors()}
-
   def create_dataflow_endpoint_group(%Client{} = client, options \\ []) do
     url_path = "/dataflowEndpointGroup"
 
@@ -1690,15 +1681,12 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateEphemeris&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_ephemeris(AWS.Client.t(), Keyword.t()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ephemeris_errors()}
-
   def create_ephemeris(%Client{} = client, options \\ []) do
     url_path = "/ephemeris"
 
@@ -1735,15 +1723,12 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateMissionProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_mission_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, mission_profile_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_mission_profile_errors()}
-
   def create_mission_profile(%Client{} = client, options \\ []) do
     url_path = "/missionprofile"
 
@@ -1780,17 +1765,14 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DeleteConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:config_id` (`t:string`) UUID of a Config.
-  * `:config_type` (`t:string`) Type of a Config.
-
-  ## Optional parameters:
+  * `:config_id` (`t:string` required) UUID of a Config.
+  * `:config_type` (`t:string` required) Type of a Config.
+  ## Keyword parameters:
   """
-
   @spec delete_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, config_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_config_errors()}
-
   def delete_config(%Client{} = client, config_id, config_type, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
 
@@ -1837,16 +1819,14 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DeleteDataflowEndpointGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataflow_endpoint_group_id` (`t:string`) UUID of a dataflow endpoint group.
-
-  ## Optional parameters:
+  * `:dataflow_endpoint_group_id` (`t:string` required) UUID of a dataflow
+  endpoint group.
+  ## Keyword parameters:
   """
-
   @spec delete_dataflow_endpoint_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, dataflow_endpoint_group_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataflow_endpoint_group_errors()}
-
   def delete_dataflow_endpoint_group(
         %Client{} = client,
         dataflow_endpoint_group_id,
@@ -1897,16 +1877,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DeleteEphemeris&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ephemeris_id` (`t:string`) The AWS Ground Station ephemeris ID.
-
-  ## Optional parameters:
+  * `:ephemeris_id` (`t:string` required) The AWS Ground Station ephemeris ID.
+  ## Keyword parameters:
   """
-
   @spec delete_ephemeris(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ephemeris_errors()}
-
   def delete_ephemeris(%Client{} = client, ephemeris_id, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
 
@@ -1953,16 +1930,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DeleteMissionProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mission_profile_id` (`t:string`) UUID of a mission profile.
-
-  ## Optional parameters:
+  * `:mission_profile_id` (`t:string` required) UUID of a mission profile.
+  ## Keyword parameters:
   """
-
   @spec delete_mission_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, mission_profile_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mission_profile_errors()}
-
   def delete_mission_profile(%Client{} = client, mission_profile_id, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
 
@@ -2009,16 +1983,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DescribeContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_id` (`t:string`) UUID of a contact.
-
-  ## Optional parameters:
+  * `:contact_id` (`t:string` required) UUID of a contact.
+  ## Keyword parameters:
   """
-
   @spec describe_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_errors()}
-
   def describe_contact(%Client{} = client, contact_id, options \\ []) do
     url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}"
 
@@ -2053,16 +2024,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DescribeEphemeris&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ephemeris_id` (`t:string`) The AWS Ground Station ephemeris ID.
-
-  ## Optional parameters:
+  * `:ephemeris_id` (`t:string` required) The AWS Ground Station ephemeris ID.
+  ## Keyword parameters:
   """
-
   @spec describe_ephemeris(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ephemeris_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ephemeris_errors()}
-
   def describe_ephemeris(%Client{} = client, ephemeris_id, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
 
@@ -2097,16 +2065,14 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetAgentConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) UUID of agent to get configuration information for.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) UUID of agent to get configuration
+  information for.
+  ## Keyword parameters:
   """
-
   @spec get_agent_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_configuration_errors()}
-
   def get_agent_configuration(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agent/#{AWS.Util.encode_uri(agent_id)}/configuration"
 
@@ -2141,17 +2107,14 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:config_id` (`t:string`) UUID of a Config.
-  * `:config_type` (`t:string`) Type of a Config.
-
-  ## Optional parameters:
+  * `:config_id` (`t:string` required) UUID of a Config.
+  * `:config_type` (`t:string` required) Type of a Config.
+  ## Keyword parameters:
   """
-
   @spec get_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_config_errors()}
-
   def get_config(%Client{} = client, config_id, config_type, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
 
@@ -2186,16 +2149,14 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetDataflowEndpointGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataflow_endpoint_group_id` (`t:string`) UUID of a dataflow endpoint group.
-
-  ## Optional parameters:
+  * `:dataflow_endpoint_group_id` (`t:string` required) UUID of a dataflow
+  endpoint group.
+  ## Keyword parameters:
   """
-
   @spec get_dataflow_endpoint_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataflow_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dataflow_endpoint_group_errors()}
-
   def get_dataflow_endpoint_group(%Client{} = client, dataflow_endpoint_group_id, options \\ []) do
     url_path = "/dataflowEndpointGroup/#{AWS.Util.encode_uri(dataflow_endpoint_group_id)}"
 
@@ -2230,15 +2191,12 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetMinuteUsage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_minute_usage(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_minute_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_minute_usage_errors()}
-
   def get_minute_usage(%Client{} = client, options \\ []) do
     url_path = "/minute-usage"
 
@@ -2275,16 +2233,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetMissionProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mission_profile_id` (`t:string`) UUID of a mission profile.
-
-  ## Optional parameters:
+  * `:mission_profile_id` (`t:string` required) UUID of a mission profile.
+  ## Keyword parameters:
   """
-
   @spec get_mission_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_mission_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_mission_profile_errors()}
-
   def get_mission_profile(%Client{} = client, mission_profile_id, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
 
@@ -2319,16 +2274,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetSatellite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:satellite_id` (`t:string`) UUID of a satellite.
-
-  ## Optional parameters:
+  * `:satellite_id` (`t:string` required) UUID of a satellite.
+  ## Keyword parameters:
   """
-
   @spec get_satellite(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_satellite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_satellite_errors()}
-
   def get_satellite(%Client{} = client, satellite_id, options \\ []) do
     url_path = "/satellite/#{AWS.Util.encode_uri(satellite_id)}"
 
@@ -2363,18 +2315,15 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of Configs returned.
   * `:next_token` (`t:string`) Next token returned in the request of a previous
   ListConfigs call. Used to get the next page of results.
   """
-
   @spec list_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configs_errors()}
-
   def list_configs(%Client{} = client, options \\ []) do
     url_path = "/config"
 
@@ -2427,15 +2376,12 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListContacts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_contacts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contacts_errors()}
-
   def list_contacts(%Client{} = client, options \\ []) do
     url_path = "/contacts"
 
@@ -2472,19 +2418,16 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListDataflowEndpointGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of dataflow endpoint groups
   returned.
   * `:next_token` (`t:string`) Next token returned in the request of a previous
   ListDataflowEndpointGroups call. Used to get the next page of results.
   """
-
   @spec list_dataflow_endpoint_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dataflow_endpoint_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataflow_endpoint_groups_errors()}
-
   def list_dataflow_endpoint_groups(%Client{} = client, options \\ []) do
     url_path = "/dataflowEndpointGroup"
 
@@ -2537,17 +2480,14 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListEphemerides&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of ephemerides to return.
   * `:next_token` (`t:string`) Pagination token.
   """
-
   @spec list_ephemerides(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ephemerides_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ephemerides_errors()}
-
   def list_ephemerides(%Client{} = client, options \\ []) do
     url_path = "/ephemerides"
 
@@ -2602,20 +2542,17 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListGroundStations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of ground stations returned.
   * `:next_token` (`t:string`) Next token that can be supplied in the next call to
   get the next page of ground stations.
   * `:satellite_id` (`t:string`) Satellite ID to retrieve on-boarded ground
   stations.
   """
-
   @spec list_ground_stations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ground_stations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ground_stations_errors()}
-
   def list_ground_stations(%Client{} = client, options \\ []) do
     url_path = "/groundstation"
 
@@ -2675,18 +2612,15 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListMissionProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of mission profiles returned.
   * `:next_token` (`t:string`) Next token returned in the request of a previous
   ListMissionProfiles call. Used to get the next page of results.
   """
-
   @spec list_mission_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_mission_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mission_profiles_errors()}
-
   def list_mission_profiles(%Client{} = client, options \\ []) do
     url_path = "/missionprofile"
 
@@ -2739,18 +2673,15 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListSatellites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of satellites returned.
   * `:next_token` (`t:string`) Next token that can be supplied in the next call to
   get the next page of satellites.
   """
-
   @spec list_satellites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_satellites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_satellites_errors()}
-
   def list_satellites(%Client{} = client, options \\ []) do
     url_path = "/satellite"
 
@@ -2803,16 +2734,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) ARN of a resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) ARN of a resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2847,15 +2775,12 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20RegisterAgent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_agent(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_agent_errors()}
-
   def register_agent(%Client{} = client, options \\ []) do
     url_path = "/agent"
 
@@ -2892,15 +2817,12 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ReserveContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reserve_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, contact_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reserve_contact_errors()}
-
   def reserve_contact(%Client{} = client, options \\ []) do
     url_path = "/contact"
 
@@ -2937,16 +2859,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) ARN of a resource tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) ARN of a resource tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2983,18 +2902,15 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) ARN of a resource.
-  * `:tag_keys` (`t:list[com.amazonaws.groundstation#UnboundedString]`) Keys of a
-  resource tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) ARN of a resource.
+  * `:tag_keys` (`t:list[com.amazonaws.groundstation#UnboundedString]` required)
+  Keys of a resource tag.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3042,16 +2958,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20UpdateAgentStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) UUID of agent to update.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) UUID of agent to update.
+  ## Keyword parameters:
   """
-
   @spec update_agent_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_status_errors()}
-
   def update_agent_status(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agent/#{AWS.Util.encode_uri(agent_id)}"
 
@@ -3088,17 +3001,14 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20UpdateConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:config_id` (`t:string`) UUID of a Config.
-  * `:config_type` (`t:string`) Type of a Config.
-
-  ## Optional parameters:
+  * `:config_id` (`t:string` required) UUID of a Config.
+  * `:config_type` (`t:string` required) Type of a Config.
+  ## Keyword parameters:
   """
-
   @spec update_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, config_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_config_errors()}
-
   def update_config(%Client{} = client, config_id, config_type, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
 
@@ -3135,16 +3045,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20UpdateEphemeris&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ephemeris_id` (`t:string`) The AWS Ground Station ephemeris ID.
-
-  ## Optional parameters:
+  * `:ephemeris_id` (`t:string` required) The AWS Ground Station ephemeris ID.
+  ## Keyword parameters:
   """
-
   @spec update_ephemeris(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ephemeris_errors()}
-
   def update_ephemeris(%Client{} = client, ephemeris_id, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
 
@@ -3181,16 +3088,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20UpdateMissionProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mission_profile_id` (`t:string`) UUID of a mission profile.
-
-  ## Optional parameters:
+  * `:mission_profile_id` (`t:string` required) UUID of a mission profile.
+  ## Keyword parameters:
   """
-
   @spec update_mission_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, mission_profile_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_mission_profile_errors()}
-
   def update_mission_profile(%Client{} = client, mission_profile_id, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
 

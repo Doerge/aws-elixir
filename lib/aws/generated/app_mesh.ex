@@ -2936,25 +2936,22 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateGatewayRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the gateway
-  route in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to
-  associate the gateway route with. If the virtual gateway is in a shared
+  * `:mesh_name` (`t:string` required) The name of the service mesh to create the
+  gateway route in.
+  * `:virtual_gateway_name` (`t:string` required) The name of the virtual gateway
+  to associate the gateway route with. If the virtual gateway is in a shared
   mesh, then you must be the owner of the virtual gateway resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then the account that
   you specify must share the mesh with your account before you can create the
   resource in the service mesh. For more information about mesh sharing, see
   Working with shared meshes.
   """
-
   @spec create_gateway_route(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_gateway_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_gateway_route_errors()}
-
   def create_gateway_route(%Client{} = client, mesh_name, virtual_gateway_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateway/#{AWS.Util.encode_uri(virtual_gateway_name)}/gatewayRoutes"
@@ -3007,15 +3004,12 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateMesh&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_mesh(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_mesh_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_mesh_errors()}
-
   def create_mesh(%Client{} = client, options \\ []) do
     url_path = "/v20190125/meshes"
 
@@ -3054,24 +3048,22 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the route in.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router in which to
-  create the route. If the virtual router is in a shared mesh, then you must
-  be the owner of the virtual router resource.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to create the
+  route in.
+  * `:virtual_router_name` (`t:string` required) The name of the virtual router in
+  which to create the route. If the virtual router is in a shared mesh, then
+  you must be the owner of the virtual router resource.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then the account that
   you specify must share the mesh with your account before you can create the
   resource in the service mesh. For more information about mesh sharing, see
   Working with shared meshes.
   """
-
   @spec create_route(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_route_errors()}
-
   def create_route(%Client{} = client, mesh_name, virtual_router_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouter/#{AWS.Util.encode_uri(virtual_router_name)}/routes"
@@ -3125,22 +3117,19 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateVirtualGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual
-  gateway in.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to create the
+  virtual gateway in.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then the account that
   you specify must share the mesh with your account before you can create the
   resource in the service mesh. For more information about mesh sharing, see
   Working with shared meshes.
   """
-
   @spec create_virtual_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_virtual_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_virtual_gateway_errors()}
-
   def create_virtual_gateway(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateways"
 
@@ -3193,22 +3182,19 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateVirtualNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual
-  node in.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to create the
+  virtual node in.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then the account that
   you specify must share the mesh with your account before you can create the
   resource in the service mesh. For more information about mesh sharing, see
   Working with shared meshes.
   """
-
   @spec create_virtual_node(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_virtual_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_virtual_node_errors()}
-
   def create_virtual_node(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes"
 
@@ -3261,22 +3247,19 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateVirtualRouter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual
-  router in.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to create the
+  virtual router in.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then the account that
   you specify must share the mesh with your account before you can create the
   resource in the service mesh. For more information about mesh sharing, see
   Working with shared meshes.
   """
-
   @spec create_virtual_router(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_virtual_router_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_virtual_router_errors()}
-
   def create_virtual_router(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouters"
 
@@ -3329,22 +3312,19 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateVirtualService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual
-  service in.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to create the
+  virtual service in.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then the account that
   you specify must share the mesh with your account before you can create the
   resource in the service mesh. For more information about mesh sharing, see
   Working with shared meshes.
   """
-
   @spec create_virtual_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_virtual_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_virtual_service_errors()}
-
   def create_virtual_service(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualServices"
 
@@ -3392,24 +3372,22 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteGatewayRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_route_name` (`t:string`) The name of the gateway route to delete.
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the gateway
-  route from.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to delete
-  the route from.
-
-  ## Optional parameters:
+  * `:gateway_route_name` (`t:string` required) The name of the gateway route to
+  delete.
+  * `:mesh_name` (`t:string` required) The name of the service mesh to delete the
+  gateway route from.
+  * `:virtual_gateway_name` (`t:string` required) The name of the virtual gateway
+  to delete the route from.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec delete_gateway_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_gateway_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_route_errors()}
-
   def delete_gateway_route(
         %Client{} = client,
         gateway_route_name,
@@ -3474,16 +3452,13 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteMesh&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_mesh(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_mesh_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mesh_errors()}
-
   def delete_mesh(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}"
 
@@ -3530,23 +3505,21 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the route in.
-  * `:route_name` (`t:string`) The name of the route to delete.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router to delete
-  the route in.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to delete the
+  route in.
+  * `:route_name` (`t:string` required) The name of the route to delete.
+  * `:virtual_router_name` (`t:string` required) The name of the virtual router to
+  delete the route in.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec delete_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_route_errors()}
-
   def delete_route(%Client{} = client, mesh_name, route_name, virtual_router_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouter/#{AWS.Util.encode_uri(virtual_router_name)}/routes/#{AWS.Util.encode_uri(route_name)}"
@@ -3606,23 +3579,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteVirtualGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual
-  gateway from.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to
-  delete.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to delete the
+  virtual gateway from.
+  * `:virtual_gateway_name` (`t:string` required) The name of the virtual gateway
+  to delete.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec delete_virtual_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_virtual_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_virtual_gateway_errors()}
-
   def delete_virtual_gateway(%Client{} = client, mesh_name, virtual_gateway_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateways/#{AWS.Util.encode_uri(virtual_gateway_name)}"
@@ -3681,22 +3651,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteVirtualNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual
-  node in.
-  * `:virtual_node_name` (`t:string`) The name of the virtual node to delete.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to delete the
+  virtual node in.
+  * `:virtual_node_name` (`t:string` required) The name of the virtual node to
+  delete.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec delete_virtual_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_virtual_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_virtual_node_errors()}
-
   def delete_virtual_node(%Client{} = client, mesh_name, virtual_node_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes/#{AWS.Util.encode_uri(virtual_node_name)}"
@@ -3755,22 +3723,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteVirtualRouter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual
-  router in.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router to delete.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to delete the
+  virtual router in.
+  * `:virtual_router_name` (`t:string` required) The name of the virtual router to
+  delete.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec delete_virtual_router(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_virtual_router_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_virtual_router_errors()}
-
   def delete_virtual_router(%Client{} = client, mesh_name, virtual_router_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouters/#{AWS.Util.encode_uri(virtual_router_name)}"
@@ -3829,23 +3795,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteVirtualService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual
-  service in.
-  * `:virtual_service_name` (`t:string`) The name of the virtual service to
-  delete.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to delete the
+  virtual service in.
+  * `:virtual_service_name` (`t:string` required) The name of the virtual service
+  to delete.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec delete_virtual_service(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_virtual_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_virtual_service_errors()}
-
   def delete_virtual_service(%Client{} = client, mesh_name, virtual_service_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualServices/#{AWS.Util.encode_uri(virtual_service_name)}"
@@ -3904,24 +3867,22 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeGatewayRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_route_name` (`t:string`) The name of the gateway route to describe.
-  * `:mesh_name` (`t:string`) The name of the service mesh that the gateway route
-  resides in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway that the
-  gateway route is associated with.
-
-  ## Optional parameters:
+  * `:gateway_route_name` (`t:string` required) The name of the gateway route to
+  describe.
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the
+  gateway route resides in.
+  * `:virtual_gateway_name` (`t:string` required) The name of the virtual gateway
+  that the gateway route is associated with.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec describe_gateway_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_route_errors()}
-
   def describe_gateway_route(
         %Client{} = client,
         gateway_route_name,
@@ -3974,20 +3935,17 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeMesh&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to describe.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to describe.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec describe_mesh(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_mesh_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_mesh_errors()}
-
   def describe_mesh(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}"
 
@@ -4033,24 +3991,21 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the route resides
-  in.
-  * `:route_name` (`t:string`) The name of the route to describe.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router that the
-  route is associated with.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the route
+  resides in.
+  * `:route_name` (`t:string` required) The name of the route to describe.
+  * `:virtual_router_name` (`t:string` required) The name of the virtual router
+  that the route is associated with.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec describe_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_route_errors()}
-
   def describe_route(
         %Client{} = client,
         mesh_name,
@@ -4103,23 +4058,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeVirtualGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the gateway route
-  resides in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to
-  describe.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the
+  gateway route resides in.
+  * `:virtual_gateway_name` (`t:string` required) The name of the virtual gateway
+  to describe.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec describe_virtual_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_virtual_gateway_errors()}
-
   def describe_virtual_gateway(%Client{} = client, mesh_name, virtual_gateway_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateways/#{AWS.Util.encode_uri(virtual_gateway_name)}"
@@ -4166,22 +4118,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeVirtualNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual node
-  resides in.
-  * `:virtual_node_name` (`t:string`) The name of the virtual node to describe.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the
+  virtual node resides in.
+  * `:virtual_node_name` (`t:string` required) The name of the virtual node to
+  describe.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec describe_virtual_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_virtual_node_errors()}
-
   def describe_virtual_node(%Client{} = client, mesh_name, virtual_node_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes/#{AWS.Util.encode_uri(virtual_node_name)}"
@@ -4228,23 +4178,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeVirtualRouter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual router
-  resides in.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router to
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the
+  virtual router resides in.
+  * `:virtual_router_name` (`t:string` required) The name of the virtual router to
   describe.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec describe_virtual_router(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_router_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_virtual_router_errors()}
-
   def describe_virtual_router(%Client{} = client, mesh_name, virtual_router_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouters/#{AWS.Util.encode_uri(virtual_router_name)}"
@@ -4291,23 +4238,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeVirtualService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual
-  service resides in.
-  * `:virtual_service_name` (`t:string`) The name of the virtual service to
-  describe.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the
+  virtual service resides in.
+  * `:virtual_service_name` (`t:string` required) The name of the virtual service
+  to describe.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec describe_virtual_service(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_virtual_service_errors()}
-
   def describe_virtual_service(%Client{} = client, mesh_name, virtual_service_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualServices/#{AWS.Util.encode_uri(virtual_service_name)}"
@@ -4355,12 +4299,11 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListGatewayRoutes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list gateway routes
-  in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to list
+  * `:mesh_name` (`t:string` required) The name of the service mesh to list
   gateway routes in.
-
-  ## Optional parameters:
+  * `:virtual_gateway_name` (`t:string` required) The name of the virtual gateway
+  to list gateway routes in.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of results returned by
   ListGatewayRoutes in paginated output. When you use this parameter,
   ListGatewayRoutes returns only limit results in a single page along with a
@@ -4378,12 +4321,10 @@ defmodule AWS.AppMesh do
   exceeded the value of that parameter. Pagination continues from the end of
   the previous results that returned the nextToken value.
   """
-
   @spec list_gateway_routes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_gateway_routes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateway_routes_errors()}
-
   def list_gateway_routes(%Client{} = client, mesh_name, virtual_gateway_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateway/#{AWS.Util.encode_uri(virtual_gateway_name)}/gatewayRoutes"
@@ -4444,8 +4385,7 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListMeshes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of results returned by ListMeshes in
   paginated output. When you use this parameter, ListMeshes returns only limit
   results in a single page along with a nextToken response element. You can
@@ -4458,12 +4398,10 @@ defmodule AWS.AppMesh do
   the value of that parameter. Pagination continues from the end of the
   previous results that returned the nextToken value.
   """
-
   @spec list_meshes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_meshes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_meshes_errors()}
-
   def list_meshes(%Client{} = client, options \\ []) do
     url_path = "/v20190125/meshes"
 
@@ -4516,11 +4454,11 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListRoutes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list routes in.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router to list
-  routes in.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to list routes
+  in.
+  * `:virtual_router_name` (`t:string` required) The name of the virtual router to
+  list routes in.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of results returned by ListRoutes in
   paginated output. When you use this parameter, ListRoutes returns only limit
   results in a single page along with a nextToken response element. You can
@@ -4537,12 +4475,10 @@ defmodule AWS.AppMesh do
   the value of that parameter. Pagination continues from the end of the
   previous results that returned the nextToken value.
   """
-
   @spec list_routes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_routes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routes_errors()}
-
   def list_routes(%Client{} = client, mesh_name, virtual_router_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouter/#{AWS.Util.encode_uri(virtual_router_name)}/routes"
@@ -4603,10 +4539,9 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-  the resource to list the tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  identifies the resource to list the tags for.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of tag results returned by
   ListTagsForResource in paginated output. When this parameter is used,
   ListTagsForResource returns only limit results in a single page along with a
@@ -4620,12 +4555,10 @@ defmodule AWS.AppMesh do
   exceeded the value of that parameter. Pagination continues from the end of
   the previous results that returned the nextToken value.
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/v20190125/tags"
@@ -4679,10 +4612,9 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListVirtualGateways&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual
-  gateways in.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to list
+  virtual gateways in.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of results returned by
   ListVirtualGateways in paginated output. When you use this parameter,
   ListVirtualGateways returns only limit results in a single page along with a
@@ -4700,12 +4632,10 @@ defmodule AWS.AppMesh do
   exceeded the value of that parameter. Pagination continues from the end of
   the previous results that returned the nextToken value.
   """
-
   @spec list_virtual_gateways(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_virtual_gateways_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_virtual_gateways_errors()}
-
   def list_virtual_gateways(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateways"
 
@@ -4765,10 +4695,9 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListVirtualNodes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual nodes
-  in.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to list
+  virtual nodes in.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of results returned by
   ListVirtualNodes in paginated output. When you use this parameter,
   ListVirtualNodes returns only limit results in a single page along with a
@@ -4786,12 +4715,10 @@ defmodule AWS.AppMesh do
   exceeded the value of that parameter. Pagination continues from the end of
   the previous results that returned the nextToken value.
   """
-
   @spec list_virtual_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_virtual_nodes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_virtual_nodes_errors()}
-
   def list_virtual_nodes(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes"
 
@@ -4851,10 +4778,9 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListVirtualRouters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual routers
-  in.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to list
+  virtual routers in.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of results returned by
   ListVirtualRouters in paginated output. When you use this parameter,
   ListVirtualRouters returns only limit results in a single page along with a
@@ -4872,12 +4798,10 @@ defmodule AWS.AppMesh do
   exceeded the value of that parameter. Pagination continues from the end of
   the previous results that returned the nextToken value.
   """
-
   @spec list_virtual_routers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_virtual_routers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_virtual_routers_errors()}
-
   def list_virtual_routers(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouters"
 
@@ -4937,10 +4861,9 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListVirtualServices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual
-  services in.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to list
+  virtual services in.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of results returned by
   ListVirtualServices in paginated output. When you use this parameter,
   ListVirtualServices returns only limit results in a single page along with a
@@ -4958,12 +4881,10 @@ defmodule AWS.AppMesh do
   exceeded the value of that parameter. Pagination continues from the end of
   the previous results that returned the nextToken value.
   """
-
   @spec list_virtual_services(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_virtual_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_virtual_services_errors()}
-
   def list_virtual_services(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualServices"
 
@@ -5026,17 +4947,14 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  add tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to add tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/v20190125/tag"
@@ -5074,17 +4992,14 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  delete tags from.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to delete tags from.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/v20190125/untag"
@@ -5123,24 +5038,22 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateGatewayRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_route_name` (`t:string`) The name of the gateway route to update.
-  * `:mesh_name` (`t:string`) The name of the service mesh that the gateway route
-  resides in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway that the
-  gateway route is associated with.
-
-  ## Optional parameters:
+  * `:gateway_route_name` (`t:string` required) The name of the gateway route to
+  update.
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the
+  gateway route resides in.
+  * `:virtual_gateway_name` (`t:string` required) The name of the virtual gateway
+  that the gateway route is associated with.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec update_gateway_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_gateway_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_route_errors()}
-
   def update_gateway_route(
         %Client{} = client,
         gateway_route_name,
@@ -5195,16 +5108,13 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateMesh&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to update.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh to update.
+  ## Keyword parameters:
   """
-
   @spec update_mesh(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_mesh_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_mesh_errors()}
-
   def update_mesh(%Client{} = client, mesh_name, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}"
 
@@ -5241,24 +5151,21 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateRoute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the route resides
-  in.
-  * `:route_name` (`t:string`) The name of the route to update.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router that the
-  route is associated with.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the route
+  resides in.
+  * `:route_name` (`t:string` required) The name of the route to update.
+  * `:virtual_router_name` (`t:string` required) The name of the virtual router
+  that the route is associated with.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec update_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_route_errors()}
-
   def update_route(%Client{} = client, mesh_name, route_name, virtual_router_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouter/#{AWS.Util.encode_uri(virtual_router_name)}/routes/#{AWS.Util.encode_uri(route_name)}"
@@ -5307,23 +5214,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateVirtualGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual
-  gateway resides in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to
-  update.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the
+  virtual gateway resides in.
+  * `:virtual_gateway_name` (`t:string` required) The name of the virtual gateway
+  to update.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec update_virtual_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_virtual_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_virtual_gateway_errors()}
-
   def update_virtual_gateway(%Client{} = client, mesh_name, virtual_gateway_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateways/#{AWS.Util.encode_uri(virtual_gateway_name)}"
@@ -5372,22 +5276,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateVirtualNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual node
-  resides in.
-  * `:virtual_node_name` (`t:string`) The name of the virtual node to update.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the
+  virtual node resides in.
+  * `:virtual_node_name` (`t:string` required) The name of the virtual node to
+  update.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec update_virtual_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_virtual_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_virtual_node_errors()}
-
   def update_virtual_node(%Client{} = client, mesh_name, virtual_node_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes/#{AWS.Util.encode_uri(virtual_node_name)}"
@@ -5436,22 +5338,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateVirtualRouter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual router
-  resides in.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router to update.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the
+  virtual router resides in.
+  * `:virtual_router_name` (`t:string` required) The name of the virtual router to
+  update.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec update_virtual_router(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_virtual_router_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_virtual_router_errors()}
-
   def update_virtual_router(%Client{} = client, mesh_name, virtual_router_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouters/#{AWS.Util.encode_uri(virtual_router_name)}"
@@ -5500,23 +5400,20 @@ defmodule AWS.AppMesh do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateVirtualService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual
-  service resides in.
-  * `:virtual_service_name` (`t:string`) The name of the virtual service to
-  update.
-
-  ## Optional parameters:
+  * `:mesh_name` (`t:string` required) The name of the service mesh that the
+  virtual service resides in.
+  * `:virtual_service_name` (`t:string` required) The name of the virtual service
+  to update.
+  ## Keyword parameters:
   * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
   service mesh owner. If the account ID is not your own, then it's the ID of
   the account that shared the mesh with your account. For more information
   about mesh sharing, see Working with shared meshes.
   """
-
   @spec update_virtual_service(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_virtual_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_virtual_service_errors()}
-
   def update_virtual_service(%Client{} = client, mesh_name, virtual_service_name, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualServices/#{AWS.Util.encode_uri(virtual_service_name)}"

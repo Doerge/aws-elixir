@@ -97,6 +97,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   end
 
   @doc """
+   
   Given a data set type and data set publication date, asynchronously publishes
   the requested data set to the specified S3 bucket and notifies the specified
   SNS topic once the data is available. Returns a unique request identifier that
@@ -115,12 +116,10 @@ defmodule AWS.MarketplaceCommerceAnalytics do
       required("snsTopicArn") => String.t()
     }
   """
-
   @spec generate_data_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_data_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_data_set_errors()}
-
   def generate_data_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -129,6 +128,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   end
 
   @doc """
+   
   *This target has been deprecated.* Given a data set type and a from date,
   asynchronously publishes the requested customer support data to the specified
   S3 bucket and notifies the specified SNS topic once the data is available.
@@ -148,12 +148,10 @@ defmodule AWS.MarketplaceCommerceAnalytics do
       required("snsTopicArn") => String.t()
     }
   """
-
   @spec start_support_data_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_support_data_export_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_support_data_export_errors()}
-
   def start_support_data_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

@@ -512,20 +512,18 @@ defmodule AWS.LexRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimeservice%20DeleteSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias` (`t:string`) The alias in use for the bot that contains the
+  * `:bot_alias` (`t:string` required) The alias in use for the bot that contains
+  the session data.
+  * `:bot_name` (`t:string` required) The name of the bot that contains the
   session data.
-  * `:bot_name` (`t:string`) The name of the bot that contains the session data.
-  * `:user_id` (`t:string`) The identifier of the user associated with the session
-  data.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The identifier of the user associated with
+  the session data.
+  ## Keyword parameters:
   """
-
   @spec delete_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_session_errors()}
-
   def delete_session(%Client{} = client, bot_alias, bot_name, user_id, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
@@ -573,22 +571,20 @@ defmodule AWS.LexRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimeservice%20GetSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias` (`t:string`) The alias in use for the bot that contains the
+  * `:bot_alias` (`t:string` required) The alias in use for the bot that contains
+  the session data.
+  * `:bot_name` (`t:string` required) The name of the bot that contains the
   session data.
-  * `:bot_name` (`t:string`) The name of the bot that contains the session data.
-  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
-  this to identify a user's conversation with your bot.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The ID of the client application user. Amazon
+  Lex uses this to identify a user's conversation with your bot.
+  ## Keyword parameters:
   * `:checkpoint_label_filter` (`t:string`) A string used to filter the intents
   returned in the recentIntentSummaryView structure.
   """
-
   @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
-
   def get_session(%Client{} = client, bot_alias, bot_name, user_id, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
@@ -640,18 +636,17 @@ defmodule AWS.LexRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimeservice%20PostContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias` (`t:string`) Alias of the Amazon Lex bot.
-  * `:bot_name` (`t:string`) Name of the Amazon Lex bot.
-  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
-  this to identify a user's conversation with your bot. At runtime, each
-  request must contain the userID field.
-  * `:content_type` (`t:string`) You pass this value as the Content-Type HTTP
-  header.
+  * `:bot_alias` (`t:string` required) Alias of the Amazon Lex bot.
+  * `:bot_name` (`t:string` required) Name of the Amazon Lex bot.
+  * `:user_id` (`t:string` required) The ID of the client application user. Amazon
+  Lex uses this to identify a user's conversation with your bot. At runtime,
+  each request must contain the userID field.
+  * `:content_type` (`t:string` required) You pass this value as the Content-Type
+  HTTP header.
   * `:input` (`t:map`):
-    * `:input_stream` (`t:blob`) User input in PCM or Opus audio format or text
-  format as described in the Content-Type HTTP header.
-
-  ## Optional parameters:
+    * `:input_stream` (`t:blob` required) User input in PCM or Opus audio format or
+  text format as described in the Content-Type HTTP header.
+  ## Keyword parameters:
   * `:accept` (`t:string`) You pass this value as the Accept HTTP header.
   * `:active_contexts` (`t:string`) A list of contexts active for the request. A
   context can be activated when a previous intent is fulfilled, or by
@@ -661,7 +656,6 @@ defmodule AWS.LexRuntime do
   * `:session_attributes` (`t:string`) You pass this value as the
   x-amz-lex-session-attributes HTTP header.
   """
-
   @spec post_content(
           AWS.Client.t(),
           String.t(),
@@ -674,7 +668,6 @@ defmodule AWS.LexRuntime do
           {:ok, post_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_content_errors()}
-
   def post_content(
         %Client{} = client,
         bot_alias,
@@ -811,20 +804,17 @@ defmodule AWS.LexRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimeservice%20PostText&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias` (`t:string`) The alias of the Amazon Lex bot.
-  * `:bot_name` (`t:string`) The name of the Amazon Lex bot.
-  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
-  this to identify a user's conversation with your bot. At runtime, each
-  request must contain the userID field.
-
-  ## Optional parameters:
+  * `:bot_alias` (`t:string` required) The alias of the Amazon Lex bot.
+  * `:bot_name` (`t:string` required) The name of the Amazon Lex bot.
+  * `:user_id` (`t:string` required) The ID of the client application user. Amazon
+  Lex uses this to identify a user's conversation with your bot. At runtime,
+  each request must contain the userID field.
+  ## Keyword parameters:
   """
-
   @spec post_text(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, post_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_text_errors()}
-
   def post_text(%Client{} = client, bot_alias, bot_name, user_id, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/text"
@@ -863,22 +853,20 @@ defmodule AWS.LexRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimeservice%20PutSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias` (`t:string`) The alias in use for the bot that contains the
+  * `:bot_alias` (`t:string` required) The alias in use for the bot that contains
+  the session data.
+  * `:bot_name` (`t:string` required) The name of the bot that contains the
   session data.
-  * `:bot_name` (`t:string`) The name of the bot that contains the session data.
-  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
-  this to identify a user's conversation with your bot.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The ID of the client application user. Amazon
+  Lex uses this to identify a user's conversation with your bot.
+  ## Keyword parameters:
   * `:accept` (`t:string`) The message that Amazon Lex returns in the response can
   be either text or speech based depending on the value of this field.
   """
-
   @spec put_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_session_errors()}
-
   def put_session(%Client{} = client, bot_alias, bot_name, user_id, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"

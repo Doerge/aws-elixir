@@ -1372,6 +1372,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Cancels a cluster job. You can only cancel a cluster job while it's in the
   `AwaitingQuorum` status. You'll have at least an hour after creating a cluster
   job to cancel it.
@@ -1384,12 +1385,10 @@ defmodule AWS.Snowball do
       required("ClusterId") => String.t()
     }
   """
-
   @spec cancel_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_cluster_errors()}
-
   def cancel_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1398,6 +1397,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Cancels the specified job. You can only cancel a job before its `JobState` value
   changes to `PreparingAppliance`. Requesting the `ListJobs` or `DescribeJob`
   action returns a job's `JobState` as part of the response element data
@@ -1411,12 +1411,10 @@ defmodule AWS.Snowball do
       required("JobId") => String.t()
     }
   """
-
   @spec cancel_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
-
   def cancel_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1425,6 +1423,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Creates an address for a Snow device to be shipped to. In most regions,
   addresses are validated at the time of creation. The address you provide must
   be located within the serviceable area of your region. If the address is
@@ -1440,12 +1439,10 @@ defmodule AWS.Snowball do
       required("Address") => address()
     }
   """
-
   @spec create_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_address_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_address_errors()}
-
   def create_address(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1454,6 +1451,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Creates an empty cluster. Each cluster supports five nodes. You use the
   `CreateJob` action separately to create the jobs for each of these nodes. The
   cluster does not ship until these five node jobs have been created.
@@ -1482,12 +1480,10 @@ defmodule AWS.Snowball do
       required("SnowballType") => list(any())
     }
   """
-
   @spec create_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-
   def create_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1496,6 +1492,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Creates a job to import or export data between Amazon S3 and your on-premises
   data center. Your Amazon Web Services account must have the right trust
   policies and permissions in place to create a job for a Snow device. If you're
@@ -1533,12 +1530,10 @@ defmodule AWS.Snowball do
       optional("TaxDocuments") => tax_documents()
     }
   """
-
   @spec create_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
-
   def create_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1547,6 +1542,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Creates a job with the long-term usage option for a device. The long-term usage
   is a 1-year or 3-year long-term pricing type for the device. You are billed
   upfront, and Amazon Web Services provides discounts for long-term pricing.
@@ -1561,12 +1557,10 @@ defmodule AWS.Snowball do
       required("SnowballType") => list(any())
     }
   """
-
   @spec create_long_term_pricing(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_long_term_pricing_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_long_term_pricing_errors()}
-
   def create_long_term_pricing(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1575,6 +1569,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Creates a shipping label that will be used to return the Snow device to Amazon
   Web Services.
 
@@ -1587,12 +1582,10 @@ defmodule AWS.Snowball do
       required("JobId") => String.t()
     }
   """
-
   @spec create_return_shipping_label(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_return_shipping_label_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_return_shipping_label_errors()}
-
   def create_return_shipping_label(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1601,6 +1594,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Takes an `AddressId` and returns specific details about that address in the form
   of an `Address` object.
 
@@ -1612,12 +1606,10 @@ defmodule AWS.Snowball do
       required("AddressId") => String.t()
     }
   """
-
   @spec describe_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_address_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_address_errors()}
-
   def describe_address(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1626,6 +1618,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Returns a specified number of `ADDRESS` objects. Calling this API in one of the
   US regions will return addresses from the list of all addresses associated
   with this account in all US regions.
@@ -1639,12 +1632,10 @@ defmodule AWS.Snowball do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_addresses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_addresses_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_addresses_errors()}
-
   def describe_addresses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1653,6 +1644,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Returns information about a specific cluster including shipping information,
   cluster status, and other important metadata.
 
@@ -1664,12 +1656,10 @@ defmodule AWS.Snowball do
       required("ClusterId") => String.t()
     }
   """
-
   @spec describe_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
-
   def describe_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1678,6 +1668,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Returns information about a specific job including shipping information, job
   status, and other important metadata.
 
@@ -1689,12 +1680,10 @@ defmodule AWS.Snowball do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_errors()}
-
   def describe_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1703,6 +1692,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Information on the shipping label of a Snow device that is being returned to
   Amazon Web Services.
 
@@ -1714,12 +1704,10 @@ defmodule AWS.Snowball do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_return_shipping_label(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_return_shipping_label_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_return_shipping_label_errors()}
-
   def describe_return_shipping_label(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1729,6 +1717,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Returns a link to an Amazon S3 presigned URL for the manifest file associated
   with the specified `JobId` value. You can access the manifest file for up to
   60 minutes after this request has been made. To access the manifest file after
@@ -1749,12 +1738,10 @@ defmodule AWS.Snowball do
       required("JobId") => String.t()
     }
   """
-
   @spec get_job_manifest(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_job_manifest_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_manifest_errors()}
-
   def get_job_manifest(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1763,6 +1750,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Returns the `UnlockCode` code value for the specified job. A particular
   `UnlockCode` value can be accessed for up to 360 days after the associated job
   has been created. The `UnlockCode` value is a 29-character code with 25
@@ -1781,12 +1769,10 @@ defmodule AWS.Snowball do
       required("JobId") => String.t()
     }
   """
-
   @spec get_job_unlock_code(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_job_unlock_code_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_unlock_code_errors()}
-
   def get_job_unlock_code(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1795,6 +1781,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Returns information about the Snow Family service limit for your account, and
   also the number of Snow devices your account has in use.
 
@@ -1806,11 +1793,9 @@ defmodule AWS.Snowball do
       
     }
   """
-
   @spec get_snowball_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_snowball_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_snowball_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1819,6 +1804,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Returns an Amazon S3 presigned URL for an update file associated with a
   specified `JobId`.
 
@@ -1830,12 +1816,10 @@ defmodule AWS.Snowball do
       required("JobId") => String.t()
     }
   """
-
   @spec get_software_updates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_software_updates_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_software_updates_errors()}
-
   def get_software_updates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1844,6 +1828,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Returns an array of `JobListEntry` objects of the specified length. Each
   `JobListEntry` object is for a job in the specified cluster and contains a
   job's state, a job's ID, and other information.
@@ -1858,12 +1843,10 @@ defmodule AWS.Snowball do
       required("ClusterId") => String.t()
     }
   """
-
   @spec list_cluster_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_cluster_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_jobs_errors()}
-
   def list_cluster_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1872,6 +1855,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Returns an array of `ClusterListEntry` objects of the specified length. Each
   `ClusterListEntry` object contains a cluster's state, a cluster's ID, and
   other important status information.
@@ -1885,12 +1869,10 @@ defmodule AWS.Snowball do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_clusters_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
-
   def list_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1899,6 +1881,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   This action returns a list of the different Amazon EC2-compatible Amazon Machine
   Images (AMIs) that are owned by your Amazon Web Services accountthat would be
   supported for use on a Snow device. Currently, supported AMIs are based on the
@@ -1917,12 +1900,10 @@ defmodule AWS.Snowball do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_compatible_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_compatible_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_compatible_images_errors()}
-
   def list_compatible_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1931,6 +1912,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Returns an array of `JobListEntry` objects of the specified length. Each
   `JobListEntry` object contains a job's state, a job's ID, and a value that
   indicates whether the job is a job part, in the case of export jobs. Calling
@@ -1946,12 +1928,10 @@ defmodule AWS.Snowball do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-
   def list_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1960,6 +1940,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Lists all long-term pricing types.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowball%20ListLongTermPricing&this_doc_guide=API%2520Reference)
@@ -1971,12 +1952,10 @@ defmodule AWS.Snowball do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_long_term_pricing(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_long_term_pricing_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_long_term_pricing_errors()}
-
   def list_long_term_pricing(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1985,6 +1964,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   A list of locations from which the customer can choose to pickup a device.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowball%20ListPickupLocations&this_doc_guide=API%2520Reference)
@@ -1996,12 +1976,10 @@ defmodule AWS.Snowball do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_pickup_locations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pickup_locations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pickup_locations_errors()}
-
   def list_pickup_locations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2010,6 +1988,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Lists all supported versions for Snow on-device services. Returns an array of
   `ServiceVersion` object containing the supported versions for a particular
   service.
@@ -2025,12 +2004,10 @@ defmodule AWS.Snowball do
       required("ServiceName") => list(any())
     }
   """
-
   @spec list_service_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_versions_errors()}
-
   def list_service_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2039,6 +2016,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   While a cluster's `ClusterState` value is in the `AwaitingQuorum` state, you can
   update some of the information associated with a cluster. Once the cluster
   changes to a different job state, usually 60 minutes after the cluster being
@@ -2060,12 +2038,10 @@ defmodule AWS.Snowball do
       required("ClusterId") => String.t()
     }
   """
-
   @spec update_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_errors()}
-
   def update_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2074,6 +2050,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   While a job's `JobState` value is `New`, you can update some of the information
   associated with a job. Once the job changes to a different job state, usually
   within 60 minutes of the job being created, this action is no longer
@@ -2097,12 +2074,10 @@ defmodule AWS.Snowball do
       required("JobId") => String.t()
     }
   """
-
   @spec update_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_errors()}
-
   def update_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2111,6 +2086,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Updates the state when a shipment state changes to a different state.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowball%20UpdateJobShipmentState&this_doc_guide=API%2520Reference)
@@ -2122,12 +2098,10 @@ defmodule AWS.Snowball do
       required("ShipmentState") => list(any())
     }
   """
-
   @spec update_job_shipment_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_job_shipment_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_shipment_state_errors()}
-
   def update_job_shipment_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2136,6 +2110,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+   
   Updates the long-term pricing type.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowball%20UpdateLongTermPricing&this_doc_guide=API%2520Reference)
@@ -2148,12 +2123,10 @@ defmodule AWS.Snowball do
       required("LongTermPricingId") => String.t()
     }
   """
-
   @spec update_long_term_pricing(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_long_term_pricing_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_long_term_pricing_errors()}
-
   def update_long_term_pricing(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

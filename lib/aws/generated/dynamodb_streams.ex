@@ -310,6 +310,7 @@ defmodule AWS.DynamoDBStreams do
   end
 
   @doc """
+   
   Returns information about a stream, including the current status of the stream,
   its Amazon Resource Name (ARN), the composition of its shards, and its
   corresponding DynamoDB table. You can call `DescribeStream` at a maximum rate
@@ -325,12 +326,10 @@ defmodule AWS.DynamoDBStreams do
       required("StreamArn") => String.t()
     }
   """
-
   @spec describe_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stream_errors()}
-
   def describe_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -339,6 +338,7 @@ defmodule AWS.DynamoDBStreams do
   end
 
   @doc """
+   
   Retrieves the stream records from a given shard. Specify a shard iterator using
   the `ShardIterator` parameter. The shard iterator specifies the position in
   the shard from which you want to start reading stream records sequentially. If
@@ -356,12 +356,10 @@ defmodule AWS.DynamoDBStreams do
       required("ShardIterator") => String.t()
     }
   """
-
   @spec get_records(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_records_errors()}
-
   def get_records(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -370,6 +368,7 @@ defmodule AWS.DynamoDBStreams do
   end
 
   @doc """
+   
   Returns a shard iterator. A shard iterator provides information about how to
   retrieve the stream records from within a shard. Use the shard iterator in a
   subsequent `GetRecords` request to read the stream records from the shard.
@@ -385,12 +384,10 @@ defmodule AWS.DynamoDBStreams do
       required("StreamArn") => String.t()
     }
   """
-
   @spec get_shard_iterator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_shard_iterator_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_shard_iterator_errors()}
-
   def get_shard_iterator(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -399,6 +396,7 @@ defmodule AWS.DynamoDBStreams do
   end
 
   @doc """
+   
   Returns an array of stream ARNs associated with the current account and
   endpoint. If the `TableName` parameter is present, then `ListStreams` will
   return only the streams ARNs for that table.
@@ -413,12 +411,10 @@ defmodule AWS.DynamoDBStreams do
       optional("TableName") => String.t()
     }
   """
-
   @spec list_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streams_errors()}
-
   def list_streams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

@@ -886,15 +886,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20CreateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-
   def create_group(%Client{} = client, options \\ []) do
     url_path = "/groups"
 
@@ -933,15 +930,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20DeleteGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-
   def delete_group(%Client{} = client, options \\ []) do
     url_path = "/delete-group"
 
@@ -978,15 +972,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
-
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/get-account-settings"
 
@@ -1023,15 +1014,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
-
   def get_group(%Client{} = client, options \\ []) do
     url_path = "/get-group"
 
@@ -1072,15 +1060,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetGroupConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_group_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_configuration_errors()}
-
   def get_group_configuration(%Client{} = client, options \\ []) do
     url_path = "/get-group-configuration"
 
@@ -1121,15 +1106,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetGroupQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_group_query(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_query_errors()}
-
   def get_group_query(%Client{} = client, options \\ []) do
     url_path = "/get-group-query"
 
@@ -1167,17 +1149,14 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The ARN of the resource group whose tags you want to
-  retrieve.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The ARN of the resource group whose tags you want
+  to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tags_errors()}
-
   def get_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
 
@@ -1215,15 +1194,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GroupResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec group_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, group_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, group_resources_errors()}
-
   def group_resources(%Client{} = client, options \\ []) do
     url_path = "/group-resources"
 
@@ -1261,15 +1237,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20ListGroupResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_group_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_group_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_resources_errors()}
-
   def list_group_resources(%Client{} = client, options \\ []) do
     url_path = "/list-group-resources"
 
@@ -1307,8 +1280,7 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20ListGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The total number of results that you want
   included on each page of the response. If you do not include this parameter,
   it defaults to a value that is specific to the operation. If additional
@@ -1325,12 +1297,10 @@ defmodule AWS.ResourceGroups do
   provided by a previous call's NextToken response to indicate where the
   output should continue from.
   """
-
   @spec list_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
-
   def list_groups(%Client{} = client, options \\ []) do
     url_path = "/groups-list"
 
@@ -1388,15 +1358,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20PutGroupConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_group_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_group_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_group_configuration_errors()}
-
   def put_group_configuration(%Client{} = client, options \\ []) do
     url_path = "/put-group-configuration"
 
@@ -1435,15 +1402,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20SearchResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_resources_errors()}
-
   def search_resources(%Client{} = client, options \\ []) do
     url_path = "/resources/search"
 
@@ -1485,16 +1449,14 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20Tag&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The ARN of the resource group to which to add tags.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The ARN of the resource group to which to add
+  tags.
+  ## Keyword parameters:
   """
-
   @spec tag(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_errors()}
-
   def tag(%Client{} = client, arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
 
@@ -1535,15 +1497,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UngroupResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec ungroup_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, ungroup_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, ungroup_resources_errors()}
-
   def ungroup_resources(%Client{} = client, options \\ []) do
     url_path = "/ungroup-resources"
 
@@ -1580,18 +1539,15 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20Untag&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The ARN of the resource group from which to remove tags.
-  The command removed both the specified keys and any values associated with
-  those keys.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The ARN of the resource group from which to
+  remove tags. The command removed both the specified keys and any values
+  associated with those keys.
+  ## Keyword parameters:
   """
-
   @spec untag(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, untag_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_errors()}
-
   def untag(%Client{} = client, arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
 
@@ -1638,15 +1594,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UpdateAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_account_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_settings_errors()}
-
   def update_account_settings(%Client{} = client, options \\ []) do
     url_path = "/update-account-settings"
 
@@ -1684,15 +1637,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UpdateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
-
   def update_group(%Client{} = client, options \\ []) do
     url_path = "/update-group"
 
@@ -1732,15 +1682,12 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UpdateGroupQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_group_query(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_group_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_query_errors()}
-
   def update_group_query(%Client{} = client, options \\ []) do
     url_path = "/update-group-query"
 

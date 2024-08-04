@@ -2712,6 +2712,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Associates the specified KMS key with either one log group in the account, or
   with all stored CloudWatch Logs query insights results in the account. When
   you use `AssociateKmsKey`, you specify either the `logGroupName` parameter or
@@ -2728,12 +2729,10 @@ defmodule AWS.CloudWatchLogs do
       required("kmsKeyId") => String.t()
     }
   """
-
   @spec associate_kms_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_kms_key_errors()}
-
   def associate_kms_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2742,6 +2741,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Cancels the specified export task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20CancelExportTask&this_doc_guide=API%2520Reference)
@@ -2752,12 +2752,10 @@ defmodule AWS.CloudWatchLogs do
       required("taskId") => String.t()
     }
   """
-
   @spec cancel_export_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_export_task_errors()}
-
   def cancel_export_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2766,6 +2764,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates a *delivery*. A delivery is a connection between a logical *delivery
   source* and a logical *delivery destination* that you have already created.
   Only some Amazon Web Services services support being configured as a delivery
@@ -2785,12 +2784,10 @@ defmodule AWS.CloudWatchLogs do
       required("deliverySourceName") => String.t()
     }
   """
-
   @spec create_delivery(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_delivery_errors()}
-
   def create_delivery(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2799,6 +2796,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates an export task so that you can efficiently export data from a log group
   to an Amazon S3 bucket. When you perform a `CreateExportTask` operation, you
   must use credentials that have permission to write to the S3 bucket that you
@@ -2820,12 +2818,10 @@ defmodule AWS.CloudWatchLogs do
       required("to") => float()
     }
   """
-
   @spec create_export_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_export_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_export_task_errors()}
-
   def create_export_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2834,6 +2830,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates an *anomaly detector* that regularly scans one or more log groups and
   look for patterns and anomalies in the logs. An anomaly detector can help
   surface issues by automatically discovering anomalies in your log event
@@ -2857,12 +2854,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupArnList") => list(String.t()())
     }
   """
-
   @spec create_log_anomaly_detector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_log_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_log_anomaly_detector_errors()}
-
   def create_log_anomaly_detector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2871,6 +2866,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates a log group with the specified name. You can create up to 1,000,000 log
   groups per Region per account. You must use the following guidelines when
   naming a log group:
@@ -2886,12 +2882,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupName") => String.t()
     }
   """
-
   @spec create_log_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_log_group_errors()}
-
   def create_log_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2900,6 +2894,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates a log stream for the specified log group. A log stream is a sequence of
   log events that originate from a single source, such as an application
   instance or a resource that is being monitored. There is no limit on the
@@ -2916,12 +2911,10 @@ defmodule AWS.CloudWatchLogs do
       required("logStreamName") => String.t()
     }
   """
-
   @spec create_log_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_log_stream_errors()}
-
   def create_log_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2930,6 +2923,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes a CloudWatch Logs account policy. This stops the policy from applying to
   all log groups or a subset of log groups in the account. Log-group level
   policies will still be in effect. To use this operation, you must be signed on
@@ -2945,12 +2939,10 @@ defmodule AWS.CloudWatchLogs do
       required("policyType") => list(any())
     }
   """
-
   @spec delete_account_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_policy_errors()}
-
   def delete_account_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2959,6 +2951,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes the data protection policy from the specified log group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20DeleteDataProtectionPolicy&this_doc_guide=API%2520Reference)
@@ -2969,12 +2962,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupIdentifier") => String.t()
     }
   """
-
   @spec delete_data_protection_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_protection_policy_errors()}
-
   def delete_data_protection_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2984,6 +2975,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes s *delivery*. A delivery is a connection between a logical *delivery
   source* and a logical *delivery destination*. Deleting a delivery only deletes
   the connection between the delivery source and delivery destination. It does
@@ -2997,12 +2989,10 @@ defmodule AWS.CloudWatchLogs do
       required("id") => String.t()
     }
   """
-
   @spec delete_delivery(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_delivery_errors()}
-
   def delete_delivery(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3011,6 +3001,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes a *delivery destination*. A delivery is a connection between a logical
   *delivery source* and a logical *delivery destination*.
 
@@ -3022,12 +3013,10 @@ defmodule AWS.CloudWatchLogs do
       required("name") => String.t()
     }
   """
-
   @spec delete_delivery_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_delivery_destination_errors()}
-
   def delete_delivery_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3036,6 +3025,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes a delivery destination policy. For more information about these
   policies, see
   [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html).
@@ -3048,12 +3038,10 @@ defmodule AWS.CloudWatchLogs do
       required("deliveryDestinationName") => String.t()
     }
   """
-
   @spec delete_delivery_destination_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_delivery_destination_policy_errors()}
-
   def delete_delivery_destination_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3063,6 +3051,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes a *delivery source*. A delivery is a connection between a logical
   *delivery source* and a logical *delivery destination*.
 
@@ -3074,12 +3063,10 @@ defmodule AWS.CloudWatchLogs do
       required("name") => String.t()
     }
   """
-
   @spec delete_delivery_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_delivery_source_errors()}
-
   def delete_delivery_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3088,6 +3075,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes the specified destination, and eventually disables all the subscription
   filters that publish to it. This operation does not delete the physical
   resource encapsulated by the destination.
@@ -3100,12 +3088,10 @@ defmodule AWS.CloudWatchLogs do
       required("destinationName") => String.t()
     }
   """
-
   @spec delete_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_destination_errors()}
-
   def delete_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3114,6 +3100,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes the specified CloudWatch Logs anomaly detector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20DeleteLogAnomalyDetector&this_doc_guide=API%2520Reference)
@@ -3124,12 +3111,10 @@ defmodule AWS.CloudWatchLogs do
       required("anomalyDetectorArn") => String.t()
     }
   """
-
   @spec delete_log_anomaly_detector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_log_anomaly_detector_errors()}
-
   def delete_log_anomaly_detector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3138,6 +3123,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes the specified log group and permanently deletes all the archived log
   events associated with the log group.
 
@@ -3149,12 +3135,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupName") => String.t()
     }
   """
-
   @spec delete_log_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_log_group_errors()}
-
   def delete_log_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3163,6 +3147,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes the specified log stream and permanently deletes all the archived log
   events associated with the log stream.
 
@@ -3175,12 +3160,10 @@ defmodule AWS.CloudWatchLogs do
       required("logStreamName") => String.t()
     }
   """
-
   @spec delete_log_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_log_stream_errors()}
-
   def delete_log_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3189,6 +3172,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes the specified metric filter.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20DeleteMetricFilter&this_doc_guide=API%2520Reference)
@@ -3200,12 +3184,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupName") => String.t()
     }
   """
-
   @spec delete_metric_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_metric_filter_errors()}
-
   def delete_metric_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3214,6 +3196,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes a saved CloudWatch Logs Insights query definition. A query definition
   contains details about a saved CloudWatch Logs Insights query. Each
   `DeleteQueryDefinition` operation can delete one query definition.
@@ -3226,12 +3209,10 @@ defmodule AWS.CloudWatchLogs do
       required("queryDefinitionId") => String.t()
     }
   """
-
   @spec delete_query_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_query_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_query_definition_errors()}
-
   def delete_query_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3240,6 +3221,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes a resource policy from this account. This revokes the access of the
   identities in that policy to put log events to this account.
 
@@ -3251,12 +3233,10 @@ defmodule AWS.CloudWatchLogs do
       optional("policyName") => String.t()
     }
   """
-
   @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3265,6 +3245,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes the specified retention policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20DeleteRetentionPolicy&this_doc_guide=API%2520Reference)
@@ -3275,12 +3256,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupName") => String.t()
     }
   """
-
   @spec delete_retention_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_retention_policy_errors()}
-
   def delete_retention_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3289,6 +3268,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Deletes the specified subscription filter.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20DeleteSubscriptionFilter&this_doc_guide=API%2520Reference)
@@ -3300,12 +3280,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupName") => String.t()
     }
   """
-
   @spec delete_subscription_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_subscription_filter_errors()}
-
   def delete_subscription_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3314,6 +3292,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Returns a list of all CloudWatch Logs account policies in the account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20DescribeAccountPolicies&this_doc_guide=API%2520Reference)
@@ -3326,12 +3305,10 @@ defmodule AWS.CloudWatchLogs do
       required("policyType") => list(any())
     }
   """
-
   @spec describe_account_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_policies_errors()}
-
   def describe_account_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3340,6 +3317,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Retrieves a list of the deliveries that have been created in the account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20DescribeDeliveries&this_doc_guide=API%2520Reference)
@@ -3351,12 +3329,10 @@ defmodule AWS.CloudWatchLogs do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_deliveries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_deliveries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_deliveries_errors()}
-
   def describe_deliveries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3365,6 +3341,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Retrieves a list of the delivery destinations that have been created in the
   account.
 
@@ -3377,12 +3354,10 @@ defmodule AWS.CloudWatchLogs do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_delivery_destinations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_delivery_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_delivery_destinations_errors()}
-
   def describe_delivery_destinations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3392,6 +3367,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Retrieves a list of the delivery sources that have been created in the account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20DescribeDeliverySources&this_doc_guide=API%2520Reference)
@@ -3403,12 +3379,10 @@ defmodule AWS.CloudWatchLogs do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_delivery_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_delivery_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_delivery_sources_errors()}
-
   def describe_delivery_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3417,6 +3391,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Lists all your destinations. The results are ASCII-sorted by destination name.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20DescribeDestinations&this_doc_guide=API%2520Reference)
@@ -3429,12 +3404,10 @@ defmodule AWS.CloudWatchLogs do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_destinations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_destinations_errors()}
-
   def describe_destinations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3443,6 +3416,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Lists the specified export tasks. You can list all your export tasks or filter
   the results based on task ID or task status.
 
@@ -3457,12 +3431,10 @@ defmodule AWS.CloudWatchLogs do
       optional("taskId") => String.t()
     }
   """
-
   @spec describe_export_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_export_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_export_tasks_errors()}
-
   def describe_export_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3471,6 +3443,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Lists the specified log groups. You can list all your log groups or filter the
   results by prefix. The results are ASCII-sorted by log group name.
 
@@ -3488,12 +3461,10 @@ defmodule AWS.CloudWatchLogs do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_log_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_log_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_log_groups_errors()}
-
   def describe_log_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3502,6 +3473,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Lists the log streams for the specified log group. You can list all the log
   streams or filter the results by prefix. You can also control how the results
   are ordered. You can specify the log group to search by using either
@@ -3522,12 +3494,10 @@ defmodule AWS.CloudWatchLogs do
       optional("orderBy") => list(any())
     }
   """
-
   @spec describe_log_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_log_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_log_streams_errors()}
-
   def describe_log_streams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3536,6 +3506,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Lists the specified metric filters. You can list all of the metric filters or
   filter the results by log name, prefix, metric name, or metric namespace. The
   results are ASCII-sorted by filter name.
@@ -3553,12 +3524,10 @@ defmodule AWS.CloudWatchLogs do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_metric_filters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_metric_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metric_filters_errors()}
-
   def describe_metric_filters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3567,6 +3536,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Returns a list of CloudWatch Logs Insights queries that are scheduled, running,
   or have been run recently in this account. You can request all queries or
   limit it to queries of a specific log group or queries with a certain status.
@@ -3582,12 +3552,10 @@ defmodule AWS.CloudWatchLogs do
       optional("status") => list(any())
     }
   """
-
   @spec describe_queries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_queries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_queries_errors()}
-
   def describe_queries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3596,6 +3564,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   This operation returns a paginated list of your saved CloudWatch Logs Insights
   query definitions. You can retrieve query definitions from the current account
   or from a source account that is linked to the current account.
@@ -3610,12 +3579,10 @@ defmodule AWS.CloudWatchLogs do
       optional("queryDefinitionNamePrefix") => String.t()
     }
   """
-
   @spec describe_query_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_query_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_query_definitions_errors()}
-
   def describe_query_definitions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3624,6 +3591,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Lists the resource policies in this account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20DescribeResourcePolicies&this_doc_guide=API%2520Reference)
@@ -3635,12 +3603,10 @@ defmodule AWS.CloudWatchLogs do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_resource_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_policies_errors()}
-
   def describe_resource_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3649,6 +3615,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Lists the subscription filters for the specified log group. You can list all the
   subscription filters or filter the results by prefix. The results are
   ASCII-sorted by filter name.
@@ -3664,12 +3631,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupName") => String.t()
     }
   """
-
   @spec describe_subscription_filters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_subscription_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_subscription_filters_errors()}
-
   def describe_subscription_filters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3679,6 +3644,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Disassociates the specified KMS key from the specified log group or from all
   CloudWatch Logs Insights query results in the account. When you use
   `DisassociateKmsKey`, you specify either the `logGroupName` parameter or the
@@ -3694,12 +3660,10 @@ defmodule AWS.CloudWatchLogs do
       optional("resourceIdentifier") => String.t()
     }
   """
-
   @spec disassociate_kms_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_kms_key_errors()}
-
   def disassociate_kms_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3708,6 +3672,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Lists log events from the specified log group. You can list all the log events
   or filter the results using a filter pattern, a time range, and the name of
   the log stream. You must have the `logs:FilterLogEvents` permission to perform
@@ -3731,12 +3696,10 @@ defmodule AWS.CloudWatchLogs do
       optional("unmask") => boolean()
     }
   """
-
   @spec filter_log_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, filter_log_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, filter_log_events_errors()}
-
   def filter_log_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3745,6 +3708,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Returns information about a log group data protection policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20GetDataProtectionPolicy&this_doc_guide=API%2520Reference)
@@ -3755,12 +3719,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupIdentifier") => String.t()
     }
   """
-
   @spec get_data_protection_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_data_protection_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_protection_policy_errors()}
-
   def get_data_protection_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3769,6 +3731,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Returns complete information about one logical *delivery*. A delivery is a
   connection between a [ *delivery source*
   ](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html)
@@ -3789,12 +3752,10 @@ defmodule AWS.CloudWatchLogs do
       required("id") => String.t()
     }
   """
-
   @spec get_delivery(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_delivery_errors()}
-
   def get_delivery(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3803,6 +3764,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Retrieves complete information about one delivery destination.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20GetDeliveryDestination&this_doc_guide=API%2520Reference)
@@ -3813,12 +3775,10 @@ defmodule AWS.CloudWatchLogs do
       required("name") => String.t()
     }
   """
-
   @spec get_delivery_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_delivery_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_delivery_destination_errors()}
-
   def get_delivery_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3827,6 +3787,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Retrieves the delivery destination policy assigned to the delivery destination
   that you specify. For more information about delivery destinations and their
   policies, see
@@ -3840,12 +3801,10 @@ defmodule AWS.CloudWatchLogs do
       required("deliveryDestinationName") => String.t()
     }
   """
-
   @spec get_delivery_destination_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_delivery_destination_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_delivery_destination_policy_errors()}
-
   def get_delivery_destination_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3855,6 +3814,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Retrieves complete information about one delivery source.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20GetDeliverySource&this_doc_guide=API%2520Reference)
@@ -3865,12 +3825,10 @@ defmodule AWS.CloudWatchLogs do
       required("name") => String.t()
     }
   """
-
   @spec get_delivery_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_delivery_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_delivery_source_errors()}
-
   def get_delivery_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3879,6 +3837,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Retrieves information about the log anomaly detector that you specify.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20GetLogAnomalyDetector&this_doc_guide=API%2520Reference)
@@ -3889,12 +3848,10 @@ defmodule AWS.CloudWatchLogs do
       required("anomalyDetectorArn") => String.t()
     }
   """
-
   @spec get_log_anomaly_detector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_log_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_log_anomaly_detector_errors()}
-
   def get_log_anomaly_detector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3903,6 +3860,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Lists log events from the specified log stream. You can list all of the log
   events or filter using a time range. By default, this operation returns as
   many log events as can fit in a response size of 1MB (up to 10,000 log
@@ -3926,12 +3884,10 @@ defmodule AWS.CloudWatchLogs do
       required("logStreamName") => String.t()
     }
   """
-
   @spec get_log_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_log_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_log_events_errors()}
-
   def get_log_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3940,6 +3896,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Returns a list of the fields that are included in log events in the specified
   log group. Includes the percentage of log events that contain each field. The
   search is limited to a time period that you specify. You can specify the log
@@ -3956,12 +3913,10 @@ defmodule AWS.CloudWatchLogs do
       optional("time") => float()
     }
   """
-
   @spec get_log_group_fields(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_log_group_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_log_group_fields_errors()}
-
   def get_log_group_fields(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3970,6 +3925,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Retrieves all of the fields and values of a single log event. All fields are
   retrieved, even if the original query that produced the `logRecordPointer`
   retrieved only a subset of fields. Fields are returned as field name/field
@@ -3984,12 +3940,10 @@ defmodule AWS.CloudWatchLogs do
       required("logRecordPointer") => String.t()
     }
   """
-
   @spec get_log_record(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_log_record_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_log_record_errors()}
-
   def get_log_record(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3998,6 +3952,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Returns the results from the specified query. Only the fields requested in the
   query are returned, along with a `@ptr` field, which is the identifier for the
   log record. You can use the value of `@ptr` in a
@@ -4020,12 +3975,10 @@ defmodule AWS.CloudWatchLogs do
       required("queryId") => String.t()
     }
   """
-
   @spec get_query_results(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_query_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_results_errors()}
-
   def get_query_results(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4034,6 +3987,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Returns a list of anomalies that log anomaly detectors have found. For details
   about the structure format of each anomaly object that is returned, see the
   example in this section.
@@ -4049,12 +4003,10 @@ defmodule AWS.CloudWatchLogs do
       optional("suppressionState") => list(any())
     }
   """
-
   @spec list_anomalies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_anomalies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_anomalies_errors()}
-
   def list_anomalies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4063,6 +4015,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Retrieves a list of the log anomaly detectors in the account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20ListLogAnomalyDetectors&this_doc_guide=API%2520Reference)
@@ -4075,12 +4028,10 @@ defmodule AWS.CloudWatchLogs do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_log_anomaly_detectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_log_anomaly_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_log_anomaly_detectors_errors()}
-
   def list_log_anomaly_detectors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4089,6 +4040,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Displays the tags associated with a CloudWatch Logs resource. Currently, log
   groups and destinations support tagging.
 
@@ -4100,12 +4052,10 @@ defmodule AWS.CloudWatchLogs do
       required("resourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4114,6 +4064,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   The ListTagsLogGroup operation is on the path to deprecation. We recommend that
   you use
   [ListTagsForResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html)
@@ -4127,12 +4078,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupName") => String.t()
     }
   """
-
   @spec list_tags_log_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_log_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_log_group_errors()}
-
   def list_tags_log_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4141,6 +4090,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates an account-level data protection policy or subscription filter policy
   that applies to all log groups or a subset of log groups in the account.
   **Data protection policy**
@@ -4157,12 +4107,10 @@ defmodule AWS.CloudWatchLogs do
       required("policyType") => list(any())
     }
   """
-
   @spec put_account_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_account_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_policy_errors()}
-
   def put_account_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4171,6 +4119,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates a data protection policy for the specified log group. A data protection
   policy can help safeguard sensitive data that's ingested by the log group by
   auditing and masking the sensitive log data. Sensitive data is detected and
@@ -4187,12 +4136,10 @@ defmodule AWS.CloudWatchLogs do
       required("policyDocument") => String.t()
     }
   """
-
   @spec put_data_protection_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_data_protection_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_data_protection_policy_errors()}
-
   def put_data_protection_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4201,6 +4148,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates or updates a logical *delivery destination*. A delivery destination is
   an Amazon Web Services resource that represents an Amazon Web Services service
   that logs can be sent to. CloudWatch Logs, Amazon S3, and Firehose are
@@ -4219,12 +4167,10 @@ defmodule AWS.CloudWatchLogs do
       required("name") => String.t()
     }
   """
-
   @spec put_delivery_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_delivery_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_delivery_destination_errors()}
-
   def put_delivery_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4233,6 +4179,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates and assigns an IAM policy that grants permissions to CloudWatch Logs to
   deliver logs cross-account to a specified destination in this account. To
   configure the delivery of logs from an Amazon Web Services service in another
@@ -4248,12 +4195,10 @@ defmodule AWS.CloudWatchLogs do
       required("deliveryDestinationPolicy") => String.t()
     }
   """
-
   @spec put_delivery_destination_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_delivery_destination_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_delivery_destination_policy_errors()}
-
   def put_delivery_destination_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4263,6 +4208,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates or updates a logical *delivery source*. A delivery source represents an
   Amazon Web Services resource that sends logs to an logs delivery destination.
   The destination can be CloudWatch Logs, Amazon S3, or Firehose. To configure
@@ -4280,12 +4226,10 @@ defmodule AWS.CloudWatchLogs do
       required("resourceArn") => String.t()
     }
   """
-
   @spec put_delivery_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_delivery_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_delivery_source_errors()}
-
   def put_delivery_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4294,6 +4238,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates or updates a destination. This operation is used only to create
   destinations for cross-account subscriptions. A destination encapsulates a
   physical resource (such as an Amazon Kinesis stream). With a destination, you
@@ -4319,12 +4264,10 @@ defmodule AWS.CloudWatchLogs do
       required("targetArn") => String.t()
     }
   """
-
   @spec put_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_destination_errors()}
-
   def put_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4333,6 +4276,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates or updates an access policy associated with an existing destination. An
   access policy is an [IAM policy
   document](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html)
@@ -4349,12 +4293,10 @@ defmodule AWS.CloudWatchLogs do
       required("destinationName") => String.t()
     }
   """
-
   @spec put_destination_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_destination_policy_errors()}
-
   def put_destination_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4363,6 +4305,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Uploads a batch of log events to the specified log stream. The sequence token is
   now ignored in `PutLogEvents` actions. `PutLogEvents` actions are always
   accepted and never return `InvalidSequenceTokenException` or
@@ -4380,12 +4323,10 @@ defmodule AWS.CloudWatchLogs do
       required("logStreamName") => String.t()
     }
   """
-
   @spec put_log_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_log_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_log_events_errors()}
-
   def put_log_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4394,6 +4335,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates or updates a metric filter and associates it with the specified log
   group. With metric filters, you can configure rules to extract metric data
   from log events ingested through
@@ -4413,12 +4355,10 @@ defmodule AWS.CloudWatchLogs do
       required("metricTransformations") => list(metric_transformation()())
     }
   """
-
   @spec put_metric_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_metric_filter_errors()}
-
   def put_metric_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4427,6 +4367,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates or updates a query definition for CloudWatch Logs Insights. For more
   information, see [Analyzing Log Data with CloudWatch Logs
   Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html).
@@ -4450,12 +4391,10 @@ defmodule AWS.CloudWatchLogs do
       required("queryString") => String.t()
     }
   """
-
   @spec put_query_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_query_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_query_definition_errors()}
-
   def put_query_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4464,6 +4403,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates or updates a resource policy allowing other Amazon Web Services services
   to put log events to this account, such as Amazon Route 53. An account can
   have up to 10 resource policies per Amazon Web Services Region.
@@ -4477,12 +4417,10 @@ defmodule AWS.CloudWatchLogs do
       optional("policyName") => String.t()
     }
   """
-
   @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4491,6 +4429,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Sets the retention of the specified log group. With a retention policy, you can
   configure the number of days for which to retain log events in the specified
   log group.
@@ -4504,12 +4443,10 @@ defmodule AWS.CloudWatchLogs do
       required("retentionInDays") => integer()
     }
   """
-
   @spec put_retention_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_retention_policy_errors()}
-
   def put_retention_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4518,6 +4455,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Creates or updates a subscription filter and associates it with the specified
   log group. With subscription filters, you can subscribe to a real-time stream
   of log events ingested through
@@ -4539,12 +4477,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupName") => String.t()
     }
   """
-
   @spec put_subscription_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_subscription_filter_errors()}
-
   def put_subscription_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4553,6 +4489,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Starts a Live Tail streaming session for one or more log groups. A Live Tail
   session returns a stream of log events that have been recently ingested in the
   log groups. For more information, see [Use Live Tail to view logs in near real
@@ -4572,12 +4509,10 @@ defmodule AWS.CloudWatchLogs do
       required("logGroupIdentifiers") => list(String.t()())
     }
   """
-
   @spec start_live_tail(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_live_tail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_live_tail_errors()}
-
   def start_live_tail(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "streaming-")
@@ -4586,6 +4521,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Schedules a query of a log group using CloudWatch Logs Insights. You specify the
   log group and time range to query and the query string to use. For more
   information, see [CloudWatch Logs Insights Query
@@ -4610,12 +4546,10 @@ defmodule AWS.CloudWatchLogs do
       required("startTime") => float()
     }
   """
-
   @spec start_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_query_errors()}
-
   def start_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4624,6 +4558,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Stops a CloudWatch Logs Insights query that is in progress. If the query has
   already ended, the operation returns an error indicating that the specified
   query is not running.
@@ -4636,12 +4571,10 @@ defmodule AWS.CloudWatchLogs do
       required("queryId") => String.t()
     }
   """
-
   @spec stop_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_query_errors()}
-
   def stop_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4650,6 +4583,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   The TagLogGroup operation is on the path to deprecation. We recommend that you
   use
   [TagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html)
@@ -4671,12 +4605,10 @@ defmodule AWS.CloudWatchLogs do
       required("tags") => map()
     }
   """
-
   @spec tag_log_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_log_group_errors()}
-
   def tag_log_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4685,6 +4617,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs
   resource. Currently, the only CloudWatch Logs resources that can be tagged are
   log groups and destinations. Tags can help you organize and categorize your
@@ -4700,12 +4633,10 @@ defmodule AWS.CloudWatchLogs do
       required("tags") => map()
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4714,6 +4645,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Tests the filter pattern of a metric filter against a sample of log event
   messages. You can use this operation to validate the correctness of a metric
   filter pattern.
@@ -4727,12 +4659,10 @@ defmodule AWS.CloudWatchLogs do
       required("logEventMessages") => list(String.t()())
     }
   """
-
   @spec test_metric_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_metric_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_metric_filter_errors()}
-
   def test_metric_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4741,6 +4671,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   The UntagLogGroup operation is on the path to deprecation. We recommend that you
   use
   [UntagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html)
@@ -4759,12 +4690,10 @@ defmodule AWS.CloudWatchLogs do
       required("tags") => list(String.t()())
     }
   """
-
   @spec untag_log_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_log_group_errors()}
-
   def untag_log_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4773,6 +4702,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Removes one or more tags from the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20UntagResource&this_doc_guide=API%2520Reference)
@@ -4784,12 +4714,10 @@ defmodule AWS.CloudWatchLogs do
       required("tagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4798,6 +4726,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Use this operation to *suppress* anomaly detection for a specified anomaly or
   pattern. If you suppress an anomaly, CloudWatch Logs won’t report new
   occurrences of that anomaly and won't update that anomaly with new data. If
@@ -4817,12 +4746,10 @@ defmodule AWS.CloudWatchLogs do
       required("anomalyDetectorArn") => String.t()
     }
   """
-
   @spec update_anomaly(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_anomaly_errors()}
-
   def update_anomaly(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4831,6 +4758,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+   
   Updates an existing log anomaly detector.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatchlogs%20UpdateLogAnomalyDetector&this_doc_guide=API%2520Reference)
@@ -4845,12 +4773,10 @@ defmodule AWS.CloudWatchLogs do
       required("enabled") => boolean()
     }
   """
-
   @spec update_log_anomaly_detector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_log_anomaly_detector_errors()}
-
   def update_log_anomaly_detector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

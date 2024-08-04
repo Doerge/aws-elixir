@@ -1252,15 +1252,12 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -1299,16 +1296,13 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateConfigurationProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  ## Keyword parameters:
   """
-
   @spec create_configuration_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_profile_errors()}
-
   def create_configuration_profile(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles"
 
@@ -1349,15 +1343,12 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateDeploymentStrategy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_deployment_strategy(AWS.Client.t(), Keyword.t()) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_strategy_errors()}
-
   def create_deployment_strategy(%Client{} = client, options \\ []) do
     url_path = "/deploymentstrategies"
 
@@ -1401,16 +1392,13 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  ## Keyword parameters:
   """
-
   @spec create_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-
   def create_environment(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
 
@@ -1455,18 +1443,15 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateExtension&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:latest_version_number` (`t:integer`) You can omit this field when you create
   an extension. When you create a new version, specify the most recent current
   version number. For example, you create version 3, enter 2 for this field.
   """
-
   @spec create_extension(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_extension_errors()}
-
   def create_extension(%Client{} = client, options \\ []) do
     url_path = "/extensions"
 
@@ -1526,15 +1511,12 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateExtensionAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_extension_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_extension_association_errors()}
-
   def create_extension_association(%Client{} = client, options \\ []) do
     url_path = "/extensionassociations"
 
@@ -1571,15 +1553,15 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateHostedConfigurationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
-  * `:content_type` (`t:string`) A standard MIME type describing the format of the
-  configuration content. For more information, see Content-Type.
+  * `:application_id` (`t:string` required) The application ID.
+  * `:configuration_profile_id` (`t:string` required) The configuration profile
+  ID.
+  * `:content_type` (`t:string` required) A standard MIME type describing the
+  format of the configuration content. For more information, see Content-Type.
   * `:input` (`t:map`):
-    * `:content` (`t:blob`) The content of the configuration or the configuration
-  data.
-
-  ## Optional parameters:
+    * `:content` (`t:blob` required) The content of the configuration or the
+  configuration data.
+  ## Keyword parameters:
   * `:description` (`t:string`) A description of the configuration.
   * `:latest_version_number` (`t:integer`) An optional locking token used to
   prevent race conditions from overwriting configuration updates when creating
@@ -1590,7 +1572,6 @@ defmodule AWS.AppConfig do
   AppConfig hosted configuration version. This value must contain at least one
   non-numeric character. For example, "v2.2.0".
   """
-
   @spec create_hosted_configuration_version(
           AWS.Client.t(),
           String.t(),
@@ -1602,7 +1583,6 @@ defmodule AWS.AppConfig do
           {:ok, hosted_configuration_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hosted_configuration_version_errors()}
-
   def create_hosted_configuration_version(
         %Client{} = client,
         application_id,
@@ -1703,16 +1683,13 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application to delete.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -1760,19 +1737,16 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteConfigurationProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID that includes the
+  * `:application_id` (`t:string` required) The application ID that includes the
   configuration profile you want to delete.
-  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile
-  you want to delete.
-
-  ## Optional parameters:
+  * `:configuration_profile_id` (`t:string` required) The ID of the configuration
+  profile you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_configuration_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_profile_errors()}
-
   def delete_configuration_profile(
         %Client{} = client,
         application_id,
@@ -1826,17 +1800,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteDeploymentStrategy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy you
-  want to delete.
-
-  ## Optional parameters:
+  * `:deployment_strategy_id` (`t:string` required) The ID of the deployment
+  strategy you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_deployment_strategy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_strategy_errors()}
-
   def delete_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
     url_path = "/deployementstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
 
@@ -1884,19 +1855,16 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID that includes the
+  * `:application_id` (`t:string` required) The application ID that includes the
   environment that you want to delete.
-  * `:environment_id` (`t:string`) The ID of the environment that you want to
-  delete.
-
-  ## Optional parameters:
+  * `:environment_id` (`t:string` required) The ID of the environment that you
+  want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-
   def delete_environment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
@@ -1945,19 +1913,16 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteExtension&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:extension_identifier` (`t:string`) The name, ID, or Amazon Resource Name
-  (ARN) of the extension you want to delete.
-
-  ## Optional parameters:
+  * `:extension_identifier` (`t:string` required) The name, ID, or Amazon Resource
+  Name (ARN) of the extension you want to delete.
+  ## Keyword parameters:
   * `:version_number` (`t:integer`) A specific version of an extension to delete.
   If omitted, the highest version is deleted.
   """
-
   @spec delete_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_extension_errors()}
-
   def delete_extension(%Client{} = client, extension_identifier, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
 
@@ -2016,17 +1981,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteExtensionAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:extension_association_id` (`t:string`) The ID of the extension association
-  to delete.
-
-  ## Optional parameters:
+  * `:extension_association_id` (`t:string` required) The ID of the extension
+  association to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_extension_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_extension_association_errors()}
-
   def delete_extension_association(%Client{} = client, extension_association_id, options \\ []) do
     url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
 
@@ -2074,13 +2036,12 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteHostedConfigurationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
-  * `:version_number` (`t:integer`) The versions number to delete.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  * `:configuration_profile_id` (`t:string` required) The configuration profile
+  ID.
+  * `:version_number` (`t:integer` required) The versions number to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_hosted_configuration_version(
           AWS.Client.t(),
           String.t(),
@@ -2091,7 +2052,6 @@ defmodule AWS.AppConfig do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hosted_configuration_version_errors()}
-
   def delete_hosted_configuration_version(
         %Client{} = client,
         application_id,
@@ -2145,16 +2105,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application you want to get.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application you want to
+  get.
+  ## Keyword parameters:
   """
-
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -2189,22 +2147,20 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application` (`t:string`) The application to get. Specify either the
-  application name or the application ID.
-  * `:configuration` (`t:string`) The configuration to get. Specify either the
-  configuration name or the configuration ID.
-  * `:environment` (`t:string`) The environment to get. Specify either the
-  environment name or the environment ID.
-  * `:client_id` (`t:string`) The clientId parameter in the following command is a
-  unique, user-specified ID to identify the client for the configuration. This
-  ID enables AppConfig to deploy the configuration in intervals, as defined in
-  the deployment strategy.
-
-  ## Optional parameters:
+  * `:application` (`t:string` required) The application to get. Specify either
+  the application name or the application ID.
+  * `:configuration` (`t:string` required) The configuration to get. Specify
+  either the configuration name or the configuration ID.
+  * `:environment` (`t:string` required) The environment to get. Specify either
+  the environment name or the environment ID.
+  * `:client_id` (`t:string` required) The clientId parameter in the following
+  command is a unique, user-specified ID to identify the client for the
+  configuration. This ID enables AppConfig to deploy the configuration in
+  intervals, as defined in the deployment strategy.
+  ## Keyword parameters:
   * `:client_configuration_version` (`t:string`) The configuration version
   returned in the most recent GetConfiguration response.
   """
-
   @spec get_configuration(
           AWS.Client.t(),
           String.t(),
@@ -2216,7 +2172,6 @@ defmodule AWS.AppConfig do
           {:ok, configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_errors()}
-
   def get_configuration(
         %Client{} = client,
         application,
@@ -2281,19 +2236,16 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetConfigurationProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application that includes the
-  configuration profile you want to get.
-  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile
-  that you want to get.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application that
+  includes the configuration profile you want to get.
+  * `:configuration_profile_id` (`t:string` required) The ID of the configuration
+  profile that you want to get.
+  ## Keyword parameters:
   """
-
   @spec get_configuration_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_profile_errors()}
-
   def get_configuration_profile(
         %Client{} = client,
         application_id,
@@ -2334,20 +2286,18 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application that includes the
-  deployment you want to get.
-  * `:deployment_number` (`t:integer`) The sequence number of the deployment.
-  * `:environment_id` (`t:string`) The ID of the environment that includes the
-  deployment you want to get.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application that
+  includes the deployment you want to get.
+  * `:deployment_number` (`t:integer` required) The sequence number of the
+  deployment.
+  * `:environment_id` (`t:string` required) The ID of the environment that
+  includes the deployment you want to get.
+  ## Keyword parameters:
   """
-
   @spec get_deployment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
-
   def get_deployment(
         %Client{} = client,
         application_id,
@@ -2393,17 +2343,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetDeploymentStrategy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy to
-  get.
-
-  ## Optional parameters:
+  * `:deployment_strategy_id` (`t:string` required) The ID of the deployment
+  strategy to get.
+  ## Keyword parameters:
   """
-
   @spec get_deployment_strategy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_strategy_errors()}
-
   def get_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
     url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
 
@@ -2443,18 +2390,16 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application that includes the
-  environment you want to get.
-  * `:environment_id` (`t:string`) The ID of the environment that you want to get.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application that
+  includes the environment you want to get.
+  * `:environment_id` (`t:string` required) The ID of the environment that you
+  want to get.
+  ## Keyword parameters:
   """
-
   @spec get_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
-
   def get_environment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
@@ -2490,19 +2435,16 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetExtension&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
-  Name (ARN) of the extension.
-
-  ## Optional parameters:
+  * `:extension_identifier` (`t:string` required) The name, the ID, or the Amazon
+  Resource Name (ARN) of the extension.
+  ## Keyword parameters:
   * `:version_number` (`t:integer`) The extension version number. If no version
   number was defined, AppConfig uses the highest version.
   """
-
   @spec get_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_extension_errors()}
-
   def get_extension(%Client{} = client, extension_identifier, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
 
@@ -2551,16 +2493,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetExtensionAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:extension_association_id` (`t:string`) The extension association ID to get.
-
-  ## Optional parameters:
+  * `:extension_association_id` (`t:string` required) The extension association ID
+  to get.
+  ## Keyword parameters:
   """
-
   @spec get_extension_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_extension_association_errors()}
-
   def get_extension_association(%Client{} = client, extension_association_id, options \\ []) do
     url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
 
@@ -2595,13 +2535,12 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetHostedConfigurationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
-  * `:version_number` (`t:integer`) The version.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  * `:configuration_profile_id` (`t:string` required) The configuration profile
+  ID.
+  * `:version_number` (`t:integer` required) The version.
+  ## Keyword parameters:
   """
-
   @spec get_hosted_configuration_version(
           AWS.Client.t(),
           String.t(),
@@ -2612,7 +2551,6 @@ defmodule AWS.AppConfig do
           {:ok, hosted_configuration_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hosted_configuration_version_errors()}
-
   def get_hosted_configuration_version(
         %Client{} = client,
         application_id,
@@ -2668,8 +2606,7 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
   call. The call also returns a token that you can specify in a subsequent
   call to get the next set of results.
@@ -2680,12 +2617,10 @@ defmodule AWS.AppConfig do
   previous responses nextToken value. Use this token to get the next set of
   results.
   """
-
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, applications(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -2738,9 +2673,8 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListConfigurationProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
   call. The call also returns a token that you can specify in a subsequent
   call to get the next set of results.
@@ -2750,12 +2684,10 @@ defmodule AWS.AppConfig do
   configuration profile contains. A configuration can be a feature flag or a
   freeform configuration.
   """
-
   @spec list_configuration_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profiles(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_profiles_errors()}
-
   def list_configuration_profiles(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles"
 
@@ -2815,20 +2747,17 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListDeploymentStrategies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
   call. The call also returns a token that you can specify in a subsequent
   call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
   the next set of results.
   """
-
   @spec list_deployment_strategies(AWS.Client.t(), Keyword.t()) ::
           {:ok, deployment_strategies(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_strategies_errors()}
-
   def list_deployment_strategies(%Client{} = client, options \\ []) do
     url_path = "/deploymentstrategies"
 
@@ -2881,10 +2810,9 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-  * `:environment_id` (`t:string`) The environment ID.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  * `:environment_id` (`t:string` required) The environment ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items that may be returned
   for this call. If there are items that have not yet been returned, the
   response will include a non-null NextToken that you can provide in a
@@ -2893,12 +2821,10 @@ defmodule AWS.AppConfig do
   operation indicating the next set of results to be returned. If not
   specified, the operation will return the first set of results.
   """
-
   @spec list_deployments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployments(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
-
   def list_deployments(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments"
@@ -2952,21 +2878,18 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
   call. The call also returns a token that you can specify in a subsequent
   call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
   the next set of results.
   """
-
   @spec list_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, environments(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-
   def list_environments(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
 
@@ -3022,8 +2945,7 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListExtensionAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
   Name (ARN) of the extension.
   * `:extension_version_number` (`t:integer`) The version number for the extension
@@ -3036,12 +2958,10 @@ defmodule AWS.AppConfig do
   * `:resource_identifier` (`t:string`) The ARN of an application, configuration
   profile, or environment.
   """
-
   @spec list_extension_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension_associations(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_extension_associations_errors()}
-
   def list_extension_associations(%Client{} = client, options \\ []) do
     url_path = "/extensionassociations"
 
@@ -3130,8 +3050,7 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListExtensions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
   call. The call also returns a token that you can specify in a subsequent
   call to get the next set of results.
@@ -3139,12 +3058,10 @@ defmodule AWS.AppConfig do
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
   the next set of results.
   """
-
   @spec list_extensions(AWS.Client.t(), Keyword.t()) ::
           {:ok, extensions(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_extensions_errors()}
-
   def list_extensions(%Client{} = client, options \\ []) do
     url_path = "/extensions"
 
@@ -3205,10 +3122,10 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListHostedConfigurationVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  * `:configuration_profile_id` (`t:string` required) The configuration profile
+  ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
   call. The call also returns a token that you can specify in a subsequent
   call to get the next set of results.
@@ -3220,12 +3137,10 @@ defmodule AWS.AppConfig do
   If you don't specify an asterisk at the end of the value, only an exact
   match is returned.
   """
-
   @spec list_hosted_configuration_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, hosted_configuration_versions(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hosted_configuration_versions_errors()}
-
   def list_hosted_configuration_versions(
         %Client{} = client,
         application_id,
@@ -3291,16 +3206,13 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource ARN.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, resource_tags(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3335,17 +3247,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20StartDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-  * `:environment_id` (`t:string`) The environment ID.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  * `:environment_id` (`t:string` required) The environment ID.
+  ## Keyword parameters:
   """
-
   @spec start_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_deployment_errors()}
-
   def start_deployment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments"
@@ -3384,18 +3293,16 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20StopDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-  * `:deployment_number` (`t:integer`) The sequence number of the deployment.
-  * `:environment_id` (`t:string`) The environment ID.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  * `:deployment_number` (`t:integer` required) The sequence number of the
+  deployment.
+  * `:environment_id` (`t:string` required) The environment ID.
+  ## Keyword parameters:
   """
-
   @spec stop_deployment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_deployment_errors()}
-
   def stop_deployment(
         %Client{} = client,
         application_id,
@@ -3451,17 +3358,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which to retrieve
-  tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource for which to
+  retrieve tags.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3498,17 +3402,16 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which to remove tags.
-  * `:tag_keys` (`t:list[com.amazonaws.appconfig#TagKey]`) The tag keys to delete.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource for which to
+  remove tags.
+  * `:tag_keys` (`t:list[com.amazonaws.appconfig#TagKey]` required) The tag keys
+  to delete.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3556,16 +3459,13 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  ## Keyword parameters:
   """
-
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-
   def update_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -3612,17 +3512,15 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateConfigurationProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  * `:configuration_profile_id` (`t:string` required) The ID of the configuration
+  profile.
+  ## Keyword parameters:
   """
-
   @spec update_configuration_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_profile_errors()}
-
   def update_configuration_profile(
         %Client{} = client,
         application_id,
@@ -3675,16 +3573,13 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateDeploymentStrategy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:deployment_strategy_id` (`t:string`) The deployment strategy ID.
-
-  ## Optional parameters:
+  * `:deployment_strategy_id` (`t:string` required) The deployment strategy ID.
+  ## Keyword parameters:
   """
-
   @spec update_deployment_strategy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_deployment_strategy_errors()}
-
   def update_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
     url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
 
@@ -3731,17 +3626,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-  * `:environment_id` (`t:string`) The environment ID.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  * `:environment_id` (`t:string` required) The environment ID.
+  ## Keyword parameters:
   """
-
   @spec update_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
-
   def update_environment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
@@ -3792,17 +3684,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateExtension&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
-  Name (ARN) of the extension.
-
-  ## Optional parameters:
+  * `:extension_identifier` (`t:string` required) The name, the ID, or the Amazon
+  Resource Name (ARN) of the extension.
+  ## Keyword parameters:
   """
-
   @spec update_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_extension_errors()}
-
   def update_extension(%Client{} = client, extension_identifier, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
 
@@ -3852,17 +3741,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateExtensionAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:extension_association_id` (`t:string`) The system-generated ID for the
-  association.
-
-  ## Optional parameters:
+  * `:extension_association_id` (`t:string` required) The system-generated ID for
+  the association.
+  ## Keyword parameters:
   """
-
   @spec update_extension_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_extension_association_errors()}
-
   def update_extension_association(%Client{} = client, extension_association_id, options \\ []) do
     url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
 
@@ -3909,19 +3795,17 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ValidateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The application ID.
-  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
-  * `:configuration_version` (`t:string`) The version of the configuration to
-  validate.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The application ID.
+  * `:configuration_profile_id` (`t:string` required) The configuration profile
+  ID.
+  * `:configuration_version` (`t:string` required) The version of the
+  configuration to validate.
+  ## Keyword parameters:
   """
-
   @spec validate_configuration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_configuration_errors()}
-
   def validate_configuration(
         %Client{} = client,
         application_id,

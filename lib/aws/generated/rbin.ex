@@ -481,15 +481,12 @@ defmodule AWS.Rbin do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20CreateRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
-
   def create_rule(%Client{} = client, options \\ []) do
     url_path = "/rules"
 
@@ -529,16 +526,13 @@ defmodule AWS.Rbin do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20DeleteRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The unique ID of the retention rule.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The unique ID of the retention rule.
+  ## Keyword parameters:
   """
-
   @spec delete_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
-
   def delete_rule(%Client{} = client, identifier, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}"
 
@@ -585,16 +579,13 @@ defmodule AWS.Rbin do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20GetRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The unique ID of the retention rule.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The unique ID of the retention rule.
+  ## Keyword parameters:
   """
-
   @spec get_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_errors()}
-
   def get_rule(%Client{} = client, identifier, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}"
 
@@ -629,15 +620,12 @@ defmodule AWS.Rbin do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20ListRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-
   def list_rules(%Client{} = client, options \\ []) do
     url_path = "/list-rules"
 
@@ -674,17 +662,14 @@ defmodule AWS.Rbin do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention
-  rule.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  retention rule.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -719,16 +704,13 @@ defmodule AWS.Rbin do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20LockRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The unique ID of the retention rule.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The unique ID of the retention rule.
+  ## Keyword parameters:
   """
-
   @spec lock_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, lock_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, lock_rule_errors()}
-
   def lock_rule(%Client{} = client, identifier, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}/lock"
 
@@ -775,17 +757,14 @@ defmodule AWS.Rbin do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention
-  rule.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  retention rule.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -823,16 +802,13 @@ defmodule AWS.Rbin do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20UnlockRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The unique ID of the retention rule.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The unique ID of the retention rule.
+  ## Keyword parameters:
   """
-
   @spec unlock_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, unlock_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unlock_rule_errors()}
-
   def unlock_rule(%Client{} = client, identifier, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}/unlock"
 
@@ -879,19 +855,16 @@ defmodule AWS.Rbin do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention
-  rule.
-  * `:tag_keys` (`t:list[com.amazonaws.rbin#TagKey]`) The tag keys of the tags to
-  unassign. All tags that have the specified tag key are unassigned.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  retention rule.
+  * `:tag_keys` (`t:list[com.amazonaws.rbin#TagKey]` required) The tag keys of the
+  tags to unassign. All tags that have the specified tag key are unassigned.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -944,16 +917,13 @@ defmodule AWS.Rbin do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20UpdateRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The unique ID of the retention rule.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The unique ID of the retention rule.
+  ## Keyword parameters:
   """
-
   @spec update_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_errors()}
-
   def update_rule(%Client{} = client, identifier, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}"
 

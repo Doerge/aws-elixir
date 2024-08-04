@@ -940,6 +940,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   Cancels a query that has been issued. Cancellation is provided only if the query
   has not completed running before the cancellation request was issued. Because
   cancellation is an idempotent operation, subsequent cancellation requests will
@@ -956,12 +957,10 @@ defmodule AWS.TimestreamQuery do
       required("QueryId") => String.t()
     }
   """
-
   @spec cancel_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_query_errors()}
-
   def cancel_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -970,6 +969,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   Create a scheduled query that will be run on your behalf at the configured
   schedule. Timestream assumes the execution role provided as part of the
   `ScheduledQueryExecutionRoleArn` parameter to run the query. You can use the
@@ -993,12 +993,10 @@ defmodule AWS.TimestreamQuery do
       required("ScheduledQueryExecutionRoleArn") => String.t()
     }
   """
-
   @spec create_scheduled_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_scheduled_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scheduled_query_errors()}
-
   def create_scheduled_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1007,6 +1005,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   Deletes a given scheduled query. This is an irreversible operation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamquery%20DeleteScheduledQuery&this_doc_guide=API%2520Reference)
@@ -1017,12 +1016,10 @@ defmodule AWS.TimestreamQuery do
       required("ScheduledQueryArn") => String.t()
     }
   """
-
   @spec delete_scheduled_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scheduled_query_errors()}
-
   def delete_scheduled_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1031,6 +1028,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   Describes the settings for your account that include the query pricing model and
   the configured maximum TCUs the service can use for your query workload.
 
@@ -1042,12 +1040,10 @@ defmodule AWS.TimestreamQuery do
       
     }
   """
-
   @spec describe_account_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_settings_errors()}
-
   def describe_account_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1056,6 +1052,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   DescribeEndpoints returns a list of available endpoints to make Timestream API
   calls against. This API is available through both Write and Query. Because the
   Timestream SDKs are designed to transparently work with the service’s
@@ -1070,12 +1067,10 @@ defmodule AWS.TimestreamQuery do
       
     }
   """
-
   @spec describe_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoints_errors()}
-
   def describe_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1084,6 +1079,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   Provides detailed information about a scheduled query.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamquery%20DescribeScheduledQuery&this_doc_guide=API%2520Reference)
@@ -1094,12 +1090,10 @@ defmodule AWS.TimestreamQuery do
       required("ScheduledQueryArn") => String.t()
     }
   """
-
   @spec describe_scheduled_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scheduled_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scheduled_query_errors()}
-
   def describe_scheduled_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1108,6 +1102,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   You can use this API to run a scheduled query manually.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamquery%20ExecuteScheduledQuery&this_doc_guide=API%2520Reference)
@@ -1120,12 +1115,10 @@ defmodule AWS.TimestreamQuery do
       required("ScheduledQueryArn") => String.t()
     }
   """
-
   @spec execute_scheduled_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_scheduled_query_errors()}
-
   def execute_scheduled_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1134,6 +1127,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   Gets a list of all scheduled queries in the caller's Amazon account and Region.
   `ListScheduledQueries` is eventually consistent.
 
@@ -1146,12 +1140,10 @@ defmodule AWS.TimestreamQuery do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_scheduled_queries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_scheduled_queries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scheduled_queries_errors()}
-
   def list_scheduled_queries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1160,6 +1152,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   List all tags on a Timestream query resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamquery%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -1172,12 +1165,10 @@ defmodule AWS.TimestreamQuery do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1186,6 +1177,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   A synchronous operation that allows you to submit a query with parameters to be
   stored by Timestream for later running. Timestream only supports using this
   operation with `ValidateOnly` set to `true`.
@@ -1199,12 +1191,10 @@ defmodule AWS.TimestreamQuery do
       required("QueryString") => String.t()
     }
   """
-
   @spec prepare_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, prepare_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, prepare_query_errors()}
-
   def prepare_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1213,6 +1203,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   `Query` is a synchronous operation that enables you to run a query against your
   Amazon Timestream data. `Query` will time out after 60 seconds. You must
   update the default timeout in the SDK to support a timeout of 60 seconds. See
@@ -1231,12 +1222,10 @@ defmodule AWS.TimestreamQuery do
       required("QueryString") => String.t()
     }
   """
-
   @spec query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_errors()}
-
   def query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1245,6 +1234,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   Associate a set of tags with a Timestream resource. You can then activate these
   user-defined tags so that they appear on the Billing and Cost Management
   console for cost allocation tracking.
@@ -1258,12 +1248,10 @@ defmodule AWS.TimestreamQuery do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1272,6 +1260,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   Removes the association of tags from a Timestream query resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamquery%20UntagResource&this_doc_guide=API%2520Reference)
@@ -1283,12 +1272,10 @@ defmodule AWS.TimestreamQuery do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1297,6 +1284,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   Transitions your account to use TCUs for query pricing and modifies the maximum
   query compute units that you've configured. If you reduce the value of
   `MaxQueryTCU` to a desired configuration, the new value can take up to 24
@@ -1311,12 +1299,10 @@ defmodule AWS.TimestreamQuery do
       optional("QueryPricingModel") => list(any())
     }
   """
-
   @spec update_account_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_settings_errors()}
-
   def update_account_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1325,6 +1311,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
+   
   Update a scheduled query.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamquery%20UpdateScheduledQuery&this_doc_guide=API%2520Reference)
@@ -1336,12 +1323,10 @@ defmodule AWS.TimestreamQuery do
       required("State") => list(any())
     }
   """
-
   @spec update_scheduled_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scheduled_query_errors()}
-
   def update_scheduled_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

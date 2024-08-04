@@ -740,9 +740,10 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:author` (`t:string`) The name of the author publishing the app.
-    * `:description` (`t:string`) The description of the application.
-    * `:name` (`t:string`) The name of the application that you want to publish.
+    * `:author` (`t:string` required) The name of the author publishing the app.
+    * `:description` (`t:string` required) The description of the application.
+    * `:name` (`t:string` required) The name of the application that you want to
+  publish.
     * `:home_page_url` (`t:string`) A URL with more information about the
   application, for example the location of your GitHub repository for the
   application.
@@ -769,15 +770,12 @@ defmodule AWS.ServerlessApplicationRepository do
   your application. The file has the format file://<path>/<filename>.
     * `:template_url` (`t:string`) A link to the S3 object containing the packaged
   AWS SAM template of your application.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/applications"
 
@@ -814,9 +812,10 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateApplicationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
-  * `:semantic_version` (`t:string`) The semantic version of the new version.
+  * `:semantic_version` (`t:string` required) The semantic version of the new
+  version.
   * `:input` (`t:map | nil`):
     * `:source_code_archive_url` (`t:string`) A link to the S3 object that contains
   the ZIP archive of the source code for this version of your application.
@@ -826,10 +825,8 @@ defmodule AWS.ServerlessApplicationRepository do
   application.
     * `:template_url` (`t:string`) A link to the packaged AWS SAM template of your
   application.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application_version(
           AWS.Client.t(),
           String.t(),
@@ -840,7 +837,6 @@ defmodule AWS.ServerlessApplicationRepository do
           {:ok, create_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_version_errors()}
-
   def create_application_version(
         %Client{} = client,
         application_id,
@@ -885,11 +881,11 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateCloudFormationChangeSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
   * `:input` (`t:map`):
-    * `:stack_name` (`t:string`) This property corresponds to the parameter of the
-  same name for the AWS CloudFormation CreateChangeSet API.
+    * `:stack_name` (`t:string` required) This property corresponds to the parameter
+  of the same name for the AWS CloudFormation CreateChangeSet API.
     * `:capabilities`
   (`t:list[com.amazonaws.serverlessapplicationrepository#__string]`) A list of
   values that you must specify before you can deploy certain applications.
@@ -921,15 +917,12 @@ defmodule AWS.ServerlessApplicationRepository do
   property corresponds to the parameter of the same name for the AWS
   CloudFormation CreateChangeSet API.
     * `:template_id` (`t:string`) The UUID returned by CreateCloudFormationTemplate.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cloud_formation_change_set(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cloud_formation_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cloud_formation_change_set_errors()}
-
   def create_cloud_formation_change_set(%Client{} = client, application_id, input, options \\ [])
       when is_map(input) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/changesets"
@@ -967,14 +960,12 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateCloudFormationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
   * `:input` (`t:map | nil`):
     * `:semantic_version` (`t:string`) The semantic version of the application:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cloud_formation_template(
           AWS.Client.t(),
           String.t(),
@@ -984,7 +975,6 @@ defmodule AWS.ServerlessApplicationRepository do
           {:ok, create_cloud_formation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cloud_formation_template_errors()}
-
   def create_cloud_formation_template(%Client{} = client, application_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/templates"
@@ -1022,17 +1012,14 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20DeleteApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -1079,19 +1066,16 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20GetApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:semantic_version` (`t:string`) The semantic version of the application to
   get.
   """
-
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -1137,17 +1121,14 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20GetApplicationPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_application_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_policy_errors()}
-
   def get_application_policy(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
 
@@ -1182,18 +1163,16 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20GetCloudFormationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
-  * `:template_id` (`t:string`) The UUID returned by CreateCloudFormationTemplate.
-
-  ## Optional parameters:
+  * `:template_id` (`t:string` required) The UUID returned by
+  CreateCloudFormationTemplate.
+  ## Keyword parameters:
   """
-
   @spec get_cloud_formation_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_formation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_formation_template_errors()}
-
   def get_cloud_formation_template(%Client{} = client, application_id, template_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
@@ -1229,21 +1208,18 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20ListApplicationDependencies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_items` (`t:integer`) The total number of items to return.
   * `:next_token` (`t:string`) A token to specify where to start paginating.
   * `:semantic_version` (`t:string`) The semantic version of the application to
   get.
   """
-
   @spec list_application_dependencies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_dependencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_dependencies_errors()}
-
   def list_application_dependencies(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dependencies"
 
@@ -1303,19 +1279,16 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20ListApplicationVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_items` (`t:integer`) The total number of items to return.
   * `:next_token` (`t:string`) A token to specify where to start paginating.
   """
-
   @spec list_application_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_versions_errors()}
-
   def list_application_versions(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/versions"
 
@@ -1368,17 +1341,14 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_items` (`t:integer`) The total number of items to return.
   * `:next_token` (`t:string`) A token to specify where to start paginating.
   """
-
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -1434,21 +1404,18 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20PutApplicationPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
   * `:input` (`t:map`):
     * `:statements`
-  (`t:list[com.amazonaws.serverlessapplicationrepository#ApplicationPolicyStatement]`)
-  An array of policy statements applied to the application.
-
-  ## Optional parameters:
+  (`t:list[com.amazonaws.serverlessapplicationrepository#ApplicationPolicyStatement]`
+  required) An array of policy statements applied to the application.
+  ## Keyword parameters:
   """
-
   @spec put_application_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_application_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_application_policy_errors()}
-
   def put_application_policy(%Client{} = client, application_id, input, options \\ [])
       when is_map(input) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
@@ -1486,20 +1453,17 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20UnshareApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
   * `:input` (`t:map`):
-    * `:organization_id` (`t:string`) The AWS Organization ID to unshare the
-  application from.
-
-  ## Optional parameters:
+    * `:organization_id` (`t:string` required) The AWS Organization ID to unshare
+  the application from.
+  ## Keyword parameters:
   """
-
   @spec unshare_application(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unshare_application_errors()}
-
   def unshare_application(%Client{} = client, application_id, input, options \\ [])
       when is_map(input) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/unshare"
@@ -1537,7 +1501,7 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20UpdateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
   application.
   * `:input` (`t:map | nil`):
     * `:author` (`t:string`) The name of the author publishing the app.
@@ -1551,15 +1515,12 @@ defmodule AWS.ServerlessApplicationRepository do
   contains a more detailed description of the application and how it works.
     * `:readme_url` (`t:string`) A link to the readme file in Markdown language that
   contains a more detailed description of the application and how it works.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_application(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-
   def update_application(%Client{} = client, application_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"

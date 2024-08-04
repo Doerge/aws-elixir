@@ -737,6 +737,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Associates a new node with the server. For more information about how to
   disassociate a node, see `DisassociateNode`. On a Chef server: This command is
   an alternative to `knife bootstrap`.
@@ -751,12 +752,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec associate_node(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_node_errors()}
-
   def associate_node(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -765,6 +764,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Creates an application-level backup of a server. While the server is in the
   `BACKING_UP` state, the server cannot be changed, and no additional backup can
   be created. Backups can be created for servers in `RUNNING`, `HEALTHY`, and
@@ -780,12 +780,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec create_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backup_errors()}
-
   def create_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -794,6 +792,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Creates and immedately starts a new server. The server is ready to use when it
   is in the `HEALTHY` state. By default, you can create a maximum of 10 servers.
   This operation is asynchronous.
@@ -826,12 +825,10 @@ defmodule AWS.OpsWorksCM do
       required("ServiceRoleArn") => String.t()
     }
   """
-
   @spec create_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_server_errors()}
-
   def create_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -840,6 +837,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Deletes a backup. You can delete both manual and automated backups. This
   operation is asynchronous.
 
@@ -851,12 +849,10 @@ defmodule AWS.OpsWorksCM do
       required("BackupId") => String.t()
     }
   """
-
   @spec delete_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_errors()}
-
   def delete_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -865,6 +861,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Deletes the server and the underlying AWS CloudFormation stacks (including the
   server's EC2 instance). When you run this command, the server state is updated
   to `DELETING`. After the server is deleted, it is no longer returned by
@@ -879,12 +876,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec delete_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_server_errors()}
-
   def delete_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -893,6 +888,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Describes your OpsWorks-CM account attributes.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworkscm%20DescribeAccountAttributes&this_doc_guide=API%2520Reference)
@@ -903,11 +899,9 @@ defmodule AWS.OpsWorksCM do
       
     }
   """
-
   @spec describe_account_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_account_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -916,6 +910,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Describes backups. The results are ordered by time, with newest backups first.
   If you do not specify a BackupId or ServerName, the command returns all
   backups. This operation is synchronous.
@@ -931,12 +926,10 @@ defmodule AWS.OpsWorksCM do
       optional("ServerName") => String.t()
     }
   """
-
   @spec describe_backups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_backups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backups_errors()}
-
   def describe_backups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -945,6 +938,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Describes events for a specified server. Results are ordered by time, with
   newest events first. This operation is synchronous.
 
@@ -958,12 +952,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_events_errors()}
-
   def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -972,6 +964,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Returns the current status of an existing association or disassociation request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworkscm%20DescribeNodeAssociationStatus&this_doc_guide=API%2520Reference)
@@ -983,12 +976,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec describe_node_association_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_node_association_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_node_association_status_errors()}
-
   def describe_node_association_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -998,6 +989,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Lists all configuration management servers that are identified with your
   account. Only the stored results from Amazon DynamoDB are returned. AWS
   OpsWorks CM does not query other services. This operation is synchronous.
@@ -1012,12 +1004,10 @@ defmodule AWS.OpsWorksCM do
       optional("ServerName") => String.t()
     }
   """
-
   @spec describe_servers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_servers_errors()}
-
   def describe_servers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1026,6 +1016,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Disassociates a node from an AWS OpsWorks CM server, and removes the node from
   the server's managed nodes. After a node is disassociated, the node key pair
   is no longer valid for accessing the configuration manager's API. For more
@@ -1041,12 +1032,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec disassociate_node(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_node_errors()}
-
   def disassociate_node(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1055,6 +1044,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Exports a specified server engine attribute as a base64-encoded string. For
   example, you can export user data that you can use in EC2 to associate nodes
   with a server. This operation is synchronous.
@@ -1069,12 +1059,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec export_server_engine_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_server_engine_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_server_engine_attribute_errors()}
-
   def export_server_engine_attribute(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1084,6 +1072,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Returns a list of tags that are applied to the specified AWS OpsWorks for Chef
   Automate or AWS OpsWorks for Puppet Enterprise servers or backups.
 
@@ -1097,12 +1086,10 @@ defmodule AWS.OpsWorksCM do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1111,6 +1098,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Restores a backup to a server that is in a `CONNECTION_LOST`, `HEALTHY`,
   `RUNNING`, `UNHEALTHY`, or `TERMINATED` state. When you run RestoreServer, the
   server's EC2 instance is deleted, and a new EC2 instance is configured.
@@ -1133,12 +1121,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec restore_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_server_errors()}
-
   def restore_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1147,6 +1133,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Manually starts server maintenance. This command can be useful if an earlier
   maintenance attempt failed, and the underlying cause of maintenance failure
   has been resolved. The server is in an `UNDER_MAINTENANCE` state while
@@ -1161,12 +1148,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec start_maintenance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_maintenance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_maintenance_errors()}
-
   def start_maintenance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1175,6 +1160,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet
   Enterprise server, or to server backups.
 
@@ -1187,12 +1173,10 @@ defmodule AWS.OpsWorksCM do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1201,6 +1185,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Removes specified tags from an AWS OpsWorks-CM server or backup.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworkscm%20UntagResource&this_doc_guide=API%2520Reference)
@@ -1212,12 +1197,10 @@ defmodule AWS.OpsWorksCM do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1226,6 +1209,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Updates settings for a server.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opsworkscm%20UpdateServer&this_doc_guide=API%2520Reference)
@@ -1240,12 +1224,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec update_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_server_errors()}
-
   def update_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1254,6 +1236,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
+   
   Updates engine-specific attributes on a specified server. The server enters the
   `MODIFYING` state when this operation is in progress. Only one update can
   occur at a time. You can use this command to reset a Chef server's public key
@@ -1270,12 +1253,10 @@ defmodule AWS.OpsWorksCM do
       required("ServerName") => String.t()
     }
   """
-
   @spec update_server_engine_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_server_engine_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_server_engine_attributes_errors()}
-
   def update_server_engine_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

@@ -137,6 +137,7 @@ defmodule AWS.FreeTier do
   end
 
   @doc """
+   
   Returns a list of all Free Tier usage objects that match your filters.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=freetier%20GetFreeTierUsage&this_doc_guide=API%2520Reference)
@@ -149,12 +150,10 @@ defmodule AWS.FreeTier do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_free_tier_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_free_tier_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_free_tier_usage_errors()}
-
   def get_free_tier_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

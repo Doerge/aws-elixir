@@ -341,15 +341,12 @@ defmodule AWS.IoTFleetHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -386,19 +383,16 @@ defmodule AWS.IoTFleetHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20DeleteApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The unique Id of the web application.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The unique Id of the web application.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
   provide to ensure the idempotency of the request. Don't reuse this client
   token if a new idempotent request is required.
   """
-
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -456,16 +450,13 @@ defmodule AWS.IoTFleetHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20DescribeApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The unique Id of the web application.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The unique Id of the web application.
+  ## Keyword parameters:
   """
-
   @spec describe_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_errors()}
-
   def describe_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -501,16 +492,13 @@ defmodule AWS.IoTFleetHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A token used to get the next set of results.
   """
-
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -556,16 +544,13 @@ defmodule AWS.IoTFleetHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -601,16 +586,13 @@ defmodule AWS.IoTFleetHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -647,18 +629,15 @@ defmodule AWS.IoTFleetHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.iotfleethub#TagKey]`) A list of the keys of
-  the tags to be removed from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iotfleethub#TagKey]` required) A list of
+  the keys of the tags to be removed from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -706,16 +685,13 @@ defmodule AWS.IoTFleetHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20UpdateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The unique Id of the web application.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The unique Id of the web application.
+  ## Keyword parameters:
   """
-
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-
   def update_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 

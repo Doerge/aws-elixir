@@ -95,15 +95,12 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideowebrtcstorage%20JoinStorageSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec join_storage_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, join_storage_session_errors()}
-
   def join_storage_session(%Client{} = client, options \\ []) do
     url_path = "/joinStorageSession"
 

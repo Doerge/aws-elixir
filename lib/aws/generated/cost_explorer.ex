@@ -2693,6 +2693,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Creates a new cost anomaly detection monitor with the requested type and monitor
   specification.
 
@@ -2705,12 +2706,10 @@ defmodule AWS.CostExplorer do
       required("AnomalyMonitor") => anomaly_monitor()
     }
   """
-
   @spec create_anomaly_monitor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_anomaly_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_anomaly_monitor_errors()}
-
   def create_anomaly_monitor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2719,6 +2718,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Adds an alert subscription to a cost anomaly detection monitor. You can use each
   subscription to define subscribers with email or SNS notifications. Email
   subscribers can set an absolute or percentage threshold and a time frequency
@@ -2733,12 +2733,10 @@ defmodule AWS.CostExplorer do
       required("AnomalySubscription") => anomaly_subscription()
     }
   """
-
   @spec create_anomaly_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_anomaly_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_anomaly_subscription_errors()}
-
   def create_anomaly_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2747,6 +2745,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Creates a new Cost Category with the requested name and rules.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costexplorer%20CreateCostCategoryDefinition&this_doc_guide=API%2520Reference)
@@ -2763,12 +2762,10 @@ defmodule AWS.CostExplorer do
       required("Rules") => list(cost_category_rule()())
     }
   """
-
   @spec create_cost_category_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cost_category_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cost_category_definition_errors()}
-
   def create_cost_category_definition(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2778,6 +2775,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Deletes a cost anomaly monitor.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costexplorer%20DeleteAnomalyMonitor&this_doc_guide=API%2520Reference)
@@ -2788,12 +2786,10 @@ defmodule AWS.CostExplorer do
       required("MonitorArn") => String.t()
     }
   """
-
   @spec delete_anomaly_monitor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_anomaly_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_anomaly_monitor_errors()}
-
   def delete_anomaly_monitor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2802,6 +2798,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Deletes a cost anomaly subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costexplorer%20DeleteAnomalySubscription&this_doc_guide=API%2520Reference)
@@ -2812,12 +2809,10 @@ defmodule AWS.CostExplorer do
       required("SubscriptionArn") => String.t()
     }
   """
-
   @spec delete_anomaly_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_anomaly_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_anomaly_subscription_errors()}
-
   def delete_anomaly_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2826,6 +2821,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Deletes a Cost Category. Expenses from this month going forward will no longer
   be categorized with this Cost Category.
 
@@ -2837,12 +2833,10 @@ defmodule AWS.CostExplorer do
       required("CostCategoryArn") => String.t()
     }
   """
-
   @spec delete_cost_category_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_cost_category_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cost_category_definition_errors()}
-
   def delete_cost_category_definition(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2852,6 +2846,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Returns the name, Amazon Resource Name (ARN), rules, definition, and effective
   dates of a Cost Category that's defined in the account.
 
@@ -2864,12 +2859,10 @@ defmodule AWS.CostExplorer do
       required("CostCategoryArn") => String.t()
     }
   """
-
   @spec describe_cost_category_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_cost_category_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cost_category_definition_errors()}
-
   def describe_cost_category_definition(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2879,6 +2872,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves all of the cost anomalies detected on your account during the time
   period that's specified by the `DateInterval` object. Anomalies are available
   for up to 90 days.
@@ -2896,12 +2890,10 @@ defmodule AWS.CostExplorer do
       required("DateInterval") => anomaly_date_interval()
     }
   """
-
   @spec get_anomalies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_anomalies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_anomalies_errors()}
-
   def get_anomalies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2910,6 +2902,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves the cost anomaly monitor definitions for your account. You can filter
   using a list of cost anomaly monitor Amazon Resource Names (ARNs).
 
@@ -2923,12 +2916,10 @@ defmodule AWS.CostExplorer do
       optional("NextPageToken") => String.t()
     }
   """
-
   @spec get_anomaly_monitors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_anomaly_monitors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_anomaly_monitors_errors()}
-
   def get_anomaly_monitors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2937,6 +2928,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves the cost anomaly subscription objects for your account. You can filter
   using a list of cost anomaly monitor Amazon Resource Names (ARNs).
 
@@ -2951,12 +2943,10 @@ defmodule AWS.CostExplorer do
       optional("SubscriptionArnList") => list(String.t()())
     }
   """
-
   @spec get_anomaly_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_anomaly_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_anomaly_subscriptions_errors()}
-
   def get_anomaly_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2965,6 +2955,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves estimated usage records for hourly granularity or resource-level data
   at daily granularity.
 
@@ -2978,12 +2969,10 @@ defmodule AWS.CostExplorer do
       required("Granularity") => list(any())
     }
   """
-
   @spec get_approximate_usage_records(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_approximate_usage_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_approximate_usage_records_errors()}
-
   def get_approximate_usage_records(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2993,6 +2982,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves cost and usage metrics for your account. You can specify which cost
   and usage-related metric that you want the request to return. For example, you
   can specify `BlendedCosts` or `UsageQuantity`. You can also filter and group
@@ -3018,12 +3008,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_cost_and_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_cost_and_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cost_and_usage_errors()}
-
   def get_cost_and_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3032,6 +3020,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves cost and usage metrics with resources for your account. You can
   specify which cost and usage-related metric, such as `BlendedCosts` or
   `UsageQuantity`, that you want the request to return. You can also filter and
@@ -3056,12 +3045,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_cost_and_usage_with_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_cost_and_usage_with_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cost_and_usage_with_resources_errors()}
-
   def get_cost_and_usage_with_resources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3071,6 +3058,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves an array of Cost Category names and values incurred cost.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costexplorer%20GetCostCategories&this_doc_guide=API%2520Reference)
@@ -3087,12 +3075,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_cost_categories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_cost_categories_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cost_categories_errors()}
-
   def get_cost_categories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3101,6 +3087,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves a forecast for how much Amazon Web Services predicts that you will
   spend over the forecast time period that you select, based on your past costs.
 
@@ -3116,12 +3103,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_cost_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_cost_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cost_forecast_errors()}
-
   def get_cost_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3130,6 +3115,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves all available filter values for a specified filter over a period of
   time. You can search the dimension values for an arbitrary string.
 
@@ -3148,12 +3134,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_dimension_values(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_dimension_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dimension_values_errors()}
-
   def get_dimension_values(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3162,6 +3146,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves the reservation coverage for your account, which you can use to see
   how much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon
   Relational Database Service, or Amazon Redshift usage is covered by a
@@ -3185,12 +3170,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_reservation_coverage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_reservation_coverage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reservation_coverage_errors()}
-
   def get_reservation_coverage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3199,6 +3182,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Gets recommendations for reservation purchases. These recommendations might help
   you to reduce your costs. Reservations provide a discounted hourly rate (up to
   75%) compared to On-Demand pricing. Amazon Web Services generates your
@@ -3226,12 +3210,10 @@ defmodule AWS.CostExplorer do
       required("Service") => String.t()
     }
   """
-
   @spec get_reservation_purchase_recommendation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_reservation_purchase_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reservation_purchase_recommendation_errors()}
-
   def get_reservation_purchase_recommendation(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3241,6 +3223,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves the reservation utilization for your account. Management account in an
   organization have access to member accounts. You can filter data by dimensions
   in a time period. You can use `GetDimensionValues` to determine the possible
@@ -3260,12 +3243,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_reservation_utilization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_reservation_utilization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reservation_utilization_errors()}
-
   def get_reservation_utilization(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3274,6 +3255,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Creates recommendations that help you save cost by identifying idle and
   underutilized Amazon EC2 instances.
 
@@ -3289,12 +3271,10 @@ defmodule AWS.CostExplorer do
       required("Service") => String.t()
     }
   """
-
   @spec get_rightsizing_recommendation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rightsizing_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rightsizing_recommendation_errors()}
-
   def get_rightsizing_recommendation(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3304,6 +3284,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves the details for a Savings Plan recommendation. These details include
   the hourly data-points that construct the cost, coverage, and utilization
   charts.
@@ -3316,7 +3297,6 @@ defmodule AWS.CostExplorer do
       required("RecommendationDetailId") => String.t()
     }
   """
-
   @spec get_savings_plan_purchase_recommendation_details(
           AWS.Client.t(),
           input :: map(),
@@ -3325,7 +3305,6 @@ defmodule AWS.CostExplorer do
           {:ok, get_savings_plan_purchase_recommendation_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_savings_plan_purchase_recommendation_details_errors()}
-
   def get_savings_plan_purchase_recommendation_details(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3341,6 +3320,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves the Savings Plans covered for your account. This enables you to see
   how much of your cost is covered by a Savings Plan. An organization’s
   management account can see the coverage of the associated member accounts.
@@ -3363,12 +3343,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_savings_plans_coverage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_savings_plans_coverage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_savings_plans_coverage_errors()}
-
   def get_savings_plans_coverage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3377,6 +3355,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves the Savings Plans recommendations for your account. First use
   `StartSavingsPlansPurchaseRecommendationGeneration` to generate a new set of
   recommendations, and then use `GetSavingsPlansPurchaseRecommendation` to
@@ -3397,12 +3376,10 @@ defmodule AWS.CostExplorer do
       required("TermInYears") => list(any())
     }
   """
-
   @spec get_savings_plans_purchase_recommendation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_savings_plans_purchase_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_savings_plans_purchase_recommendation_errors()}
-
   def get_savings_plans_purchase_recommendation(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3412,6 +3389,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves the Savings Plans utilization for your account across date ranges with
   daily or monthly granularity. Management account in an organization have
   access to member accounts. You can use `GetDimensionValues` in `SAVINGS_PLANS`
@@ -3428,12 +3406,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_savings_plans_utilization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_savings_plans_utilization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_savings_plans_utilization_errors()}
-
   def get_savings_plans_utilization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3443,6 +3419,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves attribute data along with aggregate utilization and savings data for a
   given time period. This doesn't support granular or grouped data
   (daily/monthly) in response. You can't retrieve data by dates in a single
@@ -3464,12 +3441,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_savings_plans_utilization_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_savings_plans_utilization_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_savings_plans_utilization_details_errors()}
-
   def get_savings_plans_utilization_details(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3479,6 +3454,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Queries for available tag keys and tag values for a specified period. You can
   search the tag values for an arbitrary string.
 
@@ -3496,12 +3472,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tags_errors()}
-
   def get_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3510,6 +3484,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves a forecast for how much Amazon Web Services predicts that you will use
   over the forecast time period that you select, based on your past usage.
 
@@ -3525,12 +3500,10 @@ defmodule AWS.CostExplorer do
       required("TimePeriod") => date_interval()
     }
   """
-
   @spec get_usage_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_usage_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_forecast_errors()}
-
   def get_usage_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3539,6 +3512,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves a list of your historical cost allocation tag backfill requests.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costexplorer%20ListCostAllocationTagBackfillHistory&this_doc_guide=API%2520Reference)
@@ -3550,12 +3524,10 @@ defmodule AWS.CostExplorer do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_cost_allocation_tag_backfill_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_cost_allocation_tag_backfill_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cost_allocation_tag_backfill_history_errors()}
-
   def list_cost_allocation_tag_backfill_history(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3565,6 +3537,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Get a list of cost allocation tags. All inputs in the API are optional and serve
   as filters. By default, all cost allocation tags are returned.
 
@@ -3580,12 +3553,10 @@ defmodule AWS.CostExplorer do
       optional("Type") => list(any())
     }
   """
-
   @spec list_cost_allocation_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_cost_allocation_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cost_allocation_tags_errors()}
-
   def list_cost_allocation_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3594,6 +3565,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Returns the name, Amazon Resource Name (ARN), `NumberOfRules` and effective
   dates of all Cost Categories defined in the account. You have the option to
   use `EffectiveOn` to return a list of Cost Categories that were active on a
@@ -3613,12 +3585,10 @@ defmodule AWS.CostExplorer do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_cost_category_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_cost_category_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cost_category_definitions_errors()}
-
   def list_cost_category_definitions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3628,6 +3598,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Retrieves a list of your historical recommendation generations within the past
   30 days.
 
@@ -3642,7 +3613,6 @@ defmodule AWS.CostExplorer do
       optional("RecommendationIds") => list(String.t()())
     }
   """
-
   @spec list_savings_plans_purchase_recommendation_generation(
           AWS.Client.t(),
           input :: map(),
@@ -3651,7 +3621,6 @@ defmodule AWS.CostExplorer do
           {:ok, list_savings_plans_purchase_recommendation_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_savings_plans_purchase_recommendation_generation_errors()}
-
   def list_savings_plans_purchase_recommendation_generation(
         %Client{} = client,
         input,
@@ -3671,6 +3640,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Returns a list of resource tags associated with the resource specified by the
   Amazon Resource Name (ARN).
 
@@ -3682,12 +3652,10 @@ defmodule AWS.CostExplorer do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3696,6 +3664,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Modifies the feedback property of a given cost anomaly.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costexplorer%20ProvideAnomalyFeedback&this_doc_guide=API%2520Reference)
@@ -3707,12 +3676,10 @@ defmodule AWS.CostExplorer do
       required("Feedback") => list(any())
     }
   """
-
   @spec provide_anomaly_feedback(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, provide_anomaly_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, provide_anomaly_feedback_errors()}
-
   def provide_anomaly_feedback(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3721,6 +3688,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Request a cost allocation tag backfill. This will backfill the activation status
   (either `active` or `inactive`) for all tag keys from `para:BackfillFrom` up
   to the when this request is made.
@@ -3733,12 +3701,10 @@ defmodule AWS.CostExplorer do
       required("BackfillFrom") => String.t()
     }
   """
-
   @spec start_cost_allocation_tag_backfill(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_cost_allocation_tag_backfill_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_cost_allocation_tag_backfill_errors()}
-
   def start_cost_allocation_tag_backfill(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3748,6 +3714,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Requests a Savings Plans recommendation generation. This enables you to
   calculate a fresh set of Savings Plans recommendations that takes your latest
   usage data and current Savings Plans inventory into account. You can refresh
@@ -3762,7 +3729,6 @@ defmodule AWS.CostExplorer do
       
     }
   """
-
   @spec start_savings_plans_purchase_recommendation_generation(
           AWS.Client.t(),
           input :: map(),
@@ -3771,7 +3737,6 @@ defmodule AWS.CostExplorer do
           {:ok, start_savings_plans_purchase_recommendation_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_savings_plans_purchase_recommendation_generation_errors()}
-
   def start_savings_plans_purchase_recommendation_generation(
         %Client{} = client,
         input,
@@ -3791,6 +3756,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   An API operation for adding one or more tags (key-value pairs) to a resource.
   You can use the `TagResource` operation with a resource that already has tags.
   If you specify a new tag key for the resource, this tag is appended to the
@@ -3807,12 +3773,10 @@ defmodule AWS.CostExplorer do
       required("ResourceTags") => list(resource_tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3821,6 +3785,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Removes one or more tags from a resource. Specify only tag keys in your request.
   Don't specify the value.
 
@@ -3833,12 +3798,10 @@ defmodule AWS.CostExplorer do
       required("ResourceTagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3847,6 +3810,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Updates an existing cost anomaly monitor. The changes made are applied going
   forward, and doesn't change anomalies detected in the past.
 
@@ -3859,12 +3823,10 @@ defmodule AWS.CostExplorer do
       required("MonitorArn") => String.t()
     }
   """
-
   @spec update_anomaly_monitor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_anomaly_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_anomaly_monitor_errors()}
-
   def update_anomaly_monitor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3873,6 +3835,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Updates an existing cost anomaly subscription. Specify the fields that you want
   to update. Omitted fields are unchanged.
 
@@ -3890,12 +3853,10 @@ defmodule AWS.CostExplorer do
       required("SubscriptionArn") => String.t()
     }
   """
-
   @spec update_anomaly_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_anomaly_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_anomaly_subscription_errors()}
-
   def update_anomaly_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3904,6 +3865,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Updates status for cost allocation tags in bulk, with maximum batch size of 20.
   If the tag status that's updated is the same as the existing tag status, the
   request doesn't fail. Instead, it doesn't have any effect on the tag status
@@ -3917,12 +3879,10 @@ defmodule AWS.CostExplorer do
       required("CostAllocationTagsStatus") => list(cost_allocation_tag_status_entry()())
     }
   """
-
   @spec update_cost_allocation_tags_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cost_allocation_tags_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cost_allocation_tags_status_errors()}
-
   def update_cost_allocation_tags_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3932,6 +3892,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+   
   Updates an existing Cost Category. Changes made to the Cost Category rules will
   be used to categorize the current month’s expenses and future expenses. This
   won’t change categorization for the previous months.
@@ -3949,12 +3910,10 @@ defmodule AWS.CostExplorer do
       required("Rules") => list(cost_category_rule()())
     }
   """
-
   @spec update_cost_category_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cost_category_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cost_category_definition_errors()}
-
   def update_cost_category_definition(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

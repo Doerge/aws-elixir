@@ -1844,14 +1844,11 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ConfigureLogsForChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec configure_logs_for_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, configure_logs_for_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def configure_logs_for_channel(%Client{} = client, options \\ []) do
     url_path = "/configureLogs/channel"
 
@@ -1888,14 +1885,11 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ConfigureLogsForPlaybackConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec configure_logs_for_playback_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, configure_logs_for_playback_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def configure_logs_for_playback_configuration(%Client{} = client, options \\ []) do
     url_path = "/configureLogs/playbackConfiguration"
 
@@ -1934,20 +1928,17 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel.
+  * `:channel_name` (`t:string` required) The name of the channel.
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) The tags to assign to the channel. Tags are key-value pairs
   that you can associate with Amazon resources to help with organization,
   access control, and cost tracking. For more information, see Tagging AWS
   Elemental MediaTailor Resources.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_channel(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_channel(%Client{} = client, channel_name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
@@ -1985,17 +1976,15 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreateLiveSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:live_source_name` (`t:string`) The name of the live source.
-  * `:source_location_name` (`t:string`) The name of the source location.
+  * `:live_source_name` (`t:string` required) The name of the live source.
+  * `:source_location_name` (`t:string` required) The name of the source location.
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) The tags to assign to the live source. Tags are key-value
   pairs that you can associate with Amazon resources to help with
   organization, access control, and cost tracking. For more information, see
   Tagging AWS Elemental MediaTailor Resources.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_live_source(
           AWS.Client.t(),
           String.t(),
@@ -2005,7 +1994,6 @@ defmodule AWS.MediaTailor do
         ) ::
           {:ok, create_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_live_source(
         %Client{} = client,
         live_source_name,
@@ -2054,17 +2042,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreatePrefetchSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name to assign to the schedule request.
-  * `:playback_configuration_name` (`t:string`) The name to assign to the playback
-  configuration.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name to assign to the schedule request.
+  * `:playback_configuration_name` (`t:string` required) The name to assign to the
+  playback configuration.
+  ## Keyword parameters:
   """
-
   @spec create_prefetch_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_prefetch_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_prefetch_schedule(
         %Client{} = client,
         name,
@@ -2110,16 +2095,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreateProgram&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel for this Program.
-  * `:program_name` (`t:string`) The name of the Program.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel for this
+  Program.
+  * `:program_name` (`t:string` required) The name of the Program.
+  ## Keyword parameters:
   """
-
   @spec create_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_program(%Client{} = client, channel_name, program_name, options \\ []) do
     url_path =
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
@@ -2160,21 +2143,18 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreateSourceLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_location_name` (`t:string`) The name associated with the source
-  location.
+  * `:source_location_name` (`t:string` required) The name associated with the
+  source location.
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) The tags to assign to the source location. Tags are
   key-value pairs that you can associate with Amazon resources to help with
   organization, access control, and cost tracking. For more information, see
   Tagging AWS Elemental MediaTailor Resources.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_source_location(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_source_location(%Client{} = client, source_location_name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
@@ -2212,18 +2192,17 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreateVodSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_location_name` (`t:string`) The name of the source location for this
-  VOD source.
-  * `:vod_source_name` (`t:string`) The name associated with the VOD source.>
+  * `:source_location_name` (`t:string` required) The name of the source location
+  for this VOD source.
+  * `:vod_source_name` (`t:string` required) The name associated with the VOD
+  source.>
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) The tags to assign to the VOD source. Tags are key-value
   pairs that you can associate with Amazon resources to help with
   organization, access control, and cost tracking. For more information, see
   Tagging AWS Elemental MediaTailor Resources.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_vod_source(
           AWS.Client.t(),
           String.t(),
@@ -2233,7 +2212,6 @@ defmodule AWS.MediaTailor do
         ) ::
           {:ok, create_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_vod_source(
         %Client{} = client,
         source_location_name,
@@ -2280,15 +2258,12 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel.
+  ## Keyword parameters:
   """
-
   @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
 
@@ -2335,16 +2310,13 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteChannelPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel associated with this
-  channel policy.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel associated with
+  this channel policy.
+  ## Keyword parameters:
   """
-
   @spec delete_channel_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_channel_policy(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
 
@@ -2391,17 +2363,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteLiveSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:live_source_name` (`t:string`) The name of the live source.
-  * `:source_location_name` (`t:string`) The name of the source location
+  * `:live_source_name` (`t:string` required) The name of the live source.
+  * `:source_location_name` (`t:string` required) The name of the source location
   associated with this Live Source.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_live_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_live_source(
         %Client{} = client,
         live_source_name,
@@ -2456,15 +2425,12 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeletePlaybackConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the playback configuration.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the playback configuration.
+  ## Keyword parameters:
   """
-
   @spec delete_playback_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_playback_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_playback_configuration(%Client{} = client, name, options \\ []) do
     url_path = "/playbackConfiguration/#{AWS.Util.encode_uri(name)}"
 
@@ -2516,19 +2482,16 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeletePrefetchSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the prefetch schedule. If the action is
-  successful, the service sends back an HTTP 204 response with an empty HTTP
-  body.
-  * `:playback_configuration_name` (`t:string`) The name of the playback
+  * `:name` (`t:string` required) The name of the prefetch schedule. If the action
+  is successful, the service sends back an HTTP 204 response with an empty
+  HTTP body.
+  * `:playback_configuration_name` (`t:string` required) The name of the playback
   configuration for this prefetch schedule.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_prefetch_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_prefetch_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_prefetch_schedule(
         %Client{} = client,
         name,
@@ -2584,16 +2547,13 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteProgram&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel.
-  * `:program_name` (`t:string`) The name of the program.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel.
+  * `:program_name` (`t:string` required) The name of the program.
+  ## Keyword parameters:
   """
-
   @spec delete_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_program(%Client{} = client, channel_name, program_name, options \\ []) do
     url_path =
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
@@ -2644,15 +2604,12 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteSourceLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_location_name` (`t:string`) The name of the source location.
-
-  ## Optional parameters:
+  * `:source_location_name` (`t:string` required) The name of the source location.
+  ## Keyword parameters:
   """
-
   @spec delete_source_location(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_source_location(%Client{} = client, source_location_name, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
 
@@ -2699,17 +2656,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteVodSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_location_name` (`t:string`) The name of the source location
+  * `:source_location_name` (`t:string` required) The name of the source location
   associated with this VOD Source.
-  * `:vod_source_name` (`t:string`) The name of the VOD source.
-
-  ## Optional parameters:
+  * `:vod_source_name` (`t:string` required) The name of the VOD source.
+  ## Keyword parameters:
   """
-
   @spec delete_vod_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_vod_source(%Client{} = client, source_location_name, vod_source_name, options \\ []) do
     url_path =
       "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSource/#{AWS.Util.encode_uri(vod_source_name)}"
@@ -2760,15 +2714,12 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DescribeChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel.
+  ## Keyword parameters:
   """
-
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
 
@@ -2803,17 +2754,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DescribeLiveSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:live_source_name` (`t:string`) The name of the live source.
-  * `:source_location_name` (`t:string`) The name of the source location
+  * `:live_source_name` (`t:string` required) The name of the live source.
+  * `:source_location_name` (`t:string` required) The name of the source location
   associated with this Live Source.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_live_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_live_source(
         %Client{} = client,
         live_source_name,
@@ -2857,17 +2805,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DescribeProgram&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel associated with this
-  Program.
-  * `:program_name` (`t:string`) The name of the program.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel associated with
+  this Program.
+  * `:program_name` (`t:string` required) The name of the program.
+  ## Keyword parameters:
   """
-
   @spec describe_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_program(%Client{} = client, channel_name, program_name, options \\ []) do
     url_path =
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
@@ -2906,15 +2851,12 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DescribeSourceLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_location_name` (`t:string`) The name of the source location.
-
-  ## Optional parameters:
+  * `:source_location_name` (`t:string` required) The name of the source location.
+  ## Keyword parameters:
   """
-
   @spec describe_source_location(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_source_location(%Client{} = client, source_location_name, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
 
@@ -2950,17 +2892,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DescribeVodSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_location_name` (`t:string`) The name of the source location
+  * `:source_location_name` (`t:string` required) The name of the source location
   associated with this VOD Source.
-  * `:vod_source_name` (`t:string`) The name of the VOD Source.
-
-  ## Optional parameters:
+  * `:vod_source_name` (`t:string` required) The name of the VOD Source.
+  ## Keyword parameters:
   """
-
   @spec describe_vod_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_vod_source(
         %Client{} = client,
         source_location_name,
@@ -3002,16 +2941,13 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20GetChannelPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel associated with this
-  Channel Policy.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel associated with
+  this Channel Policy.
+  ## Keyword parameters:
   """
-
   @spec get_channel_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_channel_policy(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
 
@@ -3046,10 +2982,9 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20GetChannelSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel associated with this
-  Channel Schedule.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel associated with
+  this Channel Schedule.
+  ## Keyword parameters:
   * `:audience` (`t:string`) The single audience for GetChannelScheduleRequest.
   * `:duration_minutes` (`t:string`) The duration in minutes of the channel
   schedule.
@@ -3061,11 +2996,9 @@ defmodule AWS.MediaTailor do
   than MaxResults channel schedules, use NextToken to get the second and
   subsequent pages of results.
   """
-
   @spec get_channel_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_channel_schedule(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/schedule"
 
@@ -3134,15 +3067,12 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20GetPlaybackConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The identifier for the playback configuration.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The identifier for the playback configuration.
+  ## Keyword parameters:
   """
-
   @spec get_playback_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_playback_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_playback_configuration(%Client{} = client, name, options \\ []) do
     url_path = "/playbackConfiguration/#{AWS.Util.encode_uri(name)}"
 
@@ -3181,21 +3111,18 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20GetPrefetchSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the prefetch schedule. The name must be
-  unique among all prefetch schedules that are associated with the specified
-  playback configuration.
-  * `:playback_configuration_name` (`t:string`) Returns information about the
-  prefetch schedule for a specific playback configuration. If you call
+  * `:name` (`t:string` required) The name of the prefetch schedule. The name must
+  be unique among all prefetch schedules that are associated with the
+  specified playback configuration.
+  * `:playback_configuration_name` (`t:string` required) Returns information about
+  the prefetch schedule for a specific playback configuration. If you call
   GetPrefetchSchedule on an expired prefetch schedule, MediaTailor returns an
   HTTP 404 status code.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_prefetch_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_prefetch_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_prefetch_schedule(%Client{} = client, name, playback_configuration_name, options \\ []) do
     url_path =
       "/prefetchSchedule/#{AWS.Util.encode_uri(playback_configuration_name)}/#{AWS.Util.encode_uri(name)}"
@@ -3232,9 +3159,9 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListAlerts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of alerts that you want
   MediaTailor to return in response to the current request. If there are more
   than MaxResults alerts, use the value of NextToken in the response to get
@@ -3243,11 +3170,9 @@ defmodule AWS.MediaTailor do
   results exceed the maximum allowed. Use the token to fetch the next page of
   results.
   """
-
   @spec list_alerts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alerts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_alerts(%Client{} = client, resource_arn, options \\ []) when is_binary(resource_arn) do
     url_path = "/alerts"
 
@@ -3301,8 +3226,7 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channels that you want
   MediaTailor to return in response to the current request. If there are more
   than MaxResults channels, use the value of NextToken in the response to get
@@ -3311,11 +3235,9 @@ defmodule AWS.MediaTailor do
   results exceed the maximum allowed. Use the token to fetch the next page of
   results.
   """
-
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_channels(%Client{} = client, options \\ []) do
     url_path = "/channels"
 
@@ -3369,10 +3291,9 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListLiveSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_location_name` (`t:string`) The name of the source location
+  * `:source_location_name` (`t:string` required) The name of the source location
   associated with this Live Sources list.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of live sources that you want
   MediaTailor to return in response to the current request. If there are more
   than MaxResults live sources, use the value of NextToken in the response to
@@ -3381,11 +3302,9 @@ defmodule AWS.MediaTailor do
   results exceed the maximum allowed. Use the token to fetch the next page of
   results.
   """
-
   @spec list_live_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_live_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_live_sources(%Client{} = client, source_location_name, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/liveSources"
 
@@ -3440,8 +3359,7 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListPlaybackConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of playback configurations
   that you want MediaTailor to return in response to the current request. If
   there are more than MaxResults playback configurations, use the value of
@@ -3450,11 +3368,9 @@ defmodule AWS.MediaTailor do
   results exceed the maximum allowed. Use the token to fetch the next page of
   results.
   """
-
   @spec list_playback_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_playback_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_playback_configurations(%Client{} = client, options \\ []) do
     url_path = "/playbackConfigurations"
 
@@ -3507,16 +3423,13 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListPrefetchSchedules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:playback_configuration_name` (`t:string`) Retrieves the prefetch schedule(s)
-  for a specific playback configuration.
-
-  ## Optional parameters:
+  * `:playback_configuration_name` (`t:string` required) Retrieves the prefetch
+  schedule(s) for a specific playback configuration.
+  ## Keyword parameters:
   """
-
   @spec list_prefetch_schedules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_prefetch_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_prefetch_schedules(%Client{} = client, playback_configuration_name, options \\ []) do
     url_path = "/prefetchSchedule/#{AWS.Util.encode_uri(playback_configuration_name)}"
 
@@ -3554,8 +3467,7 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListSourceLocations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of source locations that you
   want MediaTailor to return in response to the current request. If there are
   more than MaxResults source locations, use the value of NextToken in the
@@ -3564,11 +3476,9 @@ defmodule AWS.MediaTailor do
   results exceed the maximum allowed. Use the token to fetch the next page of
   results.
   """
-
   @spec list_source_locations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_source_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_source_locations(%Client{} = client, options \\ []) do
     url_path = "/sourceLocations"
 
@@ -3625,17 +3535,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with
-  this resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  associated with this resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3671,10 +3578,9 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListVodSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_location_name` (`t:string`) The name of the source location
+  * `:source_location_name` (`t:string` required) The name of the source location
   associated with this VOD Source list.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of VOD sources that you want
   MediaTailor to return in response to the current request. If there are more
   than MaxResults VOD sources, use the value of NextToken in the response to
@@ -3683,11 +3589,9 @@ defmodule AWS.MediaTailor do
   results exceed the maximum allowed. Use the token to fetch the next page of
   results.
   """
-
   @spec list_vod_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vod_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_vod_sources(%Client{} = client, source_location_name, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSources"
 
@@ -3741,16 +3645,13 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20PutChannelPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The channel name associated with this Channel
-  Policy.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The channel name associated with this
+  Channel Policy.
+  ## Keyword parameters:
   """
-
   @spec put_channel_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_channel_policy(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
 
@@ -3794,14 +3695,11 @@ defmodule AWS.MediaTailor do
   key-value pairs that you can associate with Amazon resources to help with
   organization, access control, and cost tracking. For more information, see
   Tagging AWS Elemental MediaTailor Resources.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_playback_configuration(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, put_playback_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_playback_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/playbackConfiguration"
@@ -3841,15 +3739,12 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20StartChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel.
+  ## Keyword parameters:
   """
-
   @spec start_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def start_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/start"
 
@@ -3888,15 +3783,12 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20StopChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel.
+  ## Keyword parameters:
   """
-
   @spec stop_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def stop_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/stop"
 
@@ -3936,22 +3828,19 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with
-  the resource.
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  associated with the resource.
   * `:input` (`t:map`):
-    * `:tags` (`t:map`) The tags to assign to the resource. Tags are key-value pairs
-  that you can associate with Amazon resources to help with organization,
-  access control, and cost tracking. For more information, see Tagging AWS
-  Elemental MediaTailor Resources.
-
-  ## Optional parameters:
+    * `:tags` (`t:map` required) The tags to assign to the resource. Tags are
+  key-value pairs that you can associate with Amazon resources to help with
+  organization, access control, and cost tracking. For more information, see
+  Tagging AWS Elemental MediaTailor Resources.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3988,19 +3877,16 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  untag.
-  * `:tag_keys` (`t:list[com.amazonaws.mediatailor#__string]`) The tag keys
-  associated with the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.mediatailor#__string]` required) The tag
+  keys associated with the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4050,15 +3936,12 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UpdateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel.
+  ## Keyword parameters:
   """
-
   @spec update_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
 
@@ -4095,17 +3978,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UpdateLiveSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:live_source_name` (`t:string`) The name of the live source.
-  * `:source_location_name` (`t:string`) The name of the source location
+  * `:live_source_name` (`t:string` required) The name of the live source.
+  * `:source_location_name` (`t:string` required) The name of the source location
   associated with this Live Source.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_live_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_live_source(
         %Client{} = client,
         live_source_name,
@@ -4148,16 +4028,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UpdateProgram&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_name` (`t:string`) The name of the channel for this Program.
-  * `:program_name` (`t:string`) The name of the Program.
-
-  ## Optional parameters:
+  * `:channel_name` (`t:string` required) The name of the channel for this
+  Program.
+  * `:program_name` (`t:string` required) The name of the Program.
+  ## Keyword parameters:
   """
-
   @spec update_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_program(%Client{} = client, channel_name, program_name, options \\ []) do
     url_path =
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
@@ -4198,15 +4076,12 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UpdateSourceLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_location_name` (`t:string`) The name of the source location.
-
-  ## Optional parameters:
+  * `:source_location_name` (`t:string` required) The name of the source location.
+  ## Keyword parameters:
   """
-
   @spec update_source_location(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_source_location(%Client{} = client, source_location_name, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
 
@@ -4243,17 +4118,14 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UpdateVodSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:source_location_name` (`t:string`) The name of the source location
+  * `:source_location_name` (`t:string` required) The name of the source location
   associated with this VOD Source.
-  * `:vod_source_name` (`t:string`) The name of the VOD source.
-
-  ## Optional parameters:
+  * `:vod_source_name` (`t:string` required) The name of the VOD source.
+  ## Keyword parameters:
   """
-
   @spec update_vod_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_vod_source(%Client{} = client, source_location_name, vod_source_name, options \\ []) do
     url_path =
       "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSource/#{AWS.Util.encode_uri(vod_source_name)}"

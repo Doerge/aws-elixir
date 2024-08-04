@@ -2407,6 +2407,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Deletes a recommendation preference, such as enhanced infrastructure metrics.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20DeleteRecommendationPreferences&this_doc_guide=API%2520Reference)
@@ -2419,12 +2420,10 @@ defmodule AWS.ComputeOptimizer do
       required("resourceType") => list(any())
     }
   """
-
   @spec delete_recommendation_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recommendation_preferences_errors()}
-
   def delete_recommendation_preferences(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2434,6 +2433,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Describes recommendation export jobs created in the last seven days.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20DescribeRecommendationExportJobs&this_doc_guide=API%2520Reference)
@@ -2447,12 +2447,10 @@ defmodule AWS.ComputeOptimizer do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_recommendation_export_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_recommendation_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recommendation_export_jobs_errors()}
-
   def describe_recommendation_export_jobs(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2462,6 +2460,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Exports optimization recommendations for Auto Scaling groups. Recommendations
   are exported in a comma-separated values (.csv) file, and its metadata in a
   JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple
@@ -2484,12 +2483,10 @@ defmodule AWS.ComputeOptimizer do
       required("s3DestinationConfig") => s3_destination_config()
     }
   """
-
   @spec export_auto_scaling_group_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_auto_scaling_group_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_auto_scaling_group_recommendations_errors()}
-
   def export_auto_scaling_group_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2499,6 +2496,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Exports optimization recommendations for Amazon ECS services on Fargate.
   Recommendations are exported in a CSV file, and its metadata in a JSON file,
   to an existing Amazon Simple Storage Service (Amazon S3) bucket that you
@@ -2519,12 +2517,10 @@ defmodule AWS.ComputeOptimizer do
       required("s3DestinationConfig") => s3_destination_config()
     }
   """
-
   @spec export_e_c_s_service_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_e_c_s_service_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_e_c_s_service_recommendations_errors()}
-
   def export_e_c_s_service_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2534,6 +2530,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Exports optimization recommendations for Amazon EBS volumes. Recommendations are
   exported in a comma-separated values (.csv) file, and its metadata in a
   JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple
@@ -2555,12 +2552,10 @@ defmodule AWS.ComputeOptimizer do
       required("s3DestinationConfig") => s3_destination_config()
     }
   """
-
   @spec export_ebs_volume_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_ebs_volume_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_ebs_volume_recommendations_errors()}
-
   def export_ebs_volume_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2570,6 +2565,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Exports optimization recommendations for Amazon EC2 instances. Recommendations
   are exported in a comma-separated values (.csv) file, and its metadata in a
   JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple
@@ -2592,12 +2588,10 @@ defmodule AWS.ComputeOptimizer do
       required("s3DestinationConfig") => s3_destination_config()
     }
   """
-
   @spec export_ec2_instance_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_ec2_instance_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_ec2_instance_recommendations_errors()}
-
   def export_ec2_instance_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2607,6 +2601,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Exports optimization recommendations for Lambda functions. Recommendations are
   exported in a comma-separated values (.csv) file, and its metadata in a
   JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple
@@ -2628,12 +2623,10 @@ defmodule AWS.ComputeOptimizer do
       required("s3DestinationConfig") => s3_destination_config()
     }
   """
-
   @spec export_lambda_function_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_lambda_function_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_lambda_function_recommendations_errors()}
-
   def export_lambda_function_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2643,6 +2636,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Export optimization recommendations for your licenses. Recommendations are
   exported in a comma-separated values (CSV) file, and its metadata in a
   JavaScript Object Notation (JSON) file, to an existing Amazon Simple Storage
@@ -2664,12 +2658,10 @@ defmodule AWS.ComputeOptimizer do
       required("s3DestinationConfig") => s3_destination_config()
     }
   """
-
   @spec export_license_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_license_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_license_recommendations_errors()}
-
   def export_license_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2679,6 +2671,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Export optimization recommendations for your Amazon Relational Database Service
   (Amazon RDS). Recommendations are exported in a comma-separated values (CSV)
   file, and its metadata in a JavaScript Object Notation (JSON) file, to an
@@ -2701,12 +2694,10 @@ defmodule AWS.ComputeOptimizer do
       required("s3DestinationConfig") => s3_destination_config()
     }
   """
-
   @spec export_rds_database_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_rds_database_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_rds_database_recommendations_errors()}
-
   def export_rds_database_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2716,6 +2707,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns Auto Scaling group recommendations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetAutoScalingGroupRecommendations&this_doc_guide=API%2520Reference)
@@ -2731,12 +2723,10 @@ defmodule AWS.ComputeOptimizer do
       optional("recommendationPreferences") => recommendation_preferences()
     }
   """
-
   @spec get_auto_scaling_group_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_auto_scaling_group_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_auto_scaling_group_recommendations_errors()}
-
   def get_auto_scaling_group_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2746,6 +2736,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns the projected metrics of Amazon ECS service recommendations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetECSServiceRecommendationProjectedMetrics&this_doc_guide=API%2520Reference)
@@ -2760,7 +2751,6 @@ defmodule AWS.ComputeOptimizer do
       required("stat") => list(any())
     }
   """
-
   @spec get_e_c_s_service_recommendation_projected_metrics(
           AWS.Client.t(),
           input :: map(),
@@ -2769,7 +2759,6 @@ defmodule AWS.ComputeOptimizer do
           {:ok, get_e_c_s_service_recommendation_projected_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_e_c_s_service_recommendation_projected_metrics_errors()}
-
   def get_e_c_s_service_recommendation_projected_metrics(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2785,6 +2774,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns Amazon ECS service recommendations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetECSServiceRecommendations&this_doc_guide=API%2520Reference)
@@ -2799,12 +2789,10 @@ defmodule AWS.ComputeOptimizer do
       optional("serviceArns") => list(String.t()())
     }
   """
-
   @spec get_e_c_s_service_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_e_c_s_service_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_e_c_s_service_recommendations_errors()}
-
   def get_e_c_s_service_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2814,6 +2802,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetEBSVolumeRecommendations&this_doc_guide=API%2520Reference)
@@ -2828,12 +2817,10 @@ defmodule AWS.ComputeOptimizer do
       optional("volumeArns") => list(String.t()())
     }
   """
-
   @spec get_ebs_volume_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ebs_volume_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ebs_volume_recommendations_errors()}
-
   def get_ebs_volume_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2843,6 +2830,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns Amazon EC2 instance recommendations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetEC2InstanceRecommendations&this_doc_guide=API%2520Reference)
@@ -2858,12 +2846,10 @@ defmodule AWS.ComputeOptimizer do
       optional("recommendationPreferences") => recommendation_preferences()
     }
   """
-
   @spec get_ec2_instance_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ec2_instance_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ec2_instance_recommendations_errors()}
-
   def get_ec2_instance_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2873,6 +2859,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns the projected utilization metrics of Amazon EC2 instance
   recommendations.
 
@@ -2889,12 +2876,10 @@ defmodule AWS.ComputeOptimizer do
       required("stat") => list(any())
     }
   """
-
   @spec get_ec2_recommendation_projected_metrics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ec2_recommendation_projected_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ec2_recommendation_projected_metrics_errors()}
-
   def get_ec2_recommendation_projected_metrics(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2904,6 +2889,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns the recommendation preferences that are in effect for a given resource,
   such as enhanced infrastructure metrics. Considers all applicable preferences
   that you might have set at the resource, account, and organization level.
@@ -2916,12 +2902,10 @@ defmodule AWS.ComputeOptimizer do
       required("resourceArn") => String.t()
     }
   """
-
   @spec get_effective_recommendation_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_effective_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_effective_recommendation_preferences_errors()}
-
   def get_effective_recommendation_preferences(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2931,6 +2915,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns the enrollment (opt in) status of an account to the Compute Optimizer
   service.
 
@@ -2942,12 +2927,10 @@ defmodule AWS.ComputeOptimizer do
       
     }
   """
-
   @spec get_enrollment_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_enrollment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enrollment_status_errors()}
-
   def get_enrollment_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2956,6 +2939,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns the Compute Optimizer enrollment (opt-in) status of organization member
   accounts, if your account is an organization management account.
 
@@ -2969,12 +2953,10 @@ defmodule AWS.ComputeOptimizer do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_enrollment_statuses_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_enrollment_statuses_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enrollment_statuses_for_organization_errors()}
-
   def get_enrollment_statuses_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2984,6 +2966,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns Lambda function recommendations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetLambdaFunctionRecommendations&this_doc_guide=API%2520Reference)
@@ -2998,12 +2981,10 @@ defmodule AWS.ComputeOptimizer do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_lambda_function_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lambda_function_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lambda_function_recommendations_errors()}
-
   def get_lambda_function_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3013,6 +2994,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns license recommendations for Amazon EC2 instances that run on a specific
   license.
 
@@ -3028,12 +3010,10 @@ defmodule AWS.ComputeOptimizer do
       optional("resourceArns") => list(String.t()())
     }
   """
-
   @spec get_license_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_license_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_recommendations_errors()}
-
   def get_license_recommendations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3042,6 +3022,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns the projected metrics of Amazon RDS recommendations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetRDSDatabaseRecommendationProjectedMetrics&this_doc_guide=API%2520Reference)
@@ -3057,7 +3038,6 @@ defmodule AWS.ComputeOptimizer do
       required("stat") => list(any())
     }
   """
-
   @spec get_rds_database_recommendation_projected_metrics(
           AWS.Client.t(),
           input :: map(),
@@ -3066,7 +3046,6 @@ defmodule AWS.ComputeOptimizer do
           {:ok, get_rds_database_recommendation_projected_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rds_database_recommendation_projected_metrics_errors()}
-
   def get_rds_database_recommendation_projected_metrics(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3082,6 +3061,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns Amazon RDS recommendations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetRDSDatabaseRecommendations&this_doc_guide=API%2520Reference)
@@ -3097,12 +3077,10 @@ defmodule AWS.ComputeOptimizer do
       optional("resourceArns") => list(String.t()())
     }
   """
-
   @spec get_rds_database_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rds_database_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rds_database_recommendations_errors()}
-
   def get_rds_database_recommendations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3112,6 +3090,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns existing recommendation preferences, such as enhanced infrastructure
   metrics. Use the `scope` parameter to specify which preferences to return. You
   can specify to return preferences for an organization, a specific account ID,
@@ -3128,12 +3107,10 @@ defmodule AWS.ComputeOptimizer do
       required("resourceType") => list(any())
     }
   """
-
   @spec get_recommendation_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendation_preferences_errors()}
-
   def get_recommendation_preferences(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3143,6 +3120,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Returns the optimization findings for an account. It returns the number of:
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetRecommendationSummaries&this_doc_guide=API%2520Reference)
@@ -3155,12 +3133,10 @@ defmodule AWS.ComputeOptimizer do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_recommendation_summaries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_recommendation_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendation_summaries_errors()}
-
   def get_recommendation_summaries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3169,6 +3145,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Creates a new recommendation preference or updates an existing recommendation
   preference, such as enhanced infrastructure metrics.
 
@@ -3188,12 +3165,10 @@ defmodule AWS.ComputeOptimizer do
       required("resourceType") => list(any())
     }
   """
-
   @spec put_recommendation_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_recommendation_preferences_errors()}
-
   def put_recommendation_preferences(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3203,6 +3178,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+   
   Updates the enrollment (opt in and opt out) status of an account to the Compute
   Optimizer service. If the account is a management account of an organization,
   this action can also be used to enroll member accounts of the organization.
@@ -3216,12 +3192,10 @@ defmodule AWS.ComputeOptimizer do
       required("status") => list(any())
     }
   """
-
   @spec update_enrollment_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_enrollment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_enrollment_status_errors()}
-
   def update_enrollment_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

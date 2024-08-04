@@ -538,17 +538,14 @@ defmodule AWS.ConnectParticipant do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20CompleteAttachmentUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_token` (`t:string`) The authentication token associated with the
-  participant's connection.
-
-  ## Optional parameters:
+  * `:connection_token` (`t:string` required) The authentication token associated
+  with the participant's connection.
+  ## Keyword parameters:
   """
-
   @spec complete_attachment_upload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, complete_attachment_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_attachment_upload_errors()}
-
   def complete_attachment_upload(%Client{} = client, connection_token, options \\ [])
       when is_binary(connection_token) do
     url_path = "/participant/complete-attachment-upload"
@@ -587,16 +584,13 @@ defmodule AWS.ConnectParticipant do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20CreateParticipantConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:participant_token` (`t:string`) This is a header parameter.
-
-  ## Optional parameters:
+  * `:participant_token` (`t:string` required) This is a header parameter.
+  ## Keyword parameters:
   """
-
   @spec create_participant_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_participant_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_participant_connection_errors()}
-
   def create_participant_connection(%Client{} = client, participant_token, options \\ [])
       when is_binary(participant_token) do
     url_path = "/participant/connection"
@@ -634,18 +628,16 @@ defmodule AWS.ConnectParticipant do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20DescribeView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:view_token` (`t:string`) An encrypted token originating from the interactive
-  message of a ShowView block operation. Represents the desired view.
-  * `:connection_token` (`t:string`) The connection token.
-
-  ## Optional parameters:
+  * `:view_token` (`t:string` required) An encrypted token originating from the
+  interactive message of a ShowView block operation. Represents the desired
+  view.
+  * `:connection_token` (`t:string` required) The connection token.
+  ## Keyword parameters:
   """
-
   @spec describe_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_view_errors()}
-
   def describe_view(%Client{} = client, view_token, connection_token, options \\ [])
       when is_binary(connection_token) do
     url_path = "/participant/views/#{AWS.Util.encode_uri(view_token)}"
@@ -682,17 +674,14 @@ defmodule AWS.ConnectParticipant do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20DisconnectParticipant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_token` (`t:string`) The authentication token associated with the
-  participant's connection.
-
-  ## Optional parameters:
+  * `:connection_token` (`t:string` required) The authentication token associated
+  with the participant's connection.
+  ## Keyword parameters:
   """
-
   @spec disconnect_participant(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disconnect_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_participant_errors()}
-
   def disconnect_participant(%Client{} = client, connection_token, options \\ [])
       when is_binary(connection_token) do
     url_path = "/participant/disconnect"
@@ -732,17 +721,14 @@ defmodule AWS.ConnectParticipant do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20GetAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_token` (`t:string`) The authentication token associated with the
-  participant's connection.
-
-  ## Optional parameters:
+  * `:connection_token` (`t:string` required) The authentication token associated
+  with the participant's connection.
+  ## Keyword parameters:
   """
-
   @spec get_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attachment_errors()}
-
   def get_attachment(%Client{} = client, connection_token, options \\ [])
       when is_binary(connection_token) do
     url_path = "/participant/attachment"
@@ -786,17 +772,14 @@ defmodule AWS.ConnectParticipant do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20GetTranscript&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_token` (`t:string`) The authentication token associated with the
-  participant's connection.
-
-  ## Optional parameters:
+  * `:connection_token` (`t:string` required) The authentication token associated
+  with the participant's connection.
+  ## Keyword parameters:
   """
-
   @spec get_transcript(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transcript_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transcript_errors()}
-
   def get_transcript(%Client{} = client, connection_token, options \\ [])
       when is_binary(connection_token) do
     url_path = "/participant/transcript"
@@ -842,17 +825,14 @@ defmodule AWS.ConnectParticipant do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20SendEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_token` (`t:string`) The authentication token associated with the
-  participant's connection.
-
-  ## Optional parameters:
+  * `:connection_token` (`t:string` required) The authentication token associated
+  with the participant's connection.
+  ## Keyword parameters:
   """
-
   @spec send_event(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_event_errors()}
-
   def send_event(%Client{} = client, connection_token, options \\ [])
       when is_binary(connection_token) do
     url_path = "/participant/event"
@@ -891,17 +871,14 @@ defmodule AWS.ConnectParticipant do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20SendMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_token` (`t:string`) The authentication token associated with the
-  connection.
-
-  ## Optional parameters:
+  * `:connection_token` (`t:string` required) The authentication token associated
+  with the connection.
+  ## Keyword parameters:
   """
-
   @spec send_message(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_message_errors()}
-
   def send_message(%Client{} = client, connection_token, options \\ [])
       when is_binary(connection_token) do
     url_path = "/participant/message"
@@ -941,17 +918,14 @@ defmodule AWS.ConnectParticipant do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20StartAttachmentUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_token` (`t:string`) The authentication token associated with the
-  participant's connection.
-
-  ## Optional parameters:
+  * `:connection_token` (`t:string` required) The authentication token associated
+  with the participant's connection.
+  ## Keyword parameters:
   """
-
   @spec start_attachment_upload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_attachment_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_attachment_upload_errors()}
-
   def start_attachment_upload(%Client{} = client, connection_token, options \\ [])
       when is_binary(connection_token) do
     url_path = "/participant/start-attachment-upload"

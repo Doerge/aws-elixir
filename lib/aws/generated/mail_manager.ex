@@ -1939,6 +1939,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Creates an Add On instance for the subscription indicated in the request. The
   resulting Amazon Resource Name (ARN) can be used in a conditional statement
   for a rule set or traffic policy.
@@ -1953,12 +1954,10 @@ defmodule AWS.MailManager do
       required("AddonSubscriptionId") => String.t()
     }
   """
-
   @spec create_addon_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_addon_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_addon_instance_errors()}
-
   def create_addon_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1967,6 +1966,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Creates a subscription for an Add On representing the acceptance of its terms of
   use and additional pricing. The subscription can then be used to create an
   instance for use in rule sets or traffic policies.
@@ -1981,12 +1981,10 @@ defmodule AWS.MailManager do
       required("AddonName") => String.t()
     }
   """
-
   @spec create_addon_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_addon_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_addon_subscription_errors()}
-
   def create_addon_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1995,6 +1993,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Creates a new email archive resource for storing and retaining emails.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateArchive&this_doc_guide=API%2520Reference)
@@ -2009,12 +2008,10 @@ defmodule AWS.MailManager do
       required("ArchiveName") => String.t()
     }
   """
-
   @spec create_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_archive_errors()}
-
   def create_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2023,6 +2020,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Provision a new ingress endpoint resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateIngressPoint&this_doc_guide=API%2520Reference)
@@ -2039,12 +2037,10 @@ defmodule AWS.MailManager do
       required("Type") => list(any())
     }
   """
-
   @spec create_ingress_point(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ingress_point_errors()}
-
   def create_ingress_point(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2053,6 +2049,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Creates a relay resource which can be used in rules to relay incoming emails to
   defined relay destinations.
 
@@ -2069,12 +2066,10 @@ defmodule AWS.MailManager do
       required("ServerPort") => integer()
     }
   """
-
   @spec create_relay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_relay_errors()}
-
   def create_relay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2083,6 +2078,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Provision a new rule set.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateRuleSet&this_doc_guide=API%2520Reference)
@@ -2096,12 +2092,10 @@ defmodule AWS.MailManager do
       required("Rules") => list(rule()())
     }
   """
-
   @spec create_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_set_errors()}
-
   def create_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2110,6 +2104,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Provision a new traffic policy resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateTrafficPolicy&this_doc_guide=API%2520Reference)
@@ -2125,12 +2120,10 @@ defmodule AWS.MailManager do
       required("TrafficPolicyName") => String.t()
     }
   """
-
   @spec create_traffic_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_traffic_policy_errors()}
-
   def create_traffic_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2139,6 +2132,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Deletes an Add On instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteAddonInstance&this_doc_guide=API%2520Reference)
@@ -2149,12 +2143,10 @@ defmodule AWS.MailManager do
       required("AddonInstanceId") => String.t()
     }
   """
-
   @spec delete_addon_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_addon_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_addon_instance_errors()}
-
   def delete_addon_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2163,6 +2155,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Deletes an Add On subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteAddonSubscription&this_doc_guide=API%2520Reference)
@@ -2173,12 +2166,10 @@ defmodule AWS.MailManager do
       required("AddonSubscriptionId") => String.t()
     }
   """
-
   @spec delete_addon_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_addon_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_addon_subscription_errors()}
-
   def delete_addon_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2187,6 +2178,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Initiates deletion of an email archive. This changes the archive state to
   pending deletion. In this state, no new emails can be added, and existing
   archived emails become inaccessible (search, export, download). The archive
@@ -2201,12 +2193,10 @@ defmodule AWS.MailManager do
       required("ArchiveId") => String.t()
     }
   """
-
   @spec delete_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_archive_errors()}
-
   def delete_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2215,6 +2205,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Delete an ingress endpoint resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteIngressPoint&this_doc_guide=API%2520Reference)
@@ -2225,12 +2216,10 @@ defmodule AWS.MailManager do
       required("IngressPointId") => String.t()
     }
   """
-
   @spec delete_ingress_point(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ingress_point_errors()}
-
   def delete_ingress_point(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2239,6 +2228,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Deletes an existing relay resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteRelay&this_doc_guide=API%2520Reference)
@@ -2249,12 +2239,10 @@ defmodule AWS.MailManager do
       required("RelayId") => String.t()
     }
   """
-
   @spec delete_relay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_relay_errors()}
-
   def delete_relay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2263,6 +2251,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Delete a rule set.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteRuleSet&this_doc_guide=API%2520Reference)
@@ -2273,12 +2262,10 @@ defmodule AWS.MailManager do
       required("RuleSetId") => String.t()
     }
   """
-
   @spec delete_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_set_errors()}
-
   def delete_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2287,6 +2274,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Delete a traffic policy resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteTrafficPolicy&this_doc_guide=API%2520Reference)
@@ -2297,12 +2285,10 @@ defmodule AWS.MailManager do
       required("TrafficPolicyId") => String.t()
     }
   """
-
   @spec delete_traffic_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_traffic_policy_errors()}
-
   def delete_traffic_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2311,6 +2297,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Gets detailed information about an Add On instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetAddonInstance&this_doc_guide=API%2520Reference)
@@ -2321,12 +2308,10 @@ defmodule AWS.MailManager do
       required("AddonInstanceId") => String.t()
     }
   """
-
   @spec get_addon_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_addon_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_addon_instance_errors()}
-
   def get_addon_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2335,6 +2320,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Gets detailed information about an Add On subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetAddonSubscription&this_doc_guide=API%2520Reference)
@@ -2345,12 +2331,10 @@ defmodule AWS.MailManager do
       required("AddonSubscriptionId") => String.t()
     }
   """
-
   @spec get_addon_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_addon_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_addon_subscription_errors()}
-
   def get_addon_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2359,6 +2343,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Retrieves the full details and current state of a specified email archive.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetArchive&this_doc_guide=API%2520Reference)
@@ -2369,12 +2354,10 @@ defmodule AWS.MailManager do
       required("ArchiveId") => String.t()
     }
   """
-
   @spec get_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_errors()}
-
   def get_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2383,6 +2366,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Retrieves the details and current status of a specific email archive export job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetArchiveExport&this_doc_guide=API%2520Reference)
@@ -2393,12 +2377,10 @@ defmodule AWS.MailManager do
       required("ExportId") => String.t()
     }
   """
-
   @spec get_archive_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_export_errors()}
-
   def get_archive_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2407,6 +2389,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Returns a pre-signed URL that provides temporary download access to the specific
   email message stored in the archive.
 
@@ -2418,12 +2401,10 @@ defmodule AWS.MailManager do
       required("ArchivedMessageId") => String.t()
     }
   """
-
   @spec get_archive_message(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_message_errors()}
-
   def get_archive_message(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2432,6 +2413,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Returns the textual content of a specific email message stored in the archive.
   Attachments are not included.
 
@@ -2443,12 +2425,10 @@ defmodule AWS.MailManager do
       required("ArchivedMessageId") => String.t()
     }
   """
-
   @spec get_archive_message_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_message_content_errors()}
-
   def get_archive_message_content(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2457,6 +2437,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Retrieves the details and current status of a specific email archive search job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetArchiveSearch&this_doc_guide=API%2520Reference)
@@ -2467,12 +2448,10 @@ defmodule AWS.MailManager do
       required("SearchId") => String.t()
     }
   """
-
   @spec get_archive_search(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_search_errors()}
-
   def get_archive_search(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2481,6 +2460,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Returns the results of a completed email archive search job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetArchiveSearchResults&this_doc_guide=API%2520Reference)
@@ -2491,12 +2471,10 @@ defmodule AWS.MailManager do
       required("SearchId") => String.t()
     }
   """
-
   @spec get_archive_search_results(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_search_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_search_results_errors()}
-
   def get_archive_search_results(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2505,6 +2483,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Fetch ingress endpoint resource attributes.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetIngressPoint&this_doc_guide=API%2520Reference)
@@ -2515,12 +2494,10 @@ defmodule AWS.MailManager do
       required("IngressPointId") => String.t()
     }
   """
-
   @spec get_ingress_point(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ingress_point_errors()}
-
   def get_ingress_point(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2529,6 +2506,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Fetch the relay resource and it's attributes.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetRelay&this_doc_guide=API%2520Reference)
@@ -2539,12 +2517,10 @@ defmodule AWS.MailManager do
       required("RelayId") => String.t()
     }
   """
-
   @spec get_relay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relay_errors()}
-
   def get_relay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2553,6 +2529,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Fetch attributes of a rule set.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetRuleSet&this_doc_guide=API%2520Reference)
@@ -2563,12 +2540,10 @@ defmodule AWS.MailManager do
       required("RuleSetId") => String.t()
     }
   """
-
   @spec get_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_set_errors()}
-
   def get_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2577,6 +2552,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Fetch attributes of a traffic policy resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetTrafficPolicy&this_doc_guide=API%2520Reference)
@@ -2587,12 +2563,10 @@ defmodule AWS.MailManager do
       required("TrafficPolicyId") => String.t()
     }
   """
-
   @spec get_traffic_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_traffic_policy_errors()}
-
   def get_traffic_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2601,6 +2575,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Lists all Add On instances in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListAddonInstances&this_doc_guide=API%2520Reference)
@@ -2612,12 +2587,10 @@ defmodule AWS.MailManager do
       optional("PageSize") => integer()
     }
   """
-
   @spec list_addon_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_addon_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_addon_instances_errors()}
-
   def list_addon_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2626,6 +2599,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Lists all Add On subscriptions in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListAddonSubscriptions&this_doc_guide=API%2520Reference)
@@ -2637,12 +2611,10 @@ defmodule AWS.MailManager do
       optional("PageSize") => integer()
     }
   """
-
   @spec list_addon_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_addon_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_addon_subscriptions_errors()}
-
   def list_addon_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2651,6 +2623,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Returns a list of email archive export jobs.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListArchiveExports&this_doc_guide=API%2520Reference)
@@ -2663,12 +2636,10 @@ defmodule AWS.MailManager do
       required("ArchiveId") => String.t()
     }
   """
-
   @spec list_archive_exports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_archive_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_archive_exports_errors()}
-
   def list_archive_exports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2677,6 +2648,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Returns a list of email archive search jobs.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListArchiveSearches&this_doc_guide=API%2520Reference)
@@ -2689,12 +2661,10 @@ defmodule AWS.MailManager do
       required("ArchiveId") => String.t()
     }
   """
-
   @spec list_archive_searches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_archive_searches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_archive_searches_errors()}
-
   def list_archive_searches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2703,6 +2673,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Returns a list of all email archives in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListArchives&this_doc_guide=API%2520Reference)
@@ -2714,12 +2685,10 @@ defmodule AWS.MailManager do
       optional("PageSize") => integer()
     }
   """
-
   @spec list_archives(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_archives_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_archives_errors()}
-
   def list_archives(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2728,6 +2697,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   List all ingress endpoint resources.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListIngressPoints&this_doc_guide=API%2520Reference)
@@ -2739,12 +2709,10 @@ defmodule AWS.MailManager do
       optional("PageSize") => integer()
     }
   """
-
   @spec list_ingress_points(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ingress_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ingress_points_errors()}
-
   def list_ingress_points(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2753,6 +2721,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Lists all the existing relay resources.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListRelays&this_doc_guide=API%2520Reference)
@@ -2764,12 +2733,10 @@ defmodule AWS.MailManager do
       optional("PageSize") => [integer()]
     }
   """
-
   @spec list_relays(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_relays_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_relays_errors()}
-
   def list_relays(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2778,6 +2745,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   List rule sets for this account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListRuleSets&this_doc_guide=API%2520Reference)
@@ -2789,12 +2757,10 @@ defmodule AWS.MailManager do
       optional("PageSize") => integer()
     }
   """
-
   @spec list_rule_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rule_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_sets_errors()}
-
   def list_rule_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2803,6 +2769,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Retrieves the list of tags (keys and values) assigned to the resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -2813,12 +2780,10 @@ defmodule AWS.MailManager do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2827,6 +2792,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   List traffic policy resources.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListTrafficPolicies&this_doc_guide=API%2520Reference)
@@ -2838,12 +2804,10 @@ defmodule AWS.MailManager do
       optional("PageSize") => integer()
     }
   """
-
   @spec list_traffic_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_traffic_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_policies_errors()}
-
   def list_traffic_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2852,6 +2816,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Initiates an export of emails from the specified archive.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20StartArchiveExport&this_doc_guide=API%2520Reference)
@@ -2867,12 +2832,10 @@ defmodule AWS.MailManager do
       required("ToTimestamp") => [non_neg_integer()]
     }
   """
-
   @spec start_archive_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_archive_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_archive_export_errors()}
-
   def start_archive_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2881,6 +2844,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Initiates a search across emails in the specified archive.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20StartArchiveSearch&this_doc_guide=API%2520Reference)
@@ -2895,12 +2859,10 @@ defmodule AWS.MailManager do
       required("ToTimestamp") => [non_neg_integer()]
     }
   """
-
   @spec start_archive_search(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_archive_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_archive_search_errors()}
-
   def start_archive_search(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2909,6 +2871,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Stops an in-progress export of emails from an archive.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20StopArchiveExport&this_doc_guide=API%2520Reference)
@@ -2919,12 +2882,10 @@ defmodule AWS.MailManager do
       required("ExportId") => String.t()
     }
   """
-
   @spec stop_archive_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_archive_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_archive_export_errors()}
-
   def stop_archive_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2933,6 +2894,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Stops an in-progress archive search job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20StopArchiveSearch&this_doc_guide=API%2520Reference)
@@ -2943,12 +2905,10 @@ defmodule AWS.MailManager do
       required("SearchId") => String.t()
     }
   """
-
   @spec stop_archive_search(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_archive_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_archive_search_errors()}
-
   def stop_archive_search(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2957,6 +2917,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Adds one or more tags (keys and values) to a specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20TagResource&this_doc_guide=API%2520Reference)
@@ -2968,12 +2929,10 @@ defmodule AWS.MailManager do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2982,6 +2941,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Remove one or more tags (keys and values) from a specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UntagResource&this_doc_guide=API%2520Reference)
@@ -2993,12 +2953,10 @@ defmodule AWS.MailManager do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3007,6 +2965,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Updates the attributes of an existing email archive.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UpdateArchive&this_doc_guide=API%2520Reference)
@@ -3019,12 +2978,10 @@ defmodule AWS.MailManager do
       required("ArchiveId") => String.t()
     }
   """
-
   @spec update_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_archive_errors()}
-
   def update_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3033,6 +2990,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Update attributes of a provisioned ingress endpoint resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UpdateIngressPoint&this_doc_guide=API%2520Reference)
@@ -3048,12 +3006,10 @@ defmodule AWS.MailManager do
       required("IngressPointId") => String.t()
     }
   """
-
   @spec update_ingress_point(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ingress_point_errors()}
-
   def update_ingress_point(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3062,6 +3018,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Updates the attributes of an existing relay resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UpdateRelay&this_doc_guide=API%2520Reference)
@@ -3076,12 +3033,10 @@ defmodule AWS.MailManager do
       required("RelayId") => String.t()
     }
   """
-
   @spec update_relay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_relay_errors()}
-
   def update_relay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3090,6 +3045,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   >Update attributes of an already provisioned rule set.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UpdateRuleSet&this_doc_guide=API%2520Reference)
@@ -3102,12 +3058,10 @@ defmodule AWS.MailManager do
       required("RuleSetId") => String.t()
     }
   """
-
   @spec update_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_set_errors()}
-
   def update_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3116,6 +3070,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+   
   Update attributes of an already provisioned traffic policy resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UpdateTrafficPolicy&this_doc_guide=API%2520Reference)
@@ -3130,12 +3085,10 @@ defmodule AWS.MailManager do
       required("TrafficPolicyId") => String.t()
     }
   """
-
   @spec update_traffic_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_traffic_policy_errors()}
-
   def update_traffic_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

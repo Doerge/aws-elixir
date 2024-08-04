@@ -230,15 +230,12 @@ defmodule AWS.PersonalizeEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutActionInteractions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_action_interactions(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_action_interactions_errors()}
-
   def put_action_interactions(%Client{} = client, options \\ []) do
     url_path = "/action-interactions"
 
@@ -277,15 +274,12 @@ defmodule AWS.PersonalizeEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_actions_errors()}
-
   def put_actions(%Client{} = client, options \\ []) do
     url_path = "/actions"
 
@@ -324,15 +318,12 @@ defmodule AWS.PersonalizeEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_events_errors()}
-
   def put_events(%Client{} = client, options \\ []) do
     url_path = "/events"
 
@@ -371,15 +362,12 @@ defmodule AWS.PersonalizeEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_items_errors()}
-
   def put_items(%Client{} = client, options \\ []) do
     url_path = "/items"
 
@@ -418,15 +406,12 @@ defmodule AWS.PersonalizeEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_users(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_users_errors()}
-
   def put_users(%Client{} = client, options \\ []) do
     url_path = "/users"
 

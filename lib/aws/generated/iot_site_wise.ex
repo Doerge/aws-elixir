@@ -4365,19 +4365,16 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20AssociateAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The ID of the parent asset. This can be either the
-  actual ID in UUID format, or else externalId: followed by the external ID,
-  if it has one. For more information, see Referencing objects with external
-  IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The ID of the parent asset. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   """
-
   @spec associate_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_assets_errors()}
-
   def associate_assets(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/associate"
 
@@ -4414,20 +4411,18 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20AssociateTimeSeriesToAssetProperty&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias` (`t:string`) The alias that identifies the time series.
-  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
-  created. This can be either the actual ID in UUID format, or else
-  externalId: followed by the external ID, if it has one. For more
+  * `:alias` (`t:string` required) The alias that identifies the time series.
+  * `:asset_id` (`t:string` required) The ID of the asset in which the asset
+  property was created. This can be either the actual ID in UUID format, or
+  else externalId: followed by the external ID, if it has one. For more
   information, see Referencing objects with external IDs in the IoT SiteWise
   User Guide.
-  * `:property_id` (`t:string`) The ID of the asset property. This can be either
-  the actual ID in UUID format, or else externalId: followed by the external
-  ID, if it has one. For more information, see Referencing objects with
-  external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:property_id` (`t:string` required) The ID of the asset property. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   """
-
   @spec associate_time_series_to_asset_property(
           AWS.Client.t(),
           String.t(),
@@ -4438,7 +4433,6 @@ defmodule AWS.IoTSiteWise do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_time_series_to_asset_property_errors()}
-
   def associate_time_series_to_asset_property(
         %Client{} = client,
         alias,
@@ -4482,17 +4476,14 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchAssociateProjectAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_id` (`t:string`) The ID of the project to which to associate the
-  assets.
-
-  ## Optional parameters:
+  * `:project_id` (`t:string` required) The ID of the project to which to
+  associate the assets.
+  ## Keyword parameters:
   """
-
   @spec batch_associate_project_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_associate_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_project_assets_errors()}
-
   def batch_associate_project_assets(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets/associate"
 
@@ -4529,17 +4520,14 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchDisassociateProjectAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_id` (`t:string`) The ID of the project from which to disassociate
-  the assets.
-
-  ## Optional parameters:
+  * `:project_id` (`t:string` required) The ID of the project from which to
+  disassociate the assets.
+  ## Keyword parameters:
   """
-
   @spec batch_disassociate_project_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_disassociate_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_project_assets_errors()}
-
   def batch_disassociate_project_assets(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets/disassociate"
 
@@ -4579,15 +4567,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchGetAssetPropertyAggregates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_asset_property_aggregates(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_asset_property_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_asset_property_aggregates_errors()}
-
   def batch_get_asset_property_aggregates(%Client{} = client, options \\ []) do
     url_path = "/properties/batch/aggregates"
 
@@ -4627,15 +4612,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchGetAssetPropertyValue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_asset_property_value(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_asset_property_value_errors()}
-
   def batch_get_asset_property_value(%Client{} = client, options \\ []) do
     url_path = "/properties/batch/latest"
 
@@ -4675,15 +4657,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchGetAssetPropertyValueHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_asset_property_value_history(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_asset_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_asset_property_value_history_errors()}
-
   def batch_get_asset_property_value_history(%Client{} = client, options \\ []) do
     url_path = "/properties/batch/history"
 
@@ -4725,15 +4704,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchPutAssetPropertyValue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_put_asset_property_value(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_put_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_asset_property_value_errors()}
-
   def batch_put_asset_property_value(%Client{} = client, options \\ []) do
     url_path = "/properties"
 
@@ -4772,15 +4748,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAccessPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_access_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_policy_errors()}
-
   def create_access_policy(%Client{} = client, options \\ []) do
     url_path = "/access-policies"
 
@@ -4820,15 +4793,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_asset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_errors()}
-
   def create_asset(%Client{} = client, options \\ []) do
     url_path = "/assets"
 
@@ -4872,15 +4842,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAssetModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_asset_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_model_errors()}
-
   def create_asset_model(%Client{} = client, options \\ []) do
     url_path = "/asset-models"
 
@@ -4926,17 +4893,14 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAssetModelCompositeModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model this composite model
-  is a part of.
-
-  ## Optional parameters:
+  * `:asset_model_id` (`t:string` required) The ID of the asset model this
+  composite model is a part of.
+  ## Keyword parameters:
   """
-
   @spec create_asset_model_composite_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_model_composite_model_errors()}
-
   def create_asset_model_composite_model(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models"
 
@@ -4982,15 +4946,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateBulkImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_bulk_import_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_bulk_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bulk_import_job_errors()}
-
   def create_bulk_import_job(%Client{} = client, options \\ []) do
     url_path = "/jobs"
 
@@ -5027,15 +4988,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateDashboard&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_dashboard(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dashboard_errors()}
-
   def create_dashboard(%Client{} = client, options \\ []) do
     url_path = "/dashboards"
 
@@ -5076,15 +5034,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_gateway(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_gateway_errors()}
-
   def create_gateway(%Client{} = client, options \\ []) do
     url_path = "/20200301/gateways"
 
@@ -5123,15 +5078,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreatePortal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_portal(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_portal_errors()}
-
   def create_portal(%Client{} = client, options \\ []) do
     url_path = "/portals"
 
@@ -5168,15 +5120,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_project(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-
   def create_project(%Client{} = client, options \\ []) do
     url_path = "/projects"
 
@@ -5215,19 +5164,17 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAccessPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_policy_id` (`t:string`) The ID of the access policy to be deleted.
-
-  ## Optional parameters:
+  * `:access_policy_id` (`t:string` required) The ID of the access policy to be
+  deleted.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
   provide to ensure the idempotency of the request. Don't reuse this client
   token if a new idempotent request is required.
   """
-
   @spec delete_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_policy_errors()}
-
   def delete_access_policy(%Client{} = client, access_policy_id, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
 
@@ -5290,22 +5237,19 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The ID of the asset to delete. This can be either the
-  actual ID in UUID format, or else externalId: followed by the external ID,
-  if it has one. For more information, see Referencing objects with external
-  IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The ID of the asset to delete. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
   provide to ensure the idempotency of the request. Don't reuse this client
   token if a new idempotent request is required.
   """
-
   @spec delete_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_errors()}
-
   def delete_asset(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
 
@@ -5369,22 +5313,19 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAssetModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model to delete. This can
-  be either the actual ID in UUID format, or else externalId: followed by the
-  external ID, if it has one. For more information, see Referencing objects
-  with external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_model_id` (`t:string` required) The ID of the asset model to delete.
+  This can be either the actual ID in UUID format, or else externalId:
+  followed by the external ID, if it has one. For more information, see
+  Referencing objects with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
   provide to ensure the idempotency of the request. Don't reuse this client
   token if a new idempotent request is required.
   """
-
   @spec delete_asset_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_model_errors()}
-
   def delete_asset_model(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
 
@@ -5448,21 +5389,19 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAssetModelCompositeModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
-  this asset model.
-  * `:asset_model_id` (`t:string`) The ID of the asset model, in UUID format.
-
-  ## Optional parameters:
+  * `:asset_model_composite_model_id` (`t:string` required) The ID of a composite
+  model on this asset model.
+  * `:asset_model_id` (`t:string` required) The ID of the asset model, in UUID
+  format.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
   provide to ensure the idempotency of the request. Don't reuse this client
   token if a new idempotent request is required.
   """
-
   @spec delete_asset_model_composite_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_model_composite_model_errors()}
-
   def delete_asset_model_composite_model(
         %Client{} = client,
         asset_model_composite_model_id,
@@ -5526,19 +5465,16 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteDashboard&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dashboard_id` (`t:string`) The ID of the dashboard to delete.
-
-  ## Optional parameters:
+  * `:dashboard_id` (`t:string` required) The ID of the dashboard to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
   provide to ensure the idempotency of the request. Don't reuse this client
   token if a new idempotent request is required.
   """
-
   @spec delete_dashboard(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dashboard_errors()}
-
   def delete_dashboard(%Client{} = client, dashboard_id, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
 
@@ -5597,16 +5533,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_id` (`t:string`) The ID of the gateway to delete.
-
-  ## Optional parameters:
+  * `:gateway_id` (`t:string` required) The ID of the gateway to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_errors()}
-
   def delete_gateway(%Client{} = client, gateway_id, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
 
@@ -5653,19 +5586,16 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeletePortal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_id` (`t:string`) The ID of the portal to delete.
-
-  ## Optional parameters:
+  * `:portal_id` (`t:string` required) The ID of the portal to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
   provide to ensure the idempotency of the request. Don't reuse this client
   token if a new idempotent request is required.
   """
-
   @spec delete_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_portal_errors()}
-
   def delete_portal(%Client{} = client, portal_id, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
 
@@ -5723,19 +5653,16 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_id` (`t:string`) The ID of the project.
-
-  ## Optional parameters:
+  * `:project_id` (`t:string` required) The ID of the project.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
   provide to ensure the idempotency of the request. Don't reuse this client
   token if a new idempotent request is required.
   """
-
   @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-
   def delete_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
 
@@ -5796,8 +5723,7 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteTimeSeries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:alias` (`t:string`) The alias that identifies the time series.
   * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
   created. This can be either the actual ID in UUID format, or else
@@ -5809,12 +5735,10 @@ defmodule AWS.IoTSiteWise do
   ID, if it has one. For more information, see Referencing objects with
   external IDs in the IoT SiteWise User Guide.
   """
-
   @spec delete_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_time_series_errors()}
-
   def delete_time_series(%Client{} = client, options \\ []) do
     url_path = "/timeseries/delete"
 
@@ -5877,16 +5801,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAccessPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_policy_id` (`t:string`) The ID of the access policy.
-
-  ## Optional parameters:
+  * `:access_policy_id` (`t:string` required) The ID of the access policy.
+  ## Keyword parameters:
   """
-
   @spec describe_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_access_policy_errors()}
-
   def describe_access_policy(%Client{} = client, access_policy_id, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
 
@@ -5921,16 +5842,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:action_id` (`t:string`) The ID of the action.
-
-  ## Optional parameters:
+  * `:action_id` (`t:string` required) The ID of the action.
+  ## Keyword parameters:
   """
-
   @spec describe_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_action_errors()}
-
   def describe_action(%Client{} = client, action_id, options \\ []) do
     url_path = "/actions/#{AWS.Util.encode_uri(action_id)}"
 
@@ -5965,21 +5883,18 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
-  in UUID format, or else externalId: followed by the external ID, if it has
-  one. For more information, see Referencing objects with external IDs in the
-  IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The ID of the asset. This can be either the
+  actual ID in UUID format, or else externalId: followed by the external ID,
+  if it has one. For more information, see Referencing objects with external
+  IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   * `:exclude_properties` (`t:boolean`) Whether or not to exclude asset properties
   from the response.
   """
-
   @spec describe_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_errors()}
-
   def describe_asset(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
 
@@ -6029,23 +5944,21 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetCompositeModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_composite_model_id` (`t:string`) The ID of a composite model on this
-  asset. This can be either the actual ID in UUID format, or else externalId:
-  followed by the external ID, if it has one. For more information, see
-  Referencing objects with external IDs in the IoT SiteWise User Guide.
-  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
-  in UUID format, or else externalId: followed by the external ID, if it has
-  one. For more information, see Referencing objects with external IDs in the
-  IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_composite_model_id` (`t:string` required) The ID of a composite model
+  on this asset. This can be either the actual ID in UUID format, or else
+  externalId: followed by the external ID, if it has one. For more
+  information, see Referencing objects with external IDs in the IoT SiteWise
+  User Guide.
+  * `:asset_id` (`t:string` required) The ID of the asset. This can be either the
+  actual ID in UUID format, or else externalId: followed by the external ID,
+  if it has one. For more information, see Referencing objects with external
+  IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   """
-
   @spec describe_asset_composite_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_composite_model_errors()}
-
   def describe_asset_composite_model(
         %Client{} = client,
         asset_composite_model_id,
@@ -6086,21 +5999,18 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
-  the actual ID in UUID format, or else externalId: followed by the external
-  ID, if it has one. For more information, see Referencing objects with
-  external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_model_id` (`t:string` required) The ID of the asset model. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   * `:exclude_properties` (`t:boolean`) Whether or not to exclude asset model
   properties from the response.
   """
-
   @spec describe_asset_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_model_errors()}
-
   def describe_asset_model(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
 
@@ -6149,24 +6059,21 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetModelCompositeModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
-  this asset model. This can be either the actual ID in UUID format, or else
-  externalId: followed by the external ID, if it has one. For more
+  * `:asset_model_composite_model_id` (`t:string` required) The ID of a composite
+  model on this asset model. This can be either the actual ID in UUID format,
+  or else externalId: followed by the external ID, if it has one. For more
   information, see Referencing objects with external IDs in the IoT SiteWise
   User Guide.
-  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
-  the actual ID in UUID format, or else externalId: followed by the external
-  ID, if it has one. For more information, see Referencing objects with
-  external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_model_id` (`t:string` required) The ID of the asset model. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   """
-
   @spec describe_asset_model_composite_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_model_composite_model_errors()}
-
   def describe_asset_model_composite_model(
         %Client{} = client,
         asset_model_composite_model_id,
@@ -6210,23 +6117,20 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetProperty&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
-  in UUID format, or else externalId: followed by the external ID, if it has
-  one. For more information, see Referencing objects with external IDs in the
-  IoT SiteWise User Guide.
-  * `:property_id` (`t:string`) The ID of the asset property. This can be either
-  the actual ID in UUID format, or else externalId: followed by the external
-  ID, if it has one. For more information, see Referencing objects with
-  external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The ID of the asset. This can be either the
+  actual ID in UUID format, or else externalId: followed by the external ID,
+  if it has one. For more information, see Referencing objects with external
+  IDs in the IoT SiteWise User Guide.
+  * `:property_id` (`t:string` required) The ID of the asset property. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   """
-
   @spec describe_asset_property(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_property_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_property_errors()}
-
   def describe_asset_property(%Client{} = client, asset_id, property_id, options \\ []) do
     url_path =
       "/assets/#{AWS.Util.encode_uri(asset_id)}/properties/#{AWS.Util.encode_uri(property_id)}"
@@ -6265,16 +6169,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeBulkImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID of the job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID of the job.
+  ## Keyword parameters:
   """
-
   @spec describe_bulk_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bulk_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bulk_import_job_errors()}
-
   def describe_bulk_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -6309,16 +6210,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeDashboard&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dashboard_id` (`t:string`) The ID of the dashboard.
-
-  ## Optional parameters:
+  * `:dashboard_id` (`t:string` required) The ID of the dashboard.
+  ## Keyword parameters:
   """
-
   @spec describe_dashboard(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_errors()}
-
   def describe_dashboard(%Client{} = client, dashboard_id, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
 
@@ -6357,15 +6255,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeDefaultEncryptionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_default_encryption_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_default_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_default_encryption_configuration_errors()}
-
   def describe_default_encryption_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/encryption"
 
@@ -6400,16 +6295,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_id` (`t:string`) The ID of the gateway device.
-
-  ## Optional parameters:
+  * `:gateway_id` (`t:string` required) The ID of the gateway device.
+  ## Keyword parameters:
   """
-
   @spec describe_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_errors()}
-
   def describe_gateway(%Client{} = client, gateway_id, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
 
@@ -6450,16 +6342,14 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeGatewayCapabilityConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:capability_namespace` (`t:string`) The namespace of the capability
+  * `:capability_namespace` (`t:string` required) The namespace of the capability
   configuration. For example, if you configure OPC-UA sources from the IoT
   SiteWise console, your OPC-UA capability configuration has the namespace
   iotsitewise:opcuacollector:version, where version is a number such as 1.
-  * `:gateway_id` (`t:string`) The ID of the gateway that defines the capability
-  configuration.
-
-  ## Optional parameters:
+  * `:gateway_id` (`t:string` required) The ID of the gateway that defines the
+  capability configuration.
+  ## Keyword parameters:
   """
-
   @spec describe_gateway_capability_configuration(
           AWS.Client.t(),
           String.t(),
@@ -6469,7 +6359,6 @@ defmodule AWS.IoTSiteWise do
           {:ok, describe_gateway_capability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_capability_configuration_errors()}
-
   def describe_gateway_capability_configuration(
         %Client{} = client,
         capability_namespace,
@@ -6510,15 +6399,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_options_errors()}
-
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
 
@@ -6553,16 +6439,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribePortal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_id` (`t:string`) The ID of the portal.
-
-  ## Optional parameters:
+  * `:portal_id` (`t:string` required) The ID of the portal.
+  ## Keyword parameters:
   """
-
   @spec describe_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_portal_errors()}
-
   def describe_portal(%Client{} = client, portal_id, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
 
@@ -6597,16 +6480,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_id` (`t:string`) The ID of the project.
-
-  ## Optional parameters:
+  * `:project_id` (`t:string` required) The ID of the project.
+  ## Keyword parameters:
   """
-
   @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
-
   def describe_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
 
@@ -6641,15 +6521,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeStorageConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_storage_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_storage_configuration_errors()}
-
   def describe_storage_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/storage"
 
@@ -6685,8 +6562,7 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeTimeSeries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:alias` (`t:string`) The alias that identifies the time series.
   * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
   created. This can be either the actual ID in UUID format, or else
@@ -6698,12 +6574,10 @@ defmodule AWS.IoTSiteWise do
   ID, if it has one. For more information, see Referencing objects with
   external IDs in the IoT SiteWise User Guide.
   """
-
   @spec describe_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_time_series_errors()}
-
   def describe_time_series(%Client{} = client, options \\ []) do
     url_path = "/timeseries/describe"
 
@@ -6764,20 +6638,17 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DisassociateAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The ID of the parent asset from which to disassociate
-  the child asset. This can be either the actual ID in UUID format, or else
-  externalId: followed by the external ID, if it has one. For more
-  information, see Referencing objects with external IDs in the IoT SiteWise
-  User Guide.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The ID of the parent asset from which to
+  disassociate the child asset. This can be either the actual ID in UUID
+  format, or else externalId: followed by the external ID, if it has one. For
+  more information, see Referencing objects with external IDs in the IoT
+  SiteWise User Guide.
+  ## Keyword parameters:
   """
-
   @spec disassociate_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_assets_errors()}
-
   def disassociate_assets(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/disassociate"
 
@@ -6814,20 +6685,18 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DisassociateTimeSeriesFromAssetProperty&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias` (`t:string`) The alias that identifies the time series.
-  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
-  created. This can be either the actual ID in UUID format, or else
-  externalId: followed by the external ID, if it has one. For more
+  * `:alias` (`t:string` required) The alias that identifies the time series.
+  * `:asset_id` (`t:string` required) The ID of the asset in which the asset
+  property was created. This can be either the actual ID in UUID format, or
+  else externalId: followed by the external ID, if it has one. For more
   information, see Referencing objects with external IDs in the IoT SiteWise
   User Guide.
-  * `:property_id` (`t:string`) The ID of the asset property. This can be either
-  the actual ID in UUID format, or else externalId: followed by the external
-  ID, if it has one. For more information, see Referencing objects with
-  external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:property_id` (`t:string` required) The ID of the asset property. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   """
-
   @spec disassociate_time_series_from_asset_property(
           AWS.Client.t(),
           String.t(),
@@ -6838,7 +6707,6 @@ defmodule AWS.IoTSiteWise do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_time_series_from_asset_property_errors()}
-
   def disassociate_time_series_from_asset_property(
         %Client{} = client,
         alias,
@@ -6882,15 +6750,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ExecuteAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec execute_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_action_errors()}
-
   def execute_action(%Client{} = client, options \\ []) do
     url_path = "/actions"
 
@@ -6928,15 +6793,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ExecuteQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec execute_query(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_query_errors()}
-
   def execute_query(%Client{} = client, options \\ []) do
     url_path = "/queries/execution"
 
@@ -6977,15 +6839,15 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetAssetPropertyAggregates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:aggregate_types` (`t:list[com.amazonaws.iotsitewise#AggregateType]`) The
-  data aggregating function.
-  * `:end_date` (`t:timestamp`) The inclusive end of the range from which to query
-  historical data, expressed in seconds in Unix epoch time.
-  * `:resolution` (`t:string`) The time interval over which to aggregate data.
-  * `:start_date` (`t:timestamp`) The exclusive start of the range from which to
-  query historical data, expressed in seconds in Unix epoch time.
-
-  ## Optional parameters:
+  * `:aggregate_types` (`t:list[com.amazonaws.iotsitewise#AggregateType]`
+  required) The data aggregating function.
+  * `:end_date` (`t:timestamp` required) The inclusive end of the range from which
+  to query historical data, expressed in seconds in Unix epoch time.
+  * `:resolution` (`t:string` required) The time interval over which to aggregate
+  data.
+  * `:start_date` (`t:timestamp` required) The exclusive start of the range from
+  which to query historical data, expressed in seconds in Unix epoch time.
+  ## Keyword parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
   * `:max_results` (`t:integer`) The maximum number of results to return for each
   paginated request. A result set is returned in the two cases, whichever
@@ -7003,7 +6865,6 @@ defmodule AWS.IoTSiteWise do
   * `:time_ordering` (`t:enum["ASCENDING|DESCENDING"]`) The chronological sorting
   order of the requested information.
   """
-
   @spec get_asset_property_aggregates(
           AWS.Client.t(),
           String.t(),
@@ -7015,7 +6876,6 @@ defmodule AWS.IoTSiteWise do
           {:ok, get_asset_property_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_property_aggregates_errors()}
-
   def get_asset_property_aggregates(
         %Client{} = client,
         aggregate_types,
@@ -7137,8 +6997,7 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetAssetPropertyValue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
   * `:property_alias` (`t:string`) The alias that identifies the property, such as
   an OPC-UA server data stream path (for example,
@@ -7147,12 +7006,10 @@ defmodule AWS.IoTSiteWise do
   Guide.
   * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
   """
-
   @spec get_asset_property_value(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_property_value_errors()}
-
   def get_asset_property_value(%Client{} = client, options \\ []) do
     url_path = "/properties/latest"
 
@@ -7216,8 +7073,7 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetAssetPropertyValueHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
   * `:end_date` (`t:timestamp`) The inclusive end of the range from which to query
   historical data, expressed in seconds in Unix epoch time.
@@ -7239,12 +7095,10 @@ defmodule AWS.IoTSiteWise do
   * `:time_ordering` (`t:enum["ASCENDING|DESCENDING"]`) The chronological sorting
   order of the requested information.
   """
-
   @spec get_asset_property_value_history(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_asset_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_property_value_history_errors()}
-
   def get_asset_property_value_history(%Client{} = client, options \\ []) do
     url_path = "/properties/history"
 
@@ -7371,18 +7225,17 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetInterpolatedAssetPropertyValues&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:end_time_in_seconds` (`t:long`) The inclusive end of the range from which to
-  interpolate data, expressed in seconds in Unix epoch time.
-  * `:interval_in_seconds` (`t:long`) The time interval in seconds over which to
-  interpolate data. Each interval starts when the previous one ends.
-  * `:quality` (`t:enum["BAD|GOOD|UNCERTAIN"]`) The quality of the asset property
-  value. You can use this parameter as a filter to choose only the asset
-  property values that have a specific quality.
-  * `:start_time_in_seconds` (`t:long`) The exclusive start of the range from
+  * `:end_time_in_seconds` (`t:long` required) The inclusive end of the range from
   which to interpolate data, expressed in seconds in Unix epoch time.
-  * `:type` (`t:string`) The interpolation type.
-
-  ## Optional parameters:
+  * `:interval_in_seconds` (`t:long` required) The time interval in seconds over
+  which to interpolate data. Each interval starts when the previous one ends.
+  * `:quality` (`t:enum["BAD|GOOD|UNCERTAIN"]` required) The quality of the asset
+  property value. You can use this parameter as a filter to choose only the
+  asset property values that have a specific quality.
+  * `:start_time_in_seconds` (`t:long` required) The exclusive start of the range
+  from which to interpolate data, expressed in seconds in Unix epoch time.
+  * `:type` (`t:string` required) The interpolation type.
+  ## Keyword parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
   * `:end_time_offset_in_nanos` (`t:integer`) The nanosecond offset converted from
   endTimeInSeconds.
@@ -7404,7 +7257,6 @@ defmodule AWS.IoTSiteWise do
   * `:start_time_offset_in_nanos` (`t:integer`) The nanosecond offset converted
   from startTimeInSeconds.
   """
-
   @spec get_interpolated_asset_property_values(
           AWS.Client.t(),
           String.t(),
@@ -7417,7 +7269,6 @@ defmodule AWS.IoTSiteWise do
           {:ok, get_interpolated_asset_property_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_interpolated_asset_property_values_errors()}
-
   def get_interpolated_asset_property_values(
         %Client{} = client,
         end_time_in_seconds,
@@ -7548,8 +7399,7 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAccessPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:iam_arn` (`t:string`) The ARN of the IAM user. For more information, see IAM
   ARNs in the IAM User Guide. This parameter is required if you specify IAM
   for identityType.
@@ -7567,12 +7417,10 @@ defmodule AWS.IoTSiteWise do
   * `:resource_type` (`t:enum["PORTAL|PROJECT"]`) The type of resource (portal or
   project). This parameter is required if you specify resourceId.
   """
-
   @spec list_access_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_policies_errors()}
-
   def list_access_policies(%Client{} = client, options \\ []) do
     url_path = "/access-policies"
 
@@ -7676,21 +7524,18 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:target_resource_id` (`t:string`) The ID of the target resource.
-  * `:target_resource_type` (`t:enum["ASSET"]`) The type of resource.
-
-  ## Optional parameters:
+  * `:target_resource_id` (`t:string` required) The ID of the target resource.
+  * `:target_resource_type` (`t:enum["ASSET"]` required) The type of resource.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_actions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_actions_errors()}
-
   def list_actions(%Client{} = client, target_resource_id, target_resource_type, options \\ [])
       when is_binary(target_resource_id) and is_binary(target_resource_type) do
     url_path = "/actions"
@@ -7747,23 +7592,20 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetModelCompositeModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
-  the actual ID in UUID format, or else externalId: followed by the external
-  ID, if it has one. For more information, see Referencing objects with
-  external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_model_id` (`t:string` required) The ID of the asset model. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_asset_model_composite_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_model_composite_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_model_composite_models_errors()}
-
   def list_asset_model_composite_models(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models"
 
@@ -7818,12 +7660,11 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetModelProperties&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
-  the actual ID in UUID format, or else externalId: followed by the external
-  ID, if it has one. For more information, see Referencing objects with
-  external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_model_id` (`t:string` required) The ID of the asset model. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   * `:filter` (`t:enum["ALL|BASE"]`) Filters the requested list of asset model
   properties. You can choose one of the following options:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
@@ -7831,12 +7672,10 @@ defmodule AWS.IoTSiteWise do
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_asset_model_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_model_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_model_properties_errors()}
-
   def list_asset_model_properties(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/properties"
 
@@ -7896,8 +7735,7 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:asset_model_types` (`t:list[com.amazonaws.iotsitewise#AssetModelType]`) The
   type of asset model.
   * `:max_results` (`t:integer`) The maximum number of results to return for each
@@ -7905,12 +7743,10 @@ defmodule AWS.IoTSiteWise do
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_asset_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_asset_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_models_errors()}
-
   def list_asset_models(%Client{} = client, options \\ []) do
     url_path = "/asset-models"
 
@@ -7972,12 +7808,11 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetProperties&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
-  in UUID format, or else externalId: followed by the external ID, if it has
-  one. For more information, see Referencing objects with external IDs in the
-  IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The ID of the asset. This can be either the
+  actual ID in UUID format, or else externalId: followed by the external ID,
+  if it has one. For more information, see Referencing objects with external
+  IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   * `:filter` (`t:enum["ALL|BASE"]`) Filters the requested list of asset
   properties. You can choose one of the following options:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
@@ -7985,12 +7820,10 @@ defmodule AWS.IoTSiteWise do
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_asset_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_properties_errors()}
-
   def list_asset_properties(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/properties"
 
@@ -8052,25 +7885,22 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetRelationships&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
-  in UUID format, or else externalId: followed by the external ID, if it has
-  one. For more information, see Referencing objects with external IDs in the
-  IoT SiteWise User Guide.
-  * `:traversal_type` (`t:enum["PATH_TO_ROOT"]`) The type of traversal to use to
-  identify asset relationships. Choose the following option:
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The ID of the asset. This can be either the
+  actual ID in UUID format, or else externalId: followed by the external ID,
+  if it has one. For more information, see Referencing objects with external
+  IDs in the IoT SiteWise User Guide.
+  * `:traversal_type` (`t:enum["PATH_TO_ROOT"]` required) The type of traversal to
+  use to identify asset relationships. Choose the following option:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_asset_relationships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_relationships_errors()}
-
   def list_asset_relationships(%Client{} = client, asset_id, traversal_type, options \\ [])
       when is_binary(traversal_type) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/assetRelationships"
@@ -8125,8 +7955,7 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:asset_model_id` (`t:string`) The ID of the asset model by which to filter
   the list of assets. This parameter is required if you choose ALL for filter.
   This can be either the actual ID in UUID format, or else externalId:
@@ -8139,12 +7968,10 @@ defmodule AWS.IoTSiteWise do
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_assets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assets_errors()}
-
   def list_assets(%Client{} = client, options \\ []) do
     url_path = "/assets"
 
@@ -8212,12 +8039,11 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssociatedAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The ID of the asset to query. This can be either the
-  actual ID in UUID format, or else externalId: followed by the external ID,
-  if it has one. For more information, see Referencing objects with external
-  IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The ID of the asset to query. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   * `:hierarchy_id` (`t:string`) The ID of the hierarchy by which child assets are
   associated to the asset. (This can be either the actual ID in UUID format,
   or else externalId: followed by the external ID, if it has one. For more
@@ -8232,12 +8058,10 @@ defmodule AWS.IoTSiteWise do
   * `:traversal_direction` (`t:enum["CHILD|PARENT"]`) The direction to list
   associated assets. Choose one of the following options:
   """
-
   @spec list_associated_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_assets_errors()}
-
   def list_associated_assets(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/hierarchies"
 
@@ -8312,8 +8136,7 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListBulkImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:filter`
   (`t:enum["ALL|CANCELLED|COMPLETED|COMPLETED_WITH_FAILURES|FAILED|PENDING|RUNNING"]`)
   You can use a filter to select the bulk import jobs that you want to
@@ -8323,12 +8146,10 @@ defmodule AWS.IoTSiteWise do
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_bulk_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bulk_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bulk_import_jobs_errors()}
-
   def list_bulk_import_jobs(%Client{} = client, options \\ []) do
     url_path = "/jobs"
 
@@ -8389,23 +8210,20 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListCompositionRelationships&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
-  the actual ID in UUID format, or else externalId: followed by the external
-  ID, if it has one. For more information, see Referencing objects with
-  external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_model_id` (`t:string` required) The ID of the asset model. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_composition_relationships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_composition_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_composition_relationships_errors()}
-
   def list_composition_relationships(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composition-relationships"
 
@@ -8458,20 +8276,17 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListDashboards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_id` (`t:string`) The ID of the project.
-
-  ## Optional parameters:
+  * `:project_id` (`t:string` required) The ID of the project.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_dashboards(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dashboards_errors()}
-
   def list_dashboards(%Client{} = client, project_id, options \\ []) when is_binary(project_id) do
     url_path = "/dashboards"
 
@@ -8524,19 +8339,16 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListGateways&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateways_errors()}
-
   def list_gateways(%Client{} = client, options \\ []) do
     url_path = "/20200301/gateways"
 
@@ -8589,19 +8401,16 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListPortals&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_portals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_portals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_portals_errors()}
-
   def list_portals(%Client{} = client, options \\ []) do
     url_path = "/portals"
 
@@ -8655,20 +8464,17 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListProjectAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_id` (`t:string`) The ID of the project.
-
-  ## Optional parameters:
+  * `:project_id` (`t:string` required) The ID of the project.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_project_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_project_assets_errors()}
-
   def list_project_assets(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets"
 
@@ -8721,20 +8527,17 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListProjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_id` (`t:string`) The ID of the portal.
-
-  ## Optional parameters:
+  * `:portal_id` (`t:string` required) The ID of the portal.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
   paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
   results.
   """
-
   @spec list_projects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-
   def list_projects(%Client{} = client, portal_id, options \\ []) when is_binary(portal_id) do
     url_path = "/projects"
 
@@ -8787,16 +8590,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -8832,8 +8632,7 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListTimeSeries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:alias_prefix` (`t:string`) The alias prefix of the time series.
   * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
   created. This can be either the actual ID in UUID format, or else
@@ -8847,12 +8646,10 @@ defmodule AWS.IoTSiteWise do
   * `:time_series_type` (`t:enum["ASSOCIATED|DISASSOCIATED"]`) The type of the
   time series. The time series type can be one of the following values:
   """
-
   @spec list_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_time_series_errors()}
-
   def list_time_series(%Client{} = client, options \\ []) do
     url_path = "/timeseries"
 
@@ -8935,15 +8732,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20PutDefaultEncryptionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_default_encryption_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_default_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_default_encryption_configuration_errors()}
-
   def put_default_encryption_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/encryption"
 
@@ -8980,15 +8774,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20PutLoggingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_options_errors()}
-
   def put_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
 
@@ -9025,15 +8816,12 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20PutStorageConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_storage_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_storage_configuration_errors()}
-
   def put_storage_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/storage"
 
@@ -9071,16 +8859,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -9118,18 +8903,15 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to untag.
-  * `:tag_keys` (`t:list[com.amazonaws.iotsitewise#TagKey]`) A list of keys for
-  tags to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.iotsitewise#TagKey]` required) A list of
+  keys for tags to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(resource_arn) and is_binary(tag_keys) do
     url_path = "/tags"
@@ -9178,16 +8960,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAccessPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_policy_id` (`t:string`) The ID of the access policy.
-
-  ## Optional parameters:
+  * `:access_policy_id` (`t:string` required) The ID of the access policy.
+  ## Keyword parameters:
   """
-
   @spec update_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_policy_errors()}
-
   def update_access_policy(%Client{} = client, access_policy_id, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
 
@@ -9226,19 +9005,16 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The ID of the asset to update. This can be either the
-  actual ID in UUID format, or else externalId: followed by the external ID,
-  if it has one. For more information, see Referencing objects with external
-  IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The ID of the asset to update. This can be
+  either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   """
-
   @spec update_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_errors()}
-
   def update_asset(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
 
@@ -9279,19 +9055,16 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAssetModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model to update. This can
-  be either the actual ID in UUID format, or else externalId: followed by the
-  external ID, if it has one. For more information, see Referencing objects
-  with external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_model_id` (`t:string` required) The ID of the asset model to update.
+  This can be either the actual ID in UUID format, or else externalId:
+  followed by the external ID, if it has one. For more information, see
+  Referencing objects with external IDs in the IoT SiteWise User Guide.
+  ## Keyword parameters:
   """
-
   @spec update_asset_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_model_errors()}
-
   def update_asset_model(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
 
@@ -9333,18 +9106,16 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAssetModelCompositeModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
-  this asset model.
-  * `:asset_model_id` (`t:string`) The ID of the asset model, in UUID format.
-
-  ## Optional parameters:
+  * `:asset_model_composite_model_id` (`t:string` required) The ID of a composite
+  model on this asset model.
+  * `:asset_model_id` (`t:string` required) The ID of the asset model, in UUID
+  format.
+  ## Keyword parameters:
   """
-
   @spec update_asset_model_composite_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_model_composite_model_errors()}
-
   def update_asset_model_composite_model(
         %Client{} = client,
         asset_model_composite_model_id,
@@ -9387,23 +9158,21 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAssetProperty&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The ID of the asset to be updated. This can be either
-  the actual ID in UUID format, or else externalId: followed by the external
-  ID, if it has one. For more information, see Referencing objects with
-  external IDs in the IoT SiteWise User Guide.
-  * `:property_id` (`t:string`) The ID of the asset property to be updated. This
-  can be either the actual ID in UUID format, or else externalId: followed by
-  the external ID, if it has one. For more information, see Referencing
-  objects with external IDs in the IoT SiteWise User Guide.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The ID of the asset to be updated. This can
+  be either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
+  * `:property_id` (`t:string` required) The ID of the asset property to be
+  updated. This can be either the actual ID in UUID format, or else
+  externalId: followed by the external ID, if it has one. For more
+  information, see Referencing objects with external IDs in the IoT SiteWise
+  User Guide.
+  ## Keyword parameters:
   """
-
   @spec update_asset_property(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_property_errors()}
-
   def update_asset_property(%Client{} = client, asset_id, property_id, options \\ []) do
     url_path =
       "/assets/#{AWS.Util.encode_uri(asset_id)}/properties/#{AWS.Util.encode_uri(property_id)}"
@@ -9441,16 +9210,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateDashboard&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dashboard_id` (`t:string`) The ID of the dashboard to update.
-
-  ## Optional parameters:
+  * `:dashboard_id` (`t:string` required) The ID of the dashboard to update.
+  ## Keyword parameters:
   """
-
   @spec update_dashboard(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_errors()}
-
   def update_dashboard(%Client{} = client, dashboard_id, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
 
@@ -9487,16 +9253,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_id` (`t:string`) The ID of the gateway to update.
-
-  ## Optional parameters:
+  * `:gateway_id` (`t:string` required) The ID of the gateway to update.
+  ## Keyword parameters:
   """
-
   @spec update_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_errors()}
-
   def update_gateway(%Client{} = client, gateway_id, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
 
@@ -9539,16 +9302,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateGatewayCapabilityConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:gateway_id` (`t:string`) The ID of the gateway to be updated.
-
-  ## Optional parameters:
+  * `:gateway_id` (`t:string` required) The ID of the gateway to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_gateway_capability_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_gateway_capability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_capability_configuration_errors()}
-
   def update_gateway_capability_configuration(%Client{} = client, gateway_id, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}/capability"
 
@@ -9585,16 +9345,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdatePortal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_id` (`t:string`) The ID of the portal to update.
-
-  ## Optional parameters:
+  * `:portal_id` (`t:string` required) The ID of the portal to update.
+  ## Keyword parameters:
   """
-
   @spec update_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_portal_errors()}
-
   def update_portal(%Client{} = client, portal_id, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
 
@@ -9631,16 +9388,13 @@ defmodule AWS.IoTSiteWise do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project_id` (`t:string`) The ID of the project to update.
-
-  ## Optional parameters:
+  * `:project_id` (`t:string` required) The ID of the project to update.
+  ## Keyword parameters:
   """
-
   @spec update_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-
   def update_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
 

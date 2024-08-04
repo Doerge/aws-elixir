@@ -1181,6 +1181,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Creates a root or subordinate private certificate authority (CA). You must
   specify the CA configuration, an optional configuration for Online Certificate
   Status Protocol (OCSP) and/or a certificate revocation list (CRL), the CA
@@ -1208,12 +1209,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityType") => list(any())
     }
   """
-
   @spec create_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_certificate_authority_errors()}
-
   def create_certificate_authority(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1222,6 +1221,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Creates an audit report that lists every time that your CA private key is used.
   The report is saved in the Amazon S3 bucket that you specify on input. The
   [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)
@@ -1247,12 +1247,10 @@ defmodule AWS.ACMPCA do
       required("S3BucketName") => String.t()
     }
   """
-
   @spec create_certificate_authority_audit_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_certificate_authority_audit_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_certificate_authority_audit_report_errors()}
-
   def create_certificate_authority_audit_report(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1262,6 +1260,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Grants one or more permissions on a private CA to the Certificate Manager (ACM)
   service principal (`acm.amazonaws.com`). These permissions allow ACM to issue
   and renew ACM certificates that reside in the same Amazon Web Services account
@@ -1282,12 +1281,10 @@ defmodule AWS.ACMPCA do
       required("Principal") => String.t()
     }
   """
-
   @spec create_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_permission_errors()}
-
   def create_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1296,6 +1293,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Deletes a private certificate authority (CA). You must provide the Amazon
   Resource Name (ARN) of the private CA that you want to delete. You can find
   the ARN by calling the
@@ -1315,12 +1313,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec delete_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_certificate_authority_errors()}
-
   def delete_certificate_authority(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1329,6 +1325,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Revokes permissions on a private CA granted to the Certificate Manager (ACM)
   service principal (acm.amazonaws.com). These permissions allow ACM to issue
   and renew ACM certificates that reside in the same Amazon Web Services account
@@ -1345,12 +1342,10 @@ defmodule AWS.ACMPCA do
       required("Principal") => String.t()
     }
   """
-
   @spec delete_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_errors()}
-
   def delete_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1359,6 +1354,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Deletes the resource-based policy attached to a private CA. Deletion will remove
   any access that the policy has granted. If there is no policy attached to the
   private CA, this action will return successful. If you delete a policy that
@@ -1373,12 +1369,10 @@ defmodule AWS.ACMPCA do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec delete_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
-
   def delete_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1387,6 +1381,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Lists information about your private certificate authority (CA) or one that has
   been shared with you. You specify the private CA on input by its ARN (Amazon
   Resource Name). The output contains the status of your CA. This can be any of
@@ -1400,12 +1395,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec describe_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificate_authority_errors()}
-
   def describe_certificate_authority(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1415,6 +1408,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Lists information about a specific audit report created by calling the
   [CreateCertificateAuthorityAuditReport](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html)
   action. Audit information is created every time the certificate authority (CA)
@@ -1433,12 +1427,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec describe_certificate_authority_audit_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_certificate_authority_audit_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificate_authority_audit_report_errors()}
-
   def describe_certificate_authority_audit_report(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1448,6 +1440,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Retrieves a certificate from your private CA or one that has been shared with
   you. The ARN of the certificate is returned when you call the
   [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)
@@ -1467,12 +1460,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec get_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_certificate_errors()}
-
   def get_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1481,6 +1472,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Retrieves the certificate and certificate chain for your private certificate
   authority (CA) or one that has been shared with you. Both the certificate and
   the chain are base64 PEM-encoded. The chain does not include the CA
@@ -1494,12 +1486,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec get_certificate_authority_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_certificate_authority_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_certificate_authority_certificate_errors()}
-
   def get_certificate_authority_certificate(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1509,6 +1499,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Retrieves the certificate signing request (CSR) for your private certificate
   authority (CA). The CSR is created when you call the
   [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html)
@@ -1526,12 +1517,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec get_certificate_authority_csr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_certificate_authority_csr_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_certificate_authority_csr_errors()}
-
   def get_certificate_authority_csr(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1541,6 +1530,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Retrieves the resource-based policy attached to a private CA. If either the
   private CA resource or the policy cannot be found, this action returns a
   `ResourceNotFoundException`. The policy can be attached or updated with
@@ -1557,12 +1547,10 @@ defmodule AWS.ACMPCA do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec get_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
-
   def get_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1571,6 +1559,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Imports a signed private CA certificate into Amazon Web Services Private CA.
   This action is used when you are using a chain of trust whose root is located
   outside Amazon Web Services Private CA. Before you can call this action, the
@@ -1586,12 +1575,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec import_certificate_authority_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_certificate_authority_certificate_errors()}
-
   def import_certificate_authority_certificate(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1601,6 +1588,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Uses your private certificate authority (CA), or one that has been shared with
   you, to issue a client certificate. This action returns the Amazon Resource
   Name (ARN) of the certificate. You can retrieve the certificate by calling the
@@ -1622,12 +1610,10 @@ defmodule AWS.ACMPCA do
       required("Validity") => validity()
     }
   """
-
   @spec issue_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, issue_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, issue_certificate_errors()}
-
   def issue_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1636,6 +1622,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Lists the private certificate authorities that you created by using the
   [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html)
   action.
@@ -1650,12 +1637,10 @@ defmodule AWS.ACMPCA do
       optional("ResourceOwner") => list(any())
     }
   """
-
   @spec list_certificate_authorities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_certificate_authorities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_certificate_authorities_errors()}
-
   def list_certificate_authorities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1664,6 +1649,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   List all permissions on a private CA, if any, granted to the Certificate Manager
   (ACM) service principal (acm.amazonaws.com). These permissions allow ACM to
   issue and renew ACM certificates that reside in the same Amazon Web Services
@@ -1679,12 +1665,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec list_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permissions_errors()}
-
   def list_permissions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1693,6 +1677,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Lists the tags, if any, that are associated with your private CA or one that has
   been shared with you. Tags are labels that you can use to identify and
   organize your CAs. Each tag consists of a key and an optional value. Call the
@@ -1711,12 +1696,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec list_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-
   def list_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1725,6 +1708,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Attaches a resource-based policy to a private CA. A policy can also be applied
   by sharing a private CA through Amazon Web Services Resource Access Manager
   (RAM). For more information, see [Attach a Policy for Cross-Account
@@ -1744,12 +1728,10 @@ defmodule AWS.ACMPCA do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec put_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_policy_errors()}
-
   def put_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1758,6 +1740,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Restores a certificate authority (CA) that is in the `DELETED` state. You can
   restore a CA during the period that you defined in the
   **PermanentDeletionTimeInDays** parameter of the
@@ -1787,12 +1770,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec restore_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_certificate_authority_errors()}
-
   def restore_certificate_authority(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1802,6 +1783,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Revokes a certificate that was issued inside Amazon Web Services Private CA. If
   you enable a certificate revocation list (CRL) when you create or update your
   private CA, information about the revoked certificates will be included in the
@@ -1831,12 +1813,10 @@ defmodule AWS.ACMPCA do
       required("RevocationReason") => list(any())
     }
   """
-
   @spec revoke_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_certificate_errors()}
-
   def revoke_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1845,6 +1825,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Adds one or more tags to your private CA. Tags are labels that you can use to
   identify and organize your Amazon Web Services resources. Each tag consists of
   a key and an optional value. You specify the private CA on input by its Amazon
@@ -1872,12 +1853,10 @@ defmodule AWS.ACMPCA do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_certificate_authority_errors()}
-
   def tag_certificate_authority(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1886,6 +1865,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Remove one or more tags from your private CA. A tag consists of a key-value
   pair. If you do not specify the value portion of the tag when calling this
   action, the tag will be removed regardless of value. If you specify a value,
@@ -1905,12 +1885,10 @@ defmodule AWS.ACMPCA do
       required("Tags") => list(tag()())
     }
   """
-
   @spec untag_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_certificate_authority_errors()}
-
   def untag_certificate_authority(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1919,6 +1897,7 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
+   
   Updates the status or configuration of a private certificate authority (CA).
   Your private CA must be in the `ACTIVE` or `DISABLED` state before you can
   update it. You can disable a private CA that is in the `ACTIVE` state or make
@@ -1934,12 +1913,10 @@ defmodule AWS.ACMPCA do
       required("CertificateAuthorityArn") => String.t()
     }
   """
-
   @spec update_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_certificate_authority_errors()}
-
   def update_certificate_authority(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

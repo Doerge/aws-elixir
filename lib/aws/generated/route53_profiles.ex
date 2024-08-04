@@ -711,15 +711,12 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20AssociateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_profile_errors()}
-
   def associate_profile(%Client{} = client, options \\ []) do
     url_path = "/profileassociation"
 
@@ -756,15 +753,12 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20AssociateResourceToProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_resource_to_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_resource_to_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resource_to_profile_errors()}
-
   def associate_resource_to_profile(%Client{} = client, options \\ []) do
     url_path = "/profileresourceassociation"
 
@@ -801,15 +795,12 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20CreateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_errors()}
-
   def create_profile(%Client{} = client, options \\ []) do
     url_path = "/profile"
 
@@ -847,16 +838,14 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20DeleteProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_id` (`t:string`) The ID of the Profile that you want to delete.
-
-  ## Optional parameters:
+  * `:profile_id` (`t:string` required) The ID of the Profile that you want to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_errors()}
-
   def delete_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
 
@@ -903,17 +892,14 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20DisassociateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_id` (`t:string`) ID of the Profile.
-  * `:resource_id` (`t:string`) The ID of the VPC.
-
-  ## Optional parameters:
+  * `:profile_id` (`t:string` required) ID of the Profile.
+  * `:resource_id` (`t:string` required) The ID of the VPC.
+  ## Keyword parameters:
   """
-
   @spec disassociate_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_profile_errors()}
-
   def disassociate_profile(%Client{} = client, profile_id, resource_id, options \\ []) do
     url_path =
       "/profileassociation/Profileid/#{AWS.Util.encode_uri(profile_id)}/resourceid/#{AWS.Util.encode_uri(resource_id)}"
@@ -961,17 +947,15 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20DisassociateResourceFromProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_id` (`t:string`) The ID of the Profile.
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:profile_id` (`t:string` required) The ID of the Profile.
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec disassociate_resource_from_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_resource_from_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resource_from_profile_errors()}
-
   def disassociate_resource_from_profile(
         %Client{} = client,
         profile_id,
@@ -1025,16 +1009,13 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20GetProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_id` (`t:string`) ID of the Profile.
-
-  ## Optional parameters:
+  * `:profile_id` (`t:string` required) ID of the Profile.
+  ## Keyword parameters:
   """
-
   @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_errors()}
-
   def get_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
 
@@ -1070,17 +1051,14 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20GetProfileAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_association_id` (`t:string`) The identifier of the association you
-  want to get information about.
-
-  ## Optional parameters:
+  * `:profile_association_id` (`t:string` required) The identifier of the
+  association you want to get information about.
+  ## Keyword parameters:
   """
-
   @spec get_profile_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_association_errors()}
-
   def get_profile_association(%Client{} = client, profile_association_id, options \\ []) do
     url_path = "/profileassociation/#{AWS.Util.encode_uri(profile_association_id)}"
 
@@ -1115,17 +1093,14 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20GetProfileResourceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_resource_association_id` (`t:string`) The ID of the profile resource
-  association that you want to get information about.
-
-  ## Optional parameters:
+  * `:profile_resource_association_id` (`t:string` required) The ID of the profile
+  resource association that you want to get information about.
+  ## Keyword parameters:
   """
-
   @spec get_profile_resource_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_resource_association_errors()}
-
   def get_profile_resource_association(
         %Client{} = client,
         profile_resource_association_id,
@@ -1165,8 +1140,7 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfileAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want to
   return for this request. If more objects are available, in the response, a
   NextToken value, which you can use in a subsequent call to get the next
@@ -1176,12 +1150,10 @@ defmodule AWS.Route53Profiles do
   * `:profile_id` (`t:string`) ID of the Profile.
   * `:resource_id` (`t:string`) ID of the VPC.
   """
-
   @spec list_profile_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profile_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_associations_errors()}
-
   def list_profile_associations(%Client{} = client, options \\ []) do
     url_path = "/profileassociations"
 
@@ -1248,9 +1220,8 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfileResourceAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_id` (`t:string`) The ID of the Profile.
-
-  ## Optional parameters:
+  * `:profile_id` (`t:string` required) The ID of the Profile.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want to
   return for this request. If more objects are available, in the response, a
   NextToken value, which you can use in a subsequent call to get the next
@@ -1260,12 +1231,10 @@ defmodule AWS.Route53Profiles do
   * `:resource_type` (`t:string`) ID of a resource if you want information on only
   one type.
   """
-
   @spec list_profile_resource_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_resource_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_resource_associations_errors()}
-
   def list_profile_resource_associations(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profileresourceassociations/profileid/#{AWS.Util.encode_uri(profile_id)}"
 
@@ -1326,8 +1295,7 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want to
   return for this request. If more objects are available, in the response, a
   NextToken value, which you can use in a subsequent call to get the next
@@ -1335,12 +1303,10 @@ defmodule AWS.Route53Profiles do
   * `:next_token` (`t:string`) For the first call to this list request, omit this
   value.
   """
-
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profiles_errors()}
-
   def list_profiles(%Client{} = client, options \\ []) do
     url_path = "/profiles"
 
@@ -1393,17 +1359,14 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-  that you want to list the tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  resource that you want to list the tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1438,17 +1401,14 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-  that you want to add tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  resource that you want to add tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1485,19 +1445,16 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-  that you want to remove tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.route53profiles#TagKey]`) The tags that you
-  want to remove to the specified resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  resource that you want to remove tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.route53profiles#TagKey]` required) The tags
+  that you want to remove to the specified resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1545,17 +1502,14 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20UpdateProfileResourceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:profile_resource_association_id` (`t:string`) ID of the resource
+  * `:profile_resource_association_id` (`t:string` required) ID of the resource
   association.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_profile_resource_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_profile_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_resource_association_errors()}
-
   def update_profile_resource_association(
         %Client{} = client,
         profile_resource_association_id,

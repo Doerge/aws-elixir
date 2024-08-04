@@ -329,6 +329,7 @@ defmodule AWS.IoTSecureTunneling do
   end
 
   @doc """
+   
   Closes a tunnel identified by the unique tunnel id. When a `CloseTunnel` request
   is received, we close the WebSocket connections between the client and proxy
   server so no data can be transmitted.
@@ -341,12 +342,10 @@ defmodule AWS.IoTSecureTunneling do
       optional("delete") => boolean()
     }
   """
-
   @spec close_tunnel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, close_tunnel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, close_tunnel_errors()}
-
   def close_tunnel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -355,6 +354,7 @@ defmodule AWS.IoTSecureTunneling do
   end
 
   @doc """
+   
   Gets information about a tunnel identified by the unique tunnel id.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsecuretunneling%20DescribeTunnel&this_doc_guide=API%2520Reference)
@@ -365,12 +365,10 @@ defmodule AWS.IoTSecureTunneling do
       
     }
   """
-
   @spec describe_tunnel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tunnel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tunnel_errors()}
-
   def describe_tunnel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -379,6 +377,7 @@ defmodule AWS.IoTSecureTunneling do
   end
 
   @doc """
+   
   Lists the tags for the specified resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsecuretunneling%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -389,12 +388,10 @@ defmodule AWS.IoTSecureTunneling do
       required("resourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -403,6 +400,7 @@ defmodule AWS.IoTSecureTunneling do
   end
 
   @doc """
+   
   List all tunnels for an Amazon Web Services account. Tunnels are listed by
   creation time in descending order, newer tunnels will be listed before older
   tunnels.
@@ -417,11 +415,9 @@ defmodule AWS.IoTSecureTunneling do
       optional("thingName") => String.t()
     }
   """
-
   @spec list_tunnels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tunnels_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_tunnels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -430,6 +426,7 @@ defmodule AWS.IoTSecureTunneling do
   end
 
   @doc """
+   
   Creates a new tunnel, and returns two client access tokens for clients to use to
   connect to the IoT Secure Tunneling proxy server.
 
@@ -444,12 +441,10 @@ defmodule AWS.IoTSecureTunneling do
       optional("timeoutConfig") => timeout_config()
     }
   """
-
   @spec open_tunnel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, open_tunnel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, open_tunnel_errors()}
-
   def open_tunnel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -458,6 +453,7 @@ defmodule AWS.IoTSecureTunneling do
   end
 
   @doc """
+   
   Revokes the current client access token (CAT) and returns new CAT for clients to
   use when reconnecting to secure tunneling to access the same tunnel. Requires
   permission to access the
@@ -473,12 +469,10 @@ defmodule AWS.IoTSecureTunneling do
       required("clientMode") => list(any())
     }
   """
-
   @spec rotate_tunnel_access_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rotate_tunnel_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rotate_tunnel_access_token_errors()}
-
   def rotate_tunnel_access_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -487,6 +481,7 @@ defmodule AWS.IoTSecureTunneling do
   end
 
   @doc """
+   
   A resource tag.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsecuretunneling%20TagResource&this_doc_guide=API%2520Reference)
@@ -498,12 +493,10 @@ defmodule AWS.IoTSecureTunneling do
       required("tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -512,6 +505,7 @@ defmodule AWS.IoTSecureTunneling do
   end
 
   @doc """
+   
   Removes a tag from a resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsecuretunneling%20UntagResource&this_doc_guide=API%2520Reference)
@@ -523,12 +517,10 @@ defmodule AWS.IoTSecureTunneling do
       required("tagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

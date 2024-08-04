@@ -140,16 +140,13 @@ defmodule AWS.ApiGatewayManagementApi do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewaymanagementapi%20DeleteConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connection_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_connection(AWS.Client.t(), any(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-
   def delete_connection(%Client{} = client, stage, connection_id, options \\ []) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
 
@@ -196,16 +193,13 @@ defmodule AWS.ApiGatewayManagementApi do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewaymanagementapi%20GetConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connection_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_connection(AWS.Client.t(), any(), String.t(), Keyword.t()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_errors()}
-
   def get_connection(%Client{} = client, stage, connection_id, options \\ []) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
 
@@ -240,20 +234,17 @@ defmodule AWS.ApiGatewayManagementApi do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewaymanagementapi%20PostToConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_id` (`t:string`) The identifier of the connection that a specific
-  client is using.
+  * `:connection_id` (`t:string` required) The identifier of the connection that a
+  specific client is using.
   * `:input` (`t:map`):
-    * `:data` (`t:blob`) The data to be sent to the client specified by its
+    * `:data` (`t:blob` required) The data to be sent to the client specified by its
   connection id.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec post_to_connection(AWS.Client.t(), any(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_to_connection_errors()}
-
   def post_to_connection(%Client{} = client, stage, connection_id, input, options \\ [])
       when is_map(input) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"

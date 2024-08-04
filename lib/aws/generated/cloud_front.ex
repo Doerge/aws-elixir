@@ -7097,19 +7097,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20AssociateAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:target_distribution_id` (`t:string`) The ID of the distribution that you're
-  associating the alias with.
-  * `:alias` (`t:string`) The alias (also known as a CNAME) to add to the target
-  distribution.
-
-  ## Optional parameters:
+  * `:target_distribution_id` (`t:string` required) The ID of the distribution
+  that you're associating the alias with.
+  * `:alias` (`t:string` required) The alias (also known as a CNAME) to add to the
+  target distribution.
+  ## Keyword parameters:
   """
-
   @spec associate_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_alias_errors()}
-
   def associate_alias(%Client{} = client, target_distribution_id, alias, options \\ [])
       when is_binary(alias) do
     url_path =
@@ -7154,11 +7151,10 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CopyDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:primary_distribution_id` (`t:string`) The identifier of the primary
+  * `:primary_distribution_id` (`t:string` required) The identifier of the primary
   distribution whose configuration you are copying. To get a distribution ID,
   use ListDistributions.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The version identifier of the primary distribution
   whose configuration you are copying. This is the ETag value returned in the
   response to GetDistribution and GetDistributionConfig.
@@ -7166,12 +7162,10 @@ defmodule AWS.CloudFront do
   distribution will be copied to. The only valid value is True, indicating
   that you are copying to a staging distribution.
   """
-
   @spec copy_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, copy_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_distribution_errors()}
-
   def copy_distribution(%Client{} = client, primary_distribution_id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(primary_distribution_id)}/copy"
 
@@ -7242,16 +7236,13 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:cache_policy_config` (`t:structure`) A cache policy configuration.
-
-  ## Optional parameters:
+    * `:cache_policy_config` (`t:structure` required) A cache policy configuration.
+  ## Keyword parameters:
   """
-
   @spec create_cache_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cache_policy_errors()}
-
   def create_cache_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/cache-policy"
 
@@ -7308,17 +7299,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:cloud_front_origin_access_identity_config` (`t:structure`) The current
-  configuration information for the identity.
-
-  ## Optional parameters:
+    * `:cloud_front_origin_access_identity_config` (`t:structure` required) The
+  current configuration information for the identity.
+  ## Keyword parameters:
   """
-
   @spec create_cloud_front_origin_access_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cloud_front_origin_access_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cloud_front_origin_access_identity_errors()}
-
   def create_cloud_front_origin_access_identity(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront"
@@ -7374,17 +7362,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:continuous_deployment_policy_config` (`t:structure`) Contains the
+    * `:continuous_deployment_policy_config` (`t:structure` required) Contains the
   configuration for a continuous deployment policy.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_continuous_deployment_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_continuous_deployment_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_continuous_deployment_policy_errors()}
-
   def create_continuous_deployment_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/continuous-deployment-policy"
@@ -7436,17 +7421,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:distribution_config` (`t:structure`) The distribution's configuration
-  information.
-
-  ## Optional parameters:
+    * `:distribution_config` (`t:structure` required) The distribution's
+  configuration information.
+  ## Keyword parameters:
   """
-
   @spec create_distribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_distribution_errors()}
-
   def create_distribution(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/distribution"
 
@@ -7498,17 +7480,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:distribution_config_with_tags` (`t:structure`) The distribution's
+    * `:distribution_config_with_tags` (`t:structure` required) The distribution's
   configuration information.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_distribution_with_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_distribution_with_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_distribution_with_tags_errors()}
-
   def create_distribution_with_tags(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/distribution?WithTags"
@@ -7560,17 +7539,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:field_level_encryption_config` (`t:structure`) The request to create a new
-  field-level encryption configuration.
-
-  ## Optional parameters:
+    * `:field_level_encryption_config` (`t:structure` required) The request to
+  create a new field-level encryption configuration.
+  ## Keyword parameters:
   """
-
   @spec create_field_level_encryption_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_field_level_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_field_level_encryption_config_errors()}
-
   def create_field_level_encryption_config(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/field-level-encryption"
@@ -7622,17 +7598,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:field_level_encryption_profile_config` (`t:structure`) The request to create
-  a field-level encryption profile.
-
-  ## Optional parameters:
+    * `:field_level_encryption_profile_config` (`t:structure` required) The request
+  to create a field-level encryption profile.
+  ## Keyword parameters:
   """
-
   @spec create_field_level_encryption_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_field_level_encryption_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_field_level_encryption_profile_errors()}
-
   def create_field_level_encryption_profile(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/field-level-encryption-profile"
@@ -7685,15 +7658,12 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_function(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_function_errors()}
-
   def create_function(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/function"
 
@@ -7745,19 +7715,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateInvalidation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:distribution_id` (`t:string`) The distribution's id.
+  * `:distribution_id` (`t:string` required) The distribution's id.
   * `:input` (`t:map`):
-    * `:invalidation_batch` (`t:structure`) The batch information for the
+    * `:invalidation_batch` (`t:structure` required) The batch information for the
   invalidation.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_invalidation(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_invalidation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_invalidation_errors()}
-
   def create_invalidation(%Client{} = client, distribution_id, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation"
@@ -7820,16 +7787,13 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:key_group_config` (`t:structure`) A key group configuration.
-
-  ## Optional parameters:
+    * `:key_group_config` (`t:structure` required) A key group configuration.
+  ## Keyword parameters:
   """
-
   @spec create_key_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_group_errors()}
-
   def create_key_group(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/key-group"
 
@@ -7882,15 +7846,12 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateKeyValueStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_key_value_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_value_store_errors()}
-
   def create_key_value_store(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/key-value-store"
 
@@ -7941,21 +7902,18 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateMonitoringSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:distribution_id` (`t:string`) The ID of the distribution that you are
-  enabling metrics for.
+  * `:distribution_id` (`t:string` required) The ID of the distribution that you
+  are enabling metrics for.
   * `:input` (`t:map`):
-    * `:monitoring_subscription` (`t:structure`) A monitoring subscription. This
-  structure contains information about whether additional CloudWatch metrics
-  are enabled for a given CloudFront distribution.
-
-  ## Optional parameters:
+    * `:monitoring_subscription` (`t:structure` required) A monitoring subscription.
+  This structure contains information about whether additional CloudWatch
+  metrics are enabled for a given CloudFront distribution.
+  ## Keyword parameters:
   """
-
   @spec create_monitoring_subscription(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_monitoring_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitoring_subscription_errors()}
-
   def create_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -7999,17 +7957,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:origin_access_control_config` (`t:structure`) Contains the origin access
-  control.
-
-  ## Optional parameters:
+    * `:origin_access_control_config` (`t:structure` required) Contains the origin
+  access control.
+  ## Keyword parameters:
   """
-
   @spec create_origin_access_control(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_origin_access_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_origin_access_control_errors()}
-
   def create_origin_access_control(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/origin-access-control"
 
@@ -8064,17 +8019,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:origin_request_policy_config` (`t:structure`) An origin request policy
-  configuration.
-
-  ## Optional parameters:
+    * `:origin_request_policy_config` (`t:structure` required) An origin request
+  policy configuration.
+  ## Keyword parameters:
   """
-
   @spec create_origin_request_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_origin_request_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_origin_request_policy_errors()}
-
   def create_origin_request_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/origin-request-policy"
 
@@ -8128,16 +8080,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:public_key_config` (`t:structure`) A CloudFront public key configuration.
-
-  ## Optional parameters:
+    * `:public_key_config` (`t:structure` required) A CloudFront public key
+  configuration.
+  ## Keyword parameters:
   """
-
   @spec create_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_public_key_errors()}
-
   def create_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/public-key"
 
@@ -8189,15 +8139,12 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateRealtimeLogConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_realtime_log_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_realtime_log_config_errors()}
-
   def create_realtime_log_config(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/realtime-log-config"
 
@@ -8238,18 +8185,15 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:response_headers_policy_config` (`t:structure`) Contains metadata about the
-  response headers policy, and a set of configurations that specify the HTTP
-  headers.
-
-  ## Optional parameters:
+    * `:response_headers_policy_config` (`t:structure` required) Contains metadata
+  about the response headers policy, and a set of configurations that specify
+  the HTTP headers.
+  ## Keyword parameters:
   """
-
   @spec create_response_headers_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_response_headers_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_response_headers_policy_errors()}
-
   def create_response_headers_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/response-headers-policy"
@@ -8304,17 +8248,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:streaming_distribution_config` (`t:structure`) The streaming distribution's
-  configuration information.
-
-  ## Optional parameters:
+    * `:streaming_distribution_config` (`t:structure` required) The streaming
+  distribution's configuration information.
+  ## Keyword parameters:
   """
-
   @spec create_streaming_distribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_streaming_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_distribution_errors()}
-
   def create_streaming_distribution(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/streaming-distribution"
@@ -8369,17 +8310,14 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:streaming_distribution_config_with_tags` (`t:structure`) The streaming
-  distribution's configuration information.
-
-  ## Optional parameters:
+    * `:streaming_distribution_config_with_tags` (`t:structure` required) The
+  streaming distribution's configuration information.
+  ## Keyword parameters:
   """
-
   @spec create_streaming_distribution_with_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_streaming_distribution_with_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_distribution_with_tags_errors()}
-
   def create_streaming_distribution_with_tags(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/streaming-distribution?WithTags"
@@ -8432,20 +8370,17 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteCachePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier for the cache policy that you are
-  deleting. To get the identifier, you can use ListCachePolicies.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The unique identifier for the cache policy that
+  you are deleting. To get the identifier, you can use ListCachePolicies.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The version of the cache policy that you are
   deleting. The version is the cache policy's ETag value, which you can get
   using ListCachePolicies, GetCachePolicy, or GetCachePolicyConfig.
   """
-
   @spec delete_cache_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cache_policy_errors()}
-
   def delete_cache_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -8503,18 +8438,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteCloudFrontOriginAccessIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The origin access identity's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The origin access identity's ID.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header you received from a
   previous GET or PUT request. For example: E2QWRUHAPOMQZL.
   """
-
   @spec delete_cloud_front_origin_access_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cloud_front_origin_access_identity_errors()}
-
   def delete_cloud_front_origin_access_identity(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}"
 
@@ -8572,19 +8504,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteContinuousDeploymentPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the continuous deployment policy that you
-  are deleting.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the continuous deployment policy
+  that you are deleting.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The current version (ETag value) of the continuous
   deployment policy that you are deleting.
   """
-
   @spec delete_continuous_deployment_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_continuous_deployment_policy_errors()}
-
   def delete_continuous_deployment_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -8642,18 +8571,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The distribution ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The distribution ID.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   you disabled the distribution. For example: E2QWRUHAPOMQZL.
   """
-
   @spec delete_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_distribution_errors()}
-
   def delete_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -8711,20 +8637,17 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteFieldLevelEncryptionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the configuration you want to delete from
-  CloudFront.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the configuration you want to delete
+  from CloudFront.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   retrieving the configuration identity to delete. For example:
   E2QWRUHAPOMQZL.
   """
-
   @spec delete_field_level_encryption_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_field_level_encryption_config_errors()}
-
   def delete_field_level_encryption_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}"
 
@@ -8782,19 +8705,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteFieldLevelEncryptionProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) Request the ID of the profile you want to delete from
-  CloudFront.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) Request the ID of the profile you want to delete
+  from CloudFront.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   retrieving the profile to delete. For example: E2QWRUHAPOMQZL.
   """
-
   @spec delete_field_level_encryption_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_field_level_encryption_profile_errors()}
-
   def delete_field_level_encryption_profile(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}"
 
@@ -8854,18 +8774,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the function that you are deleting.
-  * `:if_match` (`t:string`) The current version (ETag value) of the function that
-  you are deleting, which you can get using DescribeFunction.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the function that you are deleting.
+  * `:if_match` (`t:string` required) The current version (ETag value) of the
+  function that you are deleting, which you can get using DescribeFunction.
+  ## Keyword parameters:
   """
-
   @spec delete_function(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_function_errors()}
-
   def delete_function(%Client{} = client, name, if_match, options \\ [])
       when is_binary(if_match) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
@@ -8915,20 +8832,17 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteKeyGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the key group that you are deleting. To
-  get the identifier, use ListKeyGroups.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the key group that you are
+  deleting. To get the identifier, use ListKeyGroups.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The version of the key group that you are deleting.
   The version is the key group's ETag value. To get the ETag, use GetKeyGroup
   or GetKeyGroupConfig.
   """
-
   @spec delete_key_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_group_errors()}
-
   def delete_key_group(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
 
@@ -8986,17 +8900,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteKeyValueStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the key value store.
-  * `:if_match` (`t:string`) The key value store to delete, if a match occurs.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the key value store.
+  * `:if_match` (`t:string` required) The key value store to delete, if a match
+  occurs.
+  ## Keyword parameters:
   """
-
   @spec delete_key_value_store(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_value_store_errors()}
-
   def delete_key_value_store(%Client{} = client, name, if_match, options \\ [])
       when is_binary(if_match) do
     url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
@@ -9045,17 +8957,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteMonitoringSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:distribution_id` (`t:string`) The ID of the distribution that you are
-  disabling metrics for.
-
-  ## Optional parameters:
+  * `:distribution_id` (`t:string` required) The ID of the distribution that you
+  are disabling metrics for.
+  ## Keyword parameters:
   """
-
   @spec delete_monitoring_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_monitoring_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitoring_subscription_errors()}
-
   def delete_monitoring_subscription(%Client{} = client, distribution_id, options \\ []) do
     url_path =
       "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
@@ -9103,19 +9012,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteOriginAccessControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier of the origin access control that you
-  are deleting.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The unique identifier of the origin access control
+  that you are deleting.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The current version (ETag value) of the origin access
   control that you are deleting.
   """
-
   @spec delete_origin_access_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_origin_access_control_errors()}
-
   def delete_origin_access_control(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}"
 
@@ -9176,22 +9082,19 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteOriginRequestPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier for the origin request policy that
-  you are deleting. To get the identifier, you can use
+  * `:id` (`t:string` required) The unique identifier for the origin request
+  policy that you are deleting. To get the identifier, you can use
   ListOriginRequestPolicies.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The version of the origin request policy that you are
   deleting. The version is the origin request policy's ETag value, which you
   can get using ListOriginRequestPolicies, GetOriginRequestPolicy, or
   GetOriginRequestPolicyConfig.
   """
-
   @spec delete_origin_request_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_origin_request_policy_errors()}
-
   def delete_origin_request_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -9249,19 +9152,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeletePublicKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the public key you want to remove from
+  * `:id` (`t:string` required) The ID of the public key you want to remove from
   CloudFront.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   retrieving the public key identity to delete. For example: E2QWRUHAPOMQZL.
   """
-
   @spec delete_public_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_public_key_errors()}
-
   def delete_public_key(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}"
 
@@ -9322,15 +9222,12 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteRealtimeLogConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_realtime_log_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_realtime_log_config_errors()}
-
   def delete_realtime_log_config(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/delete-realtime-log-config"
 
@@ -9370,19 +9267,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteResponseHeadersPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier for the response headers policy that you are
-  deleting.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier for the response headers policy
+  that you are deleting.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The version of the response headers policy that you
   are deleting.
   """
-
   @spec delete_response_headers_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_response_headers_policy_errors()}
-
   def delete_response_headers_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -9442,18 +9336,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteStreamingDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The distribution ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The distribution ID.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   you disabled the streaming distribution. For example: E2QWRUHAPOMQZL.
   """
-
   @spec delete_streaming_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_streaming_distribution_errors()}
-
   def delete_streaming_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -9512,19 +9403,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DescribeFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the function that you are getting information
-  about.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the function that you are getting
+  information about.
+  ## Keyword parameters:
   * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) The function's stage, either
   DEVELOPMENT or LIVE.
   """
-
   @spec describe_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_function_errors()}
-
   def describe_function(%Client{} = client, name, options \\ []) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/describe"
 
@@ -9577,16 +9465,13 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DescribeKeyValueStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the key value store.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the key value store.
+  ## Keyword parameters:
   """
-
   @spec describe_key_value_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_value_store_errors()}
-
   def describe_key_value_store(%Client{} = client, name, options \\ []) do
     url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
 
@@ -9627,20 +9512,17 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetCachePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier for the cache policy. If the cache
-  policy is attached to a distribution's cache behavior, you can get the
+  * `:id` (`t:string` required) The unique identifier for the cache policy. If the
+  cache policy is attached to a distribution's cache behavior, you can get the
   policy's identifier using ListDistributions or GetDistribution. If the cache
   policy is not attached to a cache behavior, you can get the identifier using
   ListCachePolicies.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_cache_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cache_policy_errors()}
-
   def get_cache_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -9681,20 +9563,17 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetCachePolicyConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier for the cache policy. If the cache
-  policy is attached to a distribution's cache behavior, you can get the
+  * `:id` (`t:string` required) The unique identifier for the cache policy. If the
+  cache policy is attached to a distribution's cache behavior, you can get the
   policy's identifier using ListDistributions or GetDistribution. If the cache
   policy is not attached to a cache behavior, you can get the identifier using
   ListCachePolicies.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_cache_policy_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cache_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cache_policy_config_errors()}
-
   def get_cache_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9735,16 +9614,13 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetCloudFrontOriginAccessIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identity's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identity's ID.
+  ## Keyword parameters:
   """
-
   @spec get_cloud_front_origin_access_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_front_origin_access_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_front_origin_access_identity_errors()}
-
   def get_cloud_front_origin_access_identity(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}"
 
@@ -9785,16 +9661,13 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetCloudFrontOriginAccessIdentityConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identity's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identity's ID.
+  ## Keyword parameters:
   """
-
   @spec get_cloud_front_origin_access_identity_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_front_origin_access_identity_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_front_origin_access_identity_config_errors()}
-
   def get_cloud_front_origin_access_identity_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9836,17 +9709,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetContinuousDeploymentPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the continuous deployment policy that you
-  are getting.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the continuous deployment policy
+  that you are getting.
+  ## Keyword parameters:
   """
-
   @spec get_continuous_deployment_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_continuous_deployment_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_continuous_deployment_policy_errors()}
-
   def get_continuous_deployment_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -9887,17 +9757,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetContinuousDeploymentPolicyConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the continuous deployment policy whose
-  configuration you are getting.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the continuous deployment policy
+  whose configuration you are getting.
+  ## Keyword parameters:
   """
-
   @spec get_continuous_deployment_policy_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_continuous_deployment_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_continuous_deployment_policy_config_errors()}
-
   def get_continuous_deployment_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9938,17 +9805,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The distribution's ID. If the ID is empty, an empty
-  distribution configuration is returned.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The distribution's ID. If the ID is empty, an
+  empty distribution configuration is returned.
+  ## Keyword parameters:
   """
-
   @spec get_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distribution_errors()}
-
   def get_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -9989,17 +9853,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetDistributionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The distribution's ID. If the ID is empty, an empty
-  distribution configuration is returned.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The distribution's ID. If the ID is empty, an
+  empty distribution configuration is returned.
+  ## Keyword parameters:
   """
-
   @spec get_distribution_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_distribution_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distribution_config_errors()}
-
   def get_distribution_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10040,17 +9901,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetFieldLevelEncryption&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) Request the ID for the field-level encryption configuration
-  information.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) Request the ID for the field-level encryption
+  configuration information.
+  ## Keyword parameters:
   """
-
   @spec get_field_level_encryption(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_field_level_encryption_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_field_level_encryption_errors()}
-
   def get_field_level_encryption(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}"
 
@@ -10091,17 +9949,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetFieldLevelEncryptionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) Request the ID for the field-level encryption configuration
-  information.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) Request the ID for the field-level encryption
+  configuration information.
+  ## Keyword parameters:
   """
-
   @spec get_field_level_encryption_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_field_level_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_field_level_encryption_config_errors()}
-
   def get_field_level_encryption_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10142,17 +9997,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetFieldLevelEncryptionProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) Get the ID for the field-level encryption profile
+  * `:id` (`t:string` required) Get the ID for the field-level encryption profile
   information.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_field_level_encryption_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_field_level_encryption_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_field_level_encryption_profile_errors()}
-
   def get_field_level_encryption_profile(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}"
 
@@ -10193,17 +10045,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetFieldLevelEncryptionProfileConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) Get the ID for the field-level encryption profile
+  * `:id` (`t:string` required) Get the ID for the field-level encryption profile
   configuration information.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_field_level_encryption_profile_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_field_level_encryption_profile_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_field_level_encryption_profile_config_errors()}
-
   def get_field_level_encryption_profile_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10245,18 +10094,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the function whose code you are getting.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the function whose code you are
+  getting.
+  ## Keyword parameters:
   * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) The function's stage, either
   DEVELOPMENT or LIVE.
   """
-
   @spec get_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_errors()}
-
   def get_function(%Client{} = client, name, options \\ []) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
 
@@ -10309,18 +10156,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetInvalidation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:distribution_id` (`t:string`) The distribution's ID.
-  * `:id` (`t:string`) The identifier for the invalidation request, for example,
-  IDFDVBD632BHDS5.
-
-  ## Optional parameters:
+  * `:distribution_id` (`t:string` required) The distribution's ID.
+  * `:id` (`t:string` required) The identifier for the invalidation request, for
+  example, IDFDVBD632BHDS5.
+  ## Keyword parameters:
   """
-
   @spec get_invalidation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_invalidation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_invalidation_errors()}
-
   def get_invalidation(%Client{} = client, distribution_id, id, options \\ []) do
     url_path =
       "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation/#{AWS.Util.encode_uri(id)}"
@@ -10357,17 +10201,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetKeyGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the key group that you are getting. To
-  get the identifier, use ListKeyGroups.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the key group that you are
+  getting. To get the identifier, use ListKeyGroups.
+  ## Keyword parameters:
   """
-
   @spec get_key_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_group_errors()}
-
   def get_key_group(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
 
@@ -10408,17 +10249,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetKeyGroupConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the key group whose configuration you are
-  getting. To get the identifier, use ListKeyGroups.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the key group whose
+  configuration you are getting. To get the identifier, use ListKeyGroups.
+  ## Keyword parameters:
   """
-
   @spec get_key_group_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_key_group_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_group_config_errors()}
-
   def get_key_group_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10460,17 +10298,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetMonitoringSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:distribution_id` (`t:string`) The ID of the distribution that you are
-  getting metrics information for.
-
-  ## Optional parameters:
+  * `:distribution_id` (`t:string` required) The ID of the distribution that you
+  are getting metrics information for.
+  ## Keyword parameters:
   """
-
   @spec get_monitoring_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitoring_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitoring_subscription_errors()}
-
   def get_monitoring_subscription(%Client{} = client, distribution_id, options \\ []) do
     url_path =
       "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
@@ -10506,16 +10341,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetOriginAccessControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier of the origin access control.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The unique identifier of the origin access
+  control.
+  ## Keyword parameters:
   """
-
   @spec get_origin_access_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_origin_access_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_origin_access_control_errors()}
-
   def get_origin_access_control(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}"
 
@@ -10556,16 +10389,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetOriginAccessControlConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier of the origin access control.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The unique identifier of the origin access
+  control.
+  ## Keyword parameters:
   """
-
   @spec get_origin_access_control_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_origin_access_control_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_origin_access_control_config_errors()}
-
   def get_origin_access_control_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10606,20 +10437,17 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetOriginRequestPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier for the origin request policy. If the
-  origin request policy is attached to a distribution's cache behavior, you
-  can get the policy's identifier using ListDistributions or GetDistribution.
-  If the origin request policy is not attached to a cache behavior, you can
-  get the identifier using ListOriginRequestPolicies.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The unique identifier for the origin request
+  policy. If the origin request policy is attached to a distribution's cache
+  behavior, you can get the policy's identifier using ListDistributions or
+  GetDistribution. If the origin request policy is not attached to a cache
+  behavior, you can get the identifier using ListOriginRequestPolicies.
+  ## Keyword parameters:
   """
-
   @spec get_origin_request_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_origin_request_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_origin_request_policy_errors()}
-
   def get_origin_request_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -10660,20 +10488,17 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetOriginRequestPolicyConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier for the origin request policy. If the
-  origin request policy is attached to a distribution's cache behavior, you
-  can get the policy's identifier using ListDistributions or GetDistribution.
-  If the origin request policy is not attached to a cache behavior, you can
-  get the identifier using ListOriginRequestPolicies.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The unique identifier for the origin request
+  policy. If the origin request policy is attached to a distribution's cache
+  behavior, you can get the policy's identifier using ListDistributions or
+  GetDistribution. If the origin request policy is not attached to a cache
+  behavior, you can get the identifier using ListOriginRequestPolicies.
+  ## Keyword parameters:
   """
-
   @spec get_origin_request_policy_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_origin_request_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_origin_request_policy_config_errors()}
-
   def get_origin_request_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10714,16 +10539,13 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetPublicKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the public key you are getting.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the public key you are getting.
+  ## Keyword parameters:
   """
-
   @spec get_public_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_key_errors()}
-
   def get_public_key(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}"
 
@@ -10764,17 +10586,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetPublicKeyConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the public key whose configuration you
-  are getting.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the public key whose
+  configuration you are getting.
+  ## Keyword parameters:
   """
-
   @spec get_public_key_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_public_key_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_key_config_errors()}
-
   def get_public_key_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10815,15 +10634,12 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetRealtimeLogConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_realtime_log_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_realtime_log_config_errors()}
-
   def get_realtime_log_config(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/get-realtime-log-config"
 
@@ -10861,16 +10677,13 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetResponseHeadersPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier for the response headers policy.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier for the response headers policy.
+  ## Keyword parameters:
   """
-
   @spec get_response_headers_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_response_headers_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_response_headers_policy_errors()}
-
   def get_response_headers_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -10911,16 +10724,13 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetResponseHeadersPolicyConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier for the response headers policy.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier for the response headers policy.
+  ## Keyword parameters:
   """
-
   @spec get_response_headers_policy_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_response_headers_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_response_headers_policy_config_errors()}
-
   def get_response_headers_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10962,16 +10772,13 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetStreamingDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The streaming distribution's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The streaming distribution's ID.
+  ## Keyword parameters:
   """
-
   @spec get_streaming_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_streaming_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_distribution_errors()}
-
   def get_streaming_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -11012,16 +10819,13 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetStreamingDistributionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The streaming distribution's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The streaming distribution's ID.
+  ## Keyword parameters:
   """
-
   @spec get_streaming_distribution_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_streaming_distribution_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_distribution_config_errors()}
-
   def get_streaming_distribution_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}/config"
 
@@ -11064,8 +10868,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListCachePolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of cache policies. The response includes cache
   policies in the list that occur after the marker. To get the next page of
@@ -11076,12 +10879,10 @@ defmodule AWS.CloudFront do
   * `:type` (`t:enum["custom|managed"]`) A filter to return only the specified
   kinds of cache policies. Valid values are:
   """
-
   @spec list_cache_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cache_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cache_policies_errors()}
-
   def list_cache_policies(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/cache-policy"
 
@@ -11141,8 +10942,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListCloudFrontOriginAccessIdentities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this when paginating results to indicate where to
   begin in your list of origin access identities. The results include
   identities in the list that occur after the marker. To get the next page of
@@ -11151,12 +10951,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of origin access identities you
   want in the response body.
   """
-
   @spec list_cloud_front_origin_access_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_front_origin_access_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cloud_front_origin_access_identities_errors()}
-
   def list_cloud_front_origin_access_identities(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront"
 
@@ -11222,12 +11020,12 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListConflictingAliases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias` (`t:string`) The alias (also called a CNAME) to search for
+  * `:alias` (`t:string` required) The alias (also called a CNAME) to search for
   conflicting aliases.
-  * `:distribution_id` (`t:string`) The ID of a distribution in your account that
-  has an attached SSL/TLS certificate that includes the provided alias.
-
-  ## Optional parameters:
+  * `:distribution_id` (`t:string` required) The ID of a distribution in your
+  account that has an attached SSL/TLS certificate that includes the provided
+  alias.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in the list of conflicting aliases. The response includes
   conflicting aliases in the list that occur after the marker. To get the next
@@ -11236,12 +11034,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of conflicting aliases that you
   want in the response.
   """
-
   @spec list_conflicting_aliases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_conflicting_aliases_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_conflicting_aliases_errors()}
-
   def list_conflicting_aliases(%Client{} = client, alias, distribution_id, options \\ [])
       when is_binary(alias) and is_binary(distribution_id) do
     url_path = "/2020-05-31/conflicting-alias"
@@ -11296,8 +11092,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListContinuousDeploymentPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of continuous deployment policies. The response
   includes policies in the list that occur after the marker. To get the next
@@ -11306,12 +11101,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of continuous deployment
   policies that you want returned in the response.
   """
-
   @spec list_continuous_deployment_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_continuous_deployment_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_continuous_deployment_policies_errors()}
-
   def list_continuous_deployment_policies(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy"
 
@@ -11364,8 +11157,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this when paginating results to indicate where to
   begin in your list of distributions. The results include distributions in
   the list that occur after the marker. To get the next page of results, set
@@ -11374,12 +11166,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of distributions you want in the
   response body.
   """
-
   @spec list_distributions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_distributions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_errors()}
-
   def list_distributions(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/distribution"
 
@@ -11433,10 +11223,9 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByCachePolicyId&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cache_policy_id` (`t:string`) The ID of the cache policy whose associated
-  distribution IDs you want to list.
-
-  ## Optional parameters:
+  * `:cache_policy_id` (`t:string` required) The ID of the cache policy whose
+  associated distribution IDs you want to list.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of distribution IDs. The response includes
   distribution IDs in the list that occur after the marker. To get the next
@@ -11445,12 +11234,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
   want in the response.
   """
-
   @spec list_distributions_by_cache_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_cache_policy_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_cache_policy_id_errors()}
-
   def list_distributions_by_cache_policy_id(%Client{} = client, cache_policy_id, options \\ []) do
     url_path = "/2020-05-31/distributionsByCachePolicyId/#{AWS.Util.encode_uri(cache_policy_id)}"
 
@@ -11504,10 +11291,9 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByKeyGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:key_group_id` (`t:string`) The ID of the key group whose associated
+  * `:key_group_id` (`t:string` required) The ID of the key group whose associated
   distribution IDs you are listing.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of distribution IDs. The response includes
   distribution IDs in the list that occur after the marker. To get the next
@@ -11516,12 +11302,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
   want in the response.
   """
-
   @spec list_distributions_by_key_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_key_group_errors()}
-
   def list_distributions_by_key_group(%Client{} = client, key_group_id, options \\ []) do
     url_path = "/2020-05-31/distributionsByKeyGroupId/#{AWS.Util.encode_uri(key_group_id)}"
 
@@ -11575,10 +11359,9 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByOriginRequestPolicyId&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:origin_request_policy_id` (`t:string`) The ID of the origin request policy
-  whose associated distribution IDs you want to list.
-
-  ## Optional parameters:
+  * `:origin_request_policy_id` (`t:string` required) The ID of the origin request
+  policy whose associated distribution IDs you want to list.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of distribution IDs. The response includes
   distribution IDs in the list that occur after the marker. To get the next
@@ -11587,12 +11370,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
   want in the response.
   """
-
   @spec list_distributions_by_origin_request_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_origin_request_policy_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_origin_request_policy_id_errors()}
-
   def list_distributions_by_origin_request_policy_id(
         %Client{} = client,
         origin_request_policy_id,
@@ -11654,15 +11435,12 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByRealtimeLogConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_distributions_by_realtime_log_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_distributions_by_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_realtime_log_config_errors()}
-
   def list_distributions_by_realtime_log_config(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/distributionsByRealtimeLogConfig"
 
@@ -11700,10 +11478,9 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByResponseHeadersPolicyId&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:response_headers_policy_id` (`t:string`) The ID of the response headers
-  policy whose associated distribution IDs you want to list.
-
-  ## Optional parameters:
+  * `:response_headers_policy_id` (`t:string` required) The ID of the response
+  headers policy whose associated distribution IDs you want to list.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of distribution IDs. The response includes
   distribution IDs in the list that occur after the marker. To get the next
@@ -11712,12 +11489,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
   want to get in the response.
   """
-
   @spec list_distributions_by_response_headers_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_response_headers_policy_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_response_headers_policy_id_errors()}
-
   def list_distributions_by_response_headers_policy_id(
         %Client{} = client,
         response_headers_policy_id,
@@ -11775,11 +11550,11 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByWebACLId&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:web_acl_id` (`t:string`) The ID of the WAF web ACL that you want to list the
-  associated distributions. If you specify "null" for the ID, the request
-  returns a list of the distributions that aren't associated with a web ACL.
-
-  ## Optional parameters:
+  * `:web_acl_id` (`t:string` required) The ID of the WAF web ACL that you want to
+  list the associated distributions. If you specify "null" for the ID, the
+  request returns a list of the distributions that aren't associated with a
+  web ACL.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use Marker and MaxItems to control pagination of
   results. If you have more than MaxItems distributions that satisfy the
   request, the response includes a NextMarker element. To get the next page of
@@ -11789,12 +11564,10 @@ defmodule AWS.CloudFront do
   CloudFront to return in the response body. The maximum and default values
   are both 100.
   """
-
   @spec list_distributions_by_web_acl_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_web_acl_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_web_acl_id_errors()}
-
   def list_distributions_by_web_acl_id(%Client{} = client, web_acl_id, options \\ []) do
     url_path = "/2020-05-31/distributionsByWebACLId/#{AWS.Util.encode_uri(web_acl_id)}"
 
@@ -11848,8 +11621,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListFieldLevelEncryptionConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this when paginating results to indicate where to
   begin in your list of configurations. The results include configurations in
   the list that occur after the marker. To get the next page of results, set
@@ -11858,12 +11630,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of field-level encryption
   configurations you want in the response body.
   """
-
   @spec list_field_level_encryption_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_field_level_encryption_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_field_level_encryption_configs_errors()}
-
   def list_field_level_encryption_configs(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption"
 
@@ -11917,8 +11687,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListFieldLevelEncryptionProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this when paginating results to indicate where to
   begin in your list of profiles. The results include profiles in the list
   that occur after the marker. To get the next page of results, set the Marker
@@ -11927,12 +11696,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of field-level encryption
   profiles you want in the response body.
   """
-
   @spec list_field_level_encryption_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_field_level_encryption_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_field_level_encryption_profiles_errors()}
-
   def list_field_level_encryption_profiles(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile"
 
@@ -11987,8 +11754,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListFunctions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of functions. The response includes functions in
   the list that occur after the marker. To get the next page of the list, set
@@ -11999,12 +11765,10 @@ defmodule AWS.CloudFront do
   * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) An optional filter to return only the
   functions that are in the specified stage, either DEVELOPMENT or LIVE.
   """
-
   @spec list_functions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_functions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_functions_errors()}
-
   def list_functions(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/function"
 
@@ -12064,9 +11828,8 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListInvalidations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:distribution_id` (`t:string`) The distribution's ID.
-
-  ## Optional parameters:
+  * `:distribution_id` (`t:string` required) The distribution's ID.
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this parameter when paginating results to indicate
   where to begin in your list of invalidation batches. Because the results are
   returned in decreasing order from most recent to oldest, the most recent
@@ -12077,12 +11840,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of invalidation batches that you
   want in the response body.
   """
-
   @spec list_invalidations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_invalidations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invalidations_errors()}
-
   def list_invalidations(%Client{} = client, distribution_id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation"
 
@@ -12135,8 +11896,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListKeyGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of key groups. The response includes key groups
   in the list that occur after the marker. To get the next page of the list,
@@ -12145,12 +11905,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of key groups that you want in
   the response.
   """
-
   @spec list_key_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_key_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_key_groups_errors()}
-
   def list_key_groups(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/key-group"
 
@@ -12203,20 +11961,17 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListKeyValueStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) The marker associated with the key value stores list.
   * `:max_items` (`t:integer`) The maximum number of items in the key value stores
   list.
   * `:status` (`t:string`) The status of the request for the key value stores
   list.
   """
-
   @spec list_key_value_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_key_value_stores_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_key_value_stores_errors()}
-
   def list_key_value_stores(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/key-value-store"
 
@@ -12277,8 +12032,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListOriginAccessControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of origin access controls. The response includes
   the items in the list that occur after the marker. To get the next page of
@@ -12287,12 +12041,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of origin access controls that
   you want in the response.
   """
-
   @spec list_origin_access_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_access_controls_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_origin_access_controls_errors()}
-
   def list_origin_access_controls(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/origin-access-control"
 
@@ -12347,8 +12099,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListOriginRequestPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of origin request policies. The response
   includes origin request policies in the list that occur after the marker. To
@@ -12359,12 +12110,10 @@ defmodule AWS.CloudFront do
   * `:type` (`t:enum["custom|managed"]`) A filter to return only the specified
   kinds of origin request policies. Valid values are:
   """
-
   @spec list_origin_request_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_request_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_origin_request_policies_errors()}
-
   def list_origin_request_policies(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy"
 
@@ -12424,8 +12173,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListPublicKeys&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this when paginating results to indicate where to
   begin in your list of public keys. The results include public keys in the
   list that occur after the marker. To get the next page of results, set the
@@ -12434,12 +12182,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of public keys you want in the
   response body.
   """
-
   @spec list_public_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_public_keys_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_public_keys_errors()}
-
   def list_public_keys(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/public-key"
 
@@ -12492,8 +12238,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListRealtimeLogConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of real-time log configurations. The response
   includes real-time log configurations in the list that occur after the
@@ -12502,12 +12247,10 @@ defmodule AWS.CloudFront do
   * `:max_items` (`t:integer`) The maximum number of real-time log configurations
   that you want in the response.
   """
-
   @spec list_realtime_log_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_realtime_log_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_realtime_log_configs_errors()}
-
   def list_realtime_log_configs(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/realtime-log-config"
 
@@ -12562,8 +12305,7 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListResponseHeadersPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
   where to begin in your list of response headers policies. The response
   includes response headers policies in the list that occur after the marker.
@@ -12574,12 +12316,10 @@ defmodule AWS.CloudFront do
   * `:type` (`t:enum["custom|managed"]`) A filter to get only the specified kind
   of response headers policies. Valid values are:
   """
-
   @spec list_response_headers_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_response_headers_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_response_headers_policies_errors()}
-
   def list_response_headers_policies(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy"
 
@@ -12639,19 +12379,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListStreamingDistributions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) The value that you provided for the Marker request
   parameter.
   * `:max_items` (`t:integer`) The value that you provided for the MaxItems
   request parameter.
   """
-
   @spec list_streaming_distributions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_streaming_distributions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streaming_distributions_errors()}
-
   def list_streaming_distributions(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution"
 
@@ -12706,16 +12443,13 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource` (`t:string`) An ARN of a CloudFront resource.
-
-  ## Optional parameters:
+  * `:resource` (`t:string` required) An ARN of a CloudFront resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource, options \\ [])
       when is_binary(resource) do
     url_path = "/2020-05-31/tagging"
@@ -12756,18 +12490,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20PublishFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the function that you are publishing.
-  * `:if_match` (`t:string`) The current version (ETag value) of the function that
-  you are publishing, which you can get using DescribeFunction.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the function that you are
+  publishing.
+  * `:if_match` (`t:string` required) The current version (ETag value) of the
+  function that you are publishing, which you can get using DescribeFunction.
+  ## Keyword parameters:
   """
-
   @spec publish_function(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, publish_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_function_errors()}
-
   def publish_function(%Client{} = client, name, if_match, options \\ [])
       when is_binary(if_match) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/publish"
@@ -12807,19 +12539,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource` (`t:string`) An ARN of a CloudFront resource.
+  * `:resource` (`t:string` required) An ARN of a CloudFront resource.
   * `:input` (`t:map`):
-    * `:tags` (`t:structure`) A complex type that contains zero or more Tag
+    * `:tags` (`t:structure` required) A complex type that contains zero or more Tag
   elements.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource, input, options \\ [])
       when is_map(input) and is_binary(resource) do
     url_path = "/2020-05-31/tagging?Operation=Tag"
@@ -12865,18 +12594,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20TestFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the function that you are testing.
-  * `:if_match` (`t:string`) The current version (ETag value) of the function that
-  you are testing, which you can get using DescribeFunction.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the function that you are testing.
+  * `:if_match` (`t:string` required) The current version (ETag value) of the
+  function that you are testing, which you can get using DescribeFunction.
+  ## Keyword parameters:
   """
-
   @spec test_function(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, test_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_function_errors()}
-
   def test_function(%Client{} = client, name, if_match, options \\ []) when is_binary(if_match) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/test"
 
@@ -12915,19 +12641,16 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource` (`t:string`) An ARN of a CloudFront resource.
+  * `:resource` (`t:string` required) An ARN of a CloudFront resource.
   * `:input` (`t:map`):
-    * `:tag_keys` (`t:structure`) A complex type that contains zero or more Tag key
-  elements.
-
-  ## Optional parameters:
+    * `:tag_keys` (`t:structure` required) A complex type that contains zero or more
+  Tag key elements.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource, input, options \\ [])
       when is_map(input) and is_binary(resource) do
     url_path = "/2020-05-31/tagging?Operation=Untag"
@@ -12968,23 +12691,20 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateCachePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier for the cache policy that you are
-  updating. The identifier is returned in a cache behavior's CachePolicyId
-  field in the response to GetDistributionConfig.
+  * `:id` (`t:string` required) The unique identifier for the cache policy that
+  you are updating. The identifier is returned in a cache behavior's
+  CachePolicyId field in the response to GetDistributionConfig.
   * `:input` (`t:map`):
-    * `:cache_policy_config` (`t:structure`) A cache policy configuration.
-
-  ## Optional parameters:
+    * `:cache_policy_config` (`t:structure` required) A cache policy configuration.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The version of the cache policy that you are
   updating. The version is returned in the cache policy's ETag field in the
   response to GetCachePolicyConfig.
   """
-
   @spec update_cache_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cache_policy_errors()}
-
   def update_cache_policy(%Client{} = client, id, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -13045,16 +12765,14 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateCloudFrontOriginAccessIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identity's id.
+  * `:id` (`t:string` required) The identity's id.
   * `:input` (`t:map`):
-    * `:cloud_front_origin_access_identity_config` (`t:structure`) The identity's
-  configuration information.
-
-  ## Optional parameters:
+    * `:cloud_front_origin_access_identity_config` (`t:structure` required) The
+  identity's configuration information.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   retrieving the identity's configuration. For example: E2QWRUHAPOMQZL.
   """
-
   @spec update_cloud_front_origin_access_identity(
           AWS.Client.t(),
           String.t(),
@@ -13064,7 +12782,6 @@ defmodule AWS.CloudFront do
           {:ok, update_cloud_front_origin_access_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cloud_front_origin_access_identity_errors()}
-
   def update_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}/config"
@@ -13132,17 +12849,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateContinuousDeploymentPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the continuous deployment policy that you
-  are updating.
+  * `:id` (`t:string` required) The identifier of the continuous deployment policy
+  that you are updating.
   * `:input` (`t:map`):
-    * `:continuous_deployment_policy_config` (`t:structure`) The continuous
+    * `:continuous_deployment_policy_config` (`t:structure` required) The continuous
   deployment policy configuration.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The current version (ETag value) of the continuous
   deployment policy that you are updating.
   """
-
   @spec update_continuous_deployment_policy(
           AWS.Client.t(),
           String.t(),
@@ -13152,7 +12867,6 @@ defmodule AWS.CloudFront do
           {:ok, update_continuous_deployment_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_continuous_deployment_policy_errors()}
-
   def update_continuous_deployment_policy(%Client{} = client, id, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
@@ -13217,21 +12931,18 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The distribution's id.
+  * `:id` (`t:string` required) The distribution's id.
   * `:input` (`t:map`):
-    * `:distribution_config` (`t:structure`) The distribution's configuration
-  information.
-
-  ## Optional parameters:
+    * `:distribution_config` (`t:structure` required) The distribution's
+  configuration information.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   retrieving the distribution's configuration. For example: E2QWRUHAPOMQZL.
   """
-
   @spec update_distribution(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_distribution_errors()}
-
   def update_distribution(%Client{} = client, id, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/config"
 
@@ -13302,22 +13013,19 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateDistributionWithStagingConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the primary distribution to which you are
-  copying a staging distribution's configuration.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the primary distribution to
+  which you are copying a staging distribution's configuration.
+  ## Keyword parameters:
   * `:staging_distribution_id` (`t:string`) The identifier of the staging
   distribution whose configuration you are copying to the primary
   distribution.
   * `:if_match` (`t:string`) The current versions (ETag values) of both primary
   and staging distributions. Provide these in the following format:
   """
-
   @spec update_distribution_with_staging_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_distribution_with_staging_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_distribution_with_staging_config_errors()}
-
   def update_distribution_with_staging_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/promote-staging-config"
 
@@ -13385,17 +13093,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateFieldLevelEncryptionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the configuration you want to update.
+  * `:id` (`t:string` required) The ID of the configuration you want to update.
   * `:input` (`t:map`):
-    * `:field_level_encryption_config` (`t:structure`) Request to update a
+    * `:field_level_encryption_config` (`t:structure` required) Request to update a
   field-level encryption configuration.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   retrieving the configuration identity to update. For example:
   E2QWRUHAPOMQZL.
   """
-
   @spec update_field_level_encryption_config(
           AWS.Client.t(),
           String.t(),
@@ -13405,7 +13111,6 @@ defmodule AWS.CloudFront do
           {:ok, update_field_level_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_field_level_encryption_config_errors()}
-
   def update_field_level_encryption_config(%Client{} = client, id, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}/config"
@@ -13467,16 +13172,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateFieldLevelEncryptionProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the field-level encryption profile request.
+  * `:id` (`t:string` required) The ID of the field-level encryption profile
+  request.
   * `:input` (`t:map`):
-    * `:field_level_encryption_profile_config` (`t:structure`) Request to update a
-  field-level encryption profile.
-
-  ## Optional parameters:
+    * `:field_level_encryption_profile_config` (`t:structure` required) Request to
+  update a field-level encryption profile.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   retrieving the profile identity to update. For example: E2QWRUHAPOMQZL.
   """
-
   @spec update_field_level_encryption_profile(
           AWS.Client.t(),
           String.t(),
@@ -13486,7 +13190,6 @@ defmodule AWS.CloudFront do
           {:ok, update_field_level_encryption_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_field_level_encryption_profile_errors()}
-
   def update_field_level_encryption_profile(%Client{} = client, id, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}/config"
@@ -13549,18 +13252,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the function that you are updating.
-  * `:if_match` (`t:string`) The current version (ETag value) of the function that
-  you are updating, which you can get using DescribeFunction.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the function that you are updating.
+  * `:if_match` (`t:string` required) The current version (ETag value) of the
+  function that you are updating, which you can get using DescribeFunction.
+  ## Keyword parameters:
   """
-
   @spec update_function(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_function_errors()}
-
   def update_function(%Client{} = client, name, if_match, options \\ [])
       when is_binary(if_match) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
@@ -13613,20 +13313,18 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateKeyGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the key group that you are updating.
+  * `:id` (`t:string` required) The identifier of the key group that you are
+  updating.
   * `:input` (`t:map`):
-    * `:key_group_config` (`t:structure`) The key group configuration.
-
-  ## Optional parameters:
+    * `:key_group_config` (`t:structure` required) The key group configuration.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The version of the key group that you are updating.
   The version is the key group's ETag value.
   """
-
   @spec update_key_group(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_key_group_errors()}
-
   def update_key_group(%Client{} = client, id, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
 
@@ -13687,17 +13385,15 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateKeyValueStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the key value store to update.
-  * `:if_match` (`t:string`) The key value store to update, if a match occurs.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the key value store to update.
+  * `:if_match` (`t:string` required) The key value store to update, if a match
+  occurs.
+  ## Keyword parameters:
   """
-
   @spec update_key_value_store(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_key_value_store_errors()}
-
   def update_key_value_store(%Client{} = client, name, if_match, options \\ [])
       when is_binary(if_match) do
     url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
@@ -13748,21 +13444,19 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateOriginAccessControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier of the origin access control that you
-  are updating.
+  * `:id` (`t:string` required) The unique identifier of the origin access control
+  that you are updating.
   * `:input` (`t:map`):
-    * `:origin_access_control_config` (`t:structure`) An origin access control.
-
-  ## Optional parameters:
+    * `:origin_access_control_config` (`t:structure` required) An origin access
+  control.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The current version (ETag value) of the origin access
   control that you are updating.
   """
-
   @spec update_origin_access_control(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_origin_access_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_origin_access_control_errors()}
-
   def update_origin_access_control(%Client{} = client, id, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}/config"
@@ -13827,24 +13521,22 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateOriginRequestPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier for the origin request policy that
-  you are updating. The identifier is returned in a cache behavior's
-  OriginRequestPolicyId field in the response to GetDistributionConfig.
+  * `:id` (`t:string` required) The unique identifier for the origin request
+  policy that you are updating. The identifier is returned in a cache
+  behavior's OriginRequestPolicyId field in the response to
+  GetDistributionConfig.
   * `:input` (`t:map`):
-    * `:origin_request_policy_config` (`t:structure`) An origin request policy
-  configuration.
-
-  ## Optional parameters:
+    * `:origin_request_policy_config` (`t:structure` required) An origin request
+  policy configuration.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The version of the origin request policy that you are
   updating. The version is returned in the origin request policy's ETag field
   in the response to GetOriginRequestPolicyConfig.
   """
-
   @spec update_origin_request_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_origin_request_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_origin_request_policy_errors()}
-
   def update_origin_request_policy(%Client{} = client, id, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
@@ -13907,20 +13599,18 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdatePublicKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the public key that you are updating.
+  * `:id` (`t:string` required) The identifier of the public key that you are
+  updating.
   * `:input` (`t:map`):
-    * `:public_key_config` (`t:structure`) A public key configuration.
-
-  ## Optional parameters:
+    * `:public_key_config` (`t:structure` required) A public key configuration.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   retrieving the public key to update. For example: E2QWRUHAPOMQZL.
   """
-
   @spec update_public_key(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_public_key_errors()}
-
   def update_public_key(%Client{} = client, id, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}/config"
 
@@ -13984,15 +13674,12 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateRealtimeLogConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_realtime_log_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_realtime_log_config_errors()}
-
   def update_realtime_log_config(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/realtime-log-config"
 
@@ -14031,22 +13718,19 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateResponseHeadersPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier for the response headers policy that you are
-  updating.
+  * `:id` (`t:string` required) The identifier for the response headers policy
+  that you are updating.
   * `:input` (`t:map`):
-    * `:response_headers_policy_config` (`t:structure`) A response headers policy
-  configuration.
-
-  ## Optional parameters:
+    * `:response_headers_policy_config` (`t:structure` required) A response headers
+  policy configuration.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The version of the response headers policy that you
   are updating.
   """
-
   @spec update_response_headers_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_response_headers_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_response_headers_policy_errors()}
-
   def update_response_headers_policy(%Client{} = client, id, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
@@ -14108,22 +13792,19 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateStreamingDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The streaming distribution's id.
+  * `:id` (`t:string` required) The streaming distribution's id.
   * `:input` (`t:map`):
-    * `:streaming_distribution_config` (`t:structure`) The streaming distribution's
-  configuration information.
-
-  ## Optional parameters:
+    * `:streaming_distribution_config` (`t:structure` required) The streaming
+  distribution's configuration information.
+  ## Keyword parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
   retrieving the streaming distribution's configuration. For example:
   E2QWRUHAPOMQZL.
   """
-
   @spec update_streaming_distribution(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_streaming_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_streaming_distribution_errors()}
-
   def update_streaming_distribution(%Client{} = client, id, input, options \\ [])
       when is_map(input) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}/config"

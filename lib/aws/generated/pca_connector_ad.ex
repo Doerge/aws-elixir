@@ -1348,15 +1348,12 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20CreateConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
-
   def create_connector(%Client{} = client, options \\ []) do
     url_path = "/connectors"
 
@@ -1394,15 +1391,12 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20CreateDirectoryRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_directory_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_directory_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_directory_registration_errors()}
-
   def create_directory_registration(%Client{} = client, options \\ []) do
     url_path = "/directoryRegistrations"
 
@@ -1441,19 +1435,16 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20CreateServicePrincipalName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateConnector.
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-  was returned when you called CreateDirectoryRegistration.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateConnector.
+  * `:directory_registration_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) that was returned when you called CreateDirectoryRegistration.
+  ## Keyword parameters:
   """
-
   @spec create_service_principal_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_principal_name_errors()}
-
   def create_service_principal_name(
         %Client{} = client,
         connector_arn,
@@ -1498,15 +1489,12 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20CreateTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
-
   def create_template(%Client{} = client, options \\ []) do
     url_path = "/templates"
 
@@ -1545,17 +1533,14 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20CreateTemplateGroupAccessControlEntry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateTemplate.
-
-  ## Optional parameters:
+  * `:template_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateTemplate.
+  ## Keyword parameters:
   """
-
   @spec create_template_group_access_control_entry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_group_access_control_entry_errors()}
-
   def create_template_group_access_control_entry(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}/accessControlEntries"
 
@@ -1599,17 +1584,14 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20DeleteConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateConnector.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateConnector.
+  ## Keyword parameters:
   """
-
   @spec delete_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
-
   def delete_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
 
@@ -1657,17 +1639,14 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20DeleteDirectoryRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-  was returned when you called CreateDirectoryRegistration.
-
-  ## Optional parameters:
+  * `:directory_registration_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) that was returned when you called CreateDirectoryRegistration.
+  ## Keyword parameters:
   """
-
   @spec delete_directory_registration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_directory_registration_errors()}
-
   def delete_directory_registration(%Client{} = client, directory_registration_arn, options \\ []) do
     url_path = "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}"
 
@@ -1715,19 +1694,16 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20DeleteServicePrincipalName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateConnector.
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-  was returned when you called CreateDirectoryRegistration.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateConnector.
+  * `:directory_registration_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) that was returned when you called CreateDirectoryRegistration.
+  ## Keyword parameters:
   """
-
   @spec delete_service_principal_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_principal_name_errors()}
-
   def delete_service_principal_name(
         %Client{} = client,
         connector_arn,
@@ -1781,17 +1757,14 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20DeleteTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateTemplate.
-
-  ## Optional parameters:
+  * `:template_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateTemplate.
+  ## Keyword parameters:
   """
-
   @spec delete_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_errors()}
-
   def delete_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}"
 
@@ -1838,14 +1811,12 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20DeleteTemplateGroupAccessControlEntry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the
-  group object from Active Directory. The SID starts with "S-".
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateTemplate.
-
-  ## Optional parameters:
+  * `:group_security_identifier` (`t:string` required) Security identifier (SID)
+  of the group object from Active Directory. The SID starts with "S-".
+  * `:template_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateTemplate.
+  ## Keyword parameters:
   """
-
   @spec delete_template_group_access_control_entry(
           AWS.Client.t(),
           String.t(),
@@ -1855,7 +1826,6 @@ defmodule AWS.PcaConnectorAd do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_group_access_control_entry_errors()}
-
   def delete_template_group_access_control_entry(
         %Client{} = client,
         group_security_identifier,
@@ -1909,17 +1879,14 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20GetConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateConnector.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateConnector.
+  ## Keyword parameters:
   """
-
   @spec get_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connector_errors()}
-
   def get_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
 
@@ -1954,17 +1921,14 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20GetDirectoryRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-  was returned when you called CreateDirectoryRegistration.
-
-  ## Optional parameters:
+  * `:directory_registration_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) that was returned when you called CreateDirectoryRegistration.
+  ## Keyword parameters:
   """
-
   @spec get_directory_registration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_directory_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_directory_registration_errors()}
-
   def get_directory_registration(%Client{} = client, directory_registration_arn, options \\ []) do
     url_path = "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}"
 
@@ -2000,19 +1964,16 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20GetServicePrincipalName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateConnector.
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-  was returned when you called CreateDirectoryRegistration.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateConnector.
+  * `:directory_registration_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) that was returned when you called CreateDirectoryRegistration.
+  ## Keyword parameters:
   """
-
   @spec get_service_principal_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_principal_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_principal_name_errors()}
-
   def get_service_principal_name(
         %Client{} = client,
         connector_arn,
@@ -2054,17 +2015,14 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20GetTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateTemplate.
-
-  ## Optional parameters:
+  * `:template_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateTemplate.
+  ## Keyword parameters:
   """
-
   @spec get_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_errors()}
-
   def get_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}"
 
@@ -2099,14 +2057,12 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20GetTemplateGroupAccessControlEntry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the
-  group object from Active Directory. The SID starts with "S-".
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateTemplate.
-
-  ## Optional parameters:
+  * `:group_security_identifier` (`t:string` required) Security identifier (SID)
+  of the group object from Active Directory. The SID starts with "S-".
+  * `:template_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateTemplate.
+  ## Keyword parameters:
   """
-
   @spec get_template_group_access_control_entry(
           AWS.Client.t(),
           String.t(),
@@ -2116,7 +2072,6 @@ defmodule AWS.PcaConnectorAd do
           {:ok, get_template_group_access_control_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_group_access_control_entry_errors()}
-
   def get_template_group_access_control_entry(
         %Client{} = client,
         group_security_identifier,
@@ -2159,8 +2114,7 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Use this parameter when paginating results to
   specify the maximum number of items to return in the response on each page.
   If additional items exist beyond the number you specify, the NextToken
@@ -2171,12 +2125,10 @@ defmodule AWS.PcaConnectorAd do
   it to the value of the NextToken parameter from the response you just
   received.
   """
-
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
-
   def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/connectors"
 
@@ -2231,8 +2183,7 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListDirectoryRegistrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Use this parameter when paginating results to
   specify the maximum number of items to return in the response on each page.
   If additional items exist beyond the number you specify, the NextToken
@@ -2243,12 +2194,10 @@ defmodule AWS.PcaConnectorAd do
   it to the value of the NextToken parameter from the response you just
   received.
   """
-
   @spec list_directory_registrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_directory_registrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_directory_registrations_errors()}
-
   def list_directory_registrations(%Client{} = client, options \\ []) do
     url_path = "/directoryRegistrations"
 
@@ -2302,10 +2251,9 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListServicePrincipalNames&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-  was returned when you called CreateDirectoryRegistration.
-
-  ## Optional parameters:
+  * `:directory_registration_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) that was returned when you called CreateDirectoryRegistration.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Use this parameter when paginating results to
   specify the maximum number of items to return in the response on each page.
   If additional items exist beyond the number you specify, the NextToken
@@ -2316,12 +2264,10 @@ defmodule AWS.PcaConnectorAd do
   it to the value of the NextToken parameter from the response you just
   received.
   """
-
   @spec list_service_principal_names(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_service_principal_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_principal_names_errors()}
-
   def list_service_principal_names(%Client{} = client, directory_registration_arn, options \\ []) do
     url_path =
       "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}/servicePrincipalNames"
@@ -2375,17 +2321,14 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you created the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you created the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2420,10 +2363,9 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListTemplateGroupAccessControlEntries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateTemplate.
-
-  ## Optional parameters:
+  * `:template_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateTemplate.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Use this parameter when paginating results to
   specify the maximum number of items to return in the response on each page.
   If additional items exist beyond the number you specify, the NextToken
@@ -2434,12 +2376,10 @@ defmodule AWS.PcaConnectorAd do
   it to the value of the NextToken parameter from the response you just
   received.
   """
-
   @spec list_template_group_access_control_entries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_group_access_control_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_group_access_control_entries_errors()}
-
   def list_template_group_access_control_entries(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}/accessControlEntries"
 
@@ -2492,10 +2432,9 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateConnector.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateConnector.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Use this parameter when paginating results to
   specify the maximum number of items to return in the response on each page.
   If additional items exist beyond the number you specify, the NextToken
@@ -2506,12 +2445,10 @@ defmodule AWS.PcaConnectorAd do
   it to the value of the NextToken parameter from the response you just
   received.
   """
-
   @spec list_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
-
   def list_templates(%Client{} = client, connector_arn, options \\ [])
       when is_binary(connector_arn) do
     url_path = "/templates"
@@ -2565,17 +2502,14 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you created the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you created the resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2612,19 +2546,16 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you created the resource.
-  * `:tag_keys` (`t:list[smithy.api#String]`) Specifies a list of tag keys that
-  you want to remove from the specified resources.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you created the resource.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) Specifies a list of tag
+  keys that you want to remove from the specified resources.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2673,17 +2604,14 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20UpdateTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateTemplate.
-
-  ## Optional parameters:
+  * `:template_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateTemplate.
+  ## Keyword parameters:
   """
-
   @spec update_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
-
   def update_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}"
 
@@ -2731,14 +2659,12 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20UpdateTemplateGroupAccessControlEntry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the
-  group object from Active Directory. The SID starts with "S-".
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-  when you called CreateTemplate.
-
-  ## Optional parameters:
+  * `:group_security_identifier` (`t:string` required) Security identifier (SID)
+  of the group object from Active Directory. The SID starts with "S-".
+  * `:template_arn` (`t:string` required) The Amazon Resource Name (ARN) that was
+  returned when you called CreateTemplate.
+  ## Keyword parameters:
   """
-
   @spec update_template_group_access_control_entry(
           AWS.Client.t(),
           String.t(),
@@ -2748,7 +2674,6 @@ defmodule AWS.PcaConnectorAd do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_group_access_control_entry_errors()}
-
   def update_template_group_access_control_entry(
         %Client{} = client,
         group_security_identifier,

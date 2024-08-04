@@ -1269,16 +1269,14 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CancelImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:task_identifier` (`t:string`) The unique identifier of the import task.
-
-  ## Optional parameters:
+  * `:task_identifier` (`t:string` required) The unique identifier of the import
+  task.
+  ## Keyword parameters:
   """
-
   @spec cancel_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_import_task_errors()}
-
   def cancel_import_task(%Client{} = client, task_identifier, options \\ []) do
     url_path = "/importtasks/#{AWS.Util.encode_uri(task_identifier)}"
 
@@ -1325,18 +1323,16 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CancelQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:query_id` (`t:string`) The unique identifier of the query to cancel.
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:query_id` (`t:string` required) The unique identifier of the query to
+  cancel.
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_query_errors()}
-
   def cancel_query(%Client{} = client, query_id, graph_identifier, options \\ [])
       when is_binary(graph_identifier) do
     url_path = "/queries/#{AWS.Util.encode_uri(query_id)}"
@@ -1384,15 +1380,12 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_graph_errors()}
-
   def create_graph(%Client{} = client, options \\ []) do
     url_path = "/graphs"
 
@@ -1429,15 +1422,12 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraphSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_graph_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_graph_snapshot_errors()}
-
   def create_graph_snapshot(%Client{} = client, options \\ []) do
     url_path = "/snapshots"
 
@@ -1476,15 +1466,12 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraphUsingImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_graph_using_import_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_graph_using_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_graph_using_import_task_errors()}
-
   def create_graph_using_import_task(%Client{} = client, options \\ []) do
     url_path = "/importtasks"
 
@@ -1522,17 +1509,14 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreatePrivateGraphEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_private_graph_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_private_graph_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_private_graph_endpoint_errors()}
-
   def create_private_graph_endpoint(%Client{} = client, graph_identifier, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/endpoints/"
 
@@ -1570,21 +1554,18 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20DeleteGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-  * `:skip_snapshot` (`t:string`) Determines whether a final graph snapshot is
-  created before the graph is deleted. If true is specified, no graph snapshot
-  is created. If false is specified, a graph snapshot is created before the
-  graph is deleted.
-
-  ## Optional parameters:
+  * `:skip_snapshot` (`t:string` required) Determines whether a final graph
+  snapshot is created before the graph is deleted. If true is specified, no
+  graph snapshot is created. If false is specified, a graph snapshot is
+  created before the graph is deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_graph(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_graph_errors()}
-
   def delete_graph(%Client{} = client, graph_identifier, skip_snapshot, options \\ [])
       when is_binary(skip_snapshot) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
@@ -1632,16 +1613,14 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20DeleteGraphSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_identifier` (`t:string`) ID of the graph snapshot to be deleted.
-
-  ## Optional parameters:
+  * `:snapshot_identifier` (`t:string` required) ID of the graph snapshot to be
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_graph_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_graph_snapshot_errors()}
-
   def delete_graph_snapshot(%Client{} = client, snapshot_identifier, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}"
 
@@ -1688,19 +1667,16 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20DeletePrivateGraphEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-  * `:vpc_id` (`t:string`) The ID of the VPC where the private endpoint is
-  located.
-
-  ## Optional parameters:
+  * `:vpc_id` (`t:string` required) The ID of the VPC where the private endpoint
+  is located.
+  ## Keyword parameters:
   """
-
   @spec delete_private_graph_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_private_graph_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_private_graph_endpoint_errors()}
-
   def delete_private_graph_endpoint(%Client{} = client, graph_identifier, vpc_id, options \\ []) do
     url_path =
       "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/endpoints/#{AWS.Util.encode_uri(vpc_id)}"
@@ -1751,23 +1727,20 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ExecuteQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
   * `:input` (`t:map`):
-    * `:query_string` (`t:string`) The query string to be executed.
+    * `:query_string` (`t:string` required) The query string to be executed.
     * `:explain_mode` (`t:enum["DETAILS|STATIC"]`) The explain mode parameter
   returns a query explain instead of the actual query results. A query explain
   can be used to gather insights about the query execution such as planning
   decisions, time spent on each operator, solutions flowing etc.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec execute_query(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_query_errors()}
-
   def execute_query(%Client{} = client, graph_identifier, input, options \\ [])
       when is_map(input) and is_binary(graph_identifier) do
     url_path = "/queries"
@@ -1805,17 +1778,14 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_graph(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_graph_errors()}
-
   def get_graph(%Client{} = client, graph_identifier, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
 
@@ -1850,16 +1820,14 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetGraphSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_identifier` (`t:string`) The ID of the snapshot to retrieve.
-
-  ## Optional parameters:
+  * `:snapshot_identifier` (`t:string` required) The ID of the snapshot to
+  retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_graph_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_graph_snapshot_errors()}
-
   def get_graph_snapshot(%Client{} = client, snapshot_identifier, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}"
 
@@ -1894,19 +1862,16 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetGraphSummary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:mode` (`t:enum["BASIC|DETAILED"]`) The summary mode can take one of two
   values: basic (the default), and detailed.
   """
-
   @spec get_graph_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_graph_summary_errors()}
-
   def get_graph_summary(%Client{} = client, graph_identifier, options \\ [])
       when is_binary(graph_identifier) do
     url_path = "/summary"
@@ -1953,16 +1918,14 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:task_identifier` (`t:string`) The unique identifier of the import task.
-
-  ## Optional parameters:
+  * `:task_identifier` (`t:string` required) The unique identifier of the import
+  task.
+  ## Keyword parameters:
   """
-
   @spec get_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_task_errors()}
-
   def get_import_task(%Client{} = client, task_identifier, options \\ []) do
     url_path = "/importtasks/#{AWS.Util.encode_uri(task_identifier)}"
 
@@ -1997,19 +1960,16 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetPrivateGraphEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-  * `:vpc_id` (`t:string`) The ID of the VPC where the private endpoint is
-  located.
-
-  ## Optional parameters:
+  * `:vpc_id` (`t:string` required) The ID of the VPC where the private endpoint
+  is located.
+  ## Keyword parameters:
   """
-
   @spec get_private_graph_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_private_graph_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_private_graph_endpoint_errors()}
-
   def get_private_graph_endpoint(%Client{} = client, graph_identifier, vpc_id, options \\ []) do
     url_path =
       "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/endpoints/#{AWS.Util.encode_uri(vpc_id)}"
@@ -2045,18 +2005,15 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:query_id` (`t:string`) The ID of the query in question.
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:query_id` (`t:string` required) The ID of the query in question.
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_errors()}
-
   def get_query(%Client{} = client, query_id, graph_identifier, options \\ [])
       when is_binary(graph_identifier) do
     url_path = "/queries/#{AWS.Util.encode_uri(query_id)}"
@@ -2092,20 +2049,17 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListGraphSnapshots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
   Analytics graph.
   * `:max_results` (`t:integer`) The total number of records to return in the
   command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
-
   @spec list_graph_snapshots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_graph_snapshots_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_graph_snapshots_errors()}
-
   def list_graph_snapshots(%Client{} = client, options \\ []) do
     url_path = "/snapshots"
 
@@ -2165,18 +2119,15 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListGraphs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The total number of records to return in the
   command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
-
   @spec list_graphs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_graphs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_graphs_errors()}
-
   def list_graphs(%Client{} = client, options \\ []) do
     url_path = "/graphs"
 
@@ -2229,18 +2180,15 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListImportTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The total number of records to return in the
   command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
-
   @spec list_import_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_tasks_errors()}
-
   def list_import_tasks(%Client{} = client, options \\ []) do
     url_path = "/importtasks"
 
@@ -2293,20 +2241,17 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListPrivateGraphEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The total number of records to return in the
   command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
-
   @spec list_private_graph_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_private_graph_endpoints_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_private_graph_endpoints_errors()}
-
   def list_private_graph_endpoints(%Client{} = client, graph_identifier, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/endpoints/"
 
@@ -2359,21 +2304,18 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListQueries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:max_results` (`t:string`) The maximum number of results to be fetched by the
-  API.
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:max_results` (`t:string` required) The maximum number of results to be
+  fetched by the API.
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:state` (`t:enum["ALL|CANCELLING|RUNNING|WAITING"]`) Filtered list of queries
   based on state.
   """
-
   @spec list_queries(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queries_errors()}
-
   def list_queries(%Client{} = client, max_results, graph_identifier, options \\ [])
       when is_binary(max_results) and is_binary(graph_identifier) do
     url_path = "/queries"
@@ -2420,16 +2362,13 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2464,16 +2403,13 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ResetGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) ID of the graph to reset.
-
-  ## Optional parameters:
+  * `:graph_identifier` (`t:string` required) ID of the graph to reset.
+  ## Keyword parameters:
   """
-
   @spec reset_graph(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reset_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_graph_errors()}
-
   def reset_graph(%Client{} = client, graph_identifier, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
 
@@ -2510,16 +2446,14 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20RestoreGraphFromSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_identifier` (`t:string`) The ID of the snapshot in question.
-
-  ## Optional parameters:
+  * `:snapshot_identifier` (`t:string` required) The ID of the snapshot in
+  question.
+  ## Keyword parameters:
   """
-
   @spec restore_graph_from_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, restore_graph_from_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_graph_from_snapshot_errors()}
-
   def restore_graph_from_snapshot(%Client{} = client, snapshot_identifier, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}/restore"
 
@@ -2557,17 +2491,14 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20StartImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_task_errors()}
-
   def start_import_task(%Client{} = client, graph_identifier, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/importtasks"
 
@@ -2604,17 +2535,14 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) ARN of the resource for which tags need to be
-  added.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) ARN of the resource for which tags need
+  to be added.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2651,19 +2579,16 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) ARN of the resource whose tag needs to be
-  removed.
-  * `:tag_keys` (`t:list[com.amazonaws.neptunegraph#TagKey]`) Tag keys for the
-  tags to be removed.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) ARN of the resource whose tag needs to
+  be removed.
+  * `:tag_keys` (`t:list[com.amazonaws.neptunegraph#TagKey]` required) Tag keys
+  for the tags to be removed.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2711,17 +2636,14 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20UpdateGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+  * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
   Analytics graph.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_graph(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_graph_errors()}
-
   def update_graph(%Client{} = client, graph_identifier, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
 

@@ -3839,16 +3839,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AcceptAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attachment_id` (`t:string`) The ID of the attachment.
-
-  ## Optional parameters:
+  * `:attachment_id` (`t:string` required) The ID of the attachment.
+  ## Keyword parameters:
   """
-
   @spec accept_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_attachment_errors()}
-
   def accept_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}/accept"
 
@@ -3886,16 +3883,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateConnectPeer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of your global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of your global network.
+  ## Keyword parameters:
   """
-
   @spec associate_connect_peer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_connect_peer_errors()}
-
   def associate_connect_peer(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connect-peer-associations"
@@ -3942,16 +3936,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateCustomerGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec associate_customer_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_customer_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_customer_gateway_errors()}
-
   def associate_customer_gateway(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/customer-gateway-associations"
@@ -3991,16 +3982,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec associate_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_link_errors()}
-
   def associate_link(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
 
@@ -4040,16 +4028,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateTransitGatewayConnectPeer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec associate_transit_gateway_connect_peer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_transit_gateway_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_transit_gateway_connect_peer_errors()}
-
   def associate_transit_gateway_connect_peer(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-connect-peer-associations"
@@ -4088,15 +4073,12 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnectAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_connect_attachment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connect_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connect_attachment_errors()}
-
   def create_connect_attachment(%Client{} = client, options \\ []) do
     url_path = "/connect-attachments"
 
@@ -4135,15 +4117,12 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnectPeer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_connect_peer(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connect_peer_errors()}
-
   def create_connect_peer(%Client{} = client, options \\ []) do
     url_path = "/connect-peers"
 
@@ -4183,16 +4162,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec create_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_errors()}
-
   def create_connection(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections"
 
@@ -4230,15 +4206,12 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateCoreNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_core_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_core_network_errors()}
-
   def create_core_network(%Client{} = client, options \\ []) do
     url_path = "/core-networks"
 
@@ -4277,16 +4250,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec create_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_errors()}
-
   def create_device(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices"
 
@@ -4323,15 +4293,12 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateGlobalNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_global_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_global_network_errors()}
-
   def create_global_network(%Client{} = client, options \\ []) do
     url_path = "/global-networks"
 
@@ -4368,16 +4335,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec create_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_link_errors()}
-
   def create_link(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links"
 
@@ -4414,16 +4378,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec create_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_site_errors()}
-
   def create_site(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites"
 
@@ -4461,15 +4422,12 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateSiteToSiteVpnAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_site_to_site_vpn_attachment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_site_to_site_vpn_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_site_to_site_vpn_attachment_errors()}
-
   def create_site_to_site_vpn_attachment(%Client{} = client, options \\ []) do
     url_path = "/site-to-site-vpn-attachments"
 
@@ -4506,15 +4464,12 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateTransitGatewayPeering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_transit_gateway_peering(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_transit_gateway_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_transit_gateway_peering_errors()}
-
   def create_transit_gateway_peering(%Client{} = client, options \\ []) do
     url_path = "/transit-gateway-peerings"
 
@@ -4551,15 +4506,12 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateTransitGatewayRouteTableAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_transit_gateway_route_table_attachment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_transit_gateway_route_table_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_transit_gateway_route_table_attachment_errors()}
-
   def create_transit_gateway_route_table_attachment(%Client{} = client, options \\ []) do
     url_path = "/transit-gateway-route-table-attachments"
 
@@ -4596,15 +4548,12 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateVpcAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_vpc_attachment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_attachment_errors()}
-
   def create_vpc_attachment(%Client{} = client, options \\ []) do
     url_path = "/vpc-attachments"
 
@@ -4641,16 +4590,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attachment_id` (`t:string`) The ID of the attachment to delete.
-
-  ## Optional parameters:
+  * `:attachment_id` (`t:string` required) The ID of the attachment to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attachment_errors()}
-
   def delete_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}"
 
@@ -4697,16 +4643,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteConnectPeer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connect_peer_id` (`t:string`) The ID of the deleted Connect peer.
-
-  ## Optional parameters:
+  * `:connect_peer_id` (`t:string` required) The ID of the deleted Connect peer.
+  ## Keyword parameters:
   """
-
   @spec delete_connect_peer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connect_peer_errors()}
-
   def delete_connect_peer(%Client{} = client, connect_peer_id, options \\ []) do
     url_path = "/connect-peers/#{AWS.Util.encode_uri(connect_peer_id)}"
 
@@ -4753,17 +4696,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_id` (`t:string`) The ID of the connection.
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:connection_id` (`t:string` required) The ID of the connection.
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec delete_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-
   def delete_connection(%Client{} = client, connection_id, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections/#{AWS.Util.encode_uri(connection_id)}"
@@ -4812,16 +4752,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteCoreNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The network ID of the deleted core network.
-
-  ## Optional parameters:
+  * `:core_network_id` (`t:string` required) The network ID of the deleted core
+  network.
+  ## Keyword parameters:
   """
-
   @spec delete_core_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_core_network_errors()}
-
   def delete_core_network(%Client{} = client, core_network_id, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}"
 
@@ -4869,18 +4807,16 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteCoreNetworkPolicyVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network for the deleted
+  * `:core_network_id` (`t:string` required) The ID of a core network for the
+  deleted policy.
+  * `:policy_version_id` (`t:integer` required) The version ID of the deleted
   policy.
-  * `:policy_version_id` (`t:integer`) The version ID of the deleted policy.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_core_network_policy_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_core_network_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_core_network_policy_version_errors()}
-
   def delete_core_network_policy_version(
         %Client{} = client,
         core_network_id,
@@ -4934,17 +4870,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The ID of the device.
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The ID of the device.
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec delete_device(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_errors()}
-
   def delete_device(%Client{} = client, device_id, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices/#{AWS.Util.encode_uri(device_id)}"
@@ -4994,16 +4927,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteGlobalNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec delete_global_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_global_network_errors()}
-
   def delete_global_network(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
 
@@ -5051,17 +4981,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:link_id` (`t:string`) The ID of the link.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  * `:link_id` (`t:string` required) The ID of the link.
+  ## Keyword parameters:
   """
-
   @spec delete_link(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_link_errors()}
-
   def delete_link(%Client{} = client, global_network_id, link_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links/#{AWS.Util.encode_uri(link_id)}"
@@ -5109,16 +5036,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeletePeering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:peering_id` (`t:string`) The ID of the peering connection to delete.
-
-  ## Optional parameters:
+  * `:peering_id` (`t:string` required) The ID of the peering connection to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_peering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_peering_errors()}
-
   def delete_peering(%Client{} = client, peering_id, options \\ []) do
     url_path = "/peerings/#{AWS.Util.encode_uri(peering_id)}"
 
@@ -5166,16 +5091,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the policy to delete.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the policy to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5222,17 +5144,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:site_id` (`t:string`) The ID of the site.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  * `:site_id` (`t:string` required) The ID of the site.
+  ## Keyword parameters:
   """
-
   @spec delete_site(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_site_errors()}
-
   def delete_site(%Client{} = client, global_network_id, site_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites/#{AWS.Util.encode_uri(site_id)}"
@@ -5282,18 +5201,15 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeregisterTransitGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:transit_gateway_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  transit gateway.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  * `:transit_gateway_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the transit gateway.
+  ## Keyword parameters:
   """
-
   @spec deregister_transit_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_transit_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_transit_gateway_errors()}
-
   def deregister_transit_gateway(
         %Client{} = client,
         global_network_id,
@@ -5349,19 +5265,16 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DescribeGlobalNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:global_network_ids` (`t:list[com.amazonaws.networkmanager#GlobalNetworkId]`)
   The IDs of one or more global networks. The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec describe_global_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_global_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_networks_errors()}
-
   def describe_global_networks(%Client{} = client, options \\ []) do
     url_path = "/global-networks"
 
@@ -5421,18 +5334,15 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateConnectPeer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connect_peer_id` (`t:string`) The ID of the Connect peer to disassociate
-  from a device.
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:connect_peer_id` (`t:string` required) The ID of the Connect peer to
+  disassociate from a device.
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec disassociate_connect_peer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_connect_peer_errors()}
-
   def disassociate_connect_peer(
         %Client{} = client,
         connect_peer_id,
@@ -5485,18 +5395,15 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateCustomerGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:customer_gateway_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  customer gateway.
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:customer_gateway_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  of the customer gateway.
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec disassociate_customer_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_customer_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_customer_gateway_errors()}
-
   def disassociate_customer_gateway(
         %Client{} = client,
         customer_gateway_arn,
@@ -5550,18 +5457,15 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:device_id` (`t:string`) The ID of the device.
-  * `:link_id` (`t:string`) The ID of the link.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  * `:device_id` (`t:string` required) The ID of the device.
+  * `:link_id` (`t:string` required) The ID of the link.
+  ## Keyword parameters:
   """
-
   @spec disassociate_link(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_link_errors()}
-
   def disassociate_link(%Client{} = client, global_network_id, device_id, link_id, options \\ [])
       when is_binary(device_id) and is_binary(link_id) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
@@ -5609,13 +5513,11 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateTransitGatewayConnectPeer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:transit_gateway_connect_peer_arn` (`t:string`) The Amazon Resource Name
-  (ARN) of the transit gateway Connect peer.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  * `:transit_gateway_connect_peer_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the transit gateway Connect peer.
+  ## Keyword parameters:
   """
-
   @spec disassociate_transit_gateway_connect_peer(
           AWS.Client.t(),
           String.t(),
@@ -5625,7 +5527,6 @@ defmodule AWS.NetworkManager do
           {:ok, disassociate_transit_gateway_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_transit_gateway_connect_peer_errors()}
-
   def disassociate_transit_gateway_connect_peer(
         %Client{} = client,
         global_network_id,
@@ -5679,17 +5580,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ExecuteCoreNetworkChangeSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network.
-  * `:policy_version_id` (`t:integer`) The ID of the policy version.
-
-  ## Optional parameters:
+  * `:core_network_id` (`t:string` required) The ID of a core network.
+  * `:policy_version_id` (`t:integer` required) The ID of the policy version.
+  ## Keyword parameters:
   """
-
   @spec execute_core_network_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, execute_core_network_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_core_network_change_set_errors()}
-
   def execute_core_network_change_set(
         %Client{} = client,
         core_network_id,
@@ -5732,16 +5630,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnectAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attachment_id` (`t:string`) The ID of the attachment.
-
-  ## Optional parameters:
+  * `:attachment_id` (`t:string` required) The ID of the attachment.
+  ## Keyword parameters:
   """
-
   @spec get_connect_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connect_attachment_errors()}
-
   def get_connect_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/connect-attachments/#{AWS.Util.encode_uri(attachment_id)}"
 
@@ -5776,16 +5671,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnectPeer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connect_peer_id` (`t:string`) The ID of the Connect peer.
-
-  ## Optional parameters:
+  * `:connect_peer_id` (`t:string` required) The ID of the Connect peer.
+  ## Keyword parameters:
   """
-
   @spec get_connect_peer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connect_peer_errors()}
-
   def get_connect_peer(%Client{} = client, connect_peer_id, options \\ []) do
     url_path = "/connect-peers/#{AWS.Util.encode_uri(connect_peer_id)}"
 
@@ -5820,20 +5712,17 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnectPeerAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:connect_peer_ids` (`t:list[com.amazonaws.networkmanager#ConnectPeerId]`) The
   IDs of the Connect peers.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec get_connect_peer_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_peer_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connect_peer_associations_errors()}
-
   def get_connect_peer_associations(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connect-peer-associations"
@@ -5894,21 +5783,18 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:connection_ids` (`t:list[com.amazonaws.networkmanager#ConnectionId]`) One or
   more connection IDs.
   * `:device_id` (`t:string`) The ID of the device.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec get_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connections_errors()}
-
   def get_connections(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections"
 
@@ -5975,16 +5861,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network.
-
-  ## Optional parameters:
+  * `:core_network_id` (`t:string` required) The ID of a core network.
+  ## Keyword parameters:
   """
-
   @spec get_core_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_network_errors()}
-
   def get_core_network(%Client{} = client, core_network_id, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}"
 
@@ -6019,19 +5902,16 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetworkChangeEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network.
-  * `:policy_version_id` (`t:integer`) The ID of the policy version.
-
-  ## Optional parameters:
+  * `:core_network_id` (`t:string` required) The ID of a core network.
+  * `:policy_version_id` (`t:integer` required) The ID of the policy version.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec get_core_network_change_events(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_change_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_network_change_events_errors()}
-
   def get_core_network_change_events(
         %Client{} = client,
         core_network_id,
@@ -6091,19 +5971,16 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetworkChangeSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network.
-  * `:policy_version_id` (`t:integer`) The ID of the policy version.
-
-  ## Optional parameters:
+  * `:core_network_id` (`t:string` required) The ID of a core network.
+  * `:policy_version_id` (`t:integer` required) The ID of the policy version.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec get_core_network_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_network_change_set_errors()}
-
   def get_core_network_change_set(
         %Client{} = client,
         core_network_id,
@@ -6163,18 +6040,15 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetworkPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network.
-
-  ## Optional parameters:
+  * `:core_network_id` (`t:string` required) The ID of a core network.
+  ## Keyword parameters:
   * `:alias` (`t:enum["LATEST|LIVE"]`) The alias of a core network policy
   * `:policy_version_id` (`t:integer`) The ID of a core network policy version.
   """
-
   @spec get_core_network_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_network_policy_errors()}
-
   def get_core_network_policy(%Client{} = client, core_network_id, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy"
 
@@ -6228,21 +6102,18 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCustomerGatewayAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:customer_gateway_arns`
   (`t:list[com.amazonaws.networkmanager#CustomerGatewayArn]`) One or more
   customer gateway Amazon Resource Names (ARNs). The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec get_customer_gateway_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_customer_gateway_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_customer_gateway_associations_errors()}
-
   def get_customer_gateway_associations(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/customer-gateway-associations"
@@ -6303,21 +6174,18 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:device_ids` (`t:list[com.amazonaws.networkmanager#DeviceId]`) One or more
   device IDs. The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:site_id` (`t:string`) The ID of the site.
   """
-
   @spec get_devices(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_devices_errors()}
-
   def get_devices(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices"
 
@@ -6385,20 +6253,17 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetLinkAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:device_id` (`t:string`) The ID of the device.
   * `:link_id` (`t:string`) The ID of the link.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec get_link_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_link_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_link_associations_errors()}
-
   def get_link_associations(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
 
@@ -6465,9 +6330,8 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetLinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:link_ids` (`t:list[com.amazonaws.networkmanager#LinkId]`) One or more link
   IDs. The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
@@ -6476,12 +6340,10 @@ defmodule AWS.NetworkManager do
   * `:site_id` (`t:string`) The ID of the site.
   * `:type` (`t:string`) The link type.
   """
-
   @spec get_links(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_links_errors()}
-
   def get_links(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links"
 
@@ -6570,19 +6432,16 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkResourceCounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:resource_type` (`t:string`) The resource type.
   """
-
   @spec get_network_resource_counts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resource_counts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_resource_counts_errors()}
-
   def get_network_resource_counts(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-resource-count"
 
@@ -6642,9 +6501,8 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkResourceRelationships&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID.
   * `:aws_region` (`t:string`) The Amazon Web Services Region.
   * `:core_network_id` (`t:string`) The ID of a core network.
@@ -6654,12 +6512,10 @@ defmodule AWS.NetworkManager do
   * `:resource_arn` (`t:string`) The ARN of the gateway.
   * `:resource_type` (`t:string`) The resource type.
   """
-
   @spec get_network_resource_relationships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resource_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_resource_relationships_errors()}
-
   def get_network_resource_relationships(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-resource-relationships"
@@ -6773,9 +6629,8 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID.
   * `:aws_region` (`t:string`) The Amazon Web Services Region.
   * `:core_network_id` (`t:string`) The ID of a core network.
@@ -6785,12 +6640,10 @@ defmodule AWS.NetworkManager do
   * `:resource_arn` (`t:string`) The ARN of the resource.
   * `:resource_type` (`t:string`) The resource type.
   """
-
   @spec get_network_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_resources_errors()}
-
   def get_network_resources(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-resources"
 
@@ -6903,16 +6756,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkRoutes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec get_network_routes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_routes_errors()}
-
   def get_network_routes(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-routes"
 
@@ -6949,9 +6799,8 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkTelemetry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID.
   * `:aws_region` (`t:string`) The Amazon Web Services Region.
   * `:core_network_id` (`t:string`) The ID of a core network.
@@ -6962,12 +6811,10 @@ defmodule AWS.NetworkManager do
   * `:resource_type` (`t:string`) The resource type. The following are the
   supported resource types:
   """
-
   @spec get_network_telemetry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_telemetry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_telemetry_errors()}
-
   def get_network_telemetry(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-telemetry"
 
@@ -7080,16 +6927,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7124,17 +6968,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetRouteAnalysis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:route_analysis_id` (`t:string`) The ID of the route analysis.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  * `:route_analysis_id` (`t:string` required) The ID of the route analysis.
+  ## Keyword parameters:
   """
-
   @spec get_route_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_route_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_route_analysis_errors()}
-
   def get_route_analysis(%Client{} = client, global_network_id, route_analysis_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/route-analyses/#{AWS.Util.encode_uri(route_analysis_id)}"
@@ -7170,16 +7011,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetSiteToSiteVpnAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attachment_id` (`t:string`) The ID of the attachment.
-
-  ## Optional parameters:
+  * `:attachment_id` (`t:string` required) The ID of the attachment.
+  ## Keyword parameters:
   """
-
   @spec get_site_to_site_vpn_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_to_site_vpn_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_site_to_site_vpn_attachment_errors()}
-
   def get_site_to_site_vpn_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/site-to-site-vpn-attachments/#{AWS.Util.encode_uri(attachment_id)}"
 
@@ -7214,20 +7052,17 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetSites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:site_ids` (`t:list[com.amazonaws.networkmanager#SiteId]`) One or more site
   IDs. The maximum is 10.
   """
-
   @spec get_sites(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sites_errors()}
-
   def get_sites(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites"
 
@@ -7288,21 +7123,18 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayConnectPeerAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:transit_gateway_connect_peer_arns`
   (`t:list[com.amazonaws.networkmanager#TransitGatewayConnectPeerArn]`) One or
   more transit gateway Connect peer Amazon Resource Names (ARNs).
   """
-
   @spec get_transit_gateway_connect_peer_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_connect_peer_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transit_gateway_connect_peer_associations_errors()}
-
   def get_transit_gateway_connect_peer_associations(
         %Client{} = client,
         global_network_id,
@@ -7367,16 +7199,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayPeering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:peering_id` (`t:string`) The ID of the peering request.
-
-  ## Optional parameters:
+  * `:peering_id` (`t:string` required) The ID of the peering request.
+  ## Keyword parameters:
   """
-
   @spec get_transit_gateway_peering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transit_gateway_peering_errors()}
-
   def get_transit_gateway_peering(%Client{} = client, peering_id, options \\ []) do
     url_path = "/transit-gateway-peerings/#{AWS.Util.encode_uri(peering_id)}"
 
@@ -7412,21 +7241,18 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayRegistrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:transit_gateway_arns`
   (`t:list[com.amazonaws.networkmanager#TransitGatewayArn]`) The Amazon
   Resource Names (ARNs) of one or more transit gateways. The maximum is 10.
   """
-
   @spec get_transit_gateway_registrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_registrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transit_gateway_registrations_errors()}
-
   def get_transit_gateway_registrations(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-registrations"
@@ -7487,17 +7313,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayRouteTableAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attachment_id` (`t:string`) The ID of the transit gateway route table
-  attachment.
-
-  ## Optional parameters:
+  * `:attachment_id` (`t:string` required) The ID of the transit gateway route
+  table attachment.
+  ## Keyword parameters:
   """
-
   @spec get_transit_gateway_route_table_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_route_table_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transit_gateway_route_table_attachment_errors()}
-
   def get_transit_gateway_route_table_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/transit-gateway-route-table-attachments/#{AWS.Util.encode_uri(attachment_id)}"
 
@@ -7532,16 +7355,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetVpcAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attachment_id` (`t:string`) The ID of the attachment.
-
-  ## Optional parameters:
+  * `:attachment_id` (`t:string` required) The ID of the attachment.
+  ## Keyword parameters:
   """
-
   @spec get_vpc_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vpc_attachment_errors()}
-
   def get_vpc_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/vpc-attachments/#{AWS.Util.encode_uri(attachment_id)}"
 
@@ -7576,8 +7396,7 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListAttachments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:attachment_type`
   (`t:enum["CONNECT|SITE_TO_SITE_VPN|TRANSIT_GATEWAY_ROUTE_TABLE|VPC"]`) The
   type of attachment.
@@ -7589,12 +7408,10 @@ defmodule AWS.NetworkManager do
   (`t:enum["AVAILABLE|CREATING|DELETING|FAILED|PENDING_ATTACHMENT_ACCEPTANCE|PENDING_NETWORK_UPDATE|PENDING_TAG_ACCEPTANCE|REJECTED|UPDATING"]`)
   The state of the attachment.
   """
-
   @spec list_attachments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attachments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attachments_errors()}
-
   def list_attachments(%Client{} = client, options \\ []) do
     url_path = "/attachments"
 
@@ -7689,19 +7506,16 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListConnectPeers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:connect_attachment_id` (`t:string`) The ID of the attachment.
   * `:core_network_id` (`t:string`) The ID of a core network.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_connect_peers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connect_peers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connect_peers_errors()}
-
   def list_connect_peers(%Client{} = client, options \\ []) do
     url_path = "/connect-peers"
 
@@ -7773,18 +7587,15 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListCoreNetworkPolicyVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network.
-
-  ## Optional parameters:
+  * `:core_network_id` (`t:string` required) The ID of a core network.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_core_network_policy_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_core_network_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_core_network_policy_versions_errors()}
-
   def list_core_network_policy_versions(%Client{} = client, core_network_id, options \\ []) do
     url_path =
       "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy-versions"
@@ -7838,17 +7649,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListCoreNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_core_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_core_networks_errors()}
-
   def list_core_networks(%Client{} = client, options \\ []) do
     url_path = "/core-networks"
 
@@ -7902,16 +7710,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListOrganizationServiceAccessStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_organization_service_access_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_service_access_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_organization_service_access_status(%Client{} = client, options \\ []) do
     url_path = "/organizations/service-access"
 
@@ -7964,8 +7769,7 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListPeerings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
   * `:edge_location` (`t:string`) Returns a list edge locations for the
   * `:max_results` (`t:integer`) The maximum number of results to return.
@@ -7975,12 +7779,10 @@ defmodule AWS.NetworkManager do
   * `:state` (`t:enum["AVAILABLE|CREATING|DELETING|FAILED"]`) Returns a list of
   the peering request states.
   """
-
   @spec list_peerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_peerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_peerings_errors()}
-
   def list_peerings(%Client{} = client, options \\ []) do
     url_path = "/peerings"
 
@@ -8075,16 +7877,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -8121,16 +7921,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20PutCoreNetworkPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network.
-
-  ## Optional parameters:
+  * `:core_network_id` (`t:string` required) The ID of a core network.
+  ## Keyword parameters:
   """
-
   @spec put_core_network_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_core_network_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_core_network_policy_errors()}
-
   def put_core_network_policy(%Client{} = client, core_network_id, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy"
 
@@ -8167,16 +7964,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20PutResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource policy.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource policy.
+  ## Keyword parameters:
   """
-
   @spec put_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -8221,16 +8015,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20RegisterTransitGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec register_transit_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, register_transit_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_transit_gateway_errors()}
-
   def register_transit_gateway(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-registrations"
@@ -8268,16 +8059,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20RejectAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attachment_id` (`t:string`) The ID of the attachment.
-
-  ## Optional parameters:
+  * `:attachment_id` (`t:string` required) The ID of the attachment.
+  ## Keyword parameters:
   """
-
   @spec reject_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reject_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_attachment_errors()}
-
   def reject_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}/reject"
 
@@ -8316,17 +8104,15 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20RestoreCoreNetworkPolicyVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network.
-  * `:policy_version_id` (`t:integer`) The ID of the policy version to restore.
-
-  ## Optional parameters:
+  * `:core_network_id` (`t:string` required) The ID of a core network.
+  * `:policy_version_id` (`t:integer` required) The ID of the policy version to
+  restore.
+  ## Keyword parameters:
   """
-
   @spec restore_core_network_policy_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, restore_core_network_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_core_network_policy_version_errors()}
-
   def restore_core_network_policy_version(
         %Client{} = client,
         core_network_id,
@@ -8370,15 +8156,12 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20StartOrganizationServiceAccessUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_organization_service_access_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_organization_service_access_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_organization_service_access_update_errors()}
-
   def start_organization_service_access_update(%Client{} = client, options \\ []) do
     url_path = "/organizations/service-access"
 
@@ -8417,16 +8200,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20StartRouteAnalysis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec start_route_analysis(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_route_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_route_analysis_errors()}
-
   def start_route_analysis(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/route-analyses"
 
@@ -8463,16 +8243,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -8509,18 +8287,16 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.networkmanager#TagKey]`) The tag keys to
-  remove from the specified resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.networkmanager#TagKey]` required) The tag
+  keys to remove from the specified resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8569,17 +8345,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_id` (`t:string`) The ID of the connection.
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:connection_id` (`t:string` required) The ID of the connection.
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec update_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connection_errors()}
-
   def update_connection(%Client{} = client, connection_id, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections/#{AWS.Util.encode_uri(connection_id)}"
@@ -8627,16 +8400,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateCoreNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network.
-
-  ## Optional parameters:
+  * `:core_network_id` (`t:string` required) The ID of a core network.
+  ## Keyword parameters:
   """
-
   @spec update_core_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_core_network_errors()}
-
   def update_core_network(%Client{} = client, core_network_id, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}"
 
@@ -8684,17 +8454,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The ID of the device.
-  * `:global_network_id` (`t:string`) The ID of the global network.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The ID of the device.
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  ## Keyword parameters:
   """
-
   @spec update_device(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_errors()}
-
   def update_device(%Client{} = client, device_id, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices/#{AWS.Util.encode_uri(device_id)}"
@@ -8743,16 +8510,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateGlobalNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of your global network.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of your global network.
+  ## Keyword parameters:
   """
-
   @spec update_global_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_network_errors()}
-
   def update_global_network(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
 
@@ -8800,17 +8564,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:link_id` (`t:string`) The ID of the link.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  * `:link_id` (`t:string` required) The ID of the link.
+  ## Keyword parameters:
   """
-
   @spec update_link(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_link_errors()}
-
   def update_link(%Client{} = client, global_network_id, link_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links/#{AWS.Util.encode_uri(link_id)}"
@@ -8858,17 +8619,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateNetworkResourceMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec update_network_resource_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_network_resource_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_resource_metadata_errors()}
-
   def update_network_resource_metadata(
         %Client{} = client,
         global_network_id,
@@ -8922,17 +8680,14 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:site_id` (`t:string`) The ID of your site.
-
-  ## Optional parameters:
+  * `:global_network_id` (`t:string` required) The ID of the global network.
+  * `:site_id` (`t:string` required) The ID of your site.
+  ## Keyword parameters:
   """
-
   @spec update_site(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_site_errors()}
-
   def update_site(%Client{} = client, global_network_id, site_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites/#{AWS.Util.encode_uri(site_id)}"
@@ -8980,16 +8735,13 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateVpcAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attachment_id` (`t:string`) The ID of the attachment.
-
-  ## Optional parameters:
+  * `:attachment_id` (`t:string` required) The ID of the attachment.
+  ## Keyword parameters:
   """
-
   @spec update_vpc_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_attachment_errors()}
-
   def update_vpc_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/vpc-attachments/#{AWS.Util.encode_uri(attachment_id)}"
 

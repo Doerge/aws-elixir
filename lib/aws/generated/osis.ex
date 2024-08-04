@@ -798,15 +798,12 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20CreatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
-
   def create_pipeline(%Client{} = client, options \\ []) do
     url_path = "/2022-01-01/osis/createPipeline"
 
@@ -845,16 +842,13 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20DeletePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline to delete.
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of the pipeline to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
-
   def delete_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/deletePipeline/#{AWS.Util.encode_uri(pipeline_name)}"
 
@@ -901,16 +895,13 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20GetPipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline.
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of the pipeline.
+  ## Keyword parameters:
   """
-
   @spec get_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_errors()}
-
   def get_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
 
@@ -948,17 +939,14 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20GetPipelineBlueprint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:blueprint_name` (`t:string`) The name of the blueprint to retrieve.
-
-  ## Optional parameters:
+  * `:blueprint_name` (`t:string` required) The name of the blueprint to retrieve.
+  ## Keyword parameters:
   * `:format` (`t:string`) The format format of the blueprint to retrieve.
   """
-
   @spec get_pipeline_blueprint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pipeline_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_blueprint_errors()}
-
   def get_pipeline_blueprint(%Client{} = client, blueprint_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipelineBlueprint/#{AWS.Util.encode_uri(blueprint_name)}"
 
@@ -1006,16 +994,13 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20GetPipelineChangeProgress&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline.
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of the pipeline.
+  ## Keyword parameters:
   """
-
   @spec get_pipeline_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pipeline_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_change_progress_errors()}
-
   def get_pipeline_change_progress(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipelineChangeProgress/#{AWS.Util.encode_uri(pipeline_name)}"
 
@@ -1052,15 +1037,12 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListPipelineBlueprints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_pipeline_blueprints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipeline_blueprints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipeline_blueprints_errors()}
-
   def list_pipeline_blueprints(%Client{} = client, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelineBlueprints"
 
@@ -1100,8 +1082,7 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListPipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
   number of results to return. You can use nextToken to get the next page of
   results.
@@ -1109,12 +1090,10 @@ defmodule AWS.OSIS do
   nextToken, you can include the returned nextToken in subsequent
   ListPipelines operations, which returns results in the next page.
   """
-
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipelines_errors()}
-
   def list_pipelines(%Client{} = client, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelines"
 
@@ -1169,17 +1148,14 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to retrieve
-  tags for.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the pipeline to
+  retrieve tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/2022-01-01/osis/listTagsForResource"
 
@@ -1216,16 +1192,13 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20StartPipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline to start.
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of the pipeline to start.
+  ## Keyword parameters:
   """
-
   @spec start_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_pipeline_errors()}
-
   def start_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/startPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
 
@@ -1264,16 +1237,13 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20StopPipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline to stop.
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of the pipeline to stop.
+  ## Keyword parameters:
   """
-
   @spec stop_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_pipeline_errors()}
-
   def stop_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/stopPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
 
@@ -1312,16 +1282,14 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to tag.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the pipeline to
+  tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/2022-01-01/osis/tagResource"
 
@@ -1360,17 +1328,14 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to remove
-  tags from.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the pipeline to
+  remove tags from.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/2022-01-01/osis/untagResource"
 
@@ -1409,16 +1374,13 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20UpdatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline to update.
-
-  ## Optional parameters:
+  * `:pipeline_name` (`t:string` required) The name of the pipeline to update.
+  ## Keyword parameters:
   """
-
   @spec update_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_errors()}
-
   def update_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/updatePipeline/#{AWS.Util.encode_uri(pipeline_name)}"
 
@@ -1457,15 +1419,12 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ValidatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec validate_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, validate_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_pipeline_errors()}
-
   def validate_pipeline(%Client{} = client, options \\ []) do
     url_path = "/2022-01-01/osis/validatePipeline"
 

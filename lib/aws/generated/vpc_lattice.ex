@@ -2199,19 +2199,16 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20BatchUpdateRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the listener.
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec batch_update_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_rule_errors()}
-
   def batch_update_rule(
         %Client{} = client,
         listener_identifier,
@@ -2271,15 +2268,12 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateAccessLogSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_access_log_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_log_subscription_errors()}
-
   def create_access_log_subscription(%Client{} = client, options \\ []) do
     url_path = "/accesslogsubscriptions"
 
@@ -2320,17 +2314,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateListener&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec create_listener(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_listener_errors()}
-
   def create_listener(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners"
 
@@ -2372,19 +2363,16 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the listener.
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec create_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
-
   def create_rule(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules"
@@ -2424,15 +2412,12 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_errors()}
-
   def create_service(%Client{} = client, options \\ []) do
     url_path = "/services"
 
@@ -2471,15 +2456,12 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_service_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_network_errors()}
-
   def create_service_network(%Client{} = client, options \\ []) do
     url_path = "/servicenetworks"
 
@@ -2522,15 +2504,12 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetworkServiceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_service_network_service_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_network_service_association_errors()}
-
   def create_service_network_service_association(%Client{} = client, options \\ []) do
     url_path = "/servicenetworkserviceassociations"
 
@@ -2574,15 +2553,12 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_service_network_vpc_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_network_vpc_association_errors()}
-
   def create_service_network_vpc_association(%Client{} = client, options \\ []) do
     url_path = "/servicenetworkvpcassociations"
 
@@ -2621,15 +2597,12 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateTargetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_target_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_target_group_errors()}
-
   def create_target_group(%Client{} = client, options \\ []) do
     url_path = "/targetgroups"
 
@@ -2666,17 +2639,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteAccessLogSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
-  Name (ARN) of the access log subscription.
-
-  ## Optional parameters:
+  * `:access_log_subscription_identifier` (`t:string` required) The ID or Amazon
+  Resource Name (ARN) of the access log subscription.
+  ## Keyword parameters:
   """
-
   @spec delete_access_log_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_log_subscription_errors()}
-
   def delete_access_log_subscription(
         %Client{} = client,
         access_log_subscription_identifier,
@@ -2731,17 +2701,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteAuthPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the resource.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the resource.
+  ## Keyword parameters:
   """
-
   @spec delete_auth_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_auth_policy_errors()}
-
   def delete_auth_policy(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
 
@@ -2788,19 +2755,16 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteListener&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the listener.
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec delete_listener(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_listener_errors()}
-
   def delete_listener(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}"
@@ -2848,16 +2812,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2907,21 +2869,18 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the listener.
-  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  rule.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the listener.
+  * `:rule_identifier` (`t:string` required) The ID or Amazon Resource Name (ARN)
+  of the rule.
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec delete_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
-
   def delete_rule(
         %Client{} = client,
         listener_identifier,
@@ -2980,17 +2939,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec delete_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_errors()}
-
   def delete_service(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
 
@@ -3043,17 +2999,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteServiceNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_network_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-  ID of the service network.
-
-  ## Optional parameters:
+  * `:service_network_identifier` (`t:string` required) The Amazon Resource Name
+  (ARN) or ID of the service network.
+  ## Keyword parameters:
   """
-
   @spec delete_service_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_network_errors()}
-
   def delete_service_network(%Client{} = client, service_network_identifier, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
 
@@ -3101,17 +3054,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteServiceNetworkServiceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_network_service_association_identifier` (`t:string`) The ID or
-  Amazon Resource Name (ARN) of the association.
-
-  ## Optional parameters:
+  * `:service_network_service_association_identifier` (`t:string` required) The ID
+  or Amazon Resource Name (ARN) of the association.
+  ## Keyword parameters:
   """
-
   @spec delete_service_network_service_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_network_service_association_errors()}
-
   def delete_service_network_service_association(
         %Client{} = client,
         service_network_service_association_identifier,
@@ -3164,17 +3114,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
-  Resource Name (ARN) of the association.
-
-  ## Optional parameters:
+  * `:service_network_vpc_association_identifier` (`t:string` required) The ID or
+  Amazon Resource Name (ARN) of the association.
+  ## Keyword parameters:
   """
-
   @spec delete_service_network_vpc_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_network_vpc_association_errors()}
-
   def delete_service_network_vpc_association(
         %Client{} = client,
         service_network_vpc_association_identifier,
@@ -3227,17 +3174,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteTargetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-  of the target group.
-
-  ## Optional parameters:
+  * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
+  Name (ARN) of the target group.
+  ## Keyword parameters:
   """
-
   @spec delete_target_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_target_group_errors()}
-
   def delete_target_group(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
 
@@ -3284,17 +3228,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeregisterTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-  of the target group.
-
-  ## Optional parameters:
+  * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
+  Name (ARN) of the target group.
+  ## Keyword parameters:
   """
-
   @spec deregister_targets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_targets_errors()}
-
   def deregister_targets(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/deregistertargets"
 
@@ -3331,17 +3272,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetAccessLogSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
-  Name (ARN) of the access log subscription.
-
-  ## Optional parameters:
+  * `:access_log_subscription_identifier` (`t:string` required) The ID or Amazon
+  Resource Name (ARN) of the access log subscription.
+  ## Keyword parameters:
   """
-
   @spec get_access_log_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_access_log_subscription_errors()}
-
   def get_access_log_subscription(
         %Client{} = client,
         access_log_subscription_identifier,
@@ -3382,17 +3320,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetAuthPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the service network or service.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service network or service.
+  ## Keyword parameters:
   """
-
   @spec get_auth_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_auth_policy_errors()}
-
   def get_auth_policy(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
 
@@ -3427,19 +3362,16 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetListener&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the listener.
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec get_listener(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_listener_errors()}
-
   def get_listener(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}"
@@ -3476,17 +3408,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the service
-  network or service.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  service network or service.
+  ## Keyword parameters:
   """
-
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3524,21 +3453,18 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the listener.
-  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  listener rule.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the listener.
+  * `:rule_identifier` (`t:string` required) The ID or Amazon Resource Name (ARN)
+  of the listener rule.
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec get_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_errors()}
-
   def get_rule(
         %Client{} = client,
         listener_identifier,
@@ -3580,17 +3506,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec get_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_errors()}
-
   def get_service(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
 
@@ -3625,17 +3548,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetServiceNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
-  (ARN) of the service network.
-
-  ## Optional parameters:
+  * `:service_network_identifier` (`t:string` required) The ID or Amazon Resource
+  Name (ARN) of the service network.
+  ## Keyword parameters:
   """
-
   @spec get_service_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_network_errors()}
-
   def get_service_network(%Client{} = client, service_network_identifier, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
 
@@ -3671,17 +3591,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetServiceNetworkServiceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_network_service_association_identifier` (`t:string`) The ID or
-  Amazon Resource Name (ARN) of the association.
-
-  ## Optional parameters:
+  * `:service_network_service_association_identifier` (`t:string` required) The ID
+  or Amazon Resource Name (ARN) of the association.
+  ## Keyword parameters:
   """
-
   @spec get_service_network_service_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_network_service_association_errors()}
-
   def get_service_network_service_association(
         %Client{} = client,
         service_network_service_association_identifier,
@@ -3721,17 +3638,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
-  Resource Name (ARN) of the association.
-
-  ## Optional parameters:
+  * `:service_network_vpc_association_identifier` (`t:string` required) The ID or
+  Amazon Resource Name (ARN) of the association.
+  ## Keyword parameters:
   """
-
   @spec get_service_network_vpc_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_network_vpc_association_errors()}
-
   def get_service_network_vpc_association(
         %Client{} = client,
         service_network_vpc_association_identifier,
@@ -3771,17 +3685,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetTargetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-  of the target group.
-
-  ## Optional parameters:
+  * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
+  Name (ARN) of the target group.
+  ## Keyword parameters:
   """
-
   @spec get_target_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_target_group_errors()}
-
   def get_target_group(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
 
@@ -3816,19 +3727,16 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListAccessLogSubscriptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the service network or service.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service network or service.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-
   @spec list_access_log_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_log_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_log_subscriptions_errors()}
-
   def list_access_log_subscriptions(%Client{} = client, resource_identifier, options \\ [])
       when is_binary(resource_identifier) do
     url_path = "/accesslogsubscriptions"
@@ -3882,19 +3790,16 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListListeners&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-
   @spec list_listeners(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_listeners_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_listeners_errors()}
-
   def list_listeners(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners"
 
@@ -3947,21 +3852,18 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the listener.
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-
   @spec list_rules(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-
   def list_rules(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules"
@@ -4017,8 +3919,7 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworkServiceAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
@@ -4026,12 +3927,10 @@ defmodule AWS.VPCLattice do
   * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
   (ARN) of the service network.
   """
-
   @spec list_service_network_service_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_network_service_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_network_service_associations_errors()}
-
   def list_service_network_service_associations(%Client{} = client, options \\ []) do
     url_path = "/servicenetworkserviceassociations"
 
@@ -4110,8 +4009,7 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworkVpcAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
@@ -4119,12 +4017,10 @@ defmodule AWS.VPCLattice do
   * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
   VPC.
   """
-
   @spec list_service_network_vpc_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_network_vpc_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_network_vpc_associations_errors()}
-
   def list_service_network_vpc_associations(%Client{} = client, options \\ []) do
     url_path = "/servicenetworkvpcassociations"
 
@@ -4198,17 +4094,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-
   @spec list_service_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_networks_errors()}
-
   def list_service_networks(%Client{} = client, options \\ []) do
     url_path = "/servicenetworks"
 
@@ -4262,17 +4155,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-
   @spec list_services(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
-
   def list_services(%Client{} = client, options \\ []) do
     url_path = "/services"
 
@@ -4325,16 +4215,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4370,20 +4258,17 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListTargetGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   * `:target_group_type` (`t:string`) The target group type.
   * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
   VPC.
   """
-
   @spec list_target_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_target_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_target_groups_errors()}
-
   def list_target_groups(%Client{} = client, options \\ []) do
     url_path = "/targetgroups"
 
@@ -4457,19 +4342,16 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-  of the target group.
-
-  ## Optional parameters:
+  * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
+  Name (ARN) of the target group.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-
   @spec list_targets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_targets_errors()}
-
   def list_targets(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/listtargets"
 
@@ -4525,17 +4407,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20PutAuthPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the service network or service for which the policy is created.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service network or service for which the policy is created.
+  ## Keyword parameters:
   """
-
   @spec put_auth_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_auth_policy_errors()}
-
   def put_auth_policy(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
 
@@ -4575,17 +4454,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20PutResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service network or service for which the policy is created.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ID or Amazon Resource Name (ARN) of
+  the service network or service for which the policy is created.
+  ## Keyword parameters:
   """
-
   @spec put_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4623,17 +4499,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20RegisterTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-  of the target group.
-
-  ## Optional parameters:
+  * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
+  Name (ARN) of the target group.
+  ## Keyword parameters:
   """
-
   @spec register_targets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, register_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_targets_errors()}
-
   def register_targets(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/registertargets"
 
@@ -4670,16 +4543,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4716,18 +4587,16 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.vpclattice#TagKey]`) The tag keys of the
-  tags to remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.vpclattice#TagKey]` required) The tag keys
+  of the tags to remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4775,17 +4644,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateAccessLogSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
-  Name (ARN) of the access log subscription.
-
-  ## Optional parameters:
+  * `:access_log_subscription_identifier` (`t:string` required) The ID or Amazon
+  Resource Name (ARN) of the access log subscription.
+  ## Keyword parameters:
   """
-
   @spec update_access_log_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_log_subscription_errors()}
-
   def update_access_log_subscription(
         %Client{} = client,
         access_log_subscription_identifier,
@@ -4837,19 +4703,16 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateListener&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the listener.
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec update_listener(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_listener_errors()}
-
   def update_listener(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}"
@@ -4898,21 +4761,18 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-  the listener.
-  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  rule.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the listener.
+  * `:rule_identifier` (`t:string` required) The ID or Amazon Resource Name (ARN)
+  of the rule.
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec update_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_errors()}
-
   def update_rule(
         %Client{} = client,
         listener_identifier,
@@ -4966,17 +4826,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
-
-  ## Optional parameters:
+  * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
+  (ARN) of the service.
+  ## Keyword parameters:
   """
-
   @spec update_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_errors()}
-
   def update_service(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
 
@@ -5023,17 +4880,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateServiceNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
-  (ARN) of the service network.
-
-  ## Optional parameters:
+  * `:service_network_identifier` (`t:string` required) The ID or Amazon Resource
+  Name (ARN) of the service network.
+  ## Keyword parameters:
   """
-
   @spec update_service_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_network_errors()}
-
   def update_service_network(%Client{} = client, service_network_identifier, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
 
@@ -5084,17 +4938,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
-  Resource Name (ARN) of the association.
-
-  ## Optional parameters:
+  * `:service_network_vpc_association_identifier` (`t:string` required) The ID or
+  Amazon Resource Name (ARN) of the association.
+  ## Keyword parameters:
   """
-
   @spec update_service_network_vpc_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_network_vpc_association_errors()}
-
   def update_service_network_vpc_association(
         %Client{} = client,
         service_network_vpc_association_identifier,
@@ -5146,17 +4997,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateTargetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-  of the target group.
-
-  ## Optional parameters:
+  * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
+  Name (ARN) of the target group.
+  ## Keyword parameters:
   """
-
   @spec update_target_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_target_group_errors()}
-
   def update_target_group(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
 

@@ -1156,15 +1156,12 @@ defmodule AWS.Schemas do
   ## Parameters:
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) Tags associated with the resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_discoverer(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_discoverer_errors()}
-
   def create_discoverer(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/v1/discoverers"
@@ -1202,18 +1199,15 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20CreateRegistry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
+  * `:registry_name` (`t:string` required) The name of the registry.
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) Tags to associate with the registry.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_registry(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_registry_errors()}
-
   def create_registry(%Client{} = client, registry_name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
@@ -1251,19 +1245,16 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20CreateSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-  * `:schema_name` (`t:string`) The name of the schema.
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:schema_name` (`t:string` required) The name of the schema.
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) Tags associated with the schema.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_schema(AWS.Client.t(), String.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_errors()}
-
   def create_schema(%Client{} = client, registry_name, schema_name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path =
@@ -1302,16 +1293,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteDiscoverer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:discoverer_id` (`t:string`) The ID of the discoverer.
-
-  ## Optional parameters:
+  * `:discoverer_id` (`t:string` required) The ID of the discoverer.
+  ## Keyword parameters:
   """
-
   @spec delete_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_discoverer_errors()}
-
   def delete_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
 
@@ -1358,16 +1346,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteRegistry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-
-  ## Optional parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  ## Keyword parameters:
   """
-
   @spec delete_registry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_registry_errors()}
-
   def delete_registry(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
 
@@ -1414,16 +1399,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   """
-
   @spec delete_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/policy"
 
@@ -1481,17 +1463,14 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-  * `:schema_name` (`t:string`) The name of the schema.
-
-  ## Optional parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:schema_name` (`t:string` required) The name of the schema.
+  ## Keyword parameters:
   """
-
   @spec delete_schema(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_errors()}
-
   def delete_schema(%Client{} = client, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
@@ -1539,18 +1518,15 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteSchemaVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-  * `:schema_name` (`t:string`) The name of the schema.
-  * `:schema_version` (`t:string`)
-
-  ## Optional parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:schema_name` (`t:string` required) The name of the schema.
+  * `:schema_version` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_schema_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_version_errors()}
-
   def delete_schema_version(
         %Client{} = client,
         registry_name,
@@ -1604,20 +1580,17 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeCodeBinding&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:language` (`t:string`) The language of the code binding.
-  * `:registry_name` (`t:string`) The name of the registry.
-  * `:schema_name` (`t:string`) The name of the schema.
-
-  ## Optional parameters:
+  * `:language` (`t:string` required) The language of the code binding.
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:schema_name` (`t:string` required) The name of the schema.
+  ## Keyword parameters:
   * `:schema_version` (`t:string`) Specifying this limits the results to only this
   schema version.
   """
-
   @spec describe_code_binding(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_code_binding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_code_binding_errors()}
-
   def describe_code_binding(
         %Client{} = client,
         language,
@@ -1670,16 +1643,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeDiscoverer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:discoverer_id` (`t:string`) The ID of the discoverer.
-
-  ## Optional parameters:
+  * `:discoverer_id` (`t:string` required) The ID of the discoverer.
+  ## Keyword parameters:
   """
-
   @spec describe_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_discoverer_errors()}
-
   def describe_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
 
@@ -1714,16 +1684,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeRegistry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-
-  ## Optional parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  ## Keyword parameters:
   """
-
   @spec describe_registry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registry_errors()}
-
   def describe_registry(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
 
@@ -1758,19 +1725,16 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-  * `:schema_name` (`t:string`) The name of the schema.
-
-  ## Optional parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:schema_name` (`t:string` required) The name of the schema.
+  ## Keyword parameters:
   * `:schema_version` (`t:string`) Specifying this limits the results to only this
   schema version.
   """
-
   @spec describe_schema(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schema_errors()}
-
   def describe_schema(%Client{} = client, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
@@ -1811,11 +1775,23 @@ defmodule AWS.Schemas do
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
+  @doc """
+
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ExportSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:schema_name` (`t:string` required) The name of the schema.
+  * `:type` (`t:string` required)
+  ## Keyword parameters:
+  * `:schema_version` (`t:string`) Specifying this limits the results to only this
+  schema version.
+  """
   @spec export_schema(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_schema_errors()}
-
   def export_schema(%Client{} = client, registry_name, schema_name, type, options \\ [])
       when is_binary(type) do
     url_path =
@@ -1863,20 +1839,17 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20GetCodeBindingSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:language` (`t:string`) The language of the code binding.
-  * `:registry_name` (`t:string`) The name of the registry.
-  * `:schema_name` (`t:string`) The name of the schema.
-
-  ## Optional parameters:
+  * `:language` (`t:string` required) The language of the code binding.
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:schema_name` (`t:string` required) The name of the schema.
+  ## Keyword parameters:
   * `:schema_version` (`t:string`) Specifying this limits the results to only this
   schema version.
   """
-
   @spec get_code_binding_source(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_code_binding_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_code_binding_source_errors()}
-
   def get_code_binding_source(
         %Client{} = client,
         language,
@@ -1929,15 +1902,12 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20GetDiscoveredSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_discovered_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_discovered_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_discovered_schema_errors()}
-
   def get_discovered_schema(%Client{} = client, options \\ []) do
     url_path = "/v1/discover"
 
@@ -1974,16 +1944,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20GetResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   """
-
   @spec get_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-
   def get_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/policy"
 
@@ -2029,8 +1996,7 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListDiscoverers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:discoverer_id_prefix` (`t:string`) Specifying this limits the results to
   only those discoverer IDs that start with the specified prefix.
   * `:limit` (`t:integer`)
@@ -2040,12 +2006,10 @@ defmodule AWS.Schemas do
   * `:source_arn_prefix` (`t:string`) Specifying this limits the results to only
   those ARNs that start with the specified prefix.
   """
-
   @spec list_discoverers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_discoverers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_discoverers_errors()}
-
   def list_discoverers(%Client{} = client, options \\ []) do
     url_path = "/v1/discoverers"
 
@@ -2117,8 +2081,7 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListRegistries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:limit` (`t:integer`)
   * `:next_token` (`t:string`) The token that specifies the next page of results
   to return. To request the first page, leave NextToken empty. The token will
@@ -2128,12 +2091,10 @@ defmodule AWS.Schemas do
   * `:scope` (`t:string`) Can be set to Local or AWS to limit responses to your
   custom registries, or the ones provided by AWS.
   """
-
   @spec list_registries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_registries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_registries_errors()}
-
   def list_registries(%Client{} = client, options \\ []) do
     url_path = "/v1/registries"
 
@@ -2200,21 +2161,18 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListSchemaVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-  * `:schema_name` (`t:string`) The name of the schema.
-
-  ## Optional parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:schema_name` (`t:string` required) The name of the schema.
+  ## Keyword parameters:
   * `:limit` (`t:integer`)
   * `:next_token` (`t:string`) The token that specifies the next page of results
   to return. To request the first page, leave NextToken empty. The token will
   expire in 24 hours, and cannot be shared with other accounts.
   """
-
   @spec list_schema_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_schema_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schema_versions_errors()}
-
   def list_schema_versions(%Client{} = client, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/versions"
@@ -2268,9 +2226,8 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListSchemas&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-
-  ## Optional parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  ## Keyword parameters:
   * `:limit` (`t:integer`)
   * `:next_token` (`t:string`) The token that specifies the next page of results
   to return. To request the first page, leave NextToken empty. The token will
@@ -2278,12 +2235,10 @@ defmodule AWS.Schemas do
   * `:schema_name_prefix` (`t:string`) Specifying this limits the results to only
   those schema names that start with the specified prefix.
   """
-
   @spec list_schemas(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schemas_errors()}
-
   def list_schemas(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas"
 
@@ -2343,16 +2298,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2387,20 +2339,17 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20PutCodeBinding&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:language` (`t:string`) The language of the code binding.
-  * `:registry_name` (`t:string`) The name of the registry.
-  * `:schema_name` (`t:string`) The name of the schema.
-
-  ## Optional parameters:
+  * `:language` (`t:string` required) The language of the code binding.
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:schema_name` (`t:string` required) The name of the schema.
+  ## Keyword parameters:
   * `:schema_version` (`t:string`) Specifying this limits the results to only this
   schema version.
   """
-
   @spec put_code_binding(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_code_binding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_code_binding_errors()}
-
   def put_code_binding(%Client{} = client, language, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/language/#{AWS.Util.encode_uri(language)}"
@@ -2449,16 +2398,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20PutResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   """
-
   @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/policy"
 
@@ -2506,22 +2452,19 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20SearchSchemas&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-  * `:keywords` (`t:string`) Specifying this limits the results to only schemas
-  that include the provided keywords.
-
-  ## Optional parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:keywords` (`t:string` required) Specifying this limits the results to only
+  schemas that include the provided keywords.
+  ## Keyword parameters:
   * `:limit` (`t:integer`)
   * `:next_token` (`t:string`) The token that specifies the next page of results
   to return. To request the first page, leave NextToken empty. The token will
   expire in 24 hours, and cannot be shared with other accounts.
   """
-
   @spec search_schemas(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, search_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_schemas_errors()}
-
   def search_schemas(%Client{} = client, registry_name, keywords, options \\ [])
       when is_binary(keywords) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/search"
@@ -2575,16 +2518,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20StartDiscoverer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:discoverer_id` (`t:string`) The ID of the discoverer.
-
-  ## Optional parameters:
+  * `:discoverer_id` (`t:string` required) The ID of the discoverer.
+  ## Keyword parameters:
   """
-
   @spec start_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_discoverer_errors()}
-
   def start_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}/start"
 
@@ -2621,16 +2561,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20StopDiscoverer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:discoverer_id` (`t:string`) The ID of the discoverer.
-
-  ## Optional parameters:
+  * `:discoverer_id` (`t:string` required) The ID of the discoverer.
+  ## Keyword parameters:
   """
-
   @spec stop_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_discoverer_errors()}
-
   def stop_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}/stop"
 
@@ -2667,18 +2604,15 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
   * `:input` (`t:map`):
-    * `:tags` (`t:map`) Tags associated with the resource.
-
-  ## Optional parameters:
+    * `:tags` (`t:map` required) Tags associated with the resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2715,18 +2649,15 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.schemas#__string]`) Keys of key-value
-  pairs.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.schemas#__string]` required) Keys of
+  key-value pairs.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2774,16 +2705,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UpdateDiscoverer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:discoverer_id` (`t:string`) The ID of the discoverer.
-
-  ## Optional parameters:
+  * `:discoverer_id` (`t:string` required) The ID of the discoverer.
+  ## Keyword parameters:
   """
-
   @spec update_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_discoverer_errors()}
-
   def update_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
 
@@ -2820,16 +2748,13 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UpdateRegistry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-
-  ## Optional parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  ## Keyword parameters:
   """
-
   @spec update_registry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_registry_errors()}
-
   def update_registry(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
 
@@ -2866,17 +2791,14 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UpdateSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:registry_name` (`t:string`) The name of the registry.
-  * `:schema_name` (`t:string`) The name of the schema.
-
-  ## Optional parameters:
+  * `:registry_name` (`t:string` required) The name of the registry.
+  * `:schema_name` (`t:string` required) The name of the schema.
+  ## Keyword parameters:
   """
-
   @spec update_schema(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schema_errors()}
-
   def update_schema(%Client{} = client, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"

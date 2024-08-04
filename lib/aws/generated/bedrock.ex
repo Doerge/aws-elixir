@@ -1919,15 +1919,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateEvaluationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_evaluation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_evaluation_job_errors()}
-
   def create_evaluation_job(%Client{} = client, options \\ []) do
     url_path = "/evaluation-jobs"
 
@@ -1967,15 +1964,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateGuardrail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_guardrail(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_guardrail_errors()}
-
   def create_guardrail(%Client{} = client, options \\ []) do
     url_path = "/guardrails"
 
@@ -2014,17 +2008,14 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateGuardrailVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
-  This can be an ID or the ARN.
-
-  ## Optional parameters:
+  * `:guardrail_identifier` (`t:string` required) The unique identifier of the
+  guardrail. This can be an ID or the ARN.
+  ## Keyword parameters:
   """
-
   @spec create_guardrail_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_guardrail_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_guardrail_version_errors()}
-
   def create_guardrail_version(%Client{} = client, guardrail_identifier, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
 
@@ -2065,15 +2056,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateModelCopyJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_model_copy_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_model_copy_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_copy_job_errors()}
-
   def create_model_copy_job(%Client{} = client, options \\ []) do
     url_path = "/model-copy-jobs"
 
@@ -2114,15 +2102,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateModelCustomizationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_model_customization_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_customization_job_errors()}
-
   def create_model_customization_job(%Client{} = client, options \\ []) do
     url_path = "/model-customization-jobs"
 
@@ -2165,15 +2150,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateProvisionedModelThroughput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_provisioned_model_throughput(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_provisioned_model_throughput_errors()}
-
   def create_provisioned_model_throughput(%Client{} = client, options \\ []) do
     url_path = "/provisioned-model-throughput"
 
@@ -2214,16 +2196,13 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteCustomModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_identifier` (`t:string`) Name of the model to delete.
-
-  ## Optional parameters:
+  * `:model_identifier` (`t:string` required) Name of the model to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_custom_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_custom_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_model_errors()}
-
   def delete_custom_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
 
@@ -2270,18 +2249,15 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteGuardrail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
-  This can be an ID or the ARN.
-
-  ## Optional parameters:
+  * `:guardrail_identifier` (`t:string` required) The unique identifier of the
+  guardrail. This can be an ID or the ARN.
+  ## Keyword parameters:
   * `:guardrail_version` (`t:string`) The version of the guardrail.
   """
-
   @spec delete_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_guardrail_errors()}
-
   def delete_guardrail(%Client{} = client, guardrail_identifier, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
 
@@ -2339,15 +2315,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_model_invocation_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_invocation_logging_configuration_errors()}
-
   def delete_model_invocation_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/logging/modelinvocations"
 
@@ -2398,17 +2371,14 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteProvisionedModelThroughput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
-  the Provisioned Throughput.
-
-  ## Optional parameters:
+  * `:provisioned_model_id` (`t:string` required) The Amazon Resource Name (ARN)
+  or name of the Provisioned Throughput.
+  ## Keyword parameters:
   """
-
   @spec delete_provisioned_model_throughput(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_provisioned_model_throughput_errors()}
-
   def delete_provisioned_model_throughput(%Client{} = client, provisioned_model_id, options \\ []) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
 
@@ -2459,17 +2429,14 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetCustomModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_identifier` (`t:string`) Name or Amazon Resource Name (ARN) of the
-  custom model.
-
-  ## Optional parameters:
+  * `:model_identifier` (`t:string` required) Name or Amazon Resource Name (ARN)
+  of the custom model.
+  ## Keyword parameters:
   """
-
   @spec get_custom_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_custom_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_model_errors()}
-
   def get_custom_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
 
@@ -2506,17 +2473,14 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetEvaluationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_identifier` (`t:string`) The Amazon Resource Name (ARN) of the model
-  evaluation job.
-
-  ## Optional parameters:
+  * `:job_identifier` (`t:string` required) The Amazon Resource Name (ARN) of the
+  model evaluation job.
+  ## Keyword parameters:
   """
-
   @spec get_evaluation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evaluation_job_errors()}
-
   def get_evaluation_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/evaluation-jobs/#{AWS.Util.encode_uri(job_identifier)}"
 
@@ -2551,16 +2515,13 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetFoundationModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_identifier` (`t:string`) The model identifier.
-
-  ## Optional parameters:
+  * `:model_identifier` (`t:string` required) The model identifier.
+  ## Keyword parameters:
   """
-
   @spec get_foundation_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_foundation_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_foundation_model_errors()}
-
   def get_foundation_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/foundation-models/#{AWS.Util.encode_uri(model_identifier)}"
 
@@ -2596,20 +2557,17 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetGuardrail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail
-  for which to get details. This can be an ID or the ARN.
-
-  ## Optional parameters:
+  * `:guardrail_identifier` (`t:string` required) The unique identifier of the
+  guardrail for which to get details. This can be an ID or the ARN.
+  ## Keyword parameters:
   * `:guardrail_version` (`t:string`) The version of the guardrail for which to
   get details. If you don't specify a version, the response returns details
   for the DRAFT version.
   """
-
   @spec get_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_guardrail_errors()}
-
   def get_guardrail(%Client{} = client, guardrail_identifier, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
 
@@ -2659,16 +2617,14 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetModelCopyJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_arn` (`t:string`) The Amazon Resource Name (ARN) of the model copy job.
-
-  ## Optional parameters:
+  * `:job_arn` (`t:string` required) The Amazon Resource Name (ARN) of the model
+  copy job.
+  ## Keyword parameters:
   """
-
   @spec get_model_copy_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_model_copy_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_copy_job_errors()}
-
   def get_model_copy_job(%Client{} = client, job_arn, options \\ []) do
     url_path = "/model-copy-jobs/#{AWS.Util.encode_uri(job_arn)}"
 
@@ -2707,16 +2663,13 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetModelCustomizationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_identifier` (`t:string`) Identifier for the customization job.
-
-  ## Optional parameters:
+  * `:job_identifier` (`t:string` required) Identifier for the customization job.
+  ## Keyword parameters:
   """
-
   @spec get_model_customization_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_customization_job_errors()}
-
   def get_model_customization_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}"
 
@@ -2751,15 +2704,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_model_invocation_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_invocation_logging_configuration_errors()}
-
   def get_model_invocation_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/logging/modelinvocations"
 
@@ -2798,17 +2748,14 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetProvisionedModelThroughput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
-  the Provisioned Throughput.
-
-  ## Optional parameters:
+  * `:provisioned_model_id` (`t:string` required) The Amazon Resource Name (ARN)
+  or name of the Provisioned Throughput.
+  ## Keyword parameters:
   """
-
   @spec get_provisioned_model_throughput(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_provisioned_model_throughput_errors()}
-
   def get_provisioned_model_throughput(%Client{} = client, provisioned_model_id, options \\ []) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
 
@@ -2844,8 +2791,7 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListCustomModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:base_model_arn_equals` (`t:string`) Return custom models only if the base
   model Amazon Resource Name (ARN) matches this parameter.
   * `:creation_time_after` (`t:timestamp[date-time]`) Return custom models created
@@ -2872,12 +2818,10 @@ defmodule AWS.Bedrock do
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
   results.
   """
-
   @spec list_custom_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_models_errors()}
-
   def list_custom_models(%Client{} = client, options \\ []) do
     url_path = "/custom-models"
 
@@ -3008,8 +2952,7 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListEvaluationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) A filter that includes model
   evaluation jobs created after the time specified.
   * `:creation_time_before` (`t:timestamp[date-time]`) A filter that includes
@@ -3026,12 +2969,10 @@ defmodule AWS.Bedrock do
   * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`)
   Only return jobs where the status condition is met.
   """
-
   @spec list_evaluation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_evaluation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_evaluation_jobs_errors()}
-
   def list_evaluation_jobs(%Client{} = client, options \\ []) do
     url_path = "/evaluation-jobs"
 
@@ -3148,8 +3089,7 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListFoundationModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:by_customization_type` (`t:enum["CONTINUED_PRE_TRAINING|FINE_TUNING"]`)
   Return models that support the customization type that you specify. For more
   information, see Custom models in the Amazon Bedrock User Guide.
@@ -3161,12 +3101,10 @@ defmodule AWS.Bedrock do
   * `:by_provider` (`t:string`) Return models belonging to the model provider that
   you specify.
   """
-
   @spec list_foundation_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_foundation_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_foundation_models_errors()}
-
   def list_foundation_models(%Client{} = client, options \\ []) do
     url_path = "/foundation-models"
 
@@ -3246,8 +3184,7 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListGuardrails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
   This can be an ID or the ARN.
   * `:max_results` (`t:integer`) The maximum number of results to return in the
@@ -3256,12 +3193,10 @@ defmodule AWS.Bedrock do
   response, the response returns a nextToken that you can send in another
   ListGuardrails request to see the next batch of results.
   """
-
   @spec list_guardrails(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_guardrails_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_guardrails_errors()}
-
   def list_guardrails(%Client{} = client, options \\ []) do
     url_path = "/guardrails"
 
@@ -3326,8 +3261,7 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListModelCopyJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) Filters for model copy jobs
   created after the specified time.
   * `:creation_time_before` (`t:timestamp[date-time]`) Filters for model copy jobs
@@ -3355,12 +3289,10 @@ defmodule AWS.Bedrock do
   * `:target_model_name_contains` (`t:string`) Filters for model copy jobs in
   which the name of the copied model contains the string that you specify.
   """
-
   @spec list_model_copy_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_model_copy_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_copy_jobs_errors()}
-
   def list_model_copy_jobs(%Client{} = client, options \\ []) do
     url_path = "/model-copy-jobs"
 
@@ -3492,8 +3424,7 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListModelCustomizationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) Return customization jobs
   created after the specified time.
   * `:creation_time_before` (`t:timestamp[date-time]`) Return customization jobs
@@ -3515,12 +3446,10 @@ defmodule AWS.Bedrock do
   * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`)
   Return customization jobs with the specified status.
   """
-
   @spec list_model_customization_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_model_customization_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_customization_jobs_errors()}
-
   def list_model_customization_jobs(%Client{} = client, options \\ []) do
     url_path = "/model-customization-jobs"
 
@@ -3637,8 +3566,7 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListProvisionedModelThroughputs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) A filter that returns
   Provisioned Throughputs created after the specified time.
   * `:creation_time_before` (`t:timestamp[date-time]`) A filter that returns
@@ -3663,12 +3591,10 @@ defmodule AWS.Bedrock do
   that returns Provisioned Throughputs if their statuses matches the value
   that you specify.
   """
-
   @spec list_provisioned_model_throughputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provisioned_model_throughputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provisioned_model_throughputs_errors()}
-
   def list_provisioned_model_throughputs(%Client{} = client, options \\ []) do
     url_path = "/provisioned-model-throughputs"
 
@@ -3790,15 +3716,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/listTagsForResource"
 
@@ -3835,15 +3758,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20PutModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_model_invocation_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_model_invocation_logging_configuration_errors()}
-
   def put_model_invocation_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/logging/modelinvocations"
 
@@ -3880,17 +3800,14 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20StopEvaluationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_identifier` (`t:string`) The ARN of the model evaluation job you want to
-  stop.
-
-  ## Optional parameters:
+  * `:job_identifier` (`t:string` required) The ARN of the model evaluation job
+  you want to stop.
+  ## Keyword parameters:
   """
-
   @spec stop_evaluation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_evaluation_job_errors()}
-
   def stop_evaluation_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/evaluation-job/#{AWS.Util.encode_uri(job_identifier)}/stop"
 
@@ -3930,16 +3847,13 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20StopModelCustomizationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_identifier` (`t:string`) Job identifier of the job to stop.
-
-  ## Optional parameters:
+  * `:job_identifier` (`t:string` required) Job identifier of the job to stop.
+  ## Keyword parameters:
   """
-
   @spec stop_model_customization_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_model_customization_job_errors()}
-
   def stop_model_customization_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}/stop"
 
@@ -3979,15 +3893,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tagResource"
 
@@ -4027,15 +3938,12 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/untagResource"
 
@@ -4072,17 +3980,14 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20UpdateGuardrail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
-  This can be an ID or the ARN.
-
-  ## Optional parameters:
+  * `:guardrail_identifier` (`t:string` required) The unique identifier of the
+  guardrail. This can be an ID or the ARN.
+  ## Keyword parameters:
   """
-
   @spec update_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_guardrail_errors()}
-
   def update_guardrail(%Client{} = client, guardrail_identifier, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
 
@@ -4123,17 +4028,14 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20UpdateProvisionedModelThroughput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
-  the Provisioned Throughput to update.
-
-  ## Optional parameters:
+  * `:provisioned_model_id` (`t:string` required) The Amazon Resource Name (ARN)
+  or name of the Provisioned Throughput to update.
+  ## Keyword parameters:
   """
-
   @spec update_provisioned_model_throughput(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_provisioned_model_throughput_errors()}
-
   def update_provisioned_model_throughput(%Client{} = client, provisioned_model_id, options \\ []) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
 

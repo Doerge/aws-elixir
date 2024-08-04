@@ -3217,6 +3217,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Creates a device pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20CreateDevicePool&this_doc_guide=API%2520Reference)
@@ -3231,12 +3232,10 @@ defmodule AWS.DeviceFarm do
       required("rules") => list(rule()())
     }
   """
-
   @spec create_device_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_pool_errors()}
-
   def create_device_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3245,6 +3244,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Creates a profile that can be applied to one or more private fleet device
   instances.
 
@@ -3260,12 +3260,10 @@ defmodule AWS.DeviceFarm do
       required("name") => String.t()
     }
   """
-
   @spec create_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_profile_errors()}
-
   def create_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3274,6 +3272,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Creates a network profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20CreateNetworkProfile&this_doc_guide=API%2520Reference)
@@ -3295,12 +3294,10 @@ defmodule AWS.DeviceFarm do
       required("projectArn") => String.t()
     }
   """
-
   @spec create_network_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_profile_errors()}
-
   def create_network_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3309,6 +3306,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Creates a project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20CreateProject&this_doc_guide=API%2520Reference)
@@ -3321,12 +3319,10 @@ defmodule AWS.DeviceFarm do
       required("name") => String.t()
     }
   """
-
   @spec create_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-
   def create_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3335,6 +3331,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Specifies and starts a remote access session.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20CreateRemoteAccessSession&this_doc_guide=API%2520Reference)
@@ -3356,12 +3353,10 @@ defmodule AWS.DeviceFarm do
       required("projectArn") => String.t()
     }
   """
-
   @spec create_remote_access_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_remote_access_session_errors()}
-
   def create_remote_access_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3370,6 +3365,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Creates a Selenium testing project. Projects are used to track `TestGridSession`
   instances.
 
@@ -3383,12 +3379,10 @@ defmodule AWS.DeviceFarm do
       required("name") => String.t()
     }
   """
-
   @spec create_test_grid_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_grid_project_errors()}
-
   def create_test_grid_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3397,6 +3391,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Creates a signed, short-term URL that can be passed to a Selenium
   `RemoteWebDriver` constructor.
 
@@ -3409,12 +3404,10 @@ defmodule AWS.DeviceFarm do
       required("projectArn") => String.t()
     }
   """
-
   @spec create_test_grid_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_test_grid_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_grid_url_errors()}
-
   def create_test_grid_url(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3423,6 +3416,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Uploads an app or test scripts.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20CreateUpload&this_doc_guide=API%2520Reference)
@@ -3436,12 +3430,10 @@ defmodule AWS.DeviceFarm do
       required("type") => list(any())
     }
   """
-
   @spec create_upload(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_upload_errors()}
-
   def create_upload(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3450,6 +3442,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Creates a configuration record in Device Farm for your Amazon Virtual Private
   Cloud (VPC) endpoint.
 
@@ -3464,12 +3457,10 @@ defmodule AWS.DeviceFarm do
       required("vpceServiceName") => String.t()
     }
   """
-
   @spec create_vpce_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpce_configuration_errors()}
-
   def create_vpce_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3478,6 +3469,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Deletes a device pool given the pool ARN. Does not allow deletion of curated
   pools owned by the system.
 
@@ -3489,12 +3481,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec delete_device_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_pool_errors()}
-
   def delete_device_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3503,6 +3493,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Deletes a profile that can be applied to one or more private device instances.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20DeleteInstanceProfile&this_doc_guide=API%2520Reference)
@@ -3513,12 +3504,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec delete_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_profile_errors()}
-
   def delete_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3527,6 +3516,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Deletes a network profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20DeleteNetworkProfile&this_doc_guide=API%2520Reference)
@@ -3537,12 +3527,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec delete_network_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_network_profile_errors()}
-
   def delete_network_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3551,6 +3539,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Deletes an AWS Device Farm project, given the project ARN.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20DeleteProject&this_doc_guide=API%2520Reference)
@@ -3561,12 +3550,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec delete_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-
   def delete_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3575,6 +3562,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Deletes a completed remote access session and its results.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20DeleteRemoteAccessSession&this_doc_guide=API%2520Reference)
@@ -3585,12 +3573,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec delete_remote_access_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_remote_access_session_errors()}
-
   def delete_remote_access_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3599,6 +3585,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Deletes the run, given the run ARN.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20DeleteRun&this_doc_guide=API%2520Reference)
@@ -3609,12 +3596,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec delete_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_run_errors()}
-
   def delete_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3623,6 +3608,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Deletes a Selenium testing project and all content generated under it. You
   cannot undo this operation.
 
@@ -3634,12 +3620,10 @@ defmodule AWS.DeviceFarm do
       required("projectArn") => String.t()
     }
   """
-
   @spec delete_test_grid_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_grid_project_errors()}
-
   def delete_test_grid_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3648,6 +3632,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Deletes an upload given the upload ARN.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20DeleteUpload&this_doc_guide=API%2520Reference)
@@ -3658,12 +3643,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec delete_upload(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_upload_errors()}
-
   def delete_upload(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3672,6 +3655,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20DeleteVPCEConfiguration&this_doc_guide=API%2520Reference)
@@ -3682,12 +3666,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec delete_vpce_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpce_configuration_errors()}
-
   def delete_vpce_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3696,6 +3678,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns the number of unmetered iOS or unmetered Android devices that have been
   purchased by the account.
 
@@ -3707,12 +3690,10 @@ defmodule AWS.DeviceFarm do
       
     }
   """
-
   @spec get_account_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_account_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
-
   def get_account_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3721,6 +3702,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about a unique device type.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetDevice&this_doc_guide=API%2520Reference)
@@ -3731,12 +3713,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_device_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_errors()}
-
   def get_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3745,6 +3725,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns information about a device instance that belongs to a private device
   fleet.
 
@@ -3756,12 +3737,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_device_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_device_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_instance_errors()}
-
   def get_device_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3770,6 +3749,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about a device pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetDevicePool&this_doc_guide=API%2520Reference)
@@ -3780,12 +3760,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_device_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_pool_errors()}
-
   def get_device_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3794,6 +3772,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about compatibility with a device pool.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetDevicePoolCompatibility&this_doc_guide=API%2520Reference)
@@ -3808,12 +3787,10 @@ defmodule AWS.DeviceFarm do
       required("devicePoolArn") => String.t()
     }
   """
-
   @spec get_device_pool_compatibility(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_device_pool_compatibility_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_pool_compatibility_errors()}
-
   def get_device_pool_compatibility(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3823,6 +3800,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns information about the specified instance profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetInstanceProfile&this_doc_guide=API%2520Reference)
@@ -3833,12 +3811,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_profile_errors()}
-
   def get_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3847,6 +3823,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about a job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetJob&this_doc_guide=API%2520Reference)
@@ -3857,12 +3834,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
-
   def get_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3871,6 +3846,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns information about a network profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetNetworkProfile&this_doc_guide=API%2520Reference)
@@ -3881,12 +3857,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_network_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_profile_errors()}
-
   def get_network_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3895,6 +3869,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets the current status and future status of all offerings purchased by an AWS
   account. The response indicates how many offerings are currently available and
   the offerings that will be available in the next period. The API returns a
@@ -3910,12 +3885,10 @@ defmodule AWS.DeviceFarm do
       optional("nextToken") => String.t()
     }
   """
-
   @spec get_offering_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_offering_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_offering_status_errors()}
-
   def get_offering_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3924,6 +3897,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about a project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetProject&this_doc_guide=API%2520Reference)
@@ -3934,12 +3908,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_project_errors()}
-
   def get_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3948,6 +3920,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns a link to a currently running remote access session.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetRemoteAccessSession&this_doc_guide=API%2520Reference)
@@ -3958,12 +3931,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_remote_access_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_remote_access_session_errors()}
-
   def get_remote_access_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3972,6 +3943,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about a run.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetRun&this_doc_guide=API%2520Reference)
@@ -3982,12 +3954,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_run_errors()}
-
   def get_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3996,6 +3966,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about a suite.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetSuite&this_doc_guide=API%2520Reference)
@@ -4006,12 +3977,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_suite(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_suite_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_errors()}
-
   def get_suite(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4020,6 +3989,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about a test.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetTest&this_doc_guide=API%2520Reference)
@@ -4030,12 +4000,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_test(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_test_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_errors()}
-
   def get_test(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4044,6 +4012,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Retrieves information about a Selenium testing project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetTestGridProject&this_doc_guide=API%2520Reference)
@@ -4054,12 +4023,10 @@ defmodule AWS.DeviceFarm do
       required("projectArn") => String.t()
     }
   """
-
   @spec get_test_grid_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_grid_project_errors()}
-
   def get_test_grid_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4068,6 +4035,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   A session is an instance of a browser created through a `RemoteWebDriver` with
   the URL from `CreateTestGridUrlResult$url`. You can use the following to look
   up sessions:
@@ -4082,12 +4050,10 @@ defmodule AWS.DeviceFarm do
       optional("sessionId") => String.t()
     }
   """
-
   @spec get_test_grid_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_test_grid_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_grid_session_errors()}
-
   def get_test_grid_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4096,6 +4062,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about an upload.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20GetUpload&this_doc_guide=API%2520Reference)
@@ -4106,12 +4073,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_upload(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upload_errors()}
-
   def get_upload(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4120,6 +4085,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns information about the configuration settings for your Amazon Virtual
   Private Cloud (VPC) endpoint.
 
@@ -4131,12 +4097,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec get_vpce_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vpce_configuration_errors()}
-
   def get_vpce_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4145,6 +4109,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Installs an application to the device in a remote access session. For Android
   applications, the file must be in .apk format. For iOS applications, the file
   must be in .ipa format.
@@ -4158,12 +4123,10 @@ defmodule AWS.DeviceFarm do
       required("remoteAccessSessionArn") => String.t()
     }
   """
-
   @spec install_to_remote_access_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, install_to_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, install_to_remote_access_session_errors()}
-
   def install_to_remote_access_session(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4173,6 +4136,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about artifacts.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListArtifacts&this_doc_guide=API%2520Reference)
@@ -4185,12 +4149,10 @@ defmodule AWS.DeviceFarm do
       required("type") => list(any())
     }
   """
-
   @spec list_artifacts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_artifacts_errors()}
-
   def list_artifacts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4199,6 +4161,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns information about the private device instances associated with one or
   more AWS accounts.
 
@@ -4211,12 +4174,10 @@ defmodule AWS.DeviceFarm do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_device_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_device_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_instances_errors()}
-
   def list_device_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4225,6 +4186,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about device pools.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListDevicePools&this_doc_guide=API%2520Reference)
@@ -4237,12 +4199,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec list_device_pools(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_device_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_pools_errors()}
-
   def list_device_pools(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4251,6 +4211,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about unique device types.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListDevices&this_doc_guide=API%2520Reference)
@@ -4263,12 +4224,10 @@ defmodule AWS.DeviceFarm do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_devices_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-
   def list_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4277,6 +4236,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns information about all the instance profiles in an AWS account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListInstanceProfiles&this_doc_guide=API%2520Reference)
@@ -4288,12 +4248,10 @@ defmodule AWS.DeviceFarm do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_instance_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_instance_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_profiles_errors()}
-
   def list_instance_profiles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4302,6 +4260,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about jobs for a given test run.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListJobs&this_doc_guide=API%2520Reference)
@@ -4313,12 +4272,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec list_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-
   def list_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4327,6 +4284,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns the list of available network profiles.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListNetworkProfiles&this_doc_guide=API%2520Reference)
@@ -4339,12 +4297,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec list_network_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_network_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_profiles_errors()}
-
   def list_network_profiles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4353,6 +4309,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns a list of offering promotions. Each offering promotion record contains
   the ID and description of the promotion. The API returns a `NotEligible` error
   if the caller is not permitted to invoke the operation. Contact
@@ -4367,12 +4324,10 @@ defmodule AWS.DeviceFarm do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_offering_promotions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_offering_promotions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offering_promotions_errors()}
-
   def list_offering_promotions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4381,6 +4336,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns a list of all historical purchases, renewals, and system renewal
   transactions for an AWS account. The list is paginated and ordered by a
   descending timestamp (most recent transactions are first). The API returns a
@@ -4396,12 +4352,10 @@ defmodule AWS.DeviceFarm do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_offering_transactions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_offering_transactions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offering_transactions_errors()}
-
   def list_offering_transactions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4410,6 +4364,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns a list of products or offerings that the user can manage through the
   API. Each offering record indicates the recurring price per unit and the
   frequency for that offering. The API returns a `NotEligible` error if the user
@@ -4425,12 +4380,10 @@ defmodule AWS.DeviceFarm do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_offerings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_offerings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offerings_errors()}
-
   def list_offerings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4439,6 +4392,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about projects.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListProjects&this_doc_guide=API%2520Reference)
@@ -4450,12 +4404,10 @@ defmodule AWS.DeviceFarm do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_projects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-
   def list_projects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4464,6 +4416,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns a list of all currently running remote access sessions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListRemoteAccessSessions&this_doc_guide=API%2520Reference)
@@ -4475,12 +4428,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec list_remote_access_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_remote_access_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_remote_access_sessions_errors()}
-
   def list_remote_access_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4489,6 +4440,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about runs, given an AWS Device Farm project ARN.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListRuns&this_doc_guide=API%2520Reference)
@@ -4500,12 +4452,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec list_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_runs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_runs_errors()}
-
   def list_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4514,6 +4464,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about samples, given an AWS Device Farm job ARN.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListSamples&this_doc_guide=API%2520Reference)
@@ -4525,12 +4476,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec list_samples(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_samples_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_samples_errors()}
-
   def list_samples(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4539,6 +4488,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about test suites for a given job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListSuites&this_doc_guide=API%2520Reference)
@@ -4550,12 +4500,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec list_suites(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_suites_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suites_errors()}
-
   def list_suites(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4564,6 +4512,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   List the tags for an AWS Device Farm resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -4574,12 +4523,10 @@ defmodule AWS.DeviceFarm do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4588,6 +4535,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets a list of all Selenium testing projects in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListTestGridProjects&this_doc_guide=API%2520Reference)
@@ -4599,12 +4547,10 @@ defmodule AWS.DeviceFarm do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_test_grid_projects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_test_grid_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_grid_projects_errors()}
-
   def list_test_grid_projects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4613,6 +4559,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns a list of the actions taken in a `TestGridSession`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListTestGridSessionActions&this_doc_guide=API%2520Reference)
@@ -4625,12 +4572,10 @@ defmodule AWS.DeviceFarm do
       required("sessionArn") => String.t()
     }
   """
-
   @spec list_test_grid_session_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_test_grid_session_actions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_grid_session_actions_errors()}
-
   def list_test_grid_session_actions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4640,6 +4585,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Retrieves a list of artifacts created during the session.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListTestGridSessionArtifacts&this_doc_guide=API%2520Reference)
@@ -4653,12 +4599,10 @@ defmodule AWS.DeviceFarm do
       required("sessionArn") => String.t()
     }
   """
-
   @spec list_test_grid_session_artifacts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_test_grid_session_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_grid_session_artifacts_errors()}
-
   def list_test_grid_session_artifacts(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4668,6 +4612,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Retrieves a list of sessions for a `TestGridProject`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListTestGridSessions&this_doc_guide=API%2520Reference)
@@ -4685,12 +4630,10 @@ defmodule AWS.DeviceFarm do
       required("projectArn") => String.t()
     }
   """
-
   @spec list_test_grid_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_test_grid_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_grid_sessions_errors()}
-
   def list_test_grid_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4699,6 +4642,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about tests in a given test suite.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListTests&this_doc_guide=API%2520Reference)
@@ -4710,12 +4654,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec list_tests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tests_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tests_errors()}
-
   def list_tests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4724,6 +4666,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about unique problems, such as exceptions or crashes.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListUniqueProblems&this_doc_guide=API%2520Reference)
@@ -4735,12 +4678,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec list_unique_problems(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_unique_problems_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_unique_problems_errors()}
-
   def list_unique_problems(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4749,6 +4690,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Gets information about uploads, given an AWS Device Farm project ARN.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ListUploads&this_doc_guide=API%2520Reference)
@@ -4761,12 +4703,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec list_uploads(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_uploads_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_uploads_errors()}
-
   def list_uploads(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4775,6 +4715,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Returns information about all Amazon Virtual Private Cloud (VPC) endpoint
   configurations in the AWS account.
 
@@ -4787,12 +4728,10 @@ defmodule AWS.DeviceFarm do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_vpce_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_vpce_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpce_configurations_errors()}
-
   def list_vpce_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4801,6 +4740,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Immediately purchases offerings for an AWS account. Offerings renew with the
   latest total purchased quantity for an offering, unless the renewal was
   overridden. The API returns a `NotEligible` error if the user is not permitted
@@ -4817,12 +4757,10 @@ defmodule AWS.DeviceFarm do
       required("quantity") => integer()
     }
   """
-
   @spec purchase_offering(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_offering_errors()}
-
   def purchase_offering(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4831,6 +4769,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Explicitly sets the quantity of devices to renew for an offering, starting from
   the `effectiveDate` of the next period. The API returns a `NotEligible` error
   if the user is not permitted to invoke the operation. If you must be able to
@@ -4846,12 +4785,10 @@ defmodule AWS.DeviceFarm do
       required("quantity") => integer()
     }
   """
-
   @spec renew_offering(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, renew_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, renew_offering_errors()}
-
   def renew_offering(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4860,6 +4797,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Schedules a run.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20ScheduleRun&this_doc_guide=API%2520Reference)
@@ -4877,12 +4815,10 @@ defmodule AWS.DeviceFarm do
       required("test") => schedule_run_test()
     }
   """
-
   @spec schedule_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, schedule_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, schedule_run_errors()}
-
   def schedule_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4891,6 +4827,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Initiates a stop request for the current job. AWS Device Farm immediately stops
   the job on the device where tests have not started. You are not billed for
   this device. On the device where tests have started, setup suite and teardown
@@ -4905,12 +4842,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec stop_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_job_errors()}
-
   def stop_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4919,6 +4854,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Ends a specified remote access session.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20StopRemoteAccessSession&this_doc_guide=API%2520Reference)
@@ -4929,12 +4865,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec stop_remote_access_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_remote_access_session_errors()}
-
   def stop_remote_access_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4943,6 +4877,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Initiates a stop request for the current test run. AWS Device Farm immediately
   stops the run on devices where tests have not started. You are not billed for
   these devices. On devices where tests have started executing, setup suite and
@@ -4957,12 +4892,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec stop_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_run_errors()}
-
   def stop_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4971,6 +4904,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Associates the specified tags to a resource with the specified `resourceArn`. If
   existing tags on a resource are not specified in the request parameters, they
   are not changed. When a resource is deleted, the tags associated with that
@@ -4985,12 +4919,10 @@ defmodule AWS.DeviceFarm do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4999,6 +4931,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Deletes the specified tags from a resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20UntagResource&this_doc_guide=API%2520Reference)
@@ -5010,12 +4943,10 @@ defmodule AWS.DeviceFarm do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5024,6 +4955,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Updates information about a private device instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20UpdateDeviceInstance&this_doc_guide=API%2520Reference)
@@ -5036,12 +4968,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec update_device_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_device_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_instance_errors()}
-
   def update_device_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5050,6 +4980,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Modifies the name, description, and rules in a device pool given the attributes
   and the pool ARN. Rule updates are all-or-nothing, meaning they can only be
   updated as a whole (or not at all).
@@ -5067,12 +4998,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec update_device_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_pool_errors()}
-
   def update_device_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5081,6 +5010,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Updates information about an existing private device instance profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20UpdateInstanceProfile&this_doc_guide=API%2520Reference)
@@ -5096,12 +5026,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec update_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_profile_errors()}
-
   def update_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5110,6 +5038,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Updates the network profile.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20UpdateNetworkProfile&this_doc_guide=API%2520Reference)
@@ -5131,12 +5060,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec update_network_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_profile_errors()}
-
   def update_network_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5145,6 +5072,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Modifies the specified project name, given the project ARN and a new name.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20UpdateProject&this_doc_guide=API%2520Reference)
@@ -5158,12 +5086,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec update_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-
   def update_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5172,6 +5098,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Change details of a project.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20UpdateTestGridProject&this_doc_guide=API%2520Reference)
@@ -5185,12 +5112,10 @@ defmodule AWS.DeviceFarm do
       required("projectArn") => String.t()
     }
   """
-
   @spec update_test_grid_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_test_grid_project_errors()}
-
   def update_test_grid_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5199,6 +5124,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Updates an uploaded test spec.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devicefarm%20UpdateUpload&this_doc_guide=API%2520Reference)
@@ -5212,12 +5138,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec update_upload(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_upload_errors()}
-
   def update_upload(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5226,6 +5150,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+   
   Updates information about an Amazon Virtual Private Cloud (VPC) endpoint
   configuration.
 
@@ -5241,12 +5166,10 @@ defmodule AWS.DeviceFarm do
       required("arn") => String.t()
     }
   """
-
   @spec update_vpce_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpce_configuration_errors()}
-
   def update_vpce_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

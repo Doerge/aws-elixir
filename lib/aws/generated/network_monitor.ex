@@ -597,15 +597,12 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20CreateMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_monitor(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitor_errors()}
-
   def create_monitor(%Client{} = client, options \\ []) do
     url_path = "/monitors"
 
@@ -646,17 +643,14 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20CreateProbe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to associated with the
-  probe.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor to associated
+  with the probe.
+  ## Keyword parameters:
   """
-
   @spec create_probe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_probe_errors()}
-
   def create_probe(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes"
 
@@ -693,16 +687,13 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20DeleteMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to delete.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitor_errors()}
-
   def delete_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
 
@@ -750,17 +741,14 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20DeleteProbe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to delete.
-  * `:probe_id` (`t:string`) The ID of the probe to delete.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor to delete.
+  * `:probe_id` (`t:string` required) The ID of the probe to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_probe(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_probe_errors()}
-
   def delete_probe(%Client{} = client, monitor_name, probe_id, options \\ []) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"
@@ -808,17 +796,14 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20GetMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor that details are returned
-  for.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor that details are
+  returned for.
+  ## Keyword parameters:
   """
-
   @spec get_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitor_errors()}
-
   def get_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
 
@@ -855,19 +840,17 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20GetProbe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor associated with the
-  probe. Run ListMonitors to get a list of monitor names.
-  * `:probe_id` (`t:string`) The ID of the probe to get information about. Run
-  GetMonitor action to get a list of probes and probe IDs for the monitor.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor associated with
+  the probe. Run ListMonitors to get a list of monitor names.
+  * `:probe_id` (`t:string` required) The ID of the probe to get information
+  about. Run GetMonitor action to get a list of probes and probe IDs for the
+  monitor.
+  ## Keyword parameters:
   """
-
   @spec get_probe(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_probe_errors()}
-
   def get_probe(%Client{} = client, monitor_name, probe_id, options \\ []) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"
@@ -903,20 +886,17 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20ListMonitors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
   single call. To retrieve the remaining results, make another call with the
   returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:state` (`t:string`) The list of all monitors and their states.
   """
-
   @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitors_errors()}
-
   def list_monitors(%Client{} = client, options \\ []) do
     url_path = "/monitors"
 
@@ -976,16 +956,13 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1020,16 +997,13 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the monitor or probe to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the monitor or probe to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1066,18 +1040,16 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the monitor or probe that the tag
-  should be removed from.
-  * `:tag_keys` (`t:list[com.amazonaws.networkmonitor#TagKey]`) The key-value pa
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the monitor or probe that the
+  tag should be removed from.
+  * `:tag_keys` (`t:list[com.amazonaws.networkmonitor#TagKey]` required) The
+  key-value pa
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1128,16 +1100,13 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20UpdateMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to update.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor to update.
+  ## Keyword parameters:
   """
-
   @spec update_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitor_errors()}
-
   def update_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
 
@@ -1188,18 +1157,15 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20UpdateProbe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor that the probe was
-  updated for.
-  * `:probe_id` (`t:string`) The ID of the probe to update.
-
-  ## Optional parameters:
+  * `:monitor_name` (`t:string` required) The name of the monitor that the probe
+  was updated for.
+  * `:probe_id` (`t:string` required) The ID of the probe to update.
+  ## Keyword parameters:
   """
-
   @spec update_probe(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_probe_errors()}
-
   def update_probe(%Client{} = client, monitor_name, probe_id, options \\ []) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"

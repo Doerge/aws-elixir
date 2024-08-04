@@ -1303,6 +1303,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Indexes the search suggestions. For more information, see [Configuring
   Suggesters](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters)
   in the *Amazon CloudSearch Developer Guide*.
@@ -1315,12 +1316,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec build_suggesters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, build_suggesters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, build_suggesters_errors()}
-
   def build_suggesters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1329,6 +1328,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Creates a new search domain. For more information, see [Creating a Search
   Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html)
   in the *Amazon CloudSearch Developer Guide*.
@@ -1341,12 +1341,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec create_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-
   def create_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1355,6 +1353,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Configures an analysis scheme that can be applied to a `text` or `text-array`
   field to define language-specific text processing options. For more
   information, see [Configuring Analysis
@@ -1370,12 +1369,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec define_analysis_scheme(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, define_analysis_scheme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_analysis_scheme_errors()}
-
   def define_analysis_scheme(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1384,6 +1381,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Configures an ``Expression`` for the search domain. Used to create new
   expressions and modify existing ones. If the expression exists, the new
   configuration replaces the old one. For more information, see [Configuring
@@ -1399,12 +1397,10 @@ defmodule AWS.CloudSearch do
       required("Expression") => expression()
     }
   """
-
   @spec define_expression(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, define_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_expression_errors()}
-
   def define_expression(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1413,6 +1409,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Configures an ``IndexField`` for the search domain. Used to create new fields
   and modify existing ones. You must specify the name of the domain you are
   configuring and an index field configuration. The index field configuration
@@ -1432,12 +1429,10 @@ defmodule AWS.CloudSearch do
       required("IndexField") => index_field()
     }
   """
-
   @spec define_index_field(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, define_index_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_index_field_errors()}
-
   def define_index_field(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1446,6 +1441,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Configures a suggester for a domain. A suggester enables you to display possible
   matches before users finish typing their queries. When you configure a
   suggester, you must specify the name of the text field you want to search for
@@ -1463,12 +1459,10 @@ defmodule AWS.CloudSearch do
       required("Suggester") => suggester()
     }
   """
-
   @spec define_suggester(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, define_suggester_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_suggester_errors()}
-
   def define_suggester(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1477,6 +1471,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Deletes an analysis scheme. For more information, see [Configuring Analysis
   Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
   in the *Amazon CloudSearch Developer Guide*.
@@ -1490,12 +1485,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec delete_analysis_scheme(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_analysis_scheme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_analysis_scheme_errors()}
-
   def delete_analysis_scheme(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1504,6 +1497,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Permanently deletes a search domain and all of its data. Once a domain has been
   deleted, it cannot be recovered. For more information, see [Deleting a Search
   Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html)
@@ -1517,12 +1511,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec delete_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-
   def delete_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1531,6 +1523,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Removes an ``Expression`` from the search domain. For more information, see
   [Configuring
   Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
@@ -1545,12 +1538,10 @@ defmodule AWS.CloudSearch do
       required("ExpressionName") => String.t()
     }
   """
-
   @spec delete_expression(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_expression_errors()}
-
   def delete_expression(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1559,6 +1550,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Removes an ``IndexField`` from the search domain. For more information, see
   [Configuring Index
   Fields](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html)
@@ -1573,12 +1565,10 @@ defmodule AWS.CloudSearch do
       required("IndexFieldName") => String.t()
     }
   """
-
   @spec delete_index_field(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_index_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_index_field_errors()}
-
   def delete_index_field(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1587,6 +1577,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Deletes a suggester. For more information, see [Getting Search
   Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
   in the *Amazon CloudSearch Developer Guide*.
@@ -1600,12 +1591,10 @@ defmodule AWS.CloudSearch do
       required("SuggesterName") => String.t()
     }
   """
-
   @spec delete_suggester(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_suggester_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_suggester_errors()}
-
   def delete_suggester(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1614,6 +1603,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Gets the analysis schemes configured for a domain. An analysis scheme defines
   language-specific text processing options for a `text` field. Can be limited
   to specific analysis schemes by name. By default, shows all analysis schemes
@@ -1633,12 +1623,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec describe_analysis_schemes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_analysis_schemes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_analysis_schemes_errors()}
-
   def describe_analysis_schemes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1647,6 +1635,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Gets the availability options configured for a domain. By default, shows the
   configuration with any pending changes. Set the `Deployed` option to `true` to
   show the active configuration and exclude pending changes. For more
@@ -1663,12 +1652,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec describe_availability_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_availability_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_availability_options_errors()}
-
   def describe_availability_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1678,6 +1665,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Returns the domain's endpoint options, specifically whether all requests to the
   domain must arrive over HTTPS. For more information, see [Configuring Domain
   Endpoint
@@ -1693,12 +1681,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec describe_domain_endpoint_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_domain_endpoint_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_endpoint_options_errors()}
-
   def describe_domain_endpoint_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1708,6 +1694,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Gets information about the search domains owned by this account. Can be limited
   to specific domains. Shows all domains by default. To get the number of
   searchable documents in a domain, use the console or submit a `matchall`
@@ -1725,12 +1712,10 @@ defmodule AWS.CloudSearch do
       optional("DomainNames") => list(String.t()())
     }
   """
-
   @spec describe_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domains_errors()}
-
   def describe_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1739,6 +1724,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Gets the expressions configured for the search domain. Can be limited to
   specific expressions by name. By default, shows all expressions and includes
   any pending changes to the configuration. Set the `Deployed` option to `true`
@@ -1757,12 +1743,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec describe_expressions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_expressions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_expressions_errors()}
-
   def describe_expressions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1771,6 +1755,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Gets information about the index fields configured for the search domain. Can be
   limited to specific fields by name. By default, shows all fields and includes
   any pending changes to the configuration. Set the `Deployed` option to `true`
@@ -1789,12 +1774,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec describe_index_fields(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_index_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_index_fields_errors()}
-
   def describe_index_fields(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1803,6 +1786,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Gets the scaling parameters configured for a domain. A domain's scaling
   parameters specify the desired search instance type and replication count. For
   more information, see [Configuring Scaling
@@ -1817,12 +1801,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec describe_scaling_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scaling_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scaling_parameters_errors()}
-
   def describe_scaling_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1831,6 +1813,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Gets information about the access policies that control access to the domain's
   document and search endpoints. By default, shows the configuration with any
   pending changes. Set the `Deployed` option to `true` to show the active
@@ -1848,12 +1831,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec describe_service_access_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_service_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_service_access_policies_errors()}
-
   def describe_service_access_policies(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1863,6 +1844,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Gets the suggesters configured for a domain. A suggester enables you to display
   possible matches before users finish typing their queries. Can be limited to
   specific suggesters by name. By default, shows all suggesters and includes any
@@ -1882,12 +1864,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec describe_suggesters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_suggesters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_suggesters_errors()}
-
   def describe_suggesters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1896,6 +1876,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Tells the search domain to start indexing its documents using the latest
   indexing options. This operation must be invoked to activate options whose
   `OptionStatus` is `RequiresIndexDocuments`.
@@ -1908,12 +1889,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec index_documents(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, index_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, index_documents_errors()}
-
   def index_documents(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1922,6 +1901,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Lists all search domains owned by an account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20ListDomainNames&this_doc_guide=API%2520Reference)
@@ -1929,12 +1909,10 @@ defmodule AWS.CloudSearch do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec list_domain_names(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_names_errors()}
-
   def list_domain_names(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1943,6 +1921,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Configures the availability options for a domain. Enabling the Multi-AZ option
   expands an Amazon CloudSearch domain to an additional Availability Zone in the
   same Region to increase fault tolerance in the event of a service disruption.
@@ -1960,12 +1939,10 @@ defmodule AWS.CloudSearch do
       required("MultiAZ") => boolean()
     }
   """
-
   @spec update_availability_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_availability_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_availability_options_errors()}
-
   def update_availability_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1974,6 +1951,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Updates the domain's endpoint options, specifically whether all requests to the
   domain must arrive over HTTPS. For more information, see [Configuring Domain
   Endpoint
@@ -1989,12 +1967,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec update_domain_endpoint_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_domain_endpoint_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_endpoint_options_errors()}
-
   def update_domain_endpoint_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2004,6 +1980,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Configures scaling parameters for a domain. A domain's scaling parameters
   specify the desired search instance type and replication count. Amazon
   CloudSearch will still automatically scale your domain based on the volume of
@@ -2022,12 +1999,10 @@ defmodule AWS.CloudSearch do
       required("ScalingParameters") => scaling_parameters()
     }
   """
-
   @spec update_scaling_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_scaling_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scaling_parameters_errors()}
-
   def update_scaling_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2036,6 +2011,7 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
+   
   Configures the access rules that control access to the domain's document and
   search endpoints. For more information, see [ Configuring Access for an Amazon
   CloudSearch
@@ -2050,12 +2026,10 @@ defmodule AWS.CloudSearch do
       required("DomainName") => String.t()
     }
   """
-
   @spec update_service_access_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_access_policies_errors()}
-
   def update_service_access_policies(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

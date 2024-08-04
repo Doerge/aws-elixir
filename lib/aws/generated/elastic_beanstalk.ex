@@ -2084,6 +2084,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Cancels in-progress environment configuration update or application version
   deployment.
 
@@ -2096,12 +2097,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("EnvironmentName") => String.t()
     }
   """
-
   @spec abort_environment_update(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, abort_environment_update_errors()}
-
   def abort_environment_update(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2110,6 +2109,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Applies a scheduled managed action immediately. A managed action can be applied
   only if its status is `Scheduled`. Get the status and action ID of a managed
   action with `DescribeEnvironmentManagedActions`.
@@ -2124,12 +2124,10 @@ defmodule AWS.ElasticBeanstalk do
       required("ActionId") => String.t()
     }
   """
-
   @spec apply_environment_managed_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, apply_environment_managed_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_environment_managed_action_errors()}
-
   def apply_environment_managed_action(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2139,6 +2137,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Add or change the operations role used by an environment. After this call is
   made, Elastic Beanstalk uses the associated operations role for permissions to
   downstream services during subsequent calls acting on this environment. For
@@ -2155,12 +2154,10 @@ defmodule AWS.ElasticBeanstalk do
       required("OperationsRole") => String.t()
     }
   """
-
   @spec associate_environment_operations_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_environment_operations_role_errors()}
-
   def associate_environment_operations_role(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2170,6 +2167,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Checks if the specified CNAME is available.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20CheckDNSAvailability&this_doc_guide=API%2520Reference)
@@ -2180,11 +2178,9 @@ defmodule AWS.ElasticBeanstalk do
       required("CNAMEPrefix") => String.t()
     }
   """
-
   @spec check_dns_availability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, check_dns_availability_result_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def check_dns_availability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2193,6 +2189,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Create or update a group of environments that each run a separate component of a
   single application. Takes a list of version labels that specify application
   source bundles for each of the environments to create or update. The name of
@@ -2211,12 +2208,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("VersionLabels") => list(String.t()())
     }
   """
-
   @spec compose_environments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, environment_descriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, compose_environments_errors()}
-
   def compose_environments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2225,6 +2220,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Creates an application that has one configuration template named `default` and
   no application versions.
 
@@ -2239,12 +2235,10 @@ defmodule AWS.ElasticBeanstalk do
       required("ApplicationName") => String.t()
     }
   """
-
   @spec create_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, application_description_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2253,6 +2247,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Creates an application version for the specified application. You can create an
   application version from a source bundle in Amazon S3, a commit in AWS
   CodeCommit, or the output of an AWS CodeBuild build as follows: Specify a
@@ -2274,12 +2269,10 @@ defmodule AWS.ElasticBeanstalk do
       required("VersionLabel") => String.t()
     }
   """
-
   @spec create_application_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, application_version_description_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_version_errors()}
-
   def create_application_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2288,6 +2281,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Creates an AWS Elastic Beanstalk configuration template, associated with a
   specific Elastic Beanstalk application. You define application configuration
   settings in a configuration template. You can then use the configuration
@@ -2311,12 +2305,10 @@ defmodule AWS.ElasticBeanstalk do
       required("TemplateName") => String.t()
     }
   """
-
   @spec create_configuration_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, configuration_settings_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_template_errors()}
-
   def create_configuration_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2326,6 +2318,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Launches an AWS Elastic Beanstalk environment for the specified application
   using the specified configuration.
 
@@ -2350,12 +2343,10 @@ defmodule AWS.ElasticBeanstalk do
       required("ApplicationName") => String.t()
     }
   """
-
   @spec create_environment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, environment_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-
   def create_environment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2364,6 +2355,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Create a new version of your custom platform.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20CreatePlatformVersion&this_doc_guide=API%2520Reference)
@@ -2379,12 +2371,10 @@ defmodule AWS.ElasticBeanstalk do
       required("PlatformVersion") => String.t()
     }
   """
-
   @spec create_platform_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_platform_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_platform_version_errors()}
-
   def create_platform_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2393,6 +2383,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Creates a bucket in Amazon S3 to store application versions, logs, and other
   files used by Elastic Beanstalk environments. The Elastic Beanstalk console
   and EB CLI call this API the first time you create an environment in a region.
@@ -2404,12 +2395,10 @@ defmodule AWS.ElasticBeanstalk do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec create_storage_location(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_storage_location_result_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_storage_location_errors()}
-
   def create_storage_location(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2418,6 +2407,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Deletes the specified application along with all associated versions and
   configurations. The application versions will not be deleted from your Amazon
   S3 bucket.
@@ -2431,12 +2421,10 @@ defmodule AWS.ElasticBeanstalk do
       required("ApplicationName") => String.t()
     }
   """
-
   @spec delete_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2445,6 +2433,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Deletes the specified version from the specified application.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DeleteApplicationVersion&this_doc_guide=API%2520Reference)
@@ -2457,12 +2446,10 @@ defmodule AWS.ElasticBeanstalk do
       required("VersionLabel") => String.t()
     }
   """
-
   @spec delete_application_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_version_errors()}
-
   def delete_application_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2471,6 +2458,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Deletes the specified configuration template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DeleteConfigurationTemplate&this_doc_guide=API%2520Reference)
@@ -2482,12 +2470,10 @@ defmodule AWS.ElasticBeanstalk do
       required("TemplateName") => String.t()
     }
   """
-
   @spec delete_configuration_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_template_errors()}
-
   def delete_configuration_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2497,6 +2483,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Deletes the draft configuration associated with the running environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DeleteEnvironmentConfiguration&this_doc_guide=API%2520Reference)
@@ -2508,11 +2495,9 @@ defmodule AWS.ElasticBeanstalk do
       required("EnvironmentName") => String.t()
     }
   """
-
   @spec delete_environment_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_environment_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2522,6 +2507,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Deletes the specified version of a custom platform.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DeletePlatformVersion&this_doc_guide=API%2520Reference)
@@ -2532,12 +2518,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("PlatformArn") => String.t()
     }
   """
-
   @spec delete_platform_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_platform_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_platform_version_errors()}
-
   def delete_platform_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2546,6 +2530,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Returns attributes related to AWS Elastic Beanstalk that are associated with the
   calling AWS account.
 
@@ -2554,12 +2539,10 @@ defmodule AWS.ElasticBeanstalk do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_account_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_attributes_errors()}
-
   def describe_account_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2568,6 +2551,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Retrieve a list of application versions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DescribeApplicationVersions&this_doc_guide=API%2520Reference)
@@ -2581,11 +2565,9 @@ defmodule AWS.ElasticBeanstalk do
       optional("VersionLabels") => list(String.t()())
     }
   """
-
   @spec describe_application_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, application_version_descriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_application_versions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2595,6 +2577,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Returns the descriptions of existing applications.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DescribeApplications&this_doc_guide=API%2520Reference)
@@ -2605,11 +2588,9 @@ defmodule AWS.ElasticBeanstalk do
       optional("ApplicationNames") => list(String.t()())
     }
   """
-
   @spec describe_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, application_descriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2618,6 +2599,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Describes the configuration options that are used in a particular configuration
   template or environment, or that a specified solution stack defines. The
   description includes the values the options, their default values, and an
@@ -2637,12 +2619,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("TemplateName") => String.t()
     }
   """
-
   @spec describe_configuration_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, configuration_options_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_options_errors()}
-
   def describe_configuration_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2652,6 +2632,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Returns a description of the settings for the specified configuration set, that
   is, either a configuration template or the configuration set associated with a
   running environment. When describing the settings for the configuration set
@@ -2670,12 +2651,10 @@ defmodule AWS.ElasticBeanstalk do
       required("ApplicationName") => String.t()
     }
   """
-
   @spec describe_configuration_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, configuration_settings_descriptions(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_settings_errors()}
-
   def describe_configuration_settings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2685,6 +2664,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Returns information about the overall health of the specified environment. The
   **DescribeEnvironmentHealth** operation is only available with AWS Elastic
   Beanstalk Enhanced Health.
@@ -2699,12 +2679,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("EnvironmentName") => String.t()
     }
   """
-
   @spec describe_environment_health(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_environment_health_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_environment_health_errors()}
-
   def describe_environment_health(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2713,6 +2691,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Lists an environment's completed and failed managed actions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DescribeEnvironmentManagedActionHistory&this_doc_guide=API%2520Reference)
@@ -2726,12 +2705,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_environment_managed_action_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_environment_managed_action_history_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_environment_managed_action_history_errors()}
-
   def describe_environment_managed_action_history(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2741,6 +2718,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Lists an environment's upcoming and in-progress managed actions.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DescribeEnvironmentManagedActions&this_doc_guide=API%2520Reference)
@@ -2753,12 +2731,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("Status") => list(any())
     }
   """
-
   @spec describe_environment_managed_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_environment_managed_actions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_environment_managed_actions_errors()}
-
   def describe_environment_managed_actions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2768,6 +2744,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Returns AWS resources for this environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DescribeEnvironmentResources&this_doc_guide=API%2520Reference)
@@ -2779,12 +2756,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("EnvironmentName") => String.t()
     }
   """
-
   @spec describe_environment_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, environment_resource_descriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_environment_resources_errors()}
-
   def describe_environment_resources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2794,6 +2769,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Returns descriptions for existing environments.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DescribeEnvironments&this_doc_guide=API%2520Reference)
@@ -2811,11 +2787,9 @@ defmodule AWS.ElasticBeanstalk do
       optional("VersionLabel") => String.t()
     }
   """
-
   @spec describe_environments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, environment_descriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_environments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2824,6 +2798,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Returns list of event descriptions matching criteria up to the last 6 weeks.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20DescribeEvents&this_doc_guide=API%2520Reference)
@@ -2845,11 +2820,9 @@ defmodule AWS.ElasticBeanstalk do
       optional("VersionLabel") => String.t()
     }
   """
-
   @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, event_descriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2858,6 +2831,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Retrieves detailed information about the health of instances in your AWS Elastic
   Beanstalk. This operation requires [enhanced health
   reporting](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html).
@@ -2873,12 +2847,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_instances_health(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instances_health_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instances_health_errors()}
-
   def describe_instances_health(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2887,6 +2859,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Describes a platform version. Provides full details. Compare to
   `ListPlatformVersions`, which provides summary information about a list of
   platform versions.
@@ -2899,12 +2872,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("PlatformArn") => String.t()
     }
   """
-
   @spec describe_platform_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_platform_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_platform_version_errors()}
-
   def describe_platform_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2913,6 +2884,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Disassociate the operations role from an environment. After this call is made,
   Elastic Beanstalk uses the caller's permissions for permissions to downstream
   services during subsequent calls acting on this environment. For more
@@ -2928,12 +2900,10 @@ defmodule AWS.ElasticBeanstalk do
       required("EnvironmentName") => String.t()
     }
   """
-
   @spec disassociate_environment_operations_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_environment_operations_role_errors()}
-
   def disassociate_environment_operations_role(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2943,6 +2913,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Returns a list of the available solution stack names, with the public version
   first and then in reverse chronological order.
 
@@ -2951,11 +2922,9 @@ defmodule AWS.ElasticBeanstalk do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec list_available_solution_stacks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_available_solution_stacks_result_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_available_solution_stacks(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2965,6 +2934,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Lists the platform branches available for your account in an AWS Region.
   Provides summary information about each platform branch.
 
@@ -2978,11 +2948,9 @@ defmodule AWS.ElasticBeanstalk do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_platform_branches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_platform_branches_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_platform_branches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2991,6 +2959,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Lists the platform versions available for your account in an AWS Region.
   Provides summary information about each platform version. Compare to
   `DescribePlatformVersion`, which provides full details about a single platform
@@ -3006,12 +2975,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_platform_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_platform_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_platform_versions_errors()}
-
   def list_platform_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3020,6 +2987,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Return the tags applied to an AWS Elastic Beanstalk resource. The response
   contains a list of tag key-value pairs.
 
@@ -3031,12 +2999,10 @@ defmodule AWS.ElasticBeanstalk do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resource_tags_description_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3045,6 +3011,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Deletes and recreates all of the AWS resources (for example: the Auto Scaling
   group, load balancer, etc.) for a specified environment and forces a restart.
 
@@ -3057,12 +3024,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("EnvironmentName") => String.t()
     }
   """
-
   @spec rebuild_environment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rebuild_environment_errors()}
-
   def rebuild_environment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3071,6 +3036,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Initiates a request to compile the specified type of information of the deployed
   environment. Setting the `InfoType` to `tail` compiles the last lines from the
   application server log files of every Amazon EC2 instance in your environment.
@@ -3085,11 +3051,9 @@ defmodule AWS.ElasticBeanstalk do
       required("InfoType") => list(any())
     }
   """
-
   @spec request_environment_info(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def request_environment_info(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3098,6 +3062,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Causes the environment to restart the application container server running on
   each Amazon EC2 instance.
 
@@ -3110,11 +3075,9 @@ defmodule AWS.ElasticBeanstalk do
       optional("EnvironmentName") => String.t()
     }
   """
-
   @spec restart_app_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def restart_app_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3123,6 +3086,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Retrieves the compiled information from a `RequestEnvironmentInfo` request.
   Related Topics
 
@@ -3136,11 +3100,9 @@ defmodule AWS.ElasticBeanstalk do
       required("InfoType") => list(any())
     }
   """
-
   @spec retrieve_environment_info(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, retrieve_environment_info_result_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def retrieve_environment_info(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3149,6 +3111,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Swaps the CNAMEs of two environments.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20SwapEnvironmentCNAMEs&this_doc_guide=API%2520Reference)
@@ -3162,11 +3125,9 @@ defmodule AWS.ElasticBeanstalk do
       optional("SourceEnvironmentName") => String.t()
     }
   """
-
   @spec swap_environment_cnames(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def swap_environment_cnames(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3175,6 +3136,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Terminates the specified environment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20TerminateEnvironment&this_doc_guide=API%2520Reference)
@@ -3188,12 +3150,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("TerminateResources") => boolean()
     }
   """
-
   @spec terminate_environment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, environment_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_environment_errors()}
-
   def terminate_environment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3202,6 +3162,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Updates the specified application to have the specified properties.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20UpdateApplication&this_doc_guide=API%2520Reference)
@@ -3213,11 +3174,9 @@ defmodule AWS.ElasticBeanstalk do
       required("ApplicationName") => String.t()
     }
   """
-
   @spec update_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, application_description_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3226,6 +3185,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Modifies lifecycle settings for an application.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20UpdateApplicationResourceLifecycle&this_doc_guide=API%2520Reference)
@@ -3237,12 +3197,10 @@ defmodule AWS.ElasticBeanstalk do
       required("ResourceLifecycleConfig") => application_resource_lifecycle_config()
     }
   """
-
   @spec update_application_resource_lifecycle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, application_resource_lifecycle_description_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_resource_lifecycle_errors()}
-
   def update_application_resource_lifecycle(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3252,6 +3210,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Updates the specified application version to have the specified properties.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticbeanstalk%20UpdateApplicationVersion&this_doc_guide=API%2520Reference)
@@ -3264,11 +3223,9 @@ defmodule AWS.ElasticBeanstalk do
       required("VersionLabel") => String.t()
     }
   """
-
   @spec update_application_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, application_version_description_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_application_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3277,6 +3234,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Updates the specified configuration template to have the specified properties or
   configuration option values. If a property (for example, `ApplicationName`) is
   not provided, its value remains unchanged. To clear such properties, specify
@@ -3294,12 +3252,10 @@ defmodule AWS.ElasticBeanstalk do
       required("TemplateName") => String.t()
     }
   """
-
   @spec update_configuration_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, configuration_settings_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_template_errors()}
-
   def update_configuration_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3309,6 +3265,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Updates the environment description, deploys a new application version, updates
   the configuration settings to an entirely new configuration template, or
   updates select configuration option values in the running environment.
@@ -3334,12 +3291,10 @@ defmodule AWS.ElasticBeanstalk do
       optional("VersionLabel") => String.t()
     }
   """
-
   @spec update_environment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, environment_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
-
   def update_environment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3348,6 +3303,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists
   can be passed: `TagsToAdd` for tags to add or update, and `TagsToRemove`.
   Elastic Beanstalk supports tagging of all of its resources. For details about
@@ -3367,12 +3323,10 @@ defmodule AWS.ElasticBeanstalk do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec update_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_tags_for_resource_errors()}
-
   def update_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3381,6 +3335,7 @@ defmodule AWS.ElasticBeanstalk do
   end
 
   @doc """
+   
   Takes a set of configuration settings and either a configuration template or
   environment, and determines whether those values are valid.
 
@@ -3395,12 +3350,10 @@ defmodule AWS.ElasticBeanstalk do
       required("OptionSettings") => list(configuration_option_setting()())
     }
   """
-
   @spec validate_configuration_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, configuration_settings_validation_messages(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_configuration_settings_errors()}
-
   def validate_configuration_settings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

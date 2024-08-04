@@ -233,17 +233,14 @@ defmodule AWS.MediaStoreData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20DeleteObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:path` (`t:string`) The path (including the file name) where the object is
-  stored in the container. Format: //
-
-  ## Optional parameters:
+  * `:path` (`t:string` required) The path (including the file name) where the
+  object is stored in the container. Format: //
+  ## Keyword parameters:
   """
-
   @spec delete_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_object_errors()}
-
   def delete_object(%Client{} = client, path, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
 
@@ -290,17 +287,14 @@ defmodule AWS.MediaStoreData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20DescribeObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:path` (`t:string`) The path (including the file name) where the object is
-  stored in the container. Format: //
-
-  ## Optional parameters:
+  * `:path` (`t:string` required) The path (including the file name) where the
+  object is stored in the container. Format: //
+  ## Keyword parameters:
   """
-
   @spec describe_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_object_errors()}
-
   def describe_object(%Client{} = client, path, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
 
@@ -364,22 +358,19 @@ defmodule AWS.MediaStoreData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20GetObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:path` (`t:string`) The path (including the file name) where the object is
-  stored in the container. Format: //
-
-  ## Optional parameters:
+  * `:path` (`t:string` required) The path (including the file name) where the
+  object is stored in the container. Format: //
+  ## Keyword parameters:
   * `:range` (`t:string`) The range bytes of an object to retrieve. For more
   information about the Range header, see
   http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35. AWS
   Elemental MediaStore ignores this header for partially uploaded objects that
   have streaming upload availability.
   """
-
   @spec get_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_object_errors()}
-
   def get_object(%Client{} = client, path, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
 
@@ -446,8 +437,7 @@ defmodule AWS.MediaStoreData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20ListItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per API
   request. For example, you submit a ListItems request with MaxResults set at
   500. Although 2,000 items match your request, the service returns no more
@@ -462,12 +452,10 @@ defmodule AWS.MediaStoreData do
   * `:path` (`t:string`) The path in the container from which to retrieve items.
   Format: //
   """
-
   @spec list_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_items_errors()}
-
   def list_items(%Client{} = client, options \\ []) do
     url_path = "/"
 
@@ -528,12 +516,11 @@ defmodule AWS.MediaStoreData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20PutObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:path` (`t:string`) The path (including the file name) where the object is
-  stored in the container. Format: //
-  * `:input` (`t:binary`)
+  * `:path` (`t:string` required) The path (including the file name) where the
+  object is stored in the container. Format: //
+  * `:input` (`t:binary` required)
 
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:cache_control` (`t:string`) An optional CacheControl header that allows the
   caller to control the object's cache behavior. Headers can be passed in as
   specified in the HTTP at
@@ -549,12 +536,10 @@ defmodule AWS.MediaStoreData do
   to standard, the object is available for downloading only when it is
   uploaded completely. The default value for this header is standard.
   """
-
   @spec put_object(AWS.Client.t(), String.t(), input :: binary(), Keyword.t()) ::
           {:ok, put_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_object_errors()}
-
   def put_object(%Client{} = client, path, input, options \\ []) when is_binary(input) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
 

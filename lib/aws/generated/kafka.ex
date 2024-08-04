@@ -2908,20 +2908,17 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20BatchAssociateScramSecret&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
-  be updated.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster to be updated.
   * `:input` (`t:map`):
-    * `:secret_arn_list` (`t:list[com.amazonaws.kafka#__string]`) List of AWS
-  Secrets Manager secret ARNs.
-
-  ## Optional parameters:
+    * `:secret_arn_list` (`t:list[com.amazonaws.kafka#__string]` required) List of
+  AWS Secrets Manager secret ARNs.
+  ## Keyword parameters:
   """
-
   @spec batch_associate_scram_secret(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_associate_scram_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_scram_secret_errors()}
-
   def batch_associate_scram_secret(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
@@ -2959,20 +2956,17 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20BatchDisassociateScramSecret&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
-  be updated.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster to be updated.
   * `:input` (`t:map`):
-    * `:secret_arn_list` (`t:list[com.amazonaws.kafka#__string]`) List of AWS
-  Secrets Manager secret ARNs.
-
-  ## Optional parameters:
+    * `:secret_arn_list` (`t:list[com.amazonaws.kafka#__string]` required) List of
+  AWS Secrets Manager secret ARNs.
+  ## Keyword parameters:
   """
-
   @spec batch_disassociate_scram_secret(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_disassociate_scram_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_scram_secret_errors()}
-
   def batch_disassociate_scram_secret(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
@@ -3021,12 +3015,12 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:broker_node_group_info` (`t:structure`) Information about the broker nodes
-  in the cluster.
-    * `:cluster_name` (`t:string`) The name of the cluster.
-    * `:kafka_version` (`t:string`) The version of Apache Kafka.
-    * `:number_of_broker_nodes` (`t:integer`) The number of broker nodes in the
-  cluster.
+    * `:broker_node_group_info` (`t:structure` required) Information about the
+  broker nodes in the cluster.
+    * `:cluster_name` (`t:string` required) The name of the cluster.
+    * `:kafka_version` (`t:string` required) The version of Apache Kafka.
+    * `:number_of_broker_nodes` (`t:integer` required) The number of broker nodes in
+  the cluster.
     * `:client_authentication` (`t:structure`) Includes all client authentication
   related information.
     * `:configuration_info` (`t:structure`) Represents the configuration that you
@@ -3042,15 +3036,12 @@ defmodule AWS.Kafka do
     * `:storage_mode` (`t:enum["LOCAL|TIERED"]`) This controls storage mode for
   supported storage tiers.
     * `:tags` (`t:map`) Create tags when creating the cluster.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-
   def create_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/clusters"
 
@@ -3088,19 +3079,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:cluster_name` (`t:string`) The name of the cluster.
+    * `:cluster_name` (`t:string` required) The name of the cluster.
     * `:provisioned` (`t:structure`) Information about the provisioned cluster.
     * `:serverless` (`t:structure`) Information about the serverless cluster.
     * `:tags` (`t:map`) A map of tags that you want the cluster to have.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cluster_v2(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_v2_errors()}
-
   def create_cluster_v2(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/api/v2/clusters"
 
@@ -3138,23 +3126,20 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string`) The name of the configuration.
-    * `:server_properties` (`t:blob`) Contents of the server.properties file. When
-  using the API, you must ensure that the contents of the file are base64
-  encoded. When using the AWS Management Console, the SDK, or the AWS CLI, the
-  contents of server.properties can be in plaintext.
+    * `:name` (`t:string` required) The name of the configuration.
+    * `:server_properties` (`t:blob` required) Contents of the server.properties
+  file. When using the API, you must ensure that the contents of the file are
+  base64 encoded. When using the AWS Management Console, the SDK, or the AWS
+  CLI, the contents of server.properties can be in plaintext.
     * `:description` (`t:string`) The description of the configuration.
     * `:kafka_versions` (`t:list[com.amazonaws.kafka#__string]`) The versions of
   Apache Kafka with which you can use this MSK configuration.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_errors()}
-
   def create_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/configurations"
 
@@ -3192,27 +3177,24 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:kafka_clusters` (`t:list[com.amazonaws.kafka#KafkaCluster]`) Kafka Clusters
-  to use in setting up sources / targets for replication.
-    * `:replication_info_list` (`t:list[com.amazonaws.kafka#ReplicationInfo]`) A
-  list of replication configurations, where each configuration targets a given
-  source cluster to target cluster replication flow.
-    * `:replicator_name` (`t:string`) The name of the replicator. Alpha-numeric
-  characters with '-' are allowed.
-    * `:service_execution_role_arn` (`t:string`) The ARN of the IAM role used by the
-  replicator to access resources in the customer's account (e.g source and
-  target clusters)
+    * `:kafka_clusters` (`t:list[com.amazonaws.kafka#KafkaCluster]` required) Kafka
+  Clusters to use in setting up sources / targets for replication.
+    * `:replication_info_list` (`t:list[com.amazonaws.kafka#ReplicationInfo]`
+  required) A list of replication configurations, where each configuration
+  targets a given source cluster to target cluster replication flow.
+    * `:replicator_name` (`t:string` required) The name of the replicator.
+  Alpha-numeric characters with '-' are allowed.
+    * `:service_execution_role_arn` (`t:string` required) The ARN of the IAM role
+  used by the replicator to access resources in the customer's account (e.g
+  source and target clusters)
     * `:description` (`t:string`) A summary description of the replicator.
     * `:tags` (`t:map`) List of tags to attach to created Replicator.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_replicator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replicator_errors()}
-
   def create_replicator(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/replication/v1/replicators"
 
@@ -3250,24 +3232,22 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:authentication` (`t:string`) The authentication type of VPC connection.
-    * `:client_subnets` (`t:list[com.amazonaws.kafka#__string]`) The list of client
-  subnets.
-    * `:security_groups` (`t:list[com.amazonaws.kafka#__string]`) The list of
-  security groups.
-    * `:target_cluster_arn` (`t:string`) The cluster Amazon Resource Name (ARN) for
-  the VPC connection.
-    * `:vpc_id` (`t:string`) The VPC ID of VPC connection.
+    * `:authentication` (`t:string` required) The authentication type of VPC
+  connection.
+    * `:client_subnets` (`t:list[com.amazonaws.kafka#__string]` required) The list
+  of client subnets.
+    * `:security_groups` (`t:list[com.amazonaws.kafka#__string]` required) The list
+  of security groups.
+    * `:target_cluster_arn` (`t:string` required) The cluster Amazon Resource Name
+  (ARN) for the VPC connection.
+    * `:vpc_id` (`t:string` required) The VPC ID of VPC connection.
     * `:tags` (`t:map`) A map of tags for the VPC connection.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_vpc_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_connection_errors()}
-
   def create_vpc_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/vpc-connection"
 
@@ -3305,18 +3285,15 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DeleteCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
+  ## Keyword parameters:
   * `:current_version` (`t:string`) The current version of the MSK cluster.
   """
-
   @spec delete_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-
   def delete_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -3375,16 +3352,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DeleteClusterPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster.
+  ## Keyword parameters:
   """
-
   @spec delete_cluster_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_policy_errors()}
-
   def delete_cluster_policy(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
 
@@ -3431,17 +3406,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DeleteConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
-  MSK configuration.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
+  identifies an MSK configuration.
+  ## Keyword parameters:
   """
-
   @spec delete_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_errors()}
-
   def delete_configuration(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
 
@@ -3488,18 +3460,15 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DeleteReplicator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:replicator_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   replicator to be deleted.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:current_version` (`t:string`) The current version of the replicator.
   """
-
   @spec delete_replicator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replicator_errors()}
-
   def delete_replicator(%Client{} = client, replicator_arn, options \\ []) do
     url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
 
@@ -3557,17 +3526,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DeleteVpcConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
-  MSK VPC connection.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
+  identifies an MSK VPC connection.
+  ## Keyword parameters:
   """
-
   @spec delete_vpc_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_connection_errors()}
-
   def delete_vpc_connection(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
 
@@ -3615,17 +3581,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
+  ## Keyword parameters:
   """
-
   @spec describe_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
-
   def describe_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -3660,17 +3623,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeClusterOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_operation_arn` (`t:string`) The Amazon Resource Name (ARN) that
-  uniquely identifies the MSK cluster operation.
-
-  ## Optional parameters:
+  * `:cluster_operation_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  that uniquely identifies the MSK cluster operation.
+  ## Keyword parameters:
   """
-
   @spec describe_cluster_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_operation_errors()}
-
   def describe_cluster_operation(%Client{} = client, cluster_operation_arn, options \\ []) do
     url_path = "/v1/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
 
@@ -3705,16 +3665,13 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeClusterOperationV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_operation_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:cluster_operation_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_cluster_operation_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_operation_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_operation_v2_errors()}
-
   def describe_cluster_operation_v2(%Client{} = client, cluster_operation_arn, options \\ []) do
     url_path = "/api/v2/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
 
@@ -3750,17 +3707,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeClusterV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
+  ## Keyword parameters:
   """
-
   @spec describe_cluster_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_v2_errors()}
-
   def describe_cluster_v2(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/api/v2/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -3795,17 +3749,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
-  MSK configuration and all of its revisions.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
+  identifies an MSK configuration and all of its revisions.
+  ## Keyword parameters:
   """
-
   @spec describe_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_errors()}
-
   def describe_configuration(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
 
@@ -3840,19 +3791,16 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeConfigurationRevision&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
-  MSK configuration and all of its revisions.
-  * `:revision` (`t:long`) A string that uniquely identifies a revision of an MSK
-  configuration.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
+  identifies an MSK configuration and all of its revisions.
+  * `:revision` (`t:long` required) A string that uniquely identifies a revision
+  of an MSK configuration.
+  ## Keyword parameters:
   """
-
   @spec describe_configuration_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_revision_errors()}
-
   def describe_configuration_revision(%Client{} = client, arn, revision, options \\ []) do
     url_path =
       "/v1/configurations/#{AWS.Util.encode_uri(arn)}/revisions/#{AWS.Util.encode_uri(revision)}"
@@ -3888,17 +3836,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeReplicator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:replicator_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   replicator to be described.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_replicator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replicator_errors()}
-
   def describe_replicator(%Client{} = client, replicator_arn, options \\ []) do
     url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
 
@@ -3933,17 +3878,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeVpcConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies a
-  MSK VPC connection.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
+  identifies a MSK VPC connection.
+  ## Keyword parameters:
   """
-
   @spec describe_vpc_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_connection_errors()}
-
   def describe_vpc_connection(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
 
@@ -3978,17 +3920,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20GetBootstrapBrokers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
+  ## Keyword parameters:
   """
-
   @spec get_bootstrap_brokers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bootstrap_brokers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bootstrap_brokers_errors()}
-
   def get_bootstrap_brokers(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/bootstrap-brokers"
 
@@ -4024,16 +3963,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20GetClusterPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster.
+  ## Keyword parameters:
   """
-
   @spec get_cluster_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_policy_errors()}
-
   def get_cluster_policy(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
 
@@ -4068,17 +4005,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20GetCompatibleKafkaVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster
   check.
   """
-
   @spec get_compatible_kafka_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_kafka_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compatible_kafka_versions_errors()}
-
   def get_compatible_kafka_versions(%Client{} = client, options \\ []) do
     url_path = "/v1/compatible-kafka-versions"
 
@@ -4124,9 +4058,9 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClientVpcConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If there are more results, the response includes a NextToken
   parameter.
@@ -4134,12 +4068,10 @@ defmodule AWS.Kafka do
   the operation is truncated, the call returns NextToken in the response. To
   get the next batch, provide this token in your next request.
   """
-
   @spec list_client_vpc_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_client_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_client_vpc_connections_errors()}
-
   def list_client_vpc_connections(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connections"
 
@@ -4193,10 +4125,9 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClusterOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If there are more results, the response includes a NextToken
   parameter.
@@ -4204,12 +4135,10 @@ defmodule AWS.Kafka do
   the operation is truncated, the call returns NextToken in the response. To
   get the next batch, provide this token in your next request.
   """
-
   @spec list_cluster_operations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cluster_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_operations_errors()}
-
   def list_cluster_operations(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/operations"
 
@@ -4263,18 +4192,15 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClusterOperationsV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_cluster_operations_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cluster_operations_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_operations_v2_errors()}
-
   def list_cluster_operations_v2(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/api/v2/clusters/#{AWS.Util.encode_uri(cluster_arn)}/operations"
 
@@ -4327,8 +4253,7 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClusters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:cluster_name_filter` (`t:string`) Specify a prefix of the name of the
   clusters that you want to list. The service lists all the clusters whose
   names start with this prefix.
@@ -4339,12 +4264,10 @@ defmodule AWS.Kafka do
   the operation is truncated, the call returns NextToken in the response. To
   get the next batch, provide this token in your next request.
   """
-
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
-
   def list_clusters(%Client{} = client, options \\ []) do
     url_path = "/v1/clusters"
 
@@ -4404,8 +4327,7 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClustersV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:cluster_name_filter` (`t:string`) Specify a prefix of the names of the
   clusters that you want to list. The service lists all the clusters whose
   names start with this prefix.
@@ -4417,12 +4339,10 @@ defmodule AWS.Kafka do
   the operation is truncated, the call returns NextToken in the response. To
   get the next batch, provide this token in your next request.
   """
-
   @spec list_clusters_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_v2_errors()}
-
   def list_clusters_v2(%Client{} = client, options \\ []) do
     url_path = "/api/v2/clusters"
 
@@ -4494,10 +4414,9 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListConfigurationRevisions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
-  MSK configuration and all of its revisions.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
+  identifies an MSK configuration and all of its revisions.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If there are more results, the response includes a NextToken
   parameter.
@@ -4505,12 +4424,10 @@ defmodule AWS.Kafka do
   the operation is truncated, the call returns NextToken in the response. To
   get the next batch, provide this token in your next request.
   """
-
   @spec list_configuration_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configuration_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_revisions_errors()}
-
   def list_configuration_revisions(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}/revisions"
 
@@ -4563,8 +4480,7 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If there are more results, the response includes a NextToken
   parameter.
@@ -4572,12 +4488,10 @@ defmodule AWS.Kafka do
   the operation is truncated, the call returns NextToken in the response. To
   get the next batch, provide this token in your next request.
   """
-
   @spec list_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configurations_errors()}
-
   def list_configurations(%Client{} = client, options \\ []) do
     url_path = "/v1/configurations"
 
@@ -4630,8 +4544,7 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListKafkaVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If there are more results, the response includes a NextToken
   parameter.
@@ -4639,12 +4552,10 @@ defmodule AWS.Kafka do
   the operation is truncated, the call returns NextToken in the response. To
   get the next batch, provide this token in your next request.
   """
-
   @spec list_kafka_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_kafka_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kafka_versions_errors()}
-
   def list_kafka_versions(%Client{} = client, options \\ []) do
     url_path = "/v1/kafka-versions"
 
@@ -4697,10 +4608,9 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListNodes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If there are more results, the response includes a NextToken
   parameter.
@@ -4708,12 +4618,10 @@ defmodule AWS.Kafka do
   the operation is truncated, the call returns NextToken in the response. To
   get the next batch, provide this token in your next request.
   """
-
   @spec list_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_nodes_errors()}
-
   def list_nodes(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes"
 
@@ -4766,8 +4674,7 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListReplicators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If there are more results, the response includes a NextToken
   parameter.
@@ -4777,12 +4684,10 @@ defmodule AWS.Kafka do
   * `:replicator_name_filter` (`t:string`) Returns replicators starting with given
   name.
   """
-
   @spec list_replicators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_replicators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_replicators_errors()}
-
   def list_replicators(%Client{} = client, options \\ []) do
     url_path = "/replication/v1/replicators"
 
@@ -4842,18 +4747,15 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListScramSecrets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The arn of the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The arn of the cluster.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maxResults of the query.
   * `:next_token` (`t:string`) The nextToken of the query.
   """
-
   @spec list_scram_secrets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scram_secrets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scram_secrets_errors()}
-
   def list_scram_secrets(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
 
@@ -4906,17 +4808,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the resource that's associated with the tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the resource that's associated with the tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4951,8 +4850,7 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListVpcConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If there are more results, the response includes a NextToken
   parameter.
@@ -4960,12 +4858,10 @@ defmodule AWS.Kafka do
   the operation is truncated, the call returns NextToken in the response. To
   get the next batch, provide this token in your next request.
   """
-
   @spec list_vpc_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_connections_errors()}
-
   def list_vpc_connections(%Client{} = client, options \\ []) do
     url_path = "/v1/vpc-connections"
 
@@ -5019,19 +4915,17 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20PutClusterPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster.
   * `:input` (`t:map`):
-    * `:policy` (`t:string`) The policy.
+    * `:policy` (`t:string` required) The policy.
     * `:current_version` (`t:string`) The policy version.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_cluster_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_cluster_policy_errors()}
-
   def put_cluster_policy(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
@@ -5069,21 +4963,18 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20RebootBroker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
-  be updated.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster to be updated.
   * `:input` (`t:map`):
-    * `:broker_ids` (`t:list[com.amazonaws.kafka#__string]`) The list of broker IDs
-  to be rebooted. The reboot-broker operation supports rebooting one broker at
-  a time.
-
-  ## Optional parameters:
+    * `:broker_ids` (`t:list[com.amazonaws.kafka#__string]` required) The list of
+  broker IDs to be rebooted. The reboot-broker operation supports rebooting
+  one broker at a time.
+  ## Keyword parameters:
   """
-
   @spec reboot_broker(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_broker_errors()}
-
   def reboot_broker(%Client{} = client, cluster_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/reboot-broker"
 
@@ -5120,18 +5011,16 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20RejectClientVpcConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster.
   * `:input` (`t:map`):
-    * `:vpc_connection_arn` (`t:string`) The VPC connection ARN.
-
-  ## Optional parameters:
+    * `:vpc_connection_arn` (`t:string` required) The VPC connection ARN.
+  ## Keyword parameters:
   """
-
   @spec reject_client_vpc_connection(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_client_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_client_vpc_connection_errors()}
-
   def reject_client_vpc_connection(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connection"
@@ -5169,19 +5058,16 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the resource that's associated with the tags.
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the resource that's associated with the tags.
   * `:input` (`t:map`):
-    * `:tags` (`t:map`) The key-value pair for the resource tag.
-
-  ## Optional parameters:
+    * `:tags` (`t:map` required) The key-value pair for the resource tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5218,19 +5104,16 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the resource that's associated with the tags.
-  * `:tag_keys` (`t:list[com.amazonaws.kafka#__string]`) Tag keys must be unique
-  for a given cluster. In addition, the following restrictions apply:
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the resource that's associated with the tags.
+  * `:tag_keys` (`t:list[com.amazonaws.kafka#__string]` required) Tag keys must be
+  unique for a given cluster. In addition, the following restrictions apply:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5278,22 +5161,20 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateBrokerCount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string`) The version of cluster to update from. A
-  successful operation will then generate a new version.
-    * `:target_number_of_broker_nodes` (`t:integer`) The number of broker nodes that
-  you want the cluster to have after this operation completes successfully.
-
-  ## Optional parameters:
+    * `:current_version` (`t:string` required) The version of cluster to update
+  from. A successful operation will then generate a new version.
+    * `:target_number_of_broker_nodes` (`t:integer` required) The number of broker
+  nodes that you want the cluster to have after this operation completes
+  successfully.
+  ## Keyword parameters:
   """
-
   @spec update_broker_count(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_broker_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_count_errors()}
-
   def update_broker_count(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/count"
@@ -5331,23 +5212,20 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateBrokerStorage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string`) The version of cluster to update from. A
-  successful operation will then generate a new version.
+    * `:current_version` (`t:string` required) The version of cluster to update
+  from. A successful operation will then generate a new version.
     * `:target_broker_ebs_volume_info`
-  (`t:list[com.amazonaws.kafka#BrokerEBSVolumeInfo]`) Describes the target
-  volume size and the ID of the broker to apply the update to.
-
-  ## Optional parameters:
+  (`t:list[com.amazonaws.kafka#BrokerEBSVolumeInfo]` required) Describes the
+  target volume size and the ID of the broker to apply the update to.
+  ## Keyword parameters:
   """
-
   @spec update_broker_storage(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_broker_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_storage_errors()}
-
   def update_broker_storage(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/storage"
@@ -5385,23 +5263,20 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateBrokerType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string`) The cluster version that you want to change.
-  After this operation completes successfully, the cluster will have a new
-  version.
-    * `:target_instance_type` (`t:string`) The Amazon MSK broker type that you want
-  all of the brokers in this cluster to be.
-
-  ## Optional parameters:
+    * `:current_version` (`t:string` required) The cluster version that you want to
+  change. After this operation completes successfully, the cluster will have a
+  new version.
+    * `:target_instance_type` (`t:string` required) The Amazon MSK broker type that
+  you want all of the brokers in this cluster to be.
+  ## Keyword parameters:
   """
-
   @spec update_broker_type(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_broker_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_type_errors()}
-
   def update_broker_type(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/type"
@@ -5440,22 +5315,19 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateClusterConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:configuration_info` (`t:structure`) Represents the configuration that you
-  want MSK to use for the brokers in a cluster.
-    * `:current_version` (`t:string`) The version of the cluster that needs to be
-  updated.
-
-  ## Optional parameters:
+    * `:configuration_info` (`t:structure` required) Represents the configuration
+  that you want MSK to use for the brokers in a cluster.
+    * `:current_version` (`t:string` required) The version of the cluster that needs
+  to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_cluster_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_configuration_errors()}
-
   def update_cluster_configuration(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/configuration"
@@ -5493,22 +5365,19 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateClusterKafkaVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
-  be updated.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster to be updated.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string`) Current cluster version.
-    * `:target_kafka_version` (`t:string`) Target Kafka version.
+    * `:current_version` (`t:string` required) Current cluster version.
+    * `:target_kafka_version` (`t:string` required) Target Kafka version.
     * `:configuration_info` (`t:structure`) The custom configuration that should be
   applied on the new version of cluster.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_cluster_kafka_version(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_kafka_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_kafka_version_errors()}
-
   def update_cluster_kafka_version(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/version"
@@ -5546,22 +5415,20 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the configuration.
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  configuration.
   * `:input` (`t:map`):
-    * `:server_properties` (`t:blob`) Contents of the server.properties file. When
-  using the API, you must ensure that the contents of the file are base64
-  encoded. When using the AWS Management Console, the SDK, or the AWS CLI, the
-  contents of server.properties can be in plaintext.
+    * `:server_properties` (`t:blob` required) Contents of the server.properties
+  file. When using the API, you must ensure that the contents of the file are
+  base64 encoded. When using the AWS Management Console, the SDK, or the AWS
+  CLI, the contents of server.properties can be in plaintext.
     * `:description` (`t:string`) The description of the configuration revision.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_errors()}
-
   def update_configuration(%Client{} = client, arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
 
@@ -5598,24 +5465,21 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateConnectivity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   configuration.
   * `:input` (`t:map`):
-    * `:connectivity_info` (`t:structure`) Information about the broker access
-  configuration.
-    * `:current_version` (`t:string`) The version of the MSK cluster to update.
-  Cluster versions aren't simple numbers. You can describe an MSK cluster to
-  find its version. When this update operation is successful, it generates a
-  new cluster version.
-
-  ## Optional parameters:
+    * `:connectivity_info` (`t:structure` required) Information about the broker
+  access configuration.
+    * `:current_version` (`t:string` required) The version of the MSK cluster to
+  update. Cluster versions aren't simple numbers. You can describe an MSK
+  cluster to find its version. When this update operation is successful, it
+  generates a new cluster version.
+  ## Keyword parameters:
   """
-
   @spec update_connectivity(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connectivity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connectivity_errors()}
-
   def update_connectivity(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/connectivity"
@@ -5655,28 +5519,25 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateMonitoring&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string`) The version of the MSK cluster to update.
-  Cluster versions aren't simple numbers. You can describe an MSK cluster to
-  find its version. When this update operation is successful, it generates a
-  new cluster version.
+    * `:current_version` (`t:string` required) The version of the MSK cluster to
+  update. Cluster versions aren't simple numbers. You can describe an MSK
+  cluster to find its version. When this update operation is successful, it
+  generates a new cluster version.
     * `:enhanced_monitoring`
   (`t:enum["DEFAULT|PER_BROKER|PER_TOPIC_PER_BROKER|PER_TOPIC_PER_PARTITION"]`)
   Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon
   CloudWatch for this cluster.
     * `:logging_info` (`t:structure`)
     * `:open_monitoring` (`t:structure`) The settings for open monitoring.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_monitoring(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_monitoring_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitoring_errors()}
-
   def update_monitoring(%Client{} = client, cluster_arn, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/monitoring"
@@ -5714,24 +5575,23 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateReplicationInfo&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:replicator_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   replicator to be updated.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string`) Current replicator version.
-    * `:source_kafka_cluster_arn` (`t:string`) The ARN of the source Kafka cluster.
-    * `:target_kafka_cluster_arn` (`t:string`) The ARN of the target Kafka cluster.
+    * `:current_version` (`t:string` required) Current replicator version.
+    * `:source_kafka_cluster_arn` (`t:string` required) The ARN of the source Kafka
+  cluster.
+    * `:target_kafka_cluster_arn` (`t:string` required) The ARN of the target Kafka
+  cluster.
     * `:consumer_group_replication` (`t:structure`) Updated consumer group
   replication information.
     * `:topic_replication` (`t:structure`) Updated topic replication information.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_replication_info(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_replication_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_info_errors()}
-
   def update_replication_info(%Client{} = client, replicator_arn, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -5771,26 +5631,23 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateSecurity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-  identifies the cluster.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string`) The version of the MSK cluster to update.
-  Cluster versions aren't simple numbers. You can describe an MSK cluster to
-  find its version. When this update operation is successful, it generates a
-  new cluster version.
+    * `:current_version` (`t:string` required) The version of the MSK cluster to
+  update. Cluster versions aren't simple numbers. You can describe an MSK
+  cluster to find its version. When this update operation is successful, it
+  generates a new cluster version.
     * `:client_authentication` (`t:structure`) Includes all client authentication
   related information.
     * `:encryption_info` (`t:structure`) Includes all encryption-related
   information.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_security(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_security_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_errors()}
-
   def update_security(%Client{} = client, cluster_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/security"
 
@@ -5837,25 +5694,22 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateStorage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
-  be updated.
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster to be updated.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string`) The version of cluster to update from. A
-  successful operation will then generate a new version.
+    * `:current_version` (`t:string` required) The version of cluster to update
+  from. A successful operation will then generate a new version.
     * `:provisioned_throughput` (`t:structure`) EBS volume provisioned throughput
   information.
     * `:storage_mode` (`t:enum["LOCAL|TIERED"]`) Controls storage mode for supported
   storage tiers.
     * `:volume_size_g_b` (`t:integer`) size of the EBS volume to update.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_storage(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_storage_errors()}
-
   def update_storage(%Client{} = client, cluster_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/storage"
 

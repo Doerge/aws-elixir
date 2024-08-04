@@ -2220,15 +2220,12 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20CreateAssistant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_assistant(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_assistant_errors()}
-
   def create_assistant(%Client{} = client, options \\ []) do
     url_path = "/assistants"
 
@@ -2267,17 +2264,15 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20CreateAssistantAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  ## Keyword parameters:
   """
-
   @spec create_assistant_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_assistant_association_errors()}
-
   def create_assistant_association(%Client{} = client, assistant_id, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/associations"
 
@@ -2316,18 +2311,15 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20CreateContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
-  should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or
-  the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. This should not be a QUICK_RESPONSES type knowledge base. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec create_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_content_errors()}
-
   def create_content(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents"
 
@@ -2373,17 +2365,15 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20CreateContentAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:content_id` (`t:string`) The identifier of the content.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base.
-
-  ## Optional parameters:
+  * `:content_id` (`t:string` required) The identifier of the content.
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base.
+  ## Keyword parameters:
   """
-
   @spec create_content_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_content_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_content_association_errors()}
-
   def create_content_association(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}/associations"
@@ -2421,15 +2411,12 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20CreateKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_knowledge_base(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_knowledge_base_errors()}
-
   def create_knowledge_base(%Client{} = client, options \\ []) do
     url_path = "/knowledgeBases"
 
@@ -2466,17 +2453,14 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20CreateQuickResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. Can be
-  either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec create_quick_response(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_quick_response_errors()}
-
   def create_quick_response(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses"
 
@@ -2515,17 +2499,15 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20CreateSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  ## Keyword parameters:
   """
-
   @spec create_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_session_errors()}
-
   def create_session(%Client{} = client, assistant_id, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions"
 
@@ -2562,17 +2544,15 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20DeleteAssistant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  ## Keyword parameters:
   """
-
   @spec delete_assistant(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_assistant_errors()}
-
   def delete_assistant(%Client{} = client, assistant_id, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}"
 
@@ -2619,19 +2599,18 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20DeleteAssistantAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_association_id` (`t:string`) The identifier of the assistant
-  association. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_association_id` (`t:string` required) The identifier of the
+  assistant association. Can be either the ID or the ARN. URLs cannot contain
+  the ARN.
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  ## Keyword parameters:
   """
-
   @spec delete_assistant_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_assistant_association_errors()}
-
   def delete_assistant_association(
         %Client{} = client,
         assistant_association_id,
@@ -2684,19 +2663,16 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20DeleteContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID
-  or the ARN. URLs cannot contain the ARN.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. Can be
+  * `:content_id` (`t:string` required) The identifier of the content. Can be
   either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec delete_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_content_errors()}
-
   def delete_content(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
@@ -2744,14 +2720,13 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20DeleteContentAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:content_association_id` (`t:string`) The identifier of the content
+  * `:content_association_id` (`t:string` required) The identifier of the content
   association. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:content_id` (`t:string`) The identifier of the content.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base.
-
-  ## Optional parameters:
+  * `:content_id` (`t:string` required) The identifier of the content.
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base.
+  ## Keyword parameters:
   """
-
   @spec delete_content_association(
           AWS.Client.t(),
           String.t(),
@@ -2762,7 +2737,6 @@ defmodule AWS.QConnect do
           {:ok, delete_content_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_content_association_errors()}
-
   def delete_content_association(
         %Client{} = client,
         content_association_id,
@@ -2816,17 +2790,16 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20DeleteImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:import_job_id` (`t:string`) The identifier of the import job to be deleted.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base.
-
-  ## Optional parameters:
+  * `:import_job_id` (`t:string` required) The identifier of the import job to be
+  deleted.
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base.
+  ## Keyword parameters:
   """
-
   @spec delete_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_import_job_errors()}
-
   def delete_import_job(%Client{} = client, import_job_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs/#{AWS.Util.encode_uri(import_job_id)}"
@@ -2874,17 +2847,14 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20DeleteKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The knowledge base to delete content from.
-  Can be either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The knowledge base to delete
+  content from. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec delete_knowledge_base(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_knowledge_base_errors()}
-
   def delete_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
 
@@ -2931,19 +2901,16 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20DeleteQuickResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The knowledge base from which the quick
-  response is deleted. The identifier of the knowledge base.
-  * `:quick_response_id` (`t:string`) The identifier of the quick response to
-  delete.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The knowledge base from which the
+  quick response is deleted. The identifier of the knowledge base.
+  * `:quick_response_id` (`t:string` required) The identifier of the quick
+  response to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_quick_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_quick_response_errors()}
-
   def delete_quick_response(
         %Client{} = client,
         knowledge_base_id,
@@ -2996,17 +2963,15 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20GetAssistant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  ## Keyword parameters:
   """
-
   @spec get_assistant(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assistant_errors()}
-
   def get_assistant(%Client{} = client, assistant_id, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}"
 
@@ -3041,19 +3006,18 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20GetAssistantAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_association_id` (`t:string`) The identifier of the assistant
-  association. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_association_id` (`t:string` required) The identifier of the
+  assistant association. Can be either the ID or the ARN. URLs cannot contain
+  the ARN.
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  ## Keyword parameters:
   """
-
   @spec get_assistant_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assistant_association_errors()}
-
   def get_assistant_association(
         %Client{} = client,
         assistant_association_id,
@@ -3094,20 +3058,17 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20GetContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID
-  or the ARN. URLs cannot contain the ARN.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
-  should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or
-  the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:content_id` (`t:string` required) The identifier of the content. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. This should not be a QUICK_RESPONSES type knowledge base. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec get_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_content_errors()}
-
   def get_content(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
@@ -3143,19 +3104,17 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20GetContentAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:content_association_id` (`t:string`) The identifier of the content
+  * `:content_association_id` (`t:string` required) The identifier of the content
   association. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:content_id` (`t:string`) The identifier of the content.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base.
-
-  ## Optional parameters:
+  * `:content_id` (`t:string` required) The identifier of the content.
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base.
+  ## Keyword parameters:
   """
-
   @spec get_content_association(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_content_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_content_association_errors()}
-
   def get_content_association(
         %Client{} = client,
         content_association_id,
@@ -3197,19 +3156,16 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20GetContentSummary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID
-  or the ARN. URLs cannot contain the ARN.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. Can be
+  * `:content_id` (`t:string` required) The identifier of the content. Can be
   either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec get_content_summary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_content_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_content_summary_errors()}
-
   def get_content_summary(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}/summary"
@@ -3245,18 +3201,16 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20GetImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:import_job_id` (`t:string`) The identifier of the import job to retrieve.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base that
-  the import job belongs to.
-
-  ## Optional parameters:
+  * `:import_job_id` (`t:string` required) The identifier of the import job to
+  retrieve.
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base that the import job belongs to.
+  ## Keyword parameters:
   """
-
   @spec get_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_job_errors()}
-
   def get_import_job(%Client{} = client, import_job_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs/#{AWS.Util.encode_uri(import_job_id)}"
@@ -3292,17 +3246,14 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20GetKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. Can be
-  either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec get_knowledge_base(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_knowledge_base_errors()}
-
   def get_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
 
@@ -3337,18 +3288,16 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20GetQuickResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
-  should be a QUICK_RESPONSES type knowledge base.
-  * `:quick_response_id` (`t:string`) The identifier of the quick response.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. This should be a QUICK_RESPONSES type knowledge base.
+  * `:quick_response_id` (`t:string` required) The identifier of the quick
+  response.
+  ## Keyword parameters:
   """
-
   @spec get_quick_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_quick_response_errors()}
-
   def get_quick_response(%Client{} = client, knowledge_base_id, quick_response_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses/#{AWS.Util.encode_uri(quick_response_id)}"
@@ -3387,12 +3336,12 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20GetRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID
-  or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  * `:session_id` (`t:string` required) The identifier of the session. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:wait_time_seconds` (`t:integer`) The duration (in seconds) for which the
   call waits for a recommendation to be made available before returning. If a
@@ -3400,12 +3349,10 @@ defmodule AWS.QConnect do
   If no messages are available and the wait time expires, the call returns
   successfully with an empty list.
   """
-
   @spec get_recommendations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendations_errors()}
-
   def get_recommendations(%Client{} = client, assistant_id, session_id, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/recommendations"
@@ -3459,19 +3406,17 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20GetSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID
-  or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  * `:session_id` (`t:string` required) The identifier of the session. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec get_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
-
   def get_session(%Client{} = client, assistant_id, session_id, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
@@ -3507,21 +3452,19 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20ListAssistantAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_assistant_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assistant_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assistant_associations_errors()}
-
   def list_assistant_associations(%Client{} = client, assistant_id, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/associations"
 
@@ -3574,19 +3517,16 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20ListAssistants&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_assistants(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assistants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assistants_errors()}
-
   def list_assistants(%Client{} = client, options \\ []) do
     url_path = "/assistants"
 
@@ -3639,21 +3579,19 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20ListContentAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:content_id` (`t:string`) The identifier of the content.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base.
-
-  ## Optional parameters:
+  * `:content_id` (`t:string` required) The identifier of the content.
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_content_associations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_content_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_content_associations_errors()}
-
   def list_content_associations(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}/associations"
@@ -3707,22 +3645,19 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20ListContents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
-  should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or
-  the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. This should not be a QUICK_RESPONSES type knowledge base. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contents_errors()}
-
   def list_contents(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents"
 
@@ -3775,21 +3710,18 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20ListImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. Can be
-  either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_jobs_errors()}
-
   def list_import_jobs(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs"
 
@@ -3842,19 +3774,16 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20ListKnowledgeBases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_knowledge_bases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_knowledge_bases_errors()}
-
   def list_knowledge_bases(%Client{} = client, options \\ []) do
     url_path = "/knowledgeBases"
 
@@ -3907,21 +3836,18 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20ListQuickResponses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. Can be
-  either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_quick_responses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_quick_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_quick_responses_errors()}
-
   def list_quick_responses(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses"
 
@@ -3974,16 +3900,14 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4022,19 +3946,17 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20NotifyRecommendationsReceived&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID
-  or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  * `:session_id` (`t:string` required) The identifier of the session. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec notify_recommendations_received(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, notify_recommendations_received_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_recommendations_received_errors()}
-
   def notify_recommendations_received(%Client{} = client, assistant_id, session_id, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/recommendations/notify"
@@ -4073,17 +3995,14 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20PutFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant.
+  ## Keyword parameters:
   """
-
   @spec put_feedback(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_feedback_errors()}
-
   def put_feedback(%Client{} = client, assistant_id, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/feedback"
 
@@ -4123,17 +4042,15 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20QueryAssistant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  ## Keyword parameters:
   """
-
   @spec query_assistant(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, query_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_assistant_errors()}
-
   def query_assistant(%Client{} = client, assistant_id, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/query"
 
@@ -4170,17 +4087,14 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20RemoveKnowledgeBaseTemplateUri&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. Can be
-  either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec remove_knowledge_base_template_uri(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, remove_knowledge_base_template_uri_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_knowledge_base_template_uri_errors()}
-
   def remove_knowledge_base_template_uri(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/templateUri"
 
@@ -4228,22 +4142,19 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20SearchContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
-  should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or
-  the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. This should not be a QUICK_RESPONSES type knowledge base. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec search_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_content_errors()}
-
   def search_content(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search"
 
@@ -4299,22 +4210,19 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20SearchQuickResponses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
-  should be a QUICK_RESPONSES type knowledge base. Can be either the ID or the
-  ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. This should be a QUICK_RESPONSES type knowledge base. Can be either
+  the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec search_quick_responses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_quick_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_quick_responses_errors()}
-
   def search_quick_responses(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search/quickResponses"
 
@@ -4369,21 +4277,19 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20SearchSessions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec search_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_sessions_errors()}
-
   def search_sessions(%Client{} = client, assistant_id, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/searchSessions"
 
@@ -4445,17 +4351,14 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20StartContentUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. Can be
-  either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec start_content_upload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_content_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_content_upload_errors()}
-
   def start_content_upload(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/upload"
 
@@ -4495,17 +4398,14 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20StartImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. Can be
-  either the ID or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec start_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_job_errors()}
-
   def start_import_job(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs"
 
@@ -4542,16 +4442,14 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4588,17 +4486,15 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.qconnect#TagKey]`) The tag keys.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.qconnect#TagKey]` required) The tag keys.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4646,20 +4542,17 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20UpdateContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID
-  or the ARN. URLs cannot contain the ARN.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
-  should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or
-  the ARN
-
-  ## Optional parameters:
+  * `:content_id` (`t:string` required) The identifier of the content. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. This should not be a QUICK_RESPONSES type knowledge base. Can be
+  either the ID or the ARN
+  ## Keyword parameters:
   """
-
   @spec update_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_content_errors()}
-
   def update_content(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
@@ -4702,18 +4595,15 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20UpdateKnowledgeBaseTemplateUri&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
-  should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or
-  the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. This should not be a QUICK_RESPONSES type knowledge base. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec update_knowledge_base_template_uri(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_knowledge_base_template_uri_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_knowledge_base_template_uri_errors()}
-
   def update_knowledge_base_template_uri(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/templateUri"
 
@@ -4750,18 +4640,16 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20UpdateQuickResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. Can be
-  either the ID or the ARN. URLs cannot contain the ARN.
-  * `:quick_response_id` (`t:string`) The identifier of the quick response.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The identifier of the knowledge
+  base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:quick_response_id` (`t:string` required) The identifier of the quick
+  response.
+  ## Keyword parameters:
   """
-
   @spec update_quick_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_quick_response_errors()}
-
   def update_quick_response(
         %Client{} = client,
         knowledge_base_id,
@@ -4806,19 +4694,17 @@ defmodule AWS.QConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qconnect%20UpdateSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Amazon Q in Connect
-  assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID
-  or the ARN. URLs cannot contain the ARN.
-
-  ## Optional parameters:
+  * `:assistant_id` (`t:string` required) The identifier of the Amazon Q in
+  Connect assistant. Can be either the ID or the ARN. URLs cannot contain the
+  ARN.
+  * `:session_id` (`t:string` required) The identifier of the session. Can be
+  either the ID or the ARN. URLs cannot contain the ARN.
+  ## Keyword parameters:
   """
-
   @spec update_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_session_errors()}
-
   def update_session(%Client{} = client, assistant_id, session_id, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"

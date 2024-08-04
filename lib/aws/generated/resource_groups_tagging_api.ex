@@ -409,6 +409,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
+   
   Describes the status of the `StartReportCreation` operation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroupstaggingapi%20DescribeReportCreation&this_doc_guide=API%2520Reference)
@@ -419,12 +420,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       
     }
   """
-
   @spec describe_report_creation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_report_creation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_report_creation_errors()}
-
   def describe_report_creation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -433,6 +432,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
+   
   Returns a table that shows counts of resources that are noncompliant with their
   tag policies. For more information on tag policies, see [Tag
   Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
@@ -452,12 +452,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       optional("TargetIdFilters") => list(String.t()())
     }
   """
-
   @spec get_compliance_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_compliance_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compliance_summary_errors()}
-
   def get_compliance_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -466,6 +464,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
+   
   Returns all the tagged or previously tagged resources that are located in the
   specified Amazon Web Services Region for the account. Depending on what
   information you want returned, you can also specify the following:
@@ -485,12 +484,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       optional("TagsPerPage") => integer()
     }
   """
-
   @spec get_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resources_errors()}
-
   def get_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -499,6 +496,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
+   
   Returns all tag keys currently in use in the specified Amazon Web Services
   Region for the calling account.
 
@@ -510,12 +508,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       optional("PaginationToken") => String.t()
     }
   """
-
   @spec get_tag_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_tag_keys_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tag_keys_errors()}
-
   def get_tag_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -524,6 +520,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
+   
   Returns all tag values for the specified key that are used in the specified
   Amazon Web Services Region for the calling account.
 
@@ -536,12 +533,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       required("Key") => String.t()
     }
   """
-
   @spec get_tag_values(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_tag_values_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tag_values_errors()}
-
   def get_tag_values(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -550,6 +545,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
+   
   Generates a report that lists all tagged resources in the accounts across your
   organization and tells whether each resource is compliant with the effective
   tag policy. Compliance data is refreshed daily. The report is generated
@@ -563,12 +559,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       required("S3Bucket") => String.t()
     }
   """
-
   @spec start_report_creation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_report_creation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_report_creation_errors()}
-
   def start_report_creation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -577,6 +571,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
+   
   Applies one or more tags to the specified resources. Note the following:
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroupstaggingapi%20TagResources&this_doc_guide=API%2520Reference)
@@ -588,12 +583,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       required("Tags") => map()
     }
   """
-
   @spec tag_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resources_errors()}
-
   def tag_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -602,6 +595,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
+   
   Removes the specified tags from the specified resources. When you specify a tag
   key, the action removes both that key and its associated value. The operation
   succeeds even if you attempt to remove tags from a resource that were already
@@ -616,12 +610,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resources_errors()}
-
   def untag_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

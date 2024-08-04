@@ -1238,6 +1238,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Creates a connection that can then be given to other Amazon Web Services
   services like CodePipeline so that it can access third-party code
   repositories. The connection is in pending status until the third-party
@@ -1254,12 +1255,10 @@ defmodule AWS.CodeStarConnections do
       required("ConnectionName") => String.t()
     }
   """
-
   @spec create_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_errors()}
-
   def create_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1268,6 +1267,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Creates a resource that represents the infrastructure where a third-party
   provider is installed. The host is used when you create connections to an
   installed third-party provider type, such as GitHub Enterprise Server. You
@@ -1285,12 +1285,10 @@ defmodule AWS.CodeStarConnections do
       required("ProviderType") => list(any())
     }
   """
-
   @spec create_host(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_host_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_host_errors()}
-
   def create_host(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1299,6 +1297,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Creates a link to a specified external Git repository. A repository link allows
   Git sync to monitor and sync changes to files in a specified Git repository.
 
@@ -1314,12 +1313,10 @@ defmodule AWS.CodeStarConnections do
       required("RepositoryName") => String.t()
     }
   """
-
   @spec create_repository_link(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_repository_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_repository_link_errors()}
-
   def create_repository_link(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1328,6 +1325,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Creates a sync configuration which allows Amazon Web Services to sync content
   from a Git repository to update a specified Amazon Web Services resource.
   Parameters for the sync configuration are determined by the sync type.
@@ -1347,12 +1345,10 @@ defmodule AWS.CodeStarConnections do
       required("SyncType") => list(any())
     }
   """
-
   @spec create_sync_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_sync_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sync_configuration_errors()}
-
   def create_sync_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1361,6 +1357,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   The connection to be deleted.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20DeleteConnection&this_doc_guide=API%2520Reference)
@@ -1371,12 +1368,10 @@ defmodule AWS.CodeStarConnections do
       required("ConnectionArn") => String.t()
     }
   """
-
   @spec delete_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-
   def delete_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1385,6 +1380,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   The host to be deleted. Before you delete a host, all connections associated to
   the host must be deleted.
 
@@ -1396,12 +1392,10 @@ defmodule AWS.CodeStarConnections do
       required("HostArn") => String.t()
     }
   """
-
   @spec delete_host(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_host_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_host_errors()}
-
   def delete_host(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1410,6 +1404,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Deletes the association between your connection and a specified external Git
   repository.
 
@@ -1421,12 +1416,10 @@ defmodule AWS.CodeStarConnections do
       required("RepositoryLinkId") => String.t()
     }
   """
-
   @spec delete_repository_link(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_repository_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_repository_link_errors()}
-
   def delete_repository_link(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1435,6 +1428,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Deletes the sync configuration for a specified repository and connection.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20DeleteSyncConfiguration&this_doc_guide=API%2520Reference)
@@ -1446,12 +1440,10 @@ defmodule AWS.CodeStarConnections do
       required("SyncType") => list(any())
     }
   """
-
   @spec delete_sync_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_sync_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sync_configuration_errors()}
-
   def delete_sync_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1460,6 +1452,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Returns the connection ARN and details such as status, owner, and provider type.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20GetConnection&this_doc_guide=API%2520Reference)
@@ -1470,12 +1463,10 @@ defmodule AWS.CodeStarConnections do
       required("ConnectionArn") => String.t()
     }
   """
-
   @spec get_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_errors()}
-
   def get_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1484,6 +1475,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Returns the host ARN and details such as status, provider type, endpoint, and,
   if applicable, the VPC configuration.
 
@@ -1495,12 +1487,10 @@ defmodule AWS.CodeStarConnections do
       required("HostArn") => String.t()
     }
   """
-
   @spec get_host(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_host_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_host_errors()}
-
   def get_host(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1509,6 +1499,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Returns details about a repository link. A repository link allows Git sync to
   monitor and sync changes from files in a specified Git repository.
 
@@ -1520,12 +1511,10 @@ defmodule AWS.CodeStarConnections do
       required("RepositoryLinkId") => String.t()
     }
   """
-
   @spec get_repository_link(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_repository_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_link_errors()}
-
   def get_repository_link(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1534,6 +1523,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Returns details about the sync status for a repository. A repository sync uses
   Git sync to push and pull changes from your remote repository.
 
@@ -1547,12 +1537,10 @@ defmodule AWS.CodeStarConnections do
       required("SyncType") => list(any())
     }
   """
-
   @spec get_repository_sync_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_repository_sync_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_sync_status_errors()}
-
   def get_repository_sync_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1561,6 +1549,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Returns the status of the sync with the Git repository for a specific Amazon Web
   Services resource.
 
@@ -1573,12 +1562,10 @@ defmodule AWS.CodeStarConnections do
       required("SyncType") => list(any())
     }
   """
-
   @spec get_resource_sync_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_sync_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_sync_status_errors()}
-
   def get_resource_sync_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1587,6 +1574,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Returns a list of the most recent sync blockers.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20GetSyncBlockerSummary&this_doc_guide=API%2520Reference)
@@ -1598,12 +1586,10 @@ defmodule AWS.CodeStarConnections do
       required("SyncType") => list(any())
     }
   """
-
   @spec get_sync_blocker_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_sync_blocker_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sync_blocker_summary_errors()}
-
   def get_sync_blocker_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1612,6 +1598,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Returns details about a sync configuration, including the sync type and resource
   name. A sync configuration allows the configuration to sync (push and pull)
   changes from the remote repository for a specified branch in a Git repository.
@@ -1625,12 +1612,10 @@ defmodule AWS.CodeStarConnections do
       required("SyncType") => list(any())
     }
   """
-
   @spec get_sync_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_sync_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sync_configuration_errors()}
-
   def get_sync_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1639,6 +1624,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Lists the connections associated with your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20ListConnections&this_doc_guide=API%2520Reference)
@@ -1652,12 +1638,10 @@ defmodule AWS.CodeStarConnections do
       optional("ProviderTypeFilter") => list(any())
     }
   """
-
   @spec list_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_connections_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connections_errors()}
-
   def list_connections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1666,6 +1650,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Lists the hosts associated with your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20ListHosts&this_doc_guide=API%2520Reference)
@@ -1677,11 +1662,9 @@ defmodule AWS.CodeStarConnections do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_hosts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hosts_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_hosts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1690,6 +1673,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Lists the repository links created for connections in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20ListRepositoryLinks&this_doc_guide=API%2520Reference)
@@ -1701,12 +1685,10 @@ defmodule AWS.CodeStarConnections do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_repository_links(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_repository_links_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_repository_links_errors()}
-
   def list_repository_links(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1715,6 +1697,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Lists the repository sync definitions for repository links in your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20ListRepositorySyncDefinitions&this_doc_guide=API%2520Reference)
@@ -1726,12 +1709,10 @@ defmodule AWS.CodeStarConnections do
       required("SyncType") => list(any())
     }
   """
-
   @spec list_repository_sync_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_repository_sync_definitions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_repository_sync_definitions_errors()}
-
   def list_repository_sync_definitions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1741,6 +1722,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Returns a list of sync configurations for a specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20ListSyncConfigurations&this_doc_guide=API%2520Reference)
@@ -1754,12 +1736,10 @@ defmodule AWS.CodeStarConnections do
       required("SyncType") => list(any())
     }
   """
-
   @spec list_sync_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_sync_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sync_configurations_errors()}
-
   def list_sync_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1768,6 +1748,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Gets the set of key-value pairs (metadata) that are used to manage the resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -1778,12 +1759,10 @@ defmodule AWS.CodeStarConnections do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1792,6 +1771,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Adds to or modifies the tags of the given resource. Tags are metadata that can
   be used to manage a resource.
 
@@ -1804,12 +1784,10 @@ defmodule AWS.CodeStarConnections do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1818,6 +1796,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Removes tags from an Amazon Web Services resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20UntagResource&this_doc_guide=API%2520Reference)
@@ -1829,12 +1808,10 @@ defmodule AWS.CodeStarConnections do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1843,6 +1820,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Updates a specified host with the provided configurations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarconnections%20UpdateHost&this_doc_guide=API%2520Reference)
@@ -1855,12 +1833,10 @@ defmodule AWS.CodeStarConnections do
       required("HostArn") => String.t()
     }
   """
-
   @spec update_host(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_host_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_host_errors()}
-
   def update_host(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1869,6 +1845,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Updates the association between your connection and a specified external Git
   repository. A repository link allows Git sync to monitor and sync changes to
   files in a specified Git repository.
@@ -1883,12 +1860,10 @@ defmodule AWS.CodeStarConnections do
       required("RepositoryLinkId") => String.t()
     }
   """
-
   @spec update_repository_link(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_repository_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_repository_link_errors()}
-
   def update_repository_link(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1897,6 +1872,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Allows you to update the status of a sync blocker, resolving the blocker and
   allowing syncing to continue.
 
@@ -1911,12 +1887,10 @@ defmodule AWS.CodeStarConnections do
       required("SyncType") => list(any())
     }
   """
-
   @spec update_sync_blocker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_sync_blocker_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sync_blocker_errors()}
-
   def update_sync_blocker(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1925,6 +1899,7 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+   
   Updates the sync configuration for your connection and a specified external Git
   repository.
 
@@ -1943,12 +1918,10 @@ defmodule AWS.CodeStarConnections do
       required("SyncType") => list(any())
     }
   """
-
   @spec update_sync_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_sync_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sync_configuration_errors()}
-
   def update_sync_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

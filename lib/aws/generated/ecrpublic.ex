@@ -1236,6 +1236,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Checks the availability of one or more image layers that are within a repository
   in a public registry. When an image is pushed to a repository, each image
   layer is checked to verify if it has been uploaded before. If it has been
@@ -1251,12 +1252,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec batch_check_layer_availability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_check_layer_availability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_check_layer_availability_errors()}
-
   def batch_check_layer_availability(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1266,6 +1265,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Deletes a list of specified images that are within a repository in a public
   registry. Images are specified with either an `imageTag` or `imageDigest`. You
   can remove a tag from an image by specifying the image's tag in your request.
@@ -1282,12 +1282,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec batch_delete_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_image_errors()}
-
   def batch_delete_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1296,6 +1294,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Informs Amazon ECR that the image layer upload is complete for a specified
   public registry, repository name, and upload ID. You can optionally provide a
   `sha256` digest of the image layer for data validation purposes. When an image
@@ -1313,12 +1312,10 @@ defmodule AWS.ECRPUBLIC do
       required("uploadId") => String.t()
     }
   """
-
   @spec complete_layer_upload(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, complete_layer_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_layer_upload_errors()}
-
   def complete_layer_upload(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1327,6 +1324,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Creates a repository in a public registry. For more information, see [Amazon ECR
   repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
   in the *Amazon Elastic Container Registry User Guide*.
@@ -1341,12 +1339,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec create_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_repository_errors()}
-
   def create_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1355,6 +1351,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Deletes a repository in a public registry. If the repository contains images,
   you must either manually delete all images in the repository or use the
   `force` option. This option deletes all images on your behalf before deleting
@@ -1370,12 +1367,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec delete_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_repository_errors()}
-
   def delete_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1384,6 +1379,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Deletes the repository policy that's associated with the specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecrpublic%20DeleteRepositoryPolicy&this_doc_guide=API%2520Reference)
@@ -1395,12 +1391,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec delete_repository_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_repository_policy_errors()}
-
   def delete_repository_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1409,6 +1403,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Returns the image tag details for a repository in a public registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecrpublic%20DescribeImageTags&this_doc_guide=API%2520Reference)
@@ -1422,12 +1417,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec describe_image_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_image_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_tags_errors()}
-
   def describe_image_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1436,6 +1429,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Returns metadata that's related to the images in a repository in a public
   registry.
 
@@ -1451,12 +1445,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec describe_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_images_errors()}
-
   def describe_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1465,6 +1457,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Returns details for a public registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecrpublic%20DescribeRegistries&this_doc_guide=API%2520Reference)
@@ -1476,12 +1469,10 @@ defmodule AWS.ECRPUBLIC do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_registries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_registries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registries_errors()}
-
   def describe_registries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1490,6 +1481,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Describes repositories that are in a public registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecrpublic%20DescribeRepositories&this_doc_guide=API%2520Reference)
@@ -1503,12 +1495,10 @@ defmodule AWS.ECRPUBLIC do
       optional("repositoryNames") => list(String.t()())
     }
   """
-
   @spec describe_repositories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_repositories_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_repositories_errors()}
-
   def describe_repositories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1517,6 +1507,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Retrieves an authorization token. An authorization token represents your IAM
   authentication credentials. You can use it to access any Amazon ECR registry
   that your IAM principal has access to. The authorization token is valid for 12
@@ -1531,12 +1522,10 @@ defmodule AWS.ECRPUBLIC do
       
     }
   """
-
   @spec get_authorization_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_authorization_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_authorization_token_errors()}
-
   def get_authorization_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1545,6 +1534,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Retrieves catalog metadata for a public registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecrpublic%20GetRegistryCatalogData&this_doc_guide=API%2520Reference)
@@ -1555,12 +1545,10 @@ defmodule AWS.ECRPUBLIC do
       
     }
   """
-
   @spec get_registry_catalog_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_registry_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_registry_catalog_data_errors()}
-
   def get_registry_catalog_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1569,6 +1557,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Retrieve catalog metadata for a repository in a public registry. This metadata
   is displayed publicly in the Amazon ECR Public Gallery.
 
@@ -1581,12 +1570,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_repository_catalog_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_repository_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_catalog_data_errors()}
-
   def get_repository_catalog_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1595,6 +1582,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Retrieves the repository policy for the specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecrpublic%20GetRepositoryPolicy&this_doc_guide=API%2520Reference)
@@ -1606,12 +1594,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_repository_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_policy_errors()}
-
   def get_repository_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1620,6 +1606,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Notifies Amazon ECR that you intend to upload an image layer. When an image is
   pushed, the InitiateLayerUpload API is called once for each image layer that
   hasn't already been uploaded. Whether an image layer uploads is determined by
@@ -1634,12 +1621,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec initiate_layer_upload(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, initiate_layer_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initiate_layer_upload_errors()}
-
   def initiate_layer_upload(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1648,6 +1633,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   List the tags for an Amazon ECR Public resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecrpublic%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -1658,12 +1644,10 @@ defmodule AWS.ECRPUBLIC do
       required("resourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1672,6 +1656,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Creates or updates the image manifest and tags that are associated with an
   image. When an image is pushed and all new image layers have been uploaded,
   the PutImage API is called once to create or update the image manifest and the
@@ -1690,12 +1675,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec put_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_image_errors()}
-
   def put_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1704,6 +1687,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Create or update the catalog data for a public registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecrpublic%20PutRegistryCatalogData&this_doc_guide=API%2520Reference)
@@ -1714,12 +1698,10 @@ defmodule AWS.ECRPUBLIC do
       optional("displayName") => String.t()
     }
   """
-
   @spec put_registry_catalog_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_registry_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_registry_catalog_data_errors()}
-
   def put_registry_catalog_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1728,6 +1710,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Creates or updates the catalog data for a repository in a public registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecrpublic%20PutRepositoryCatalogData&this_doc_guide=API%2520Reference)
@@ -1740,12 +1723,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec put_repository_catalog_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_repository_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_repository_catalog_data_errors()}
-
   def put_repository_catalog_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1754,6 +1735,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Applies a repository policy to the specified public repository to control access
   permissions. For more information, see [Amazon ECR Repository
   Policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html)
@@ -1770,12 +1752,10 @@ defmodule AWS.ECRPUBLIC do
       required("repositoryName") => String.t()
     }
   """
-
   @spec set_repository_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_repository_policy_errors()}
-
   def set_repository_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1784,6 +1764,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Associates the specified tags to a resource with the specified `resourceArn`. If
   existing tags on a resource aren't specified in the request parameters, they
   aren't changed. When a resource is deleted, the tags associated with that
@@ -1798,12 +1779,10 @@ defmodule AWS.ECRPUBLIC do
       required("tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1812,6 +1791,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Deletes specified tags from a resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecrpublic%20UntagResource&this_doc_guide=API%2520Reference)
@@ -1823,12 +1803,10 @@ defmodule AWS.ECRPUBLIC do
       required("tagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1837,6 +1815,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+   
   Uploads an image layer part to Amazon ECR. When an image is pushed, each new
   image layer is uploaded in parts. The maximum size of each image layer part
   can be 20971520 bytes (about 20MB). The UploadLayerPart API is called once for
@@ -1855,12 +1834,10 @@ defmodule AWS.ECRPUBLIC do
       required("uploadId") => String.t()
     }
   """
-
   @spec upload_layer_part(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, upload_layer_part_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upload_layer_part_errors()}
-
   def upload_layer_part(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

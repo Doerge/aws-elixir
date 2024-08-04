@@ -312,16 +312,13 @@ defmodule AWS.ApplicationCostProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20DeleteReportDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_id` (`t:string`) Required. ID of the report to delete.
-
-  ## Optional parameters:
+  * `:report_id` (`t:string` required) Required. ID of the report to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_report_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_report_definition_errors()}
-
   def delete_report_definition(%Client{} = client, report_id, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
 
@@ -369,16 +366,13 @@ defmodule AWS.ApplicationCostProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20GetReportDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_id` (`t:string`) ID of the report to retrieve.
-
-  ## Optional parameters:
+  * `:report_id` (`t:string` required) ID of the report to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_report_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_report_definition_errors()}
-
   def get_report_definition(%Client{} = client, report_id, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
 
@@ -413,15 +407,12 @@ defmodule AWS.ApplicationCostProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20ImportApplicationUsage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec import_application_usage(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_application_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_application_usage_errors()}
-
   def import_application_usage(%Client{} = client, options \\ []) do
     url_path = "/importApplicationUsage"
 
@@ -458,18 +449,15 @@ defmodule AWS.ApplicationCostProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20ListReportDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token value from a previous call to access the
   next page of results.
   """
-
   @spec list_report_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_definitions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_report_definitions_errors()}
-
   def list_report_definitions(%Client{} = client, options \\ []) do
     url_path = "/reportDefinition"
 
@@ -522,15 +510,12 @@ defmodule AWS.ApplicationCostProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20PutReportDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_report_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_report_definition_errors()}
-
   def put_report_definition(%Client{} = client, options \\ []) do
     url_path = "/reportDefinition"
 
@@ -567,16 +552,13 @@ defmodule AWS.ApplicationCostProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20UpdateReportDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_id` (`t:string`) Required. ID of the report to update.
-
-  ## Optional parameters:
+  * `:report_id` (`t:string` required) Required. ID of the report to update.
+  ## Keyword parameters:
   """
-
   @spec update_report_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_report_definition_errors()}
-
   def update_report_definition(%Client{} = client, report_id, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
 

@@ -2681,16 +2681,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20AssociateAssessmentReportEvidenceFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The identifier for the assessment.
+  ## Keyword parameters:
   """
-
   @spec associate_assessment_report_evidence_folder(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_assessment_report_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_assessment_report_evidence_folder_errors()}
-
   def associate_assessment_report_evidence_folder(
         %Client{} = client,
         assessment_id,
@@ -2732,16 +2729,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchAssociateAssessmentReportEvidence&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The identifier for the assessment.
+  ## Keyword parameters:
   """
-
   @spec batch_associate_assessment_report_evidence(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_associate_assessment_report_evidence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_assessment_report_evidence_errors()}
-
   def batch_associate_assessment_report_evidence(%Client{} = client, assessment_id, options \\ []) do
     url_path =
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/batchAssociateToAssessmentReport"
@@ -2779,16 +2773,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchCreateDelegationByAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The identifier for the assessment.
+  ## Keyword parameters:
   """
-
   @spec batch_create_delegation_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_delegation_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_delegation_by_assessment_errors()}
-
   def batch_create_delegation_by_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/delegations"
 
@@ -2825,16 +2816,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchDeleteDelegationByAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The identifier for the assessment.
+  ## Keyword parameters:
   """
-
   @spec batch_delete_delegation_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_delegation_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_delegation_by_assessment_errors()}
-
   def batch_delete_delegation_by_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/delegations"
 
@@ -2871,16 +2859,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchDisassociateAssessmentReportEvidence&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The identifier for the assessment.
+  ## Keyword parameters:
   """
-
   @spec batch_disassociate_assessment_report_evidence(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_disassociate_assessment_report_evidence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_assessment_report_evidence_errors()}
-
   def batch_disassociate_assessment_report_evidence(
         %Client{} = client,
         assessment_id,
@@ -2925,13 +2910,11 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchImportEvidenceToAssessmentControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The identifier for the assessment.
-  * `:control_id` (`t:string`) The identifier for the control.
-  * `:control_set_id` (`t:string`) The identifier for the control set.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The identifier for the assessment.
+  * `:control_id` (`t:string` required) The identifier for the control.
+  * `:control_set_id` (`t:string` required) The identifier for the control set.
+  ## Keyword parameters:
   """
-
   @spec batch_import_evidence_to_assessment_control(
           AWS.Client.t(),
           String.t(),
@@ -2942,7 +2925,6 @@ defmodule AWS.AuditManager do
           {:ok, batch_import_evidence_to_assessment_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_import_evidence_to_assessment_control_errors()}
-
   def batch_import_evidence_to_assessment_control(
         %Client{} = client,
         assessment_id,
@@ -2986,15 +2968,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_assessment_errors()}
-
   def create_assessment(%Client{} = client, options \\ []) do
     url_path = "/assessments"
 
@@ -3031,15 +3010,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateAssessmentFramework&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_assessment_framework(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_assessment_framework_errors()}
-
   def create_assessment_framework(%Client{} = client, options \\ []) do
     url_path = "/assessmentFrameworks"
 
@@ -3076,16 +3052,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateAssessmentReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The identifier for the assessment.
+  ## Keyword parameters:
   """
-
   @spec create_assessment_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_assessment_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_assessment_report_errors()}
-
   def create_assessment_report(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/reports"
 
@@ -3122,15 +3095,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_control_errors()}
-
   def create_control(%Client{} = client, options \\ []) do
     url_path = "/controls"
 
@@ -3167,16 +3137,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The identifier for the assessment.
+  ## Keyword parameters:
   """
-
   @spec delete_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_assessment_errors()}
-
   def delete_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
 
@@ -3223,16 +3190,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessmentFramework&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:framework_id` (`t:string`) The identifier for the custom framework.
-
-  ## Optional parameters:
+  * `:framework_id` (`t:string` required) The identifier for the custom framework.
+  ## Keyword parameters:
   """
-
   @spec delete_assessment_framework(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_assessment_framework_errors()}
-
   def delete_assessment_framework(%Client{} = client, framework_id, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
 
@@ -3279,19 +3243,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessmentFrameworkShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:request_id` (`t:string`) The unique identifier for the share request to be
-  deleted.
-  * `:request_type` (`t:enum["RECEIVED|SENT"]`) Specifies whether the share
-  request is a sent request or a received request.
-
-  ## Optional parameters:
+  * `:request_id` (`t:string` required) The unique identifier for the share
+  request to be deleted.
+  * `:request_type` (`t:enum["RECEIVED|SENT"]` required) Specifies whether the
+  share request is a sent request or a received request.
+  ## Keyword parameters:
   """
-
   @spec delete_assessment_framework_share(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_assessment_framework_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_assessment_framework_share_errors()}
-
   def delete_assessment_framework_share(
         %Client{} = client,
         request_id,
@@ -3346,18 +3307,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessmentReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-  * `:assessment_report_id` (`t:string`) The unique identifier for the assessment
-  report.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  * `:assessment_report_id` (`t:string` required) The unique identifier for the
+  assessment report.
+  ## Keyword parameters:
   """
-
   @spec delete_assessment_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_assessment_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_assessment_report_errors()}
-
   def delete_assessment_report(
         %Client{} = client,
         assessment_id,
@@ -3410,16 +3369,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:control_id` (`t:string`) The unique identifier for the control.
-
-  ## Optional parameters:
+  * `:control_id` (`t:string` required) The unique identifier for the control.
+  ## Keyword parameters:
   """
-
   @spec delete_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_control_errors()}
-
   def delete_control(%Client{} = client, control_id, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
 
@@ -3466,15 +3422,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeregisterAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec deregister_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_account_errors()}
-
   def deregister_account(%Client{} = client, options \\ []) do
     url_path = "/account/deregisterAccount"
 
@@ -3517,15 +3470,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeregisterOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec deregister_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_organization_admin_account_errors()}
-
   def deregister_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/account/deregisterOrganizationAdminAccount"
 
@@ -3563,16 +3513,14 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DisassociateAssessmentReportEvidenceFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  ## Keyword parameters:
   """
-
   @spec disassociate_assessment_report_evidence_folder(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_assessment_report_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_assessment_report_evidence_folder_errors()}
-
   def disassociate_assessment_report_evidence_folder(
         %Client{} = client,
         assessment_id,
@@ -3614,15 +3562,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAccountStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_account_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_status_errors()}
-
   def get_account_status(%Client{} = client, options \\ []) do
     url_path = "/account/status"
 
@@ -3657,16 +3602,14 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  ## Keyword parameters:
   """
-
   @spec get_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assessment_errors()}
-
   def get_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
 
@@ -3701,16 +3644,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAssessmentFramework&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:framework_id` (`t:string`) The identifier for the framework.
-
-  ## Optional parameters:
+  * `:framework_id` (`t:string` required) The identifier for the framework.
+  ## Keyword parameters:
   """
-
   @spec get_assessment_framework(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assessment_framework_errors()}
-
   def get_assessment_framework(%Client{} = client, framework_id, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
 
@@ -3745,18 +3685,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAssessmentReportUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-  * `:assessment_report_id` (`t:string`) The unique identifier for the assessment
-  report.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  * `:assessment_report_id` (`t:string` required) The unique identifier for the
+  assessment report.
+  ## Keyword parameters:
   """
-
   @spec get_assessment_report_url(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_assessment_report_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assessment_report_url_errors()}
-
   def get_assessment_report_url(
         %Client{} = client,
         assessment_id,
@@ -3797,9 +3735,9 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetChangeLogs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  ## Keyword parameters:
   * `:control_id` (`t:string`) The unique identifier for the control.
   * `:control_set_id` (`t:string`) The unique identifier for the control set.
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
@@ -3807,12 +3745,10 @@ defmodule AWS.AuditManager do
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec get_change_logs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_change_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_change_logs_errors()}
-
   def get_change_logs(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/changelogs"
 
@@ -3879,16 +3815,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:control_id` (`t:string`) The identifier for the control.
-
-  ## Optional parameters:
+  * `:control_id` (`t:string` required) The identifier for the control.
+  ## Keyword parameters:
   """
-
   @spec get_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_control_errors()}
-
   def get_control(%Client{} = client, control_id, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
 
@@ -3923,19 +3856,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetDelegations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec get_delegations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_delegations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_delegations_errors()}
-
   def get_delegations(%Client{} = client, options \\ []) do
     url_path = "/delegations"
 
@@ -3988,20 +3918,19 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidence&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-  * `:control_set_id` (`t:string`) The unique identifier for the control set.
-  * `:evidence_folder_id` (`t:string`) The unique identifier for the folder that
-  the evidence is stored in.
-  * `:evidence_id` (`t:string`) The unique identifier for the evidence.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  * `:control_set_id` (`t:string` required) The unique identifier for the control
+  set.
+  * `:evidence_folder_id` (`t:string` required) The unique identifier for the
+  folder that the evidence is stored in.
+  * `:evidence_id` (`t:string` required) The unique identifier for the evidence.
+  ## Keyword parameters:
   """
-
   @spec get_evidence(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evidence_errors()}
-
   def get_evidence(
         %Client{} = client,
         assessment_id,
@@ -4044,18 +3973,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceByEvidenceFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The identifier for the assessment.
-  * `:control_set_id` (`t:string`) The identifier for the control set.
-  * `:evidence_folder_id` (`t:string`) The unique identifier for the folder that
-  the evidence is stored in.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The identifier for the assessment.
+  * `:control_set_id` (`t:string` required) The identifier for the control set.
+  * `:evidence_folder_id` (`t:string` required) The unique identifier for the
+  folder that the evidence is stored in.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec get_evidence_by_evidence_folder(
           AWS.Client.t(),
           String.t(),
@@ -4066,7 +3993,6 @@ defmodule AWS.AuditManager do
           {:ok, get_evidence_by_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evidence_by_evidence_folder_errors()}
-
   def get_evidence_by_evidence_folder(
         %Client{} = client,
         assessment_id,
@@ -4131,18 +4057,15 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFileUploadUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_name` (`t:string`) The file that you want to upload. For a list of
-  supported file formats, see Supported file types for manual evidence in the
-  Audit Manager User Guide.
-
-  ## Optional parameters:
+  * `:file_name` (`t:string` required) The file that you want to upload. For a
+  list of supported file formats, see Supported file types for manual evidence
+  in the Audit Manager User Guide.
+  ## Keyword parameters:
   """
-
   @spec get_evidence_file_upload_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_file_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evidence_file_upload_url_errors()}
-
   def get_evidence_file_upload_url(%Client{} = client, file_name, options \\ [])
       when is_binary(file_name) do
     url_path = "/evidenceFileUploadUrl"
@@ -4178,19 +4101,18 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-  * `:control_set_id` (`t:string`) The unique identifier for the control set.
-  * `:evidence_folder_id` (`t:string`) The unique identifier for the folder that
-  the evidence is stored in.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  * `:control_set_id` (`t:string` required) The unique identifier for the control
+  set.
+  * `:evidence_folder_id` (`t:string` required) The unique identifier for the
+  folder that the evidence is stored in.
+  ## Keyword parameters:
   """
-
   @spec get_evidence_folder(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evidence_folder_errors()}
-
   def get_evidence_folder(
         %Client{} = client,
         assessment_id,
@@ -4232,20 +4154,18 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFoldersByAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec get_evidence_folders_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_folders_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evidence_folders_by_assessment_errors()}
-
   def get_evidence_folders_by_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/evidenceFolders"
 
@@ -4299,17 +4219,15 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFoldersByAssessmentControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The identifier for the assessment.
-  * `:control_id` (`t:string`) The identifier for the control.
-  * `:control_set_id` (`t:string`) The identifier for the control set.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The identifier for the assessment.
+  * `:control_id` (`t:string` required) The identifier for the control.
+  * `:control_set_id` (`t:string` required) The identifier for the control set.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec get_evidence_folders_by_assessment_control(
           AWS.Client.t(),
           String.t(),
@@ -4320,7 +4238,6 @@ defmodule AWS.AuditManager do
           {:ok, get_evidence_folders_by_assessment_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evidence_folders_by_assessment_control_errors()}
-
   def get_evidence_folders_by_assessment_control(
         %Client{} = client,
         assessment_id,
@@ -4380,15 +4297,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetInsights&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insights_errors()}
-
   def get_insights(%Client{} = client, options \\ []) do
     url_path = "/insights"
 
@@ -4423,16 +4337,14 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetInsightsByAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  ## Keyword parameters:
   """
-
   @spec get_insights_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_insights_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insights_by_assessment_errors()}
-
   def get_insights_by_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/insights/assessments/#{AWS.Util.encode_uri(assessment_id)}"
 
@@ -4468,15 +4380,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_organization_admin_account_errors()}
-
   def get_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/account/organizationAdminAccount"
 
@@ -4515,15 +4424,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetServicesInScope&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_services_in_scope(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_services_in_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_services_in_scope_errors()}
-
   def get_services_in_scope(%Client{} = client, options \\ []) do
     url_path = "/services"
 
@@ -4559,17 +4465,14 @@ defmodule AWS.AuditManager do
 
   ## Parameters:
   * `:attribute`
-  (`t:enum["ALL|DEFAULT_ASSESSMENT_REPORTS_DESTINATION|DEFAULT_EXPORT_DESTINATION|DEFAULT_PROCESS_OWNERS|DEREGISTRATION_POLICY|EVIDENCE_FINDER_ENABLEMENT|IS_AWS_ORG_ENABLED|SNS_TOPIC"]`)
-  The list of setting attribute enum values.
-
-  ## Optional parameters:
+  (`t:enum["ALL|DEFAULT_ASSESSMENT_REPORTS_DESTINATION|DEFAULT_EXPORT_DESTINATION|DEFAULT_PROCESS_OWNERS|DEREGISTRATION_POLICY|EVIDENCE_FINDER_ENABLEMENT|IS_AWS_ORG_ENABLED|SNS_TOPIC"]`
+  required) The list of setting attribute enum values.
+  ## Keyword parameters:
   """
-
   @spec get_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_settings_errors()}
-
   def get_settings(%Client{} = client, attribute, options \\ []) do
     url_path = "/settings/#{AWS.Util.encode_uri(attribute)}"
 
@@ -4605,17 +4508,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentControlInsightsByControlDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the active assessment.
-  * `:control_domain_id` (`t:string`) The unique identifier for the control
-  domain.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the active
+  assessment.
+  * `:control_domain_id` (`t:string` required) The unique identifier for the
+  control domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_assessment_control_insights_by_control_domain(
           AWS.Client.t(),
           String.t(),
@@ -4625,7 +4527,6 @@ defmodule AWS.AuditManager do
           {:ok, list_assessment_control_insights_by_control_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_control_insights_by_control_domain_errors()}
-
   def list_assessment_control_insights_by_control_domain(
         %Client{} = client,
         assessment_id,
@@ -4685,21 +4586,18 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentFrameworkShareRequests&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:request_type` (`t:enum["RECEIVED|SENT"]`) Specifies whether the share
-  request is a sent request or a received request.
-
-  ## Optional parameters:
+  * `:request_type` (`t:enum["RECEIVED|SENT"]` required) Specifies whether the
+  share request is a sent request or a received request.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_assessment_framework_share_requests(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assessment_framework_share_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_framework_share_requests_errors()}
-
   def list_assessment_framework_share_requests(%Client{} = client, request_type, options \\ [])
       when is_binary(request_type) do
     url_path = "/assessmentFrameworkShareRequests"
@@ -4754,21 +4652,18 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentFrameworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:framework_type` (`t:enum["CUSTOM|STANDARD"]`) The type of framework, such as
-  a standard framework or a custom framework.
-
-  ## Optional parameters:
+  * `:framework_type` (`t:enum["CUSTOM|STANDARD"]` required) The type of
+  framework, such as a standard framework or a custom framework.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_assessment_frameworks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assessment_frameworks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_frameworks_errors()}
-
   def list_assessment_frameworks(%Client{} = client, framework_type, options \\ [])
       when is_binary(framework_type) do
     url_path = "/assessmentFrameworks"
@@ -4822,19 +4717,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentReports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_assessment_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assessment_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_reports_errors()}
-
   def list_assessment_reports(%Client{} = client, options \\ []) do
     url_path = "/assessmentReports"
 
@@ -4887,20 +4779,17 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   * `:status` (`t:enum["ACTIVE|INACTIVE"]`) The current status of the assessment.
   """
-
   @spec list_assessments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessments_errors()}
-
   def list_assessments(%Client{} = client, options \\ []) do
     url_path = "/assessments"
 
@@ -4965,19 +4854,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControlDomainInsights&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_control_domain_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_domain_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_domain_insights_errors()}
-
   def list_control_domain_insights(%Client{} = client, options \\ []) do
     url_path = "/insights/control-domains"
 
@@ -5035,20 +4921,18 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControlDomainInsightsByAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the active assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the active
+  assessment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_control_domain_insights_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_control_domain_insights_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_domain_insights_by_assessment_errors()}
-
   def list_control_domain_insights_by_assessment(%Client{} = client, assessment_id, options \\ [])
       when is_binary(assessment_id) do
     url_path = "/insights/control-domains-by-assessment"
@@ -5103,21 +4987,18 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControlInsightsByControlDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:control_domain_id` (`t:string`) The unique identifier for the control
-  domain.
-
-  ## Optional parameters:
+  * `:control_domain_id` (`t:string` required) The unique identifier for the
+  control domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_control_insights_by_control_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_control_insights_by_control_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_insights_by_control_domain_errors()}
-
   def list_control_insights_by_control_domain(
         %Client{} = client,
         control_domain_id,
@@ -5175,10 +5056,9 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:control_type` (`t:enum["CORE|CUSTOM|STANDARD"]`) A filter that narrows the
-  list of controls to a specific type.
-
-  ## Optional parameters:
+  * `:control_type` (`t:enum["CORE|CUSTOM|STANDARD"]` required) A filter that
+  narrows the list of controls to a specific type.
+  ## Keyword parameters:
   * `:control_catalog_id` (`t:string`) A filter that narrows the list of controls
   to a specific resource from the Amazon Web Services Control Catalog.
   * `:max_results` (`t:integer`) The maximum number of results on a page or for an
@@ -5186,12 +5066,10 @@ defmodule AWS.AuditManager do
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_controls_errors()}
-
   def list_controls(%Client{} = client, control_type, options \\ [])
       when is_binary(control_type) do
     url_path = "/controls"
@@ -5254,21 +5132,18 @@ defmodule AWS.AuditManager do
 
   ## Parameters:
   * `:source`
-  (`t:enum["AWS_API_CALL|AWS_CLOUDTRAIL|AWS_CONFIG|AWS_SECURITY_HUB|MANUAL"]`)
-  The control mapping data source that the keywords apply to.
-
-  ## Optional parameters:
+  (`t:enum["AWS_API_CALL|AWS_CLOUDTRAIL|AWS_CONFIG|AWS_SECURITY_HUB|MANUAL"]`
+  required) The control mapping data source that the keywords apply to.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_keywords_for_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_keywords_for_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keywords_for_data_source_errors()}
-
   def list_keywords_for_data_source(%Client{} = client, source, options \\ [])
       when is_binary(source) do
     url_path = "/dataSourceKeywords"
@@ -5322,19 +5197,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListNotifications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Represents the maximum number of results on a
   page or for an API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
   set of results.
   """
-
   @spec list_notifications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_notifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notifications_errors()}
-
   def list_notifications(%Client{} = client, options \\ []) do
     url_path = "/notifications"
 
@@ -5387,16 +5259,14 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5431,15 +5301,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20RegisterAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_account_errors()}
-
   def register_account(%Client{} = client, options \\ []) do
     url_path = "/account/registerAccount"
 
@@ -5477,15 +5344,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20RegisterOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_organization_admin_account_errors()}
-
   def register_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/account/registerOrganizationAdminAccount"
 
@@ -5525,17 +5389,14 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20StartAssessmentFrameworkShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:framework_id` (`t:string`) The unique identifier for the custom framework to
-  be shared.
-
-  ## Optional parameters:
+  * `:framework_id` (`t:string` required) The unique identifier for the custom
+  framework to be shared.
+  ## Keyword parameters:
   """
-
   @spec start_assessment_framework_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_assessment_framework_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_assessment_framework_share_errors()}
-
   def start_assessment_framework_share(%Client{} = client, framework_id, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}/shareRequests"
 
@@ -5572,16 +5433,14 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5618,19 +5477,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the specified
-  resource.
-  * `:tag_keys` (`t:list[com.amazonaws.auditmanager#TagKey]`) The name or key of
-  the tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  specified resource.
+  * `:tag_keys` (`t:list[com.amazonaws.auditmanager#TagKey]` required) The name or
+  key of the tag.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5678,16 +5534,14 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  ## Keyword parameters:
   """
-
   @spec update_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_assessment_errors()}
-
   def update_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
 
@@ -5724,18 +5578,17 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-  * `:control_id` (`t:string`) The unique identifier for the control.
-  * `:control_set_id` (`t:string`) The unique identifier for the control set.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  * `:control_id` (`t:string` required) The unique identifier for the control.
+  * `:control_set_id` (`t:string` required) The unique identifier for the control
+  set.
+  ## Keyword parameters:
   """
-
   @spec update_assessment_control(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_assessment_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_assessment_control_errors()}
-
   def update_assessment_control(
         %Client{} = client,
         assessment_id,
@@ -5779,17 +5632,16 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentControlSetStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-  * `:control_set_id` (`t:string`) The unique identifier for the control set.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  * `:control_set_id` (`t:string` required) The unique identifier for the control
+  set.
+  ## Keyword parameters:
   """
-
   @spec update_assessment_control_set_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_assessment_control_set_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_assessment_control_set_status_errors()}
-
   def update_assessment_control_set_status(
         %Client{} = client,
         assessment_id,
@@ -5832,16 +5684,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentFramework&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:framework_id` (`t:string`) The unique identifier for the framework.
-
-  ## Optional parameters:
+  * `:framework_id` (`t:string` required) The unique identifier for the framework.
+  ## Keyword parameters:
   """
-
   @spec update_assessment_framework(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_assessment_framework_errors()}
-
   def update_assessment_framework(%Client{} = client, framework_id, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
 
@@ -5878,16 +5727,14 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentFrameworkShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:request_id` (`t:string`) The unique identifier for the share request.
-
-  ## Optional parameters:
+  * `:request_id` (`t:string` required) The unique identifier for the share
+  request.
+  ## Keyword parameters:
   """
-
   @spec update_assessment_framework_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_assessment_framework_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_assessment_framework_share_errors()}
-
   def update_assessment_framework_share(%Client{} = client, request_id, options \\ []) do
     url_path = "/assessmentFrameworkShareRequests/#{AWS.Util.encode_uri(request_id)}"
 
@@ -5924,16 +5771,14 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
-
-  ## Optional parameters:
+  * `:assessment_id` (`t:string` required) The unique identifier for the
+  assessment.
+  ## Keyword parameters:
   """
-
   @spec update_assessment_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_assessment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_assessment_status_errors()}
-
   def update_assessment_status(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/status"
 
@@ -5970,16 +5815,13 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:control_id` (`t:string`) The identifier for the control.
-
-  ## Optional parameters:
+  * `:control_id` (`t:string` required) The identifier for the control.
+  ## Keyword parameters:
   """
-
   @spec update_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_control_errors()}
-
   def update_control(%Client{} = client, control_id, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
 
@@ -6016,15 +5858,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_settings_errors()}
-
   def update_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
 
@@ -6061,15 +5900,12 @@ defmodule AWS.AuditManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ValidateAssessmentReportIntegrity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec validate_assessment_report_integrity(AWS.Client.t(), Keyword.t()) ::
           {:ok, validate_assessment_report_integrity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_assessment_report_integrity_errors()}
-
   def validate_assessment_report_integrity(%Client{} = client, options \\ []) do
     url_path = "/assessmentReports/integrity"
 

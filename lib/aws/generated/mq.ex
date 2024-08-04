@@ -1170,22 +1170,23 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:broker_name` (`t:string`) Required. The broker's name. This value must be
-  unique in your Amazon Web Services account, 1-50 characters long, must
-  contain only letters, numbers, dashes, and underscores, and must not contain
-  white spaces, brackets, wildcard characters, or special characters.
+    * `:broker_name` (`t:string` required) Required. The broker's name. This value
+  must be unique in your Amazon Web Services account, 1-50 characters long,
+  must contain only letters, numbers, dashes, and underscores, and must not
+  contain white spaces, brackets, wildcard characters, or special characters.
     * `:deployment_mode`
-  (`t:enum["ACTIVE_STANDBY_MULTI_AZ|CLUSTER_MULTI_AZ|SINGLE_INSTANCE"]`)
-  Required. The broker's deployment mode.
-    * `:engine_type` (`t:enum["ACTIVEMQ|RABBITMQ"]`) Required. The type of broker
-  engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-    * `:host_instance_type` (`t:string`) Required. The broker's instance type.
-    * `:publicly_accessible` (`t:boolean`) Enables connections from applications
-  outside of the VPC that hosts the broker's subnets. Set to false by default,
-  if no value is provided.
-    * `:users` (`t:list[com.amazonaws.mq#User]`) The list of broker users (persons
-  or applications) who can access queues and topics. For Amazon MQ for
-  RabbitMQ brokers, one and only one administrative user is accepted and
+  (`t:enum["ACTIVE_STANDBY_MULTI_AZ|CLUSTER_MULTI_AZ|SINGLE_INSTANCE"]`
+  required) Required. The broker's deployment mode.
+    * `:engine_type` (`t:enum["ACTIVEMQ|RABBITMQ"]` required) Required. The type of
+  broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+    * `:host_instance_type` (`t:string` required) Required. The broker's instance
+  type.
+    * `:publicly_accessible` (`t:boolean` required) Enables connections from
+  applications outside of the VPC that hosts the broker's subnets. Set to
+  false by default, if no value is provided.
+    * `:users` (`t:list[com.amazonaws.mq#User]` required) The list of broker users
+  (persons or applications) who can access queues and topics. For Amazon MQ
+  for RabbitMQ brokers, one and only one administrative user is accepted and
   created when a broker is first provisioned. All subsequent broker users are
   created by making RabbitMQ API calls directly to brokers or via the RabbitMQ
   web console.
@@ -1232,15 +1233,12 @@ defmodule AWS.Mq do
   accessibility. Deployment without public accessibility requires at least one
   subnet.
     * `:tags` (`t:map`) Create tags when creating the broker.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_broker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_broker_errors()}
-
   def create_broker(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/brokers"
 
@@ -1279,11 +1277,11 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:engine_type` (`t:enum["ACTIVEMQ|RABBITMQ"]`) Required. The type of broker
-  engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-    * `:name` (`t:string`) Required. The name of the configuration. This value can
-  contain only alphanumeric characters, dashes, periods, underscores, and
-  tildes (- . _ ~). This value must be 1-150 characters long.
+    * `:engine_type` (`t:enum["ACTIVEMQ|RABBITMQ"]` required) Required. The type of
+  broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+    * `:name` (`t:string` required) Required. The name of the configuration. This
+  value can contain only alphanumeric characters, dashes, periods,
+  underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
     * `:authentication_strategy` (`t:enum["LDAP|SIMPLE"]`) Optional. The
   authentication strategy associated with the configuration. The default is
   SIMPLE.
@@ -1292,15 +1290,12 @@ defmodule AWS.Mq do
   information, see the ActiveMQ version management and the RabbitMQ version
   management sections in the Amazon MQ Developer Guide.
     * `:tags` (`t:map`) Create tags when creating the configuration.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_errors()}
-
   def create_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/configurations"
 
@@ -1337,19 +1332,16 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20CreateTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  tag.
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource tag.
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) The key-value pair for the resource tag.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_tags(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
-
   def create_tags(%Client{} = client, resource_arn, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1387,15 +1379,15 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20CreateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-  broker.
-  * `:username` (`t:string`) The username of the ActiveMQ user. This value can
-  contain only alphanumeric characters, dashes, periods, underscores, and
-  tildes (- . _ ~). This value must be 2-100 characters long.
+  * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
+  the broker.
+  * `:username` (`t:string` required) The username of the ActiveMQ user. This
+  value can contain only alphanumeric characters, dashes, periods,
+  underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
   * `:input` (`t:map`):
-    * `:password` (`t:string`) Required. The password of the user. This value must
-  be at least 12 characters long, must contain at least 4 unique characters,
-  and must not contain commas, colons, or equal signs (,:=).
+    * `:password` (`t:string` required) Required. The password of the user. This
+  value must be at least 12 characters long, must contain at least 4 unique
+  characters, and must not contain commas, colons, or equal signs (,:=).
     * `:console_access` (`t:boolean`) Enables access to the ActiveMQ Web Console for
   the ActiveMQ user.
     * `:groups` (`t:list[com.amazonaws.mq#__string]`) The list of groups (20
@@ -1404,15 +1396,12 @@ defmodule AWS.Mq do
   This value must be 2-100 characters long.
     * `:replication_user` (`t:boolean`) Defines if this user is intended for CRDR
   replication purposes.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_user(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-
   def create_user(%Client{} = client, broker_id, username, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -1451,17 +1440,14 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DeleteBroker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-  broker.
-
-  ## Optional parameters:
+  * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
+  the broker.
+  ## Keyword parameters:
   """
-
   @spec delete_broker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_broker_errors()}
-
   def delete_broker(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
 
@@ -1508,19 +1494,16 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DeleteTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  tag.
-  * `:tag_keys` (`t:list[com.amazonaws.mq#__string]`) An array of tag keys to
-  delete
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource tag.
+  * `:tag_keys` (`t:list[com.amazonaws.mq#__string]` required) An array of tag
+  keys to delete
+  ## Keyword parameters:
   """
-
   @spec delete_tags(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
-
   def delete_tags(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1568,20 +1551,17 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DeleteUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-  broker.
-  * `:username` (`t:string`) The username of the ActiveMQ user. This value can
-  contain only alphanumeric characters, dashes, periods, underscores, and
-  tildes (- . _ ~). This value must be 2-100 characters long.
-
-  ## Optional parameters:
+  * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
+  the broker.
+  * `:username` (`t:string` required) The username of the ActiveMQ user. This
+  value can contain only alphanumeric characters, dashes, periods,
+  underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+  ## Keyword parameters:
   """
-
   @spec delete_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-
   def delete_user(%Client{} = client, broker_id, username, options \\ []) do
     url_path =
       "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
@@ -1629,17 +1609,14 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeBroker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-  broker.
-
-  ## Optional parameters:
+  * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
+  the broker.
+  ## Keyword parameters:
   """
-
   @spec describe_broker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_broker_errors()}
-
   def describe_broker(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
 
@@ -1674,8 +1651,7 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeBrokerEngineTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:engine_type` (`t:string`) Filter response by engine type.
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
   return per page (20 by default). This value must be an integer from 5 to
@@ -1683,12 +1659,10 @@ defmodule AWS.Mq do
   * `:next_token` (`t:string`) The token that specifies the next page of results
   Amazon MQ should return. To request the first page, leave nextToken empty.
   """
-
   @spec describe_broker_engine_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_broker_engine_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_broker_engine_types_errors()}
-
   def describe_broker_engine_types(%Client{} = client, options \\ []) do
     url_path = "/v1/broker-engine-types"
 
@@ -1748,8 +1722,7 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeBrokerInstanceOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:engine_type` (`t:string`) Filter response by engine type.
   * `:host_instance_type` (`t:string`) Filter response by host instance type.
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
@@ -1759,12 +1732,10 @@ defmodule AWS.Mq do
   Amazon MQ should return. To request the first page, leave nextToken empty.
   * `:storage_type` (`t:string`) Filter response by storage type.
   """
-
   @spec describe_broker_instance_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_broker_instance_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_broker_instance_options_errors()}
-
   def describe_broker_instance_options(%Client{} = client, options \\ []) do
     url_path = "/v1/broker-instance-options"
 
@@ -1850,17 +1821,14 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
-  the configuration.
-
-  ## Optional parameters:
+  * `:configuration_id` (`t:string` required) The unique ID that Amazon MQ
+  generates for the configuration.
+  ## Keyword parameters:
   """
-
   @spec describe_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_errors()}
-
   def describe_configuration(%Client{} = client, configuration_id, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
 
@@ -1895,18 +1863,16 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeConfigurationRevision&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
-  the configuration.
-  * `:configuration_revision` (`t:string`) The revision of the configuration.
-
-  ## Optional parameters:
+  * `:configuration_id` (`t:string` required) The unique ID that Amazon MQ
+  generates for the configuration.
+  * `:configuration_revision` (`t:string` required) The revision of the
+  configuration.
+  ## Keyword parameters:
   """
-
   @spec describe_configuration_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_revision_errors()}
-
   def describe_configuration_revision(
         %Client{} = client,
         configuration_id,
@@ -1947,20 +1913,17 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-  broker.
-  * `:username` (`t:string`) The username of the ActiveMQ user. This value can
-  contain only alphanumeric characters, dashes, periods, underscores, and
-  tildes (- . _ ~). This value must be 2-100 characters long.
-
-  ## Optional parameters:
+  * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
+  the broker.
+  * `:username` (`t:string` required) The username of the ActiveMQ user. This
+  value can contain only alphanumeric characters, dashes, periods,
+  underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+  ## Keyword parameters:
   """
-
   @spec describe_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
-
   def describe_user(%Client{} = client, broker_id, username, options \\ []) do
     url_path =
       "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
@@ -1996,20 +1959,17 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListBrokers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
   return per page (20 by default). This value must be an integer from 5 to
   100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
   Amazon MQ should return. To request the first page, leave nextToken empty.
   """
-
   @spec list_brokers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_brokers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_brokers_errors()}
-
   def list_brokers(%Client{} = client, options \\ []) do
     url_path = "/v1/brokers"
 
@@ -2062,22 +2022,19 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListConfigurationRevisions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
-  the configuration.
-
-  ## Optional parameters:
+  * `:configuration_id` (`t:string` required) The unique ID that Amazon MQ
+  generates for the configuration.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
   return per page (20 by default). This value must be an integer from 5 to
   100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
   Amazon MQ should return. To request the first page, leave nextToken empty.
   """
-
   @spec list_configuration_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configuration_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_revisions_errors()}
-
   def list_configuration_revisions(%Client{} = client, configuration_id, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}/revisions"
 
@@ -2130,20 +2087,17 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
   return per page (20 by default). This value must be an integer from 5 to
   100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
   Amazon MQ should return. To request the first page, leave nextToken empty.
   """
-
   @spec list_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configurations_errors()}
-
   def list_configurations(%Client{} = client, options \\ []) do
     url_path = "/v1/configurations"
 
@@ -2196,17 +2150,14 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource tag.
+  ## Keyword parameters:
   """
-
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-
   def list_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2241,22 +2192,19 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-  broker.
-
-  ## Optional parameters:
+  * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
+  the broker.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
   return per page (20 by default). This value must be an integer from 5 to
   100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
   Amazon MQ should return. To request the first page, leave nextToken empty.
   """
-
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-
   def list_users(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users"
 
@@ -2309,20 +2257,17 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20Promote&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-  broker.
+  * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
+  the broker.
   * `:input` (`t:map`):
-    * `:mode` (`t:enum["FAILOVER|SWITCHOVER"]`) The Promote mode requested. Note:
-  Valid values for the parameter are SWITCHOVER, FAILOVER.
-
-  ## Optional parameters:
+    * `:mode` (`t:enum["FAILOVER|SWITCHOVER"]` required) The Promote mode requested.
+  Note: Valid values for the parameter are SWITCHOVER, FAILOVER.
+  ## Keyword parameters:
   """
-
   @spec promote(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, promote_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, promote_errors()}
-
   def promote(%Client{} = client, broker_id, input, options \\ []) when is_map(input) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/promote"
 
@@ -2359,17 +2304,14 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20RebootBroker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-  broker.
-
-  ## Optional parameters:
+  * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
+  the broker.
+  ## Keyword parameters:
   """
-
   @spec reboot_broker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reboot_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_broker_errors()}
-
   def reboot_broker(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/reboot"
 
@@ -2406,8 +2348,8 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20UpdateBroker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-  broker.
+  * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
+  the broker.
   * `:input` (`t:map | nil`):
     * `:authentication_strategy` (`t:enum["LDAP|SIMPLE"]`) Optional. The
   authentication strategy used to secure the broker. The default is SIMPLE.
@@ -2432,15 +2374,12 @@ defmodule AWS.Mq do
   the WeeklyStartTime.
     * `:security_groups` (`t:list[com.amazonaws.mq#__string]`) The list of security
   groups (1 minimum, 5 maximum) that authorizes connections to brokers.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_broker(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_errors()}
-
   def update_broker(%Client{} = client, broker_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
@@ -2478,22 +2417,19 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20UpdateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
-  the configuration.
+  * `:configuration_id` (`t:string` required) The unique ID that Amazon MQ
+  generates for the configuration.
   * `:input` (`t:map`):
-    * `:data` (`t:string`) Amazon MQ for Active MQ: The base64-encoded XML
+    * `:data` (`t:string` required) Amazon MQ for Active MQ: The base64-encoded XML
   configuration. Amazon MQ for RabbitMQ: the base64-encoded Cuttlefish
   configuration.
     * `:description` (`t:string`) The description of the configuration.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_errors()}
-
   def update_configuration(%Client{} = client, configuration_id, input, options \\ [])
       when is_map(input) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
@@ -2531,11 +2467,11 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20UpdateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-  broker.
-  * `:username` (`t:string`) The username of the ActiveMQ user. This value can
-  contain only alphanumeric characters, dashes, periods, underscores, and
-  tildes (- . _ ~). This value must be 2-100 characters long.
+  * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
+  the broker.
+  * `:username` (`t:string` required) The username of the ActiveMQ user. This
+  value can contain only alphanumeric characters, dashes, periods,
+  underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
   * `:input` (`t:map | nil`):
     * `:console_access` (`t:boolean`) Enables access to the the ActiveMQ Web Console
   for the ActiveMQ user.
@@ -2548,15 +2484,12 @@ defmodule AWS.Mq do
   contain commas, colons, or equal signs (,:=).
     * `:replication_user` (`t:boolean`) Defines whether the user is intended for
   data replication.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_user(AWS.Client.t(), String.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-
   def update_user(%Client{} = client, broker_id, username, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path =

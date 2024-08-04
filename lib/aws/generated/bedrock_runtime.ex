@@ -902,19 +902,16 @@ defmodule AWS.BedrockRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20ApplyGuardrail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:guardrail_identifier` (`t:string`) The guardrail identifier used in the
+  * `:guardrail_identifier` (`t:string` required) The guardrail identifier used in
+  the request to apply the guardrail.
+  * `:guardrail_version` (`t:string` required) The guardrail version used in the
   request to apply the guardrail.
-  * `:guardrail_version` (`t:string`) The guardrail version used in the request to
-  apply the guardrail.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec apply_guardrail(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, apply_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_guardrail_errors()}
-
   def apply_guardrail(%Client{} = client, guardrail_identifier, guardrail_version, options \\ []) do
     url_path =
       "/guardrail/#{AWS.Util.encode_uri(guardrail_identifier)}/version/#{AWS.Util.encode_uri(guardrail_version)}/apply"
@@ -957,16 +954,14 @@ defmodule AWS.BedrockRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20Converse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_id` (`t:string`) The identifier for the model that you want to call.
-
-  ## Optional parameters:
+  * `:model_id` (`t:string` required) The identifier for the model that you want
+  to call.
+  ## Keyword parameters:
   """
-
   @spec converse(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, converse_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, converse_errors()}
-
   def converse(%Client{} = client, model_id, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/converse"
 
@@ -1010,16 +1005,13 @@ defmodule AWS.BedrockRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20ConverseStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_id` (`t:string`) The ID for the model.
-
-  ## Optional parameters:
+  * `:model_id` (`t:string` required) The ID for the model.
+  ## Keyword parameters:
   """
-
   @spec converse_stream(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, converse_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, converse_stream_errors()}
-
   def converse_stream(%Client{} = client, model_id, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/converse-stream"
 
@@ -1059,16 +1051,15 @@ defmodule AWS.BedrockRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20InvokeModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_id` (`t:string`) The unique identifier of the model to invoke to run
-  inference.
+  * `:model_id` (`t:string` required) The unique identifier of the model to invoke
+  to run inference.
   * `:input` (`t:map`):
-    * `:body` (`t:blob`) The prompt and inference parameters in the format specified
-  in the contentType in the header. You must provide the body in JSON format.
-  To see the format and content of the request and response bodies for
-  different models, refer to Inference parameters. For more information, see
-  Run inference in the Bedrock User Guide.
-
-  ## Optional parameters:
+    * `:body` (`t:blob` required) The prompt and inference parameters in the format
+  specified in the contentType in the header. You must provide the body in
+  JSON format. To see the format and content of the request and response
+  bodies for different models, refer to Inference parameters. For more
+  information, see Run inference in the Bedrock User Guide.
+  ## Keyword parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference body in the
   response. The default value is application/json.
   * `:content_type` (`t:string`) The MIME type of the input data in the request.
@@ -1081,12 +1072,10 @@ defmodule AWS.BedrockRuntime do
   * `:trace` (`t:enum["DISABLED|ENABLED"]`) Specifies whether to enable or disable
   the Bedrock trace. If enabled, you can see the full Bedrock trace.
   """
-
   @spec invoke_model(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, invoke_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_model_errors()}
-
   def invoke_model(%Client{} = client, model_id, input, options \\ []) when is_map(input) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/invoke"
 
@@ -1185,16 +1174,15 @@ defmodule AWS.BedrockRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20InvokeModelWithResponseStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_id` (`t:string`) The unique identifier of the model to invoke to run
-  inference.
+  * `:model_id` (`t:string` required) The unique identifier of the model to invoke
+  to run inference.
   * `:input` (`t:map`):
-    * `:body` (`t:blob`) The prompt and inference parameters in the format specified
-  in the contentType in the header. You must provide the body in JSON format.
-  To see the format and content of the request and response bodies for
-  different models, refer to Inference parameters. For more information, see
-  Run inference in the Bedrock User Guide.
-
-  ## Optional parameters:
+    * `:body` (`t:blob` required) The prompt and inference parameters in the format
+  specified in the contentType in the header. You must provide the body in
+  JSON format. To see the format and content of the request and response
+  bodies for different models, refer to Inference parameters. For more
+  information, see Run inference in the Bedrock User Guide.
+  ## Keyword parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference body in the
   response. The default value is application/json.
   * `:content_type` (`t:string`) The MIME type of the input data in the request.
@@ -1207,12 +1195,10 @@ defmodule AWS.BedrockRuntime do
   * `:trace` (`t:enum["DISABLED|ENABLED"]`) Specifies whether to enable or disable
   the Bedrock trace. If enabled, you can see the full Bedrock trace.
   """
-
   @spec invoke_model_with_response_stream(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, invoke_model_with_response_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_model_with_response_stream_errors()}
-
   def invoke_model_with_response_stream(%Client{} = client, model_id, input, options \\ [])
       when is_map(input) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/invoke-with-response-stream"

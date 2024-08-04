@@ -3279,15 +3279,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateApiKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_api_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, api_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_api_key_errors()}
-
   def create_api_key(%Client{} = client, options \\ []) do
     url_path = "/apikeys"
 
@@ -3324,16 +3321,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateAuthorizer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec create_authorizer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, authorizer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_authorizer_errors()}
-
   def create_authorizer(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers"
 
@@ -3370,17 +3365,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateBasePathMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to
-  create.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The domain name of the BasePathMapping
+  resource to create.
+  ## Keyword parameters:
   """
-
   @spec create_base_path_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mapping(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_base_path_mapping_errors()}
-
   def create_base_path_mapping(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings"
 
@@ -3418,16 +3410,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec create_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
-
   def create_deployment(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments"
 
@@ -3464,16 +3454,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateDocumentationPart&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec create_documentation_part(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_part(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_documentation_part_errors()}
-
   def create_documentation_part(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
 
@@ -3510,16 +3498,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateDocumentationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec create_documentation_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_documentation_version_errors()}
-
   def create_documentation_version(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions"
 
@@ -3556,15 +3542,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateDomainName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_domain_name(AWS.Client.t(), Keyword.t()) ::
           {:ok, domain_name(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_name_errors()}
-
   def create_domain_name(%Client{} = client, options \\ []) do
     url_path = "/domainnames"
 
@@ -3601,17 +3584,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The RestApi identifier under which the Model will
-  be created.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The RestApi identifier under which the
+  Model will be created.
+  ## Keyword parameters:
   """
-
   @spec create_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, model(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_errors()}
-
   def create_model(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models"
 
@@ -3648,16 +3628,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateRequestValidator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec create_request_validator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, request_validator(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_request_validator_errors()}
-
   def create_request_validator(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators"
 
@@ -3694,17 +3672,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:parent_id` (`t:string`) The parent resource's identifier.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:parent_id` (`t:string` required) The parent resource's identifier.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec create_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, resource(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_errors()}
-
   def create_resource(%Client{} = client, parent_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(parent_id)}"
@@ -3742,15 +3718,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateRestApi&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_rest_api(AWS.Client.t(), Keyword.t()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rest_api_errors()}
-
   def create_rest_api(%Client{} = client, options \\ []) do
     url_path = "/restapis"
 
@@ -3788,16 +3761,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateStage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec create_stage(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stage_errors()}
-
   def create_stage(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages"
 
@@ -3835,15 +3806,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateUsagePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_usage_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, usage_plan(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_usage_plan_errors()}
-
   def create_usage_plan(%Client{} = client, options \\ []) do
     url_path = "/usageplans"
 
@@ -3880,18 +3848,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateUsagePlanKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing
-  the usage plan containing the to-be-created UsagePlanKey resource
-  representing a plan customer.
-
-  ## Optional parameters:
+  * `:usage_plan_id` (`t:string` required) The Id of the UsagePlan resource
+  representing the usage plan containing the to-be-created UsagePlanKey
+  resource representing a plan customer.
+  ## Keyword parameters:
   """
-
   @spec create_usage_plan_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_usage_plan_key_errors()}
-
   def create_usage_plan_key(%Client{} = client, usage_plan_id, options \\ []) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys"
 
@@ -3931,15 +3896,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateVpcLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_vpc_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, vpc_link(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_link_errors()}
-
   def create_vpc_link(%Client{} = client, options \\ []) do
     url_path = "/vpclinks"
 
@@ -3976,16 +3938,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteApiKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:api_key` (`t:string`) The identifier of the ApiKey resource to be deleted.
-
-  ## Optional parameters:
+  * `:api_key` (`t:string` required) The identifier of the ApiKey resource to be
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_api_key_errors()}
-
   def delete_api_key(%Client{} = client, api_key, options \\ []) do
     url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
 
@@ -4032,17 +3992,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteAuthorizer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:authorizer_id` (`t:string`) The identifier of the Authorizer resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:authorizer_id` (`t:string` required) The identifier of the Authorizer
+  resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_authorizer_errors()}
-
   def delete_authorizer(%Client{} = client, authorizer_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
@@ -4090,19 +4049,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteBasePathMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:base_path` (`t:string`) The base path name of the BasePathMapping resource
-  to delete.
-  * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to
-  delete.
-
-  ## Optional parameters:
+  * `:base_path` (`t:string` required) The base path name of the BasePathMapping
+  resource to delete.
+  * `:domain_name` (`t:string` required) The domain name of the BasePathMapping
+  resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_base_path_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_base_path_mapping_errors()}
-
   def delete_base_path_mapping(%Client{} = client, base_path, domain_name, options \\ []) do
     url_path =
       "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings/#{AWS.Util.encode_uri(base_path)}"
@@ -4150,17 +4106,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteClientCertificate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:client_certificate_id` (`t:string`) The identifier of the ClientCertificate
-  resource to be deleted.
-
-  ## Optional parameters:
+  * `:client_certificate_id` (`t:string` required) The identifier of the
+  ClientCertificate resource to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_client_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_client_certificate_errors()}
-
   def delete_client_certificate(%Client{} = client, client_certificate_id, options \\ []) do
     url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
 
@@ -4208,18 +4161,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:deployment_id` (`t:string`) The identifier of the Deployment resource to
-  delete.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:deployment_id` (`t:string` required) The identifier of the Deployment
+  resource to delete.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_errors()}
-
   def delete_deployment(%Client{} = client, deployment_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
@@ -4267,18 +4218,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteDocumentationPart&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:documentation_part_id` (`t:string`) The identifier of the to-be-deleted
-  documentation part.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:documentation_part_id` (`t:string` required) The identifier of the
+  to-be-deleted documentation part.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_documentation_part(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_documentation_part_errors()}
-
   def delete_documentation_part(
         %Client{} = client,
         documentation_part_id,
@@ -4331,18 +4280,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteDocumentationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:documentation_version` (`t:string`) The version identifier of a
+  * `:documentation_version` (`t:string` required) The version identifier of a
   to-be-deleted documentation snapshot.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_documentation_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_documentation_version_errors()}
-
   def delete_documentation_version(
         %Client{} = client,
         documentation_version,
@@ -4395,16 +4342,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteDomainName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the DomainName resource to be deleted.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the DomainName resource to be
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_name_errors()}
-
   def delete_domain_name(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -4453,18 +4398,16 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
-  The response type of the associated GatewayResponse.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
+  required) The response type of the associated GatewayResponse.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_response_errors()}
-
   def delete_gateway_response(%Client{} = client, response_type, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
@@ -4512,20 +4455,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Specifies a delete integration request's HTTP
-  method.
-  * `:resource_id` (`t:string`) Specifies a delete integration request's resource
-  identifier.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) Specifies a delete integration request's
+  HTTP method.
+  * `:resource_id` (`t:string` required) Specifies a delete integration request's
+  resource identifier.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_integration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_integration_errors()}
-
   def delete_integration(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
@@ -4573,17 +4514,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteIntegrationResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Specifies a delete integration response request's
-  HTTP method.
-  * `:resource_id` (`t:string`) Specifies a delete integration response request's
-  resource identifier.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:status_code` (`t:string`) Specifies a delete integration response request's
-  status code.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) Specifies a delete integration response
+  request's HTTP method.
+  * `:resource_id` (`t:string` required) Specifies a delete integration response
+  request's resource identifier.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:status_code` (`t:string` required) Specifies a delete integration response
+  request's status code.
+  ## Keyword parameters:
   """
-
   @spec delete_integration_response(
           AWS.Client.t(),
           String.t(),
@@ -4595,7 +4535,6 @@ defmodule AWS.APIGateway do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_integration_response_errors()}
-
   def delete_integration_response(
         %Client{} = client,
         http_method,
@@ -4650,18 +4589,17 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteMethod&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
-  * `:resource_id` (`t:string`) The Resource identifier for the Method resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string` required) The Resource identifier for the Method
+  resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_method_errors()}
-
   def delete_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
@@ -4709,16 +4647,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteMethodResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
-  * `:resource_id` (`t:string`) The Resource identifier for the MethodResponse
-  resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:status_code` (`t:string`) The status code identifier for the MethodResponse
-  resource.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string` required) The Resource identifier for the
+  MethodResponse resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:status_code` (`t:string` required) The status code identifier for the
+  MethodResponse resource.
+  ## Keyword parameters:
   """
-
   @spec delete_method_response(
           AWS.Client.t(),
           String.t(),
@@ -4730,7 +4667,6 @@ defmodule AWS.APIGateway do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_method_response_errors()}
-
   def delete_method_response(
         %Client{} = client,
         http_method,
@@ -4785,17 +4721,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_name` (`t:string`) The name of the model to delete.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:model_name` (`t:string` required) The name of the model to delete.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_errors()}
-
   def delete_model(%Client{} = client, model_name, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}"
@@ -4843,18 +4777,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteRequestValidator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:request_validator_id` (`t:string`) The identifier of the RequestValidator to
-  be deleted.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:request_validator_id` (`t:string` required) The identifier of the
+  RequestValidator to be deleted.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_request_validator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_request_validator_errors()}
-
   def delete_request_validator(
         %Client{} = client,
         request_validator_id,
@@ -4907,17 +4839,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The identifier of the Resource resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The identifier of the Resource resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_errors()}
-
   def delete_resource(%Client{} = client, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}"
@@ -4965,16 +4895,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteRestApi&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec delete_rest_api(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rest_api_errors()}
-
   def delete_rest_api(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
 
@@ -5021,17 +4949,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteStage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:stage_name` (`t:string`) The name of the Stage resource to delete.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:stage_name` (`t:string` required) The name of the Stage resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stage_errors()}
-
   def delete_stage(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
@@ -5079,16 +5005,13 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteUsagePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:usage_plan_id` (`t:string`) The Id of the to-be-deleted usage plan.
-
-  ## Optional parameters:
+  * `:usage_plan_id` (`t:string` required) The Id of the to-be-deleted usage plan.
+  ## Keyword parameters:
   """
-
   @spec delete_usage_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_usage_plan_errors()}
-
   def delete_usage_plan(%Client{} = client, usage_plan_id, options \\ []) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}"
 
@@ -5136,19 +5059,17 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteUsagePlanKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:key_id` (`t:string`) The Id of the UsagePlanKey resource to be deleted.
-  * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing
-  the usage plan containing the to-be-deleted UsagePlanKey resource
-  representing a plan customer.
-
-  ## Optional parameters:
+  * `:key_id` (`t:string` required) The Id of the UsagePlanKey resource to be
+  deleted.
+  * `:usage_plan_id` (`t:string` required) The Id of the UsagePlan resource
+  representing the usage plan containing the to-be-deleted UsagePlanKey
+  resource representing a plan customer.
+  ## Keyword parameters:
   """
-
   @spec delete_usage_plan_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_usage_plan_key_errors()}
-
   def delete_usage_plan_key(%Client{} = client, key_id, usage_plan_id, options \\ []) do
     url_path =
       "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys/#{AWS.Util.encode_uri(key_id)}"
@@ -5196,17 +5117,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20DeleteVpcLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vpc_link_id` (`t:string`) The identifier of the VpcLink. It is used in an
-  Integration to reference this VpcLink.
-
-  ## Optional parameters:
+  * `:vpc_link_id` (`t:string` required) The identifier of the VpcLink. It is used
+  in an Integration to reference this VpcLink.
+  ## Keyword parameters:
   """
-
   @spec delete_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_link_errors()}
-
   def delete_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
     url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
 
@@ -5253,17 +5171,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20FlushStageAuthorizersCache&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:stage_name` (`t:string`) The name of the stage to flush.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:stage_name` (`t:string` required) The name of the stage to flush.
+  ## Keyword parameters:
   """
-
   @spec flush_stage_authorizers_cache(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, flush_stage_authorizers_cache_errors()}
-
   def flush_stage_authorizers_cache(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/cache/authorizers"
@@ -5311,17 +5227,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20FlushStageCache&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:stage_name` (`t:string`) The name of the stage to flush its cache.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:stage_name` (`t:string` required) The name of the stage to flush its cache.
+  ## Keyword parameters:
   """
-
   @spec flush_stage_cache(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, flush_stage_cache_errors()}
-
   def flush_stage_cache(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/cache/data"
@@ -5369,15 +5283,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GenerateClientCertificate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec generate_client_certificate(AWS.Client.t(), Keyword.t()) ::
           {:ok, client_certificate(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_client_certificate_errors()}
-
   def generate_client_certificate(%Client{} = client, options \\ []) do
     url_path = "/clientcertificates"
 
@@ -5414,15 +5325,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, account(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_errors()}
-
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/account"
 
@@ -5457,18 +5365,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetApiKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:api_key` (`t:string`) The identifier of the ApiKey resource.
-
-  ## Optional parameters:
+  * `:api_key` (`t:string` required) The identifier of the ApiKey resource.
+  ## Keyword parameters:
   * `:include_value` (`t:boolean`) A boolean flag to specify whether (true) or not
   (false) the result contains the key value.
   """
-
   @spec get_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, api_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_api_key_errors()}
-
   def get_api_key(%Client{} = client, api_key, options \\ []) do
     url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
 
@@ -5514,8 +5419,7 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetApiKeys&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:customer_id` (`t:string`) The identifier of a customer in Amazon Web
   Services Marketplace or an external system, such as a developer portal.
   * `:include_values` (`t:boolean`) A boolean flag to specify whether (true) or
@@ -5526,12 +5430,10 @@ defmodule AWS.APIGateway do
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_api_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, api_keys(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_api_keys_errors()}
-
   def get_api_keys(%Client{} = client, options \\ []) do
     url_path = "/apikeys"
 
@@ -5611,17 +5513,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetAuthorizer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:authorizer_id` (`t:string`) The identifier of the Authorizer resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:authorizer_id` (`t:string` required) The identifier of the Authorizer
+  resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec get_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, authorizer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_authorizer_errors()}
-
   def get_authorizer(%Client{} = client, authorizer_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
@@ -5657,20 +5558,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetAuthorizers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_authorizers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, authorizers(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_authorizers_errors()}
-
   def get_authorizers(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers"
 
@@ -5723,21 +5622,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetBasePathMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:base_path` (`t:string`) The base path name that callers of the API must
-  provide as part of the URL after the domain name. This value must be unique
-  for all of the mappings across a single API. Specify '(none)' if you do not
-  want callers to specify any base path name after the domain name.
-  * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to
-  be described.
-
-  ## Optional parameters:
+  * `:base_path` (`t:string` required) The base path name that callers of the API
+  must provide as part of the URL after the domain name. This value must be
+  unique for all of the mappings across a single API. Specify '(none)' if you
+  do not want callers to specify any base path name after the domain name.
+  * `:domain_name` (`t:string` required) The domain name of the BasePathMapping
+  resource to be described.
+  ## Keyword parameters:
   """
-
   @spec get_base_path_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mapping(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_base_path_mapping_errors()}
-
   def get_base_path_mapping(%Client{} = client, base_path, domain_name, options \\ []) do
     url_path =
       "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings/#{AWS.Util.encode_uri(base_path)}"
@@ -5773,20 +5669,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetBasePathMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The domain name of a BasePathMapping resource.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The domain name of a BasePathMapping
+  resource.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_base_path_mappings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mappings(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_base_path_mappings_errors()}
-
   def get_base_path_mappings(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings"
 
@@ -5839,17 +5733,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetClientCertificate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:client_certificate_id` (`t:string`) The identifier of the ClientCertificate
-  resource to be described.
-
-  ## Optional parameters:
+  * `:client_certificate_id` (`t:string` required) The identifier of the
+  ClientCertificate resource to be described.
+  ## Keyword parameters:
   """
-
   @spec get_client_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, client_certificate(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_client_certificate_errors()}
-
   def get_client_certificate(%Client{} = client, client_certificate_id, options \\ []) do
     url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
 
@@ -5884,19 +5775,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetClientCertificates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_client_certificates(AWS.Client.t(), Keyword.t()) ::
           {:ok, client_certificates(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_client_certificates_errors()}
-
   def get_client_certificates(%Client{} = client, options \\ []) do
     url_path = "/clientcertificates"
 
@@ -5949,11 +5837,11 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:deployment_id` (`t:string`) The identifier of the Deployment resource to get
-  information about.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:deployment_id` (`t:string` required) The identifier of the Deployment
+  resource to get information about.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter to
   retrieve the specified embedded resources of the returned Deployment
   resource in the response. In a REST API call, this embed parameter value is
@@ -5965,12 +5853,10 @@ defmodule AWS.APIGateway do
   containing only the "apisummary" string. For example, GET
   /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary.
   """
-
   @spec get_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
-
   def get_deployment(%Client{} = client, deployment_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
@@ -6017,20 +5903,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployments(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployments_errors()}
-
   def get_deployments(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments"
 
@@ -6083,18 +5967,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetDocumentationPart&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:documentation_part_id` (`t:string`) The string identifier of the associated
+  * `:documentation_part_id` (`t:string` required) The string identifier of the
+  associated RestApi.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
   RestApi.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_documentation_part(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_part(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_documentation_part_errors()}
-
   def get_documentation_part(
         %Client{} = client,
         documentation_part_id,
@@ -6135,9 +6017,9 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetDocumentationParts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:location_status` (`t:enum["DOCUMENTED|UNDOCUMENTED"]`) The status of the API
@@ -6154,12 +6036,10 @@ defmodule AWS.APIGateway do
   (`t:enum["API|AUTHORIZER|METHOD|MODEL|PATH_PARAMETER|QUERY_PARAMETER|REQUEST_BODY|REQUEST_HEADER|RESOURCE|RESPONSE|RESPONSE_BODY|RESPONSE_HEADER"]`)
   The type of API entities of the to-be-retrieved documentation parts.
   """
-
   @spec get_documentation_parts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_parts(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_documentation_parts_errors()}
-
   def get_documentation_parts(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
 
@@ -6247,18 +6127,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetDocumentationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:documentation_version` (`t:string`) The version identifier of the
+  * `:documentation_version` (`t:string` required) The version identifier of the
   to-be-retrieved documentation snapshot.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec get_documentation_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_documentation_version_errors()}
-
   def get_documentation_version(
         %Client{} = client,
         documentation_version,
@@ -6299,20 +6177,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetDocumentationVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_documentation_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_versions(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_documentation_versions_errors()}
-
   def get_documentation_versions(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions"
 
@@ -6366,16 +6242,13 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetDomainName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the DomainName resource.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the DomainName resource.
+  ## Keyword parameters:
   """
-
   @spec get_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, domain_name(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_name_errors()}
-
   def get_domain_name(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -6410,19 +6283,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetDomainNames&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, domain_names(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_names_errors()}
-
   def get_domain_names(%Client{} = client, options \\ []) do
     url_path = "/domainnames"
 
@@ -6475,12 +6345,13 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:export_type` (`t:string`) The type of export. Acceptable values are 'oas30'
-  for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:stage_name` (`t:string`) The name of the Stage that will be exported.
-
-  ## Optional parameters:
+  * `:export_type` (`t:string` required) The type of export. Acceptable values are
+  'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:stage_name` (`t:string` required) The name of the Stage that will be
+  exported.
+  ## Keyword parameters:
   * `:parameters` (`t:map`) A key-value map of query string parameters that
   specify properties of the export, depending on the requested exportType. For
   exportType oas30 and swagger, any combination of the following parameters
@@ -6494,12 +6365,10 @@ defmodule AWS.APIGateway do
   supported for exportType ofoas30 and swagger. This should be specified in
   the Accept header for direct API requests.
   """
-
   @spec get_export(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_errors()}
-
   def get_export(%Client{} = client, export_type, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/exports/#{AWS.Util.encode_uri(export_type)}"
@@ -6560,18 +6429,16 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
-  The response type of the associated GatewayResponse.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
+  required) The response type of the associated GatewayResponse.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec get_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_gateway_response_errors()}
-
   def get_gateway_response(%Client{} = client, response_type, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
@@ -6610,9 +6477,9 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetGatewayResponses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500. The GatewayResponses
   collection does not support pagination and the limit does not apply here.
@@ -6620,12 +6487,10 @@ defmodule AWS.APIGateway do
   set. The GatewayResponse collection does not support pagination and the
   position does not apply here.
   """
-
   @spec get_gateway_responses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_responses(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_gateway_responses_errors()}
-
   def get_gateway_responses(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses"
 
@@ -6678,19 +6543,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Specifies a get integration request's HTTP method.
-  * `:resource_id` (`t:string`) Specifies a get integration request's resource
-  identifier
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) Specifies a get integration request's
+  HTTP method.
+  * `:resource_id` (`t:string` required) Specifies a get integration request's
+  resource identifier
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec get_integration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_integration_errors()}
-
   def get_integration(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
@@ -6726,17 +6590,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetIntegrationResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Specifies a get integration response request's
-  HTTP method.
-  * `:resource_id` (`t:string`) Specifies a get integration response request's
-  resource identifier.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:status_code` (`t:string`) Specifies a get integration response request's
-  status code.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) Specifies a get integration response
+  request's HTTP method.
+  * `:resource_id` (`t:string` required) Specifies a get integration response
+  request's resource identifier.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:status_code` (`t:string` required) Specifies a get integration response
+  request's status code.
+  ## Keyword parameters:
   """
-
   @spec get_integration_response(
           AWS.Client.t(),
           String.t(),
@@ -6748,7 +6611,6 @@ defmodule AWS.APIGateway do
           {:ok, integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_integration_response_errors()}
-
   def get_integration_response(
         %Client{} = client,
         http_method,
@@ -6791,18 +6653,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetMethod&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Specifies the method request's HTTP method type.
-  * `:resource_id` (`t:string`) The Resource identifier for the Method resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) Specifies the method request's HTTP
+  method type.
+  * `:resource_id` (`t:string` required) The Resource identifier for the Method
+  resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec get_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, method(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_method_errors()}
-
   def get_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
@@ -6838,15 +6700,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetMethodResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
-  * `:resource_id` (`t:string`) The Resource identifier for the MethodResponse
+  * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string` required) The Resource identifier for the
+  MethodResponse resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:status_code` (`t:string` required) The status code for the MethodResponse
   resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:status_code` (`t:string`) The status code for the MethodResponse resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_method_response(
           AWS.Client.t(),
           String.t(),
@@ -6858,7 +6720,6 @@ defmodule AWS.APIGateway do
           {:ok, method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_method_response_errors()}
-
   def get_method_response(
         %Client{} = client,
         http_method,
@@ -6901,21 +6762,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_name` (`t:string`) The name of the model as an identifier.
-  * `:rest_api_id` (`t:string`) The RestApi identifier under which the Model
-  exists.
-
-  ## Optional parameters:
+  * `:model_name` (`t:string` required) The name of the model as an identifier.
+  * `:rest_api_id` (`t:string` required) The RestApi identifier under which the
+  Model exists.
+  ## Keyword parameters:
   * `:flatten` (`t:boolean`) A query parameter of a Boolean value to resolve
   (true) all external model references and returns a flattened model schema or
   not (false) The default is false.
   """
-
   @spec get_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, model(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_errors()}
-
   def get_model(%Client{} = client, model_name, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}"
@@ -6963,18 +6821,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetModelTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_name` (`t:string`) The name of the model for which to generate a
-  template.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:model_name` (`t:string` required) The name of the model for which to
+  generate a template.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec get_model_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_template_errors()}
-
   def get_model_template(%Client{} = client, model_name, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}/default_template"
@@ -7010,20 +6866,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, models(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_models_errors()}
-
   def get_models(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models"
 
@@ -7076,18 +6930,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetRequestValidator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:request_validator_id` (`t:string`) The identifier of the RequestValidator to
-  be retrieved.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:request_validator_id` (`t:string` required) The identifier of the
+  RequestValidator to be retrieved.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec get_request_validator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, request_validator(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_request_validator_errors()}
-
   def get_request_validator(%Client{} = client, request_validator_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators/#{AWS.Util.encode_uri(request_validator_id)}"
@@ -7123,20 +6975,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetRequestValidators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_request_validators(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, request_validators(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_request_validators_errors()}
-
   def get_request_validators(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators"
 
@@ -7189,10 +7039,10 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The identifier for the Resource resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The identifier for the Resource resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter to
   retrieve the specified resources embedded in the returned Resource
   representation in the response. This embed parameter value is a list of
@@ -7201,12 +7051,10 @@ defmodule AWS.APIGateway do
   single-valued list and contain the "methods" string. For example, GET
   /restapis/{restapi_id}/resources/{resource_id}?embed=methods.
   """
-
   @spec get_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, resource(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_errors()}
-
   def get_resource(%Client{} = client, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}"
@@ -7253,9 +7101,9 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter used to
   retrieve the specified resources embedded in the returned Resources resource
   in the response. This embed parameter value is a list of comma-separated
@@ -7268,12 +7116,10 @@ defmodule AWS.APIGateway do
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, resources(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resources_errors()}
-
   def get_resources(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources"
 
@@ -7333,16 +7179,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetRestApi&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec get_rest_api(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rest_api_errors()}
-
   def get_rest_api(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
 
@@ -7377,19 +7221,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetRestApis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_rest_apis(AWS.Client.t(), Keyword.t()) ::
           {:ok, rest_apis(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rest_apis_errors()}
-
   def get_rest_apis(%Client{} = client, options \\ []) do
     url_path = "/restapis"
 
@@ -7442,13 +7283,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetSdk&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:sdk_type` (`t:string`) The language for the generated SDK. Currently java,
-  javascript, android, objectivec (for iOS), swift (for iOS), and ruby are
-  supported.
-  * `:stage_name` (`t:string`) The name of the Stage that the SDK will use.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:sdk_type` (`t:string` required) The language for the generated SDK.
+  Currently java, javascript, android, objectivec (for iOS), swift (for iOS),
+  and ruby are supported.
+  * `:stage_name` (`t:string` required) The name of the Stage that the SDK will
+  use.
+  ## Keyword parameters:
   * `:parameters` (`t:map`) A string-to-string key-value map of query parameters
   sdkType-dependent properties of the SDK. For sdkType of objectivec or swift,
   a parameter named classPrefix is required. For sdkType of android,
@@ -7456,12 +7298,10 @@ defmodule AWS.APIGateway do
   are required. For sdkType of java, parameters named serviceName and
   javaPackageName are required.
   """
-
   @spec get_sdk(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, sdk_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sdk_errors()}
-
   def get_sdk(%Client{} = client, rest_api_id, sdk_type, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/sdks/#{AWS.Util.encode_uri(sdk_type)}"
@@ -7515,16 +7355,13 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetSdkType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the queried SdkType instance.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the queried SdkType instance.
+  ## Keyword parameters:
   """
-
   @spec get_sdk_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, sdk_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sdk_type_errors()}
-
   def get_sdk_type(%Client{} = client, id, options \\ []) do
     url_path = "/sdktypes/#{AWS.Util.encode_uri(id)}"
 
@@ -7559,19 +7396,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetSdkTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_sdk_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, sdk_types(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sdk_types_errors()}
-
   def get_sdk_types(%Client{} = client, options \\ []) do
     url_path = "/sdktypes"
 
@@ -7624,18 +7458,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetStage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:stage_name` (`t:string`) The name of the Stage resource to get information
-  about.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:stage_name` (`t:string` required) The name of the Stage resource to get
+  information about.
+  ## Keyword parameters:
   """
-
   @spec get_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stage_errors()}
-
   def get_stage(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
@@ -7671,17 +7503,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetStages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   * `:deployment_id` (`t:string`) The stages' deployment identifiers.
   """
-
   @spec get_stages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stages(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stages_errors()}
-
   def get_stages(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages"
 
@@ -7727,21 +7557,19 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of a resource that can be tagged.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of a resource that can be
+  tagged.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) (Not currently supported) The maximum number of
   returned results per page. The default value is 25 and the maximum value is
   500.
   * `:position` (`t:string`) (Not currently supported) The current pagination
   position in the paged result set.
   """
-
   @spec get_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tags(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tags_errors()}
-
   def get_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7794,13 +7622,13 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetUsage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:usage_plan_id` (`t:string`) The Id of the usage plan associated with the
+  * `:usage_plan_id` (`t:string` required) The Id of the usage plan associated
+  with the usage data.
+  * `:end_date` (`t:string` required) The ending date (e.g., 2016-12-31) of the
   usage data.
-  * `:end_date` (`t:string`) The ending date (e.g., 2016-12-31) of the usage data.
-  * `:start_date` (`t:string`) The starting date (e.g., 2016-01-01) of the usage
-  data.
-
-  ## Optional parameters:
+  * `:start_date` (`t:string` required) The starting date (e.g., 2016-01-01) of
+  the usage data.
+  ## Keyword parameters:
   * `:key_id` (`t:string`) The Id of the API key associated with the resultant
   usage data.
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
@@ -7808,12 +7636,10 @@ defmodule AWS.APIGateway do
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_usage(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, usage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_errors()}
-
   def get_usage(%Client{} = client, usage_plan_id, end_date, start_date, options \\ [])
       when is_binary(end_date) and is_binary(start_date) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/usage"
@@ -7874,17 +7700,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetUsagePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:usage_plan_id` (`t:string`) The identifier of the UsagePlan resource to be
-  retrieved.
-
-  ## Optional parameters:
+  * `:usage_plan_id` (`t:string` required) The identifier of the UsagePlan
+  resource to be retrieved.
+  ## Keyword parameters:
   """
-
   @spec get_usage_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_plan_errors()}
-
   def get_usage_plan(%Client{} = client, usage_plan_id, options \\ []) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}"
 
@@ -7919,20 +7742,17 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetUsagePlanKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:key_id` (`t:string`) The key Id of the to-be-retrieved UsagePlanKey resource
-  representing a plan customer.
-  * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing
-  the usage plan containing the to-be-retrieved UsagePlanKey resource
-  representing a plan customer.
-
-  ## Optional parameters:
+  * `:key_id` (`t:string` required) The key Id of the to-be-retrieved UsagePlanKey
+  resource representing a plan customer.
+  * `:usage_plan_id` (`t:string` required) The Id of the UsagePlan resource
+  representing the usage plan containing the to-be-retrieved UsagePlanKey
+  resource representing a plan customer.
+  ## Keyword parameters:
   """
-
   @spec get_usage_plan_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_plan_key_errors()}
-
   def get_usage_plan_key(%Client{} = client, key_id, usage_plan_id, options \\ []) do
     url_path =
       "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys/#{AWS.Util.encode_uri(key_id)}"
@@ -7969,11 +7789,10 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetUsagePlanKeys&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing
-  the usage plan containing the to-be-retrieved UsagePlanKey resource
-  representing a plan customer.
-
-  ## Optional parameters:
+  * `:usage_plan_id` (`t:string` required) The Id of the UsagePlan resource
+  representing the usage plan containing the to-be-retrieved UsagePlanKey
+  resource representing a plan customer.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:name_query` (`t:string`) A query parameter specifying the name of the
@@ -7981,12 +7800,10 @@ defmodule AWS.APIGateway do
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_usage_plan_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan_keys(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_plan_keys_errors()}
-
   def get_usage_plan_keys(%Client{} = client, usage_plan_id, options \\ []) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys"
 
@@ -8046,8 +7863,7 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetUsagePlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:key_id` (`t:string`) The identifier of the API key associated with the usage
   plans.
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
@@ -8055,12 +7871,10 @@ defmodule AWS.APIGateway do
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_usage_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, usage_plans(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_plans_errors()}
-
   def get_usage_plans(%Client{} = client, options \\ []) do
     url_path = "/usageplans"
 
@@ -8120,17 +7934,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetVpcLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vpc_link_id` (`t:string`) The identifier of the VpcLink. It is used in an
-  Integration to reference this VpcLink.
-
-  ## Optional parameters:
+  * `:vpc_link_id` (`t:string` required) The identifier of the VpcLink. It is used
+  in an Integration to reference this VpcLink.
+  ## Keyword parameters:
   """
-
   @spec get_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, vpc_link(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vpc_link_errors()}
-
   def get_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
     url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
 
@@ -8165,19 +7976,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetVpcLinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
   default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
   set.
   """
-
   @spec get_vpc_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, vpc_links(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vpc_links_errors()}
-
   def get_vpc_links(%Client{} = client, options \\ []) do
     url_path = "/vpclinks"
 
@@ -8230,22 +8038,19 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20ImportApiKeys&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:format` (`t:enum["csv"]`) A query parameter to specify the input format to
-  imported API keys. Currently, only the csv format is supported.
+  * `:format` (`t:enum["csv"]` required) A query parameter to specify the input
+  format to imported API keys. Currently, only the csv format is supported.
   * `:input` (`t:map`):
-    * `:body` (`t:blob`) The payload of the POST request to import API keys. For the
-  payload format, see API Key File Format.
-
-  ## Optional parameters:
+    * `:body` (`t:blob` required) The payload of the POST request to import API
+  keys. For the payload format, see API Key File Format.
+  ## Keyword parameters:
   * `:fail_on_warnings` (`t:boolean`) A query parameter to indicate whether to
   rollback ApiKey importation (true) or not (false) when error is encountered.
   """
-
   @spec import_api_keys(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, api_key_ids(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_api_keys_errors()}
-
   def import_api_keys(%Client{} = client, format, input, options \\ [])
       when is_map(input) and is_binary(format) do
     url_path = "/apikeys?mode=import"
@@ -8294,12 +8099,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20ImportDocumentationParts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
   * `:input` (`t:map`):
-    * `:body` (`t:blob`) Raw byte array representing the to-be-imported
+    * `:body` (`t:blob` required) Raw byte array representing the to-be-imported
   documentation parts. To import from an OpenAPI file, this is a JSON object.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:fail_on_warnings` (`t:boolean`) A query parameter to specify whether to
   rollback the documentation importation (true) or not (false) when a warning
   is encountered. The default value is false.
@@ -8308,12 +8113,10 @@ defmodule AWS.APIGateway do
   (merge) the new definition into the existing one. The default value is
   merge.
   """
-
   @spec import_documentation_parts(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, documentation_part_ids(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_documentation_parts_errors()}
-
   def import_documentation_parts(%Client{} = client, rest_api_id, input, options \\ [])
       when is_map(input) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
@@ -8371,11 +8174,10 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:body` (`t:blob`) The POST request body containing external API definitions.
-  Currently, only OpenAPI definition JSON/YAML files are supported. The
-  maximum size of the API definition file is 6MB.
-
-  ## Optional parameters:
+    * `:body` (`t:blob` required) The POST request body containing external API
+  definitions. Currently, only OpenAPI definition JSON/YAML files are
+  supported. The maximum size of the API definition file is 6MB.
+  ## Keyword parameters:
   * `:parameters` (`t:map`) A key-value map of context-specific query string
   parameters specifying the behavior of different API importing operations.
   The following shows operation-specific parameters and their supported
@@ -8384,12 +8186,10 @@ defmodule AWS.APIGateway do
   rollback the API creation (true) or not (false) when a warning is
   encountered. The default value is false.
   """
-
   @spec import_rest_api(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_rest_api_errors()}
-
   def import_rest_api(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/restapis?mode=import"
 
@@ -8446,18 +8246,16 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
-  The response type of the associated GatewayResponse
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
+  required) The response type of the associated GatewayResponse
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec put_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_gateway_response_errors()}
-
   def put_gateway_response(%Client{} = client, response_type, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
@@ -8495,16 +8293,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20PutIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Specifies the HTTP method for the integration.
-  * `:resource_id` (`t:string`) Specifies a put integration request's resource ID.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:http_method` (`t:string` required) Specifies the HTTP method for the
+  integration.
+  * `:resource_id` (`t:string` required) Specifies a put integration request's
+  resource ID.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
   * `:input` (`t:map`):
-    * `:http_method` (`t:string`) Specifies the HTTP method for the integration.
+    * `:http_method` (`t:string` required) Specifies the HTTP method for the
+  integration.
     * `:integration_http_method` (`t:string`) The HTTP method for the integration.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_integration(
           AWS.Client.t(),
           String.t(),
@@ -8516,7 +8316,6 @@ defmodule AWS.APIGateway do
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_integration_errors()}
-
   def put_integration(
         %Client{} = client,
         http_method,
@@ -8562,17 +8361,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20PutIntegrationResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Specifies a put integration response request's
-  HTTP method.
-  * `:resource_id` (`t:string`) Specifies a put integration response request's
-  resource identifier.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:status_code` (`t:string`) Specifies the status code that is used to map the
-  integration response to an existing MethodResponse.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) Specifies a put integration response
+  request's HTTP method.
+  * `:resource_id` (`t:string` required) Specifies a put integration response
+  request's resource identifier.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:status_code` (`t:string` required) Specifies the status code that is used to
+  map the integration response to an existing MethodResponse.
+  ## Keyword parameters:
   """
-
   @spec put_integration_response(
           AWS.Client.t(),
           String.t(),
@@ -8584,7 +8382,6 @@ defmodule AWS.APIGateway do
           {:ok, integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_integration_response_errors()}
-
   def put_integration_response(
         %Client{} = client,
         http_method,
@@ -8629,19 +8426,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20PutMethod&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Specifies the method request's HTTP method type.
-  * `:resource_id` (`t:string`) The Resource identifier for the new Method
-  resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) Specifies the method request's HTTP
+  method type.
+  * `:resource_id` (`t:string` required) The Resource identifier for the new
+  Method resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec put_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, method(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_method_errors()}
-
   def put_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
@@ -8679,14 +8475,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20PutMethodResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
-  * `:resource_id` (`t:string`) The Resource identifier for the Method resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:status_code` (`t:string`) The method response's status code.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string` required) The Resource identifier for the Method
+  resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:status_code` (`t:string` required) The method response's status code.
+  ## Keyword parameters:
   """
-
   @spec put_method_response(
           AWS.Client.t(),
           String.t(),
@@ -8698,7 +8494,6 @@ defmodule AWS.APIGateway do
           {:ok, method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_method_response_errors()}
-
   def put_method_response(
         %Client{} = client,
         http_method,
@@ -8745,13 +8540,13 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20PutRestApi&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
   * `:input` (`t:map`):
-    * `:body` (`t:blob`) The PUT request body containing external API definitions.
-  Currently, only OpenAPI definition JSON/YAML files are supported. The
-  maximum size of the API definition file is 6MB.
-
-  ## Optional parameters:
+    * `:body` (`t:blob` required) The PUT request body containing external API
+  definitions. Currently, only OpenAPI definition JSON/YAML files are
+  supported. The maximum size of the API definition file is 6MB.
+  ## Keyword parameters:
   * `:parameters` (`t:map`) Custom header parameters as part of the request. For
   example, to exclude DocumentationParts from an imported API, set
   ignore=documentation as a parameters value, as in the AWS CLI command of aws
@@ -8764,12 +8559,10 @@ defmodule AWS.APIGateway do
   update mode. Valid values are "merge" and "overwrite". By default, the
   update mode is "merge".
   """
-
   @spec put_rest_api(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_rest_api_errors()}
-
   def put_rest_api(%Client{} = client, rest_api_id, input, options \\ []) when is_map(input) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
 
@@ -8831,16 +8624,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of a resource that can be tagged.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of a resource that can be
+  tagged.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -8878,18 +8669,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20TestInvokeAuthorizer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:authorizer_id` (`t:string`) Specifies a test invoke authorizer request's
-  Authorizer ID.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:authorizer_id` (`t:string` required) Specifies a test invoke authorizer
+  request's Authorizer ID.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec test_invoke_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, test_invoke_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_invoke_authorizer_errors()}
-
   def test_invoke_authorizer(%Client{} = client, authorizer_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
@@ -8928,20 +8717,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20TestInvokeMethod&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Specifies a test invoke method request's HTTP
-  method.
-  * `:resource_id` (`t:string`) Specifies a test invoke method request's resource
-  ID.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) Specifies a test invoke method request's
+  HTTP method.
+  * `:resource_id` (`t:string` required) Specifies a test invoke method request's
+  resource ID.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec test_invoke_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, test_invoke_method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_invoke_method_errors()}
-
   def test_invoke_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
@@ -8979,18 +8766,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of a resource that can be tagged.
-  * `:tag_keys` (`t:list[com.amazonaws.apigateway#String]`) The Tag keys to
-  delete.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of a resource that can be
+  tagged.
+  * `:tag_keys` (`t:list[com.amazonaws.apigateway#String]` required) The Tag keys
+  to delete.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -9038,15 +8823,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, account(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_errors()}
-
   def update_account(%Client{} = client, options \\ []) do
     url_path = "/account"
 
@@ -9093,16 +8875,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateApiKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:api_key` (`t:string`) The identifier of the ApiKey resource to be updated.
-
-  ## Optional parameters:
+  * `:api_key` (`t:string` required) The identifier of the ApiKey resource to be
+  updated.
+  ## Keyword parameters:
   """
-
   @spec update_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, api_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_api_key_errors()}
-
   def update_api_key(%Client{} = client, api_key, options \\ []) do
     url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
 
@@ -9149,17 +8929,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateAuthorizer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:authorizer_id` (`t:string`) The identifier of the Authorizer resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:authorizer_id` (`t:string` required) The identifier of the Authorizer
+  resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, authorizer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_authorizer_errors()}
-
   def update_authorizer(%Client{} = client, authorizer_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
@@ -9207,19 +8986,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateBasePathMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:base_path` (`t:string`) The base path of the BasePathMapping resource to
-  change.
-  * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to
-  change.
-
-  ## Optional parameters:
+  * `:base_path` (`t:string` required) The base path of the BasePathMapping
+  resource to change.
+  * `:domain_name` (`t:string` required) The domain name of the BasePathMapping
+  resource to change.
+  ## Keyword parameters:
   """
-
   @spec update_base_path_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mapping(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_base_path_mapping_errors()}
-
   def update_base_path_mapping(%Client{} = client, base_path, domain_name, options \\ []) do
     url_path =
       "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings/#{AWS.Util.encode_uri(base_path)}"
@@ -9267,17 +9043,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateClientCertificate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:client_certificate_id` (`t:string`) The identifier of the ClientCertificate
-  resource to be updated.
-
-  ## Optional parameters:
+  * `:client_certificate_id` (`t:string` required) The identifier of the
+  ClientCertificate resource to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_client_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, client_certificate(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_client_certificate_errors()}
-
   def update_client_certificate(%Client{} = client, client_certificate_id, options \\ []) do
     url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
 
@@ -9324,18 +9097,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:deployment_id` (`t:string`) The replacement identifier for the Deployment
-  resource to change information about.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:deployment_id` (`t:string` required) The replacement identifier for the
+  Deployment resource to change information about.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_deployment_errors()}
-
   def update_deployment(%Client{} = client, deployment_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
@@ -9383,18 +9154,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateDocumentationPart&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:documentation_part_id` (`t:string`) The identifier of the to-be-updated
-  documentation part.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:documentation_part_id` (`t:string` required) The identifier of the
+  to-be-updated documentation part.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_documentation_part(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_part(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_documentation_part_errors()}
-
   def update_documentation_part(
         %Client{} = client,
         documentation_part_id,
@@ -9447,18 +9216,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateDocumentationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:documentation_version` (`t:string`) The version identifier of the
+  * `:documentation_version` (`t:string` required) The version identifier of the
   to-be-updated documentation version.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_documentation_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_documentation_version_errors()}
-
   def update_documentation_version(
         %Client{} = client,
         documentation_version,
@@ -9511,16 +9278,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateDomainName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The name of the DomainName resource to be changed.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The name of the DomainName resource to be
+  changed.
+  ## Keyword parameters:
   """
-
   @spec update_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, domain_name(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_name_errors()}
-
   def update_domain_name(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -9568,18 +9333,16 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
-  The response type of the associated GatewayResponse.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
+  required) The response type of the associated GatewayResponse.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_response_errors()}
-
   def update_gateway_response(%Client{} = client, response_type, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
@@ -9627,20 +9390,18 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Represents an update integration request's HTTP
-  method.
-  * `:resource_id` (`t:string`) Represents an update integration request's
-  resource identifier.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) Represents an update integration
+  request's HTTP method.
+  * `:resource_id` (`t:string` required) Represents an update integration
+  request's resource identifier.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_integration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_integration_errors()}
-
   def update_integration(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
@@ -9688,17 +9449,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateIntegrationResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) Specifies an update integration response request's
-  HTTP method.
-  * `:resource_id` (`t:string`) Specifies an update integration response request's
-  resource identifier.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:status_code` (`t:string`) Specifies an update integration response request's
-  status code.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) Specifies an update integration response
+  request's HTTP method.
+  * `:resource_id` (`t:string` required) Specifies an update integration response
+  request's resource identifier.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:status_code` (`t:string` required) Specifies an update integration response
+  request's status code.
+  ## Keyword parameters:
   """
-
   @spec update_integration_response(
           AWS.Client.t(),
           String.t(),
@@ -9710,7 +9470,6 @@ defmodule AWS.APIGateway do
           {:ok, integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_integration_response_errors()}
-
   def update_integration_response(
         %Client{} = client,
         http_method,
@@ -9765,18 +9524,17 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateMethod&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
-  * `:resource_id` (`t:string`) The Resource identifier for the Method resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string` required) The Resource identifier for the Method
+  resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, method(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_method_errors()}
-
   def update_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
@@ -9824,15 +9582,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateMethodResponse&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
-  * `:resource_id` (`t:string`) The Resource identifier for the MethodResponse
+  * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string` required) The Resource identifier for the
+  MethodResponse resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:status_code` (`t:string` required) The status code for the MethodResponse
   resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:status_code` (`t:string`) The status code for the MethodResponse resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_method_response(
           AWS.Client.t(),
           String.t(),
@@ -9844,7 +9602,6 @@ defmodule AWS.APIGateway do
           {:ok, method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_method_response_errors()}
-
   def update_method_response(
         %Client{} = client,
         http_method,
@@ -9899,17 +9656,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:model_name` (`t:string`) The name of the model to update.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:model_name` (`t:string` required) The name of the model to update.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, model(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_errors()}
-
   def update_model(%Client{} = client, model_name, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}"
@@ -9957,18 +9712,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateRequestValidator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:request_validator_id` (`t:string`) The identifier of RequestValidator to be
-  updated.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:request_validator_id` (`t:string` required) The identifier of
+  RequestValidator to be updated.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_request_validator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, request_validator(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_request_validator_errors()}
-
   def update_request_validator(
         %Client{} = client,
         request_validator_id,
@@ -10021,17 +9774,15 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The identifier of the Resource resource.
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The identifier of the Resource resource.
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, resource(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_errors()}
-
   def update_resource(%Client{} = client, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}"
@@ -10079,16 +9830,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateRestApi&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-
-  ## Optional parameters:
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  ## Keyword parameters:
   """
-
   @spec update_rest_api(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rest_api_errors()}
-
   def update_rest_api(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
 
@@ -10135,18 +9884,16 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateStage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
-  * `:stage_name` (`t:string`) The name of the Stage resource to change
+  * `:rest_api_id` (`t:string` required) The string identifier of the associated
+  RestApi.
+  * `:stage_name` (`t:string` required) The name of the Stage resource to change
   information about.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stage_errors()}
-
   def update_stage(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
@@ -10195,19 +9942,17 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateUsage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:key_id` (`t:string`) The identifier of the API key associated with the usage
-  plan in which a temporary extension is granted to the remaining quota.
-  * `:usage_plan_id` (`t:string`) The Id of the usage plan associated with the
-  usage data.
-
-  ## Optional parameters:
+  * `:key_id` (`t:string` required) The identifier of the API key associated with
+  the usage plan in which a temporary extension is granted to the remaining
+  quota.
+  * `:usage_plan_id` (`t:string` required) The Id of the usage plan associated
+  with the usage data.
+  ## Keyword parameters:
   """
-
   @spec update_usage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, usage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_usage_errors()}
-
   def update_usage(%Client{} = client, key_id, usage_plan_id, options \\ []) do
     url_path =
       "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys/#{AWS.Util.encode_uri(key_id)}/usage"
@@ -10255,16 +10000,13 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateUsagePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:usage_plan_id` (`t:string`) The Id of the to-be-updated usage plan.
-
-  ## Optional parameters:
+  * `:usage_plan_id` (`t:string` required) The Id of the to-be-updated usage plan.
+  ## Keyword parameters:
   """
-
   @spec update_usage_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_usage_plan_errors()}
-
   def update_usage_plan(%Client{} = client, usage_plan_id, options \\ []) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}"
 
@@ -10311,17 +10053,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateVpcLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vpc_link_id` (`t:string`) The identifier of the VpcLink. It is used in an
-  Integration to reference this VpcLink.
-
-  ## Optional parameters:
+  * `:vpc_link_id` (`t:string` required) The identifier of the VpcLink. It is used
+  in an Integration to reference this VpcLink.
+  ## Keyword parameters:
   """
-
   @spec update_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, vpc_link(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_link_errors()}
-
   def update_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
     url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
 

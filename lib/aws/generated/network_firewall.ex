@@ -2084,6 +2084,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Associates a `FirewallPolicy` to a `Firewall`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20AssociateFirewallPolicy&this_doc_guide=API%2520Reference)
@@ -2097,12 +2098,10 @@ defmodule AWS.NetworkFirewall do
       required("FirewallPolicyArn") => String.t()
     }
   """
-
   @spec associate_firewall_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_firewall_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_firewall_policy_errors()}
-
   def associate_firewall_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2111,6 +2110,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Associates the specified subnets in the Amazon VPC to the firewall. You can
   specify one subnet for each of the Availability Zones that the VPC spans.
 
@@ -2125,12 +2125,10 @@ defmodule AWS.NetworkFirewall do
       required("SubnetMappings") => list(subnet_mapping()())
     }
   """
-
   @spec associate_subnets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_subnets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_subnets_errors()}
-
   def associate_subnets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2139,6 +2137,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Creates an Network Firewall `Firewall` and accompanying `FirewallStatus` for a
   VPC. The firewall defines the configuration settings for an Network Firewall
   firewall. The settings that you can define at creation include the firewall
@@ -2162,12 +2161,10 @@ defmodule AWS.NetworkFirewall do
       required("VpcId") => String.t()
     }
   """
-
   @spec create_firewall(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_firewall_errors()}
-
   def create_firewall(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2176,6 +2173,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Creates the firewall policy for the firewall according to the specifications.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20CreateFirewallPolicy&this_doc_guide=API%2520Reference)
@@ -2191,12 +2189,10 @@ defmodule AWS.NetworkFirewall do
       required("FirewallPolicyName") => String.t()
     }
   """
-
   @spec create_firewall_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_firewall_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_firewall_policy_errors()}
-
   def create_firewall_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2205,6 +2201,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Creates the specified stateless or stateful rule group, which includes the rules
   for network traffic inspection, a capacity setting, and tags.
 
@@ -2226,12 +2223,10 @@ defmodule AWS.NetworkFirewall do
       required("Type") => list(any())
     }
   """
-
   @spec create_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_group_errors()}
-
   def create_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2240,6 +2235,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Creates an Network Firewall TLS inspection configuration. Network Firewall uses
   TLS inspection configurations to decrypt your firewall's inbound and outbound
   SSL/TLS traffic. After decryption, Network Firewall inspects the traffic
@@ -2264,12 +2260,10 @@ defmodule AWS.NetworkFirewall do
       required("TLSInspectionConfigurationName") => String.t()
     }
   """
-
   @spec create_t_l_s_inspection_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_t_l_s_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_t_l_s_inspection_configuration_errors()}
-
   def create_t_l_s_inspection_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2279,6 +2273,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Deletes the specified `Firewall` and its `FirewallStatus`. This operation
   requires the firewall's `DeleteProtection` flag to be `FALSE`. You can't
   revert this operation. You can check whether a firewall is in use by reviewing
@@ -2298,12 +2293,10 @@ defmodule AWS.NetworkFirewall do
       optional("FirewallName") => String.t()
     }
   """
-
   @spec delete_firewall(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_firewall_errors()}
-
   def delete_firewall(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2312,6 +2305,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Deletes the specified `FirewallPolicy`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20DeleteFirewallPolicy&this_doc_guide=API%2520Reference)
@@ -2323,12 +2317,10 @@ defmodule AWS.NetworkFirewall do
       optional("FirewallPolicyName") => String.t()
     }
   """
-
   @spec delete_firewall_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_firewall_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_firewall_policy_errors()}
-
   def delete_firewall_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2337,6 +2329,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Deletes a resource policy that you created in a `PutResourcePolicy` request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
@@ -2347,12 +2340,10 @@ defmodule AWS.NetworkFirewall do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2361,6 +2352,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Deletes the specified `RuleGroup`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20DeleteRuleGroup&this_doc_guide=API%2520Reference)
@@ -2373,12 +2365,10 @@ defmodule AWS.NetworkFirewall do
       optional("Type") => list(any())
     }
   """
-
   @spec delete_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_group_errors()}
-
   def delete_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2387,6 +2377,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Deletes the specified `TLSInspectionConfiguration`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20DeleteTLSInspectionConfiguration&this_doc_guide=API%2520Reference)
@@ -2398,12 +2389,10 @@ defmodule AWS.NetworkFirewall do
       optional("TLSInspectionConfigurationName") => String.t()
     }
   """
-
   @spec delete_t_l_s_inspection_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_t_l_s_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_t_l_s_inspection_configuration_errors()}
-
   def delete_t_l_s_inspection_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2413,6 +2402,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Returns the data objects for the specified firewall.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20DescribeFirewall&this_doc_guide=API%2520Reference)
@@ -2424,12 +2414,10 @@ defmodule AWS.NetworkFirewall do
       optional("FirewallName") => String.t()
     }
   """
-
   @spec describe_firewall(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_firewall_errors()}
-
   def describe_firewall(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2438,6 +2426,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Returns the data objects for the specified firewall policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20DescribeFirewallPolicy&this_doc_guide=API%2520Reference)
@@ -2449,12 +2438,10 @@ defmodule AWS.NetworkFirewall do
       optional("FirewallPolicyName") => String.t()
     }
   """
-
   @spec describe_firewall_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_firewall_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_firewall_policy_errors()}
-
   def describe_firewall_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2463,6 +2450,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Returns the logging configuration for the specified firewall.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20DescribeLoggingConfiguration&this_doc_guide=API%2520Reference)
@@ -2474,12 +2462,10 @@ defmodule AWS.NetworkFirewall do
       optional("FirewallName") => String.t()
     }
   """
-
   @spec describe_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_configuration_errors()}
-
   def describe_logging_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2489,6 +2475,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Retrieves a resource policy that you created in a `PutResourcePolicy` request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20DescribeResourcePolicy&this_doc_guide=API%2520Reference)
@@ -2499,12 +2486,10 @@ defmodule AWS.NetworkFirewall do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec describe_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_policy_errors()}
-
   def describe_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2513,6 +2498,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Returns the data objects for the specified rule group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20DescribeRuleGroup&this_doc_guide=API%2520Reference)
@@ -2526,12 +2512,10 @@ defmodule AWS.NetworkFirewall do
       optional("Type") => list(any())
     }
   """
-
   @spec describe_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rule_group_errors()}
-
   def describe_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2540,6 +2524,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   High-level information about a rule group, returned by operations like create
   and describe. You can use the information provided in the metadata to retrieve
   and manage a rule group. You can retrieve all objects for a rule group by
@@ -2555,12 +2540,10 @@ defmodule AWS.NetworkFirewall do
       optional("Type") => list(any())
     }
   """
-
   @spec describe_rule_group_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_rule_group_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rule_group_metadata_errors()}
-
   def describe_rule_group_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2569,6 +2552,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Returns the data objects for the specified TLS inspection configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20DescribeTLSInspectionConfiguration&this_doc_guide=API%2520Reference)
@@ -2580,12 +2564,10 @@ defmodule AWS.NetworkFirewall do
       optional("TLSInspectionConfigurationName") => String.t()
     }
   """
-
   @spec describe_t_l_s_inspection_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_t_l_s_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_t_l_s_inspection_configuration_errors()}
-
   def describe_t_l_s_inspection_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2595,6 +2577,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Removes the specified subnet associations from the firewall. This removes the
   firewall endpoints from the subnets and removes any network filtering
   protections that the endpoints were providing.
@@ -2610,12 +2593,10 @@ defmodule AWS.NetworkFirewall do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec disassociate_subnets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_subnets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_subnets_errors()}
-
   def disassociate_subnets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2624,6 +2605,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Retrieves the metadata for the firewall policies that you have defined.
   Depending on your setting for max results and the number of firewall policies,
   a single call might not return the full list.
@@ -2637,12 +2619,10 @@ defmodule AWS.NetworkFirewall do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_firewall_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_firewall_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_firewall_policies_errors()}
-
   def list_firewall_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2651,6 +2631,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Retrieves the metadata for the firewalls that you have defined. If you provide
   VPC identifiers in your request, this returns only the firewalls for those
   VPCs.
@@ -2665,12 +2646,10 @@ defmodule AWS.NetworkFirewall do
       optional("VpcIds") => list(String.t()())
     }
   """
-
   @spec list_firewalls(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_firewalls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_firewalls_errors()}
-
   def list_firewalls(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2679,6 +2658,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Retrieves the metadata for the rule groups that you have defined. Depending on
   your setting for max results and the number of rule groups, a single call
   might not return the full list.
@@ -2695,12 +2675,10 @@ defmodule AWS.NetworkFirewall do
       optional("Type") => list(any())
     }
   """
-
   @spec list_rule_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_groups_errors()}
-
   def list_rule_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2709,6 +2687,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Retrieves the metadata for the TLS inspection configurations that you have
   defined. Depending on your setting for max results and the number of TLS
   inspection configurations, a single call might not return the full list.
@@ -2722,12 +2701,10 @@ defmodule AWS.NetworkFirewall do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_t_l_s_inspection_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_t_l_s_inspection_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_t_l_s_inspection_configurations_errors()}
-
   def list_t_l_s_inspection_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2737,6 +2714,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Retrieves the tags associated with the specified resource. Tags are key:value
   pairs that you can use to categorize and manage your resources, for purposes
   like billing. For example, you might set the tag key to "customer" and the
@@ -2753,12 +2731,10 @@ defmodule AWS.NetworkFirewall do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2767,6 +2743,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Creates or updates an IAM policy for your rule group or firewall policy. Use
   this to share rule groups and firewall policies between accounts. This
   operation works in conjunction with the Amazon Web Services Resource Access
@@ -2785,12 +2762,10 @@ defmodule AWS.NetworkFirewall do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2799,6 +2774,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Adds the specified tags to the specified resource. Tags are key:value pairs that
   you can use to categorize and manage your resources, for purposes like
   billing. For example, you might set the tag key to "customer" and the value to
@@ -2814,12 +2790,10 @@ defmodule AWS.NetworkFirewall do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2828,6 +2802,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Removes the tags with the specified keys from the specified resource. Tags are
   key:value pairs that you can use to categorize and manage your resources, for
   purposes like billing. For example, you might set the tag key to "customer"
@@ -2843,12 +2818,10 @@ defmodule AWS.NetworkFirewall do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2857,6 +2830,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Modifies the flag, `DeleteProtection`, which indicates whether it is possible to
   delete the firewall. If the flag is set to `TRUE`, the firewall is protected
   against deletion. This setting helps protect against accidentally deleting a
@@ -2873,12 +2847,10 @@ defmodule AWS.NetworkFirewall do
       required("DeleteProtection") => boolean()
     }
   """
-
   @spec update_firewall_delete_protection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_firewall_delete_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_firewall_delete_protection_errors()}
-
   def update_firewall_delete_protection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2888,6 +2860,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Modifies the description for the specified firewall. Use the description to help
   you identify the firewall when you're working with it.
 
@@ -2902,12 +2875,10 @@ defmodule AWS.NetworkFirewall do
       optional("UpdateToken") => String.t()
     }
   """
-
   @spec update_firewall_description(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_firewall_description_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_firewall_description_errors()}
-
   def update_firewall_description(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2916,6 +2887,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   A complex type that contains settings for encryption of your firewall resources.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20UpdateFirewallEncryptionConfiguration&this_doc_guide=API%2520Reference)
@@ -2929,12 +2901,10 @@ defmodule AWS.NetworkFirewall do
       optional("UpdateToken") => String.t()
     }
   """
-
   @spec update_firewall_encryption_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_firewall_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_firewall_encryption_configuration_errors()}
-
   def update_firewall_encryption_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2944,6 +2914,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Updates the properties of the specified firewall policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20UpdateFirewallPolicy&this_doc_guide=API%2520Reference)
@@ -2960,12 +2931,10 @@ defmodule AWS.NetworkFirewall do
       required("UpdateToken") => String.t()
     }
   """
-
   @spec update_firewall_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_firewall_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_firewall_policy_errors()}
-
   def update_firewall_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2974,6 +2943,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Modifies the flag, `ChangeProtection`, which indicates whether it is possible to
   change the firewall. If the flag is set to `TRUE`, the firewall is protected
   from changes. This setting helps protect against accidentally changing a
@@ -2990,12 +2960,10 @@ defmodule AWS.NetworkFirewall do
       required("FirewallPolicyChangeProtection") => boolean()
     }
   """
-
   @spec update_firewall_policy_change_protection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_firewall_policy_change_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_firewall_policy_change_protection_errors()}
-
   def update_firewall_policy_change_protection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3005,6 +2973,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Sets the logging configuration for the specified firewall. To change the logging
   configuration, retrieve the `LoggingConfiguration` by calling
   `DescribeLoggingConfiguration`, then change it and provide the modified object
@@ -3022,12 +2991,10 @@ defmodule AWS.NetworkFirewall do
       optional("LoggingConfiguration") => logging_configuration()
     }
   """
-
   @spec update_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_logging_configuration_errors()}
-
   def update_logging_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3036,6 +3003,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Updates the rule settings for the specified rule group. You use a rule group by
   reference in one or more firewall policies. When you modify a rule group, you
   modify all firewall policies that use the rule group.
@@ -3058,12 +3026,10 @@ defmodule AWS.NetworkFirewall do
       required("UpdateToken") => String.t()
     }
   """
-
   @spec update_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_group_errors()}
-
   def update_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3071,11 +3037,24 @@ defmodule AWS.NetworkFirewall do
     Request.request_post(client, meta, "UpdateRuleGroup", input, options)
   end
 
+  @doc """
+   
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkfirewall%20UpdateSubnetChangeProtection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_subnet_change_protection_request`)
+    %{
+      optional("FirewallArn") => String.t(),
+      optional("FirewallName") => String.t(),
+      optional("UpdateToken") => String.t(),
+      required("SubnetChangeProtection") => boolean()
+    }
+  """
   @spec update_subnet_change_protection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_subnet_change_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subnet_change_protection_errors()}
-
   def update_subnet_change_protection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3085,6 +3064,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+   
   Updates the TLS inspection configuration settings for the specified TLS
   inspection configuration. You use a TLS inspection configuration by
   referencing it in one or more firewall policies. When you modify a TLS
@@ -3104,12 +3084,10 @@ defmodule AWS.NetworkFirewall do
       required("UpdateToken") => String.t()
     }
   """
-
   @spec update_t_l_s_inspection_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_t_l_s_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_t_l_s_inspection_configuration_errors()}
-
   def update_t_l_s_inspection_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

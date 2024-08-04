@@ -546,6 +546,7 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
+   
   Runs one or more SQL statements, which can be data manipulation language (DML)
   or data definition language (DDL). Depending on the authorization method, use
   one of the following combinations of request parameters:
@@ -566,12 +567,10 @@ defmodule AWS.RedshiftData do
       required("Sqls") => list(String.t()())
     }
   """
-
   @spec batch_execute_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_execute_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_execute_statement_errors()}
-
   def batch_execute_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -580,6 +579,7 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
+   
   Cancels a running query. To be canceled, a query must be running.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20CancelStatement&this_doc_guide=API%2520Reference)
@@ -590,12 +590,10 @@ defmodule AWS.RedshiftData do
       required("Id") => String.t()
     }
   """
-
   @spec cancel_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_statement_errors()}
-
   def cancel_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -604,6 +602,7 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
+   
   Describes the details about a specific instance when a query was run by the
   Amazon Redshift Data API. The information includes when the query started,
   when it finished, the query status, the number of rows returned, and the SQL
@@ -617,12 +616,10 @@ defmodule AWS.RedshiftData do
       required("Id") => String.t()
     }
   """
-
   @spec describe_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_statement_errors()}
-
   def describe_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -631,6 +628,7 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
+   
   Describes the detailed information about a table from metadata in the cluster.
   The information includes its columns. A token is returned to page through the
   column list. Depending on the authorization method, use one of the following
@@ -653,12 +651,10 @@ defmodule AWS.RedshiftData do
       required("Database") => String.t()
     }
   """
-
   @spec describe_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_table_errors()}
-
   def describe_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -667,6 +663,7 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
+   
   Runs an SQL statement, which can be data manipulation language (DML) or data
   definition language (DDL). This statement must be a single SQL statement.
   Depending on the authorization method, use one of the following combinations
@@ -689,12 +686,10 @@ defmodule AWS.RedshiftData do
       required("Sql") => String.t()
     }
   """
-
   @spec execute_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_statement_errors()}
-
   def execute_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -703,6 +698,7 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
+   
   Fetches the temporarily cached result of an SQL statement. A token is returned
   to page through the statement results.
 
@@ -715,12 +711,10 @@ defmodule AWS.RedshiftData do
       required("Id") => String.t()
     }
   """
-
   @spec get_statement_result(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_statement_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_statement_result_errors()}
-
   def get_statement_result(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -729,6 +723,7 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
+   
   List the databases in a cluster. A token is returned to page through the
   database list. Depending on the authorization method, use one of the following
   combinations of request parameters:
@@ -747,12 +742,10 @@ defmodule AWS.RedshiftData do
       required("Database") => String.t()
     }
   """
-
   @spec list_databases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_databases_errors()}
-
   def list_databases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -761,6 +754,7 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
+   
   Lists the schemas in a database. A token is returned to page through the schema
   list. Depending on the authorization method, use one of the following
   combinations of request parameters:
@@ -781,12 +775,10 @@ defmodule AWS.RedshiftData do
       required("Database") => String.t()
     }
   """
-
   @spec list_schemas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schemas_errors()}
-
   def list_schemas(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -795,6 +787,7 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
+   
   List of SQL statements. By default, only finished statements are shown. A token
   is returned to page through the statement list.
 
@@ -810,12 +803,10 @@ defmodule AWS.RedshiftData do
       optional("Status") => String.t()
     }
   """
-
   @spec list_statements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_statements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_statements_errors()}
-
   def list_statements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -824,6 +815,7 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
+   
   List the tables in a database. If neither `SchemaPattern` nor `TablePattern` are
   specified, then all tables in the database are returned. A token is returned
   to page through the table list. Depending on the authorization method, use one
@@ -846,12 +838,10 @@ defmodule AWS.RedshiftData do
       required("Database") => String.t()
     }
   """
-
   @spec list_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tables_errors()}
-
   def list_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

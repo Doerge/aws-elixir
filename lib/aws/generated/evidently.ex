@@ -1894,17 +1894,14 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20BatchEvaluateFeature&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  feature being evaluated.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the feature being evaluated.
+  ## Keyword parameters:
   """
-
   @spec batch_evaluate_feature(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_evaluate_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_evaluate_feature_errors()}
-
   def batch_evaluate_feature(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/evaluations"
 
@@ -1946,17 +1943,14 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateExperiment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project that you want to create
-  the new experiment in.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project that you want
+  to create the new experiment in.
+  ## Keyword parameters:
   """
-
   @spec create_experiment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_experiment_errors()}
-
   def create_experiment(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
 
@@ -1999,17 +1993,14 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateFeature&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project that is to contain the
-  new feature.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project that is to
+  contain the new feature.
+  ## Keyword parameters:
   """
-
   @spec create_feature(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_feature_errors()}
-
   def create_feature(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/features"
 
@@ -2052,17 +2043,14 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateLaunch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project that you want to create
-  the launch in.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project that you want
+  to create the launch in.
+  ## Keyword parameters:
   """
-
   @spec create_launch(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_launch_errors()}
-
   def create_launch(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
 
@@ -2101,15 +2089,12 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_project(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-
   def create_project(%Client{} = client, options \\ []) do
     url_path = "/projects"
 
@@ -2153,15 +2138,12 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateSegment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_segment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_segment_errors()}
-
   def create_segment(%Client{} = client, options \\ []) do
     url_path = "/segments"
 
@@ -2199,18 +2181,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20DeleteExperiment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:experiment` (`t:string`) The name of the experiment to delete.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  experiment to delete.
-
-  ## Optional parameters:
+  * `:experiment` (`t:string` required) The name of the experiment to delete.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the experiment to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_experiment_errors()}
-
   def delete_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
@@ -2258,18 +2237,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20DeleteFeature&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:feature` (`t:string`) The name of the feature to delete.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  feature to delete.
-
-  ## Optional parameters:
+  * `:feature` (`t:string` required) The name of the feature to delete.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the feature to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_feature_errors()}
-
   def delete_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
@@ -2317,18 +2293,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20DeleteLaunch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch` (`t:string`) The name of the launch to delete.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  launch to delete.
-
-  ## Optional parameters:
+  * `:launch` (`t:string` required) The name of the launch to delete.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the launch to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_errors()}
-
   def delete_launch(%Client{} = client, launch, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
 
@@ -2377,16 +2350,13 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20DeleteProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project to delete.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-
   def delete_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
 
@@ -2434,16 +2404,13 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20DeleteSegment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:segment` (`t:string`) Specifies the segment to delete.
-
-  ## Optional parameters:
+  * `:segment` (`t:string` required) Specifies the segment to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_segment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_segment_errors()}
-
   def delete_segment(%Client{} = client, segment, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
 
@@ -2494,18 +2461,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20EvaluateFeature&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:feature` (`t:string`) The name of the feature being evaluated.
-  * `:project` (`t:string`) The name or ARN of the project that contains this
-  feature.
-
-  ## Optional parameters:
+  * `:feature` (`t:string` required) The name of the feature being evaluated.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  this feature.
+  ## Keyword parameters:
   """
-
   @spec evaluate_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, evaluate_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, evaluate_feature_errors()}
-
   def evaluate_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/evaluations/#{AWS.Util.encode_uri(feature)}"
@@ -2545,19 +2509,16 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetExperiment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:experiment` (`t:string`) The name of the experiment that you want to see the
-  details of.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  experiment.
-
-  ## Optional parameters:
+  * `:experiment` (`t:string` required) The name of the experiment that you want
+  to see the details of.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the experiment.
+  ## Keyword parameters:
   """
-
   @spec get_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_experiment_errors()}
-
   def get_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
@@ -2599,19 +2560,16 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetExperimentResults&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:experiment` (`t:string`) The name of the experiment to retrieve the results
-  of.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  experiment that you want to see the results of.
-
-  ## Optional parameters:
+  * `:experiment` (`t:string` required) The name of the experiment to retrieve the
+  results of.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the experiment that you want to see the results of.
+  ## Keyword parameters:
   """
-
   @spec get_experiment_results(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_experiment_results_errors()}
-
   def get_experiment_results(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/results"
@@ -2651,19 +2609,16 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetFeature&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:feature` (`t:string`) The name of the feature that you want to retrieve
-  information for.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  feature.
-
-  ## Optional parameters:
+  * `:feature` (`t:string` required) The name of the feature that you want to
+  retrieve information for.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the feature.
+  ## Keyword parameters:
   """
-
   @spec get_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_feature_errors()}
-
   def get_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
@@ -2701,19 +2656,16 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetLaunch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch` (`t:string`) The name of the launch that you want to see the details
-  of.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  launch.
-
-  ## Optional parameters:
+  * `:launch` (`t:string` required) The name of the launch that you want to see
+  the details of.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the launch.
+  ## Keyword parameters:
   """
-
   @spec get_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_errors()}
-
   def get_launch(%Client{} = client, launch, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
 
@@ -2750,17 +2702,14 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project that you want to see
-  the details of.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project that you want
+  to see the details of.
+  ## Keyword parameters:
   """
-
   @spec get_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_project_errors()}
-
   def get_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
 
@@ -2796,16 +2745,14 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetSegment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:segment` (`t:string`) The ARN of the segment to return information for.
-
-  ## Optional parameters:
+  * `:segment` (`t:string` required) The ARN of the segment to return information
+  for.
+  ## Keyword parameters:
   """
-
   @spec get_segment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_errors()}
-
   def get_segment(%Client{} = client, segment, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
 
@@ -2841,10 +2788,9 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListExperiments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project to return the
+  * `:project` (`t:string` required) The name or ARN of the project to return the
   experiment list from.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
@@ -2852,12 +2798,10 @@ defmodule AWS.Evidently do
   * `:status` (`t:string`) Use this optional parameter to limit the returned
   results to only the experiments with the status that you specify here.
   """
-
   @spec list_experiments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experiments_errors()}
-
   def list_experiments(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
 
@@ -2917,21 +2861,18 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListFeatures&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project to return the feature
-  list from.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project to return the
+  feature list from.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
   results. You received this token from a previous ListFeatures operation.
   """
-
   @spec list_features(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_features_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_features_errors()}
-
   def list_features(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/features"
 
@@ -2984,10 +2925,9 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListLaunches&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project to return the launch
-  list from.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project to return the
+  launch list from.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
@@ -2995,12 +2935,10 @@ defmodule AWS.Evidently do
   * `:status` (`t:string`) Use this optional parameter to limit the returned
   results to only the launches with the status that you specify here.
   """
-
   @spec list_launches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_launches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_launches_errors()}
-
   def list_launches(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
 
@@ -3061,19 +2999,16 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListProjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
   results. You received this token from a previous ListProjects operation.
   """
-
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-
   def list_projects(%Client{} = client, options \\ []) do
     url_path = "/projects"
 
@@ -3127,24 +3062,21 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListSegmentReferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:segment` (`t:string`) The ARN of the segment that you want to view
+  * `:segment` (`t:string` required) The ARN of the segment that you want to view
   information for.
-  * `:type` (`t:string`) Specifies whether to return information about launches or
-  experiments that use this segment.
-
-  ## Optional parameters:
+  * `:type` (`t:string` required) Specifies whether to return information about
+  launches or experiments that use this segment.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
   response. If you omit this, the default of 50 is used.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
   results. You received this token from a previous ListSegmentReferences
   operation.
   """
-
   @spec list_segment_references(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_segment_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_segment_references_errors()}
-
   def list_segment_references(%Client{} = client, segment, type, options \\ [])
       when is_binary(type) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}/references"
@@ -3199,19 +3131,16 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListSegments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
   response. If you omit this, the default of 50 is used.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
   results. You received this token from a previous ListSegments operation.
   """
-
   @spec list_segments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_segments_errors()}
-
   def list_segments(%Client{} = client, options \\ []) do
     url_path = "/segments"
 
@@ -3264,17 +3193,14 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that you want to see the
-  tags of.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource that you want to
+  see the tags of.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3310,16 +3236,14 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20PutProjectEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project to write the events to.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project to write the
+  events to.
+  ## Keyword parameters:
   """
-
   @spec put_project_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_project_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_project_events_errors()}
-
   def put_project_events(%Client{} = client, project, options \\ []) do
     url_path = "/events/projects/#{AWS.Util.encode_uri(project)}"
 
@@ -3357,18 +3281,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20StartExperiment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:experiment` (`t:string`) The name of the experiment to start.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  experiment to start.
-
-  ## Optional parameters:
+  * `:experiment` (`t:string` required) The name of the experiment to start.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the experiment to start.
+  ## Keyword parameters:
   """
-
   @spec start_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_experiment_errors()}
-
   def start_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/start"
@@ -3407,18 +3328,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20StartLaunch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch` (`t:string`) The name of the launch to start.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  launch to start.
-
-  ## Optional parameters:
+  * `:launch` (`t:string` required) The name of the launch to start.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the launch to start.
+  ## Keyword parameters:
   """
-
   @spec start_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_launch_errors()}
-
   def start_launch(%Client{} = client, launch, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}/start"
@@ -3457,18 +3375,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20StopExperiment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:experiment` (`t:string`) The name of the experiment to stop.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  experiment to stop.
-
-  ## Optional parameters:
+  * `:experiment` (`t:string` required) The name of the experiment to stop.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the experiment to stop.
+  ## Keyword parameters:
   """
-
   @spec stop_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_experiment_errors()}
-
   def stop_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/cancel"
@@ -3510,18 +3425,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20StopLaunch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch` (`t:string`) The name of the launch to stop.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  launch that you want to stop.
-
-  ## Optional parameters:
+  * `:launch` (`t:string` required) The name of the launch to stop.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the launch that you want to stop.
+  ## Keyword parameters:
   """
-
   @spec stop_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_launch_errors()}
-
   def stop_launch(%Client{} = client, launch, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}/cancel"
@@ -3563,17 +3475,14 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the CloudWatch Evidently resource that
-  you're adding tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the CloudWatch Evidently
+  resource that you're adding tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3612,15 +3521,12 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20TestSegmentPattern&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec test_segment_pattern(AWS.Client.t(), Keyword.t()) ::
           {:ok, test_segment_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_segment_pattern_errors()}
-
   def test_segment_pattern(%Client{} = client, options \\ []) do
     url_path = "/test-segment-pattern"
 
@@ -3657,19 +3563,16 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the CloudWatch Evidently resource that
-  you're removing tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.evidently#TagKey]`) The list of tag keys to
-  remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the CloudWatch Evidently
+  resource that you're removing tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.evidently#TagKey]` required) The list of
+  tag keys to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3717,18 +3620,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UpdateExperiment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:experiment` (`t:string`) The name of the experiment to update.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  experiment that you want to update.
-
-  ## Optional parameters:
+  * `:experiment` (`t:string` required) The name of the experiment to update.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the experiment that you want to update.
+  ## Keyword parameters:
   """
-
   @spec update_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_experiment_errors()}
-
   def update_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
@@ -3776,18 +3676,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UpdateFeature&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:feature` (`t:string`) The name of the feature to be updated.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  feature to be updated.
-
-  ## Optional parameters:
+  * `:feature` (`t:string` required) The name of the feature to be updated.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the feature to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_feature_errors()}
-
   def update_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
@@ -3835,18 +3732,15 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UpdateLaunch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch` (`t:string`) The name of the launch that is to be updated.
-  * `:project` (`t:string`) The name or ARN of the project that contains the
-  launch that you want to update.
-
-  ## Optional parameters:
+  * `:launch` (`t:string` required) The name of the launch that is to be updated.
+  * `:project` (`t:string` required) The name or ARN of the project that contains
+  the launch that you want to update.
+  ## Keyword parameters:
   """
-
   @spec update_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_errors()}
-
   def update_launch(%Client{} = client, launch, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
 
@@ -3897,16 +3791,13 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UpdateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project to update.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project to update.
+  ## Keyword parameters:
   """
-
   @spec update_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-
   def update_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
 
@@ -3956,17 +3847,14 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UpdateProjectDataDelivery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:project` (`t:string`) The name or ARN of the project that you want to modify
-  the data storage options for.
-
-  ## Optional parameters:
+  * `:project` (`t:string` required) The name or ARN of the project that you want
+  to modify the data storage options for.
+  ## Keyword parameters:
   """
-
   @spec update_project_data_delivery(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_data_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_data_delivery_errors()}
-
   def update_project_data_delivery(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/data-delivery"
 

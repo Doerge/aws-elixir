@@ -214,15 +214,12 @@ defmodule AWS.SagemakerEdge do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20GetDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deployments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployments_errors()}
-
   def get_deployments(%Client{} = client, options \\ []) do
     url_path = "/GetDeployments"
 
@@ -259,15 +256,12 @@ defmodule AWS.SagemakerEdge do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20GetDeviceRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_device_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_device_registration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_registration_errors()}
-
   def get_device_registration(%Client{} = client, options \\ []) do
     url_path = "/GetDeviceRegistration"
 
@@ -304,15 +298,12 @@ defmodule AWS.SagemakerEdge do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20SendHeartbeat&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec send_heartbeat(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_heartbeat_errors()}
-
   def send_heartbeat(%Client{} = client, options \\ []) do
     url_path = "/SendHeartbeat"
 

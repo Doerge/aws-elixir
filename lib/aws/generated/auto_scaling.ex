@@ -2733,6 +2733,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Attaches one or more EC2 instances to the specified Auto Scaling group. When you
   attach instances, Amazon EC2 Auto Scaling increases the desired capacity of
   the group by the number of instances being attached. If the number of
@@ -2748,12 +2749,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec attach_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_instances_errors()}
-
   def attach_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2762,6 +2761,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   This API operation is superseded by `AttachTrafficSources`, which can attach
   multiple traffic sources types. We recommend using `AttachTrafficSources` to
   simplify how you manage traffic sources. However, we continue to support
@@ -2779,12 +2779,10 @@ defmodule AWS.AutoScaling do
       required("TargetGroupARNs") => list(String.t()())
     }
   """
-
   @spec attach_load_balancer_target_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_load_balancer_target_groups_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_load_balancer_target_groups_errors()}
-
   def attach_load_balancer_target_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2794,6 +2792,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   This API operation is superseded by `AttachTrafficSources`, which can attach
   multiple traffic sources types. We recommend using `AttachTrafficSources` to
   simplify how you manage traffic sources. However, we continue to support
@@ -2812,12 +2811,10 @@ defmodule AWS.AutoScaling do
       required("LoadBalancerNames") => list(String.t()())
     }
   """
-
   @spec attach_load_balancers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_load_balancers_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_load_balancers_errors()}
-
   def attach_load_balancers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2826,6 +2823,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Attaches one or more traffic sources to the specified Auto Scaling group. You
   can use any of the following as traffic sources for an Auto Scaling group:
 
@@ -2838,12 +2836,10 @@ defmodule AWS.AutoScaling do
       required("TrafficSources") => list(traffic_source_identifier()())
     }
   """
-
   @spec attach_traffic_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_traffic_sources_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_traffic_sources_errors()}
-
   def attach_traffic_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2852,6 +2848,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Deletes one or more scheduled actions for the specified Auto Scaling group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20BatchDeleteScheduledAction&this_doc_guide=API%2520Reference)
@@ -2863,12 +2860,10 @@ defmodule AWS.AutoScaling do
       required("ScheduledActionNames") => list(String.t()())
     }
   """
-
   @spec batch_delete_scheduled_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_scheduled_action_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_scheduled_action_errors()}
-
   def batch_delete_scheduled_action(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2878,6 +2873,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Creates or updates one or more scheduled scaling actions for an Auto Scaling
   group.
 
@@ -2890,12 +2886,10 @@ defmodule AWS.AutoScaling do
       required("ScheduledUpdateGroupActions") => list(scheduled_update_group_action_request()())
     }
   """
-
   @spec batch_put_scheduled_update_group_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_put_scheduled_update_group_action_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_scheduled_update_group_action_errors()}
-
   def batch_put_scheduled_update_group_action(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2905,6 +2899,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Cancels an instance refresh or rollback that is in progress. If an instance
   refresh or rollback is not in progress, an `ActiveInstanceRefreshNotFound`
   error occurs. This operation is part of the [instance refresh
@@ -2920,12 +2915,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec cancel_instance_refresh(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_instance_refresh_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_instance_refresh_errors()}
-
   def cancel_instance_refresh(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2934,6 +2927,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Completes the lifecycle action for the specified token or instance with the
   specified result. This step is a part of the procedure for adding a lifecycle
   hook to an Auto Scaling group:
@@ -2950,12 +2944,10 @@ defmodule AWS.AutoScaling do
       required("LifecycleHookName") => String.t()
     }
   """
-
   @spec complete_lifecycle_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, complete_lifecycle_action_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_lifecycle_action_errors()}
-
   def complete_lifecycle_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2964,6 +2956,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   **We strongly recommend using a launch template when calling this operation to
   ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.**
   Creates an Auto Scaling group with the specified name and attributes.
@@ -3003,12 +2996,10 @@ defmodule AWS.AutoScaling do
       required("MinSize") => integer()
     }
   """
-
   @spec create_auto_scaling_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_auto_scaling_group_errors()}
-
   def create_auto_scaling_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3017,6 +3008,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Creates a launch configuration. If you exceed your maximum limit of launch
   configurations, the call fails. To query this limit, call the
   `DescribeAccountLimits` API. For information about updating this limit, see
@@ -3052,12 +3044,10 @@ defmodule AWS.AutoScaling do
       required("LaunchConfigurationName") => String.t()
     }
   """
-
   @spec create_launch_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_launch_configuration_errors()}
-
   def create_launch_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3066,6 +3056,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Creates or updates tags for the specified Auto Scaling group. When you specify a
   tag with a key that already exists, the operation overwrites the previous tag
   definition, and you do not get an error message.
@@ -3078,12 +3069,10 @@ defmodule AWS.AutoScaling do
       required("Tags") => list(tag()())
     }
   """
-
   @spec create_or_update_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_or_update_tags_errors()}
-
   def create_or_update_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3092,6 +3081,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Deletes the specified Auto Scaling group. If the group has instances or scaling
   activities in progress, you must specify the option to force the deletion in
   order for it to succeed. The force delete operation will also terminate the
@@ -3107,12 +3097,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec delete_auto_scaling_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_auto_scaling_group_errors()}
-
   def delete_auto_scaling_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3121,6 +3109,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Deletes the specified launch configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DeleteLaunchConfiguration&this_doc_guide=API%2520Reference)
@@ -3131,12 +3120,10 @@ defmodule AWS.AutoScaling do
       required("LaunchConfigurationName") => String.t()
     }
   """
-
   @spec delete_launch_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_configuration_errors()}
-
   def delete_launch_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3145,6 +3132,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Deletes the specified lifecycle hook.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DeleteLifecycleHook&this_doc_guide=API%2520Reference)
@@ -3156,12 +3144,10 @@ defmodule AWS.AutoScaling do
       required("LifecycleHookName") => String.t()
     }
   """
-
   @spec delete_lifecycle_hook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_lifecycle_hook_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lifecycle_hook_errors()}
-
   def delete_lifecycle_hook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3170,6 +3156,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Deletes the specified notification.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DeleteNotificationConfiguration&this_doc_guide=API%2520Reference)
@@ -3181,12 +3168,10 @@ defmodule AWS.AutoScaling do
       required("TopicARN") => String.t()
     }
   """
-
   @spec delete_notification_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_notification_configuration_errors()}
-
   def delete_notification_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3196,6 +3181,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Deletes the specified scaling policy. Deleting either a step scaling policy or a
   simple scaling policy deletes the underlying alarm action, but does not delete
   the alarm, even if it no longer has an associated action.
@@ -3209,12 +3195,10 @@ defmodule AWS.AutoScaling do
       required("PolicyName") => String.t()
     }
   """
-
   @spec delete_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
-
   def delete_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3223,6 +3207,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Deletes the specified scheduled action.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DeleteScheduledAction&this_doc_guide=API%2520Reference)
@@ -3234,12 +3219,10 @@ defmodule AWS.AutoScaling do
       required("ScheduledActionName") => String.t()
     }
   """
-
   @spec delete_scheduled_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scheduled_action_errors()}
-
   def delete_scheduled_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3248,6 +3231,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Deletes the specified tags.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DeleteTags&this_doc_guide=API%2520Reference)
@@ -3258,12 +3242,10 @@ defmodule AWS.AutoScaling do
       required("Tags") => list(tag()())
     }
   """
-
   @spec delete_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
-
   def delete_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3272,6 +3254,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Deletes the warm pool for the specified Auto Scaling group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DeleteWarmPool&this_doc_guide=API%2520Reference)
@@ -3283,12 +3266,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec delete_warm_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_warm_pool_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_warm_pool_errors()}
-
   def delete_warm_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3297,6 +3278,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Describes the current Amazon EC2 Auto Scaling resource quotas for your account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DescribeAccountLimits&this_doc_guide=API%2520Reference)
@@ -3304,12 +3286,10 @@ defmodule AWS.AutoScaling do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_account_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_limits_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_limits_errors()}
-
   def describe_account_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3318,6 +3298,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Describes the available adjustment types for step scaling and simple scaling
   policies. The following adjustment types are supported:
 
@@ -3326,12 +3307,10 @@ defmodule AWS.AutoScaling do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_adjustment_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_adjustment_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_adjustment_types_errors()}
-
   def describe_adjustment_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3340,6 +3319,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about the Auto Scaling groups in the account and Region. If you
   specify Auto Scaling group names, the output includes information for only the
   specified Auto Scaling groups. If you specify filters, the output includes
@@ -3358,12 +3338,10 @@ defmodule AWS.AutoScaling do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_auto_scaling_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, auto_scaling_groups_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_auto_scaling_groups_errors()}
-
   def describe_auto_scaling_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3372,6 +3350,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about the Auto Scaling instances in the account and Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DescribeAutoScalingInstances&this_doc_guide=API%2520Reference)
@@ -3384,12 +3363,10 @@ defmodule AWS.AutoScaling do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_auto_scaling_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, auto_scaling_instances_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_auto_scaling_instances_errors()}
-
   def describe_auto_scaling_instances(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3399,6 +3376,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Describes the notification types that are supported by Amazon EC2 Auto Scaling.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DescribeAutoScalingNotificationTypes&this_doc_guide=API%2520Reference)
@@ -3406,12 +3384,10 @@ defmodule AWS.AutoScaling do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_auto_scaling_notification_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_auto_scaling_notification_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_auto_scaling_notification_types_errors()}
-
   def describe_auto_scaling_notification_types(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3421,6 +3397,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about the instance refreshes for the specified Auto Scaling
   group from the previous six weeks. This operation is part of the [instance
   refresh
@@ -3439,12 +3416,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec describe_instance_refreshes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_refreshes_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_refreshes_errors()}
-
   def describe_instance_refreshes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3453,6 +3428,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about the launch configurations in the account and Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DescribeLaunchConfigurations&this_doc_guide=API%2520Reference)
@@ -3465,12 +3441,10 @@ defmodule AWS.AutoScaling do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_launch_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, launch_configurations_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_launch_configurations_errors()}
-
   def describe_launch_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3480,6 +3454,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Describes the available types of lifecycle hooks. The following hook types are
   supported:
 
@@ -3488,12 +3463,10 @@ defmodule AWS.AutoScaling do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_lifecycle_hook_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_lifecycle_hook_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_lifecycle_hook_types_errors()}
-
   def describe_lifecycle_hook_types(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3503,6 +3476,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about the lifecycle hooks for the specified Auto Scaling group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DescribeLifecycleHooks&this_doc_guide=API%2520Reference)
@@ -3514,12 +3488,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec describe_lifecycle_hooks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_lifecycle_hooks_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_lifecycle_hooks_errors()}
-
   def describe_lifecycle_hooks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3528,6 +3500,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   This API operation is superseded by `DescribeTrafficSources`, which can describe
   multiple traffic sources types. We recommend using `DetachTrafficSources` to
   simplify how you manage traffic sources. However, we continue to support
@@ -3546,12 +3519,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec describe_load_balancer_target_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_load_balancer_target_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_balancer_target_groups_errors()}
-
   def describe_load_balancer_target_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3561,6 +3532,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   This API operation is superseded by `DescribeTrafficSources`, which can describe
   multiple traffic sources types. We recommend using `DescribeTrafficSources` to
   simplify how you manage traffic sources. However, we continue to support
@@ -3579,12 +3551,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec describe_load_balancers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_load_balancers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_balancers_errors()}
-
   def describe_load_balancers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3593,6 +3563,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DescribeMetricCollectionTypes&this_doc_guide=API%2520Reference)
@@ -3600,12 +3571,10 @@ defmodule AWS.AutoScaling do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_metric_collection_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_metric_collection_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metric_collection_types_errors()}
-
   def describe_metric_collection_types(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3615,6 +3584,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about the Amazon SNS notifications that are configured for one
   or more Auto Scaling groups.
 
@@ -3628,12 +3598,10 @@ defmodule AWS.AutoScaling do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_notification_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_notification_configurations_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_notification_configurations_errors()}
-
   def describe_notification_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3643,6 +3611,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about the scaling policies in the account and Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DescribePolicies&this_doc_guide=API%2520Reference)
@@ -3657,12 +3626,10 @@ defmodule AWS.AutoScaling do
       optional("PolicyTypes") => list(String.t()())
     }
   """
-
   @spec describe_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, policies_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_policies_errors()}
-
   def describe_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3671,6 +3638,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about the scaling activities in the account and Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DescribeScalingActivities&this_doc_guide=API%2520Reference)
@@ -3685,12 +3653,10 @@ defmodule AWS.AutoScaling do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_scaling_activities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activities_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scaling_activities_errors()}
-
   def describe_scaling_activities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3699,6 +3665,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Describes the scaling process types for use with the `ResumeProcesses` and
   `SuspendProcesses` APIs.
 
@@ -3707,12 +3674,10 @@ defmodule AWS.AutoScaling do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_scaling_process_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, processes_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scaling_process_types_errors()}
-
   def describe_scaling_process_types(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3722,6 +3687,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about the scheduled actions that haven't run or that have not
   reached their end time.
 
@@ -3738,12 +3704,10 @@ defmodule AWS.AutoScaling do
       optional("StartTime") => non_neg_integer()
     }
   """
-
   @spec describe_scheduled_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, scheduled_actions_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scheduled_actions_errors()}
-
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3752,6 +3716,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Describes the specified tags. You can use filters to limit the results. For
   example, you can query for the tags for a specific Auto Scaling group. You can
   specify multiple values for a filter. A tag must match at least one of the
@@ -3767,12 +3732,10 @@ defmodule AWS.AutoScaling do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tags_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
-
   def describe_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3781,6 +3744,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Describes the termination policies supported by Amazon EC2 Auto Scaling.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DescribeTerminationPolicyTypes&this_doc_guide=API%2520Reference)
@@ -3788,12 +3752,10 @@ defmodule AWS.AutoScaling do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_termination_policy_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_termination_policy_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_termination_policy_types_errors()}
-
   def describe_termination_policy_types(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3803,6 +3765,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about the traffic sources for the specified Auto Scaling group.
   You can optionally provide a traffic source type. If you provide a traffic
   source type, then the results only include that traffic source type.
@@ -3818,12 +3781,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec describe_traffic_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_traffic_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_traffic_sources_errors()}
-
   def describe_traffic_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3832,6 +3793,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Gets information about a warm pool and its instances.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DescribeWarmPool&this_doc_guide=API%2520Reference)
@@ -3844,12 +3806,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec describe_warm_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_warm_pool_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_warm_pool_errors()}
-
   def describe_warm_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3858,6 +3818,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Removes one or more instances from the specified Auto Scaling group. After the
   instances are detached, you can manage them independent of the Auto Scaling
   group.
@@ -3872,12 +3833,10 @@ defmodule AWS.AutoScaling do
       required("ShouldDecrementDesiredCapacity") => boolean()
     }
   """
-
   @spec detach_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_instances_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_instances_errors()}
-
   def detach_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3886,6 +3845,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   This API operation is superseded by `DetachTrafficSources`, which can detach
   multiple traffic sources types. We recommend using `DetachTrafficSources` to
   simplify how you manage traffic sources. However, we continue to support
@@ -3903,12 +3863,10 @@ defmodule AWS.AutoScaling do
       required("TargetGroupARNs") => list(String.t()())
     }
   """
-
   @spec detach_load_balancer_target_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_load_balancer_target_groups_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_load_balancer_target_groups_errors()}
-
   def detach_load_balancer_target_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3918,6 +3876,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   This API operation is superseded by `DetachTrafficSources`, which can detach
   multiple traffic sources types. We recommend using `DetachTrafficSources` to
   simplify how you manage traffic sources. However, we continue to support
@@ -3934,12 +3893,10 @@ defmodule AWS.AutoScaling do
       required("LoadBalancerNames") => list(String.t()())
     }
   """
-
   @spec detach_load_balancers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_load_balancers_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_load_balancers_errors()}
-
   def detach_load_balancers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3948,6 +3905,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Detaches one or more traffic sources from the specified Auto Scaling group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DetachTrafficSources&this_doc_guide=API%2520Reference)
@@ -3959,12 +3917,10 @@ defmodule AWS.AutoScaling do
       required("TrafficSources") => list(traffic_source_identifier()())
     }
   """
-
   @spec detach_traffic_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_traffic_sources_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_traffic_sources_errors()}
-
   def detach_traffic_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3973,6 +3929,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Disables group metrics collection for the specified Auto Scaling group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20DisableMetricsCollection&this_doc_guide=API%2520Reference)
@@ -3984,12 +3941,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec disable_metrics_collection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_metrics_collection_errors()}
-
   def disable_metrics_collection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3998,6 +3953,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Enables group metrics collection for the specified Auto Scaling group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20EnableMetricsCollection&this_doc_guide=API%2520Reference)
@@ -4010,12 +3966,10 @@ defmodule AWS.AutoScaling do
       required("Granularity") => String.t()
     }
   """
-
   @spec enable_metrics_collection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_metrics_collection_errors()}
-
   def enable_metrics_collection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4024,6 +3978,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Moves the specified instances into the standby state. If you choose to decrement
   the desired capacity of the Auto Scaling group, the instances can enter
   standby as long as the desired capacity of the Auto Scaling group after the
@@ -4040,12 +3995,10 @@ defmodule AWS.AutoScaling do
       required("ShouldDecrementDesiredCapacity") => boolean()
     }
   """
-
   @spec enter_standby(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enter_standby_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enter_standby_errors()}
-
   def enter_standby(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4054,6 +4007,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Executes the specified policy. This can be useful for testing the design of your
   scaling policy.
 
@@ -4069,12 +4023,10 @@ defmodule AWS.AutoScaling do
       required("PolicyName") => String.t()
     }
   """
-
   @spec execute_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_policy_errors()}
-
   def execute_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4083,6 +4035,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Moves the specified instances out of the standby state. After you put the
   instances back in service, the desired capacity is incremented.
 
@@ -4095,12 +4048,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec exit_standby(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, exit_standby_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, exit_standby_errors()}
-
   def exit_standby(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4109,6 +4060,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Retrieves the forecast data for a predictive scaling policy. Load forecasts are
   predictions of the hourly load values using historical load data from
   CloudWatch and an analysis of historical trends. Capacity forecasts are
@@ -4126,12 +4078,10 @@ defmodule AWS.AutoScaling do
       required("StartTime") => non_neg_integer()
     }
   """
-
   @spec get_predictive_scaling_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_predictive_scaling_forecast_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_predictive_scaling_forecast_errors()}
-
   def get_predictive_scaling_forecast(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4141,6 +4091,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Creates or updates a lifecycle hook for the specified Auto Scaling group.
   Lifecycle hooks let you create solutions that are aware of events in the Auto
   Scaling instance lifecycle, and then perform a custom action on instances when
@@ -4161,12 +4112,10 @@ defmodule AWS.AutoScaling do
       required("LifecycleHookName") => String.t()
     }
   """
-
   @spec put_lifecycle_hook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_lifecycle_hook_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_lifecycle_hook_errors()}
-
   def put_lifecycle_hook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4175,6 +4124,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Configures an Auto Scaling group to send notifications when specified events
   take place. Subscribers to the specified topic can have messages delivered to
   an endpoint such as a web server or an email address. This configuration
@@ -4190,12 +4140,10 @@ defmodule AWS.AutoScaling do
       required("TopicARN") => String.t()
     }
   """
-
   @spec put_notification_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_notification_configuration_errors()}
-
   def put_notification_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4205,6 +4153,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Creates or updates a scaling policy for an Auto Scaling group. Scaling policies
   are used to scale an Auto Scaling group based on configurable metrics. If no
   policies are defined, the dynamic scaling and predictive scaling features are
@@ -4239,12 +4188,10 @@ defmodule AWS.AutoScaling do
       required("PolicyName") => String.t()
     }
   """
-
   @spec put_scaling_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, policy_arn_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_scaling_policy_errors()}
-
   def put_scaling_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4253,6 +4200,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Creates or updates a scheduled scaling action for an Auto Scaling group. For
   more information, see [Scheduled
   scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html)
@@ -4275,12 +4223,10 @@ defmodule AWS.AutoScaling do
       required("ScheduledActionName") => String.t()
     }
   """
-
   @spec put_scheduled_update_group_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_scheduled_update_group_action_errors()}
-
   def put_scheduled_update_group_action(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4290,6 +4236,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Creates or updates a warm pool for the specified Auto Scaling group. A warm pool
   is a pool of pre-initialized EC2 instances that sits alongside the Auto
   Scaling group. Whenever your application needs to scale out, the Auto Scaling
@@ -4309,12 +4256,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec put_warm_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_warm_pool_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_warm_pool_errors()}
-
   def put_warm_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4323,6 +4268,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Records a heartbeat for the lifecycle action associated with the specified token
   or instance. This extends the timeout by the length of time defined using the
   `PutLifecycleHook` API call. This step is a part of the procedure for adding a
@@ -4339,12 +4285,10 @@ defmodule AWS.AutoScaling do
       required("LifecycleHookName") => String.t()
     }
   """
-
   @spec record_lifecycle_action_heartbeat(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, record_lifecycle_action_heartbeat_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, record_lifecycle_action_heartbeat_errors()}
-
   def record_lifecycle_action_heartbeat(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4354,6 +4298,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Resumes the specified suspended auto scaling processes, or all suspended
   process, for the specified Auto Scaling group.
 
@@ -4366,12 +4311,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec resume_processes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_processes_errors()}
-
   def resume_processes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4380,6 +4323,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Cancels an instance refresh that is in progress and rolls back any changes that
   it made. Amazon EC2 Auto Scaling replaces any instances that were replaced
   during the instance refresh. This restores your Auto Scaling group to the
@@ -4397,12 +4341,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec rollback_instance_refresh(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rollback_instance_refresh_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rollback_instance_refresh_errors()}
-
   def rollback_instance_refresh(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4411,6 +4353,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Sets the size of the specified Auto Scaling group. If a scale-in activity occurs
   as a result of a new `DesiredCapacity` value that is lower than the current
   size of the group, the Auto Scaling group uses its termination policy to
@@ -4426,12 +4369,10 @@ defmodule AWS.AutoScaling do
       required("DesiredCapacity") => integer()
     }
   """
-
   @spec set_desired_capacity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_desired_capacity_errors()}
-
   def set_desired_capacity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4440,6 +4381,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Sets the health status of the specified instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscaling%20SetInstanceHealth&this_doc_guide=API%2520Reference)
@@ -4452,12 +4394,10 @@ defmodule AWS.AutoScaling do
       required("InstanceId") => String.t()
     }
   """
-
   @spec set_instance_health(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_instance_health_errors()}
-
   def set_instance_health(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4466,6 +4406,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Updates the instance protection settings of the specified instances. This
   operation cannot be called on instances in a warm pool. For more information,
   see [Use instance scale-in
@@ -4482,12 +4423,10 @@ defmodule AWS.AutoScaling do
       required("ProtectedFromScaleIn") => boolean()
     }
   """
-
   @spec set_instance_protection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_instance_protection_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_instance_protection_errors()}
-
   def set_instance_protection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4496,6 +4435,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Starts an instance refresh. This operation is part of the [instance refresh
   feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
   in Amazon EC2 Auto Scaling, which helps you update instances in your Auto
@@ -4515,12 +4455,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec start_instance_refresh(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_instance_refresh_answer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_instance_refresh_errors()}
-
   def start_instance_refresh(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4529,6 +4467,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Suspends the specified auto scaling processes, or all processes, for the
   specified Auto Scaling group. If you suspend either the `Launch` or
   `Terminate` process types, it can prevent other process types from functioning
@@ -4546,12 +4485,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec suspend_processes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, suspend_processes_errors()}
-
   def suspend_processes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4560,6 +4497,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   Terminates the specified instance and optionally adjusts the desired group size.
   This operation cannot be called on instances in a warm pool. This call simply
   makes a termination request. The instance is not terminated immediately. When
@@ -4575,12 +4513,10 @@ defmodule AWS.AutoScaling do
       required("ShouldDecrementDesiredCapacity") => boolean()
     }
   """
-
   @spec terminate_instance_in_auto_scaling_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activity_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_instance_in_auto_scaling_group_errors()}
-
   def terminate_instance_in_auto_scaling_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4590,6 +4526,7 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+   
   **We strongly recommend that all Auto Scaling groups use launch templates to
   ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.**
   Updates the configuration for the specified Auto Scaling group.
@@ -4623,12 +4560,10 @@ defmodule AWS.AutoScaling do
       required("AutoScalingGroupName") => String.t()
     }
   """
-
   @spec update_auto_scaling_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_auto_scaling_group_errors()}
-
   def update_auto_scaling_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

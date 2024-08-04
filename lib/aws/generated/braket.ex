@@ -846,16 +846,13 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CancelJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_arn` (`t:string`) The ARN of the Amazon Braket job to cancel.
-
-  ## Optional parameters:
+  * `:job_arn` (`t:string` required) The ARN of the Amazon Braket job to cancel.
+  ## Keyword parameters:
   """
-
   @spec cancel_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
-
   def cancel_job(%Client{} = client, job_arn, options \\ []) do
     url_path = "/job/#{AWS.Util.encode_uri(job_arn)}/cancel"
 
@@ -892,16 +889,13 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CancelQuantumTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:quantum_task_arn` (`t:string`) The ARN of the task to cancel.
-
-  ## Optional parameters:
+  * `:quantum_task_arn` (`t:string` required) The ARN of the task to cancel.
+  ## Keyword parameters:
   """
-
   @spec cancel_quantum_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_quantum_task_errors()}
-
   def cancel_quantum_task(%Client{} = client, quantum_task_arn, options \\ []) do
     url_path = "/quantum-task/#{AWS.Util.encode_uri(quantum_task_arn)}/cancel"
 
@@ -938,15 +932,12 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CreateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
-
   def create_job(%Client{} = client, options \\ []) do
     url_path = "/job"
 
@@ -983,15 +974,12 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CreateQuantumTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_quantum_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_quantum_task_errors()}
-
   def create_quantum_task(%Client{} = client, options \\ []) do
     url_path = "/quantum-task"
 
@@ -1028,16 +1016,13 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20GetDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_arn` (`t:string`) The ARN of the device to retrieve.
-
-  ## Optional parameters:
+  * `:device_arn` (`t:string` required) The ARN of the device to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_errors()}
-
   def get_device(%Client{} = client, device_arn, options \\ []) do
     url_path = "/device/#{AWS.Util.encode_uri(device_arn)}"
 
@@ -1072,19 +1057,16 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20GetJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_arn` (`t:string`) The ARN of the job to retrieve.
-
-  ## Optional parameters:
+  * `:job_arn` (`t:string` required) The ARN of the job to retrieve.
+  ## Keyword parameters:
   * `:additional_attribute_names`
   (`t:list[com.amazonaws.braket#HybridJobAdditionalAttributeName]`) A list of
   attributes to return information for.
   """
-
   @spec get_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
-
   def get_job(%Client{} = client, job_arn, options \\ []) do
     url_path = "/job/#{AWS.Util.encode_uri(job_arn)}"
 
@@ -1130,19 +1112,16 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20GetQuantumTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:quantum_task_arn` (`t:string`) The ARN of the task to retrieve.
-
-  ## Optional parameters:
+  * `:quantum_task_arn` (`t:string` required) The ARN of the task to retrieve.
+  ## Keyword parameters:
   * `:additional_attribute_names`
   (`t:list[com.amazonaws.braket#QuantumTaskAdditionalAttributeName]`) A list
   of attributes to return information for.
   """
-
   @spec get_quantum_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_quantum_task_errors()}
-
   def get_quantum_task(%Client{} = client, quantum_task_arn, options \\ []) do
     url_path = "/quantum-task/#{AWS.Util.encode_uri(quantum_task_arn)}"
 
@@ -1188,17 +1167,14 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Specify the resourceArn for the resource whose
-  tags to display.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Specify the resourceArn for the resource
+  whose tags to display.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1233,15 +1209,12 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_devices_errors()}
-
   def search_devices(%Client{} = client, options \\ []) do
     url_path = "/devices"
 
@@ -1278,15 +1251,12 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_jobs_errors()}
-
   def search_jobs(%Client{} = client, options \\ []) do
     url_path = "/jobs"
 
@@ -1323,15 +1293,12 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchQuantumTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_quantum_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_quantum_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_quantum_tasks_errors()}
-
   def search_quantum_tasks(%Client{} = client, options \\ []) do
     url_path = "/quantum-tasks"
 
@@ -1368,17 +1335,14 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Specify the resourceArn of the resource to which
-  a tag will be added.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Specify the resourceArn of the resource
+  to which a tag will be added.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1415,19 +1379,16 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Specify the resourceArn for the resource from
-  which to remove the tags.
-  * `:tag_keys` (`t:list[smithy.api#String]`) Specify the keys for the tags to
-  remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Specify the resourceArn for the resource
+  from which to remove the tags.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) Specify the keys for the
+  tags to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

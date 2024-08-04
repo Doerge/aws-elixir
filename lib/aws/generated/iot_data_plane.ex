@@ -383,17 +383,14 @@ defmodule AWS.IoTDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdataplane%20DeleteThingShadow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`) The name of the thing.
-
-  ## Optional parameters:
+  * `:thing_name` (`t:string` required) The name of the thing.
+  ## Keyword parameters:
   * `:shadow_name` (`t:string`) The name of the shadow.
   """
-
   @spec delete_thing_shadow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_thing_shadow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_thing_shadow_errors()}
-
   def delete_thing_shadow(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
 
@@ -457,16 +454,14 @@ defmodule AWS.IoTDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdataplane%20GetRetainedMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:topic` (`t:string`) The topic name of the retained message to retrieve.
-
-  ## Optional parameters:
+  * `:topic` (`t:string` required) The topic name of the retained message to
+  retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_retained_message(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_retained_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_retained_message_errors()}
-
   def get_retained_message(%Client{} = client, topic, options \\ []) do
     url_path = "/retainedMessage/#{AWS.Util.encode_uri(topic)}"
 
@@ -501,17 +496,14 @@ defmodule AWS.IoTDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdataplane%20GetThingShadow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`) The name of the thing.
-
-  ## Optional parameters:
+  * `:thing_name` (`t:string` required) The name of the thing.
+  ## Keyword parameters:
   * `:shadow_name` (`t:string`) The name of the shadow.
   """
-
   @spec get_thing_shadow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_thing_shadow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_thing_shadow_errors()}
-
   def get_thing_shadow(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
 
@@ -557,18 +549,15 @@ defmodule AWS.IoTDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdataplane%20ListNamedShadowsForThing&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`) The name of the thing.
-
-  ## Optional parameters:
+  * `:thing_name` (`t:string` required) The name of the thing.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   * `:page_size` (`t:integer`) The result page size.
   """
-
   @spec list_named_shadows_for_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_named_shadows_for_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_named_shadows_for_thing_errors()}
-
   def list_named_shadows_for_thing(%Client{} = client, thing_name, options \\ []) do
     url_path = "/api/things/shadow/ListNamedShadowsForThing/#{AWS.Util.encode_uri(thing_name)}"
 
@@ -624,20 +613,17 @@ defmodule AWS.IoTDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdataplane%20ListRetainedMessages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return at one
   time.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_retained_messages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_retained_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_retained_messages_errors()}
-
   def list_retained_messages(%Client{} = client, options \\ []) do
     url_path = "/retainedMessage"
 
@@ -694,12 +680,11 @@ defmodule AWS.IoTDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdataplane%20Publish&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:topic` (`t:string`) The name of the MQTT topic.
+  * `:topic` (`t:string` required) The name of the MQTT topic.
   * `:input` (`t:map | nil`):
     * `:payload` (`t:blob`) The message body. MQTT accepts text, binary, and empty
   (null) message payloads.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:content_type` (`t:string`) A UTF-8 encoded string that describes the content
   of the publishing message.
   * `:message_expiry` (`t:long`) A user-defined integer value that represents the
@@ -727,12 +712,10 @@ defmodule AWS.IoTDataPlane do
   the JSON string to base64 format before adding it to the HTTP header.
   userProperties is an HTTP header value in the API.
   """
-
   @spec publish(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_errors()}
-
   def publish(%Client{} = client, topic, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/topics/#{AWS.Util.encode_uri(topic)}"
@@ -847,19 +830,16 @@ defmodule AWS.IoTDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdataplane%20UpdateThingShadow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`) The name of the thing.
+  * `:thing_name` (`t:string` required) The name of the thing.
   * `:input` (`t:map`):
-    * `:payload` (`t:blob`) The state information, in JSON format.
-
-  ## Optional parameters:
+    * `:payload` (`t:blob` required) The state information, in JSON format.
+  ## Keyword parameters:
   * `:shadow_name` (`t:string`) The name of the shadow.
   """
-
   @spec update_thing_shadow(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_thing_shadow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_thing_shadow_errors()}
-
   def update_thing_shadow(%Client{} = client, thing_name, input, options \\ [])
       when is_map(input) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"

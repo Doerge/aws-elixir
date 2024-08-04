@@ -660,15 +660,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20CreateLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_link_errors()}
-
   def create_link(%Client{} = client, options \\ []) do
     url_path = "/CreateLink"
 
@@ -711,15 +708,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20CreateSink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sink(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sink_errors()}
-
   def create_sink(%Client{} = client, options \\ []) do
     url_path = "/CreateSink"
 
@@ -757,15 +751,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20DeleteLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_link_errors()}
-
   def delete_link(%Client{} = client, options \\ []) do
     url_path = "/DeleteLink"
 
@@ -803,15 +794,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20DeleteSink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_sink(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sink_errors()}
-
   def delete_sink(%Client{} = client, options \\ []) do
     url_path = "/DeleteSink"
 
@@ -848,15 +836,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20GetLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_link_errors()}
-
   def get_link(%Client{} = client, options \\ []) do
     url_path = "/GetLink"
 
@@ -893,15 +878,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20GetSink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_sink(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sink_errors()}
-
   def get_sink(%Client{} = client, options \\ []) do
     url_path = "/GetSink"
 
@@ -940,15 +922,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20GetSinkPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_sink_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sink_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sink_policy_errors()}
-
   def get_sink_policy(%Client{} = client, options \\ []) do
     url_path = "/GetSinkPolicy"
 
@@ -986,15 +965,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListAttachedLinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_attached_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attached_links_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attached_links_errors()}
-
   def list_attached_links(%Client{} = client, options \\ []) do
     url_path = "/ListAttachedLinks"
 
@@ -1032,15 +1008,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListLinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_links_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_links_errors()}
-
   def list_links(%Client{} = client, options \\ []) do
     url_path = "/ListLinks"
 
@@ -1078,15 +1051,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListSinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_sinks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sinks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sinks_errors()}
-
   def list_sinks(%Client{} = client, options \\ []) do
     url_path = "/ListSinks"
 
@@ -1124,17 +1094,14 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that you want to view
-  tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource that you want to
+  view tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1173,15 +1140,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20PutSinkPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_sink_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_sink_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sink_policy_errors()}
-
   def put_sink_policy(%Client{} = client, options \\ []) do
     url_path = "/PutSinkPolicy"
 
@@ -1221,17 +1185,14 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that you're adding tags
-  to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource that you're
+  adding tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1268,19 +1229,16 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that you're removing tags
-  from.
-  * `:tag_keys` (`t:list[com.amazonaws.oam#TagKey]`) The list of tag keys to
-  remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource that you're
+  removing tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.oam#TagKey]` required) The list of tag keys
+  to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1332,15 +1290,12 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20UpdateLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_link_errors()}
-
   def update_link(%Client{} = client, options \\ []) do
     url_path = "/UpdateLink"
 

@@ -186,15 +186,12 @@ defmodule AWS.KinesisVideoSignaling do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideosignaling%20GetIceServerConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_ice_server_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_ice_server_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ice_server_config_errors()}
-
   def get_ice_server_config(%Client{} = client, options \\ []) do
     url_path = "/v1/get-ice-server-config"
 
@@ -236,15 +233,12 @@ defmodule AWS.KinesisVideoSignaling do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideosignaling%20SendAlexaOfferToMaster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec send_alexa_offer_to_master(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_alexa_offer_to_master_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_alexa_offer_to_master_errors()}
-
   def send_alexa_offer_to_master(%Client{} = client, options \\ []) do
     url_path = "/v1/send-alexa-offer-to-master"
 

@@ -4696,6 +4696,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Registers a player's acceptance or rejection of a proposed FlexMatch match. A
   matchmaking configuration may require player acceptance; if so, then matches
   built with that configuration cannot be completed unless all players accept
@@ -4716,12 +4717,10 @@ defmodule AWS.GameLift do
       required("TicketId") => String.t()
     }
   """
-
   @spec accept_match(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_match_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_match_errors()}
-
   def accept_match(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4730,6 +4729,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Locates an available game server and temporarily reserves it
   to host gameplay and players. This operation is called from a game client or
@@ -4749,12 +4749,10 @@ defmodule AWS.GameLift do
       required("GameServerGroupName") => String.t()
     }
   """
-
   @spec claim_game_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, claim_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, claim_game_server_errors()}
-
   def claim_game_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4763,6 +4761,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Creates an alias for a fleet. In most situations, you can use an alias ID in
   place of a fleet ID. An alias provides a level of abstraction for a fleet that
   is useful when redirecting player traffic from one fleet to another, such as
@@ -4784,12 +4783,10 @@ defmodule AWS.GameLift do
       required("RoutingStrategy") => routing_strategy()
     }
   """
-
   @spec create_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alias_errors()}
-
   def create_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4798,6 +4795,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Creates a new Amazon GameLift build resource for your game server binary files.
   Combine game server binaries into a zip file for use with Amazon GameLift.
   When setting up a new game build for Amazon GameLift, we recommend using the
@@ -4821,12 +4819,10 @@ defmodule AWS.GameLift do
       optional("Version") => String.t()
     }
   """
-
   @spec create_build(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_build_errors()}
-
   def create_build(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4835,6 +4831,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift containers feature, which is
   currently in public preview. ** Creates a `ContainerGroupDefinition` resource
   that describes a set of containers for hosting your game server with Amazon
@@ -4856,12 +4853,10 @@ defmodule AWS.GameLift do
       required("TotalMemoryLimit") => integer()
     }
   """
-
   @spec create_container_group_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_container_group_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_container_group_definition_errors()}
-
   def create_container_group_definition(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4871,6 +4866,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Creates a fleet of compute
   resources to host your game servers. Use this operation to set up the
@@ -4907,12 +4903,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec create_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
-
   def create_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4921,6 +4915,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Adds remote locations to an
   EC2 or container fleet and begins populating the new locations with instances.
@@ -4936,12 +4931,10 @@ defmodule AWS.GameLift do
       required("Locations") => list(location_configuration()())
     }
   """
-
   @spec create_fleet_locations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_fleet_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_locations_errors()}
-
   def create_fleet_locations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4950,6 +4943,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Creates a Amazon GameLift FleetIQ game server group for
   managing game hosting on a collection of Amazon Elastic Compute Cloud
@@ -4977,12 +4971,10 @@ defmodule AWS.GameLift do
       required("RoleArn") => String.t()
     }
   """
-
   @spec create_game_server_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_game_server_group_errors()}
-
   def create_game_server_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4991,6 +4983,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Creates a multiplayer game session for players in a specific fleet location.
   This operation prompts an available server process to start a game session and
   retrieves connection information for the new game session. As an alternative,
@@ -5019,12 +5012,10 @@ defmodule AWS.GameLift do
       required("MaximumPlayerSessionCount") => integer()
     }
   """
-
   @spec create_game_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_game_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_game_session_errors()}
-
   def create_game_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5033,6 +5024,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Creates a placement queue that processes requests for new game sessions. A queue
   uses FleetIQ algorithms to determine the best placement locations and find an
   available game server there, then prompts the game server process to start a
@@ -5060,12 +5052,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec create_game_session_queue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_game_session_queue_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_game_session_queue_errors()}
-
   def create_game_session_queue(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5074,6 +5064,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Creates a custom location for use in an Anywhere fleet.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=gamelift%20CreateLocation&this_doc_guide=API%2520Reference)
@@ -5085,12 +5076,10 @@ defmodule AWS.GameLift do
       required("LocationName") => String.t()
     }
   """
-
   @spec create_location(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_location_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_location_errors()}
-
   def create_location(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5099,6 +5088,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Defines a new matchmaking configuration for use with FlexMatch. Whether your are
   using FlexMatch with Amazon GameLift hosting or as a standalone matchmaking
   service, the matchmaking configuration sets out rules for matching players and
@@ -5136,12 +5126,10 @@ defmodule AWS.GameLift do
       required("RuleSetName") => String.t()
     }
   """
-
   @spec create_matchmaking_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_matchmaking_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_matchmaking_configuration_errors()}
-
   def create_matchmaking_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5151,6 +5139,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Creates a new rule set for FlexMatch matchmaking. A rule set describes the type
   of match to create, such as the number and size of teams. It also sets the
   parameters for acceptable player matches, such as minimum skill level or
@@ -5168,12 +5157,10 @@ defmodule AWS.GameLift do
       required("RuleSetBody") => String.t()
     }
   """
-
   @spec create_matchmaking_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_matchmaking_rule_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_matchmaking_rule_set_errors()}
-
   def create_matchmaking_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5182,6 +5169,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Reserves an open player slot in a game session for a player. New player sessions
   can be created in any game session with an open slot that is in `ACTIVE`
   status and has a player creation policy of `ACCEPT_ALL`. You can add a group
@@ -5205,12 +5193,10 @@ defmodule AWS.GameLift do
       required("PlayerId") => String.t()
     }
   """
-
   @spec create_player_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_player_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_player_session_errors()}
-
   def create_player_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5219,6 +5205,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Reserves open slots in a game session for a group of players. New player
   sessions can be created in any game session with an open slot that is in
   `ACTIVE` status and has a player creation policy of `ACCEPT_ALL`. To add a
@@ -5242,12 +5229,10 @@ defmodule AWS.GameLift do
       required("PlayerIds") => list(String.t()())
     }
   """
-
   @spec create_player_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_player_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_player_sessions_errors()}
-
   def create_player_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5256,6 +5241,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Creates a new script record for your Realtime Servers script. Realtime scripts
   are JavaScript that provide configuration settings and optional custom game
   logic for your game. The script is deployed when you create a Realtime Servers
@@ -5276,12 +5262,10 @@ defmodule AWS.GameLift do
       optional("ZipFile") => binary()
     }
   """
-
   @spec create_script(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_script_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_script_errors()}
-
   def create_script(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5290,6 +5274,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Requests authorization to create or delete a peer connection between the VPC for
   your Amazon GameLift fleet and a virtual private cloud (VPC) in your Amazon
   Web Services account. VPC peering enables the game servers on your fleet to
@@ -5320,12 +5305,10 @@ defmodule AWS.GameLift do
       required("PeerVpcId") => String.t()
     }
   """
-
   @spec create_vpc_peering_authorization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_peering_authorization_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_peering_authorization_errors()}
-
   def create_vpc_peering_authorization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5335,6 +5318,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Establishes a VPC peering connection between a virtual private cloud (VPC) in an
   Amazon Web Services account with the VPC for your Amazon GameLift fleet. VPC
   peering enables the game servers on your fleet to communicate directly with
@@ -5372,12 +5356,10 @@ defmodule AWS.GameLift do
       required("PeerVpcId") => String.t()
     }
   """
-
   @spec create_vpc_peering_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_peering_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_peering_connection_errors()}
-
   def create_vpc_peering_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5387,6 +5369,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Deletes an alias. This operation removes all record of the alias. Game clients
   attempting to access a server process using the deleted alias receive an
   error. To delete an alias, specify the alias ID to be deleted. **Related
@@ -5400,12 +5383,10 @@ defmodule AWS.GameLift do
       required("AliasId") => String.t()
     }
   """
-
   @spec delete_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alias_errors()}
-
   def delete_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5414,6 +5395,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Deletes a build. This operation permanently deletes the build resource and any
   uploaded build files. Deleting a build does not affect the status of any
   active fleets using the build, but you can no longer create new fleets with
@@ -5427,12 +5409,10 @@ defmodule AWS.GameLift do
       required("BuildId") => String.t()
     }
   """
-
   @spec delete_build(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_build_errors()}
-
   def delete_build(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5441,6 +5421,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift containers feature, which is
   currently in public preview. ** Deletes a container group definition resource.
   You can delete a container group definition if there are no fleets using the
@@ -5454,12 +5435,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec delete_container_group_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_container_group_definition_errors()}
-
   def delete_container_group_definition(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5469,6 +5448,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Deletes all resources and information related to a fleet and shuts down any
   currently running fleet instances, including those in remote locations. If the
   fleet being deleted has a VPC peering connection, you first need to get a
@@ -5487,12 +5467,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec delete_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
-
   def delete_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5501,6 +5479,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Removes locations from a multi-location fleet. When deleting a location, all
   game server process and all instances that are still active in the location
   are shut down. To delete fleet locations, identify the fleet ID and provide a
@@ -5515,12 +5494,10 @@ defmodule AWS.GameLift do
       required("Locations") => list(String.t()())
     }
   """
-
   @spec delete_fleet_locations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_fleet_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_locations_errors()}
-
   def delete_fleet_locations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5529,6 +5506,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Terminates a game server group and permanently deletes the
   game server group record. You have several options for how these resources are
@@ -5544,12 +5522,10 @@ defmodule AWS.GameLift do
       required("GameServerGroupName") => String.t()
     }
   """
-
   @spec delete_game_server_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_game_server_group_errors()}
-
   def delete_game_server_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5558,6 +5534,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Deletes a game session queue. Once a queue is successfully deleted, unfulfilled
   [StartGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html)
   requests that reference the queue will fail. To delete a queue, specify the
@@ -5571,12 +5548,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec delete_game_session_queue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_game_session_queue_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_game_session_queue_errors()}
-
   def delete_game_session_queue(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5585,6 +5560,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Deletes a custom location.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=gamelift%20DeleteLocation&this_doc_guide=API%2520Reference)
@@ -5595,12 +5571,10 @@ defmodule AWS.GameLift do
       required("LocationName") => String.t()
     }
   """
-
   @spec delete_location(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_location_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_location_errors()}
-
   def delete_location(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5609,6 +5583,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Permanently removes a FlexMatch matchmaking configuration. To delete, specify
   the configuration name. A matchmaking configuration cannot be deleted if it is
   being used in any active matchmaking tickets.
@@ -5621,12 +5596,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec delete_matchmaking_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_matchmaking_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_matchmaking_configuration_errors()}
-
   def delete_matchmaking_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5636,6 +5609,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Deletes an existing matchmaking rule set. To delete the rule set, provide the
   rule set name. Rule sets cannot be deleted if they are currently being used by
   a matchmaking configuration. **Learn more**
@@ -5648,12 +5622,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec delete_matchmaking_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_matchmaking_rule_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_matchmaking_rule_set_errors()}
-
   def delete_matchmaking_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5662,6 +5634,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Deletes a fleet scaling policy. Once deleted, the policy is no longer in force
   and Amazon GameLift removes all record of it. To delete a scaling policy,
   specify both the scaling policy name and the fleet ID it is associated with.
@@ -5675,12 +5648,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec delete_scaling_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scaling_policy_errors()}
-
   def delete_scaling_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5689,6 +5660,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Deletes a Realtime script. This operation permanently deletes the script record.
   If script files were uploaded, they are also deleted (files stored in an S3
   bucket are not deleted). To delete a script, specify the script ID. Before
@@ -5705,12 +5677,10 @@ defmodule AWS.GameLift do
       required("ScriptId") => String.t()
     }
   """
-
   @spec delete_script(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_script_errors()}
-
   def delete_script(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5719,6 +5689,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Cancels a pending VPC peering authorization for the specified VPC. If you need
   to delete an existing VPC peering connection, use
   [DeleteVpcPeeringConnection](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteVpcPeeringConnection.html).
@@ -5733,12 +5704,10 @@ defmodule AWS.GameLift do
       required("PeerVpcId") => String.t()
     }
   """
-
   @spec delete_vpc_peering_authorization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vpc_peering_authorization_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_peering_authorization_errors()}
-
   def delete_vpc_peering_authorization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5748,6 +5717,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Removes a VPC peering connection. To delete the connection, you must have a
   valid authorization for the VPC peering connection that you want to delete..
   Once a valid authorization exists, call this operation from the Amazon Web
@@ -5764,12 +5734,10 @@ defmodule AWS.GameLift do
       required("VpcPeeringConnectionId") => String.t()
     }
   """
-
   @spec delete_vpc_peering_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vpc_peering_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_peering_connection_errors()}
-
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5779,6 +5747,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Removes a compute resource
   from an Amazon GameLift Anywhere fleet or container fleet. Deregistered
@@ -5793,12 +5762,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec deregister_compute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_compute_errors()}
-
   def deregister_compute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5807,6 +5774,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Removes the game server from a game server group. As a result
   of this operation, the deregistered game server can no longer be claimed and
@@ -5821,12 +5789,10 @@ defmodule AWS.GameLift do
       required("GameServerId") => String.t()
     }
   """
-
   @spec deregister_game_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_game_server_errors()}
-
   def deregister_game_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5835,6 +5801,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves properties for an alias. This operation returns all alias metadata and
   settings. To get an alias's target fleet ID only, use `ResolveAlias`. To get
   alias properties, specify the alias ID. If successful, the requested alias
@@ -5848,12 +5815,10 @@ defmodule AWS.GameLift do
       required("AliasId") => String.t()
     }
   """
-
   @spec describe_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_alias_errors()}
-
   def describe_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5862,6 +5827,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves properties for a custom game build. To request a build resource,
   specify a build ID. If successful, an object containing the build properties
   is returned. **Learn more**
@@ -5874,12 +5840,10 @@ defmodule AWS.GameLift do
       required("BuildId") => String.t()
     }
   """
-
   @spec describe_build(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_build_errors()}
-
   def describe_build(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5888,6 +5852,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Retrieves properties for a
   compute resource in an Amazon GameLift fleet. To get a list of all computes in
@@ -5902,12 +5867,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec describe_compute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_compute_errors()}
-
   def describe_compute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5916,6 +5879,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift containers feature, which is
   currently in public preview. ** Retrieves the properties of a container group
   definition, including all container definitions in the group.
@@ -5928,12 +5892,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec describe_container_group_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_container_group_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_container_group_definition_errors()}
-
   def describe_container_group_definition(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5943,6 +5905,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves the instance limits and current utilization for an Amazon Web Services
   Region or location. Instance limits control the number of instances, per
   instance type, per location, that your Amazon Web Services account can use.
@@ -5968,12 +5931,10 @@ defmodule AWS.GameLift do
       optional("Location") => String.t()
     }
   """
-
   @spec describe_ec2_instance_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ec2_instance_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ec2_instance_limits_errors()}
-
   def describe_ec2_instance_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5982,6 +5943,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Retrieves core fleet-wide
   properties for fleets in an Amazon Web Services Region. Properties include the
@@ -5997,12 +5959,10 @@ defmodule AWS.GameLift do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fleet_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_attributes_errors()}
-
   def describe_fleet_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6011,6 +5971,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Retrieves the resource
   capacity settings for one or more fleets. For a container fleet, this
@@ -6026,12 +5987,10 @@ defmodule AWS.GameLift do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fleet_capacity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_capacity_errors()}
-
   def describe_fleet_capacity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6040,6 +5999,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves entries from a fleet's event log. Fleet events are initiated by
   changes in status, such as during fleet creation and termination, changes in
   capacity, etc. If a fleet has multiple locations, events are also initiated by
@@ -6059,12 +6019,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec describe_fleet_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_events_errors()}
-
   def describe_fleet_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6073,6 +6031,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves information on a fleet's remote locations, including life-cycle status
   and any suspended fleet activity. This operation can be used in the following
   ways:
@@ -6088,12 +6047,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec describe_fleet_location_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_location_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_location_attributes_errors()}
-
   def describe_fleet_location_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6103,6 +6060,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves the resource capacity settings for a fleet location. The data returned
   includes the current capacity (number of EC2 instances) and some scaling
   settings for the requested fleet location. For a container fleet, this
@@ -6120,12 +6078,10 @@ defmodule AWS.GameLift do
       required("Location") => String.t()
     }
   """
-
   @spec describe_fleet_location_capacity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_location_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_location_capacity_errors()}
-
   def describe_fleet_location_capacity(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6135,6 +6091,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves current usage data for a fleet location. Utilization data provides a
   snapshot of current game hosting activity at the requested location. Use this
   operation to retrieve utilization information for a fleet's remote location or
@@ -6151,12 +6108,10 @@ defmodule AWS.GameLift do
       required("Location") => String.t()
     }
   """
-
   @spec describe_fleet_location_utilization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_location_utilization_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_location_utilization_errors()}
-
   def describe_fleet_location_utilization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6166,6 +6121,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves a fleet's inbound connection permissions. Connection permissions
   specify IP addresses and port settings that incoming traffic can use to access
   server processes in the fleet. Game server processes that are running in the
@@ -6182,12 +6138,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec describe_fleet_port_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_port_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_port_settings_errors()}
-
   def describe_fleet_port_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6196,6 +6150,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves utilization statistics for one or more fleets. Utilization data
   provides a snapshot of how the fleet's hosting resources are currently being
   used. For fleets with remote locations, this operation retrieves data for the
@@ -6214,12 +6169,10 @@ defmodule AWS.GameLift do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_fleet_utilization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleet_utilization_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_utilization_errors()}
-
   def describe_fleet_utilization(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6228,6 +6181,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Retrieves information for a registered game server.
   Information includes game server status, health check info, and the instance
@@ -6242,12 +6196,10 @@ defmodule AWS.GameLift do
       required("GameServerId") => String.t()
     }
   """
-
   @spec describe_game_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_game_server_errors()}
-
   def describe_game_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6256,6 +6208,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Retrieves information on a game server group. This operation
   returns only properties related to Amazon GameLift FleetIQ. To view or update
@@ -6271,12 +6224,10 @@ defmodule AWS.GameLift do
       required("GameServerGroupName") => String.t()
     }
   """
-
   @spec describe_game_server_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_game_server_group_errors()}
-
   def describe_game_server_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6285,6 +6236,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Retrieves status information about the Amazon EC2 instances
   associated with a Amazon GameLift FleetIQ game server group. Use this
@@ -6302,12 +6254,10 @@ defmodule AWS.GameLift do
       required("GameServerGroupName") => String.t()
     }
   """
-
   @spec describe_game_server_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_game_server_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_game_server_instances_errors()}
-
   def describe_game_server_instances(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6317,6 +6267,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves additional game session properties, including the game session
   protection policy in force, a set of one or more game sessions in a specific
   fleet location. You can optionally filter the results by current game session
@@ -6336,12 +6287,10 @@ defmodule AWS.GameLift do
       optional("StatusFilter") => String.t()
     }
   """
-
   @spec describe_game_session_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_game_session_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_game_session_details_errors()}
-
   def describe_game_session_details(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6351,6 +6300,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves information, including current status, about a game session placement
   request. To get game session placement details, specify the placement ID.
 
@@ -6362,12 +6312,10 @@ defmodule AWS.GameLift do
       required("PlacementId") => String.t()
     }
   """
-
   @spec describe_game_session_placement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_game_session_placement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_game_session_placement_errors()}
-
   def describe_game_session_placement(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6377,6 +6325,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves the properties for one or more game session queues. When requesting
   multiple queues, use the pagination parameters to retrieve results as a set of
   sequential pages. When specifying a list of queues, objects are returned only
@@ -6392,12 +6341,10 @@ defmodule AWS.GameLift do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_game_session_queues(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_game_session_queues_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_game_session_queues_errors()}
-
   def describe_game_session_queues(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6406,6 +6353,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves a set of one or more game sessions in a specific fleet location. You
   can optionally filter the results by current game session status. This
   operation can be used in the following ways:
@@ -6424,12 +6372,10 @@ defmodule AWS.GameLift do
       optional("StatusFilter") => String.t()
     }
   """
-
   @spec describe_game_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_game_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_game_sessions_errors()}
-
   def describe_game_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6438,6 +6384,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves information about the EC2 instances in an Amazon GameLift managed
   fleet, including instance ID, connection data, and status. You can use this
   operation with a multi-location fleet to get location-specific instance
@@ -6457,12 +6404,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec describe_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instances_errors()}
-
   def describe_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6471,6 +6416,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket
   information, including--after a successful match is made--connection
   information for the resulting new game session. To request matchmaking
@@ -6485,12 +6431,10 @@ defmodule AWS.GameLift do
       required("TicketIds") => list(String.t()())
     }
   """
-
   @spec describe_matchmaking(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_matchmaking_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_matchmaking_errors()}
-
   def describe_matchmaking(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6499,6 +6443,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves the details of FlexMatch matchmaking configurations. This operation
   offers the following options: (1) retrieve all matchmaking configurations, (2)
   retrieve configurations for a specified list, or (3) retrieve all
@@ -6517,12 +6462,10 @@ defmodule AWS.GameLift do
       optional("RuleSetName") => String.t()
     }
   """
-
   @spec describe_matchmaking_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_matchmaking_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_matchmaking_configurations_errors()}
-
   def describe_matchmaking_configurations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6532,6 +6475,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves the details for FlexMatch matchmaking rule sets. You can request all
   existing rule sets for the Region, or provide a list of one or more rule set
   names. When requesting multiple items, use the pagination parameters to
@@ -6548,12 +6492,10 @@ defmodule AWS.GameLift do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_matchmaking_rule_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_matchmaking_rule_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_matchmaking_rule_sets_errors()}
-
   def describe_matchmaking_rule_sets(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6563,6 +6505,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves properties for one or more player sessions. This action can be used in
   the following ways:
 
@@ -6579,12 +6522,10 @@ defmodule AWS.GameLift do
       optional("PlayerSessionStatusFilter") => String.t()
     }
   """
-
   @spec describe_player_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_player_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_player_sessions_errors()}
-
   def describe_player_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6593,6 +6534,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves a fleet's runtime configuration settings. The runtime configuration
   determines which server processes run, and how, on computes in the fleet. For
   managed EC2 fleets, the runtime configuration describes server processes that
@@ -6610,12 +6552,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec describe_runtime_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_runtime_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_runtime_configuration_errors()}
-
   def describe_runtime_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6625,6 +6565,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves all scaling policies applied to a fleet. To get a fleet's scaling
   policies, specify the fleet ID. You can filter this request by policy status,
   such as to retrieve only active scaling policies. Use the pagination
@@ -6643,12 +6584,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec describe_scaling_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scaling_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scaling_policies_errors()}
-
   def describe_scaling_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6657,6 +6596,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves properties for a Realtime script. To request a script record, specify
   the script ID. If successful, an object containing the script properties is
   returned.
@@ -6669,12 +6609,10 @@ defmodule AWS.GameLift do
       required("ScriptId") => String.t()
     }
   """
-
   @spec describe_script(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_script_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_script_errors()}
-
   def describe_script(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6683,6 +6621,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves valid VPC peering authorizations that are pending for the Amazon Web
   Services account. This operation returns all VPC peering authorizations and
   requests for peering. This includes those initiated and received by this
@@ -6696,12 +6635,10 @@ defmodule AWS.GameLift do
       
     }
   """
-
   @spec describe_vpc_peering_authorizations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_peering_authorizations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_peering_authorizations_errors()}
-
   def describe_vpc_peering_authorizations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6711,6 +6648,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves information on VPC peering connections. Use this operation to get
   peering information for all fleets or for one specific fleet ID. To retrieve
   connection information, call this operation from the Amazon Web Services
@@ -6728,12 +6666,10 @@ defmodule AWS.GameLift do
       optional("FleetId") => String.t()
     }
   """
-
   @spec describe_vpc_peering_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vpc_peering_connections_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_peering_connections_errors()}
-
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6743,6 +6679,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Requests authorization to
   remotely connect to a hosting resource in a Amazon GameLift managed fleet.
@@ -6757,12 +6694,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec get_compute_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_compute_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compute_access_errors()}
-
   def get_compute_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6771,6 +6706,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Requests an authentication token from Amazon GameLift for a compute resource in
   an Amazon GameLift Anywhere fleet or container fleet. Game servers that are
   running on the compute use this token to communicate with the Amazon GameLift
@@ -6788,12 +6724,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec get_compute_auth_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_compute_auth_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compute_auth_token_errors()}
-
   def get_compute_auth_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6802,6 +6736,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves the location of stored game session logs for a specified game session
   on Amazon GameLift managed fleets. When a game session is terminated, Amazon
   GameLift automatically stores the logs in Amazon S3 and retains them for 14
@@ -6815,12 +6750,10 @@ defmodule AWS.GameLift do
       required("GameSessionId") => String.t()
     }
   """
-
   @spec get_game_session_log_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_game_session_log_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_game_session_log_url_errors()}
-
   def get_game_session_log_url(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6829,6 +6762,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Requests authorization to remotely connect to an instance in an Amazon GameLift
   managed fleet. Use this operation to connect to instances with game servers
   that use Amazon GameLift server SDK 4.x or earlier. To connect to instances
@@ -6849,12 +6783,10 @@ defmodule AWS.GameLift do
       required("InstanceId") => String.t()
     }
   """
-
   @spec get_instance_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_access_errors()}
-
   def get_instance_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6863,6 +6795,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves all aliases for this Amazon Web Services account. You can filter the
   result set by alias name and/or routing strategy type. Use the pagination
   parameters to retrieve results in sequential pages. Returned aliases are not
@@ -6879,12 +6812,10 @@ defmodule AWS.GameLift do
       optional("RoutingStrategyType") => list(any())
     }
   """
-
   @spec list_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_aliases_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aliases_errors()}
-
   def list_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6893,6 +6824,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves build resources for all builds associated with the Amazon Web Services
   account in use. You can limit results to builds that are in a specific status
   by using the `Status` parameter. Use the pagination parameters to retrieve
@@ -6909,12 +6841,10 @@ defmodule AWS.GameLift do
       optional("Status") => list(any())
     }
   """
-
   @spec list_builds(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_builds_errors()}
-
   def list_builds(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6923,6 +6853,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Retrieves information on the
   compute resources in an Amazon GameLift fleet.
@@ -6938,12 +6869,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec list_compute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_compute_errors()}
-
   def list_compute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6952,6 +6881,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift containers feature, which is
   currently in public preview. ** Retrieves all container group definitions for
   the Amazon Web Services account and Amazon Web Services Region that are
@@ -6969,12 +6899,10 @@ defmodule AWS.GameLift do
       optional("SchedulingStrategy") => list(any())
     }
   """
-
   @spec list_container_group_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_container_group_definitions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_container_group_definitions_errors()}
-
   def list_container_group_definitions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6984,6 +6912,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Retrieves a collection of
   fleet resources in an Amazon Web Services Region. You can filter the result
@@ -7003,12 +6932,10 @@ defmodule AWS.GameLift do
       optional("ScriptId") => String.t()
     }
   """
-
   @spec list_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_errors()}
-
   def list_fleets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7017,6 +6944,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Lists a game server groups.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=gamelift%20ListGameServerGroups&this_doc_guide=API%2520Reference)
@@ -7028,12 +6956,10 @@ defmodule AWS.GameLift do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_game_server_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_game_server_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_game_server_groups_errors()}
-
   def list_game_server_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7042,6 +6968,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Retrieves information on all game servers that are currently
   active in a specified game server group. You can opt to sort the list by game
@@ -7059,12 +6986,10 @@ defmodule AWS.GameLift do
       required("GameServerGroupName") => String.t()
     }
   """
-
   @spec list_game_servers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_game_servers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_game_servers_errors()}
-
   def list_game_servers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7073,6 +6998,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Lists all custom and Amazon Web Services locations.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=gamelift%20ListLocations&this_doc_guide=API%2520Reference)
@@ -7085,12 +7011,10 @@ defmodule AWS.GameLift do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_locations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_locations_errors()}
-
   def list_locations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7099,6 +7023,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves script records for all Realtime scripts that are associated with the
   Amazon Web Services account in use. **Learn more**
 
@@ -7111,12 +7036,10 @@ defmodule AWS.GameLift do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_scripts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_scripts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scripts_errors()}
-
   def list_scripts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7125,6 +7048,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves all tags assigned to a Amazon GameLift resource. Use resource tags to
   organize Amazon Web Services resources for a range of purposes. This operation
   handles the permissions necessary to manage tags for Amazon GameLift resources
@@ -7139,12 +7063,10 @@ defmodule AWS.GameLift do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7153,6 +7075,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Creates or updates a scaling policy for a fleet. Scaling policies are used to
   automatically scale a fleet's hosting capacity to meet player demand. An
   active scaling policy instructs Amazon GameLift to track a fleet metric and
@@ -7183,12 +7106,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec put_scaling_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_scaling_policy_errors()}
-
   def put_scaling_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7197,6 +7118,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Registers a compute resource
   in an Amazon GameLift fleet. Register computes with an Amazon GameLift
@@ -7215,12 +7137,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec register_compute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_compute_errors()}
-
   def register_compute(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7229,6 +7149,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Creates a new game server resource and notifies Amazon
   GameLift FleetIQ that the game server is ready to host gameplay and players.
@@ -7249,12 +7170,10 @@ defmodule AWS.GameLift do
       required("InstanceId") => String.t()
     }
   """
-
   @spec register_game_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_game_server_errors()}
-
   def register_game_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7263,6 +7182,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves a fresh set of credentials for use when uploading a new set of game
   build files to Amazon GameLift's Amazon S3. This is done as part of the build
   creation process; see
@@ -7280,12 +7200,10 @@ defmodule AWS.GameLift do
       required("BuildId") => String.t()
     }
   """
-
   @spec request_upload_credentials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, request_upload_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, request_upload_credentials_errors()}
-
   def request_upload_credentials(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7294,6 +7212,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Attempts to retrieve a fleet ID that is associated with an alias. Specify a
   unique alias identifier. If the alias has a `SIMPLE` routing strategy, Amazon
   GameLift returns a fleet ID. If the alias has a `TERMINAL` routing strategy,
@@ -7307,12 +7226,10 @@ defmodule AWS.GameLift do
       required("AliasId") => String.t()
     }
   """
-
   @spec resolve_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resolve_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resolve_alias_errors()}
-
   def resolve_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7321,6 +7238,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Reinstates activity on a game server group after it has been
   suspended. A game server group might be suspended by the
@@ -7342,12 +7260,10 @@ defmodule AWS.GameLift do
       required("ResumeActions") => list(list(any())())
     }
   """
-
   @spec resume_game_server_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resume_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_game_server_group_errors()}
-
   def resume_game_server_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7356,6 +7272,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Retrieves all active game sessions that match a set of search criteria and sorts
   them into a specified order. This operation is not designed to continually
   track game session status because that practice can cause you to exceed your
@@ -7377,12 +7294,10 @@ defmodule AWS.GameLift do
       optional("SortExpression") => String.t()
     }
   """
-
   @spec search_game_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_game_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_game_sessions_errors()}
-
   def search_game_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7391,6 +7306,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Resumes certain types of activity on fleet instances that were suspended with
   [StopFleetActions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html).
   For multi-location fleets, fleet actions are managed separately for each
@@ -7407,12 +7323,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec start_fleet_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_fleet_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fleet_actions_errors()}
-
   def start_fleet_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7421,6 +7335,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Places a request for a new game session in a queue. When processing a placement
   request, Amazon GameLift searches for available resources on the queue's
   destinations, scanning each until it finds resources or the placement request
@@ -7443,12 +7358,10 @@ defmodule AWS.GameLift do
       required("PlacementId") => String.t()
     }
   """
-
   @spec start_game_session_placement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_game_session_placement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_game_session_placement_errors()}
-
   def start_game_session_placement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7457,6 +7370,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Finds new players to fill open slots in currently running game sessions. The
   backfill match process is essentially identical to the process of forming new
   matches. Backfill requests use the same matchmaker that was used to make the
@@ -7484,12 +7398,10 @@ defmodule AWS.GameLift do
       required("Players") => list(player()())
     }
   """
-
   @spec start_match_backfill(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_match_backfill_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_match_backfill_errors()}
-
   def start_match_backfill(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7498,6 +7410,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Uses FlexMatch to create a game match for a group of players based on custom
   matchmaking rules. With games that use Amazon GameLift managed hosting, this
   operation also triggers Amazon GameLift to find hosting resources and start a
@@ -7521,12 +7434,10 @@ defmodule AWS.GameLift do
       required("Players") => list(player()())
     }
   """
-
   @spec start_matchmaking(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_matchmaking_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_matchmaking_errors()}
-
   def start_matchmaking(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7535,6 +7446,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Suspends certain types of activity in a fleet location. Currently, this
   operation is used to stop auto-scaling activity. For multi-location fleets,
   fleet actions are managed separately for each location. Stopping fleet actions
@@ -7553,12 +7465,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec stop_fleet_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_fleet_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_fleet_actions_errors()}
-
   def stop_fleet_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7567,6 +7477,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Cancels a game session placement that is in `PENDING` status. To stop a
   placement, provide the placement ID values. If successful, the placement is
   moved to `CANCELLED` status.
@@ -7579,12 +7490,10 @@ defmodule AWS.GameLift do
       required("PlacementId") => String.t()
     }
   """
-
   @spec stop_game_session_placement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_game_session_placement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_game_session_placement_errors()}
-
   def stop_game_session_placement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7593,6 +7502,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Cancels a matchmaking ticket or match backfill ticket that is currently being
   processed. To stop the matchmaking operation, specify the ticket ID. If
   successful, work on the ticket is stopped, and the ticket status is changed to
@@ -7610,12 +7520,10 @@ defmodule AWS.GameLift do
       required("TicketId") => String.t()
     }
   """
-
   @spec stop_matchmaking(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_matchmaking_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_matchmaking_errors()}
-
   def stop_matchmaking(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7624,6 +7532,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Temporarily stops activity on a game server group without
   terminating instances or the game server group. You can restart activity by
@@ -7640,12 +7549,10 @@ defmodule AWS.GameLift do
       required("SuspendActions") => list(list(any())())
     }
   """
-
   @spec suspend_game_server_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, suspend_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, suspend_game_server_group_errors()}
-
   def suspend_game_server_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7654,6 +7561,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Assigns a tag to an Amazon GameLift resource. You can use tags to organize
   resources, create IAM permissions policies to manage access to groups of
   resources, customize Amazon Web Services cost breakdowns, and more. This
@@ -7672,12 +7580,10 @@ defmodule AWS.GameLift do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7686,6 +7592,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Removes a tag assigned to a Amazon GameLift resource. You can use resource tags
   to organize Amazon Web Services resources for a range of purposes. This
   operation handles the permissions necessary to manage tags for Amazon GameLift
@@ -7703,12 +7610,10 @@ defmodule AWS.GameLift do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7717,6 +7622,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Updates properties for an alias. Specify the unique identifier of the alias to
   be updated and the new property values. When reassigning an alias to a new
   fleet, provide an updated routing strategy. If successful, the updated alias
@@ -7733,12 +7639,10 @@ defmodule AWS.GameLift do
       required("AliasId") => String.t()
     }
   """
-
   @spec update_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alias_errors()}
-
   def update_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7747,6 +7651,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Updates metadata in a build resource, including the build name and version. To
   update the metadata, specify the build ID to update and provide the new
   values. If successful, a build object containing the updated metadata is
@@ -7762,12 +7667,10 @@ defmodule AWS.GameLift do
       required("BuildId") => String.t()
     }
   """
-
   @spec update_build(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_build_errors()}
-
   def update_build(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7776,6 +7679,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Updates a fleet's mutable attributes, such as game session protection and
   resource creation limits. To update fleet attributes, specify the fleet ID and
   the property values that you want to change. If successful, Amazon GameLift
@@ -7795,12 +7699,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec update_fleet_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_fleet_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_attributes_errors()}
-
   def update_fleet_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7809,6 +7711,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation has been expanded to use with the Amazon GameLift containers
   feature, which is currently in public preview.** Updates capacity settings for
   a managed EC2 fleet or container fleet. For these fleets, you adjust capacity
@@ -7829,12 +7732,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec update_fleet_capacity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_fleet_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_capacity_errors()}
-
   def update_fleet_capacity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7843,6 +7744,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Updates permissions that allow inbound traffic to connect to game sessions in
   the fleet. To update settings, specify the fleet ID to be updated and specify
   the changes to be made. List the permissions you want to add in
@@ -7860,12 +7762,10 @@ defmodule AWS.GameLift do
       required("FleetId") => String.t()
     }
   """
-
   @spec update_fleet_port_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_fleet_port_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_port_settings_errors()}
-
   def update_fleet_port_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7874,6 +7774,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Updates information about a registered game server to help
   Amazon GameLift FleetIQ track game server availability. This operation is
@@ -7892,12 +7793,10 @@ defmodule AWS.GameLift do
       required("GameServerId") => String.t()
     }
   """
-
   @spec update_game_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_game_server_errors()}
-
   def update_game_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7906,6 +7805,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   **This operation is used with the Amazon GameLift FleetIQ solution and game
   server groups.** Updates Amazon GameLift FleetIQ-specific properties for a
   game server group. Many Auto Scaling group properties are updated on the Auto
@@ -7924,12 +7824,10 @@ defmodule AWS.GameLift do
       required("GameServerGroupName") => String.t()
     }
   """
-
   @spec update_game_server_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_game_server_group_errors()}
-
   def update_game_server_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7938,6 +7836,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Updates the mutable properties of a game session. To update a game session,
   specify the game session ID and the values you want to change.
 
@@ -7954,12 +7853,10 @@ defmodule AWS.GameLift do
       required("GameSessionId") => String.t()
     }
   """
-
   @spec update_game_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_game_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_game_session_errors()}
-
   def update_game_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7968,6 +7865,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Updates the configuration of a game session queue, which determines how the
   queue processes new game session requests. To update settings, specify the
   queue name to be updated and provide the new settings. When updating
@@ -7988,12 +7886,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec update_game_session_queue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_game_session_queue_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_game_session_queue_errors()}
-
   def update_game_session_queue(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8002,6 +7898,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Updates settings for a FlexMatch matchmaking configuration. These changes affect
   all matches and game sessions that are created after the update. To update
   settings, specify the configuration name to be updated and provide the new
@@ -8028,12 +7925,10 @@ defmodule AWS.GameLift do
       required("Name") => String.t()
     }
   """
-
   @spec update_matchmaking_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_matchmaking_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_matchmaking_configuration_errors()}
-
   def update_matchmaking_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8043,6 +7938,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Updates the runtime configuration for the specified fleet. The runtime
   configuration tells Amazon GameLift how to launch server processes on computes
   in the fleet. For managed EC2 fleets, it determines what server processes to
@@ -8062,12 +7958,10 @@ defmodule AWS.GameLift do
       required("RuntimeConfiguration") => runtime_configuration()
     }
   """
-
   @spec update_runtime_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_runtime_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_runtime_configuration_errors()}
-
   def update_runtime_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8076,6 +7970,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Updates Realtime script metadata and content. To update script metadata, specify
   the script ID and provide updated name and/or version values.
 
@@ -8091,12 +7986,10 @@ defmodule AWS.GameLift do
       required("ScriptId") => String.t()
     }
   """
-
   @spec update_script(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_script_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_script_errors()}
-
   def update_script(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8105,6 +7998,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+   
   Validates the syntax of a matchmaking rule or rule set. This operation checks
   that the rule set is using syntactically correct JSON and that it conforms to
   allowed property expressions. To validate syntax, provide a rule set JSON
@@ -8118,12 +8012,10 @@ defmodule AWS.GameLift do
       required("RuleSetBody") => String.t()
     }
   """
-
   @spec validate_matchmaking_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, validate_matchmaking_rule_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_matchmaking_rule_set_errors()}
-
   def validate_matchmaking_rule_set(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

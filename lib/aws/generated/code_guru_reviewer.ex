@@ -907,15 +907,12 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20AssociateRepository&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_repository(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_repository_errors()}
-
   def associate_repository(%Client{} = client, options \\ []) do
     url_path = "/associations"
 
@@ -956,15 +953,12 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20CreateCodeReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_code_review(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_code_review_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_code_review_errors()}
-
   def create_code_review(%Client{} = client, options \\ []) do
     url_path = "/codereviews"
 
@@ -1001,17 +995,14 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20DescribeCodeReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:code_review_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   CodeReview object.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_code_review(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_code_review_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_code_review_errors()}
-
   def describe_code_review(%Client{} = client, code_review_arn, options \\ []) do
     url_path = "/codereviews/#{AWS.Util.encode_uri(code_review_arn)}"
 
@@ -1046,22 +1037,19 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20DescribeRecommendationFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:code_review_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   CodeReview object.
-  * `:recommendation_id` (`t:string`) The recommendation ID that can be used to
-  track the provided recommendations and then to collect the feedback.
-
-  ## Optional parameters:
+  * `:recommendation_id` (`t:string` required) The recommendation ID that can be
+  used to track the provided recommendations and then to collect the feedback.
+  ## Keyword parameters:
   * `:user_id` (`t:string`) Optional parameter to describe the feedback for a
   given user. If this is not supplied, it defaults to the user making the
   request.
   """
-
   @spec describe_recommendation_feedback(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recommendation_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recommendation_feedback_errors()}
-
   def describe_recommendation_feedback(
         %Client{} = client,
         code_review_arn,
@@ -1115,18 +1103,15 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20DescribeRepositoryAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:association_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:association_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   RepositoryAssociation object. You can retrieve this ARN by calling
   ListRepositoryAssociations.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_repository_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_repository_association_errors()}
-
   def describe_repository_association(%Client{} = client, association_arn, options \\ []) do
     url_path = "/associations/#{AWS.Util.encode_uri(association_arn)}"
 
@@ -1161,18 +1146,15 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20DisassociateRepository&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:association_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:association_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   RepositoryAssociation object. You can retrieve this ARN by calling
   ListRepositoryAssociations.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_repository(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_repository_errors()}
-
   def disassociate_repository(%Client{} = client, association_arn, options \\ []) do
     url_path = "/associations/#{AWS.Util.encode_uri(association_arn)}"
 
@@ -1219,10 +1201,9 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListCodeReviews&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:type` (`t:enum["PULL_REQUEST|REPOSITORY_ANALYSIS"]`) The type of code
-  reviews to list in the response.
-
-  ## Optional parameters:
+  * `:type` (`t:enum["PULL_REQUEST|REPOSITORY_ANALYSIS"]` required) The type of
+  code reviews to list in the response.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
   per call. The default is 100.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
@@ -1240,12 +1221,10 @@ defmodule AWS.CodeGuruReviewer do
   for filtering that needs to be applied before displaying the result. For
   example, states=[Pending] lists code reviews in the Pending state.
   """
-
   @spec list_code_reviews(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_code_reviews_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_code_reviews_errors()}
-
   def list_code_reviews(%Client{} = client, type, options \\ []) when is_binary(type) do
     url_path = "/codereviews"
 
@@ -1328,10 +1307,9 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListRecommendationFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:code_review_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   CodeReview object.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
   per call. The default is 100.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
@@ -1345,12 +1323,10 @@ defmodule AWS.CodeGuruReviewer do
   Services user's account ID or Amazon Resource Name (ARN). Use this ID to
   query the recommendation feedback for a code review from that user.
   """
-
   @spec list_recommendation_feedback(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recommendation_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendation_feedback_errors()}
-
   def list_recommendation_feedback(%Client{} = client, code_review_arn, options \\ []) do
     url_path = "/feedback/#{AWS.Util.encode_uri(code_review_arn)}/RecommendationFeedback"
 
@@ -1417,20 +1393,17 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:code_review_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   CodeReview object.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
   per call. The default is 100.
   * `:next_token` (`t:string`) Pagination token.
   """
-
   @spec list_recommendations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendations_errors()}
-
   def list_recommendations(%Client{} = client, code_review_arn, options \\ []) do
     url_path = "/codereviews/#{AWS.Util.encode_uri(code_review_arn)}/Recommendations"
 
@@ -1491,8 +1464,7 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListRepositoryAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of repository association
   results returned by ListRepositoryAssociations in paginated output. When
   this parameter is used, ListRepositoryAssociations only returns maxResults
@@ -1519,12 +1491,10 @@ defmodule AWS.CodeGuruReviewer do
   (`t:list[com.amazonaws.codegurureviewer#RepositoryAssociationState]`) List
   of repository association states to use as a filter.
   """
-
   @spec list_repository_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_repository_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_repository_associations_errors()}
-
   def list_repository_associations(%Client{} = client, options \\ []) do
     url_path = "/associations"
 
@@ -1612,18 +1582,15 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   RepositoryAssociation object. You can retrieve this ARN by calling
   ListRepositoryAssociations.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1659,15 +1626,12 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20PutRecommendationFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_recommendation_feedback(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_recommendation_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_recommendation_feedback_errors()}
-
   def put_recommendation_feedback(%Client{} = client, options \\ []) do
     url_path = "/feedback"
 
@@ -1704,18 +1668,15 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   RepositoryAssociation object. You can retrieve this ARN by calling
   ListRepositoryAssociations.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1752,20 +1713,17 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
   RepositoryAssociation object. You can retrieve this ARN by calling
   ListRepositoryAssociations.
-  * `:tag_keys` (`t:list[com.amazonaws.codegurureviewer#TagKey]`) A list of the
-  keys for each tag you want to remove from an associated repository.
-
-  ## Optional parameters:
+  * `:tag_keys` (`t:list[com.amazonaws.codegurureviewer#TagKey]` required) A list
+  of the keys for each tag you want to remove from an associated repository.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

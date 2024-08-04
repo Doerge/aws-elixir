@@ -3532,16 +3532,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20AssociatePhoneNumbersWithVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec associate_phone_numbers_with_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_phone_numbers_with_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_numbers_with_voice_connector_errors()}
-
   def associate_phone_numbers_with_voice_connector(
         %Client{} = client,
         voice_connector_id,
@@ -3584,12 +3581,10 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20AssociatePhoneNumbersWithVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_group_id` (`t:string`) The Amazon Chime SDK Voice Connector
-  group ID.
-
-  ## Optional parameters:
+  * `:voice_connector_group_id` (`t:string` required) The Amazon Chime SDK Voice
+  Connector group ID.
+  ## Keyword parameters:
   """
-
   @spec associate_phone_numbers_with_voice_connector_group(
           AWS.Client.t(),
           String.t(),
@@ -3598,7 +3593,6 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, associate_phone_numbers_with_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_numbers_with_voice_connector_group_errors()}
-
   def associate_phone_numbers_with_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -3642,15 +3636,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20BatchDeletePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_delete_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_phone_number_errors()}
-
   def batch_delete_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers?operation=batch-delete"
 
@@ -3689,15 +3680,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20BatchUpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_update_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_phone_number_errors()}
-
   def batch_update_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers?operation=batch-update"
 
@@ -3736,15 +3724,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreatePhoneNumberOrder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_phone_number_order(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_phone_number_order_errors()}
-
   def create_phone_number_order(%Client{} = client, options \\ []) do
     url_path = "/phone-number-orders"
 
@@ -3782,16 +3767,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateProxySession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec create_proxy_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_proxy_session_errors()}
-
   def create_proxy_session(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
 
@@ -3831,15 +3813,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateSipMediaApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sip_media_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_media_application_errors()}
-
   def create_sip_media_application(%Client{} = client, options \\ []) do
     url_path = "/sip-media-applications"
 
@@ -3878,16 +3857,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateSipMediaApplicationCall&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The ID of the SIP media
+  application.
+  ## Keyword parameters:
   """
-
   @spec create_sip_media_application_call(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_media_application_call_errors()}
-
   def create_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
@@ -3932,15 +3909,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateSipRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sip_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_rule_errors()}
-
   def create_sip_rule(%Client{} = client, options \\ []) do
     url_path = "/sip-rules"
 
@@ -3980,15 +3954,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_voice_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_errors()}
-
   def create_voice_connector(%Client{} = client, options \\ []) do
     url_path = "/voice-connectors"
 
@@ -4027,15 +3998,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_voice_connector_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_group_errors()}
-
   def create_voice_connector_group(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-groups"
 
@@ -4073,15 +4041,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_voice_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_profile_errors()}
-
   def create_voice_profile(%Client{} = client, options \\ []) do
     url_path = "/voice-profiles"
 
@@ -4119,15 +4084,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceProfileDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_voice_profile_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_profile_domain_errors()}
-
   def create_voice_profile_domain(%Client{} = client, options \\ []) do
     url_path = "/voice-profile-domains"
 
@@ -4166,16 +4128,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeletePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) The phone number ID.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) The phone number ID.
+  ## Keyword parameters:
   """
-
   @spec delete_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_phone_number_errors()}
-
   def delete_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -4223,17 +4182,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteProxySession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:proxy_session_id` (`t:string`) The proxy session ID.
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:proxy_session_id` (`t:string` required) The proxy session ID.
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec delete_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_proxy_session_errors()}
-
   def delete_proxy_session(
         %Client{} = client,
         proxy_session_id,
@@ -4286,16 +4242,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteSipMediaApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sip_media_application_errors()}
-
   def delete_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
 
@@ -4342,16 +4296,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteSipRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_rule_id` (`t:string`) The SIP rule ID.
-
-  ## Optional parameters:
+  * `:sip_rule_id` (`t:string` required) The SIP rule ID.
+  ## Keyword parameters:
   """
-
   @spec delete_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sip_rule_errors()}
-
   def delete_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
 
@@ -4400,16 +4351,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_errors()}
-
   def delete_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
 
@@ -4457,11 +4405,9 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
@@ -4470,7 +4416,6 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_emergency_calling_configuration_errors()}
-
   def delete_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -4524,16 +4469,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_group_id` (`t:string`) The Voice Connector Group ID.
-
-  ## Optional parameters:
+  * `:voice_connector_group_id` (`t:string` required) The Voice Connector Group
+  ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_group_errors()}
-
   def delete_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
 
@@ -4581,16 +4524,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_origination_errors()}
-
   def delete_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
 
@@ -4638,16 +4578,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorProxy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_proxy_errors()}
-
   def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -4695,16 +4632,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_streaming_configuration_errors()}
-
   def delete_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -4757,16 +4691,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorTermination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_termination_errors()}
-
   def delete_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
 
@@ -4814,16 +4745,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_termination_credentials_errors()}
-
   def delete_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -4866,16 +4794,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_profile_id` (`t:string`) The voice profile ID.
-
-  ## Optional parameters:
+  * `:voice_profile_id` (`t:string` required) The voice profile ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_profile_errors()}
-
   def delete_voice_profile(%Client{} = client, voice_profile_id, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
 
@@ -4923,16 +4848,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceProfileDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_profile_domain_id` (`t:string`) The voice profile domain ID.
-
-  ## Optional parameters:
+  * `:voice_profile_domain_id` (`t:string` required) The voice profile domain ID.
+  ## Keyword parameters:
   """
-
   @spec delete_voice_profile_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_profile_domain_errors()}
-
   def delete_voice_profile_domain(%Client{} = client, voice_profile_domain_id, options \\ []) do
     url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
 
@@ -4980,16 +4902,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DisassociatePhoneNumbersFromVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec disassociate_phone_numbers_from_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_numbers_from_voice_connector_errors()}
-
   def disassociate_phone_numbers_from_voice_connector(
         %Client{} = client,
         voice_connector_id,
@@ -5032,11 +4951,10 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DisassociatePhoneNumbersFromVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_group_id` (`t:string`) The Voice Connector group ID.
-
-  ## Optional parameters:
+  * `:voice_connector_group_id` (`t:string` required) The Voice Connector group
+  ID.
+  ## Keyword parameters:
   """
-
   @spec disassociate_phone_numbers_from_voice_connector_group(
           AWS.Client.t(),
           String.t(),
@@ -5045,7 +4963,6 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, disassociate_phone_numbers_from_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_numbers_from_voice_connector_group_errors()}
-
   def disassociate_phone_numbers_from_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -5088,15 +5005,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_global_settings_errors()}
-
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
 
@@ -5132,16 +5046,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetPhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) The phone number ID.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) The phone number ID.
+  ## Keyword parameters:
   """
-
   @spec get_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_errors()}
-
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -5178,16 +5089,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetPhoneNumberOrder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_order_id` (`t:string`) The ID of the phone number order .
-
-  ## Optional parameters:
+  * `:phone_number_order_id` (`t:string` required) The ID of the phone number
+  order .
+  ## Keyword parameters:
   """
-
   @spec get_phone_number_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_order_errors()}
-
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
 
@@ -5223,15 +5132,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetPhoneNumberSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_phone_number_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_settings_errors()}
-
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
 
@@ -5267,17 +5173,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetProxySession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:proxy_session_id` (`t:string`) The proxy session ID.
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:proxy_session_id` (`t:string` required) The proxy session ID.
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec get_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_proxy_session_errors()}
-
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
@@ -5314,16 +5217,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipMediaApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID .
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application ID
+  .
+  ## Keyword parameters:
   """
-
   @spec get_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_errors()}
-
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
 
@@ -5358,11 +5259,10 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipMediaApplicationAlexaSkillConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_sip_media_application_alexa_skill_configuration(
           AWS.Client.t(),
           String.t(),
@@ -5371,7 +5271,6 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, get_sip_media_application_alexa_skill_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_alexa_skill_configuration_errors()}
-
   def get_sip_media_application_alexa_skill_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -5411,16 +5310,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipMediaApplicationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_logging_configuration_errors()}
-
   def get_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -5461,16 +5358,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_rule_id` (`t:string`) The SIP rule ID.
-
-  ## Optional parameters:
+  * `:sip_rule_id` (`t:string` required) The SIP rule ID.
+  ## Keyword parameters:
   """
-
   @spec get_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_rule_errors()}
-
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
 
@@ -5505,17 +5399,15 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSpeakerSearchTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:speaker_search_task_id` (`t:string`) The ID of the speaker search task.
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:speaker_search_task_id` (`t:string` required) The ID of the speaker search
+  task.
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec get_speaker_search_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_speaker_search_task_errors()}
-
   def get_speaker_search_task(
         %Client{} = client,
         speaker_search_task_id,
@@ -5557,16 +5449,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_errors()}
-
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
 
@@ -5602,11 +5491,9 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
@@ -5615,7 +5502,6 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, get_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_emergency_calling_configuration_errors()}
-
   def get_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -5656,16 +5542,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_group_id` (`t:string`) The Voice Connector group ID.
-
-  ## Optional parameters:
+  * `:voice_connector_group_id` (`t:string` required) The Voice Connector group
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_group_errors()}
-
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
 
@@ -5702,16 +5586,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_logging_configuration_errors()}
-
   def get_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -5751,16 +5632,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_origination_errors()}
-
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
 
@@ -5796,16 +5674,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorProxy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_proxy_errors()}
-
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -5844,16 +5719,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_streaming_configuration_errors()}
-
   def get_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -5893,16 +5765,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorTermination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_errors()}
-
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
 
@@ -5938,16 +5807,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorTerminationHealth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_connector_termination_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_health_errors()}
-
   def get_voice_connector_termination_health(
         %Client{} = client,
         voice_connector_id,
@@ -5986,16 +5852,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_profile_id` (`t:string`) The voice profile ID.
-
-  ## Optional parameters:
+  * `:voice_profile_id` (`t:string` required) The voice profile ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_profile_errors()}
-
   def get_voice_profile(%Client{} = client, voice_profile_id, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
 
@@ -6030,16 +5893,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceProfileDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_profile_domain_id` (`t:string`) The voice profile domain ID.
-
-  ## Optional parameters:
+  * `:voice_profile_domain_id` (`t:string` required) The voice profile domain ID.
+  ## Keyword parameters:
   """
-
   @spec get_voice_profile_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_profile_domain_errors()}
-
   def get_voice_profile_domain(%Client{} = client, voice_profile_domain_id, options \\ []) do
     url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
 
@@ -6074,15 +5934,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone anlysis
-  task.
-  * `:is_caller` (`t:boolean`) Specifies whether the voice being analyzed is the
-  caller (originator) or the callee (responder).
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  * `:voice_tone_analysis_task_id` (`t:string` required) The ID of the voice tone
+  anlysis task.
+  * `:is_caller` (`t:boolean` required) Specifies whether the voice being analyzed
+  is the caller (originator) or the callee (responder).
+  ## Keyword parameters:
   """
-
   @spec get_voice_tone_analysis_task(
           AWS.Client.t(),
           String.t(),
@@ -6093,7 +5951,6 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, get_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_tone_analysis_task_errors()}
-
   def get_voice_tone_analysis_task(
         %Client{} = client,
         voice_connector_id,
@@ -6137,15 +5994,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListAvailableVoiceConnectorRegions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_available_voice_connector_regions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_available_voice_connector_regions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_voice_connector_regions_errors()}
-
   def list_available_voice_connector_regions(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-regions"
 
@@ -6180,19 +6034,16 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListPhoneNumberOrders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
   results.
   """
-
   @spec list_phone_number_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_number_orders_errors()}
-
   def list_phone_number_orders(%Client{} = client, options \\ []) do
     url_path = "/phone-number-orders"
 
@@ -6247,8 +6098,7 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListPhoneNumbers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:filter_name` (`t:enum["SipRuleId|VoiceConnectorGroupId|VoiceConnectorId"]`)
   The filter to limit the number of results.
   * `:filter_value` (`t:string`) The filter value.
@@ -6259,12 +6109,10 @@ defmodule AWS.ChimeSDKVoice do
   phone number product types.
   * `:status` (`t:string`) The status of your organization's phone numbers.
   """
-
   @spec list_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_errors()}
-
   def list_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers"
 
@@ -6359,21 +6207,18 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListProxySessions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
   results.
   * `:status` (`t:enum["Closed|InProgress|Open"]`) The proxy session status.
   """
-
   @spec list_proxy_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proxy_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_proxy_sessions_errors()}
-
   def list_proxy_sessions(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
 
@@ -6433,18 +6278,15 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListSipMediaApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call. Defaults to 100.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
-
   @spec list_sip_media_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_media_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_media_applications_errors()}
-
   def list_sip_media_applications(%Client{} = client, options \\ []) do
     url_path = "/sip-media-applications"
 
@@ -6497,19 +6339,16 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListSipRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call. Defaults to 100.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
   """
-
   @spec list_sip_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_rules_errors()}
-
   def list_sip_rules(%Client{} = client, options \\ []) do
     url_path = "/sip-rules"
 
@@ -6569,17 +6408,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListSupportedPhoneNumberCountries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The
-  phone number product type.
-
-  ## Optional parameters:
+  * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`
+  required) The phone number product type.
+  ## Keyword parameters:
   """
-
   @spec list_supported_phone_number_countries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_supported_phone_number_countries_errors()}
-
   def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ [])
       when is_binary(product_type) do
     url_path = "/phone-number-countries"
@@ -6615,16 +6451,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource ARN.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -6661,18 +6494,15 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceConnectorGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
-
   @spec list_voice_connector_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connector_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_groups_errors()}
-
   def list_voice_connector_groups(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-groups"
 
@@ -6725,16 +6555,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec list_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_connector_termination_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_termination_credentials_errors()}
-
   def list_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -6774,18 +6601,15 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
-
   @spec list_voice_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connectors_errors()}
-
   def list_voice_connectors(%Client{} = client, options \\ []) do
     url_path = "/voice-connectors"
 
@@ -6838,18 +6662,15 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceProfileDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
-
   @spec list_voice_profile_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_profile_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_profile_domains_errors()}
-
   def list_voice_profile_domains(%Client{} = client, options \\ []) do
     url_path = "/voice-profile-domains"
 
@@ -6902,19 +6723,17 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_profile_domain_id` (`t:string`) The ID of the voice profile domain.
-
-  ## Optional parameters:
+  * `:voice_profile_domain_id` (`t:string` required) The ID of the voice profile
+  domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results in the request.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
   results.
   """
-
   @spec list_voice_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_profiles_errors()}
-
   def list_voice_profiles(%Client{} = client, voice_profile_domain_id, options \\ [])
       when is_binary(voice_profile_domain_id) do
     url_path = "/voice-profiles"
@@ -6968,11 +6787,10 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutSipMediaApplicationAlexaSkillConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec put_sip_media_application_alexa_skill_configuration(
           AWS.Client.t(),
           String.t(),
@@ -6981,7 +6799,6 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, put_sip_media_application_alexa_skill_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sip_media_application_alexa_skill_configuration_errors()}
-
   def put_sip_media_application_alexa_skill_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -7023,16 +6840,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutSipMediaApplicationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec put_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sip_media_application_logging_configuration_errors()}
-
   def put_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -7074,11 +6889,9 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
@@ -7087,7 +6900,6 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, put_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_emergency_calling_configuration_errors()}
-
   def put_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -7129,16 +6941,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_logging_configuration_errors()}
-
   def put_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -7180,16 +6989,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_origination_errors()}
-
   def put_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
 
@@ -7227,16 +7033,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorProxy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_proxy_errors()}
-
   def put_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -7274,16 +7077,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_streaming_configuration_errors()}
-
   def put_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -7325,16 +7125,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorTermination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_termination_errors()}
-
   def put_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
 
@@ -7371,16 +7168,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec put_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_termination_credentials_errors()}
-
   def put_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -7422,16 +7216,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20RestorePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) The ID of the phone number being restored.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) The ID of the phone number being
+  restored.
+  ## Keyword parameters:
   """
-
   @spec restore_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_phone_number_errors()}
-
   def restore_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}?operation=restore"
 
@@ -7468,8 +7260,7 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20SearchAvailablePhoneNumbers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:area_code` (`t:string`) Confines a search to just the phone numbers
   associated with the specified area code.
   * `:city` (`t:string`) Confines a search to just the phone numbers associated
@@ -7486,12 +7277,10 @@ defmodule AWS.ChimeSDKVoice do
   * `:toll_free_prefix` (`t:string`) Confines a search to just the phone numbers
   associated with the specified toll-free prefix.
   """
-
   @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_available_phone_numbers_errors()}
-
   def search_available_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/search?type=phone-numbers"
 
@@ -7604,16 +7393,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StartSpeakerSearchTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec start_speaker_search_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_speaker_search_task_errors()}
-
   def start_speaker_search_task(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/speaker-search-tasks"
 
@@ -7657,16 +7443,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StartVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec start_voice_tone_analysis_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_voice_tone_analysis_task_errors()}
-
   def start_voice_tone_analysis_task(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/voice-tone-analysis-tasks"
@@ -7704,17 +7487,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StopSpeakerSearchTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:speaker_search_task_id` (`t:string`) The speaker search task ID.
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:speaker_search_task_id` (`t:string` required) The speaker search task ID.
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec stop_speaker_search_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_speaker_search_task_errors()}
-
   def stop_speaker_search_task(
         %Client{} = client,
         speaker_search_task_id,
@@ -7757,18 +7537,15 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StopVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis
-  task.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  * `:voice_tone_analysis_task_id` (`t:string` required) The ID of the voice tone
+  analysis task.
+  ## Keyword parameters:
   """
-
   @spec stop_voice_tone_analysis_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_voice_tone_analysis_task_errors()}
-
   def stop_voice_tone_analysis_task(
         %Client{} = client,
         voice_connector_id,
@@ -7811,15 +7588,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=tag-resource"
 
@@ -7856,15 +7630,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=untag-resource"
 
@@ -7902,15 +7673,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
-
   def update_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
 
@@ -7951,16 +7719,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) The phone number ID.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) The phone number ID.
+  ## Keyword parameters:
   """
-
   @spec update_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_errors()}
-
   def update_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -8000,15 +7765,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdatePhoneNumberSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_settings_errors()}
-
   def update_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
 
@@ -8045,17 +7807,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateProxySession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:proxy_session_id` (`t:string`) The proxy session ID.
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:proxy_session_id` (`t:string` required) The proxy session ID.
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec update_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_proxy_session_errors()}
-
   def update_proxy_session(
         %Client{} = client,
         proxy_session_id,
@@ -8098,16 +7857,14 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateSipMediaApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The SIP media application
+  ID.
+  ## Keyword parameters:
   """
-
   @spec update_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_media_application_errors()}
-
   def update_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
 
@@ -8146,18 +7903,15 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateSipMediaApplicationCall&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application
-  handling the call.
-  * `:transaction_id` (`t:string`) The ID of the call transaction.
-
-  ## Optional parameters:
+  * `:sip_media_application_id` (`t:string` required) The ID of the SIP media
+  application handling the call.
+  * `:transaction_id` (`t:string` required) The ID of the call transaction.
+  ## Keyword parameters:
   """
-
   @spec update_sip_media_application_call(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_media_application_call_errors()}
-
   def update_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
@@ -8200,16 +7954,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateSipRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sip_rule_id` (`t:string`) The SIP rule ID.
-
-  ## Optional parameters:
+  * `:sip_rule_id` (`t:string` required) The SIP rule ID.
+  ## Keyword parameters:
   """
-
   @spec update_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_rule_errors()}
-
   def update_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
 
@@ -8246,16 +7997,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec update_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_connector_errors()}
-
   def update_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
 
@@ -8292,16 +8040,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_connector_group_id` (`t:string`) The Voice Connector ID.
-
-  ## Optional parameters:
+  * `:voice_connector_group_id` (`t:string` required) The Voice Connector ID.
+  ## Keyword parameters:
   """
-
   @spec update_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_connector_group_errors()}
-
   def update_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
 
@@ -8339,16 +8084,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_profile_id` (`t:string`) The profile ID.
-
-  ## Optional parameters:
+  * `:voice_profile_id` (`t:string` required) The profile ID.
+  ## Keyword parameters:
   """
-
   @spec update_voice_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_profile_errors()}
-
   def update_voice_profile(%Client{} = client, voice_profile_id, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
 
@@ -8385,16 +8127,13 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceProfileDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:voice_profile_domain_id` (`t:string`) The domain ID.
-
-  ## Optional parameters:
+  * `:voice_profile_domain_id` (`t:string` required) The domain ID.
+  ## Keyword parameters:
   """
-
   @spec update_voice_profile_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_profile_domain_errors()}
-
   def update_voice_profile_domain(%Client{} = client, voice_profile_domain_id, options \\ []) do
     url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
 
@@ -8435,15 +8174,12 @@ defmodule AWS.ChimeSDKVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ValidateE911Address&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec validate_e911_address(AWS.Client.t(), Keyword.t()) ::
           {:ok, validate_e911_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_e911_address_errors()}
-
   def validate_e911_address(%Client{} = client, options \\ []) do
     url_path = "/emergency-calling/address"
 

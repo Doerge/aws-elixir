@@ -1329,19 +1329,16 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CancelCapacityTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:capacity_task_id` (`t:string`) ID of the capacity task that you want to
-  cancel.
-  * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with
-  the capacity task that you want to cancel.
-
-  ## Optional parameters:
+  * `:capacity_task_id` (`t:string` required) ID of the capacity task that you
+  want to cancel.
+  * `:outpost_identifier` (`t:string` required) ID or ARN of the Outpost
+  associated with the capacity task that you want to cancel.
+  ## Keyword parameters:
   """
-
   @spec cancel_capacity_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_capacity_task_errors()}
-
   def cancel_capacity_task(
         %Client{} = client,
         capacity_task_id,
@@ -1384,16 +1381,13 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CancelOrder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:order_id` (`t:string`) The ID of the order.
-
-  ## Optional parameters:
+  * `:order_id` (`t:string` required) The ID of the order.
+  ## Keyword parameters:
   """
-
   @spec cancel_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_order_errors()}
-
   def cancel_order(%Client{} = client, order_id, options \\ []) do
     url_path = "/orders/#{AWS.Util.encode_uri(order_id)}/cancel"
 
@@ -1430,15 +1424,12 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CreateOrder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_order(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_order_errors()}
-
   def create_order(%Client{} = client, options \\ []) do
     url_path = "/orders"
 
@@ -1475,15 +1466,12 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CreateOutpost&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_outpost(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_outpost_errors()}
-
   def create_outpost(%Client{} = client, options \\ []) do
     url_path = "/outposts"
 
@@ -1520,15 +1508,12 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CreateSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_site_errors()}
-
   def create_site(%Client{} = client, options \\ []) do
     url_path = "/sites"
 
@@ -1565,16 +1550,13 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20DeleteOutpost&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
-
-  ## Optional parameters:
+  * `:outpost_id` (`t:string` required) The ID or ARN of the Outpost.
+  ## Keyword parameters:
   """
-
   @spec delete_outpost(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_outpost_errors()}
-
   def delete_outpost(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
 
@@ -1621,16 +1603,14 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20DeleteSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
-
-  ## Optional parameters:
+  * `:site_id` (`t:string` required) The ID or the Amazon Resource Name (ARN) of
+  the site.
+  ## Keyword parameters:
   """
-
   @spec delete_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_site_errors()}
-
   def delete_site(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
 
@@ -1677,18 +1657,15 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetCapacityTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:capacity_task_id` (`t:string`) ID of the capacity task.
-  * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with
-  the specified capacity task.
-
-  ## Optional parameters:
+  * `:capacity_task_id` (`t:string` required) ID of the capacity task.
+  * `:outpost_identifier` (`t:string` required) ID or ARN of the Outpost
+  associated with the specified capacity task.
+  ## Keyword parameters:
   """
-
   @spec get_capacity_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_capacity_task_errors()}
-
   def get_capacity_task(%Client{} = client, capacity_task_id, outpost_identifier, options \\ []) do
     url_path =
       "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity/#{AWS.Util.encode_uri(capacity_task_id)}"
@@ -1724,16 +1701,13 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetCatalogItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:catalog_item_id` (`t:string`) The ID of the catalog item.
-
-  ## Optional parameters:
+  * `:catalog_item_id` (`t:string` required) The ID of the catalog item.
+  ## Keyword parameters:
   """
-
   @spec get_catalog_item(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_catalog_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_catalog_item_errors()}
-
   def get_catalog_item(%Client{} = client, catalog_item_id, options \\ []) do
     url_path = "/catalog/item/#{AWS.Util.encode_uri(catalog_item_id)}"
 
@@ -1769,16 +1743,13 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connection_id` (`t:string`) The ID of the connection.
-
-  ## Optional parameters:
+  * `:connection_id` (`t:string` required) The ID of the connection.
+  ## Keyword parameters:
   """
-
   @spec get_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_errors()}
-
   def get_connection(%Client{} = client, connection_id, options \\ []) do
     url_path = "/connections/#{AWS.Util.encode_uri(connection_id)}"
 
@@ -1813,16 +1784,13 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOrder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:order_id` (`t:string`) The ID of the order.
-
-  ## Optional parameters:
+  * `:order_id` (`t:string` required) The ID of the order.
+  ## Keyword parameters:
   """
-
   @spec get_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_order_errors()}
-
   def get_order(%Client{} = client, order_id, options \\ []) do
     url_path = "/orders/#{AWS.Util.encode_uri(order_id)}"
 
@@ -1857,16 +1825,13 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOutpost&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
-
-  ## Optional parameters:
+  * `:outpost_id` (`t:string` required) The ID or ARN of the Outpost.
+  ## Keyword parameters:
   """
-
   @spec get_outpost(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outpost_errors()}
-
   def get_outpost(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
 
@@ -1901,18 +1866,15 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOutpostInstanceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
-
-  ## Optional parameters:
+  * `:outpost_id` (`t:string` required) The ID or ARN of the Outpost.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec get_outpost_instance_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outpost_instance_types_errors()}
-
   def get_outpost_instance_types(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}/instanceTypes"
 
@@ -1968,19 +1930,17 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOutpostSupportedInstanceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:outpost_identifier` (`t:string`) The ID or ARN of the Outpost.
-  * `:order_id` (`t:string`) The ID for the Amazon Web Services Outposts order.
-
-  ## Optional parameters:
+  * `:outpost_identifier` (`t:string` required) The ID or ARN of the Outpost.
+  * `:order_id` (`t:string` required) The ID for the Amazon Web Services Outposts
+  order.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec get_outpost_supported_instance_types(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_supported_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outpost_supported_instance_types_errors()}
-
   def get_outpost_supported_instance_types(
         %Client{} = client,
         outpost_identifier,
@@ -2039,16 +1999,14 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
-
-  ## Optional parameters:
+  * `:site_id` (`t:string` required) The ID or the Amazon Resource Name (ARN) of
+  the site.
+  ## Keyword parameters:
   """
-
   @spec get_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_site_errors()}
-
   def get_site(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
 
@@ -2083,18 +2041,16 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetSiteAddress&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
-  * `:address_type` (`t:enum["OPERATING_ADDRESS|SHIPPING_ADDRESS"]`) The type of
-  the address you request.
-
-  ## Optional parameters:
+  * `:site_id` (`t:string` required) The ID or the Amazon Resource Name (ARN) of
+  the site.
+  * `:address_type` (`t:enum["OPERATING_ADDRESS|SHIPPING_ADDRESS"]` required) The
+  type of the address you request.
+  ## Keyword parameters:
   """
-
   @spec get_site_address(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_address_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_site_address_errors()}
-
   def get_site_address(%Client{} = client, site_id, address_type, options \\ [])
       when is_binary(address_type) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
@@ -2130,10 +2086,9 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:outpost_identifier` (`t:string`) The ID or the Amazon Resource Name (ARN) of
-  the Outpost.
-
-  ## Optional parameters:
+  * `:outpost_identifier` (`t:string` required) The ID or the Amazon Resource Name
+  (ARN) of the Outpost.
+  ## Keyword parameters:
   * `:host_id_filter` (`t:list[com.amazonaws.outposts#HostId]`) Filters the
   results by the host ID of a Dedicated Host.
   * `:max_results` (`t:integer`)
@@ -2141,12 +2096,10 @@ defmodule AWS.Outposts do
   * `:status_filter` (`t:list[com.amazonaws.outposts#AssetState]`) Filters the
   results by state.
   """
-
   @spec list_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assets_errors()}
-
   def list_assets(%Client{} = client, outpost_identifier, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/assets"
 
@@ -2213,8 +2166,7 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListCapacityTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:capacity_task_status_filter`
   (`t:list[com.amazonaws.outposts#CapacityTaskStatus]`) A list of statuses.
   For example, REQUESTED or WAITING_FOR_EVACUATION.
@@ -2223,12 +2175,10 @@ defmodule AWS.Outposts do
   * `:outpost_identifier_filter` (`t:string`) Filters the results by an Outpost ID
   or an Outpost ARN.
   """
-
   @spec list_capacity_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_capacity_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_capacity_tasks_errors()}
-
   def list_capacity_tasks(%Client{} = client, options \\ []) do
     url_path = "/capacity/tasks"
 
@@ -2305,8 +2255,7 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListCatalogItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:ec2_family_filter` (`t:list[com.amazonaws.outposts#Family]`) Filters the
   results by EC2 family (for example, M5).
   * `:item_class_filter` (`t:list[com.amazonaws.outposts#CatalogItemClass]`)
@@ -2317,12 +2266,10 @@ defmodule AWS.Outposts do
   (`t:list[com.amazonaws.outposts#SupportedStorageEnum]`) Filters the results
   by storage option.
   """
-
   @spec list_catalog_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_catalog_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_catalog_items_errors()}
-
   def list_catalog_items(%Client{} = client, options \\ []) do
     url_path = "/catalog/items"
 
@@ -2408,19 +2355,16 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListOrders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:outpost_identifier_filter` (`t:string`) The ID or the Amazon Resource Name
   (ARN) of the Outpost.
   """
-
   @spec list_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_orders_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_orders_errors()}
-
   def list_orders(%Client{} = client, options \\ []) do
     url_path = "/list-orders"
 
@@ -2480,8 +2424,7 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListOutposts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:availability_zone_filter`
   (`t:list[com.amazonaws.outposts#AvailabilityZone]`) Filters the results by
   Availability Zone (for example, us-east-1a).
@@ -2493,12 +2436,10 @@ defmodule AWS.Outposts do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_outposts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outposts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_outposts_errors()}
-
   def list_outposts(%Client{} = client, options \\ []) do
     url_path = "/outposts"
 
@@ -2585,8 +2526,7 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListSites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:operating_address_city_filter` (`t:list[com.amazonaws.outposts#City]`)
@@ -2598,12 +2538,10 @@ defmodule AWS.Outposts do
   (`t:list[com.amazonaws.outposts#StateOrRegion]`) Filters the results by
   state or region.
   """
-
   @spec list_sites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sites_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sites_errors()}
-
   def list_sites(%Client{} = client, options \\ []) do
     url_path = "/sites"
 
@@ -2689,16 +2627,14 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2734,17 +2670,14 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20StartCapacityTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:outpost_identifier` (`t:string`) The ID or ARN of the Outposts associated
-  with the specified capacity task.
-
-  ## Optional parameters:
+  * `:outpost_identifier` (`t:string` required) The ID or ARN of the Outposts
+  associated with the specified capacity task.
+  ## Keyword parameters:
   """
-
   @spec start_capacity_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_capacity_task_errors()}
-
   def start_capacity_task(%Client{} = client, outpost_identifier, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity"
 
@@ -2782,15 +2715,12 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20StartConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_connection(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_connection_errors()}
-
   def start_connection(%Client{} = client, options \\ []) do
     url_path = "/connections"
 
@@ -2827,16 +2757,14 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2873,17 +2801,15 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.outposts#TagKey]`) The tag keys.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.outposts#TagKey]` required) The tag keys.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2931,16 +2857,13 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateOutpost&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
-
-  ## Optional parameters:
+  * `:outpost_id` (`t:string` required) The ID or ARN of the Outpost.
+  ## Keyword parameters:
   """
-
   @spec update_outpost(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_outpost_errors()}
-
   def update_outpost(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
 
@@ -2987,16 +2910,14 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
-
-  ## Optional parameters:
+  * `:site_id` (`t:string` required) The ID or the Amazon Resource Name (ARN) of
+  the site.
+  ## Keyword parameters:
   """
-
   @spec update_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_site_errors()}
-
   def update_site(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
 
@@ -3045,16 +2966,14 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateSiteAddress&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
-
-  ## Optional parameters:
+  * `:site_id` (`t:string` required) The ID or the Amazon Resource Name (ARN) of
+  the site.
+  ## Keyword parameters:
   """
-
   @spec update_site_address(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_site_address_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_site_address_errors()}
-
   def update_site_address(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
 
@@ -3094,16 +3013,14 @@ defmodule AWS.Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateSiteRackPhysicalProperties&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
-
-  ## Optional parameters:
+  * `:site_id` (`t:string` required) The ID or the Amazon Resource Name (ARN) of
+  the site.
+  ## Keyword parameters:
   """
-
   @spec update_site_rack_physical_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_site_rack_physical_properties_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_site_rack_physical_properties_errors()}
-
   def update_site_rack_physical_properties(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/rackPhysicalProperties"
 

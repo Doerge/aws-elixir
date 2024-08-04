@@ -940,15 +940,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20DeleteResourcePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_resource_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resource_permission_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_permission_errors()}
-
   def delete_resource_permission(%Client{} = client, options \\ []) do
     url_path = "/delete-resource-permission"
 
@@ -986,15 +983,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20DeregisterApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec deregister_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_application_errors()}
-
   def deregister_application(%Client{} = client, options \\ []) do
     url_path = "/deregister-application"
 
@@ -1032,15 +1026,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-
   def get_application(%Client{} = client, options \\ []) do
     url_path = "/get-application"
 
@@ -1078,15 +1069,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_errors()}
-
   def get_component(%Client{} = client, options \\ []) do
     url_path = "/get-component"
 
@@ -1124,15 +1112,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetDatabase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_database(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_database_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_database_errors()}
-
   def get_database(%Client{} = client, options \\ []) do
     url_path = "/get-database"
 
@@ -1169,15 +1154,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_operation_errors()}
-
   def get_operation(%Client{} = client, options \\ []) do
     url_path = "/get-operation"
 
@@ -1214,15 +1196,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetResourcePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_resource_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_permission_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_permission_errors()}
-
   def get_resource_permission(%Client{} = client, options \\ []) do
     url_path = "/get-resource-permission"
 
@@ -1259,15 +1238,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/list-applications"
 
@@ -1304,15 +1280,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_components_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
-
   def list_components(%Client{} = client, options \\ []) do
     url_path = "/list-components"
 
@@ -1350,15 +1323,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListDatabases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_databases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_databases_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_databases_errors()}
-
   def list_databases(%Client{} = client, options \\ []) do
     url_path = "/list-databases"
 
@@ -1395,15 +1365,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListOperationEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_operation_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_operation_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_operation_events_errors()}
-
   def list_operation_events(%Client{} = client, options \\ []) do
     url_path = "/list-operation-events"
 
@@ -1440,15 +1407,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_operations_errors()}
-
   def list_operations(%Client{} = client, options \\ []) do
     url_path = "/list-operations"
 
@@ -1486,16 +1450,14 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1530,15 +1492,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20PutResourcePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_resource_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_permission_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_permission_errors()}
-
   def put_resource_permission(%Client{} = client, options \\ []) do
     url_path = "/put-resource-permission"
 
@@ -1577,15 +1536,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20RegisterApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_application_errors()}
-
   def register_application(%Client{} = client, options \\ []) do
     url_path = "/register-application"
 
@@ -1622,15 +1578,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20StartApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_errors()}
-
   def start_application(%Client{} = client, options \\ []) do
     url_path = "/start-application"
 
@@ -1667,15 +1620,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20StartApplicationRefresh&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_application_refresh(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_application_refresh_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_refresh_errors()}
-
   def start_application_refresh(%Client{} = client, options \\ []) do
     url_path = "/start-application-refresh"
 
@@ -1712,15 +1662,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20StopApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_application_errors()}
-
   def stop_application(%Client{} = client, options \\ []) do
     url_path = "/stop-application"
 
@@ -1757,16 +1704,14 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1803,18 +1748,17 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.ssmsap#TagKey]`) Adds/updates or removes
-  credentials for applications registered with AWS Systems Manager for SAP.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.ssmsap#TagKey]` required) Adds/updates or
+  removes credentials for applications registered with AWS Systems Manager for
+  SAP.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1863,15 +1807,12 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20UpdateApplicationSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_application_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_application_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_settings_errors()}
-
   def update_application_settings(%Client{} = client, options \\ []) do
     url_path = "/update-application-settings"
 

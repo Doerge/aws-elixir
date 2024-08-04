@@ -256,12 +256,11 @@ defmodule AWS.SageMakerRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerruntime%20InvokeEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:endpoint_name` (`t:string`) The name of the endpoint that you specified when
-  you created the endpoint using the CreateEndpoint API.
-  * `:input` (`t:binary`)
+  * `:endpoint_name` (`t:string` required) The name of the endpoint that you
+  specified when you created the endpoint using the CreateEndpoint API.
+  * `:input` (`t:binary` required)
 
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference response from
   the model container.
   * `:content_type` (`t:string`) The MIME type of the input data in the request
@@ -295,12 +294,10 @@ defmodule AWS.SageMakerRuntime do
   endpoint, which is to distribute the invocation traffic based on the variant
   weights.
   """
-
   @spec invoke_endpoint(AWS.Client.t(), String.t(), input :: binary(), Keyword.t()) ::
           {:ok, invoke_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_endpoint_errors()}
-
   def invoke_endpoint(%Client{} = client, endpoint_name, input, options \\ [])
       when is_binary(input) do
     url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/invocations"
@@ -467,12 +464,11 @@ defmodule AWS.SageMakerRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerruntime%20InvokeEndpointAsync&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:endpoint_name` (`t:string`) The name of the endpoint that you specified when
-  you created the endpoint using the CreateEndpoint API.
-  * `:input_location` (`t:string`) The Amazon S3 URI where the inference request
-  payload is stored.
-
-  ## Optional parameters:
+  * `:endpoint_name` (`t:string` required) The name of the endpoint that you
+  specified when you created the endpoint using the CreateEndpoint API.
+  * `:input_location` (`t:string` required) The Amazon S3 URI where the inference
+  request payload is stored.
+  ## Keyword parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference response from
   the model container.
   * `:content_type` (`t:string`) The MIME type of the input data in the request
@@ -494,12 +490,10 @@ defmodule AWS.SageMakerRuntime do
   in the queue before it is marked as expired. The default is 6 hours, or
   21,600 seconds.
   """
-
   @spec invoke_endpoint_async(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, invoke_endpoint_async_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_endpoint_async_errors()}
-
   def invoke_endpoint_async(%Client{} = client, endpoint_name, input_location, options \\ [])
       when is_binary(input_location) do
     url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/async-invocations"
@@ -622,12 +616,11 @@ defmodule AWS.SageMakerRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerruntime%20InvokeEndpointWithResponseStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:endpoint_name` (`t:string`) The name of the endpoint that you specified when
-  you created the endpoint using the CreateEndpoint API.
-  * `:input` (`t:binary`)
+  * `:endpoint_name` (`t:string` required) The name of the endpoint that you
+  specified when you created the endpoint using the CreateEndpoint API.
+  * `:input` (`t:binary` required)
 
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference response from
   the model container.
   * `:content_type` (`t:string`) The MIME type of the input data in the request
@@ -653,7 +646,6 @@ defmodule AWS.SageMakerRuntime do
   endpoint, which is to distribute the invocation traffic based on the variant
   weights.
   """
-
   @spec invoke_endpoint_with_response_stream(
           AWS.Client.t(),
           String.t(),
@@ -663,7 +655,6 @@ defmodule AWS.SageMakerRuntime do
           {:ok, invoke_endpoint_with_response_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_endpoint_with_response_stream_errors()}
-
   def invoke_endpoint_with_response_stream(
         %Client{} = client,
         endpoint_name,

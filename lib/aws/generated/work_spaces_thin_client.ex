@@ -788,15 +788,12 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20CreateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-
   def create_environment(%Client{} = client, options \\ []) do
     url_path = "/environments"
 
@@ -833,9 +830,8 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20DeleteDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the device to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the device to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
   that you provide to ensure the idempotency of the request. This lets you
   safely retry the request without accidentally performing the same operation
@@ -843,12 +839,10 @@ defmodule AWS.WorkSpacesThinClient do
   requires that you also pass the same value for all other parameters. We
   recommend that you use a UUID type of value.
   """
-
   @spec delete_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_errors()}
-
   def delete_device(%Client{} = client, id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(id)}"
 
@@ -906,9 +900,8 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20DeleteEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the environment to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the environment to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
   that you provide to ensure the idempotency of the request. This lets you
   safely retry the request without accidentally performing the same operation
@@ -916,12 +909,10 @@ defmodule AWS.WorkSpacesThinClient do
   requires that you also pass the same value for all other parameters. We
   recommend that you use a UUID type of value.
   """
-
   @spec delete_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-
   def delete_environment(%Client{} = client, id, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(id)}"
 
@@ -979,16 +970,13 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20DeregisterDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the device to deregister.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the device to deregister.
+  ## Keyword parameters:
   """
-
   @spec deregister_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_device_errors()}
-
   def deregister_device(%Client{} = client, id, options \\ []) do
     url_path = "/deregister-device/#{AWS.Util.encode_uri(id)}"
 
@@ -1025,16 +1013,14 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20GetDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the device for which to return information.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the device for which to return
+  information.
+  ## Keyword parameters:
   """
-
   @spec get_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_errors()}
-
   def get_device(%Client{} = client, id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(id)}"
 
@@ -1069,16 +1055,14 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20GetEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the environment for which to return information.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the environment for which to return
+  information.
+  ## Keyword parameters:
   """
-
   @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
-
   def get_environment(%Client{} = client, id, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(id)}"
 
@@ -1113,16 +1097,14 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20GetSoftwareSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the software set for which to return information.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the software set for which to return
+  information.
+  ## Keyword parameters:
   """
-
   @spec get_software_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_software_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_software_set_errors()}
-
   def get_software_set(%Client{} = client, id, options \\ []) do
     url_path = "/softwaresets/#{AWS.Util.encode_uri(id)}"
 
@@ -1157,8 +1139,7 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
   per call. You can use nextToken to obtain further pages of results.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
@@ -1168,12 +1149,10 @@ defmodule AWS.WorkSpacesThinClient do
   after 24 hours. Using an expired pagination token will return an HTTP 400
   InvalidToken error.
   """
-
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-
   def list_devices(%Client{} = client, options \\ []) do
     url_path = "/devices"
 
@@ -1226,8 +1205,7 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
   per call. You can use nextToken to obtain further pages of results.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
@@ -1237,12 +1215,10 @@ defmodule AWS.WorkSpacesThinClient do
   after 24 hours. Using an expired pagination token will return an HTTP 400
   InvalidToken error.
   """
-
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-
   def list_environments(%Client{} = client, options \\ []) do
     url_path = "/environments"
 
@@ -1295,8 +1271,7 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListSoftwareSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
   per call. You can use nextToken to obtain further pages of results.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
@@ -1306,12 +1281,10 @@ defmodule AWS.WorkSpacesThinClient do
   after 24 hours. Using an expired pagination token will return an HTTP 400
   InvalidToken error.
   """
-
   @spec list_software_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_software_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_software_sets_errors()}
-
   def list_software_sets(%Client{} = client, options \\ []) do
     url_path = "/softwaresets"
 
@@ -1364,17 +1337,14 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  for which you want to retrieve tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource for which you want to retrieve tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1409,17 +1379,14 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1456,19 +1423,16 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to untag.
-  * `:tag_keys` (`t:list[smithy.api#String]`) The keys of the key-value pairs for
-  the tag or tags you want to remove from the specified resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to untag.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) The keys of the key-value
+  pairs for the tag or tags you want to remove from the specified resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1516,16 +1480,13 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UpdateDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the device to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the device to update.
+  ## Keyword parameters:
   """
-
   @spec update_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_errors()}
-
   def update_device(%Client{} = client, id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(id)}"
 
@@ -1572,16 +1533,13 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UpdateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the environment to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the environment to update.
+  ## Keyword parameters:
   """
-
   @spec update_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
-
   def update_environment(%Client{} = client, id, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(id)}"
 
@@ -1628,16 +1586,13 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UpdateSoftwareSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the software set to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the software set to update.
+  ## Keyword parameters:
   """
-
   @spec update_software_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_software_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_software_set_errors()}
-
   def update_software_set(%Client{} = client, id, options \\ []) do
     url_path = "/softwaresets/#{AWS.Util.encode_uri(id)}"
 

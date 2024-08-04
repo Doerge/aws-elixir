@@ -733,16 +733,13 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20CreateSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the schedule that you are creating.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schedule that you are creating.
+  ## Keyword parameters:
   """
-
   @spec create_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schedule_errors()}
-
   def create_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
 
@@ -779,16 +776,14 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20CreateScheduleGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the schedule group that you are creating.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schedule group that you are
+  creating.
+  ## Keyword parameters:
   """
-
   @spec create_schedule_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_schedule_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schedule_group_errors()}
-
   def create_schedule_group(%Client{} = client, name, options \\ []) do
     url_path = "/schedule-groups/#{AWS.Util.encode_uri(name)}"
 
@@ -825,9 +820,8 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20DeleteSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the schedule to delete.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schedule to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier you provide to
   ensure the idempotency of the request. If you do not specify a client token,
   EventBridge Scheduler uses a randomly generated token for the request to
@@ -835,12 +829,10 @@ defmodule AWS.Scheduler do
   * `:group_name` (`t:string`) The name of the schedule group associated with this
   schedule. If you omit this, the default schedule group is used.
   """
-
   @spec delete_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schedule_errors()}
-
   def delete_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
 
@@ -911,20 +903,17 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20DeleteScheduleGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the schedule group to delete.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schedule group to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier you provide to
   ensure the idempotency of the request. If you do not specify a client token,
   EventBridge Scheduler uses a randomly generated token for the request to
   ensure idempotency.
   """
-
   @spec delete_schedule_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schedule_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schedule_group_errors()}
-
   def delete_schedule_group(%Client{} = client, name, options \\ []) do
     url_path = "/schedule-groups/#{AWS.Util.encode_uri(name)}"
 
@@ -982,19 +971,16 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20GetSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the schedule to retrieve.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schedule to retrieve.
+  ## Keyword parameters:
   * `:group_name` (`t:string`) The name of the schedule group associated with this
   schedule. If you omit this, EventBridge Scheduler assumes that the schedule
   is associated with the default group.
   """
-
   @spec get_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schedule_errors()}
-
   def get_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
 
@@ -1040,16 +1026,13 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20GetScheduleGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the schedule group to retrieve.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schedule group to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_schedule_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schedule_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schedule_group_errors()}
-
   def get_schedule_group(%Client{} = client, name, options \\ []) do
     url_path = "/schedule-groups/#{AWS.Util.encode_uri(name)}"
 
@@ -1084,8 +1067,7 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20ListScheduleGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) If specified, limits the number of results
   returned by this operation. The operation also returns a NextToken which you
   can use in a subsequent operation to retrieve the next set of results.
@@ -1094,12 +1076,10 @@ defmodule AWS.Scheduler do
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
   the next set of results.
   """
-
   @spec list_schedule_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedule_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schedule_groups_errors()}
-
   def list_schedule_groups(%Client{} = client, options \\ []) do
     url_path = "/schedule-groups"
 
@@ -1159,8 +1139,7 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20ListSchedules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:group_name` (`t:string`) If specified, only lists the schedules whose
   associated schedule group matches the given filter.
   * `:max_results` (`t:integer`) If specified, limits the number of results
@@ -1173,12 +1152,10 @@ defmodule AWS.Scheduler do
   * `:state` (`t:string`) If specified, only lists the schedules whose current
   state matches the given filter.
   """
-
   @spec list_schedules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schedules_errors()}
-
   def list_schedules(%Client{} = client, options \\ []) do
     url_path = "/schedules"
 
@@ -1258,17 +1235,14 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the EventBridge Scheduler resource for
-  which you want to view tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the EventBridge Scheduler
+  resource for which you want to view tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1304,17 +1278,14 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the schedule
-  group that you are adding tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  schedule group that you are adding tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1352,19 +1323,16 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the schedule
-  group from which you are removing tags.
-  * `:tag_keys` (`t:list[com.amazonaws.scheduler#TagKey]`) The list of tag keys to
-  remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  schedule group from which you are removing tags.
+  * `:tag_keys` (`t:list[com.amazonaws.scheduler#TagKey]` required) The list of
+  tag keys to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1416,16 +1384,13 @@ defmodule AWS.Scheduler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20UpdateSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the schedule that you are updating.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the schedule that you are updating.
+  ## Keyword parameters:
   """
-
   @spec update_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schedule_errors()}
-
   def update_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
 

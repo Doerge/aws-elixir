@@ -1382,6 +1382,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Adds the specified tags to the specified load balancer. Each load balancer can
   have a maximum of 10 tags.
 
@@ -1394,12 +1395,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("Tags") => list(tag()())
     }
   """
-
   @spec add_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
-
   def add_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1408,6 +1407,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Associates one or more security groups with your load balancer in a virtual
   private cloud (VPC). The specified security groups override the previously
   associated security groups.
@@ -1421,12 +1421,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("SecurityGroups") => list(String.t()())
     }
   """
-
   @spec apply_security_groups_to_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, apply_security_groups_to_load_balancer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_security_groups_to_load_balancer_errors()}
-
   def apply_security_groups_to_load_balancer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1436,6 +1434,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Adds one or more subnets to the set of configured subnets for the specified load
   balancer.
 
@@ -1448,12 +1447,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("Subnets") => list(String.t()())
     }
   """
-
   @spec attach_load_balancer_to_subnets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_load_balancer_to_subnets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_load_balancer_to_subnets_errors()}
-
   def attach_load_balancer_to_subnets(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1463,6 +1460,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Specifies the health check settings to use when evaluating the health state of
   your EC2 instances.
 
@@ -1475,12 +1473,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec configure_health_check(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, configure_health_check_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, configure_health_check_errors()}
-
   def configure_health_check(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1489,6 +1485,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Generates a stickiness policy with sticky session lifetimes that follow that of
   an application-generated cookie. This policy can be associated only with
   HTTP/HTTPS listeners. This policy is similar to the policy created by
@@ -1508,12 +1505,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("PolicyName") => String.t()
     }
   """
-
   @spec create_app_cookie_stickiness_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_app_cookie_stickiness_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_cookie_stickiness_policy_errors()}
-
   def create_app_cookie_stickiness_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1523,6 +1518,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Generates a stickiness policy with sticky session lifetimes controlled by the
   lifetime of the browser (user-agent) or a specified expiration period. This
   policy can be associated only with HTTP/HTTPS listeners. When a load balancer
@@ -1543,12 +1539,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("PolicyName") => String.t()
     }
   """
-
   @spec create_lb_cookie_stickiness_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_lb_cookie_stickiness_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lb_cookie_stickiness_policy_errors()}
-
   def create_lb_cookie_stickiness_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1558,6 +1552,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Creates a Classic Load Balancer. You can add listeners, security groups,
   subnets, and tags when you create your load balancer, or you can add them
   later using `CreateLoadBalancerListeners`,
@@ -1578,12 +1573,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec create_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_access_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_load_balancer_errors()}
-
   def create_load_balancer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1592,6 +1585,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Creates one or more listeners for the specified load balancer. If a listener
   with the specified port does not already exist, it is created; otherwise, the
   properties of the new listener must match the properties of the existing
@@ -1606,12 +1600,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec create_load_balancer_listeners(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_load_balancer_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_load_balancer_listeners_errors()}
-
   def create_load_balancer_listeners(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1621,6 +1613,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Creates a policy with the specified attributes for the specified load balancer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancing%20CreateLoadBalancerPolicy&this_doc_guide=API%2520Reference)
@@ -1634,12 +1627,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("PolicyTypeName") => String.t()
     }
   """
-
   @spec create_load_balancer_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_load_balancer_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_load_balancer_policy_errors()}
-
   def create_load_balancer_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1648,6 +1639,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Deletes the specified load balancer. If you are attempting to recreate a load
   balancer, you must reconfigure all settings. The DNS name associated with a
   deleted load balancer are no longer usable. The name and associated DNS record
@@ -1662,11 +1654,9 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec delete_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_access_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_load_balancer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1675,6 +1665,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Deletes the specified listeners from the specified load balancer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancing%20DeleteLoadBalancerListeners&this_doc_guide=API%2520Reference)
@@ -1686,12 +1677,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerPorts") => list(integer()())
     }
   """
-
   @spec delete_load_balancer_listeners(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_load_balancer_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_load_balancer_listeners_errors()}
-
   def delete_load_balancer_listeners(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1701,6 +1690,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Deletes the specified policy from the specified load balancer. This policy must
   not be enabled for any listeners.
 
@@ -1713,12 +1703,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("PolicyName") => String.t()
     }
   """
-
   @spec delete_load_balancer_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_load_balancer_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_load_balancer_policy_errors()}
-
   def delete_load_balancer_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1727,6 +1715,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Deregisters the specified instances from the specified load balancer. After the
   instance is deregistered, it no longer receives traffic from the load
   balancer.
@@ -1740,12 +1729,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec deregister_instances_from_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_end_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_instances_from_load_balancer_errors()}
-
   def deregister_instances_from_load_balancer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1755,6 +1742,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Describes the current Elastic Load Balancing resource limits for your AWS
   account.
 
@@ -1767,11 +1755,9 @@ defmodule AWS.ElasticLoadBalancing do
       optional("PageSize") => integer()
     }
   """
-
   @spec describe_account_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_account_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1780,6 +1766,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Describes the state of the specified instances with respect to the specified
   load balancer. If no instances are specified, the call describes the state of
   all instances that are currently registered with the load balancer. If
@@ -1796,12 +1783,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec describe_instance_health(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_end_point_state_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_health_errors()}
-
   def describe_instance_health(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1810,6 +1795,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Describes the attributes for the specified load balancer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancing%20DescribeLoadBalancerAttributes&this_doc_guide=API%2520Reference)
@@ -1820,12 +1806,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec describe_load_balancer_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_load_balancer_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_balancer_attributes_errors()}
-
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1835,6 +1819,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Describes the specified policies.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancing%20DescribeLoadBalancerPolicies&this_doc_guide=API%2520Reference)
@@ -1846,12 +1831,10 @@ defmodule AWS.ElasticLoadBalancing do
       optional("PolicyNames") => list(String.t()())
     }
   """
-
   @spec describe_load_balancer_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_load_balancer_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_balancer_policies_errors()}
-
   def describe_load_balancer_policies(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1861,6 +1844,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Describes the specified load balancer policy types or all load balancer policy
   types. The description of each type indicates how it can be used. For example,
   some policies can be used only with layer 7 listeners, some policies can be
@@ -1875,12 +1859,10 @@ defmodule AWS.ElasticLoadBalancing do
       optional("PolicyTypeNames") => list(String.t()())
     }
   """
-
   @spec describe_load_balancer_policy_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_load_balancer_policy_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_balancer_policy_types_errors()}
-
   def describe_load_balancer_policy_types(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1890,6 +1872,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Describes the specified the load balancers. If no load balancers are specified,
   the call describes all of your load balancers.
 
@@ -1903,12 +1886,10 @@ defmodule AWS.ElasticLoadBalancing do
       optional("PageSize") => integer()
     }
   """
-
   @spec describe_load_balancers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_access_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_balancers_errors()}
-
   def describe_load_balancers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1917,6 +1898,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Describes the tags associated with the specified load balancers.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancing%20DescribeTags&this_doc_guide=API%2520Reference)
@@ -1927,12 +1909,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerNames") => list(String.t()())
     }
   """
-
   @spec describe_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
-
   def describe_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1941,6 +1921,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Removes the specified subnets from the set of configured subnets for the load
   balancer.
 
@@ -1953,12 +1934,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("Subnets") => list(String.t()())
     }
   """
-
   @spec detach_load_balancer_from_subnets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_load_balancer_from_subnets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_load_balancer_from_subnets_errors()}
-
   def detach_load_balancer_from_subnets(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1968,6 +1947,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Removes the specified Availability Zones from the set of Availability Zones for
   the specified load balancer in EC2-Classic or a default VPC. For load
   balancers in a non-default VPC, use `DetachLoadBalancerFromSubnets`.
@@ -1981,12 +1961,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec disable_availability_zones_for_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_availability_zones_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_availability_zones_for_load_balancer_errors()}
-
   def disable_availability_zones_for_load_balancer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1996,6 +1974,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Adds the specified Availability Zones to the set of Availability Zones for the
   specified load balancer in EC2-Classic or a default VPC. For load balancers in
   a non-default VPC, use `AttachLoadBalancerToSubnets`.
@@ -2009,12 +1988,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec enable_availability_zones_for_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_availability_zones_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_availability_zones_for_load_balancer_errors()}
-
   def enable_availability_zones_for_load_balancer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2024,6 +2001,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Modifies the attributes of the specified load balancer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancing%20ModifyLoadBalancerAttributes&this_doc_guide=API%2520Reference)
@@ -2035,12 +2013,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec modify_load_balancer_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_load_balancer_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_load_balancer_attributes_errors()}
-
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2050,6 +2026,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Adds the specified instances to the specified load balancer. The instance must
   be a running instance in the same network as the load balancer (EC2-Classic or
   the same VPC). If you have EC2-Classic instances and a load balancer in a VPC
@@ -2066,12 +2043,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("LoadBalancerName") => String.t()
     }
   """
-
   @spec register_instances_with_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_end_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_instances_with_load_balancer_errors()}
-
   def register_instances_with_load_balancer(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2081,6 +2056,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Removes one or more tags from the specified load balancer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticloadbalancing%20RemoveTags&this_doc_guide=API%2520Reference)
@@ -2092,12 +2068,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("Tags") => list(tag_key_only()())
     }
   """
-
   @spec remove_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_errors()}
-
   def remove_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2106,6 +2080,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Sets the certificate that terminates the specified listener's SSL connections.
   The specified certificate replaces any prior certificate that was used on the
   same load balancer and port.
@@ -2120,12 +2095,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("SSLCertificateId") => String.t()
     }
   """
-
   @spec set_load_balancer_listener_ssl_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_load_balancer_listener_ssl_certificate_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_load_balancer_listener_ssl_certificate_errors()}
-
   def set_load_balancer_listener_ssl_certificate(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2135,6 +2108,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Replaces the set of policies associated with the specified port on which the EC2
   instance is listening with a new set of policies. At this time, only the
   back-end server authentication policy type can be applied to the instance
@@ -2152,12 +2126,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("PolicyNames") => list(String.t()())
     }
   """
-
   @spec set_load_balancer_policies_for_backend_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_load_balancer_policies_for_backend_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_load_balancer_policies_for_backend_server_errors()}
-
   def set_load_balancer_policies_for_backend_server(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2167,6 +2139,7 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @doc """
+   
   Replaces the current set of policies for the specified load balancer port with
   the specified set of policies. To enable back-end server authentication, use
   `SetLoadBalancerPoliciesForBackendServer`.
@@ -2181,12 +2154,10 @@ defmodule AWS.ElasticLoadBalancing do
       required("PolicyNames") => list(String.t()())
     }
   """
-
   @spec set_load_balancer_policies_of_listener(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_load_balancer_policies_of_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_load_balancer_policies_of_listener_errors()}
-
   def set_load_balancer_policies_of_listener(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

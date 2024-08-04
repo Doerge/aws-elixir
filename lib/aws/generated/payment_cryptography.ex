@@ -1036,6 +1036,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Creates an *alias*, or a friendly name, for an Amazon Web Services Payment
   Cryptography key. You can use an alias to identify a key in the console and
   when you call cryptographic operations such as
@@ -1066,12 +1067,10 @@ defmodule AWS.PaymentCryptography do
       required("AliasName") => String.t()
     }
   """
-
   @spec create_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alias_errors()}
-
   def create_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1080,6 +1079,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Creates an Amazon Web Services Payment Cryptography key, a logical
   representation of a cryptographic key, that is unique in your account and
   Amazon Web Services Region. You use keys for cryptographic functions such as
@@ -1100,12 +1100,10 @@ defmodule AWS.PaymentCryptography do
       required("KeyAttributes") => key_attributes()
     }
   """
-
   @spec create_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_errors()}
-
   def create_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1114,6 +1112,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Deletes the alias, but doesn't affect the underlying key. Each key can have
   multiple aliases. To get the aliases of all keys, use the
   [UpdateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html)
@@ -1135,12 +1134,10 @@ defmodule AWS.PaymentCryptography do
       required("AliasName") => String.t()
     }
   """
-
   @spec delete_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alias_errors()}
-
   def delete_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1149,6 +1146,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Deletes the key material and metadata associated with Amazon Web Services
   Payment Cryptography key. Key deletion is irreversible. After a key is
   deleted, you can't perform cryptographic operations using the key. For
@@ -1171,12 +1169,10 @@ defmodule AWS.PaymentCryptography do
       required("KeyIdentifier") => String.t()
     }
   """
-
   @spec delete_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_errors()}
-
   def delete_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1185,6 +1181,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Exports a key from Amazon Web Services Payment Cryptography. Amazon Web Services
   Payment Cryptography simplifies key exchange by replacing the existing
   paper-based approach with a modern electronic approach. With `ExportKey` you
@@ -1203,12 +1200,10 @@ defmodule AWS.PaymentCryptography do
       required("KeyMaterial") => list()
     }
   """
-
   @spec export_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_key_errors()}
-
   def export_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1217,6 +1212,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Gets the Amazon Web Services Payment Cryptography key associated with the alias.
   **Cross-account use:** This operation can't be used across different Amazon
   Web Services accounts.
@@ -1229,12 +1225,10 @@ defmodule AWS.PaymentCryptography do
       required("AliasName") => String.t()
     }
   """
-
   @spec get_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_alias_errors()}
-
   def get_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1243,6 +1237,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Gets the key material for an Amazon Web Services Payment Cryptography key,
   including the immutable and mutable data specified when the key was created.
   **Cross-account use:** This operation can't be used across different Amazon
@@ -1256,12 +1251,10 @@ defmodule AWS.PaymentCryptography do
       required("KeyIdentifier") => String.t()
     }
   """
-
   @spec get_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_errors()}
-
   def get_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1270,6 +1263,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Gets the export token and the signing key certificate to initiate a TR-34 key
   export from Amazon Web Services Payment Cryptography. The signing key
   certificate signs the wrapped key under export within the TR-34 key payload.
@@ -1289,12 +1283,10 @@ defmodule AWS.PaymentCryptography do
       required("SigningKeyAlgorithm") => String.t()
     }
   """
-
   @spec get_parameters_for_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_parameters_for_export_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parameters_for_export_errors()}
-
   def get_parameters_for_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1303,6 +1295,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Gets the import token and the wrapping key certificate in PEM format (base64
   encoded) to initiate a TR-34 WrappedKeyBlock or a RSA WrappedKeyCryptogram
   import into Amazon Web Services Payment Cryptography. The wrapping key
@@ -1322,12 +1315,10 @@ defmodule AWS.PaymentCryptography do
       required("WrappingKeyAlgorithm") => String.t()
     }
   """
-
   @spec get_parameters_for_import(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_parameters_for_import_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parameters_for_import_errors()}
-
   def get_parameters_for_import(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1336,6 +1327,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Gets the public key certificate of the asymmetric key pair that exists within
   Amazon Web Services Payment Cryptography. Unlike the private key of an
   asymmetric key, which never leaves Amazon Web Services Payment Cryptography
@@ -1352,12 +1344,10 @@ defmodule AWS.PaymentCryptography do
       required("KeyIdentifier") => String.t()
     }
   """
-
   @spec get_public_key_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_public_key_certificate_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_key_certificate_errors()}
-
   def get_public_key_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1366,6 +1356,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Imports symmetric keys and public key certificates in PEM format (base64
   encoded) into Amazon Web Services Payment Cryptography. Amazon Web Services
   Payment Cryptography simplifies key exchange by replacing the existing
@@ -1384,12 +1375,10 @@ defmodule AWS.PaymentCryptography do
       required("KeyMaterial") => list()
     }
   """
-
   @spec import_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_key_errors()}
-
   def import_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1398,6 +1387,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Lists the aliases for all keys in the caller's Amazon Web Services account and
   Amazon Web Services Region. You can filter the list of aliases. For more
   information, see [Using
@@ -1420,12 +1410,10 @@ defmodule AWS.PaymentCryptography do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_aliases_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aliases_errors()}
-
   def list_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1434,6 +1422,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Lists the keys in the caller's Amazon Web Services account and Amazon Web
   Services Region. You can filter the list of keys. This is a paginated
   operation, which means that each response might contain only a subset of all
@@ -1452,12 +1441,10 @@ defmodule AWS.PaymentCryptography do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_keys_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keys_errors()}
-
   def list_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1466,6 +1453,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Lists the tags for an Amazon Web Services resource. This is a paginated
   operation, which means that each response might contain only a subset of all
   the tags. When the response contains only a subset of tags, it includes a
@@ -1483,12 +1471,10 @@ defmodule AWS.PaymentCryptography do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1497,6 +1483,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Cancels a scheduled key deletion during the waiting period. Use this operation
   to restore a `Key` that is scheduled for deletion. During the waiting period,
   the `KeyState` is `DELETE_PENDING` and `deletePendingTimestamp` contains the
@@ -1512,12 +1499,10 @@ defmodule AWS.PaymentCryptography do
       required("KeyIdentifier") => String.t()
     }
   """
-
   @spec restore_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_key_errors()}
-
   def restore_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1526,6 +1511,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Enables an Amazon Web Services Payment Cryptography key, which makes it active
   for cryptographic operations within Amazon Web Services Payment Cryptography
   **Cross-account use:** This operation can't be used across different Amazon
@@ -1539,12 +1525,10 @@ defmodule AWS.PaymentCryptography do
       required("KeyIdentifier") => String.t()
     }
   """
-
   @spec start_key_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_key_usage_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_key_usage_errors()}
-
   def start_key_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1553,6 +1537,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Disables an Amazon Web Services Payment Cryptography key, which makes it
   inactive within Amazon Web Services Payment Cryptography. You can use this
   operation instead of
@@ -1570,12 +1555,10 @@ defmodule AWS.PaymentCryptography do
       required("KeyIdentifier") => String.t()
     }
   """
-
   @spec stop_key_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_key_usage_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_key_usage_errors()}
-
   def stop_key_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1584,6 +1567,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Adds or edits tags on an Amazon Web Services Payment Cryptography key. Tagging
   or untagging an Amazon Web Services Payment Cryptography key can allow or deny
   permission to the key.
@@ -1597,12 +1581,10 @@ defmodule AWS.PaymentCryptography do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1611,6 +1593,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Deletes a tag from an Amazon Web Services Payment Cryptography key. Tagging or
   untagging an Amazon Web Services Payment Cryptography key can allow or deny
   permission to the key.
@@ -1624,12 +1607,10 @@ defmodule AWS.PaymentCryptography do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1638,6 +1619,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+   
   Associates an existing Amazon Web Services Payment Cryptography alias with a
   different key. Each alias is associated with only one Amazon Web Services
   Payment Cryptography key at a time, although a key can have multiple aliases.
@@ -1655,12 +1637,10 @@ defmodule AWS.PaymentCryptography do
       required("AliasName") => String.t()
     }
   """
-
   @spec update_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alias_errors()}
-
   def update_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

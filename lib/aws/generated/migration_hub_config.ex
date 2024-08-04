@@ -242,6 +242,7 @@ defmodule AWS.MigrationHubConfig do
   end
 
   @doc """
+   
   This API sets up the home region for the calling account only.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubconfig%20CreateHomeRegionControl&this_doc_guide=API%2520Reference)
@@ -254,12 +255,10 @@ defmodule AWS.MigrationHubConfig do
       required("Target") => target()
     }
   """
-
   @spec create_home_region_control(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_home_region_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_home_region_control_errors()}
-
   def create_home_region_control(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -268,6 +267,7 @@ defmodule AWS.MigrationHubConfig do
   end
 
   @doc """
+   
   This operation deletes the home region configuration for the calling account.
   The operation does not delete discovery or migration tracking data in the home
   region.
@@ -280,12 +280,10 @@ defmodule AWS.MigrationHubConfig do
       required("ControlId") => String.t()
     }
   """
-
   @spec delete_home_region_control(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_home_region_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_home_region_control_errors()}
-
   def delete_home_region_control(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -294,6 +292,7 @@ defmodule AWS.MigrationHubConfig do
   end
 
   @doc """
+   
   This API permits filtering on the `ControlId` and `HomeRegion` fields.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubconfig%20DescribeHomeRegionControls&this_doc_guide=API%2520Reference)
@@ -308,12 +307,10 @@ defmodule AWS.MigrationHubConfig do
       optional("Target") => target()
     }
   """
-
   @spec describe_home_region_controls(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_home_region_controls_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_home_region_controls_errors()}
-
   def describe_home_region_controls(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -323,6 +320,7 @@ defmodule AWS.MigrationHubConfig do
   end
 
   @doc """
+   
   Returns the calling account’s home region, if configured. This API is used by
   other AWS services to determine the regional endpoint for calling AWS
   Application Discovery Service and Migration Hub. You must call `GetHomeRegion`
@@ -337,12 +335,10 @@ defmodule AWS.MigrationHubConfig do
       
     }
   """
-
   @spec get_home_region(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_home_region_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_home_region_errors()}
-
   def get_home_region(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

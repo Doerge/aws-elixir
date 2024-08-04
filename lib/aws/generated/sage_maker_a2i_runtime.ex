@@ -304,17 +304,14 @@ defmodule AWS.SageMakerA2IRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20DeleteHumanLoop&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:human_loop_name` (`t:string`) The name of the human loop that you want to
-  delete.
-
-  ## Optional parameters:
+  * `:human_loop_name` (`t:string` required) The name of the human loop that you
+  want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_human_loop(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_human_loop_errors()}
-
   def delete_human_loop(%Client{} = client, human_loop_name, options \\ []) do
     url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
 
@@ -362,17 +359,14 @@ defmodule AWS.SageMakerA2IRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20DescribeHumanLoop&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:human_loop_name` (`t:string`) The name of the human loop that you want
-  information about.
-
-  ## Optional parameters:
+  * `:human_loop_name` (`t:string` required) The name of the human loop that you
+  want information about.
+  ## Keyword parameters:
   """
-
   @spec describe_human_loop(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_human_loop_errors()}
-
   def describe_human_loop(%Client{} = client, human_loop_name, options \\ []) do
     url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
 
@@ -408,10 +402,9 @@ defmodule AWS.SageMakerA2IRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20ListHumanLoops&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_definition_arn` (`t:string`) The Amazon Resource Name (ARN) of a flow
-  definition.
-
-  ## Optional parameters:
+  * `:flow_definition_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  a flow definition.
+  ## Keyword parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) (Optional) The timestamp of
   the date when you want the human loops to begin in ISO 8601 format. For
   example, 2020-02-24.
@@ -426,12 +419,10 @@ defmodule AWS.SageMakerA2IRuntime do
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Optional. The order for
   displaying results. Valid values: Ascending and Descending.
   """
-
   @spec list_human_loops(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_human_loops_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_human_loops_errors()}
-
   def list_human_loops(%Client{} = client, flow_definition_arn, options \\ [])
       when is_binary(flow_definition_arn) do
     url_path = "/human-loops"
@@ -518,15 +509,12 @@ defmodule AWS.SageMakerA2IRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20StartHumanLoop&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_human_loop(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_human_loop_errors()}
-
   def start_human_loop(%Client{} = client, options \\ []) do
     url_path = "/human-loops"
 
@@ -563,15 +551,12 @@ defmodule AWS.SageMakerA2IRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20StopHumanLoop&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_human_loop(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_human_loop_errors()}
-
   def stop_human_loop(%Client{} = client, options \\ []) do
     url_path = "/human-loops/stop"
 

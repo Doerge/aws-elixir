@@ -1449,17 +1449,14 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetApplicationComponentDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_component_id` (`t:string`) The ID of the application component.
-  The ID is unique within an AWS account.
-
-  ## Optional parameters:
+  * `:application_component_id` (`t:string` required) The ID of the application
+  component. The ID is unique within an AWS account.
+  ## Keyword parameters:
   """
-
   @spec get_application_component_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_component_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_component_details_errors()}
-
   def get_application_component_details(
         %Client{} = client,
         application_component_id,
@@ -1500,17 +1497,14 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetApplicationComponentStrategies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_component_id` (`t:string`) The ID of the application component.
-  The ID is unique within an AWS account.
-
-  ## Optional parameters:
+  * `:application_component_id` (`t:string` required) The ID of the application
+  component. The ID is unique within an AWS account.
+  ## Keyword parameters:
   """
-
   @spec get_application_component_strategies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_component_strategies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_component_strategies_errors()}
-
   def get_application_component_strategies(
         %Client{} = client,
         application_component_id,
@@ -1550,16 +1544,13 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The assessmentid returned by StartAssessment.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The assessmentid returned by StartAssessment.
+  ## Keyword parameters:
   """
-
   @spec get_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assessment_errors()}
-
   def get_assessment(%Client{} = client, id, options \\ []) do
     url_path = "/get-assessment/#{AWS.Util.encode_uri(id)}"
 
@@ -1594,17 +1585,14 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetImportFileTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the import file task. This ID is returned in the
-  response of StartImportFileTask.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the import file task. This ID is
+  returned in the response of StartImportFileTask.
+  ## Keyword parameters:
   """
-
   @spec get_import_file_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_file_task_errors()}
-
   def get_import_file_task(%Client{} = client, id, options \\ []) do
     url_path = "/get-import-file-task/#{AWS.Util.encode_uri(id)}"
 
@@ -1639,15 +1627,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetLatestAssessmentId&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_latest_assessment_id(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_latest_assessment_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_latest_assessment_id_errors()}
-
   def get_latest_assessment_id(%Client{} = client, options \\ []) do
     url_path = "/get-latest-assessment-id"
 
@@ -1682,15 +1667,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetPortfolioPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_portfolio_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_portfolio_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_portfolio_preferences_errors()}
-
   def get_portfolio_preferences(%Client{} = client, options \\ []) do
     url_path = "/get-portfolio-preferences"
 
@@ -1726,15 +1708,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetPortfolioSummary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_portfolio_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_portfolio_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_portfolio_summary_errors()}
-
   def get_portfolio_summary(%Client{} = client, options \\ []) do
     url_path = "/get-portfolio-summary"
 
@@ -1769,17 +1748,14 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetRecommendationReportDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The recommendation report generation task id returned by
-  StartRecommendationReportGeneration.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The recommendation report generation task id
+  returned by StartRecommendationReportGeneration.
+  ## Keyword parameters:
   """
-
   @spec get_recommendation_report_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendation_report_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendation_report_details_errors()}
-
   def get_recommendation_report_details(%Client{} = client, id, options \\ []) do
     url_path = "/get-recommendation-report-details/#{AWS.Util.encode_uri(id)}"
 
@@ -1814,9 +1790,8 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetServerDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:server_id` (`t:string`) The ID of the server.
-
-  ## Optional parameters:
+  * `:server_id` (`t:string` required) The ID of the server.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in the
   response. The maximum value is 100.
   * `:next_token` (`t:string`) The token from a previous call that you use to
@@ -1825,12 +1800,10 @@ defmodule AWS.MigrationHubStrategy do
   set of 10 results along with a token. You then use the returned token to
   retrieve the next set of 10.
   """
-
   @spec get_server_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_server_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_server_details_errors()}
-
   def get_server_details(%Client{} = client, server_id, options \\ []) do
     url_path = "/get-server-details/#{AWS.Util.encode_uri(server_id)}"
 
@@ -1883,16 +1856,13 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetServerStrategies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:server_id` (`t:string`) The ID of the server.
-
-  ## Optional parameters:
+  * `:server_id` (`t:string` required) The ID of the server.
+  ## Keyword parameters:
   """
-
   @spec get_server_strategies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_server_strategies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_server_strategies_errors()}
-
   def get_server_strategies(%Client{} = client, server_id, options \\ []) do
     url_path = "/get-server-strategies/#{AWS.Util.encode_uri(server_id)}"
 
@@ -1928,15 +1898,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListAnalyzableServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_analyzable_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_analyzable_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analyzable_servers_errors()}
-
   def list_analyzable_servers(%Client{} = client, options \\ []) do
     url_path = "/list-analyzable-servers"
 
@@ -1973,15 +1940,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListApplicationComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_application_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_application_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_components_errors()}
-
   def list_application_components(%Client{} = client, options \\ []) do
     url_path = "/list-applicationcomponents"
 
@@ -2018,8 +1982,7 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListCollectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in the
   response. The maximum value is 100.
   * `:next_token` (`t:string`) The token from a previous call that you use to
@@ -2028,12 +1991,10 @@ defmodule AWS.MigrationHubStrategy do
   set of 10 results along with a token. You then use the returned token to
   retrieve the next set of 10.
   """
-
   @spec list_collectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_collectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collectors_errors()}
-
   def list_collectors(%Client{} = client, options \\ []) do
     url_path = "/list-collectors"
 
@@ -2086,8 +2047,7 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListImportFileTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The total number of items to return. The maximum
   value is 100.
   * `:next_token` (`t:string`) The token from a previous call that you use to
@@ -2096,12 +2056,10 @@ defmodule AWS.MigrationHubStrategy do
   set of 10 results along with a token. You then use the returned token to
   retrieve the next set of 10.
   """
-
   @spec list_import_file_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_file_task_errors()}
-
   def list_import_file_task(%Client{} = client, options \\ []) do
     url_path = "/list-import-file-task"
 
@@ -2154,15 +2112,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_servers_errors()}
-
   def list_servers(%Client{} = client, options \\ []) do
     url_path = "/list-servers"
 
@@ -2199,15 +2154,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20PutPortfolioPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_portfolio_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_portfolio_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_portfolio_preferences_errors()}
-
   def put_portfolio_preferences(%Client{} = client, options \\ []) do
     url_path = "/put-portfolio-preferences"
 
@@ -2244,15 +2196,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_assessment_errors()}
-
   def start_assessment(%Client{} = client, options \\ []) do
     url_path = "/start-assessment"
 
@@ -2289,15 +2238,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartImportFileTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_import_file_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_file_task_errors()}
-
   def start_import_file_task(%Client{} = client, options \\ []) do
     url_path = "/start-import-file-task"
 
@@ -2334,15 +2280,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartRecommendationReportGeneration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_recommendation_report_generation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_recommendation_report_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_recommendation_report_generation_errors()}
-
   def start_recommendation_report_generation(%Client{} = client, options \\ []) do
     url_path = "/start-recommendation-report-generation"
 
@@ -2379,15 +2322,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StopAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_assessment_errors()}
-
   def stop_assessment(%Client{} = client, options \\ []) do
     url_path = "/stop-assessment"
 
@@ -2424,15 +2364,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20UpdateApplicationComponentConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_application_component_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_application_component_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_component_config_errors()}
-
   def update_application_component_config(%Client{} = client, options \\ []) do
     url_path = "/update-applicationcomponent-config/"
 
@@ -2469,15 +2406,12 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20UpdateServerConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_server_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_server_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_server_config_errors()}
-
   def update_server_config(%Client{} = client, options \\ []) do
     url_path = "/update-server-config/"
 

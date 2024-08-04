@@ -1207,15 +1207,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20AcceptInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec accept_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_invitation_errors()}
-
   def accept_invitation(%Client{} = client, options \\ []) do
     url_path = "/invitation"
 
@@ -1252,15 +1249,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20BatchGetGraphMemberDatasources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_graph_member_datasources(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_graph_member_datasources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_graph_member_datasources_errors()}
-
   def batch_get_graph_member_datasources(%Client{} = client, options \\ []) do
     url_path = "/graph/datasources/get"
 
@@ -1297,15 +1291,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20BatchGetMembershipDatasources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_membership_datasources(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_membership_datasources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_membership_datasources_errors()}
-
   def batch_get_membership_datasources(%Client{} = client, options \\ []) do
     url_path = "/membership/datasources/get"
 
@@ -1346,15 +1337,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20CreateGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_graph_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_graph_errors()}
-
   def create_graph(%Client{} = client, options \\ []) do
     url_path = "/graph"
 
@@ -1396,15 +1384,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20CreateMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_members_errors()}
-
   def create_members(%Client{} = client, options \\ []) do
     url_path = "/graph/members"
 
@@ -1443,15 +1428,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20DeleteGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_graph_errors()}
-
   def delete_graph(%Client{} = client, options \\ []) do
     url_path = "/graph/removal"
 
@@ -1493,15 +1475,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20DeleteMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_members_errors()}
-
   def delete_members(%Client{} = client, options \\ []) do
     url_path = "/graph/members/removal"
 
@@ -1540,15 +1519,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_configuration_errors()}
-
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/orgs/describeOrganizationConfiguration"
 
@@ -1587,15 +1563,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20DisableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_organization_admin_account_errors()}
-
   def disable_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/orgs/disableAdminAccount"
 
@@ -1633,15 +1606,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20DisassociateMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_membership(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_membership_errors()}
-
   def disassociate_membership(%Client{} = client, options \\ []) do
     url_path = "/membership/removal"
 
@@ -1680,15 +1650,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20EnableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec enable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_organization_admin_account_errors()}
-
   def enable_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/orgs/enableAdminAccount"
 
@@ -1730,15 +1697,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20GetInvestigation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_investigation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_investigation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_investigation_errors()}
-
   def get_investigation(%Client{} = client, options \\ []) do
     url_path = "/investigations/getInvestigation"
 
@@ -1776,15 +1740,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20GetMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_members_errors()}
-
   def get_members(%Client{} = client, options \\ []) do
     url_path = "/graph/members/get"
 
@@ -1821,15 +1782,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListDatasourcePackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_datasource_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasource_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasource_packages_errors()}
-
   def list_datasource_packages(%Client{} = client, options \\ []) do
     url_path = "/graph/datasources/list"
 
@@ -1867,15 +1825,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListGraphs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_graphs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_graphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_graphs_errors()}
-
   def list_graphs(%Client{} = client, options \\ []) do
     url_path = "/graphs/list"
 
@@ -1914,15 +1869,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListIndicators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_indicators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indicators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indicators_errors()}
-
   def list_indicators(%Client{} = client, options \\ []) do
     url_path = "/investigations/listIndicators"
 
@@ -1963,15 +1915,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListInvestigations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_investigations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_investigations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_investigations_errors()}
-
   def list_investigations(%Client{} = client, options \\ []) do
     url_path = "/investigations/listInvestigations"
 
@@ -2011,15 +1960,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invitations_errors()}
-
   def list_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations/list"
 
@@ -2058,15 +2004,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
-
   def list_members(%Client{} = client, options \\ []) do
     url_path = "/graph/members/list"
 
@@ -2104,15 +2047,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_admin_accounts_errors()}
-
   def list_organization_admin_accounts(%Client{} = client, options \\ []) do
     url_path = "/orgs/adminAccountslist"
 
@@ -2149,17 +2089,14 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the behavior graph for which to
-  retrieve the tag values.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the behavior graph for which
+  to retrieve the tag values.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2196,15 +2133,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20RejectInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reject_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_invitation_errors()}
-
   def reject_invitation(%Client{} = client, options \\ []) do
     url_path = "/invitation/removal"
 
@@ -2246,15 +2180,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20StartInvestigation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_investigation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_investigation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_investigation_errors()}
-
   def start_investigation(%Client{} = client, options \\ []) do
     url_path = "/investigations/startInvestigation"
 
@@ -2293,15 +2224,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20StartMonitoringMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_monitoring_member(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_monitoring_member_errors()}
-
   def start_monitoring_member(%Client{} = client, options \\ []) do
     url_path = "/graph/member/monitoringstate"
 
@@ -2338,17 +2266,14 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the behavior graph to assign the tags
-  to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the behavior graph to assign
+  the tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2385,20 +2310,17 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the behavior graph to remove the tags
-  from.
-  * `:tag_keys` (`t:list[com.amazonaws.detective#TagKey]`) The tag keys of the
-  tags to remove from the behavior graph. You can remove up to 50 tags at a
-  time.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the behavior graph to remove
+  the tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.detective#TagKey]` required) The tag keys
+  of the tags to remove from the behavior graph. You can remove up to 50 tags
+  at a time.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2446,15 +2368,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20UpdateDatasourcePackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_datasource_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_datasource_packages_errors()}
-
   def update_datasource_packages(%Client{} = client, options \\ []) do
     url_path = "/graph/datasources/update"
 
@@ -2491,15 +2410,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20UpdateInvestigationState&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_investigation_state(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_investigation_state_errors()}
-
   def update_investigation_state(%Client{} = client, options \\ []) do
     url_path = "/investigations/updateInvestigationState"
 
@@ -2538,15 +2454,12 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_organization_configuration_errors()}
-
   def update_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/orgs/updateOrganizationConfiguration"
 

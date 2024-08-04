@@ -1155,15 +1155,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20AssociateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_domain_errors()}
-
   def associate_domain(%Client{} = client, options \\ []) do
     url_path = "/associateDomain"
 
@@ -1201,15 +1198,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20AssociateWebsiteAuthorizationProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_website_authorization_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_website_authorization_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_website_authorization_provider_errors()}
-
   def associate_website_authorization_provider(%Client{} = client, options \\ []) do
     url_path = "/associateWebsiteAuthorizationProvider"
 
@@ -1247,15 +1241,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20AssociateWebsiteCertificateAuthority&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_website_certificate_authority(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_website_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_website_certificate_authority_errors()}
-
   def associate_website_certificate_authority(%Client{} = client, options \\ []) do
     url_path = "/associateWebsiteCertificateAuthority"
 
@@ -1294,15 +1285,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20CreateFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
-
   def create_fleet(%Client{} = client, options \\ []) do
     url_path = "/createFleet"
 
@@ -1339,15 +1327,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DeleteFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
-
   def delete_fleet(%Client{} = client, options \\ []) do
     url_path = "/deleteFleet"
 
@@ -1385,15 +1370,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeAuditStreamConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_audit_stream_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_audit_stream_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_audit_stream_configuration_errors()}
-
   def describe_audit_stream_configuration(%Client{} = client, options \\ []) do
     url_path = "/describeAuditStreamConfiguration"
 
@@ -1431,15 +1413,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeCompanyNetworkConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_company_network_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_company_network_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_company_network_configuration_errors()}
-
   def describe_company_network_configuration(%Client{} = client, options \\ []) do
     url_path = "/describeCompanyNetworkConfiguration"
 
@@ -1476,15 +1455,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_device(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_errors()}
-
   def describe_device(%Client{} = client, options \\ []) do
     url_path = "/describeDevice"
 
@@ -1521,15 +1497,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeDevicePolicyConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_device_policy_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_device_policy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_policy_configuration_errors()}
-
   def describe_device_policy_configuration(%Client{} = client, options \\ []) do
     url_path = "/describeDevicePolicyConfiguration"
 
@@ -1566,15 +1539,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_errors()}
-
   def describe_domain(%Client{} = client, options \\ []) do
     url_path = "/describeDomain"
 
@@ -1612,15 +1582,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeFleetMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_fleet_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_fleet_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_metadata_errors()}
-
   def describe_fleet_metadata(%Client{} = client, options \\ []) do
     url_path = "/describeFleetMetadata"
 
@@ -1657,15 +1624,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeIdentityProviderConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_identity_provider_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_identity_provider_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_provider_configuration_errors()}
-
   def describe_identity_provider_configuration(%Client{} = client, options \\ []) do
     url_path = "/describeIdentityProviderConfiguration"
 
@@ -1702,15 +1666,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeWebsiteCertificateAuthority&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_website_certificate_authority(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_website_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_website_certificate_authority_errors()}
-
   def describe_website_certificate_authority(%Client{} = client, options \\ []) do
     url_path = "/describeWebsiteCertificateAuthority"
 
@@ -1748,15 +1709,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DisassociateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_domain_errors()}
-
   def disassociate_domain(%Client{} = client, options \\ []) do
     url_path = "/disassociateDomain"
 
@@ -1795,15 +1753,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DisassociateWebsiteAuthorizationProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_website_authorization_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_website_authorization_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_website_authorization_provider_errors()}
-
   def disassociate_website_authorization_provider(%Client{} = client, options \\ []) do
     url_path = "/disassociateWebsiteAuthorizationProvider"
 
@@ -1840,15 +1795,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DisassociateWebsiteCertificateAuthority&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_website_certificate_authority(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_website_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_website_certificate_authority_errors()}
-
   def disassociate_website_certificate_authority(%Client{} = client, options \\ []) do
     url_path = "/disassociateWebsiteCertificateAuthority"
 
@@ -1885,15 +1837,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-
   def list_devices(%Client{} = client, options \\ []) do
     url_path = "/listDevices"
 
@@ -1930,15 +1879,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-
   def list_domains(%Client{} = client, options \\ []) do
     url_path = "/listDomains"
 
@@ -1975,15 +1921,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListFleets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_fleets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_errors()}
-
   def list_fleets(%Client{} = client, options \\ []) do
     url_path = "/listFleets"
 
@@ -2020,16 +1963,14 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the fleet.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  fleet.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2065,15 +2006,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListWebsiteAuthorizationProviders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_website_authorization_providers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_website_authorization_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_website_authorization_providers_errors()}
-
   def list_website_authorization_providers(%Client{} = client, options \\ []) do
     url_path = "/listWebsiteAuthorizationProviders"
 
@@ -2111,15 +2049,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListWebsiteCertificateAuthorities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_website_certificate_authorities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_website_certificate_authorities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_website_certificate_authorities_errors()}
-
   def list_website_certificate_authorities(%Client{} = client, options \\ []) do
     url_path = "/listWebsiteCertificateAuthorities"
 
@@ -2156,15 +2091,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20RestoreDomainAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec restore_domain_access(AWS.Client.t(), Keyword.t()) ::
           {:ok, restore_domain_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_domain_access_errors()}
-
   def restore_domain_access(%Client{} = client, options \\ []) do
     url_path = "/restoreDomainAccess"
 
@@ -2201,15 +2133,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20RevokeDomainAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec revoke_domain_access(AWS.Client.t(), Keyword.t()) ::
           {:ok, revoke_domain_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_domain_access_errors()}
-
   def revoke_domain_access(%Client{} = client, options \\ []) do
     url_path = "/revokeDomainAccess"
 
@@ -2247,15 +2176,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20SignOutUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec sign_out_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, sign_out_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sign_out_user_errors()}
-
   def sign_out_user(%Client{} = client, options \\ []) do
     url_path = "/signOutUser"
 
@@ -2294,16 +2220,14 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the fleet.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  fleet.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2340,18 +2264,16 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the fleet.
-  * `:tag_keys` (`t:list[com.amazonaws.worklink#TagKey]`) The list of tag keys to
-  remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  fleet.
+  * `:tag_keys` (`t:list[com.amazonaws.worklink#TagKey]` required) The list of tag
+  keys to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2399,15 +2321,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateAuditStreamConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_audit_stream_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_audit_stream_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_audit_stream_configuration_errors()}
-
   def update_audit_stream_configuration(%Client{} = client, options \\ []) do
     url_path = "/updateAuditStreamConfiguration"
 
@@ -2444,15 +2363,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateCompanyNetworkConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_company_network_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_company_network_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_company_network_configuration_errors()}
-
   def update_company_network_configuration(%Client{} = client, options \\ []) do
     url_path = "/updateCompanyNetworkConfiguration"
 
@@ -2489,15 +2405,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateDevicePolicyConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_device_policy_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_device_policy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_policy_configuration_errors()}
-
   def update_device_policy_configuration(%Client{} = client, options \\ []) do
     url_path = "/updateDevicePolicyConfiguration"
 
@@ -2534,15 +2447,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateDomainMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_domain_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_domain_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_metadata_errors()}
-
   def update_domain_metadata(%Client{} = client, options \\ []) do
     url_path = "/updateDomainMetadata"
 
@@ -2579,15 +2489,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateFleetMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_fleet_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_fleet_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_metadata_errors()}
-
   def update_fleet_metadata(%Client{} = client, options \\ []) do
     url_path = "/UpdateFleetMetadata"
 
@@ -2624,15 +2531,12 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateIdentityProviderConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_identity_provider_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_identity_provider_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_identity_provider_configuration_errors()}
-
   def update_identity_provider_configuration(%Client{} = client, options \\ []) do
     url_path = "/updateIdentityProviderConfiguration"
 

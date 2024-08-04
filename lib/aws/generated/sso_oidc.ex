@@ -384,15 +384,12 @@ defmodule AWS.SSOOIDC do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20CreateToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_token(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_token_errors()}
-
   def create_token(%Client{} = client, options \\ []) do
     url_path = "/token"
 
@@ -432,15 +429,12 @@ defmodule AWS.SSOOIDC do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20CreateTokenWithIAM&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_token_with_iam(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_token_with_iam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_token_with_iam_errors()}
-
   def create_token_with_iam(%Client{} = client, options \\ []) do
     url_path = "/token?aws_iam=t"
 
@@ -479,15 +473,12 @@ defmodule AWS.SSOOIDC do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20RegisterClient&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_client(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_client_errors()}
-
   def register_client(%Client{} = client, options \\ []) do
     url_path = "/client/register"
 
@@ -525,15 +516,12 @@ defmodule AWS.SSOOIDC do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20StartDeviceAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_device_authorization(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_device_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_device_authorization_errors()}
-
   def start_device_authorization(%Client{} = client, options \\ []) do
     url_path = "/device_authorization"
 

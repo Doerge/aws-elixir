@@ -2245,20 +2245,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20AcceptEulas&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec accept_eulas(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_eulas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_eulas_errors()}
-
   def accept_eulas(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/eula-acceptances"
 
@@ -2306,20 +2303,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20CreateLaunchProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec create_launch_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_launch_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_launch_profile_errors()}
-
   def create_launch_profile(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles"
 
@@ -2367,20 +2361,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20CreateStreamingImage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec create_streaming_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_streaming_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_image_errors()}
-
   def create_streaming_image(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images"
 
@@ -2428,20 +2419,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20CreateStreamingSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec create_streaming_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_streaming_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_session_errors()}
-
   def create_streaming_session(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions"
 
@@ -2489,21 +2477,18 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20CreateStreamingSessionStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:session_id` (`t:string`) The streaming session ID.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:session_id` (`t:string` required) The streaming session ID.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec create_streaming_session_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_streaming_session_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_session_stream_errors()}
-
   def create_streaming_session_stream(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}/streams"
@@ -2554,19 +2539,16 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20CreateStudio&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec create_studio(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_studio_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_studio_errors()}
-
   def create_studio(%Client{} = client, options \\ []) do
     url_path = "/2020-08-01/studios"
 
@@ -2614,20 +2596,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20CreateStudioComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec create_studio_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_studio_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_studio_component_errors()}
-
   def create_studio_component(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components"
 
@@ -2675,22 +2654,19 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20DeleteLaunchProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-  access from the streaming session.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:launch_profile_id` (`t:string` required) The ID of the launch profile used
+  to control access from the streaming session.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec delete_launch_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_launch_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_profile_errors()}
-
   def delete_launch_profile(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}"
@@ -2749,19 +2725,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20DeleteLaunchProfileMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-  access from the streaming session.
-  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-  Identity Center UserId.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:launch_profile_id` (`t:string` required) The ID of the launch profile used
+  to control access from the streaming session.
+  * `:principal_id` (`t:string` required) The principal ID. This currently
+  supports a IAM Identity Center UserId.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec delete_launch_profile_member(
           AWS.Client.t(),
           String.t(),
@@ -2772,7 +2746,6 @@ defmodule AWS.Nimble do
           {:ok, delete_launch_profile_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_profile_member_errors()}
-
   def delete_launch_profile_member(
         %Client{} = client,
         launch_profile_id,
@@ -2837,21 +2810,18 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20DeleteStreamingImage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:streaming_image_id` (`t:string`) The streaming image ID.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:streaming_image_id` (`t:string` required) The streaming image ID.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec delete_streaming_image(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_streaming_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_streaming_image_errors()}
-
   def delete_streaming_image(%Client{} = client, streaming_image_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images/#{AWS.Util.encode_uri(streaming_image_id)}"
@@ -2912,21 +2882,18 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20DeleteStreamingSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:session_id` (`t:string`) The streaming session ID.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:session_id` (`t:string` required) The streaming session ID.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec delete_streaming_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_streaming_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_streaming_session_errors()}
-
   def delete_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}"
@@ -2985,20 +2952,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20DeleteStudio&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec delete_studio(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_studio_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_studio_errors()}
-
   def delete_studio(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"
 
@@ -3056,21 +3020,18 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20DeleteStudioComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_component_id` (`t:string`) The studio component ID.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_component_id` (`t:string` required) The studio component ID.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec delete_studio_component(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_studio_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_studio_component_errors()}
-
   def delete_studio_component(%Client{} = client, studio_component_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components/#{AWS.Util.encode_uri(studio_component_id)}"
@@ -3129,22 +3090,19 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20DeleteStudioMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-  Identity Center UserId.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:principal_id` (`t:string` required) The principal ID. This currently
+  supports a IAM Identity Center UserId.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec delete_studio_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_studio_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_studio_member_errors()}
-
   def delete_studio_member(%Client{} = client, principal_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
@@ -3203,16 +3161,13 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetEula&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:eula_id` (`t:string`) The EULA ID.
-
-  ## Optional parameters:
+  * `:eula_id` (`t:string` required) The EULA ID.
+  ## Keyword parameters:
   """
-
   @spec get_eula(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_eula_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_eula_errors()}
-
   def get_eula(%Client{} = client, eula_id, options \\ []) do
     url_path = "/2020-08-01/eulas/#{AWS.Util.encode_uri(eula_id)}"
 
@@ -3247,18 +3202,15 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetLaunchProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-  access from the streaming session.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:launch_profile_id` (`t:string` required) The ID of the launch profile used
+  to control access from the streaming session.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   """
-
   @spec get_launch_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_launch_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_profile_errors()}
-
   def get_launch_profile(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}"
@@ -3298,18 +3250,15 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetLaunchProfileDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-  access from the streaming session.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:launch_profile_id` (`t:string` required) The ID of the launch profile used
+  to control access from the streaming session.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   """
-
   @spec get_launch_profile_details(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_launch_profile_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_profile_details_errors()}
-
   def get_launch_profile_details(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/details"
@@ -3345,18 +3294,16 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetLaunchProfileInitialization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-  access from the streaming session.
-  * `:studio_id` (`t:string`) The studio ID.
-  * `:launch_profile_protocol_versions` (`t:list[com.amazonaws.nimble#String]`)
-  The launch profile protocol versions supported by the client.
-  * `:launch_purpose` (`t:string`) The launch purpose.
-  * `:platform` (`t:string`) The platform where this Launch Profile will be used,
-  either Windows or Linux.
-
-  ## Optional parameters:
+  * `:launch_profile_id` (`t:string` required) The ID of the launch profile used
+  to control access from the streaming session.
+  * `:studio_id` (`t:string` required) The studio ID.
+  * `:launch_profile_protocol_versions` (`t:list[com.amazonaws.nimble#String]`
+  required) The launch profile protocol versions supported by the client.
+  * `:launch_purpose` (`t:string` required) The launch purpose.
+  * `:platform` (`t:string` required) The platform where this Launch Profile will
+  be used, either Windows or Linux.
+  ## Keyword parameters:
   """
-
   @spec get_launch_profile_initialization(
           AWS.Client.t(),
           String.t(),
@@ -3369,7 +3316,6 @@ defmodule AWS.Nimble do
           {:ok, get_launch_profile_initialization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_profile_initialization_errors()}
-
   def get_launch_profile_initialization(
         %Client{} = client,
         launch_profile_id,
@@ -3419,20 +3365,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetLaunchProfileMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-  access from the streaming session.
-  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-  Identity Center UserId.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:launch_profile_id` (`t:string` required) The ID of the launch profile used
+  to control access from the streaming session.
+  * `:principal_id` (`t:string` required) The principal ID. This currently
+  supports a IAM Identity Center UserId.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   """
-
   @spec get_launch_profile_member(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_launch_profile_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_profile_member_errors()}
-
   def get_launch_profile_member(
         %Client{} = client,
         launch_profile_id,
@@ -3474,17 +3417,14 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetStreamingImage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:streaming_image_id` (`t:string`) The streaming image ID.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:streaming_image_id` (`t:string` required) The streaming image ID.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   """
-
   @spec get_streaming_image(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_streaming_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_image_errors()}
-
   def get_streaming_image(%Client{} = client, streaming_image_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images/#{AWS.Util.encode_uri(streaming_image_id)}"
@@ -3520,17 +3460,14 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetStreamingSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:session_id` (`t:string`) The streaming session ID.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:session_id` (`t:string` required) The streaming session ID.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   """
-
   @spec get_streaming_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_streaming_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_session_errors()}
-
   def get_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}"
@@ -3566,17 +3503,14 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetStreamingSessionBackup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:backup_id` (`t:string`) The ID of the backup.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:backup_id` (`t:string` required) The ID of the backup.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   """
-
   @spec get_streaming_session_backup(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_streaming_session_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_session_backup_errors()}
-
   def get_streaming_session_backup(%Client{} = client, backup_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-session-backups/#{AWS.Util.encode_uri(backup_id)}"
@@ -3613,13 +3547,11 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetStreamingSessionStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:session_id` (`t:string`) The streaming session ID.
-  * `:stream_id` (`t:string`) The streaming session stream ID.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:session_id` (`t:string` required) The streaming session ID.
+  * `:stream_id` (`t:string` required) The streaming session stream ID.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   """
-
   @spec get_streaming_session_stream(
           AWS.Client.t(),
           String.t(),
@@ -3630,7 +3562,6 @@ defmodule AWS.Nimble do
           {:ok, get_streaming_session_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_session_stream_errors()}
-
   def get_streaming_session_stream(
         %Client{} = client,
         session_id,
@@ -3672,16 +3603,13 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetStudio&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   """
-
   @spec get_studio(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_studio_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_studio_errors()}
-
   def get_studio(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"
 
@@ -3716,17 +3644,14 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetStudioComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_component_id` (`t:string`) The studio component ID.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_component_id` (`t:string` required) The studio component ID.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   """
-
   @spec get_studio_component(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_studio_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_studio_component_errors()}
-
   def get_studio_component(%Client{} = client, studio_component_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components/#{AWS.Util.encode_uri(studio_component_id)}"
@@ -3762,18 +3687,15 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20GetStudioMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-  Identity Center UserId.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:principal_id` (`t:string` required) The principal ID. This currently
+  supports a IAM Identity Center UserId.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   """
-
   @spec get_studio_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_studio_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_studio_member_errors()}
-
   def get_studio_member(%Client{} = client, principal_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
@@ -3809,20 +3731,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListEulaAcceptances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:eula_ids` (`t:list[com.amazonaws.nimble#String]`) The list of EULA IDs that
   have been previously accepted.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_eula_acceptances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_eula_acceptances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_eula_acceptances_errors()}
-
   def list_eula_acceptances(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/eula-acceptances"
 
@@ -3875,19 +3794,16 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListEulas&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:eula_ids` (`t:list[com.amazonaws.nimble#String]`) The list of EULA IDs that
   should be returned
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_eulas(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_eulas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_eulas_errors()}
-
   def list_eulas(%Client{} = client, options \\ []) do
     url_path = "/2020-08-01/eulas"
 
@@ -3940,22 +3856,19 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListLaunchProfileMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-  access from the streaming session.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:launch_profile_id` (`t:string` required) The ID of the launch profile used
+  to control access from the streaming session.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The max number of results to return in the
   response.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_launch_profile_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_launch_profile_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_launch_profile_members_errors()}
-
   def list_launch_profile_members(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership"
@@ -4009,9 +3922,8 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListLaunchProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The max number of results to return in the
   response.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
@@ -4021,12 +3933,10 @@ defmodule AWS.Nimble do
   * `:states` (`t:list[com.amazonaws.nimble#LaunchProfileState]`) Filter this
   request to launch profiles in any of the given states.
   """
-
   @spec list_launch_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_launch_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_launch_profiles_errors()}
-
   def list_launch_profiles(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles"
 
@@ -4093,20 +4003,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListStreamingImages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   * `:owner` (`t:string`) Filter this request to streaming images with the given
   owner
   """
-
   @spec list_streaming_images(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_streaming_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streaming_images_errors()}
-
   def list_streaming_images(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images"
 
@@ -4159,20 +4066,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListStreamingSessionBackups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   * `:owned_by` (`t:string`) The user ID of the user that owns the streaming
   session.
   """
-
   @spec list_streaming_session_backups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_streaming_session_backups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streaming_session_backups_errors()}
-
   def list_streaming_session_backups(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-session-backups"
 
@@ -4225,9 +4129,8 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListStreamingSessions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:created_by` (`t:string`) Filters the request to streaming sessions created
   by the given user.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
@@ -4237,12 +4140,10 @@ defmodule AWS.Nimble do
   * `:session_ids` (`t:string`) Filters the request to only the provided session
   IDs.
   """
-
   @spec list_streaming_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_streaming_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streaming_sessions_errors()}
-
   def list_streaming_sessions(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions"
 
@@ -4309,9 +4210,8 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListStudioComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The max number of results to return in the
   response.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
@@ -4321,12 +4221,10 @@ defmodule AWS.Nimble do
   * `:types` (`t:list[com.amazonaws.nimble#StudioComponentType]`) Filters the
   request to studio components that are of one of the given types.
   """
-
   @spec list_studio_components(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_studio_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_studio_components_errors()}
-
   def list_studio_components(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components"
 
@@ -4393,20 +4291,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListStudioMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The max number of results to return in the
   response.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_studio_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_studio_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_studio_members_errors()}
-
   def list_studio_members(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership"
 
@@ -4460,17 +4355,14 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListStudios&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_studios(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_studios_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_studios_errors()}
-
   def list_studios(%Client{} = client, options \\ []) do
     url_path = "/2020-08-01/studios"
 
@@ -4516,17 +4408,14 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  for which you want to list tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource for which you want to list tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2020-08-01/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4561,22 +4450,19 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20PutLaunchProfileMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-  access from the streaming session.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:launch_profile_id` (`t:string` required) The ID of the launch profile used
+  to control access from the streaming session.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec put_launch_profile_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_launch_profile_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_launch_profile_members_errors()}
-
   def put_launch_profile_members(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership"
@@ -4625,20 +4511,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20PutStudioMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec put_studio_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_studio_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_studio_members_errors()}
-
   def put_studio_members(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership"
 
@@ -4688,22 +4571,20 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20StartStreamingSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:session_id` (`t:string`) The streaming session ID for the
+  * `:session_id` (`t:string` required) The streaming session ID for the
   StartStreamingSessionRequest.
-  * `:studio_id` (`t:string`) The studio ID for the StartStreamingSessionRequest.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID for the
+  StartStreamingSessionRequest.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec start_streaming_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_streaming_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_streaming_session_errors()}
-
   def start_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}/start"
@@ -4754,20 +4635,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20StartStudioSSOConfigurationRepair&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec start_studio_s_s_o_configuration_repair(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_studio_s_s_o_configuration_repair_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_studio_s_s_o_configuration_repair_errors()}
-
   def start_studio_s_s_o_configuration_repair(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/sso-configuration"
 
@@ -4817,22 +4695,20 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20StopStreamingSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:session_id` (`t:string`) The streaming session ID for the
+  * `:session_id` (`t:string` required) The streaming session ID for the
   StopStreamingSessionRequest.
-  * `:studio_id` (`t:string`) The studioId for the StopStreamingSessionRequest.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studioId for the
+  StopStreamingSessionRequest.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec stop_streaming_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_streaming_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_streaming_session_errors()}
-
   def stop_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}/stop"
@@ -4881,17 +4757,14 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  you want to add tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource you want to add tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2020-08-01/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4928,19 +4801,16 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Identifies the Amazon Resource Name(ARN) key from
-  which you are removing tags.
-  * `:tag_keys` (`t:list[com.amazonaws.nimble#String]`) One or more tag keys.
-  Specify only the tag keys, not the tag values.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Identifies the Amazon Resource Name(ARN)
+  key from which you are removing tags.
+  * `:tag_keys` (`t:list[com.amazonaws.nimble#String]` required) One or more tag
+  keys. Specify only the tag keys, not the tag values.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/2020-08-01/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4988,22 +4858,19 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20UpdateLaunchProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-  access from the streaming session.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:launch_profile_id` (`t:string` required) The ID of the launch profile used
+  to control access from the streaming session.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec update_launch_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_launch_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_profile_errors()}
-
   def update_launch_profile(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}"
@@ -5062,19 +4929,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20UpdateLaunchProfileMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-  access from the streaming session.
-  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-  Identity Center UserId.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:launch_profile_id` (`t:string` required) The ID of the launch profile used
+  to control access from the streaming session.
+  * `:principal_id` (`t:string` required) The principal ID. This currently
+  supports a IAM Identity Center UserId.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec update_launch_profile_member(
           AWS.Client.t(),
           String.t(),
@@ -5085,7 +4950,6 @@ defmodule AWS.Nimble do
           {:ok, update_launch_profile_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_profile_member_errors()}
-
   def update_launch_profile_member(
         %Client{} = client,
         launch_profile_id,
@@ -5150,21 +5014,18 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20UpdateStreamingImage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:streaming_image_id` (`t:string`) The streaming image ID.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:streaming_image_id` (`t:string` required) The streaming image ID.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec update_streaming_image(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_streaming_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_streaming_image_errors()}
-
   def update_streaming_image(%Client{} = client, streaming_image_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images/#{AWS.Util.encode_uri(streaming_image_id)}"
@@ -5223,20 +5084,17 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20UpdateStudio&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec update_studio(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_studio_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_studio_errors()}
-
   def update_studio(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"
 
@@ -5294,21 +5152,18 @@ defmodule AWS.Nimble do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=nimble%20UpdateStudioComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:studio_component_id` (`t:string`) The studio component ID.
-  * `:studio_id` (`t:string`) The studio ID.
-
-  ## Optional parameters:
+  * `:studio_component_id` (`t:string` required) The studio component ID.
+  * `:studio_id` (`t:string` required) The studio ID.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If you don’t specify a
   client token, the Amazon Web Services SDK automatically generates a client
   token and uses it for the request to ensure idempotency.
   """
-
   @spec update_studio_component(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_studio_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_studio_component_errors()}
-
   def update_studio_component(%Client{} = client, studio_component_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components/#{AWS.Util.encode_uri(studio_component_id)}"

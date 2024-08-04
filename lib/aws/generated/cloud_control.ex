@@ -612,6 +612,7 @@ defmodule AWS.CloudControl do
   end
 
   @doc """
+   
   Cancels the specified resource operation request. For more information, see
   [Canceling resource operation
   requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel)
@@ -625,12 +626,10 @@ defmodule AWS.CloudControl do
       required("RequestToken") => String.t()
     }
   """
-
   @spec cancel_resource_request(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_resource_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_resource_request_errors()}
-
   def cancel_resource_request(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -639,6 +638,7 @@ defmodule AWS.CloudControl do
   end
 
   @doc """
+   
   Creates the specified resource. For more information, see [Creating a
   resource](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html)
   in the *Amazon Web Services Cloud Control API User Guide*. After you have
@@ -660,12 +660,10 @@ defmodule AWS.CloudControl do
       required("TypeName") => String.t()
     }
   """
-
   @spec create_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_errors()}
-
   def create_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -674,6 +672,7 @@ defmodule AWS.CloudControl do
   end
 
   @doc """
+   
   Deletes the specified resource. For details, see [Deleting a
   resource](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-delete.html)
   in the *Amazon Web Services Cloud Control API User Guide*. After you have
@@ -694,12 +693,10 @@ defmodule AWS.CloudControl do
       required("TypeName") => String.t()
     }
   """
-
   @spec delete_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_errors()}
-
   def delete_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -708,6 +705,7 @@ defmodule AWS.CloudControl do
   end
 
   @doc """
+   
   Returns information about the current state of the specified resource. For
   details, see [Reading a resource's current
   state](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html).
@@ -723,12 +721,10 @@ defmodule AWS.CloudControl do
       required("TypeName") => String.t()
     }
   """
-
   @spec get_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_errors()}
-
   def get_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -737,6 +733,7 @@ defmodule AWS.CloudControl do
   end
 
   @doc """
+   
   Returns the current status of a resource operation request. For more
   information, see [Tracking the progress of resource operation
   requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track)
@@ -750,12 +747,10 @@ defmodule AWS.CloudControl do
       required("RequestToken") => String.t()
     }
   """
-
   @spec get_resource_request_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_request_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_request_status_errors()}
-
   def get_resource_request_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -764,6 +759,7 @@ defmodule AWS.CloudControl do
   end
 
   @doc """
+   
   Returns existing resource operation requests. This includes requests of all
   status types. For more information, see [Listing active resource operation
   requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list)
@@ -779,11 +775,9 @@ defmodule AWS.CloudControl do
       optional("ResourceRequestStatusFilter") => resource_request_status_filter()
     }
   """
-
   @spec list_resource_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_requests_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_resource_requests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -792,6 +786,7 @@ defmodule AWS.CloudControl do
   end
 
   @doc """
+   
   Returns information about the specified resources. For more information, see
   [Discovering
   resources](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-list.html)
@@ -810,12 +805,10 @@ defmodule AWS.CloudControl do
       required("TypeName") => String.t()
     }
   """
-
   @spec list_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_errors()}
-
   def list_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -824,6 +817,7 @@ defmodule AWS.CloudControl do
   end
 
   @doc """
+   
   Updates the specified property values in the resource. You specify your resource
   property updates as a list of patch operations contained in a JSON patch
   document that adheres to the [ *RFC 6902 - JavaScript Object Notation (JSON)
@@ -845,12 +839,10 @@ defmodule AWS.CloudControl do
       required("TypeName") => String.t()
     }
   """
-
   @spec update_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_errors()}
-
   def update_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

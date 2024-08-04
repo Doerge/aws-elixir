@@ -389,15 +389,12 @@ defmodule AWS.Artifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
-
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/v1/account-settings/get"
 
@@ -432,19 +429,16 @@ defmodule AWS.Artifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_id` (`t:string`) Unique resource ID for the report resource.
-  * `:term_token` (`t:string`) Unique download token provided by GetTermForReport
-  API.
-
-  ## Optional parameters:
+  * `:report_id` (`t:string` required) Unique resource ID for the report resource.
+  * `:term_token` (`t:string` required) Unique download token provided by
+  GetTermForReport API.
+  ## Keyword parameters:
   * `:report_version` (`t:long`) Version for the report resource.
   """
-
   @spec get_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_report_errors()}
-
   def get_report(%Client{} = client, report_id, term_token, options \\ [])
       when is_binary(report_id) and is_binary(term_token) do
     url_path = "/v1/report/get"
@@ -491,17 +485,14 @@ defmodule AWS.Artifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetReportMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_id` (`t:string`) Unique resource ID for the report resource.
-
-  ## Optional parameters:
+  * `:report_id` (`t:string` required) Unique resource ID for the report resource.
+  ## Keyword parameters:
   * `:report_version` (`t:long`) Version for the report resource.
   """
-
   @spec get_report_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_report_metadata_errors()}
-
   def get_report_metadata(%Client{} = client, report_id, options \\ [])
       when is_binary(report_id) do
     url_path = "/v1/report/getMetadata"
@@ -548,17 +539,14 @@ defmodule AWS.Artifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetTermForReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:report_id` (`t:string`) Unique resource ID for the report resource.
-
-  ## Optional parameters:
+  * `:report_id` (`t:string` required) Unique resource ID for the report resource.
+  ## Keyword parameters:
   * `:report_version` (`t:long`) Version for the report resource.
   """
-
   @spec get_term_for_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_term_for_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_term_for_report_errors()}
-
   def get_term_for_report(%Client{} = client, report_id, options \\ [])
       when is_binary(report_id) do
     url_path = "/v1/report/getTermForReport"
@@ -605,19 +593,16 @@ defmodule AWS.Artifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20ListReports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of resources to return in the
   paginated response.
   * `:next_token` (`t:string`) Pagination token to request the next page of
   resources.
   """
-
   @spec list_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reports_errors()}
-
   def list_reports(%Client{} = client, options \\ []) do
     url_path = "/v1/report/list"
 
@@ -670,15 +655,12 @@ defmodule AWS.Artifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20PutAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_settings_errors()}
-
   def put_account_settings(%Client{} = client, options \\ []) do
     url_path = "/v1/account-settings/put"
 

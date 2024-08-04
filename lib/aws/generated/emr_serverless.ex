@@ -949,18 +949,15 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20CancelJobRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application on which the job run
-  will be canceled.
-  * `:job_run_id` (`t:string`) The ID of the job run to cancel.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application on which the
+  job run will be canceled.
+  * `:job_run_id` (`t:string` required) The ID of the job run to cancel.
+  ## Keyword parameters:
   """
-
   @spec cancel_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_run_errors()}
-
   def cancel_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
@@ -1008,15 +1005,12 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -1054,16 +1048,14 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20DeleteApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application that will be deleted.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application that will be
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -1110,17 +1102,14 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20GetApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application that will be
+  * `:application_id` (`t:string` required) The ID of the application that will be
   described.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -1159,20 +1148,17 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20GetDashboardForJobRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application.
-  * `:job_run_id` (`t:string`) The ID of the job run.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application.
+  * `:job_run_id` (`t:string` required) The ID of the job run.
+  ## Keyword parameters:
   * `:attempt` (`t:integer`) An optimal parameter that indicates the amount of
   attempts for the job. If not specified, this value defaults to the attempt
   of the latest job.
   """
-
   @spec get_dashboard_for_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_dashboard_for_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dashboard_for_job_run_errors()}
-
   def get_dashboard_for_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/dashboard"
@@ -1219,21 +1205,18 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20GetJobRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application on which the job run
-  is submitted.
-  * `:job_run_id` (`t:string`) The ID of the job run.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application on which the
+  job run is submitted.
+  * `:job_run_id` (`t:string` required) The ID of the job run.
+  ## Keyword parameters:
   * `:attempt` (`t:integer`) An optimal parameter that indicates the amount of
   attempts for the job. If not specified, this value defaults to the attempt
   of the latest job.
   """
-
   @spec get_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_run_errors()}
-
   def get_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
@@ -1280,8 +1263,7 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of applications that can be
   listed.
   * `:next_token` (`t:string`) The token for the next set of application results.
@@ -1289,12 +1271,10 @@ defmodule AWS.EMRServerless do
   filter for application states. Note that if this filter contains multiple
   states, the resulting list will be grouped by the state.
   """
-
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -1354,21 +1334,18 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListJobRunAttempts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application for which to list job
-  runs.
-  * `:job_run_id` (`t:string`) The ID of the job run to list.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application for which to
+  list job runs.
+  * `:job_run_id` (`t:string` required) The ID of the job run to list.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of job run attempts to list.
   * `:next_token` (`t:string`) The token for the next set of job run attempt
   results.
   """
-
   @spec list_job_run_attempts(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_run_attempts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_run_attempts_errors()}
-
   def list_job_run_attempts(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/attempts"
@@ -1422,10 +1399,9 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListJobRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application for which to list the
-  job run.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application for which to
+  list the job run.
+  ## Keyword parameters:
   * `:created_at_after` (`t:timestamp`) The lower bound of the option to filter by
   creation date and time.
   * `:created_at_before` (`t:timestamp`) The upper bound of the option to filter
@@ -1437,12 +1413,10 @@ defmodule AWS.EMRServerless do
   filter for job run states. Note that if this filter contains multiple
   states, the resulting list will be grouped by the state.
   """
-
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_runs_errors()}
-
   def list_job_runs(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
 
@@ -1537,18 +1511,15 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-  the resource to list the tags for. Currently, the supported resources are
-  Amazon EMR Serverless applications and job runs.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  identifies the resource to list the tags for. Currently, the supported
+  resources are Amazon EMR Serverless applications and job runs.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1583,16 +1554,13 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20StartApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application to start.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application to start.
+  ## Keyword parameters:
   """
-
   @spec start_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_errors()}
-
   def start_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/start"
 
@@ -1629,17 +1597,14 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20StartJobRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application on which to run the
-  job.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application on which to
+  run the job.
+  ## Keyword parameters:
   """
-
   @spec start_job_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_run_errors()}
-
   def start_job_run(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
 
@@ -1678,16 +1643,13 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20StopApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application to stop.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application to stop.
+  ## Keyword parameters:
   """
-
   @spec stop_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_application_errors()}
-
   def stop_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/stop"
 
@@ -1729,18 +1691,15 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-  the resource to list the tags for. Currently, the supported resources are
-  Amazon EMR Serverless applications and job runs.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  identifies the resource to list the tags for. Currently, the supported
+  resources are Amazon EMR Serverless applications and job runs.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1777,20 +1736,17 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-  the resource to list the tags for. Currently, the supported resources are
-  Amazon EMR Serverless applications and job runs.
-  * `:tag_keys` (`t:list[com.amazonaws.emrserverless#TagKey]`) The keys of the
-  tags to be removed.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  identifies the resource to list the tags for. Currently, the supported
+  resources are Amazon EMR Serverless applications and job runs.
+  * `:tag_keys` (`t:list[com.amazonaws.emrserverless#TagKey]` required) The keys
+  of the tags to be removed.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1839,16 +1795,13 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20UpdateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The ID of the application to update.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The ID of the application to update.
+  ## Keyword parameters:
   """
-
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-
   def update_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 

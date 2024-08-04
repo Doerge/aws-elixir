@@ -1169,17 +1169,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20AssociateLibraryItemReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier for the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier for the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec associate_library_item_review(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_library_item_review_errors()}
-
   def associate_library_item_review(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/catalog.associateItemRating"
@@ -1220,17 +1217,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20AssociateQAppWithUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec associate_q_app_with_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_q_app_with_user_errors()}
-
   def associate_q_app_with_user(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/apps.install"
@@ -1269,17 +1263,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20CreateLibraryItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec create_library_item(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_library_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_library_item_errors()}
-
   def create_library_item(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/catalog.createItem"
@@ -1320,17 +1311,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20CreateQApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec create_q_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_q_app_errors()}
-
   def create_q_app(%Client{} = client, instance_id, options \\ []) when is_binary(instance_id) do
     url_path = "/apps.create"
 
@@ -1368,17 +1356,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20DeleteLibraryItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec delete_library_item(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_library_item_errors()}
-
   def delete_library_item(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/catalog.deleteItem"
@@ -1417,17 +1402,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20DeleteQApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec delete_q_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_q_app_errors()}
-
   def delete_q_app(%Client{} = client, instance_id, options \\ []) when is_binary(instance_id) do
     url_path = "/apps.delete"
 
@@ -1464,17 +1446,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20DisassociateLibraryItemReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec disassociate_library_item_review(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_library_item_review_errors()}
-
   def disassociate_library_item_review(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/catalog.disassociateItemRating"
@@ -1512,17 +1491,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20DisassociateQAppFromUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec disassociate_q_app_from_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_q_app_from_user_errors()}
-
   def disassociate_q_app_from_user(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/apps.uninstall"
@@ -1561,21 +1537,18 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20GetLibraryItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:library_item_id` (`t:string`) The unique identifier of the library item to
-  retrieve.
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:library_item_id` (`t:string` required) The unique identifier of the library
+  item to retrieve.
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   * `:app_id` (`t:string`) The unique identifier of the Amazon Q App associated
   with the library item.
   """
-
   @spec get_library_item(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_library_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_library_item_errors()}
-
   def get_library_item(%Client{} = client, library_item_id, instance_id, options \\ [])
       when is_binary(library_item_id) and is_binary(instance_id) do
     url_path = "/catalog.getItem"
@@ -1623,18 +1596,16 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20GetQApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique identifier of the Q App to retrieve.
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique identifier of the Q App to
+  retrieve.
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec get_q_app(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_q_app_errors()}
-
   def get_q_app(%Client{} = client, app_id, instance_id, options \\ [])
       when is_binary(app_id) and is_binary(instance_id) do
     url_path = "/apps.get"
@@ -1671,19 +1642,16 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20GetQAppSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:session_id` (`t:string`) The unique identifier of the Q App session to
-  retrieve.
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:session_id` (`t:string` required) The unique identifier of the Q App session
+  to retrieve.
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec get_q_app_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_q_app_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_q_app_session_errors()}
-
   def get_q_app_session(%Client{} = client, session_id, instance_id, options \\ [])
       when is_binary(session_id) and is_binary(instance_id) do
     url_path = "/runtime.getQAppSession"
@@ -1722,17 +1690,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20ImportDocument&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec import_document(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, import_document_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_document_errors()}
-
   def import_document(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/apps.importDocument"
@@ -1771,21 +1736,18 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20ListLibraryItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   * `:category_id` (`t:string`) Optional category to filter the library items by.
   * `:limit` (`t:integer`) The maximum number of library items to return in the
   response.
   * `:next_token` (`t:string`) The token to request the next page of results.
   """
-
   @spec list_library_items(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_library_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_library_items_errors()}
-
   def list_library_items(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/catalog.list"
@@ -1848,19 +1810,16 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20ListQApps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of Q Apps to return in the response.
   * `:next_token` (`t:string`) The token to request the next page of results.
   """
-
   @spec list_q_apps(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_q_apps_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_q_apps_errors()}
-
   def list_q_apps(%Client{} = client, instance_id, options \\ []) when is_binary(instance_id) do
     url_path = "/apps.list"
 
@@ -1913,17 +1872,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  whose tags should be listed.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource whose tags should be listed.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1960,17 +1916,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20PredictQApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec predict_q_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, predict_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, predict_q_app_errors()}
-
   def predict_q_app(%Client{} = client, instance_id, options \\ []) when is_binary(instance_id) do
     url_path = "/apps.predictQApp"
 
@@ -2008,17 +1961,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20StartQAppSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec start_q_app_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_q_app_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_q_app_session_errors()}
-
   def start_q_app_session(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/runtime.startQAppSession"
@@ -2058,17 +2008,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20StopQAppSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec stop_q_app_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_q_app_session_errors()}
-
   def stop_q_app_session(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/runtime.deleteMiniAppRun"
@@ -2106,17 +2053,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2153,19 +2097,16 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  disassociate the tag from.
-  * `:tag_keys` (`t:list[com.amazonaws.qapps#TagKey]`) The keys of the tags to
-  disassociate from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to disassociate the tag from.
+  * `:tag_keys` (`t:list[com.amazonaws.qapps#TagKey]` required) The keys of the
+  tags to disassociate from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2213,17 +2154,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20UpdateLibraryItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec update_library_item(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_library_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_library_item_errors()}
-
   def update_library_item(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/catalog.updateItem"
@@ -2262,17 +2200,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20UpdateQApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec update_q_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_q_app_errors()}
-
   def update_q_app(%Client{} = client, instance_id, options \\ []) when is_binary(instance_id) do
     url_path = "/apps.update"
 
@@ -2313,17 +2248,14 @@ defmodule AWS.QApps do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20UpdateQAppSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
-  application environment instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
+  Business application environment instance.
+  ## Keyword parameters:
   """
-
   @spec update_q_app_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_q_app_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_q_app_session_errors()}
-
   def update_q_app_session(%Client{} = client, instance_id, options \\ [])
       when is_binary(instance_id) do
     url_path = "/runtime.updateQAppSession"

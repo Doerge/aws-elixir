@@ -6099,6 +6099,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Creates an association between an approval rule template and a specified
   repository. Then, the next time a pull request is created in the repository
   where the destination reference (if specified) matches the destination
@@ -6117,7 +6118,6 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec associate_approval_rule_template_with_repository(
           AWS.Client.t(),
           input :: map(),
@@ -6126,7 +6126,6 @@ defmodule AWS.CodeCommit do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_approval_rule_template_with_repository_errors()}
-
   def associate_approval_rule_template_with_repository(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6142,6 +6141,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Creates an association between an approval rule template and one or more
   specified repositories.
 
@@ -6154,7 +6154,6 @@ defmodule AWS.CodeCommit do
       required("repositoryNames") => list(String.t()())
     }
   """
-
   @spec batch_associate_approval_rule_template_with_repositories(
           AWS.Client.t(),
           input :: map(),
@@ -6163,7 +6162,6 @@ defmodule AWS.CodeCommit do
           {:ok, batch_associate_approval_rule_template_with_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_approval_rule_template_with_repositories_errors()}
-
   def batch_associate_approval_rule_template_with_repositories(
         %Client{} = client,
         input,
@@ -6183,6 +6181,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about one or more merge conflicts in the attempted merge of
   two commit specifiers using the squash or three-way merge strategy.
 
@@ -6203,12 +6202,10 @@ defmodule AWS.CodeCommit do
       required("sourceCommitSpecifier") => String.t()
     }
   """
-
   @spec batch_describe_merge_conflicts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_describe_merge_conflicts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_describe_merge_conflicts_errors()}
-
   def batch_describe_merge_conflicts(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6218,6 +6215,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Removes the association between an approval rule template and one or more
   specified repositories.
 
@@ -6230,7 +6228,6 @@ defmodule AWS.CodeCommit do
       required("repositoryNames") => list(String.t()())
     }
   """
-
   @spec batch_disassociate_approval_rule_template_from_repositories(
           AWS.Client.t(),
           input :: map(),
@@ -6239,7 +6236,6 @@ defmodule AWS.CodeCommit do
           {:ok, batch_disassociate_approval_rule_template_from_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_approval_rule_template_from_repositories_errors()}
-
   def batch_disassociate_approval_rule_template_from_repositories(
         %Client{} = client,
         input,
@@ -6259,6 +6255,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about the contents of one or more commits in a repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20BatchGetCommits&this_doc_guide=API%2520Reference)
@@ -6270,12 +6267,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec batch_get_commits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_commits_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_commits_errors()}
-
   def batch_get_commits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6284,6 +6279,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about one or more repositories.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20BatchGetRepositories&this_doc_guide=API%2520Reference)
@@ -6294,12 +6290,10 @@ defmodule AWS.CodeCommit do
       required("repositoryNames") => list(String.t()())
     }
   """
-
   @spec batch_get_repositories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_repositories_errors()}
-
   def batch_get_repositories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6308,6 +6302,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Creates a template for approval rules that can then be associated with one or
   more repositories in your Amazon Web Services account. When you associate a
   template with a repository, CodeCommit creates an approval rule that matches
@@ -6325,12 +6320,10 @@ defmodule AWS.CodeCommit do
       required("approvalRuleTemplateName") => String.t()
     }
   """
-
   @spec create_approval_rule_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_approval_rule_template_errors()}
-
   def create_approval_rule_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6340,6 +6333,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Creates a branch in a repository and points the branch to a commit.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20CreateBranch&this_doc_guide=API%2520Reference)
@@ -6352,12 +6346,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec create_branch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_branch_errors()}
-
   def create_branch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6366,6 +6358,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Creates a commit for a repository on the tip of a specified branch.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20CreateCommit&this_doc_guide=API%2520Reference)
@@ -6385,12 +6378,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec create_commit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_commit_errors()}
-
   def create_commit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6399,6 +6390,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Creates a pull request in the specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20CreatePullRequest&this_doc_guide=API%2520Reference)
@@ -6412,12 +6404,10 @@ defmodule AWS.CodeCommit do
       required("title") => String.t()
     }
   """
-
   @spec create_pull_request(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pull_request_errors()}
-
   def create_pull_request(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6426,6 +6416,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Creates an approval rule for a pull request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20CreatePullRequestApprovalRule&this_doc_guide=API%2520Reference)
@@ -6438,12 +6429,10 @@ defmodule AWS.CodeCommit do
       required("pullRequestId") => String.t()
     }
   """
-
   @spec create_pull_request_approval_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_pull_request_approval_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pull_request_approval_rule_errors()}
-
   def create_pull_request_approval_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6453,6 +6442,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Creates a new, empty repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20CreateRepository&this_doc_guide=API%2520Reference)
@@ -6466,12 +6456,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec create_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_repository_errors()}
-
   def create_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6480,6 +6468,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Creates an unreferenced commit that represents the result of merging two
   branches using a specified merge strategy. This can help you determine the
   outcome of a potential merge. This API cannot be used with the fast-forward
@@ -6503,12 +6492,10 @@ defmodule AWS.CodeCommit do
       required("sourceCommitSpecifier") => String.t()
     }
   """
-
   @spec create_unreferenced_merge_commit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_unreferenced_merge_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_unreferenced_merge_commit_errors()}
-
   def create_unreferenced_merge_commit(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6518,6 +6505,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Deletes a specified approval rule template. Deleting a template does not remove
   approval rules on pull requests already created with the template.
 
@@ -6529,12 +6517,10 @@ defmodule AWS.CodeCommit do
       required("approvalRuleTemplateName") => String.t()
     }
   """
-
   @spec delete_approval_rule_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_approval_rule_template_errors()}
-
   def delete_approval_rule_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6544,6 +6530,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Deletes a branch from a repository, unless that branch is the default branch for
   the repository.
 
@@ -6556,12 +6543,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec delete_branch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_branch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_branch_errors()}
-
   def delete_branch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6570,6 +6555,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Deletes the content of a comment made on a change, file, or commit in a
   repository.
 
@@ -6581,12 +6567,10 @@ defmodule AWS.CodeCommit do
       required("commentId") => String.t()
     }
   """
-
   @spec delete_comment_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_comment_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_comment_content_errors()}
-
   def delete_comment_content(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6595,6 +6579,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Deletes a specified file from a specified branch. A commit is created on the
   branch that contains the revision. The file still exists in the commits
   earlier to the commit that contains the deletion.
@@ -6614,12 +6599,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec delete_file(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_file_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_file_errors()}
-
   def delete_file(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6628,6 +6611,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Deletes an approval rule from a specified pull request. Approval rules can be
   deleted from a pull request only if the pull request is open, and if the
   approval rule was created specifically for a pull request and not generated
@@ -6644,12 +6628,10 @@ defmodule AWS.CodeCommit do
       required("pullRequestId") => String.t()
     }
   """
-
   @spec delete_pull_request_approval_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_pull_request_approval_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pull_request_approval_rule_errors()}
-
   def delete_pull_request_approval_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6659,6 +6641,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Deletes a repository. If a specified repository was already deleted, a null
   repository ID is returned.
 
@@ -6670,12 +6653,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec delete_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_repository_errors()}
-
   def delete_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6684,6 +6665,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about one or more merge conflicts in the attempted merge of
   two commit specifiers using the squash or three-way merge strategy. If the
   merge option for the attempted merge is specified as FAST_FORWARD_MERGE, an
@@ -6705,12 +6687,10 @@ defmodule AWS.CodeCommit do
       required("sourceCommitSpecifier") => String.t()
     }
   """
-
   @spec describe_merge_conflicts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_merge_conflicts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_merge_conflicts_errors()}
-
   def describe_merge_conflicts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6719,6 +6699,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about one or more pull request events.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20DescribePullRequestEvents&this_doc_guide=API%2520Reference)
@@ -6733,12 +6714,10 @@ defmodule AWS.CodeCommit do
       required("pullRequestId") => String.t()
     }
   """
-
   @spec describe_pull_request_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_pull_request_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pull_request_events_errors()}
-
   def describe_pull_request_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6747,6 +6726,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Removes the association between a template and a repository so that approval
   rules based on the template are not automatically created when pull requests
   are created in the specified repository. This does not delete any approval
@@ -6761,7 +6741,6 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec disassociate_approval_rule_template_from_repository(
           AWS.Client.t(),
           input :: map(),
@@ -6770,7 +6749,6 @@ defmodule AWS.CodeCommit do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_approval_rule_template_from_repository_errors()}
-
   def disassociate_approval_rule_template_from_repository(
         %Client{} = client,
         input,
@@ -6790,6 +6768,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Evaluates whether a pull request has met all the conditions specified in its
   associated approval rules.
 
@@ -6802,12 +6781,10 @@ defmodule AWS.CodeCommit do
       required("revisionId") => String.t()
     }
   """
-
   @spec evaluate_pull_request_approval_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, evaluate_pull_request_approval_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, evaluate_pull_request_approval_rules_errors()}
-
   def evaluate_pull_request_approval_rules(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6817,6 +6794,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about a specified approval rule template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20GetApprovalRuleTemplate&this_doc_guide=API%2520Reference)
@@ -6827,12 +6805,10 @@ defmodule AWS.CodeCommit do
       required("approvalRuleTemplateName") => String.t()
     }
   """
-
   @spec get_approval_rule_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_approval_rule_template_errors()}
-
   def get_approval_rule_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6841,6 +6817,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns the base-64 encoded content of an individual blob in a repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20GetBlob&this_doc_guide=API%2520Reference)
@@ -6852,12 +6829,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_blob(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_blob_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blob_errors()}
-
   def get_blob(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6866,6 +6841,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about a repository branch, including its name and the last
   commit ID.
 
@@ -6878,12 +6854,10 @@ defmodule AWS.CodeCommit do
       optional("repositoryName") => String.t()
     }
   """
-
   @spec get_branch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_branch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_branch_errors()}
-
   def get_branch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6892,6 +6866,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns the content of a comment made on a change, file, or commit in a
   repository.
 
@@ -6903,12 +6878,10 @@ defmodule AWS.CodeCommit do
       required("commentId") => String.t()
     }
   """
-
   @spec get_comment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_comment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_comment_errors()}
-
   def get_comment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6917,6 +6890,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about reactions to a specified comment ID. Reactions from
   users who have been deleted will not be included in the count.
 
@@ -6931,12 +6905,10 @@ defmodule AWS.CodeCommit do
       required("commentId") => String.t()
     }
   """
-
   @spec get_comment_reactions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_comment_reactions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_comment_reactions_errors()}
-
   def get_comment_reactions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -6945,6 +6917,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about comments made on the comparison between two commits.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20GetCommentsForComparedCommit&this_doc_guide=API%2520Reference)
@@ -6959,12 +6932,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_comments_for_compared_commit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_comments_for_compared_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_comments_for_compared_commit_errors()}
-
   def get_comments_for_compared_commit(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -6974,6 +6945,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns comments made on a pull request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20GetCommentsForPullRequest&this_doc_guide=API%2520Reference)
@@ -6989,12 +6961,10 @@ defmodule AWS.CodeCommit do
       required("pullRequestId") => String.t()
     }
   """
-
   @spec get_comments_for_pull_request(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_comments_for_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_comments_for_pull_request_errors()}
-
   def get_comments_for_pull_request(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7004,6 +6974,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about a commit, including commit message and committer
   information.
 
@@ -7016,12 +6987,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_commit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_commit_errors()}
-
   def get_commit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7030,6 +6999,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about the differences in a valid commit specifier (such as a
   branch, tag, HEAD, commit ID, or other fully qualified reference). Results can
   be limited to a specified path.
@@ -7048,12 +7018,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_differences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_differences_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_differences_errors()}
-
   def get_differences(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7062,6 +7030,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns the base-64 encoded contents of a specified file and its metadata.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20GetFile&this_doc_guide=API%2520Reference)
@@ -7074,12 +7043,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_file(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_file_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_file_errors()}
-
   def get_file(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7088,6 +7055,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns the contents of a specified folder in a repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20GetFolder&this_doc_guide=API%2520Reference)
@@ -7100,12 +7068,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_folder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_folder_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_folder_errors()}
-
   def get_folder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7114,6 +7080,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about a specified merge commit.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20GetMergeCommit&this_doc_guide=API%2520Reference)
@@ -7128,12 +7095,10 @@ defmodule AWS.CodeCommit do
       required("sourceCommitSpecifier") => String.t()
     }
   """
-
   @spec get_merge_commit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_merge_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_merge_commit_errors()}
-
   def get_merge_commit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7142,6 +7107,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about merge conflicts between the before and after commit
   IDs for a pull request in a repository.
 
@@ -7160,12 +7126,10 @@ defmodule AWS.CodeCommit do
       required("sourceCommitSpecifier") => String.t()
     }
   """
-
   @spec get_merge_conflicts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_merge_conflicts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_merge_conflicts_errors()}
-
   def get_merge_conflicts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7174,6 +7138,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about the merge options available for merging two specified
   branches. For details about why a merge option is not available, use
   GetMergeConflicts or DescribeMergeConflicts.
@@ -7190,12 +7155,10 @@ defmodule AWS.CodeCommit do
       required("sourceCommitSpecifier") => String.t()
     }
   """
-
   @spec get_merge_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_merge_options_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_merge_options_errors()}
-
   def get_merge_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7204,6 +7167,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Gets information about a pull request in a specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20GetPullRequest&this_doc_guide=API%2520Reference)
@@ -7214,12 +7178,10 @@ defmodule AWS.CodeCommit do
       required("pullRequestId") => String.t()
     }
   """
-
   @spec get_pull_request(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pull_request_errors()}
-
   def get_pull_request(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7228,6 +7190,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Gets information about the approval states for a specified pull request.
   Approval states only apply to pull requests that have one or more approval
   rules applied to them.
@@ -7241,12 +7204,10 @@ defmodule AWS.CodeCommit do
       required("revisionId") => String.t()
     }
   """
-
   @spec get_pull_request_approval_states(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_pull_request_approval_states_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pull_request_approval_states_errors()}
-
   def get_pull_request_approval_states(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7256,6 +7217,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about whether approval rules have been set aside
   (overridden) for a pull request, and if so, the Amazon Resource Name (ARN) of
   the user or identity that overrode the rules and their requirements for the
@@ -7270,12 +7232,10 @@ defmodule AWS.CodeCommit do
       required("revisionId") => String.t()
     }
   """
-
   @spec get_pull_request_override_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_pull_request_override_state_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pull_request_override_state_errors()}
-
   def get_pull_request_override_state(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7285,6 +7245,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns information about a repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20GetRepository&this_doc_guide=API%2520Reference)
@@ -7295,12 +7256,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_errors()}
-
   def get_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7309,6 +7268,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Gets information about triggers configured for a repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20GetRepositoryTriggers&this_doc_guide=API%2520Reference)
@@ -7319,12 +7279,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_repository_triggers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_repository_triggers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_triggers_errors()}
-
   def get_repository_triggers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7333,6 +7291,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Lists all approval rule templates in the specified Amazon Web Services Region in
   your Amazon Web Services account. If an Amazon Web Services Region is not
   specified, the Amazon Web Services Region where you are signed in is used.
@@ -7346,12 +7305,10 @@ defmodule AWS.CodeCommit do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_approval_rule_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_approval_rule_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_approval_rule_templates_errors()}
-
   def list_approval_rule_templates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7360,6 +7317,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Lists all approval rule templates that are associated with a specified
   repository.
 
@@ -7373,7 +7331,6 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec list_associated_approval_rule_templates_for_repository(
           AWS.Client.t(),
           input :: map(),
@@ -7382,7 +7339,6 @@ defmodule AWS.CodeCommit do
           {:ok, list_associated_approval_rule_templates_for_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_approval_rule_templates_for_repository_errors()}
-
   def list_associated_approval_rule_templates_for_repository(
         %Client{} = client,
         input,
@@ -7402,6 +7358,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Gets information about one or more branches in a repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20ListBranches&this_doc_guide=API%2520Reference)
@@ -7413,12 +7370,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec list_branches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_branches_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_branches_errors()}
-
   def list_branches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7427,6 +7382,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Retrieves a list of commits and changes to a specified file.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20ListFileCommitHistory&this_doc_guide=API%2520Reference)
@@ -7441,12 +7397,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec list_file_commit_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_file_commit_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_file_commit_history_errors()}
-
   def list_file_commit_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7455,6 +7409,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Returns a list of pull requests for a specified repository. The return list can
   be refined by pull request status or pull request author ARN.
 
@@ -7470,12 +7425,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec list_pull_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pull_requests_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pull_requests_errors()}
-
   def list_pull_requests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7484,6 +7437,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Gets information about one or more repositories.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20ListRepositories&this_doc_guide=API%2520Reference)
@@ -7496,12 +7450,10 @@ defmodule AWS.CodeCommit do
       optional("sortBy") => list(any())
     }
   """
-
   @spec list_repositories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_repositories_errors()}
-
   def list_repositories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7510,6 +7462,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Lists all repositories associated with the specified approval rule template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20ListRepositoriesForApprovalRuleTemplate&this_doc_guide=API%2520Reference)
@@ -7522,12 +7475,10 @@ defmodule AWS.CodeCommit do
       required("approvalRuleTemplateName") => String.t()
     }
   """
-
   @spec list_repositories_for_approval_rule_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_repositories_for_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_repositories_for_approval_rule_template_errors()}
-
   def list_repositories_for_approval_rule_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7537,6 +7488,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Gets information about Amazon Web Servicestags for a specified Amazon Resource
   Name (ARN) in CodeCommit. For a list of valid resources in CodeCommit, see
   [CodeCommit Resources and
@@ -7552,12 +7504,10 @@ defmodule AWS.CodeCommit do
       required("resourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7566,6 +7516,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Merges two branches using the fast-forward merge strategy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20MergeBranchesByFastForward&this_doc_guide=API%2520Reference)
@@ -7579,12 +7530,10 @@ defmodule AWS.CodeCommit do
       required("sourceCommitSpecifier") => String.t()
     }
   """
-
   @spec merge_branches_by_fast_forward(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, merge_branches_by_fast_forward_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, merge_branches_by_fast_forward_errors()}
-
   def merge_branches_by_fast_forward(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7594,6 +7543,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Merges two branches using the squash merge strategy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20MergeBranchesBySquash&this_doc_guide=API%2520Reference)
@@ -7614,12 +7564,10 @@ defmodule AWS.CodeCommit do
       required("sourceCommitSpecifier") => String.t()
     }
   """
-
   @spec merge_branches_by_squash(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, merge_branches_by_squash_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, merge_branches_by_squash_errors()}
-
   def merge_branches_by_squash(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7628,6 +7576,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Merges two specified branches using the three-way merge strategy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20MergeBranchesByThreeWay&this_doc_guide=API%2520Reference)
@@ -7648,12 +7597,10 @@ defmodule AWS.CodeCommit do
       required("sourceCommitSpecifier") => String.t()
     }
   """
-
   @spec merge_branches_by_three_way(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, merge_branches_by_three_way_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, merge_branches_by_three_way_errors()}
-
   def merge_branches_by_three_way(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7662,6 +7609,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Attempts to merge the source commit of a pull request into the specified
   destination branch for that pull request at the specified commit using the
   fast-forward merge strategy. If the merge is successful, it closes the pull
@@ -7677,12 +7625,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec merge_pull_request_by_fast_forward(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, merge_pull_request_by_fast_forward_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, merge_pull_request_by_fast_forward_errors()}
-
   def merge_pull_request_by_fast_forward(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7692,6 +7638,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Attempts to merge the source commit of a pull request into the specified
   destination branch for that pull request at the specified commit using the
   squash merge strategy. If the merge is successful, it closes the pull request.
@@ -7713,12 +7660,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec merge_pull_request_by_squash(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, merge_pull_request_by_squash_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, merge_pull_request_by_squash_errors()}
-
   def merge_pull_request_by_squash(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7727,6 +7672,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Attempts to merge the source commit of a pull request into the specified
   destination branch for that pull request at the specified commit using the
   three-way merge strategy. If the merge is successful, it closes the pull
@@ -7749,12 +7695,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec merge_pull_request_by_three_way(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, merge_pull_request_by_three_way_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, merge_pull_request_by_three_way_errors()}
-
   def merge_pull_request_by_three_way(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7764,6 +7708,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Sets aside (overrides) all approval rule requirements for a specified pull
   request.
 
@@ -7777,12 +7722,10 @@ defmodule AWS.CodeCommit do
       required("revisionId") => String.t()
     }
   """
-
   @spec override_pull_request_approval_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, override_pull_request_approval_rules_errors()}
-
   def override_pull_request_approval_rules(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7792,6 +7735,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Posts a comment on the comparison between two commits.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20PostCommentForComparedCommit&this_doc_guide=API%2520Reference)
@@ -7807,12 +7751,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec post_comment_for_compared_commit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, post_comment_for_compared_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_comment_for_compared_commit_errors()}
-
   def post_comment_for_compared_commit(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7822,6 +7764,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Posts a comment on a pull request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20PostCommentForPullRequest&this_doc_guide=API%2520Reference)
@@ -7838,12 +7781,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec post_comment_for_pull_request(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, post_comment_for_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_comment_for_pull_request_errors()}
-
   def post_comment_for_pull_request(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -7853,6 +7794,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Posts a comment in reply to an existing comment on a comparison between commits
   or a pull request.
 
@@ -7866,12 +7808,10 @@ defmodule AWS.CodeCommit do
       required("inReplyTo") => String.t()
     }
   """
-
   @spec post_comment_reply(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, post_comment_reply_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_comment_reply_errors()}
-
   def post_comment_reply(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7880,6 +7820,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Adds or updates a reaction to a specified comment for the user whose identity is
   used to make the request. You can only add or update a reaction for yourself.
   You cannot add, modify, or delete a reaction for another user.
@@ -7893,12 +7834,10 @@ defmodule AWS.CodeCommit do
       required("reactionValue") => String.t()
     }
   """
-
   @spec put_comment_reaction(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_comment_reaction_errors()}
-
   def put_comment_reaction(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7907,6 +7846,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Adds or updates a file in a branch in an CodeCommit repository, and generates a
   commit for the addition in the specified branch.
 
@@ -7926,12 +7866,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec put_file(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_file_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_file_errors()}
-
   def put_file(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7940,6 +7878,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Replaces all triggers for a repository. Used to create or delete triggers.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20PutRepositoryTriggers&this_doc_guide=API%2520Reference)
@@ -7951,12 +7890,10 @@ defmodule AWS.CodeCommit do
       required("triggers") => list(repository_trigger()())
     }
   """
-
   @spec put_repository_triggers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_repository_triggers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_repository_triggers_errors()}
-
   def put_repository_triggers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7965,6 +7902,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Adds or updates tags for a resource in CodeCommit. For a list of valid resources
   in CodeCommit, see [CodeCommit Resources and
   Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
@@ -7979,12 +7917,10 @@ defmodule AWS.CodeCommit do
       required("tags") => map()
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -7993,6 +7929,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Tests the functionality of repository triggers by sending information to the
   trigger target. If real data is available in the repository, the test sends
   data from the last commit. If no data is available, sample data is generated.
@@ -8006,12 +7943,10 @@ defmodule AWS.CodeCommit do
       required("triggers") => list(repository_trigger()())
     }
   """
-
   @spec test_repository_triggers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_repository_triggers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_repository_triggers_errors()}
-
   def test_repository_triggers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8020,6 +7955,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Removes tags for a resource in CodeCommit. For a list of valid resources in
   CodeCommit, see [CodeCommit Resources and
   Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
@@ -8034,12 +7970,10 @@ defmodule AWS.CodeCommit do
       required("tagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8048,6 +7982,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Updates the content of an approval rule template. You can change the number of
   required approvals, the membership of the approval rule, and whether an
   approval pool is defined.
@@ -8062,12 +7997,10 @@ defmodule AWS.CodeCommit do
       required("newRuleContent") => String.t()
     }
   """
-
   @spec update_approval_rule_template_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_approval_rule_template_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_approval_rule_template_content_errors()}
-
   def update_approval_rule_template_content(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8077,6 +8010,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Updates the description for a specified approval rule template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20UpdateApprovalRuleTemplateDescription&this_doc_guide=API%2520Reference)
@@ -8088,12 +8022,10 @@ defmodule AWS.CodeCommit do
       required("approvalRuleTemplateName") => String.t()
     }
   """
-
   @spec update_approval_rule_template_description(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_approval_rule_template_description_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_approval_rule_template_description_errors()}
-
   def update_approval_rule_template_description(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8103,6 +8035,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Updates the name of a specified approval rule template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20UpdateApprovalRuleTemplateName&this_doc_guide=API%2520Reference)
@@ -8114,12 +8047,10 @@ defmodule AWS.CodeCommit do
       required("oldApprovalRuleTemplateName") => String.t()
     }
   """
-
   @spec update_approval_rule_template_name(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_approval_rule_template_name_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_approval_rule_template_name_errors()}
-
   def update_approval_rule_template_name(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8129,6 +8060,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Replaces the contents of a comment.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20UpdateComment&this_doc_guide=API%2520Reference)
@@ -8140,12 +8072,10 @@ defmodule AWS.CodeCommit do
       required("content") => String.t()
     }
   """
-
   @spec update_comment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_comment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_comment_errors()}
-
   def update_comment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8154,6 +8084,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Sets or changes the default branch name for the specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20UpdateDefaultBranch&this_doc_guide=API%2520Reference)
@@ -8165,12 +8096,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec update_default_branch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_default_branch_errors()}
-
   def update_default_branch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8179,6 +8108,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Updates the structure of an approval rule created specifically for a pull
   request. For example, you can change the number of required approvers and the
   approval pool for approvers.
@@ -8194,12 +8124,10 @@ defmodule AWS.CodeCommit do
       required("pullRequestId") => String.t()
     }
   """
-
   @spec update_pull_request_approval_rule_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_pull_request_approval_rule_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pull_request_approval_rule_content_errors()}
-
   def update_pull_request_approval_rule_content(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8209,6 +8137,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Updates the state of a user's approval on a pull request. The user is derived
   from the signed-in account when the request is made.
 
@@ -8222,12 +8151,10 @@ defmodule AWS.CodeCommit do
       required("revisionId") => String.t()
     }
   """
-
   @spec update_pull_request_approval_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pull_request_approval_state_errors()}
-
   def update_pull_request_approval_state(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8237,6 +8164,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Replaces the contents of the description of a pull request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20UpdatePullRequestDescription&this_doc_guide=API%2520Reference)
@@ -8248,12 +8176,10 @@ defmodule AWS.CodeCommit do
       required("pullRequestId") => String.t()
     }
   """
-
   @spec update_pull_request_description(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_pull_request_description_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pull_request_description_errors()}
-
   def update_pull_request_description(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8263,6 +8189,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Updates the status of a pull request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20UpdatePullRequestStatus&this_doc_guide=API%2520Reference)
@@ -8274,12 +8201,10 @@ defmodule AWS.CodeCommit do
       required("pullRequestStatus") => list(any())
     }
   """
-
   @spec update_pull_request_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_pull_request_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pull_request_status_errors()}
-
   def update_pull_request_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8288,6 +8213,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Replaces the title of a pull request.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20UpdatePullRequestTitle&this_doc_guide=API%2520Reference)
@@ -8299,12 +8225,10 @@ defmodule AWS.CodeCommit do
       required("title") => String.t()
     }
   """
-
   @spec update_pull_request_title(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_pull_request_title_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pull_request_title_errors()}
-
   def update_pull_request_title(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -8313,6 +8237,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Sets or changes the comment or description for a repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecommit%20UpdateRepositoryDescription&this_doc_guide=API%2520Reference)
@@ -8324,12 +8249,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec update_repository_description(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_repository_description_errors()}
-
   def update_repository_description(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8339,6 +8262,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Updates the Key Management Service encryption key used to encrypt and decrypt a
   CodeCommit repository.
 
@@ -8351,12 +8275,10 @@ defmodule AWS.CodeCommit do
       required("repositoryName") => String.t()
     }
   """
-
   @spec update_repository_encryption_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_repository_encryption_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_repository_encryption_key_errors()}
-
   def update_repository_encryption_key(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -8366,6 +8288,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+   
   Renames a repository. The repository name must be unique across the calling
   Amazon Web Services account. Repository names are limited to 100 alphanumeric,
   dash, and underscore characters, and cannot include certain characters. The
@@ -8383,12 +8306,10 @@ defmodule AWS.CodeCommit do
       required("oldName") => String.t()
     }
   """
-
   @spec update_repository_name(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_repository_name_errors()}
-
   def update_repository_name(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

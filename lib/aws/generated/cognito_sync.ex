@@ -782,16 +782,13 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20BulkPublish&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_pool_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:identity_pool_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec bulk_publish(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, bulk_publish_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, bulk_publish_errors()}
-
   def bulk_publish(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/bulkpublish"
 
@@ -831,18 +828,15 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20DeleteDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`)
-  * `:identity_id` (`t:string`)
-  * `:identity_pool_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:dataset_name` (`t:string` required)
+  * `:identity_id` (`t:string` required)
+  * `:identity_pool_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_dataset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
-
   def delete_dataset(
         %Client{} = client,
         dataset_name,
@@ -898,18 +892,15 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20DescribeDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`)
-  * `:identity_id` (`t:string`)
-  * `:identity_pool_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:dataset_name` (`t:string` required)
+  * `:identity_id` (`t:string` required)
+  * `:identity_pool_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_dataset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
-
   def describe_dataset(
         %Client{} = client,
         dataset_name,
@@ -953,16 +944,13 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20DescribeIdentityPoolUsage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_pool_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:identity_pool_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_identity_pool_usage(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_identity_pool_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_pool_usage_errors()}
-
   def describe_identity_pool_usage(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}"
 
@@ -999,17 +987,14 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20DescribeIdentityUsage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_id` (`t:string`)
-  * `:identity_pool_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:identity_id` (`t:string` required)
+  * `:identity_pool_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_identity_usage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_identity_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_usage_errors()}
-
   def describe_identity_usage(%Client{} = client, identity_id, identity_pool_id, options \\ []) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}"
@@ -1045,16 +1030,13 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20GetBulkPublishDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_pool_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:identity_pool_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_bulk_publish_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bulk_publish_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bulk_publish_details_errors()}
-
   def get_bulk_publish_details(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/getBulkPublishDetails"
 
@@ -1092,16 +1074,14 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20GetCognitoEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_pool_id` (`t:string`) The Cognito Identity Pool ID for the request
-
-  ## Optional parameters:
+  * `:identity_pool_id` (`t:string` required) The Cognito Identity Pool ID for the
+  request
+  ## Keyword parameters:
   """
-
   @spec get_cognito_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cognito_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cognito_events_errors()}
-
   def get_cognito_events(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/events"
 
@@ -1138,18 +1118,15 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20GetIdentityPoolConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
+  * `:identity_pool_id` (`t:string` required) A name-spaced GUID (for example,
   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
   This is the ID of the pool for which to return a configuration.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_identity_pool_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_identity_pool_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_identity_pool_configuration_errors()}
-
   def get_identity_pool_configuration(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/configuration"
 
@@ -1189,19 +1166,16 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20ListDatasets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_id` (`t:string`)
-  * `:identity_pool_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:identity_id` (`t:string` required)
+  * `:identity_pool_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_datasets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-
   def list_datasets(%Client{} = client, identity_id, identity_pool_id, options \\ []) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets"
@@ -1257,17 +1231,14 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20ListIdentityPoolUsage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_identity_pool_usage(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_identity_pool_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_pool_usage_errors()}
-
   def list_identity_pool_usage(%Client{} = client, options \\ []) do
     url_path = "/identitypools"
 
@@ -1325,22 +1296,19 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20ListRecords&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`)
-  * `:identity_id` (`t:string`)
-  * `:identity_pool_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:dataset_name` (`t:string` required)
+  * `:identity_id` (`t:string` required)
+  * `:identity_pool_id` (`t:string` required)
+  ## Keyword parameters:
   * `:last_sync_count` (`t:long`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:sync_session_token` (`t:string`)
   """
-
   @spec list_records(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_records_errors()}
-
   def list_records(%Client{} = client, dataset_name, identity_id, identity_pool_id, options \\ []) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}/records"
@@ -1415,19 +1383,16 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20RegisterDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_id` (`t:string`) The unique ID for this identity.
-  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
+  * `:identity_id` (`t:string` required) The unique ID for this identity.
+  * `:identity_pool_id` (`t:string` required) A name-spaced GUID (for example,
   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
   Here, the ID of the pool that the identity belongs to.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_device(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, register_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_device_errors()}
-
   def register_device(%Client{} = client, identity_id, identity_pool_id, options \\ []) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identity/#{AWS.Util.encode_uri(identity_id)}/device"
@@ -1468,17 +1433,14 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20SetCognitoEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_pool_id` (`t:string`) The Cognito Identity Pool to use when
-  configuring Cognito Events
-
-  ## Optional parameters:
+  * `:identity_pool_id` (`t:string` required) The Cognito Identity Pool to use
+  when configuring Cognito Events
+  ## Keyword parameters:
   """
-
   @spec set_cognito_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_cognito_events_errors()}
-
   def set_cognito_events(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/events"
 
@@ -1517,18 +1479,15 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20SetIdentityPoolConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
+  * `:identity_pool_id` (`t:string` required) A name-spaced GUID (for example,
   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
   This is the ID of the pool to modify.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec set_identity_pool_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, set_identity_pool_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_identity_pool_configuration_errors()}
-
   def set_identity_pool_configuration(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/configuration"
 
@@ -1567,16 +1526,15 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20SubscribeToDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset to subcribe to.
-  * `:device_id` (`t:string`) The unique ID generated for this device by Cognito.
-  * `:identity_id` (`t:string`) Unique ID for this identity.
-  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
+  * `:dataset_name` (`t:string` required) The name of the dataset to subcribe to.
+  * `:device_id` (`t:string` required) The unique ID generated for this device by
+  Cognito.
+  * `:identity_id` (`t:string` required) Unique ID for this identity.
+  * `:identity_pool_id` (`t:string` required) A name-spaced GUID (for example,
   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
   The ID of the pool to which the identity belongs.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec subscribe_to_dataset(
           AWS.Client.t(),
           String.t(),
@@ -1588,7 +1546,6 @@ defmodule AWS.CognitoSync do
           {:ok, subscribe_to_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, subscribe_to_dataset_errors()}
-
   def subscribe_to_dataset(
         %Client{} = client,
         dataset_name,
@@ -1635,16 +1592,16 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20UnsubscribeFromDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset from which to unsubcribe.
-  * `:device_id` (`t:string`) The unique ID generated for this device by Cognito.
-  * `:identity_id` (`t:string`) Unique ID for this identity.
-  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
+  * `:dataset_name` (`t:string` required) The name of the dataset from which to
+  unsubcribe.
+  * `:device_id` (`t:string` required) The unique ID generated for this device by
+  Cognito.
+  * `:identity_id` (`t:string` required) Unique ID for this identity.
+  * `:identity_pool_id` (`t:string` required) A name-spaced GUID (for example,
   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
   The ID of the pool to which this identity belongs.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec unsubscribe_from_dataset(
           AWS.Client.t(),
           String.t(),
@@ -1656,7 +1613,6 @@ defmodule AWS.CognitoSync do
           {:ok, unsubscribe_from_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unsubscribe_from_dataset_errors()}
-
   def unsubscribe_from_dataset(
         %Client{} = client,
         dataset_name,
@@ -1715,19 +1671,16 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20UpdateRecords&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:dataset_name` (`t:string`)
-  * `:identity_id` (`t:string`)
-  * `:identity_pool_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:dataset_name` (`t:string` required)
+  * `:identity_id` (`t:string` required)
+  * `:identity_pool_id` (`t:string` required)
+  ## Keyword parameters:
   * `:client_context` (`t:string`)
   """
-
   @spec update_records(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_records_errors()}
-
   def update_records(
         %Client{} = client,
         dataset_name,

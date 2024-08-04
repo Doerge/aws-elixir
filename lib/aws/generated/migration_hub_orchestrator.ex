@@ -1376,15 +1376,12 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
-
   def create_template(%Client{} = client, options \\ []) do
     url_path = "/template"
 
@@ -1421,15 +1418,12 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
-
   def create_workflow(%Client{} = client, options \\ []) do
     url_path = "/migrationworkflow/"
 
@@ -1466,15 +1460,12 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflowStep&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_workflow_step(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_step_errors()}
-
   def create_workflow_step(%Client{} = client, options \\ []) do
     url_path = "/workflowstep"
 
@@ -1511,15 +1502,12 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflowStepGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_workflow_step_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_step_group_errors()}
-
   def create_workflow_step_group(%Client{} = client, options \\ []) do
     url_path = "/workflowstepgroups"
 
@@ -1556,17 +1544,14 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the request to delete a migration workflow
-  template.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the request to delete a migration
+  workflow template.
+  ## Keyword parameters:
   """
-
   @spec delete_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_errors()}
-
   def delete_template(%Client{} = client, id, options \\ []) do
     url_path = "/template/#{AWS.Util.encode_uri(id)}"
 
@@ -1614,16 +1599,14 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the migration workflow you want to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the migration workflow you want to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
-
   def delete_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
 
@@ -1671,19 +1654,16 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteWorkflowStep&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the step you want to delete.
-  * `:step_group_id` (`t:string`) The ID of the step group that contains the step
-  you want to delete.
-  * `:workflow_id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the step you want to delete.
+  * `:step_group_id` (`t:string` required) The ID of the step group that contains
+  the step you want to delete.
+  * `:workflow_id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   """
-
   @spec delete_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_step_errors()}
-
   def delete_workflow_step(%Client{} = client, id, step_group_id, workflow_id, options \\ [])
       when is_binary(step_group_id) and is_binary(workflow_id) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
@@ -1731,17 +1711,14 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteWorkflowStepGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the step group you want to delete.
-  * `:workflow_id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the step group you want to delete.
+  * `:workflow_id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   """
-
   @spec delete_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_step_group_errors()}
-
   def delete_workflow_step_group(%Client{} = client, id, workflow_id, options \\ [])
       when is_binary(workflow_id) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"
@@ -1789,16 +1766,13 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the template.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the template.
+  ## Keyword parameters:
   """
-
   @spec get_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_workflow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_errors()}
-
   def get_template(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflowtemplate/#{AWS.Util.encode_uri(id)}"
 
@@ -1833,18 +1807,15 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetTemplateStep&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the step.
-  * `:step_group_id` (`t:string`) The ID of the step group.
-  * `:template_id` (`t:string`) The ID of the template.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the step.
+  * `:step_group_id` (`t:string` required) The ID of the step group.
+  * `:template_id` (`t:string` required) The ID of the template.
+  ## Keyword parameters:
   """
-
   @spec get_template_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_step_errors()}
-
   def get_template_step(%Client{} = client, id, step_group_id, template_id, options \\ [])
       when is_binary(step_group_id) and is_binary(template_id) do
     url_path = "/templatestep/#{AWS.Util.encode_uri(id)}"
@@ -1880,17 +1851,14 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetTemplateStepGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the step group.
-  * `:template_id` (`t:string`) The ID of the template.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the step group.
+  * `:template_id` (`t:string` required) The ID of the template.
+  ## Keyword parameters:
   """
-
   @spec get_template_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_step_group_errors()}
-
   def get_template_step_group(%Client{} = client, id, template_id, options \\ []) do
     url_path =
       "/templates/#{AWS.Util.encode_uri(template_id)}/stepgroups/#{AWS.Util.encode_uri(id)}"
@@ -1926,16 +1894,13 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   """
-
   @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
-
   def get_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
 
@@ -1970,18 +1935,15 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetWorkflowStep&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the step.
-  * `:step_group_id` (`t:string`) The ID of the step group.
-  * `:workflow_id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the step.
+  * `:step_group_id` (`t:string` required) The ID of the step group.
+  * `:workflow_id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   """
-
   @spec get_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_step_errors()}
-
   def get_workflow_step(%Client{} = client, id, step_group_id, workflow_id, options \\ [])
       when is_binary(step_group_id) and is_binary(workflow_id) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
@@ -2017,17 +1979,14 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetWorkflowStepGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the step group.
-  * `:workflow_id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the step group.
+  * `:workflow_id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   """
-
   @spec get_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_step_group_errors()}
-
   def get_workflow_step_group(%Client{} = client, id, workflow_id, options \\ [])
       when is_binary(workflow_id) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"
@@ -2063,18 +2022,15 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListPlugins&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of plugins that can be
   returned.
   * `:next_token` (`t:string`) The pagination token.
   """
-
   @spec list_plugins(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_plugins_errors()}
-
   def list_plugins(%Client{} = client, options \\ []) do
     url_path = "/plugins"
 
@@ -2127,16 +2083,14 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2171,19 +2125,16 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTemplateStepGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_id` (`t:string`) The ID of the template.
-
-  ## Optional parameters:
+  * `:template_id` (`t:string` required) The ID of the template.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
   returned.
   * `:next_token` (`t:string`) The pagination token.
   """
-
   @spec list_template_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_step_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_step_groups_errors()}
-
   def list_template_step_groups(%Client{} = client, template_id, options \\ []) do
     url_path = "/templatestepgroups/#{AWS.Util.encode_uri(template_id)}"
 
@@ -2236,20 +2187,17 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTemplateSteps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:step_group_id` (`t:string`) The ID of the step group.
-  * `:template_id` (`t:string`) The ID of the template.
-
-  ## Optional parameters:
+  * `:step_group_id` (`t:string` required) The ID of the step group.
+  * `:template_id` (`t:string` required) The ID of the template.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
   returned.
   * `:next_token` (`t:string`) The pagination token.
   """
-
   @spec list_template_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_steps_errors()}
-
   def list_template_steps(%Client{} = client, step_group_id, template_id, options \\ [])
       when is_binary(step_group_id) and is_binary(template_id) do
     url_path = "/templatesteps"
@@ -2304,19 +2252,16 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
   returned.
   * `:name` (`t:string`) The name of the template.
   * `:next_token` (`t:string`) The pagination token.
   """
-
   @spec list_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_migration_workflow_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
-
   def list_templates(%Client{} = client, options \\ []) do
     url_path = "/migrationworkflowtemplates"
 
@@ -2376,19 +2321,16 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListWorkflowStepGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:workflow_id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
   returned.
   * `:next_token` (`t:string`) The pagination token.
   """
-
   @spec list_workflow_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflow_step_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_step_groups_errors()}
-
   def list_workflow_step_groups(%Client{} = client, workflow_id, options \\ [])
       when is_binary(workflow_id) do
     url_path = "/workflowstepgroups"
@@ -2442,20 +2384,17 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListWorkflowSteps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:step_group_id` (`t:string`) The ID of the step group.
-  * `:workflow_id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:step_group_id` (`t:string` required) The ID of the step group.
+  * `:workflow_id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
   returned.
   * `:next_token` (`t:string`) The pagination token.
   """
-
   @spec list_workflow_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflow_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_steps_errors()}
-
   def list_workflow_steps(%Client{} = client, step_group_id, workflow_id, options \\ []) do
     url_path =
       "/workflow/#{AWS.Util.encode_uri(workflow_id)}/workflowstepgroups/#{AWS.Util.encode_uri(step_group_id)}/workflowsteps"
@@ -2509,8 +2448,7 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:ads_application_configuration_name` (`t:string`) The name of the application
   configured in Application Discovery Service.
   * `:max_results` (`t:integer`) The maximum number of results that can be
@@ -2520,12 +2458,10 @@ defmodule AWS.MigrationHubOrchestrator do
   * `:status` (`t:string`) The status of the migration workflow.
   * `:template_id` (`t:string`) The ID of the template.
   """
-
   @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_migration_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
-
   def list_workflows(%Client{} = client, options \\ []) do
     url_path = "/migrationworkflows"
 
@@ -2620,18 +2556,15 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20RetryWorkflowStep&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the step.
-  * `:step_group_id` (`t:string`) The ID of the step group.
-  * `:workflow_id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the step.
+  * `:step_group_id` (`t:string` required) The ID of the step group.
+  * `:workflow_id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   """
-
   @spec retry_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, retry_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_workflow_step_errors()}
-
   def retry_workflow_step(%Client{} = client, id, step_group_id, workflow_id, options \\ [])
       when is_binary(step_group_id) and is_binary(workflow_id) do
     url_path = "/retryworkflowstep/#{AWS.Util.encode_uri(id)}"
@@ -2669,16 +2602,13 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20StartWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   """
-
   @spec start_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_workflow_errors()}
-
   def start_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}/start"
 
@@ -2715,16 +2645,13 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20StopWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   """
-
   @spec stop_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_workflow_errors()}
-
   def stop_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}/stop"
 
@@ -2761,17 +2688,14 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  which you want to add tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to which you want to add tags.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2808,19 +2732,16 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  from which you want to remove tags.
-  * `:tag_keys` (`t:list[com.amazonaws.migrationhuborchestrator#TagKey]`) One or
-  more tag keys. Specify only the tag keys, not the tag values.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource from which you want to remove tags.
+  * `:tag_keys` (`t:list[com.amazonaws.migrationhuborchestrator#TagKey]` required)
+  One or more tag keys. Specify only the tag keys, not the tag values.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2868,17 +2789,14 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the request to update a migration workflow
-  template.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the request to update a migration
+  workflow template.
+  ## Keyword parameters:
   """
-
   @spec update_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
-
   def update_template(%Client{} = client, id, options \\ []) do
     url_path = "/template/#{AWS.Util.encode_uri(id)}"
 
@@ -2915,16 +2833,13 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   """
-
   @spec update_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_errors()}
-
   def update_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
 
@@ -2961,16 +2876,13 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateWorkflowStep&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the step.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the step.
+  ## Keyword parameters:
   """
-
   @spec update_workflow_step(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_step_errors()}
-
   def update_workflow_step(%Client{} = client, id, options \\ []) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
 
@@ -3007,17 +2919,14 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateWorkflowStepGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the step group.
-  * `:workflow_id` (`t:string`) The ID of the migration workflow.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the step group.
+  * `:workflow_id` (`t:string` required) The ID of the migration workflow.
+  ## Keyword parameters:
   """
-
   @spec update_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_step_group_errors()}
-
   def update_workflow_step_group(%Client{} = client, id, workflow_id, options \\ [])
       when is_binary(workflow_id) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"

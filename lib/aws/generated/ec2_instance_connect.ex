@@ -236,6 +236,7 @@ defmodule AWS.EC2InstanceConnect do
   end
 
   @doc """
+   
   Pushes an SSH public key to the specified EC2 instance. The key remains for 60
   seconds, which gives you 60 seconds to establish a serial console connection
   to the instance using SSH. For more information, see [EC2 Serial
@@ -252,12 +253,10 @@ defmodule AWS.EC2InstanceConnect do
       required("SSHPublicKey") => String.t()
     }
   """
-
   @spec send_serial_console_ssh_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_serial_console_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_serial_console_ssh_public_key_errors()}
-
   def send_serial_console_ssh_public_key(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -267,6 +266,7 @@ defmodule AWS.EC2InstanceConnect do
   end
 
   @doc """
+   
   Pushes an SSH public key to the specified EC2 instance for use by the specified
   user. The key remains for 60 seconds. For more information, see [Connect to
   your Linux instance using EC2 Instance
@@ -284,12 +284,10 @@ defmodule AWS.EC2InstanceConnect do
       required("SSHPublicKey") => String.t()
     }
   """
-
   @spec send_ssh_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_ssh_public_key_errors()}
-
   def send_ssh_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

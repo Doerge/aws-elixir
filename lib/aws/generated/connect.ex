@@ -11498,19 +11498,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ActivateEvaluationForm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
-  form.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:evaluation_form_id` (`t:string` required) The unique identifier for the
+  evaluation form.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec activate_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, activate_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_evaluation_form_errors()}
-
   def activate_evaluation_form(%Client{} = client, evaluation_form_id, instance_id, options \\ []) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}/activate"
@@ -11548,17 +11546,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateAnalyticsDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec associate_analytics_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_analytics_data_set_errors()}
-
   def associate_analytics_data_set(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
 
@@ -11595,17 +11591,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateApprovedOrigin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec associate_approved_origin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_approved_origin_errors()}
-
   def associate_approved_origin(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origin"
 
@@ -11642,17 +11636,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec associate_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_bot_errors()}
-
   def associate_bot(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
 
@@ -11691,21 +11683,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateDefaultVocabulary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
   * `:language_code`
-  (`t:enum["AR_AE|DE_CH|DE_DE|EN_AB|EN_AU|EN_GB|EN_IE|EN_IN|EN_NZ|EN_US|EN_WL|EN_ZA|ES_ES|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|PT_PT|ZH_CN"]`)
-  The language code of the vocabulary entries. For a list of languages and
-  their corresponding language codes, see What is Amazon Transcribe?
-
-  ## Optional parameters:
+  (`t:enum["AR_AE|DE_CH|DE_DE|EN_AB|EN_AU|EN_GB|EN_IE|EN_IN|EN_NZ|EN_US|EN_WL|EN_ZA|ES_ES|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|PT_PT|ZH_CN"]`
+  required) The language code of the vocabulary entries. For a list of
+  languages and their corresponding language codes, see What is Amazon
+  Transcribe?
+  ## Keyword parameters:
   """
-
   @spec associate_default_vocabulary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_default_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_default_vocabulary_errors()}
-
   def associate_default_vocabulary(%Client{} = client, instance_id, language_code, options \\ []) do
     url_path =
       "/default-vocabulary/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(language_code)}"
@@ -11743,17 +11734,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec associate_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_flow_errors()}
-
   def associate_flow(%Client{} = client, instance_id, options \\ []) do
     url_path = "/flow-associations/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -11794,17 +11783,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateInstanceStorageConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec associate_instance_storage_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_instance_storage_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_instance_storage_config_errors()}
-
   def associate_instance_storage_config(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config"
 
@@ -11841,17 +11828,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateLambdaFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec associate_lambda_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_lambda_function_errors()}
-
   def associate_lambda_function(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
 
@@ -11888,17 +11873,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateLexBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec associate_lex_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_lex_bot_errors()}
-
   def associate_lex_bot(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
 
@@ -11935,16 +11918,14 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociatePhoneNumberContactFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) A unique identifier for the phone
+  number.
+  ## Keyword parameters:
   """
-
   @spec associate_phone_number_contact_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_number_contact_flow_errors()}
-
   def associate_phone_number_contact_flow(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/contact-flow"
 
@@ -11981,18 +11962,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateQueueQuickConnects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:queue_id` (`t:string`) The identifier for the queue.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:queue_id` (`t:string` required) The identifier for the queue.
+  ## Keyword parameters:
   """
-
   @spec associate_queue_quick_connects(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_queue_quick_connects_errors()}
-
   def associate_queue_quick_connects(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/associate-quick-connects"
@@ -12030,18 +12009,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateRoutingProfileQueues&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:routing_profile_id` (`t:string` required) The identifier of the routing
+  profile.
+  ## Keyword parameters:
   """
-
   @spec associate_routing_profile_queues(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_routing_profile_queues_errors()}
-
   def associate_routing_profile_queues(
         %Client{} = client,
         instance_id,
@@ -12084,17 +12062,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateSecurityKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec associate_security_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_security_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_security_key_errors()}
-
   def associate_security_key(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/security-key"
 
@@ -12131,19 +12107,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateTrafficDistributionGroupUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
-  distribution group. This can be the ID or the ARN if the API is being called
-  in the Region where the traffic distribution group was created. The ARN must
-  be provided if the call is from the replicated Region.
-
-  ## Optional parameters:
+  * `:traffic_distribution_group_id` (`t:string` required) The identifier of the
+  traffic distribution group. This can be the ID or the ARN if the API is
+  being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
+  ## Keyword parameters:
   """
-
   @spec associate_traffic_distribution_group_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_traffic_distribution_group_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_traffic_distribution_group_user_errors()}
-
   def associate_traffic_distribution_group_user(
         %Client{} = client,
         traffic_distribution_group_id,
@@ -12185,18 +12158,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateUserProficiencies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN of the instance).
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN of
+  the instance).
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   """
-
   @spec associate_user_proficiencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_user_proficiencies_errors()}
-
   def associate_user_proficiencies(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/associate-proficiencies"
@@ -12234,17 +12205,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20BatchAssociateAnalyticsDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec batch_associate_analytics_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_associate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_analytics_data_set_errors()}
-
   def batch_associate_analytics_data_set(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
 
@@ -12281,17 +12250,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20BatchDisassociateAnalyticsDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec batch_disassociate_analytics_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_disassociate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_analytics_data_set_errors()}
-
   def batch_disassociate_analytics_data_set(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
 
@@ -12330,18 +12297,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20BatchGetAttachedFileMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
-  * `:associated_resource_arn` (`t:string`) The resource to which the attached
-  file is (being) uploaded to. Cases are the only current supported resource.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Connect
+  instance.
+  * `:associated_resource_arn` (`t:string` required) The resource to which the
+  attached file is (being) uploaded to. Cases are the only current supported
+  resource.
+  ## Keyword parameters:
   """
-
   @spec batch_get_attached_file_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_attached_file_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_attached_file_metadata_errors()}
-
   def batch_get_attached_file_metadata(
         %Client{} = client,
         instance_id,
@@ -12384,17 +12350,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20BatchGetFlowAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec batch_get_flow_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_flow_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_flow_association_errors()}
-
   def batch_get_flow_association(%Client{} = client, instance_id, options \\ []) do
     url_path = "/flow-associations-batch/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -12432,17 +12396,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20BatchPutContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec batch_put_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_contact_errors()}
-
   def batch_put_contact(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact/batch/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -12493,15 +12455,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ClaimPhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec claim_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, claim_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, claim_phone_number_errors()}
-
   def claim_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-number/claim"
 
@@ -12539,15 +12498,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CompleteAttachedFileUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_id` (`t:string`) The unique identifier of the attached file resource.
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Connect
-  instance.
-  * `:associated_resource_arn` (`t:string`) The resource to which the attached
-  file is (being) uploaded to. Cases are the only current supported resource.
-
-  ## Optional parameters:
+  * `:file_id` (`t:string` required) The unique identifier of the attached file
+  resource.
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon
+  Connect instance.
+  * `:associated_resource_arn` (`t:string` required) The resource to which the
+  attached file is (being) uploaded to. Cases are the only current supported
+  resource.
+  ## Keyword parameters:
   """
-
   @spec complete_attached_file_upload(
           AWS.Client.t(),
           String.t(),
@@ -12558,7 +12517,6 @@ defmodule AWS.Connect do
           {:ok, complete_attached_file_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_attached_file_upload_errors()}
-
   def complete_attached_file_upload(
         %Client{} = client,
         file_id,
@@ -12603,17 +12561,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateAgentStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_agent_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_agent_status_errors()}
-
   def create_agent_status(%Client{} = client, instance_id, options \\ []) do
     url_path = "/agent-status/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -12650,16 +12606,14 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateContactFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance.
+  ## Keyword parameters:
   """
-
   @spec create_contact_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_flow_errors()}
-
   def create_contact_flow(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-flows/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -12696,17 +12650,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateContactFlowModule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_contact_flow_module(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_flow_module_errors()}
-
   def create_contact_flow_module(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -12746,17 +12698,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateEvaluationForm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_evaluation_form(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_evaluation_form_errors()}
-
   def create_evaluation_form(%Client{} = client, instance_id, options \\ []) do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -12793,17 +12743,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateHoursOfOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_hours_of_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_hours_of_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hours_of_operation_errors()}
-
   def create_hours_of_operation(%Client{} = client, instance_id, options \\ []) do
     url_path = "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -12844,15 +12792,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_errors()}
-
   def create_instance(%Client{} = client, options \\ []) do
     url_path = "/instance"
 
@@ -12890,17 +12835,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateIntegrationAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_integration_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_integration_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_integration_association_errors()}
-
   def create_integration_association(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
 
@@ -12939,15 +12882,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateParticipant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_participant(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_participant_errors()}
-
   def create_participant(%Client{} = client, options \\ []) do
     url_path = "/contact/create-participant"
 
@@ -12987,20 +12927,18 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreatePersistentContactAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:initial_contact_id` (`t:string`) This is the contactId of the current
-  contact that the CreatePersistentContactAssociation API is being called
-  from.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:initial_contact_id` (`t:string` required) This is the contactId of the
+  current contact that the CreatePersistentContactAssociation API is being
+  called from.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_persistent_contact_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_persistent_contact_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_persistent_contact_association_errors()}
-
   def create_persistent_contact_association(
         %Client{} = client,
         initial_contact_id,
@@ -13043,17 +12981,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreatePredefinedAttribute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_predefined_attribute(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_predefined_attribute_errors()}
-
   def create_predefined_attribute(%Client{} = client, instance_id, options \\ []) do
     url_path = "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13093,17 +13029,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreatePrompt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_prompt(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_prompt_errors()}
-
   def create_prompt(%Client{} = client, instance_id, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13141,17 +13075,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_queue(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_queue_errors()}
-
   def create_queue(%Client{} = client, instance_id, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13188,17 +13120,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateQuickConnect&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_quick_connect(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_quick_connect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_quick_connect_errors()}
-
   def create_quick_connect(%Client{} = client, instance_id, options \\ []) do
     url_path = "/quick-connects/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13235,17 +13165,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateRoutingProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_routing_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_routing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_routing_profile_errors()}
-
   def create_routing_profile(%Client{} = client, instance_id, options \\ []) do
     url_path = "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13282,17 +13210,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
-
   def create_rule(%Client{} = client, instance_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13329,17 +13255,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateSecurityProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_security_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_profile_errors()}
-
   def create_security_profile(%Client{} = client, instance_id, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13376,17 +13300,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateTaskTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_task_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_task_template_errors()}
-
   def create_task_template(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template"
 
@@ -13424,15 +13346,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateTrafficDistributionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_traffic_distribution_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_traffic_distribution_group_errors()}
-
   def create_traffic_distribution_group(%Client{} = client, options \\ []) do
     url_path = "/traffic-distribution-group"
 
@@ -13469,19 +13388,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateUseCase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:integration_association_id` (`t:string`) The identifier for the integration
-  association.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:integration_association_id` (`t:string` required) The identifier for the
+  integration association.
+  ## Keyword parameters:
   """
-
   @spec create_use_case(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_use_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_use_case_errors()}
-
   def create_use_case(%Client{} = client, instance_id, integration_association_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases"
@@ -13519,17 +13436,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-
   def create_user(%Client{} = client, instance_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13566,17 +13481,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateUserHierarchyGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_user_hierarchy_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_user_hierarchy_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_hierarchy_group_errors()}
-
   def create_user_hierarchy_group(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13614,17 +13527,14 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instanceId in the ARN of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instanceId in the ARN of the instance.
+  ## Keyword parameters:
   """
-
   @spec create_view(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_view_errors()}
-
   def create_view(%Client{} = client, instance_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13662,19 +13572,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateViewVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instanceId in the ARN of the instance.
-  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-  can be used.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string` required) The identifier of the view. Both ViewArn and
+  ViewId can be used.
+  ## Keyword parameters:
   """
-
   @spec create_view_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_view_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_view_version_errors()}
-
   def create_view_version(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path =
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions"
@@ -13715,17 +13622,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateVocabulary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec create_vocabulary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vocabulary_errors()}
-
   def create_vocabulary(%Client{} = client, instance_id, options \\ []) do
     url_path = "/vocabulary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -13764,19 +13669,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeactivateEvaluationForm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
-  form.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:evaluation_form_id` (`t:string` required) The unique identifier for the
+  evaluation form.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec deactivate_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deactivate_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_evaluation_form_errors()}
-
   def deactivate_evaluation_form(
         %Client{} = client,
         evaluation_form_id,
@@ -13819,19 +13722,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteAttachedFile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_id` (`t:string`) The unique identifier of the attached file resource.
-  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
-  * `:associated_resource_arn` (`t:string`) The resource to which the attached
-  file is (being) uploaded to. Cases are the only current supported resource.
-
-  ## Optional parameters:
+  * `:file_id` (`t:string` required) The unique identifier of the attached file
+  resource.
+  * `:instance_id` (`t:string` required) The unique identifier of the Connect
+  instance.
+  * `:associated_resource_arn` (`t:string` required) The resource to which the
+  attached file is (being) uploaded to. Cases are the only current supported
+  resource.
+  ## Keyword parameters:
   """
-
   @spec delete_attached_file(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_attached_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attached_file_errors()}
-
   def delete_attached_file(
         %Client{} = client,
         file_id,
@@ -13886,18 +13789,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteContactEvaluation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:evaluation_id` (`t:string` required) A unique identifier for the contact
+  evaluation.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec delete_contact_evaluation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_evaluation_errors()}
-
   def delete_contact_evaluation(%Client{} = client, evaluation_id, instance_id, options \\ []) do
     url_path =
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
@@ -13945,18 +13847,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteContactFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_flow_id` (`t:string`) The identifier of the flow.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:contact_flow_id` (`t:string` required) The identifier of the flow.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec delete_contact_flow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_flow_errors()}
-
   def delete_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
@@ -14004,18 +13904,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteContactFlowModule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:contact_flow_module_id` (`t:string` required) The identifier of the flow
+  module.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec delete_contact_flow_module(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_flow_module_errors()}
-
   def delete_contact_flow_module(
         %Client{} = client,
         contact_flow_module_id,
@@ -14068,21 +13967,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteEvaluationForm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
-  form.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:evaluation_form_id` (`t:string` required) The unique identifier for the
+  evaluation form.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:evaluation_form_version` (`t:integer`) The unique identifier for the
   evaluation form.
   """
-
   @spec delete_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_evaluation_form_errors()}
-
   def delete_evaluation_form(%Client{} = client, evaluation_form_id, instance_id, options \\ []) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
@@ -14141,19 +14038,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteHoursOfOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hours_of_operation_id` (`t:string`) The identifier for the hours of
+  * `:hours_of_operation_id` (`t:string` required) The identifier for the hours of
   operation.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec delete_hours_of_operation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hours_of_operation_errors()}
-
   def delete_hours_of_operation(
         %Client{} = client,
         hours_of_operation_id,
@@ -14207,17 +14102,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec delete_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_errors()}
-
   def delete_instance(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -14265,19 +14158,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteIntegrationAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:integration_association_id` (`t:string`) The identifier for the integration
-  association.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:integration_association_id` (`t:string` required) The identifier for the
+  integration association.
+  ## Keyword parameters:
   """
-
   @spec delete_integration_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_integration_association_errors()}
-
   def delete_integration_association(
         %Client{} = client,
         instance_id,
@@ -14330,18 +14221,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeletePredefinedAttribute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:name` (`t:string`) The name of the predefined attribute.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:name` (`t:string` required) The name of the predefined attribute.
+  ## Keyword parameters:
   """
-
   @spec delete_predefined_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_predefined_attribute_errors()}
-
   def delete_predefined_attribute(%Client{} = client, instance_id, name, options \\ []) do
     url_path =
       "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
@@ -14389,18 +14278,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeletePrompt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:prompt_id` (`t:string` required) A unique identifier for the prompt.
+  ## Keyword parameters:
   """
-
   @spec delete_prompt(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_prompt_errors()}
-
   def delete_prompt(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
 
@@ -14447,18 +14334,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:queue_id` (`t:string`) The identifier for the queue.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:queue_id` (`t:string` required) The identifier for the queue.
+  ## Keyword parameters:
   """
-
   @spec delete_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queue_errors()}
-
   def delete_queue(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}"
 
@@ -14505,18 +14390,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteQuickConnect&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:quick_connect_id` (`t:string` required) The identifier for the quick
+  connect.
+  ## Keyword parameters:
   """
-
   @spec delete_quick_connect(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_quick_connect_errors()}
-
   def delete_quick_connect(%Client{} = client, instance_id, quick_connect_id, options \\ []) do
     url_path =
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}"
@@ -14564,18 +14448,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteRoutingProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:routing_profile_id` (`t:string` required) The identifier of the routing
+  profile.
+  ## Keyword parameters:
   """
-
   @spec delete_routing_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_routing_profile_errors()}
-
   def delete_routing_profile(%Client{} = client, instance_id, routing_profile_id, options \\ []) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}"
@@ -14623,18 +14506,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:rule_id` (`t:string`) A unique identifier for the rule.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:rule_id` (`t:string` required) A unique identifier for the rule.
+  ## Keyword parameters:
   """
-
   @spec delete_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
-
   def delete_rule(%Client{} = client, instance_id, rule_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
 
@@ -14681,18 +14562,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteSecurityProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:security_profile_id` (`t:string`) The identifier for the security profle.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:security_profile_id` (`t:string` required) The identifier for the security
+  profle.
+  ## Keyword parameters:
   """
-
   @spec delete_security_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_security_profile_errors()}
-
   def delete_security_profile(%Client{} = client, instance_id, security_profile_id, options \\ []) do
     url_path =
       "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
@@ -14740,18 +14620,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteTaskTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:task_template_id` (`t:string`) A unique identifier for the task template.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:task_template_id` (`t:string` required) A unique identifier for the task
+  template.
+  ## Keyword parameters:
   """
-
   @spec delete_task_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_task_template_errors()}
-
   def delete_task_template(%Client{} = client, instance_id, task_template_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
@@ -14800,19 +14679,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteTrafficDistributionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
-  distribution group. This can be the ID or the ARN if the API is being called
-  in the Region where the traffic distribution group was created. The ARN must
-  be provided if the call is from the replicated Region.
-
-  ## Optional parameters:
+  * `:traffic_distribution_group_id` (`t:string` required) The identifier of the
+  traffic distribution group. This can be the ID or the ARN if the API is
+  being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
+  ## Keyword parameters:
   """
-
   @spec delete_traffic_distribution_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_traffic_distribution_group_errors()}
-
   def delete_traffic_distribution_group(
         %Client{} = client,
         traffic_distribution_group_id,
@@ -14863,20 +14739,18 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteUseCase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:integration_association_id` (`t:string`) The identifier for the integration
-  association.
-  * `:use_case_id` (`t:string`) The identifier for the use case.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:integration_association_id` (`t:string` required) The identifier for the
+  integration association.
+  * `:use_case_id` (`t:string` required) The identifier for the use case.
+  ## Keyword parameters:
   """
-
   @spec delete_use_case(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_use_case_errors()}
-
   def delete_use_case(
         %Client{} = client,
         instance_id,
@@ -14930,18 +14804,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user.
+  ## Keyword parameters:
   """
-
   @spec delete_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-
   def delete_user(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
 
@@ -14989,18 +14861,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteUserHierarchyGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:hierarchy_group_id` (`t:string` required) The identifier of the hierarchy
+  group.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec delete_user_hierarchy_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_hierarchy_group_errors()}
-
   def delete_user_hierarchy_group(
         %Client{} = client,
         hierarchy_group_id,
@@ -15054,19 +14925,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instanceId in the ARN of the instance.
-  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-  can be used.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string` required) The identifier of the view. Both ViewArn and
+  ViewId can be used.
+  ## Keyword parameters:
   """
-
   @spec delete_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_view_errors()}
-
   def delete_view(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
 
@@ -15113,20 +14981,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteViewVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instanceId in the ARN of the instance.
-  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-  can be used.
-  * `:view_version` (`t:integer`) The version number of the view.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string` required) The identifier of the view. Both ViewArn and
+  ViewId can be used.
+  * `:view_version` (`t:integer` required) The version number of the view.
+  ## Keyword parameters:
   """
-
   @spec delete_view_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_view_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_view_version_errors()}
-
   def delete_view_version(%Client{} = client, instance_id, view_id, view_version, options \\ []) do
     url_path =
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions/#{AWS.Util.encode_uri(view_version)}"
@@ -15174,18 +15039,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteVocabulary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:vocabulary_id` (`t:string`) The identifier of the custom vocabulary.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:vocabulary_id` (`t:string` required) The identifier of the custom
+  vocabulary.
+  ## Keyword parameters:
   """
-
   @spec delete_vocabulary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vocabulary_errors()}
-
   def delete_vocabulary(%Client{} = client, instance_id, vocabulary_id, options \\ []) do
     url_path =
       "/vocabulary-remove/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(vocabulary_id)}"
@@ -15223,18 +15087,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeAgentStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_status_id` (`t:string`) The identifier for the agent status.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:agent_status_id` (`t:string` required) The identifier for the agent status.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec describe_agent_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_agent_status_errors()}
-
   def describe_agent_status(%Client{} = client, agent_status_id, instance_id, options \\ []) do
     url_path =
       "/agent-status/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(agent_status_id)}"
@@ -15271,19 +15133,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeAuthenticationProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:authentication_profile_id` (`t:string`) A unique identifier for the
+  * `:authentication_profile_id` (`t:string` required) A unique identifier for the
   authentication profile.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec describe_authentication_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_authentication_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_authentication_profile_errors()}
-
   def describe_authentication_profile(
         %Client{} = client,
         authentication_profile_id,
@@ -15325,18 +15185,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_id` (`t:string`) The identifier of the contact.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:contact_id` (`t:string` required) The identifier of the contact.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec describe_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_errors()}
-
   def describe_contact(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
@@ -15371,18 +15229,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeContactEvaluation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:evaluation_id` (`t:string` required) A unique identifier for the contact
+  evaluation.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec describe_contact_evaluation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_evaluation_errors()}
-
   def describe_contact_evaluation(%Client{} = client, evaluation_id, instance_id, options \\ []) do
     url_path =
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
@@ -15420,17 +15277,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeContactFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_flow_id` (`t:string`) The identifier of the flow.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
-
-  ## Optional parameters:
+  * `:contact_flow_id` (`t:string` required) The identifier of the flow.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance.
+  ## Keyword parameters:
   """
-
   @spec describe_contact_flow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_flow_errors()}
-
   def describe_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
@@ -15466,18 +15321,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeContactFlowModule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:contact_flow_module_id` (`t:string` required) The identifier of the flow
+  module.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec describe_contact_flow_module(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_flow_module_errors()}
-
   def describe_contact_flow_module(
         %Client{} = client,
         contact_flow_module_id,
@@ -15520,20 +15374,18 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeEvaluationForm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:evaluation_form_id` (`t:string`) A unique identifier for the contact
-  evaluation.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:evaluation_form_id` (`t:string` required) A unique identifier for the
+  contact evaluation.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:evaluation_form_version` (`t:integer`) A version of the evaluation form.
   """
-
   @spec describe_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_evaluation_form_errors()}
-
   def describe_evaluation_form(%Client{} = client, evaluation_form_id, instance_id, options \\ []) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
@@ -15580,19 +15432,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeHoursOfOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hours_of_operation_id` (`t:string`) The identifier for the hours of
+  * `:hours_of_operation_id` (`t:string` required) The identifier for the hours of
   operation.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec describe_hours_of_operation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_hours_of_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hours_of_operation_errors()}
-
   def describe_hours_of_operation(
         %Client{} = client,
         hours_of_operation_id,
@@ -15635,17 +15485,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec describe_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_errors()}
-
   def describe_instance(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -15681,19 +15529,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:attribute_type`
-  (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`)
-  The type of attribute.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`
+  required) The type of attribute.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec describe_instance_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_attribute_errors()}
-
   def describe_instance_attribute(%Client{} = client, attribute_type, instance_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/attribute/#{AWS.Util.encode_uri(attribute_type)}"
@@ -15729,18 +15575,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeInstanceStorageConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:association_id` (`t:string`) The existing association identifier that
-  uniquely identifies the resource type and storage config for the given
+  * `:association_id` (`t:string` required) The existing association identifier
+  that uniquely identifies the resource type and storage config for the given
   instance ID.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
   * `:resource_type`
-  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
-  A valid resource type.
-
-  ## Optional parameters:
+  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`
+  required) A valid resource type.
+  ## Keyword parameters:
   """
-
   @spec describe_instance_storage_config(
           AWS.Client.t(),
           String.t(),
@@ -15751,7 +15596,6 @@ defmodule AWS.Connect do
           {:ok, describe_instance_storage_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_storage_config_errors()}
-
   def describe_instance_storage_config(
         %Client{} = client,
         association_id,
@@ -15795,16 +15639,14 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) A unique identifier for the phone
+  number.
+  ## Keyword parameters:
   """
-
   @spec describe_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_phone_number_errors()}
-
   def describe_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -15839,18 +15681,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribePredefinedAttribute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:name` (`t:string`) The name of the predefined attribute.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:name` (`t:string` required) The name of the predefined attribute.
+  ## Keyword parameters:
   """
-
   @spec describe_predefined_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_predefined_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_predefined_attribute_errors()}
-
   def describe_predefined_attribute(%Client{} = client, instance_id, name, options \\ []) do
     url_path =
       "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
@@ -15886,18 +15726,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribePrompt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:prompt_id` (`t:string` required) A unique identifier for the prompt.
+  ## Keyword parameters:
   """
-
   @spec describe_prompt(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_prompt_errors()}
-
   def describe_prompt(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
 
@@ -15932,18 +15770,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:queue_id` (`t:string`) The identifier for the queue.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:queue_id` (`t:string` required) The identifier for the queue.
+  ## Keyword parameters:
   """
-
   @spec describe_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_queue_errors()}
-
   def describe_queue(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}"
 
@@ -15978,18 +15814,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeQuickConnect&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:quick_connect_id` (`t:string` required) The identifier for the quick
+  connect.
+  ## Keyword parameters:
   """
-
   @spec describe_quick_connect(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_quick_connect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_quick_connect_errors()}
-
   def describe_quick_connect(%Client{} = client, instance_id, quick_connect_id, options \\ []) do
     url_path =
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}"
@@ -16025,18 +15860,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeRoutingProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:routing_profile_id` (`t:string` required) The identifier of the routing
+  profile.
+  ## Keyword parameters:
   """
-
   @spec describe_routing_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_routing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_routing_profile_errors()}
-
   def describe_routing_profile(%Client{} = client, instance_id, routing_profile_id, options \\ []) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}"
@@ -16072,18 +15906,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:rule_id` (`t:string`) A unique identifier for the rule.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:rule_id` (`t:string` required) A unique identifier for the rule.
+  ## Keyword parameters:
   """
-
   @spec describe_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rule_errors()}
-
   def describe_rule(%Client{} = client, instance_id, rule_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
 
@@ -16118,18 +15950,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeSecurityProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:security_profile_id` (`t:string`) The identifier for the security profle.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:security_profile_id` (`t:string` required) The identifier for the security
+  profle.
+  ## Keyword parameters:
   """
-
   @spec describe_security_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_security_profile_errors()}
-
   def describe_security_profile(
         %Client{} = client,
         instance_id,
@@ -16170,19 +16001,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeTrafficDistributionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
-  distribution group. This can be the ID or the ARN if the API is being called
-  in the Region where the traffic distribution group was created. The ARN must
-  be provided if the call is from the replicated Region.
-
-  ## Optional parameters:
+  * `:traffic_distribution_group_id` (`t:string` required) The identifier of the
+  traffic distribution group. This can be the ID or the ARN if the API is
+  being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
+  ## Keyword parameters:
   """
-
   @spec describe_traffic_distribution_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_traffic_distribution_group_errors()}
-
   def describe_traffic_distribution_group(
         %Client{} = client,
         traffic_distribution_group_id,
@@ -16225,18 +16053,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   """
-
   @spec describe_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
-
   def describe_user(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
 
@@ -16271,18 +16097,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeUserHierarchyGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:hierarchy_group_id` (`t:string` required) The identifier of the hierarchy
+  group.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec describe_user_hierarchy_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_hierarchy_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_hierarchy_group_errors()}
-
   def describe_user_hierarchy_group(
         %Client{} = client,
         hierarchy_group_id,
@@ -16323,17 +16148,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeUserHierarchyStructure&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec describe_user_hierarchy_structure(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_hierarchy_structure_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_hierarchy_structure_errors()}
-
   def describe_user_hierarchy_structure(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -16369,19 +16192,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instanceId in the ARN of the instance.
-  * `:view_id` (`t:string`) The ViewId of the view. This must be an ARN for Amazon
-  Web Services managed views.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string` required) The ViewId of the view. This must be an ARN
+  for Amazon Web Services managed views.
+  ## Keyword parameters:
   """
-
   @spec describe_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_view_errors()}
-
   def describe_view(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
 
@@ -16416,18 +16236,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeVocabulary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:vocabulary_id` (`t:string`) The identifier of the custom vocabulary.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:vocabulary_id` (`t:string` required) The identifier of the custom
+  vocabulary.
+  ## Keyword parameters:
   """
-
   @spec describe_vocabulary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vocabulary_errors()}
-
   def describe_vocabulary(%Client{} = client, instance_id, vocabulary_id, options \\ []) do
     url_path =
       "/vocabulary/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(vocabulary_id)}"
@@ -16463,17 +16282,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateAnalyticsDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec disassociate_analytics_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_analytics_data_set_errors()}
-
   def disassociate_analytics_data_set(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
 
@@ -16510,18 +16327,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateApprovedOrigin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:origin` (`t:string`) The domain URL of the integrated application.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:origin` (`t:string` required) The domain URL of the integrated application.
+  ## Keyword parameters:
   """
-
   @spec disassociate_approved_origin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_approved_origin_errors()}
-
   def disassociate_approved_origin(%Client{} = client, instance_id, origin, options \\ [])
       when is_binary(origin) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origin"
@@ -16569,17 +16384,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec disassociate_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_bot_errors()}
-
   def disassociate_bot(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
 
@@ -16616,19 +16429,18 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:resource_id` (`t:string`) The identifier of the resource.
-  * `:resource_type` (`t:enum["SMS_PHONE_NUMBER"]`) A valid resource type.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:resource_id` (`t:string` required) The identifier of the resource.
+  * `:resource_type` (`t:enum["SMS_PHONE_NUMBER"]` required) A valid resource
+  type.
+  ## Keyword parameters:
   """
-
   @spec disassociate_flow(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_flow_errors()}
-
   def disassociate_flow(
         %Client{} = client,
         instance_id,
@@ -16682,18 +16494,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateInstanceStorageConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:association_id` (`t:string`) The existing association identifier that
-  uniquely identifies the resource type and storage config for the given
+  * `:association_id` (`t:string` required) The existing association identifier
+  that uniquely identifies the resource type and storage config for the given
   instance ID.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
   * `:resource_type`
-  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
-  A valid resource type.
-
-  ## Optional parameters:
+  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`
+  required) A valid resource type.
+  ## Keyword parameters:
   """
-
   @spec disassociate_instance_storage_config(
           AWS.Client.t(),
           String.t(),
@@ -16704,7 +16515,6 @@ defmodule AWS.Connect do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_instance_storage_config_errors()}
-
   def disassociate_instance_storage_config(
         %Client{} = client,
         association_id,
@@ -16759,19 +16569,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateLambdaFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance..
-  * `:function_arn` (`t:string`) The Amazon Resource Name (ARN) of the Lambda
-  function being disassociated.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance..
+  * `:function_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Lambda function being disassociated.
+  ## Keyword parameters:
   """
-
   @spec disassociate_lambda_function(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_lambda_function_errors()}
-
   def disassociate_lambda_function(%Client{} = client, instance_id, function_arn, options \\ [])
       when is_binary(function_arn) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
@@ -16819,21 +16627,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateLexBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:bot_name` (`t:string`) The name of the Amazon Lex bot. Maximum character
-  limit of 50.
-  * `:lex_region` (`t:string`) The Amazon Web Services Region in which the Amazon
-  Lex bot has been created.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:bot_name` (`t:string` required) The name of the Amazon Lex bot. Maximum
+  character limit of 50.
+  * `:lex_region` (`t:string` required) The Amazon Web Services Region in which
+  the Amazon Lex bot has been created.
+  ## Keyword parameters:
   """
-
   @spec disassociate_lex_bot(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_lex_bot_errors()}
-
   def disassociate_lex_bot(%Client{} = client, instance_id, bot_name, lex_region, options \\ [])
       when is_binary(bot_name) and is_binary(lex_region) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
@@ -16882,13 +16688,13 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociatePhoneNumberContactFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) A unique identifier for the phone
+  number.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec disassociate_phone_number_contact_flow(
           AWS.Client.t(),
           String.t(),
@@ -16898,7 +16704,6 @@ defmodule AWS.Connect do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_number_contact_flow_errors()}
-
   def disassociate_phone_number_contact_flow(
         %Client{} = client,
         phone_number_id,
@@ -16951,18 +16756,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateQueueQuickConnects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:queue_id` (`t:string`) The identifier for the queue.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:queue_id` (`t:string` required) The identifier for the queue.
+  ## Keyword parameters:
   """
-
   @spec disassociate_queue_quick_connects(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_queue_quick_connects_errors()}
-
   def disassociate_queue_quick_connects(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/disassociate-quick-connects"
@@ -17000,18 +16803,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateRoutingProfileQueues&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:routing_profile_id` (`t:string` required) The identifier of the routing
+  profile.
+  ## Keyword parameters:
   """
-
   @spec disassociate_routing_profile_queues(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_routing_profile_queues_errors()}
-
   def disassociate_routing_profile_queues(
         %Client{} = client,
         instance_id,
@@ -17054,20 +16856,18 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateSecurityKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:association_id` (`t:string`) The existing association identifier that
-  uniquely identifies the resource type and storage config for the given
+  * `:association_id` (`t:string` required) The existing association identifier
+  that uniquely identifies the resource type and storage config for the given
   instance ID.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec disassociate_security_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_security_key_errors()}
-
   def disassociate_security_key(%Client{} = client, association_id, instance_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/security-key/#{AWS.Util.encode_uri(association_id)}"
@@ -17115,18 +16915,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateTrafficDistributionGroupUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
-  distribution group. This can be the ID or the ARN if the API is being called
-  in the Region where the traffic distribution group was created. The ARN must
-  be provided if the call is from the replicated Region.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier for the user. This can be the ID or the
-  ARN of the user.
-
-  ## Optional parameters:
+  * `:traffic_distribution_group_id` (`t:string` required) The identifier of the
+  traffic distribution group. This can be the ID or the ARN if the API is
+  being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier for the user. This can be the
+  ID or the ARN of the user.
+  ## Keyword parameters:
   """
-
   @spec disassociate_traffic_distribution_group_user(
           AWS.Client.t(),
           String.t(),
@@ -17137,7 +16936,6 @@ defmodule AWS.Connect do
           {:ok, disassociate_traffic_distribution_group_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_traffic_distribution_group_user_errors()}
-
   def disassociate_traffic_distribution_group_user(
         %Client{} = client,
         traffic_distribution_group_id,
@@ -17192,18 +16990,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateUserProficiencies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   """
-
   @spec disassociate_user_proficiencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_user_proficiencies_errors()}
-
   def disassociate_user_proficiencies(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/disassociate-proficiencies"
@@ -17245,18 +17041,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DismissUserContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instanceId in the ARN of the instance.
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instanceId in the ARN of the instance.
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   """
-
   @spec dismiss_user_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, dismiss_user_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, dismiss_user_contact_errors()}
-
   def dismiss_user_contact(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/contact"
@@ -17296,21 +17089,21 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetAttachedFile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_id` (`t:string`) The unique identifier of the attached file resource.
-  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
-  * `:associated_resource_arn` (`t:string`) The resource to which the attached
-  file is (being) uploaded to. Cases are the only current supported resource.
-
-  ## Optional parameters:
+  * `:file_id` (`t:string` required) The unique identifier of the attached file
+  resource.
+  * `:instance_id` (`t:string` required) The unique identifier of the Connect
+  instance.
+  * `:associated_resource_arn` (`t:string` required) The resource to which the
+  attached file is (being) uploaded to. Cases are the only current supported
+  resource.
+  ## Keyword parameters:
   * `:url_expiry_in_seconds` (`t:integer`) Optional override for the expiry of the
   pre-signed S3 URL in seconds. The default value is 300.
   """
-
   @spec get_attached_file(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attached_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attached_file_errors()}
-
   def get_attached_file(
         %Client{} = client,
         file_id,
@@ -17364,17 +17157,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetContactAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:initial_contact_id` (`t:string`) The identifier of the initial contact.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
-
-  ## Optional parameters:
+  * `:initial_contact_id` (`t:string` required) The identifier of the initial
+  contact.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance.
+  ## Keyword parameters:
   """
-
   @spec get_contact_attributes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_contact_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_attributes_errors()}
-
   def get_contact_attributes(%Client{} = client, initial_contact_id, instance_id, options \\ []) do
     url_path =
       "/contact/attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(initial_contact_id)}"
@@ -17410,17 +17202,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetCurrentMetricData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec get_current_metric_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_current_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_current_metric_data_errors()}
-
   def get_current_metric_data(%Client{} = client, instance_id, options \\ []) do
     url_path = "/metrics/current/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -17457,17 +17247,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetCurrentUserData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec get_current_user_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_current_user_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_current_user_data_errors()}
-
   def get_current_user_data(%Client{} = client, instance_id, options \\ []) do
     url_path = "/metrics/userdata/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -17510,17 +17298,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetFederationToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec get_federation_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_federation_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_federation_token_errors()}
-
   def get_federation_token(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user/federate/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -17555,19 +17341,18 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetFlowAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:resource_id` (`t:string`) The identifier of the resource.
-  * `:resource_type` (`t:enum["SMS_PHONE_NUMBER"]`) A valid resource type.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:resource_id` (`t:string` required) The identifier of the resource.
+  * `:resource_type` (`t:enum["SMS_PHONE_NUMBER"]` required) A valid resource
+  type.
+  ## Keyword parameters:
   """
-
   @spec get_flow_association(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_association_errors()}
-
   def get_flow_association(
         %Client{} = client,
         instance_id,
@@ -17609,17 +17394,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetMetricData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec get_metric_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_data_errors()}
-
   def get_metric_data(%Client{} = client, instance_id, options \\ []) do
     url_path = "/metrics/historical/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -17656,15 +17439,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetMetricDataV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_metric_data_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_metric_data_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_data_v2_errors()}
-
   def get_metric_data_v2(%Client{} = client, options \\ []) do
     url_path = "/metrics/data"
 
@@ -17701,18 +17481,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetPromptFile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:prompt_id` (`t:string` required) A unique identifier for the prompt.
+  ## Keyword parameters:
   """
-
   @spec get_prompt_file(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_prompt_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_prompt_file_errors()}
-
   def get_prompt_file(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path =
       "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}/file"
@@ -17749,20 +17527,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetTaskTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:task_template_id` (`t:string`) A unique identifier for the task template.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:task_template_id` (`t:string` required) A unique identifier for the task
+  template.
+  ## Keyword parameters:
   * `:snapshot_version` (`t:string`) The system generated version of a task
   template that is associated with a task, when the task is created.
   """
-
   @spec get_task_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_task_template_errors()}
-
   def get_task_template(%Client{} = client, instance_id, task_template_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
@@ -17810,19 +17587,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetTrafficDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the traffic distribution group. This can
-  be the ID or the ARN if the API is being called in the Region where the
-  traffic distribution group was created. The ARN must be provided if the call
-  is from the replicated Region.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the traffic distribution group.
+  This can be the ID or the ARN if the API is being called in the Region where
+  the traffic distribution group was created. The ARN must be provided if the
+  call is from the replicated Region.
+  ## Keyword parameters:
   """
-
   @spec get_traffic_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_traffic_distribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_traffic_distribution_errors()}
-
   def get_traffic_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/traffic-distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -17862,15 +17636,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ImportPhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec import_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_phone_number_errors()}
-
   def import_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-number/import"
 
@@ -17907,10 +17678,10 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListAgentStatuses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:agent_status_types` (`t:list[com.amazonaws.connect#AgentStatusType]`)
   Available agent status types.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
@@ -17918,12 +17689,10 @@ defmodule AWS.Connect do
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_agent_statuses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agent_statuses_errors()}
-
   def list_agent_statuses(%Client{} = client, instance_id, options \\ []) do
     url_path = "/agent-status/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -17983,10 +17752,10 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListAnalyticsDataAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:data_set_id` (`t:string`) The identifier of the dataset to get the
   association status.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
@@ -17994,12 +17763,10 @@ defmodule AWS.Connect do
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_analytics_data_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_analytics_data_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analytics_data_associations_errors()}
-
   def list_analytics_data_associations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
 
@@ -18059,21 +17826,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListApprovedOrigins&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_approved_origins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_approved_origins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_approved_origins_errors()}
-
   def list_approved_origins(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origins"
 
@@ -18127,21 +17892,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListAuthenticationProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_authentication_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_authentication_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_authentication_profiles_errors()}
-
   def list_authentication_profiles(%Client{} = client, instance_id, options \\ []) do
     url_path = "/authentication-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18194,22 +17957,21 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListBots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:lex_version` (`t:enum["V1|V2"]`) The version of Amazon Lex or Amazon Lex V2.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:lex_version` (`t:enum["V1|V2"]` required) The version of Amazon Lex or
+  Amazon Lex V2.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_bots(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bots_errors()}
-
   def list_bots(%Client{} = client, instance_id, lex_version, options \\ [])
       when is_binary(lex_version) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bots"
@@ -18263,22 +18025,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListContactEvaluations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:contact_id` (`t:string`) The identifier of the contact in this instance of
-  Amazon Connect.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:contact_id` (`t:string` required) The identifier of the contact in this
+  instance of Amazon Connect.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_contact_evaluations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_evaluations_errors()}
-
   def list_contact_evaluations(%Client{} = client, instance_id, contact_id, options \\ [])
       when is_binary(contact_id) do
     url_path = "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}"
@@ -18326,10 +18086,10 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListContactFlowModules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:contact_flow_module_state` (`t:enum["ACTIVE|ARCHIVED"]`) The state of the
   flow module.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
@@ -18337,12 +18097,10 @@ defmodule AWS.Connect do
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_contact_flow_modules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_flow_modules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_flow_modules_errors()}
-
   def list_contact_flow_modules(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-flow-modules-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18402,10 +18160,10 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListContactFlows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:contact_flow_types` (`t:list[com.amazonaws.connect#ContactFlowType]`) The
   type of flow.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
@@ -18414,12 +18172,10 @@ defmodule AWS.Connect do
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_contact_flows(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_flows_errors()}
-
   def list_contact_flows(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-flows-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18479,23 +18235,21 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListContactReferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_id` (`t:string`) The identifier of the initial contact.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:reference_types` (`t:list[com.amazonaws.connect#ReferenceType]`) The type of
-  reference.
-
-  ## Optional parameters:
+  * `:contact_id` (`t:string` required) The identifier of the initial contact.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:reference_types` (`t:list[com.amazonaws.connect#ReferenceType]` required)
+  The type of reference.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_contact_references(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_references_errors()}
-
   def list_contact_references(
         %Client{} = client,
         contact_id,
@@ -18549,17 +18303,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListDefaultVocabularies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec list_default_vocabularies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_default_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_default_vocabularies_errors()}
-
   def list_default_vocabularies(%Client{} = client, instance_id, options \\ []) do
     url_path = "/default-vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18596,23 +18348,21 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListEvaluationFormVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
-  form.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:evaluation_form_id` (`t:string` required) The unique identifier for the
+  evaluation form.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_evaluation_form_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_evaluation_form_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_evaluation_form_versions_errors()}
-
   def list_evaluation_form_versions(
         %Client{} = client,
         evaluation_form_id,
@@ -18671,21 +18421,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListEvaluationForms&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_evaluation_forms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_evaluation_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_evaluation_forms_errors()}
-
   def list_evaluation_forms(%Client{} = client, instance_id, options \\ []) do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18738,22 +18486,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListFlowAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   * `:resource_type` (`t:enum["VOICE_PHONE_NUMBER"]`) A valid resource type.
   """
-
   @spec list_flow_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_flow_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flow_associations_errors()}
-
   def list_flow_associations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/flow-associations-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18814,22 +18560,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListHoursOfOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_hours_of_operations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_hours_of_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hours_of_operations_errors()}
-
   def list_hours_of_operations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/hours-of-operations-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18882,21 +18626,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListInstanceAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_instance_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_attributes_errors()}
-
   def list_instance_attributes(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/attributes"
 
@@ -18949,24 +18691,22 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListInstanceStorageConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
   * `:resource_type`
-  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
-  A valid resource type.
-
-  ## Optional parameters:
+  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`
+  required) A valid resource type.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_instance_storage_configs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_storage_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_storage_configs_errors()}
-
   def list_instance_storage_configs(%Client{} = client, instance_id, resource_type, options \\ [])
       when is_binary(resource_type) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-configs"
@@ -19020,19 +18760,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instances_errors()}
-
   def list_instances(%Client{} = client, options \\ []) do
     url_path = "/instance"
 
@@ -19086,10 +18823,10 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListIntegrationAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:integration_arn` (`t:string`) The Amazon Resource Name (ARN) of the
   integration.
   * `:integration_type`
@@ -19100,12 +18837,10 @@ defmodule AWS.Connect do
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_integration_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_integration_associations_errors()}
-
   def list_integration_associations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
 
@@ -19177,21 +18912,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListLambdaFunctions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_lambda_functions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lambda_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lambda_functions_errors()}
-
   def list_lambda_functions(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-functions"
 
@@ -19244,22 +18977,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListLexBots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   If no value is specified, the default is 10.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_lex_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lex_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lex_bots_errors()}
-
   def list_lex_bots(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bots"
 
@@ -19313,10 +19044,10 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListPhoneNumbers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
@@ -19328,12 +19059,10 @@ defmodule AWS.Connect do
   * `:phone_number_types` (`t:list[com.amazonaws.connect#PhoneNumberType]`) The
   type of phone number.
   """
-
   @spec list_phone_numbers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_errors()}
-
   def list_phone_numbers(%Client{} = client, instance_id, options \\ []) do
     url_path = "/phone-numbers-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -19416,15 +19145,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListPhoneNumbersV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_phone_numbers_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_v2_errors()}
-
   def list_phone_numbers_v2(%Client{} = client, options \\ []) do
     url_path = "/phone-number/list"
 
@@ -19461,21 +19187,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListPredefinedAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_predefined_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_predefined_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_predefined_attributes_errors()}
-
   def list_predefined_attributes(%Client{} = client, instance_id, options \\ []) do
     url_path = "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -19529,21 +19253,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListPrompts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_prompts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_prompts_errors()}
-
   def list_prompts(%Client{} = client, instance_id, options \\ []) do
     url_path = "/prompts-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -19596,23 +19318,21 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListQueueQuickConnects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:queue_id` (`t:string`) The identifier for the queue.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:queue_id` (`t:string` required) The identifier for the queue.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_queue_quick_connects(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queue_quick_connects_errors()}
-
   def list_queue_quick_connects(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/quick-connects"
@@ -19670,10 +19390,10 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListQueues&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
@@ -19681,12 +19401,10 @@ defmodule AWS.Connect do
   next set of results.
   * `:queue_types` (`t:list[com.amazonaws.connect#QueueType]`) The type of queue.
   """
-
   @spec list_queues(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queues_errors()}
-
   def list_queues(%Client{} = client, instance_id, options \\ []) do
     url_path = "/queues-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -19747,10 +19465,10 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListQuickConnects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
@@ -19761,12 +19479,10 @@ defmodule AWS.Connect do
   a quick connect, you are prompted to assign one of the following types:
   Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
   """
-
   @spec list_quick_connects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_quick_connects_errors()}
-
   def list_quick_connects(%Client{} = client, instance_id, options \\ []) do
     url_path = "/quick-connects/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -19826,14 +19542,13 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListRealtimeContactAnalysisSegmentsV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_id` (`t:string`) The identifier of the contact in this instance of
-  Amazon Connect.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:contact_id` (`t:string` required) The identifier of the contact in this
+  instance of Amazon Connect.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec list_realtime_contact_analysis_segments_v2(
           AWS.Client.t(),
           String.t(),
@@ -19843,7 +19558,6 @@ defmodule AWS.Connect do
           {:ok, list_realtime_contact_analysis_segments_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_realtime_contact_analysis_segments_v2_errors()}
-
   def list_realtime_contact_analysis_segments_v2(
         %Client{} = client,
         contact_id,
@@ -19886,23 +19600,22 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListRoutingProfileQueues&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:routing_profile_id` (`t:string` required) The identifier of the routing
+  profile.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_routing_profile_queues(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_profile_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_profile_queues_errors()}
-
   def list_routing_profile_queues(
         %Client{} = client,
         instance_id,
@@ -19962,22 +19675,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListRoutingProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_routing_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_profiles_errors()}
-
   def list_routing_profiles(%Client{} = client, instance_id, options \\ []) do
     url_path = "/routing-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -20030,10 +19741,10 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:event_source_name`
   (`t:enum["OnCaseCreate|OnCaseUpdate|OnContactEvaluationSubmit|OnMetricDataUpdate|OnPostCallAnalysisAvailable|OnPostChatAnalysisAvailable|OnRealTimeCallAnalysisAvailable|OnRealTimeChatAnalysisAvailable|OnSalesforceCaseCreate|OnZendeskTicketCreate|OnZendeskTicketStatusUpdate"]`)
   The name of the event source.
@@ -20044,12 +19755,10 @@ defmodule AWS.Connect do
   * `:publish_status` (`t:enum["DRAFT|PUBLISHED"]`) The publish status of the
   rule.
   """
-
   @spec list_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-
   def list_rules(%Client{} = client, instance_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -20121,21 +19830,19 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListSecurityKeys&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_security_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_keys_errors()}
-
   def list_security_keys(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/security-keys"
 
@@ -20188,22 +19895,21 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListSecurityProfileApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:security_profile_id` (`t:string`) The identifier for the security profle.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:security_profile_id` (`t:string` required) The identifier for the security
+  profle.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_security_profile_applications(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profile_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profile_applications_errors()}
-
   def list_security_profile_applications(
         %Client{} = client,
         instance_id,
@@ -20262,22 +19968,21 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListSecurityProfilePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:security_profile_id` (`t:string`) The identifier for the security profle.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:security_profile_id` (`t:string` required) The identifier for the security
+  profle.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_security_profile_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profile_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profile_permissions_errors()}
-
   def list_security_profile_permissions(
         %Client{} = client,
         instance_id,
@@ -20337,22 +20042,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListSecurityProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_security_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profiles_errors()}
-
   def list_security_profiles(%Client{} = client, instance_id, options \\ []) do
     url_path = "/security-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -20405,19 +20108,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  All Amazon Connect resources (instances, queues, flows, routing profiles,
-  etc) have an ARN. To locate the ARN for an instance, for example, see Find
-  your Amazon Connect instance ID/ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource. All Amazon Connect resources (instances, queues, flows, routing
+  profiles, etc) have an ARN. To locate the ARN for an instance, for example,
+  see Find your Amazon Connect instance ID/ARN.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -20452,10 +20152,10 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListTaskTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:name` (`t:string`) The name of the task template.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
@@ -20466,12 +20166,10 @@ defmodule AWS.Connect do
   If a template is marked as INACTIVE, then a task that refers to this
   template cannot be created.
   """
-
   @spec list_task_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_task_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_task_templates_errors()}
-
   def list_task_templates(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template"
 
@@ -20538,23 +20236,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListTrafficDistributionGroupUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
-  distribution group. This can be the ID or the ARN if the API is being called
-  in the Region where the traffic distribution group was created. The ARN must
-  be provided if the call is from the replicated Region.
-
-  ## Optional parameters:
+  * `:traffic_distribution_group_id` (`t:string` required) The identifier of the
+  traffic distribution group. This can be the ID or the ARN if the API is
+  being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_traffic_distribution_group_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_traffic_distribution_group_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_distribution_group_users_errors()}
-
   def list_traffic_distribution_group_users(
         %Client{} = client,
         traffic_distribution_group_id,
@@ -20612,8 +20307,7 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListTrafficDistributionGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
   can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
@@ -20621,12 +20315,10 @@ defmodule AWS.Connect do
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_traffic_distribution_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_traffic_distribution_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_distribution_groups_errors()}
-
   def list_traffic_distribution_groups(%Client{} = client, options \\ []) do
     url_path = "/traffic-distribution-groups"
 
@@ -20686,23 +20378,21 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListUseCases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:integration_association_id` (`t:string`) The identifier for the integration
-  association.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:integration_association_id` (`t:string` required) The identifier for the
+  integration association.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_use_cases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_use_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_use_cases_errors()}
-
   def list_use_cases(%Client{} = client, instance_id, integration_association_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases"
@@ -20757,22 +20447,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListUserHierarchyGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_user_hierarchy_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_hierarchy_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_hierarchy_groups_errors()}
-
   def list_user_hierarchy_groups(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-groups-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -20825,22 +20513,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListUserProficiencies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_user_proficiencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_proficiencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_proficiencies_errors()}
-
   def list_user_proficiencies(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/proficiencies"
@@ -20895,22 +20581,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-
   def list_users(%Client{} = client, instance_id, options \\ []) do
     url_path = "/users-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -20964,24 +20648,21 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListViewVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instanceId in the ARN of the instance.
-  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-  can be used.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string` required) The identifier of the view. Both ViewArn and
+  ViewId can be used.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_view_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_view_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_view_versions_errors()}
-
   def list_view_versions(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path =
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions"
@@ -21035,10 +20716,9 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListViews&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instanceId in the ARN of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instanceId in the ARN of the instance.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
@@ -21046,12 +20726,10 @@ defmodule AWS.Connect do
   next set of results.
   * `:type` (`t:enum["AWS_MANAGED|CUSTOMER_MANAGED"]`) The type of the view.
   """
-
   @spec list_views(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_views_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_views_errors()}
-
   def list_views(%Client{} = client, instance_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -21113,15 +20791,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20MonitorContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec monitor_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, monitor_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, monitor_contact_errors()}
-
   def monitor_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/monitor"
 
@@ -21158,15 +20833,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20PauseContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec pause_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, pause_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, pause_contact_errors()}
-
   def pause_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/pause"
 
@@ -21204,18 +20876,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20PutUserStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user.
+  ## Keyword parameters:
   """
-
   @spec put_user_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_user_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_user_status_errors()}
-
   def put_user_status(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/status"
 
@@ -21259,20 +20929,18 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ReleasePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) A unique identifier for the phone
+  number.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier that you
   provide to ensure the idempotency of the request. If not provided, the
   Amazon Web Services SDK populates this field. For more information about
   idempotency, see Making retries safe with idempotent APIs.
   """
-
   @spec release_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, release_phone_number_errors()}
-
   def release_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -21332,18 +21000,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ReplicateInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  You can provide the InstanceId, or the entire ARN.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance. You can provide the InstanceId, or the entire ARN.
+  ## Keyword parameters:
   """
-
   @spec replicate_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, replicate_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, replicate_instance_errors()}
-
   def replicate_instance(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/replicate"
 
@@ -21380,15 +21045,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ResumeContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec resume_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, resume_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_contact_errors()}
-
   def resume_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/resume"
 
@@ -21428,15 +21090,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ResumeContactRecording&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec resume_contact_recording(AWS.Client.t(), Keyword.t()) ::
           {:ok, resume_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_contact_recording_errors()}
-
   def resume_contact_recording(%Client{} = client, options \\ []) do
     url_path = "/contact/resume-recording"
 
@@ -21473,15 +21132,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchAgentStatuses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_agent_statuses(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_agent_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_agent_statuses_errors()}
-
   def search_agent_statuses(%Client{} = client, options \\ []) do
     url_path = "/search-agent-statuses"
 
@@ -21521,15 +21177,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchAvailablePhoneNumbers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_available_phone_numbers_errors()}
-
   def search_available_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/phone-number/search-available"
 
@@ -21567,15 +21220,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchContactFlowModules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_contact_flow_modules(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_contact_flow_modules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_contact_flow_modules_errors()}
-
   def search_contact_flow_modules(%Client{} = client, options \\ []) do
     url_path = "/search-contact-flow-modules"
 
@@ -21613,15 +21263,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchContactFlows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_contact_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_contact_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_contact_flows_errors()}
-
   def search_contact_flows(%Client{} = client, options \\ []) do
     url_path = "/search-contact-flows"
 
@@ -21658,15 +21305,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchContacts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_contacts(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_contacts_errors()}
-
   def search_contacts(%Client{} = client, options \\ []) do
     url_path = "/search-contacts"
 
@@ -21704,15 +21348,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchHoursOfOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_hours_of_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_hours_of_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_hours_of_operations_errors()}
-
   def search_hours_of_operations(%Client{} = client, options \\ []) do
     url_path = "/search-hours-of-operations"
 
@@ -21749,15 +21390,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchPredefinedAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_predefined_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_predefined_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_predefined_attributes_errors()}
-
   def search_predefined_attributes(%Client{} = client, options \\ []) do
     url_path = "/search-predefined-attributes"
 
@@ -21794,15 +21432,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchPrompts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_prompts(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_prompts_errors()}
-
   def search_prompts(%Client{} = client, options \\ []) do
     url_path = "/search-prompts"
 
@@ -21839,15 +21474,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchQueues&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_queues(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_queues_errors()}
-
   def search_queues(%Client{} = client, options \\ []) do
     url_path = "/search-queues"
 
@@ -21884,15 +21516,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchQuickConnects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_quick_connects(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_quick_connects_errors()}
-
   def search_quick_connects(%Client{} = client, options \\ []) do
     url_path = "/search-quick-connects"
 
@@ -21929,15 +21558,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchResourceTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_resource_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_resource_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_resource_tags_errors()}
-
   def search_resource_tags(%Client{} = client, options \\ []) do
     url_path = "/search-resource-tags"
 
@@ -21975,15 +21601,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchRoutingProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_routing_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_routing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_routing_profiles_errors()}
-
   def search_routing_profiles(%Client{} = client, options \\ []) do
     url_path = "/search-routing-profiles"
 
@@ -22021,15 +21644,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchSecurityProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_security_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_security_profiles_errors()}
-
   def search_security_profiles(%Client{} = client, options \\ []) do
     url_path = "/search-security-profiles"
 
@@ -22067,15 +21687,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchUserHierarchyGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_user_hierarchy_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_user_hierarchy_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_user_hierarchy_groups_errors()}
-
   def search_user_hierarchy_groups(%Client{} = client, options \\ []) do
     url_path = "/search-user-hierarchy-groups"
 
@@ -22112,15 +21729,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_users(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_users_errors()}
-
   def search_users(%Client{} = client, options \\ []) do
     url_path = "/search-users"
 
@@ -22158,17 +21772,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchVocabularies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec search_vocabularies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_vocabularies_errors()}
-
   def search_vocabularies(%Client{} = client, instance_id, options \\ []) do
     url_path = "/vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -22206,15 +21818,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SendChatIntegrationEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec send_chat_integration_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_chat_integration_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_chat_integration_event_errors()}
-
   def send_chat_integration_event(%Client{} = client, options \\ []) do
     url_path = "/chat-integration-event"
 
@@ -22251,19 +21860,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartAttachedFileUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The unique identifier of the Amazon Connect
-  instance.
-  * `:associated_resource_arn` (`t:string`) The resource to which the attached
-  file is (being) uploaded to. Cases are the only current supported resource.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The unique identifier of the Amazon
+  Connect instance.
+  * `:associated_resource_arn` (`t:string` required) The resource to which the
+  attached file is (being) uploaded to. Cases are the only current supported
+  resource.
+  ## Keyword parameters:
   """
-
   @spec start_attached_file_upload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_attached_file_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_attached_file_upload_errors()}
-
   def start_attached_file_upload(
         %Client{} = client,
         instance_id,
@@ -22314,15 +21921,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartChatContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_chat_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_chat_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_chat_contact_errors()}
-
   def start_chat_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/chat"
 
@@ -22363,17 +21967,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartContactEvaluation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec start_contact_evaluation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_contact_evaluation_errors()}
-
   def start_contact_evaluation(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -22410,15 +22012,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartContactRecording&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_contact_recording(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_contact_recording_errors()}
-
   def start_contact_recording(%Client{} = client, options \\ []) do
     url_path = "/contact/start-recording"
 
@@ -22459,15 +22058,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartContactStreaming&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_contact_streaming(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_contact_streaming_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_contact_streaming_errors()}
-
   def start_contact_streaming(%Client{} = client, options \\ []) do
     url_path = "/contact/start-streaming"
 
@@ -22508,15 +22104,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartOutboundVoiceContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_outbound_voice_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_outbound_voice_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_outbound_voice_contact_errors()}
-
   def start_outbound_voice_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/outbound-voice"
 
@@ -22557,15 +22150,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartTaskContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_task_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_task_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_task_contact_errors()}
-
   def start_task_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/task"
 
@@ -22605,15 +22195,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartWebRTCContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_web_r_t_c_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_web_r_t_c_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_web_r_t_c_contact_errors()}
-
   def start_web_r_t_c_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/webrtc"
 
@@ -22651,15 +22238,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StopContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_contact_errors()}
-
   def stop_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/stop"
 
@@ -22701,15 +22285,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StopContactRecording&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_contact_recording(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_contact_recording_errors()}
-
   def stop_contact_recording(%Client{} = client, options \\ []) do
     url_path = "/contact/stop-recording"
 
@@ -22749,15 +22330,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StopContactStreaming&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_contact_streaming(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_contact_streaming_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_contact_streaming_errors()}
-
   def stop_contact_streaming(%Client{} = client, options \\ []) do
     url_path = "/contact/stop-streaming"
 
@@ -22798,18 +22376,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SubmitContactEvaluation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:evaluation_id` (`t:string` required) A unique identifier for the contact
+  evaluation.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec submit_contact_evaluation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, submit_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_contact_evaluation_errors()}
-
   def submit_contact_evaluation(%Client{} = client, evaluation_id, instance_id, options \\ []) do
     url_path =
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}/submit"
@@ -22853,15 +22430,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SuspendContactRecording&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec suspend_contact_recording(AWS.Client.t(), Keyword.t()) ::
           {:ok, suspend_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, suspend_contact_recording_errors()}
-
   def suspend_contact_recording(%Client{} = client, options \\ []) do
     url_path = "/contact/suspend-recording"
 
@@ -22901,15 +22475,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20TagContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_contact_errors()}
-
   def tag_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/tags"
 
@@ -22946,16 +22517,14 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -22997,15 +22566,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20TransferContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec transfer_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, transfer_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, transfer_contact_errors()}
-
   def transfer_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/transfer"
 
@@ -23045,22 +22611,20 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UntagContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_id` (`t:string`) The identifier of the contact in this instance of
-  Amazon Connect.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:tag_keys` (`t:list[com.amazonaws.connect#ContactTagKey]`) A list of tag
-  keys. Existing tags on the contact whose keys are members of this list will
-  be removed.
-
-  ## Optional parameters:
+  * `:contact_id` (`t:string` required) The identifier of the contact in this
+  instance of Amazon Connect.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:tag_keys` (`t:list[com.amazonaws.connect#ContactTagKey]` required) A list of
+  tag keys. Existing tags on the contact whose keys are members of this list
+  will be removed.
+  ## Keyword parameters:
   """
-
   @spec untag_contact(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_contact_errors()}
-
   def untag_contact(%Client{} = client, contact_id, instance_id, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path =
@@ -23109,17 +22673,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.connect#TagKey]`) The tag keys.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.connect#TagKey]` required) The tag keys.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -23167,18 +22729,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateAgentStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_status_id` (`t:string`) The identifier of the agent status.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:agent_status_id` (`t:string` required) The identifier of the agent status.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_agent_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_status_errors()}
-
   def update_agent_status(%Client{} = client, agent_status_id, instance_id, options \\ []) do
     url_path =
       "/agent-status/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(agent_status_id)}"
@@ -23217,19 +22777,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateAuthenticationProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:authentication_profile_id` (`t:string`) A unique identifier for the
+  * `:authentication_profile_id` (`t:string` required) A unique identifier for the
   authentication profile.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_authentication_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_authentication_profile_errors()}
-
   def update_authentication_profile(
         %Client{} = client,
         authentication_profile_id,
@@ -23274,20 +22832,18 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_id` (`t:string`) The identifier of the contact. This is the
+  * `:contact_id` (`t:string` required) The identifier of the contact. This is the
   identifier of the contact associated with the first interaction with your
   contact center.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_errors()}
-
   def update_contact(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
@@ -23332,15 +22888,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_contact_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_contact_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_attributes_errors()}
-
   def update_contact_attributes(%Client{} = client, options \\ []) do
     url_path = "/contact/attributes"
 
@@ -23381,18 +22934,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactEvaluation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:evaluation_id` (`t:string` required) A unique identifier for the contact
+  evaluation.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_contact_evaluation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_evaluation_errors()}
-
   def update_contact_evaluation(%Client{} = client, evaluation_id, instance_id, options \\ []) do
     url_path =
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
@@ -23432,17 +22984,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactFlowContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_flow_id` (`t:string`) The identifier of the flow.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
-
-  ## Optional parameters:
+  * `:contact_flow_id` (`t:string` required) The identifier of the flow.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance.
+  ## Keyword parameters:
   """
-
   @spec update_contact_flow_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_flow_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_flow_content_errors()}
-
   def update_contact_flow_content(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/content"
@@ -23480,18 +23030,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactFlowMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_flow_id` (`t:string`) The identifier of the flow.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:contact_flow_id` (`t:string` required) The identifier of the flow.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_contact_flow_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_flow_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_flow_metadata_errors()}
-
   def update_contact_flow_metadata(
         %Client{} = client,
         contact_flow_id,
@@ -23534,18 +23082,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactFlowModuleContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:contact_flow_module_id` (`t:string` required) The identifier of the flow
+  module.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_contact_flow_module_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_flow_module_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_flow_module_content_errors()}
-
   def update_contact_flow_module_content(
         %Client{} = client,
         contact_flow_module_id,
@@ -23588,18 +23135,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactFlowModuleMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:contact_flow_module_id` (`t:string` required) The identifier of the flow
+  module.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_contact_flow_module_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_flow_module_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_flow_module_metadata_errors()}
-
   def update_contact_flow_module_metadata(
         %Client{} = client,
         contact_flow_module_id,
@@ -23642,17 +23188,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactFlowName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_flow_id` (`t:string`) The identifier of the flow.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
-
-  ## Optional parameters:
+  * `:contact_flow_id` (`t:string` required) The identifier of the flow.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance.
+  ## Keyword parameters:
   """
-
   @spec update_contact_flow_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_flow_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_flow_name_errors()}
-
   def update_contact_flow_name(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/name"
@@ -23700,19 +23244,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactRoutingData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_id` (`t:string`) The identifier of the contact in this instance of
-  Amazon Connect.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:contact_id` (`t:string` required) The identifier of the contact in this
+  instance of Amazon Connect.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_contact_routing_data(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_routing_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_routing_data_errors()}
-
   def update_contact_routing_data(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path =
       "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}/routing-data"
@@ -23750,15 +23292,12 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_contact_schedule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_contact_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_schedule_errors()}
-
   def update_contact_schedule(%Client{} = client, options \\ []) do
     url_path = "/contact/schedule"
 
@@ -23797,19 +23336,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateEvaluationForm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
-  form.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:evaluation_form_id` (`t:string` required) The unique identifier for the
+  evaluation form.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_evaluation_form_errors()}
-
   def update_evaluation_form(%Client{} = client, evaluation_form_id, instance_id, options \\ []) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
@@ -23847,19 +23384,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateHoursOfOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hours_of_operation_id` (`t:string`) The identifier of the hours of
+  * `:hours_of_operation_id` (`t:string` required) The identifier of the hours of
   operation.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_hours_of_operation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_hours_of_operation_errors()}
-
   def update_hours_of_operation(
         %Client{} = client,
         hours_of_operation_id,
@@ -23903,19 +23438,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:attribute_type`
-  (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`)
-  The type of attribute.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`
+  required) The type of attribute.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_instance_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_attribute_errors()}
-
   def update_instance_attribute(%Client{} = client, attribute_type, instance_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/attribute/#{AWS.Util.encode_uri(attribute_type)}"
@@ -23953,18 +23486,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateInstanceStorageConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:association_id` (`t:string`) The existing association identifier that
-  uniquely identifies the resource type and storage config for the given
+  * `:association_id` (`t:string` required) The existing association identifier
+  that uniquely identifies the resource type and storage config for the given
   instance ID.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
   * `:resource_type`
-  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
-  A valid resource type.
-
-  ## Optional parameters:
+  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`
+  required) A valid resource type.
+  ## Keyword parameters:
   """
-
   @spec update_instance_storage_config(
           AWS.Client.t(),
           String.t(),
@@ -23975,7 +23507,6 @@ defmodule AWS.Connect do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_storage_config_errors()}
-
   def update_instance_storage_config(
         %Client{} = client,
         association_id,
@@ -24022,19 +23553,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateParticipantRoleConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:contact_id` (`t:string`) The identifier of the contact in this instance of
-  Amazon Connect.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:contact_id` (`t:string` required) The identifier of the contact in this
+  instance of Amazon Connect.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_participant_role_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_participant_role_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_participant_role_config_errors()}
-
   def update_participant_role_config(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path =
       "/contact/participant-role-config/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
@@ -24074,16 +23603,14 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) A unique identifier for the phone
+  number.
+  ## Keyword parameters:
   """
-
   @spec update_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_errors()}
-
   def update_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -24120,17 +23647,14 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdatePhoneNumberMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:phone_number_id` (`t:string`) The Amazon Resource Name (ARN) or resource ID
-  of the phone number.
-
-  ## Optional parameters:
+  * `:phone_number_id` (`t:string` required) The Amazon Resource Name (ARN) or
+  resource ID of the phone number.
+  ## Keyword parameters:
   """
-
   @spec update_phone_number_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_metadata_errors()}
-
   def update_phone_number_metadata(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/metadata"
 
@@ -24167,18 +23691,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdatePredefinedAttribute&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:name` (`t:string`) The name of the predefined attribute.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:name` (`t:string` required) The name of the predefined attribute.
+  ## Keyword parameters:
   """
-
   @spec update_predefined_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_predefined_attribute_errors()}
-
   def update_predefined_attribute(%Client{} = client, instance_id, name, options \\ []) do
     url_path =
       "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
@@ -24216,18 +23738,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdatePrompt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:prompt_id` (`t:string` required) A unique identifier for the prompt.
+  ## Keyword parameters:
   """
-
   @spec update_prompt(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_prompt_errors()}
-
   def update_prompt(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
 
@@ -24264,18 +23784,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQueueHoursOfOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:queue_id` (`t:string`) The identifier for the queue.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:queue_id` (`t:string` required) The identifier for the queue.
+  ## Keyword parameters:
   """
-
   @spec update_queue_hours_of_operation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_hours_of_operation_errors()}
-
   def update_queue_hours_of_operation(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/hours-of-operation"
@@ -24313,18 +23831,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQueueMaxContacts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:queue_id` (`t:string`) The identifier for the queue.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:queue_id` (`t:string` required) The identifier for the queue.
+  ## Keyword parameters:
   """
-
   @spec update_queue_max_contacts(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_max_contacts_errors()}
-
   def update_queue_max_contacts(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/max-contacts"
@@ -24362,18 +23878,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQueueName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:queue_id` (`t:string`) The identifier for the queue.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:queue_id` (`t:string` required) The identifier for the queue.
+  ## Keyword parameters:
   """
-
   @spec update_queue_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_name_errors()}
-
   def update_queue_name(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/name"
 
@@ -24412,18 +23926,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQueueOutboundCallerConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:queue_id` (`t:string`) The identifier for the queue.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:queue_id` (`t:string` required) The identifier for the queue.
+  ## Keyword parameters:
   """
-
   @spec update_queue_outbound_caller_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_outbound_caller_config_errors()}
-
   def update_queue_outbound_caller_config(
         %Client{} = client,
         instance_id,
@@ -24466,18 +23978,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQueueStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:queue_id` (`t:string`) The identifier for the queue.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:queue_id` (`t:string` required) The identifier for the queue.
+  ## Keyword parameters:
   """
-
   @spec update_queue_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_status_errors()}
-
   def update_queue_status(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/status"
@@ -24515,18 +24025,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQuickConnectConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:quick_connect_id` (`t:string` required) The identifier for the quick
+  connect.
+  ## Keyword parameters:
   """
-
   @spec update_quick_connect_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_quick_connect_config_errors()}
-
   def update_quick_connect_config(
         %Client{} = client,
         instance_id,
@@ -24571,18 +24080,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQuickConnectName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:quick_connect_id` (`t:string` required) The identifier for the quick
+  connect.
+  ## Keyword parameters:
   """
-
   @spec update_quick_connect_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_quick_connect_name_errors()}
-
   def update_quick_connect_name(%Client{} = client, instance_id, quick_connect_id, options \\ []) do
     url_path =
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}/name"
@@ -24622,13 +24130,13 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRoutingProfileAgentAvailabilityTimer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:routing_profile_id` (`t:string` required) The identifier of the routing
+  profile.
+  ## Keyword parameters:
   """
-
   @spec update_routing_profile_agent_availability_timer(
           AWS.Client.t(),
           String.t(),
@@ -24638,7 +24146,6 @@ defmodule AWS.Connect do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_profile_agent_availability_timer_errors()}
-
   def update_routing_profile_agent_availability_timer(
         %Client{} = client,
         instance_id,
@@ -24682,18 +24189,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRoutingProfileConcurrency&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:routing_profile_id` (`t:string` required) The identifier of the routing
+  profile.
+  ## Keyword parameters:
   """
-
   @spec update_routing_profile_concurrency(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_profile_concurrency_errors()}
-
   def update_routing_profile_concurrency(
         %Client{} = client,
         instance_id,
@@ -24736,13 +24242,13 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRoutingProfileDefaultOutboundQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:routing_profile_id` (`t:string` required) The identifier of the routing
+  profile.
+  ## Keyword parameters:
   """
-
   @spec update_routing_profile_default_outbound_queue(
           AWS.Client.t(),
           String.t(),
@@ -24752,7 +24258,6 @@ defmodule AWS.Connect do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_profile_default_outbound_queue_errors()}
-
   def update_routing_profile_default_outbound_queue(
         %Client{} = client,
         instance_id,
@@ -24797,18 +24302,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRoutingProfileName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:routing_profile_id` (`t:string` required) The identifier of the routing
+  profile.
+  ## Keyword parameters:
   """
-
   @spec update_routing_profile_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_profile_name_errors()}
-
   def update_routing_profile_name(
         %Client{} = client,
         instance_id,
@@ -24851,18 +24355,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRoutingProfileQueues&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:routing_profile_id` (`t:string` required) The identifier of the routing
+  profile.
+  ## Keyword parameters:
   """
-
   @spec update_routing_profile_queues(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_profile_queues_errors()}
-
   def update_routing_profile_queues(
         %Client{} = client,
         instance_id,
@@ -24905,18 +24408,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:rule_id` (`t:string`) A unique identifier for the rule.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:rule_id` (`t:string` required) A unique identifier for the rule.
+  ## Keyword parameters:
   """
-
   @spec update_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_errors()}
-
   def update_rule(%Client{} = client, instance_id, rule_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
 
@@ -24953,18 +24454,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateSecurityProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:security_profile_id` (`t:string`) The identifier for the security profle.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:security_profile_id` (`t:string` required) The identifier for the security
+  profle.
+  ## Keyword parameters:
   """
-
   @spec update_security_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_profile_errors()}
-
   def update_security_profile(%Client{} = client, instance_id, security_profile_id, options \\ []) do
     url_path =
       "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
@@ -25004,18 +24504,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateTaskTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:task_template_id` (`t:string`) A unique identifier for the task template.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:task_template_id` (`t:string` required) A unique identifier for the task
+  template.
+  ## Keyword parameters:
   """
-
   @spec update_task_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_task_template_errors()}
-
   def update_task_template(%Client{} = client, instance_id, task_template_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
@@ -25053,19 +24552,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateTrafficDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the traffic distribution group. This can
-  be the ID or the ARN if the API is being called in the Region where the
-  traffic distribution group was created. The ARN must be provided if the call
-  is from the replicated Region.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the traffic distribution group.
+  This can be the ID or the ARN if the API is being called in the Region where
+  the traffic distribution group was created. The ARN must be provided if the
+  call is from the replicated Region.
+  ## Keyword parameters:
   """
-
   @spec update_traffic_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_traffic_distribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_traffic_distribution_errors()}
-
   def update_traffic_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/traffic-distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -25102,18 +24598,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserHierarchy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   """
-
   @spec update_user_hierarchy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_hierarchy_errors()}
-
   def update_user_hierarchy(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/hierarchy"
@@ -25151,18 +24645,17 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserHierarchyGroupName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:hierarchy_group_id` (`t:string` required) The identifier of the hierarchy
+  group.
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_user_hierarchy_group_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_hierarchy_group_name_errors()}
-
   def update_user_hierarchy_group_name(
         %Client{} = client,
         hierarchy_group_id,
@@ -25206,17 +24699,15 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserHierarchyStructure&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  ## Keyword parameters:
   """
-
   @spec update_user_hierarchy_structure(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_hierarchy_structure_errors()}
-
   def update_user_hierarchy_structure(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -25253,18 +24744,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserIdentityInfo&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   """
-
   @spec update_user_identity_info(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_identity_info_errors()}
-
   def update_user_identity_info(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/identity-info"
@@ -25302,18 +24791,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserPhoneConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   """
-
   @spec update_user_phone_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_phone_config_errors()}
-
   def update_user_phone_config(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/phone-config"
@@ -25351,18 +24838,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserProficiencies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   """
-
   @spec update_user_proficiencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_proficiencies_errors()}
-
   def update_user_proficiencies(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/proficiencies"
@@ -25400,18 +24885,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserRoutingProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   """
-
   @spec update_user_routing_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_routing_profile_errors()}
-
   def update_user_routing_profile(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/routing-profile"
@@ -25449,18 +24932,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserSecurityProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-  * `:user_id` (`t:string`) The identifier of the user account.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+  the instance.
+  * `:user_id` (`t:string` required) The identifier of the user account.
+  ## Keyword parameters:
   """
-
   @spec update_user_security_profiles(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_security_profiles_errors()}
-
   def update_user_security_profiles(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/security-profiles"
@@ -25499,19 +24980,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateViewContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instanceId in the ARN of the instance.
-  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-  can be used.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string` required) The identifier of the view. Both ViewArn and
+  ViewId can be used.
+  ## Keyword parameters:
   """
-
   @spec update_view_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_view_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_view_content_errors()}
-
   def update_view_content(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
 
@@ -25549,19 +25027,16 @@ defmodule AWS.Connect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateViewMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-  can find the instanceId in the ARN of the instance.
-  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-  can be used.
-
-  ## Optional parameters:
+  * `:instance_id` (`t:string` required) The identifier of the Amazon Connect
+  instance. You can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string` required) The identifier of the view. Both ViewArn and
+  ViewId can be used.
+  ## Keyword parameters:
   """
-
   @spec update_view_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_view_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_view_metadata_errors()}
-
   def update_view_metadata(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path =
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/metadata"

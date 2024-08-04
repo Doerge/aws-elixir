@@ -233,22 +233,19 @@ defmodule AWS.SSO do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20GetRoleCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The identifier for the AWS account that is assigned
-  to the user.
-  * `:role_name` (`t:string`) The friendly name of the role that is assigned to
-  the user.
-  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
-  more information, see CreateToken in the IAM Identity Center OIDC API
-  Reference Guide.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The identifier for the AWS account that is
+  assigned to the user.
+  * `:role_name` (`t:string` required) The friendly name of the role that is
+  assigned to the user.
+  * `:access_token` (`t:string` required) The token issued by the CreateToken API
+  call. For more information, see CreateToken in the IAM Identity Center OIDC
+  API Reference Guide.
+  ## Keyword parameters:
   """
-
   @spec get_role_credentials(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_role_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_role_credentials_errors()}
-
   def get_role_credentials(%Client{} = client, account_id, role_name, access_token, options \\ [])
       when is_binary(account_id) and is_binary(role_name) and is_binary(access_token) do
     url_path = "/federation/credentials"
@@ -284,24 +281,21 @@ defmodule AWS.SSO do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20ListAccountRoles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The identifier for the AWS account that is assigned
-  to the user.
-  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
-  more information, see CreateToken in the IAM Identity Center OIDC API
-  Reference Guide.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The identifier for the AWS account that is
+  assigned to the user.
+  * `:access_token` (`t:string` required) The token issued by the CreateToken API
+  call. For more information, see CreateToken in the IAM Identity Center OIDC
+  API Reference Guide.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of items that clients can request per
   page.
   * `:next_token` (`t:string`) The page token from the previous response output
   when you request subsequent pages.
   """
-
   @spec list_account_roles(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_account_roles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_roles_errors()}
-
   def list_account_roles(%Client{} = client, account_id, access_token, options \\ [])
       when is_binary(account_id) and is_binary(access_token) do
     url_path = "/assignment/roles"
@@ -359,22 +353,19 @@ defmodule AWS.SSO do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20ListAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
-  more information, see CreateToken in the IAM Identity Center OIDC API
-  Reference Guide.
-
-  ## Optional parameters:
+  * `:access_token` (`t:string` required) The token issued by the CreateToken API
+  call. For more information, see CreateToken in the IAM Identity Center OIDC
+  API Reference Guide.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) This is the number of items clients can request
   per page.
   * `:next_token` (`t:string`) (Optional) When requesting subsequent pages, this
   is the page token from the previous response output.
   """
-
   @spec list_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accounts_errors()}
-
   def list_accounts(%Client{} = client, access_token, options \\ [])
       when is_binary(access_token) do
     url_path = "/assignment/accounts"
@@ -430,18 +421,15 @@ defmodule AWS.SSO do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20Logout&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
-  more information, see CreateToken in the IAM Identity Center OIDC API
-  Reference Guide.
-
-  ## Optional parameters:
+  * `:access_token` (`t:string` required) The token issued by the CreateToken API
+  call. For more information, see CreateToken in the IAM Identity Center OIDC
+  API Reference Guide.
+  ## Keyword parameters:
   """
-
   @spec logout(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, logout_errors()}
-
   def logout(%Client{} = client, access_token, options \\ []) when is_binary(access_token) do
     url_path = "/logout"
 

@@ -2208,17 +2208,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateBrowserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-  * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  * `:browser_settings_arn` (`t:string` required) The ARN of the browser settings.
+  ## Keyword parameters:
   """
-
   @spec associate_browser_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_browser_settings_errors()}
-
   def associate_browser_settings(
         %Client{} = client,
         portal_arn,
@@ -2261,17 +2258,15 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateIpAccessSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-  * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  * `:ip_access_settings_arn` (`t:string` required) The ARN of the IP access
+  settings.
+  ## Keyword parameters:
   """
-
   @spec associate_ip_access_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_ip_access_settings_errors()}
-
   def associate_ip_access_settings(
         %Client{} = client,
         portal_arn,
@@ -2314,17 +2309,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateNetworkSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-  * `:network_settings_arn` (`t:string`) The ARN of the network settings.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  * `:network_settings_arn` (`t:string` required) The ARN of the network settings.
+  ## Keyword parameters:
   """
-
   @spec associate_network_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_network_settings_errors()}
-
   def associate_network_settings(
         %Client{} = client,
         portal_arn,
@@ -2367,17 +2359,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateTrustStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-  * `:trust_store_arn` (`t:string`) The ARN of the trust store.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  * `:trust_store_arn` (`t:string` required) The ARN of the trust store.
+  ## Keyword parameters:
   """
-
   @spec associate_trust_store(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_trust_store_errors()}
-
   def associate_trust_store(%Client{} = client, portal_arn, trust_store_arn, options \\ [])
       when is_binary(trust_store_arn) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/trustStores"
@@ -2415,13 +2404,11 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access
-  logging settings.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  * `:user_access_logging_settings_arn` (`t:string` required) The ARN of the user
+  access logging settings.
+  ## Keyword parameters:
   """
-
   @spec associate_user_access_logging_settings(
           AWS.Client.t(),
           String.t(),
@@ -2431,7 +2418,6 @@ defmodule AWS.WorkSpacesWeb do
           {:ok, associate_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_user_access_logging_settings_errors()}
-
   def associate_user_access_logging_settings(
         %Client{} = client,
         portal_arn,
@@ -2475,17 +2461,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-  * `:user_settings_arn` (`t:string`) The ARN of the user settings.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  * `:user_settings_arn` (`t:string` required) The ARN of the user settings.
+  ## Keyword parameters:
   """
-
   @spec associate_user_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_user_settings_errors()}
-
   def associate_user_settings(%Client{} = client, portal_arn, user_settings_arn, options \\ [])
       when is_binary(user_settings_arn) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userSettings"
@@ -2525,15 +2508,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateBrowserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_browser_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_browser_settings_errors()}
-
   def create_browser_settings(%Client{} = client, options \\ []) do
     url_path = "/browserSettings"
 
@@ -2570,15 +2550,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateIdentityProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_identity_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_identity_provider_errors()}
-
   def create_identity_provider(%Client{} = client, options \\ []) do
     url_path = "/identityProviders"
 
@@ -2615,15 +2592,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateIpAccessSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_ip_access_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ip_access_settings_errors()}
-
   def create_ip_access_settings(%Client{} = client, options \\ []) do
     url_path = "/ipAccessSettings"
 
@@ -2662,15 +2636,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateNetworkSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_network_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_settings_errors()}
-
   def create_network_settings(%Client{} = client, options \\ []) do
     url_path = "/networkSettings"
 
@@ -2707,15 +2678,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreatePortal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_portal(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_portal_errors()}
-
   def create_portal(%Client{} = client, options \\ []) do
     url_path = "/portals"
 
@@ -2757,15 +2725,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateTrustStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_trust_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trust_store_errors()}
-
   def create_trust_store(%Client{} = client, options \\ []) do
     url_path = "/trustStores"
 
@@ -2803,15 +2768,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_user_access_logging_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_access_logging_settings_errors()}
-
   def create_user_access_logging_settings(%Client{} = client, options \\ []) do
     url_path = "/userAccessLoggingSettings"
 
@@ -2850,15 +2812,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_user_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_settings_errors()}
-
   def create_user_settings(%Client{} = client, options \\ []) do
     url_path = "/userSettings"
 
@@ -2895,16 +2854,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteBrowserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
-
-  ## Optional parameters:
+  * `:browser_settings_arn` (`t:string` required) The ARN of the browser settings.
+  ## Keyword parameters:
   """
-
   @spec delete_browser_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_browser_settings_errors()}
-
   def delete_browser_settings(%Client{} = client, browser_settings_arn, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
 
@@ -2951,16 +2907,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteIdentityProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_provider_arn` (`t:string`) The ARN of the identity provider.
-
-  ## Optional parameters:
+  * `:identity_provider_arn` (`t:string` required) The ARN of the identity
+  provider.
+  ## Keyword parameters:
   """
-
   @spec delete_identity_provider(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_identity_provider_errors()}
-
   def delete_identity_provider(%Client{} = client, identity_provider_arn, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
 
@@ -3007,16 +2961,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteIpAccessSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
-
-  ## Optional parameters:
+  * `:ip_access_settings_arn` (`t:string` required) The ARN of the IP access
+  settings.
+  ## Keyword parameters:
   """
-
   @spec delete_ip_access_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ip_access_settings_errors()}
-
   def delete_ip_access_settings(%Client{} = client, ip_access_settings_arn, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
 
@@ -3063,16 +3015,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteNetworkSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_settings_arn` (`t:string`) The ARN of the network settings.
-
-  ## Optional parameters:
+  * `:network_settings_arn` (`t:string` required) The ARN of the network settings.
+  ## Keyword parameters:
   """
-
   @spec delete_network_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_network_settings_errors()}
-
   def delete_network_settings(%Client{} = client, network_settings_arn, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
 
@@ -3119,16 +3068,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeletePortal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   """
-
   @spec delete_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_portal_errors()}
-
   def delete_portal(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
 
@@ -3175,16 +3121,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteTrustStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:trust_store_arn` (`t:string`) The ARN of the trust store.
-
-  ## Optional parameters:
+  * `:trust_store_arn` (`t:string` required) The ARN of the trust store.
+  ## Keyword parameters:
   """
-
   @spec delete_trust_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trust_store_errors()}
-
   def delete_trust_store(%Client{} = client, trust_store_arn, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
 
@@ -3231,17 +3174,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access
-  logging settings.
-
-  ## Optional parameters:
+  * `:user_access_logging_settings_arn` (`t:string` required) The ARN of the user
+  access logging settings.
+  ## Keyword parameters:
   """
-
   @spec delete_user_access_logging_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_access_logging_settings_errors()}
-
   def delete_user_access_logging_settings(
         %Client{} = client,
         user_access_logging_settings_arn,
@@ -3293,16 +3233,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_settings_arn` (`t:string`) The ARN of the user settings.
-
-  ## Optional parameters:
+  * `:user_settings_arn` (`t:string` required) The ARN of the user settings.
+  ## Keyword parameters:
   """
-
   @spec delete_user_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_settings_errors()}
-
   def delete_user_settings(%Client{} = client, user_settings_arn, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"
 
@@ -3349,16 +3286,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateBrowserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   """
-
   @spec disassociate_browser_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_browser_settings_errors()}
-
   def disassociate_browser_settings(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/browserSettings"
 
@@ -3405,16 +3339,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateIpAccessSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   """
-
   @spec disassociate_ip_access_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_ip_access_settings_errors()}
-
   def disassociate_ip_access_settings(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/ipAccessSettings"
 
@@ -3461,16 +3392,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateNetworkSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   """
-
   @spec disassociate_network_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_network_settings_errors()}
-
   def disassociate_network_settings(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/networkSettings"
 
@@ -3517,16 +3445,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateTrustStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   """
-
   @spec disassociate_trust_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_trust_store_errors()}
-
   def disassociate_trust_store(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/trustStores"
 
@@ -3573,16 +3498,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   """
-
   @spec disassociate_user_access_logging_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_user_access_logging_settings_errors()}
-
   def disassociate_user_access_logging_settings(%Client{} = client, portal_arn, options \\ []) do
     url_path =
       "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userAccessLoggingSettings"
@@ -3630,16 +3552,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   """
-
   @spec disassociate_user_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_user_settings_errors()}
-
   def disassociate_user_settings(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userSettings"
 
@@ -3686,16 +3605,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetBrowserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
-
-  ## Optional parameters:
+  * `:browser_settings_arn` (`t:string` required) The ARN of the browser settings.
+  ## Keyword parameters:
   """
-
   @spec get_browser_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_browser_settings_errors()}
-
   def get_browser_settings(%Client{} = client, browser_settings_arn, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
 
@@ -3730,16 +3646,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetIdentityProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_provider_arn` (`t:string`) The ARN of the identity provider.
-
-  ## Optional parameters:
+  * `:identity_provider_arn` (`t:string` required) The ARN of the identity
+  provider.
+  ## Keyword parameters:
   """
-
   @spec get_identity_provider(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_identity_provider_errors()}
-
   def get_identity_provider(%Client{} = client, identity_provider_arn, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
 
@@ -3774,16 +3688,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetIpAccessSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
-
-  ## Optional parameters:
+  * `:ip_access_settings_arn` (`t:string` required) The ARN of the IP access
+  settings.
+  ## Keyword parameters:
   """
-
   @spec get_ip_access_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ip_access_settings_errors()}
-
   def get_ip_access_settings(%Client{} = client, ip_access_settings_arn, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
 
@@ -3818,16 +3730,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetNetworkSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_settings_arn` (`t:string`) The ARN of the network settings.
-
-  ## Optional parameters:
+  * `:network_settings_arn` (`t:string` required) The ARN of the network settings.
+  ## Keyword parameters:
   """
-
   @spec get_network_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_settings_errors()}
-
   def get_network_settings(%Client{} = client, network_settings_arn, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
 
@@ -3862,16 +3771,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetPortal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   """
-
   @spec get_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_portal_errors()}
-
   def get_portal(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
 
@@ -3906,16 +3812,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetPortalServiceProviderMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   """
-
   @spec get_portal_service_provider_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_portal_service_provider_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_portal_service_provider_metadata_errors()}
-
   def get_portal_service_provider_metadata(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portalIdp/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
 
@@ -3950,16 +3853,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetTrustStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:trust_store_arn` (`t:string`) The ARN of the trust store.
-
-  ## Optional parameters:
+  * `:trust_store_arn` (`t:string` required) The ARN of the trust store.
+  ## Keyword parameters:
   """
-
   @spec get_trust_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trust_store_errors()}
-
   def get_trust_store(%Client{} = client, trust_store_arn, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
 
@@ -3994,17 +3894,16 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetTrustStoreCertificate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:trust_store_arn` (`t:string`) The ARN of the trust store certificate.
-  * `:thumbprint` (`t:string`) The thumbprint of the trust store certificate.
-
-  ## Optional parameters:
+  * `:trust_store_arn` (`t:string` required) The ARN of the trust store
+  certificate.
+  * `:thumbprint` (`t:string` required) The thumbprint of the trust store
+  certificate.
+  ## Keyword parameters:
   """
-
   @spec get_trust_store_certificate(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_trust_store_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trust_store_certificate_errors()}
-
   def get_trust_store_certificate(%Client{} = client, trust_store_arn, thumbprint, options \\ [])
       when is_binary(thumbprint) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}/certificate"
@@ -4040,17 +3939,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access
-  logging settings.
-
-  ## Optional parameters:
+  * `:user_access_logging_settings_arn` (`t:string` required) The ARN of the user
+  access logging settings.
+  ## Keyword parameters:
   """
-
   @spec get_user_access_logging_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_access_logging_settings_errors()}
-
   def get_user_access_logging_settings(
         %Client{} = client,
         user_access_logging_settings_arn,
@@ -4090,16 +3986,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_settings_arn` (`t:string`) The ARN of the user settings.
-
-  ## Optional parameters:
+  * `:user_settings_arn` (`t:string` required) The ARN of the user settings.
+  ## Keyword parameters:
   """
-
   @spec get_user_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_settings_errors()}
-
   def get_user_settings(%Client{} = client, user_settings_arn, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"
 
@@ -4134,19 +4027,16 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListBrowserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
   the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
   of results for this operation.
   """
-
   @spec list_browser_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_browser_settings_errors()}
-
   def list_browser_settings(%Client{} = client, options \\ []) do
     url_path = "/browserSettings"
 
@@ -4199,20 +4089,17 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListIdentityProviders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
   the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
   of results for this operation.
   """
-
   @spec list_identity_providers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_providers_errors()}
-
   def list_identity_providers(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/identityProviders"
 
@@ -4265,19 +4152,16 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListIpAccessSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
   the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
   of results for this operation.
   """
-
   @spec list_ip_access_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ip_access_settings_errors()}
-
   def list_ip_access_settings(%Client{} = client, options \\ []) do
     url_path = "/ipAccessSettings"
 
@@ -4330,19 +4214,16 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListNetworkSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
   the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
   of results for this operation.
   """
-
   @spec list_network_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_settings_errors()}
-
   def list_network_settings(%Client{} = client, options \\ []) do
     url_path = "/networkSettings"
 
@@ -4395,19 +4276,16 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListPortals&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
   the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
   of results for this operation.
   """
-
   @spec list_portals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_portals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_portals_errors()}
-
   def list_portals(%Client{} = client, options \\ []) do
     url_path = "/portals"
 
@@ -4460,16 +4338,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
 
@@ -4504,20 +4379,17 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListTrustStoreCertificates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:trust_store_arn` (`t:string`) The ARN of the trust store
-
-  ## Optional parameters:
+  * `:trust_store_arn` (`t:string` required) The ARN of the trust store
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
   the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
   of results for this operation.
   """
-
   @spec list_trust_store_certificates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_trust_store_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trust_store_certificates_errors()}
-
   def list_trust_store_certificates(%Client{} = client, trust_store_arn, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}/certificates"
 
@@ -4570,19 +4442,16 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListTrustStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
   the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
   of results for this operation.
   """
-
   @spec list_trust_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trust_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trust_stores_errors()}
-
   def list_trust_stores(%Client{} = client, options \\ []) do
     url_path = "/trustStores"
 
@@ -4635,19 +4504,16 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
   the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
   of results for this operation.
   """
-
   @spec list_user_access_logging_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_access_logging_settings_errors()}
-
   def list_user_access_logging_settings(%Client{} = client, options \\ []) do
     url_path = "/userAccessLoggingSettings"
 
@@ -4700,19 +4566,16 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
   the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
   of results for this operation.
   """
-
   @spec list_user_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_settings_errors()}
-
   def list_user_settings(%Client{} = client, options \\ []) do
     url_path = "/userSettings"
 
@@ -4765,16 +4628,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
 
@@ -4811,18 +4671,15 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.workspacesweb#TagKey]`) The list of tag
-  keys to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.workspacesweb#TagKey]` required) The list
+  of tag keys to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
@@ -4870,16 +4727,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateBrowserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
-
-  ## Optional parameters:
+  * `:browser_settings_arn` (`t:string` required) The ARN of the browser settings.
+  ## Keyword parameters:
   """
-
   @spec update_browser_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_browser_settings_errors()}
-
   def update_browser_settings(%Client{} = client, browser_settings_arn, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
 
@@ -4926,16 +4780,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateIdentityProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identity_provider_arn` (`t:string`) The ARN of the identity provider.
-
-  ## Optional parameters:
+  * `:identity_provider_arn` (`t:string` required) The ARN of the identity
+  provider.
+  ## Keyword parameters:
   """
-
   @spec update_identity_provider(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_identity_provider_errors()}
-
   def update_identity_provider(%Client{} = client, identity_provider_arn, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
 
@@ -4982,16 +4834,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateIpAccessSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
-
-  ## Optional parameters:
+  * `:ip_access_settings_arn` (`t:string` required) The ARN of the IP access
+  settings.
+  ## Keyword parameters:
   """
-
   @spec update_ip_access_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ip_access_settings_errors()}
-
   def update_ip_access_settings(%Client{} = client, ip_access_settings_arn, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
 
@@ -5038,16 +4888,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateNetworkSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:network_settings_arn` (`t:string`) The ARN of the network settings.
-
-  ## Optional parameters:
+  * `:network_settings_arn` (`t:string` required) The ARN of the network settings.
+  ## Keyword parameters:
   """
-
   @spec update_network_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_settings_errors()}
-
   def update_network_settings(%Client{} = client, network_settings_arn, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
 
@@ -5094,16 +4941,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdatePortal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:portal_arn` (`t:string`) The ARN of the web portal.
-
-  ## Optional parameters:
+  * `:portal_arn` (`t:string` required) The ARN of the web portal.
+  ## Keyword parameters:
   """
-
   @spec update_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_portal_errors()}
-
   def update_portal(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
 
@@ -5140,16 +4984,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateTrustStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:trust_store_arn` (`t:string`) The ARN of the trust store.
-
-  ## Optional parameters:
+  * `:trust_store_arn` (`t:string` required) The ARN of the trust store.
+  ## Keyword parameters:
   """
-
   @spec update_trust_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trust_store_errors()}
-
   def update_trust_store(%Client{} = client, trust_store_arn, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
 
@@ -5196,17 +5037,14 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access
-  logging settings.
-
-  ## Optional parameters:
+  * `:user_access_logging_settings_arn` (`t:string` required) The ARN of the user
+  access logging settings.
+  ## Keyword parameters:
   """
-
   @spec update_user_access_logging_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_access_logging_settings_errors()}
-
   def update_user_access_logging_settings(
         %Client{} = client,
         user_access_logging_settings_arn,
@@ -5258,16 +5096,13 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_settings_arn` (`t:string`) The ARN of the user settings.
-
-  ## Optional parameters:
+  * `:user_settings_arn` (`t:string` required) The ARN of the user settings.
+  ## Keyword parameters:
   """
-
   @spec update_user_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_settings_errors()}
-
   def update_user_settings(%Client{} = client, user_settings_arn, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"
 

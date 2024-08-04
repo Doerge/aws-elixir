@@ -473,15 +473,12 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20GetClip&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_clip(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_clip_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_clip_errors()}
-
   def get_clip(%Client{} = client, options \\ []) do
     url_path = "/getClip"
 
@@ -535,15 +532,12 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20GetDASHStreamingSessionURL&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_dash_streaming_session_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dash_streaming_session_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dash_streaming_session_url_errors()}
-
   def get_dash_streaming_session_url(%Client{} = client, options \\ []) do
     url_path = "/getDASHStreamingSessionURL"
 
@@ -583,15 +577,12 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20GetHLSStreamingSessionURL&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_hls_streaming_session_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_hls_streaming_session_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hls_streaming_session_url_errors()}
-
   def get_hls_streaming_session_url(%Client{} = client, options \\ []) do
     url_path = "/getHLSStreamingSessionURL"
 
@@ -629,15 +620,12 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20GetImages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_images(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_images_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_images_errors()}
-
   def get_images(%Client{} = client, options \\ []) do
     url_path = "/getImages"
 
@@ -680,15 +668,12 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20GetMediaForFragmentList&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_media_for_fragment_list(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_media_for_fragment_list_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_for_fragment_list_errors()}
-
   def get_media_for_fragment_list(%Client{} = client, options \\ []) do
     url_path = "/getMediaForFragmentList"
 
@@ -743,15 +728,12 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20ListFragments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_fragments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fragments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fragments_errors()}
-
   def list_fragments(%Client{} = client, options \\ []) do
     url_path = "/listFragments"
 

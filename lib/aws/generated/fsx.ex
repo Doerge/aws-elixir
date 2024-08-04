@@ -3428,6 +3428,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Use this action to associate one or more Domain Name Server (DNS) aliases with
   an existing Amazon FSx for Windows File Server file system. A file system can
   have a maximum of 50 DNS aliases associated with it at any one time. If you
@@ -3450,12 +3451,10 @@ defmodule AWS.FSx do
       required("FileSystemId") => String.t()
     }
   """
-
   @spec associate_file_system_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_file_system_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_file_system_aliases_errors()}
-
   def associate_file_system_aliases(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3465,6 +3464,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Cancels an existing Amazon FSx for Lustre data repository task if that task is
   in either the `PENDING` or `EXECUTING` state. When you cancel am export task,
   Amazon FSx does the following.
@@ -3477,12 +3477,10 @@ defmodule AWS.FSx do
       required("TaskId") => String.t()
     }
   """
-
   @spec cancel_data_repository_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_data_repository_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_data_repository_task_errors()}
-
   def cancel_data_repository_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3491,6 +3489,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Copies an existing backup within the same Amazon Web Services account to another
   Amazon Web Services Region (cross-Region copy) or within the same Amazon Web
   Services Region (in-Region copy). You can have up to five backup copy requests
@@ -3518,12 +3517,10 @@ defmodule AWS.FSx do
       required("SourceBackupId") => String.t()
     }
   """
-
   @spec copy_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_backup_errors()}
-
   def copy_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3532,6 +3529,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Updates an existing volume by using a snapshot from another Amazon FSx for
   OpenZFS file system. For more information, see [on-demand data
   replication](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/on-demand-replication.html)
@@ -3549,12 +3547,10 @@ defmodule AWS.FSx do
       required("VolumeId") => String.t()
     }
   """
-
   @spec copy_snapshot_and_update_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_snapshot_and_update_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_snapshot_and_update_volume_errors()}
-
   def copy_snapshot_and_update_volume(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3564,6 +3560,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Creates a backup of an existing Amazon FSx for Windows File Server file system,
   Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP volume, or
   Amazon FSx for OpenZFS file system. We recommend creating regular backups so
@@ -3583,12 +3580,10 @@ defmodule AWS.FSx do
       optional("VolumeId") => String.t()
     }
   """
-
   @spec create_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backup_errors()}
-
   def create_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3597,6 +3592,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Creates an Amazon FSx for Lustre data repository association (DRA). A data
   repository association is a link between a directory on the file system and an
   Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
@@ -3624,12 +3620,10 @@ defmodule AWS.FSx do
       required("FileSystemId") => String.t()
     }
   """
-
   @spec create_data_repository_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_repository_association_errors()}
-
   def create_data_repository_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3639,6 +3633,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Creates an Amazon FSx for Lustre data repository task. A
   `CreateDataRepositoryTask` operation will fail if a data repository is not
   linked to the FSx file system. You use import and export data repository tasks
@@ -3663,12 +3658,10 @@ defmodule AWS.FSx do
       required("Type") => list(any())
     }
   """
-
   @spec create_data_repository_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_repository_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_repository_task_errors()}
-
   def create_data_repository_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3677,6 +3670,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Creates a new Amazon File Cache resource. You can use this operation with a
   client request token in the request that Amazon File Cache uses to ensure
   idempotent creation. If a cache with the specified client request token exists
@@ -3704,12 +3698,10 @@ defmodule AWS.FSx do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec create_file_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_file_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_file_cache_errors()}
-
   def create_file_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3718,6 +3710,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Creates a new, empty Amazon FSx file system. You can create the following
   supported Amazon FSx file systems using the `CreateFileSystem` API operation:
 
@@ -3741,12 +3734,10 @@ defmodule AWS.FSx do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec create_file_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_file_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_file_system_errors()}
-
   def create_file_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3755,6 +3746,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File Server, or
   Amazon FSx for OpenZFS file system from an existing Amazon FSx backup. If a
   file system with the specified client request token exists and the parameters
@@ -3783,12 +3775,10 @@ defmodule AWS.FSx do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec create_file_system_from_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_file_system_from_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_file_system_from_backup_errors()}
-
   def create_file_system_from_backup(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3798,6 +3788,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With snapshots,
   you can easily undo file changes and compare file versions by restoring the
   volume to a previous version. If a snapshot with the specified client request
@@ -3818,12 +3809,10 @@ defmodule AWS.FSx do
       required("VolumeId") => String.t()
     }
   """
-
   @spec create_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_errors()}
-
   def create_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3832,6 +3821,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateStorageVirtualMachine&this_doc_guide=API%2520Reference)
@@ -3848,12 +3838,10 @@ defmodule AWS.FSx do
       required("Name") => String.t()
     }
   """
-
   @spec create_storage_virtual_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_storage_virtual_machine_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_storage_virtual_machine_errors()}
-
   def create_storage_virtual_machine(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3863,6 +3851,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateVolume&this_doc_guide=API%2520Reference)
@@ -3878,12 +3867,10 @@ defmodule AWS.FSx do
       required("VolumeType") => list(any())
     }
   """
-
   @spec create_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_volume_errors()}
-
   def create_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3892,6 +3879,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Creates a new Amazon FSx for NetApp ONTAP volume from an existing Amazon FSx
   volume backup.
 
@@ -3907,12 +3895,10 @@ defmodule AWS.FSx do
       required("Name") => String.t()
     }
   """
-
   @spec create_volume_from_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_volume_from_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_volume_from_backup_errors()}
-
   def create_volume_from_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3921,6 +3907,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
   its data is gone. The `DeleteBackup` call returns instantly. The backup won't
   show up in later `DescribeBackups` calls.
@@ -3934,12 +3921,10 @@ defmodule AWS.FSx do
       required("BackupId") => String.t()
     }
   """
-
   @spec delete_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_errors()}
-
   def delete_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3948,6 +3933,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Deletes a data repository association on an Amazon FSx for Lustre file system.
   Deleting the data repository association unlinks the file system from the
   Amazon S3 bucket. When deleting a data repository association, you have the
@@ -3965,12 +3951,10 @@ defmodule AWS.FSx do
       required("AssociationId") => String.t()
     }
   """
-
   @spec delete_data_repository_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_data_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_repository_association_errors()}
-
   def delete_data_repository_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3980,6 +3964,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Deletes an Amazon File Cache resource. After deletion, the cache no longer
   exists, and its data is gone. The `DeleteFileCache` operation returns while
   the cache has the `DELETING` status. You can check the cache deletion status
@@ -3998,12 +3983,10 @@ defmodule AWS.FSx do
       required("FileCacheId") => String.t()
     }
   """
-
   @spec delete_file_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_file_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_file_cache_errors()}
-
   def delete_file_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4012,6 +3995,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Deletes a file system. After deletion, the file system no longer exists, and its
   data is gone. Any existing automatic backups and snapshots are also deleted.
   To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
@@ -4030,12 +4014,10 @@ defmodule AWS.FSx do
       required("FileSystemId") => String.t()
     }
   """
-
   @spec delete_file_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_file_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_file_system_errors()}
-
   def delete_file_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4044,6 +4026,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no
   longer exists, and its data is gone. Deleting a snapshot doesn't affect
   snapshots stored in a file system backup.
@@ -4057,12 +4040,10 @@ defmodule AWS.FSx do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec delete_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_errors()}
-
   def delete_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4071,6 +4052,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior to
   deleting an SVM, you must delete all non-root volumes in the SVM, otherwise
   the operation will fail.
@@ -4084,12 +4066,10 @@ defmodule AWS.FSx do
       required("StorageVirtualMachineId") => String.t()
     }
   """
-
   @spec delete_storage_virtual_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_storage_virtual_machine_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_storage_virtual_machine_errors()}
-
   def delete_storage_virtual_machine(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4099,6 +4079,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DeleteVolume&this_doc_guide=API%2520Reference)
@@ -4112,12 +4093,10 @@ defmodule AWS.FSx do
       required("VolumeId") => String.t()
     }
   """
-
   @spec delete_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_volume_errors()}
-
   def delete_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4126,6 +4105,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Returns the description of a specific Amazon FSx backup, if a `BackupIds` value
   is provided for that backup. Otherwise, it returns all backups owned by your
   Amazon Web Services account in the Amazon Web Services Region of the endpoint
@@ -4146,12 +4126,10 @@ defmodule AWS.FSx do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_backups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_backups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backups_errors()}
-
   def describe_backups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4160,6 +4138,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
   data repository associations, if one or more `AssociationIds` values are
   provided in the request, or if filters are used in the request. Data
@@ -4185,12 +4164,10 @@ defmodule AWS.FSx do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_data_repository_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_repository_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_repository_associations_errors()}
-
   def describe_data_repository_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4200,6 +4177,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
   data repository tasks, if one or more `TaskIds` values are provided in the
   request, or if filters are used in the request. You can use filters to narrow
@@ -4219,12 +4197,10 @@ defmodule AWS.FSx do
       optional("TaskIds") => list(String.t()())
     }
   """
-
   @spec describe_data_repository_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_repository_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_repository_tasks_errors()}
-
   def describe_data_repository_tasks(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4234,6 +4210,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Returns the description of a specific Amazon File Cache resource, if a
   `FileCacheIds` value is provided for that cache. Otherwise, it returns
   descriptions of all caches owned by your Amazon Web Services account in the
@@ -4254,12 +4231,10 @@ defmodule AWS.FSx do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_file_caches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_file_caches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_caches_errors()}
-
   def describe_file_caches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4268,6 +4243,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Returns the DNS aliases that are associated with the specified Amazon FSx for
   Windows File Server file system. A history of all DNS aliases that have been
   associated with and disassociated from the file system is available in the
@@ -4285,12 +4261,10 @@ defmodule AWS.FSx do
       required("FileSystemId") => String.t()
     }
   """
-
   @spec describe_file_system_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_file_system_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_system_aliases_errors()}
-
   def describe_file_system_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4299,6 +4273,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Returns the description of specific Amazon FSx file systems, if a
   `FileSystemIds` value is provided for that file system. Otherwise, it returns
   descriptions of all file systems owned by your Amazon Web Services account in
@@ -4319,12 +4294,10 @@ defmodule AWS.FSx do
       optional("NextToken") => String.t()
     }
   """
-
   @spec describe_file_systems(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_file_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_systems_errors()}
-
   def describe_file_systems(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4333,6 +4306,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Indicates whether participant accounts in your organization can create Amazon
   FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a
   virtual private cloud (VPC) owner. For more information, see [Creating FSx for
@@ -4347,12 +4321,10 @@ defmodule AWS.FSx do
       
     }
   """
-
   @spec describe_shared_vpc_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_shared_vpc_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_shared_vpc_configuration_errors()}
-
   def describe_shared_vpc_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4362,6 +4334,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
   `SnapshotIds` value is provided. Otherwise, this operation returns all
   snapshots owned by your Amazon Web Services account in the Amazon Web Services
@@ -4384,12 +4357,10 @@ defmodule AWS.FSx do
       optional("SnapshotIds") => list(String.t()())
     }
   """
-
   @spec describe_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_snapshots_errors()}
-
   def describe_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4398,6 +4369,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines
   (SVMs).
 
@@ -4412,12 +4384,10 @@ defmodule AWS.FSx do
       optional("StorageVirtualMachineIds") => list(String.t()())
     }
   """
-
   @spec describe_storage_virtual_machines(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_storage_virtual_machines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_storage_virtual_machines_errors()}
-
   def describe_storage_virtual_machines(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4427,6 +4397,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
   volumes.
 
@@ -4441,12 +4412,10 @@ defmodule AWS.FSx do
       optional("VolumeIds") => list(String.t()())
     }
   """
-
   @spec describe_volumes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_volumes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_volumes_errors()}
-
   def describe_volumes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4455,6 +4424,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Use this action to disassociate, or remove, one or more Domain Name Service
   (DNS) aliases from an Amazon FSx for Windows File Server file system. If you
   attempt to disassociate a DNS alias that is not associated with the file
@@ -4472,12 +4442,10 @@ defmodule AWS.FSx do
       required("FileSystemId") => String.t()
     }
   """
-
   @spec disassociate_file_system_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_file_system_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_file_system_aliases_errors()}
-
   def disassociate_file_system_aliases(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4487,6 +4455,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Lists tags for Amazon FSx resources. When retrieving all tags, you can
   optionally specify the `MaxResults` parameter to limit the number of tags in a
   response. If more tags remain, Amazon FSx returns a `NextToken` value in the
@@ -4503,12 +4472,10 @@ defmodule AWS.FSx do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4517,6 +4484,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Releases the file system lock from an Amazon FSx for OpenZFS file system.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20ReleaseFileSystemNfsV3Locks&this_doc_guide=API%2520Reference)
@@ -4528,12 +4496,10 @@ defmodule AWS.FSx do
       required("FileSystemId") => String.t()
     }
   """
-
   @spec release_file_system_nfs_v3_locks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, release_file_system_nfs_v3_locks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, release_file_system_nfs_v3_locks_errors()}
-
   def release_file_system_nfs_v3_locks(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4543,6 +4509,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
   snapshot.
 
@@ -4557,12 +4524,10 @@ defmodule AWS.FSx do
       required("VolumeId") => String.t()
     }
   """
-
   @spec restore_volume_from_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_volume_from_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_volume_from_snapshot_errors()}
-
   def restore_volume_from_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4571,6 +4536,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   After performing steps to repair the Active Directory configuration of an FSx
   for Windows File Server file system, use this action to initiate the process
   of Amazon FSx attempting to reconnect to the file system.
@@ -4584,12 +4550,10 @@ defmodule AWS.FSx do
       required("FileSystemId") => String.t()
     }
   """
-
   @spec start_misconfigured_state_recovery(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_misconfigured_state_recovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_misconfigured_state_recovery_errors()}
-
   def start_misconfigured_state_recovery(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4599,6 +4563,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Tags an Amazon FSx resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20TagResource&this_doc_guide=API%2520Reference)
@@ -4610,12 +4575,10 @@ defmodule AWS.FSx do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4624,6 +4587,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   This action removes a tag from an Amazon FSx resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UntagResource&this_doc_guide=API%2520Reference)
@@ -4635,12 +4599,10 @@ defmodule AWS.FSx do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4649,6 +4611,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Updates the configuration of an existing data repository association on an
   Amazon FSx for Lustre file system. Data repository associations are supported
   on all FSx for Lustre 2.12 and 2.15 file systems, excluding `scratch_1`
@@ -4665,12 +4628,10 @@ defmodule AWS.FSx do
       required("AssociationId") => String.t()
     }
   """
-
   @spec update_data_repository_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_data_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_repository_association_errors()}
-
   def update_data_repository_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4680,6 +4641,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Updates the configuration of an existing Amazon File Cache resource. You can
   update multiple properties in a single request.
 
@@ -4693,12 +4655,10 @@ defmodule AWS.FSx do
       required("FileCacheId") => String.t()
     }
   """
-
   @spec update_file_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_file_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_file_cache_errors()}
-
   def update_file_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4707,6 +4667,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Use this operation to update the configuration of an existing Amazon FSx file
   system. You can update multiple properties in a single request. For FSx for
   Windows File Server file systems, you can update the following properties:
@@ -4726,12 +4687,10 @@ defmodule AWS.FSx do
       required("FileSystemId") => String.t()
     }
   """
-
   @spec update_file_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_file_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_file_system_errors()}
-
   def update_file_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4740,6 +4699,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Configures whether participant accounts in your organization can create Amazon
   FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a
   virtual private cloud (VPC) owner. For more information, see the [Amazon FSx
@@ -4761,12 +4721,10 @@ defmodule AWS.FSx do
       optional("EnableFsxRouteTableUpdatesFromParticipantAccounts") => String.t()
     }
   """
-
   @spec update_shared_vpc_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_shared_vpc_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_shared_vpc_configuration_errors()}
-
   def update_shared_vpc_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4776,6 +4734,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Updates the name of an Amazon FSx for OpenZFS snapshot.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UpdateSnapshot&this_doc_guide=API%2520Reference)
@@ -4788,12 +4747,10 @@ defmodule AWS.FSx do
       required("SnapshotId") => String.t()
     }
   """
-
   @spec update_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_snapshot_errors()}
-
   def update_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4802,6 +4759,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Updates an FSx for ONTAP storage virtual machine (SVM).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UpdateStorageVirtualMachine&this_doc_guide=API%2520Reference)
@@ -4815,12 +4773,10 @@ defmodule AWS.FSx do
       required("StorageVirtualMachineId") => String.t()
     }
   """
-
   @spec update_storage_virtual_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_storage_virtual_machine_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_storage_virtual_machine_errors()}
-
   def update_storage_virtual_machine(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4830,6 +4786,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
+   
   Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for
   OpenZFS volume.
 
@@ -4845,12 +4802,10 @@ defmodule AWS.FSx do
       required("VolumeId") => String.t()
     }
   """
-
   @spec update_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_volume_errors()}
-
   def update_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

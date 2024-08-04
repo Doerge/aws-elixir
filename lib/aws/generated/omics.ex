@@ -3935,18 +3935,15 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20AbortMultipartReadSetUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The sequence store ID for the store involved
-  in the multipart upload.
-  * `:upload_id` (`t:string`) The ID for the multipart upload.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The sequence store ID for the store
+  involved in the multipart upload.
+  * `:upload_id` (`t:string` required) The ID for the multipart upload.
+  ## Keyword parameters:
   """
-
   @spec abort_multipart_read_set_upload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, abort_multipart_read_set_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, abort_multipart_read_set_upload_errors()}
-
   def abort_multipart_read_set_upload(
         %Client{} = client,
         sequence_store_id,
@@ -3999,16 +3996,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20AcceptShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:share_id` (`t:string`) The ID of the resource share.
-
-  ## Optional parameters:
+  * `:share_id` (`t:string` required) The ID of the resource share.
+  ## Keyword parameters:
   """
-
   @spec accept_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_share_errors()}
-
   def accept_share(%Client{} = client, share_id, options \\ []) do
     url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
 
@@ -4045,16 +4039,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20BatchDeleteReadSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The read sets' sequence store ID.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The read sets' sequence store ID.
+  ## Keyword parameters:
   """
-
   @spec batch_delete_read_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_read_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_read_set_errors()}
-
   def batch_delete_read_set(%Client{} = client, sequence_store_id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/readset/batch/delete"
 
@@ -4091,16 +4082,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CancelAnnotationImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The job's ID.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The job's ID.
+  ## Keyword parameters:
   """
-
   @spec cancel_annotation_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_annotation_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_annotation_import_job_errors()}
-
   def cancel_annotation_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/import/annotation/#{AWS.Util.encode_uri(job_id)}"
 
@@ -4147,16 +4135,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CancelRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The run's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The run's ID.
+  ## Keyword parameters:
   """
-
   @spec cancel_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_run_errors()}
-
   def cancel_run(%Client{} = client, id, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}/cancel"
 
@@ -4193,16 +4178,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CancelVariantImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The job's ID.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The job's ID.
+  ## Keyword parameters:
   """
-
   @spec cancel_variant_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_variant_import_job_errors()}
-
   def cancel_variant_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/import/variant/#{AWS.Util.encode_uri(job_id)}"
 
@@ -4249,18 +4231,15 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CompleteMultipartReadSetUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The sequence store ID for the store involved
-  in the multipart upload.
-  * `:upload_id` (`t:string`) The ID for the multipart upload.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The sequence store ID for the store
+  involved in the multipart upload.
+  * `:upload_id` (`t:string` required) The ID for the multipart upload.
+  ## Keyword parameters:
   """
-
   @spec complete_multipart_read_set_upload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, complete_multipart_read_set_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_multipart_read_set_upload_errors()}
-
   def complete_multipart_read_set_upload(
         %Client{} = client,
         sequence_store_id,
@@ -4303,15 +4282,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateAnnotationStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_annotation_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_annotation_store_errors()}
-
   def create_annotation_store(%Client{} = client, options \\ []) do
     url_path = "/annotationStore"
 
@@ -4348,17 +4324,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateAnnotationStoreVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of an annotation store version from which
-  versions are being created.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of an annotation store version from
+  which versions are being created.
+  ## Keyword parameters:
   """
-
   @spec create_annotation_store_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_annotation_store_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_annotation_store_version_errors()}
-
   def create_annotation_store_version(%Client{} = client, name, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/version"
 
@@ -4395,17 +4368,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateMultipartReadSetUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The sequence store ID for the store that is
-  the destination of the multipart uploads.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The sequence store ID for the store
+  that is the destination of the multipart uploads.
+  ## Keyword parameters:
   """
-
   @spec create_multipart_read_set_upload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_multipart_read_set_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_multipart_read_set_upload_errors()}
-
   def create_multipart_read_set_upload(%Client{} = client, sequence_store_id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload"
 
@@ -4442,15 +4412,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateReferenceStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_reference_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_reference_store_errors()}
-
   def create_reference_store(%Client{} = client, options \\ []) do
     url_path = "/referencestore"
 
@@ -4487,15 +4454,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateRunGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_run_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_run_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_run_group_errors()}
-
   def create_run_group(%Client{} = client, options \\ []) do
     url_path = "/runGroup"
 
@@ -4532,15 +4496,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateSequenceStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sequence_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sequence_store_errors()}
-
   def create_sequence_store(%Client{} = client, options \\ []) do
     url_path = "/sequencestore"
 
@@ -4580,15 +4541,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_share_errors()}
-
   def create_share(%Client{} = client, options \\ []) do
     url_path = "/share"
 
@@ -4625,15 +4583,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateVariantStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_variant_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_variant_store_errors()}
-
   def create_variant_store(%Client{} = client, options \\ []) do
     url_path = "/variantStore"
 
@@ -4670,15 +4625,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
-
   def create_workflow(%Client{} = client, options \\ []) do
     url_path = "/workflow"
 
@@ -4715,17 +4667,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteAnnotationStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The store's name.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The store's name.
+  ## Keyword parameters:
   * `:force` (`t:string`) Whether to force deletion.
   """
-
   @spec delete_annotation_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_annotation_store_errors()}
-
   def delete_annotation_store(%Client{} = client, name, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
 
@@ -4783,19 +4732,16 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteAnnotationStoreVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the annotation store from which versions are
-  being deleted.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the annotation store from which
+  versions are being deleted.
+  ## Keyword parameters:
   * `:force` (`t:string`) Forces the deletion of an annotation store version when
   imports are in-progress..
   """
-
   @spec delete_annotation_store_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_annotation_store_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_annotation_store_versions_errors()}
-
   def delete_annotation_store_versions(%Client{} = client, name, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/versions/delete"
 
@@ -4843,17 +4789,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteReference&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The reference's ID.
-  * `:reference_store_id` (`t:string`) The reference's store ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The reference's ID.
+  * `:reference_store_id` (`t:string` required) The reference's store ID.
+  ## Keyword parameters:
   """
-
   @spec delete_reference(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_reference_errors()}
-
   def delete_reference(%Client{} = client, id, reference_store_id, options \\ []) do
     url_path =
       "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/reference/#{AWS.Util.encode_uri(id)}"
@@ -4901,16 +4844,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteReferenceStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The store's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The store's ID.
+  ## Keyword parameters:
   """
-
   @spec delete_reference_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_reference_store_errors()}
-
   def delete_reference_store(%Client{} = client, id, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(id)}"
 
@@ -4957,16 +4897,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The run's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The run's ID.
+  ## Keyword parameters:
   """
-
   @spec delete_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_run_errors()}
-
   def delete_run(%Client{} = client, id, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}"
 
@@ -5013,16 +4950,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteRunGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The run group's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The run group's ID.
+  ## Keyword parameters:
   """
-
   @spec delete_run_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_run_group_errors()}
-
   def delete_run_group(%Client{} = client, id, options \\ []) do
     url_path = "/runGroup/#{AWS.Util.encode_uri(id)}"
 
@@ -5069,16 +5003,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteSequenceStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The sequence store's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The sequence store's ID.
+  ## Keyword parameters:
   """
-
   @spec delete_sequence_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sequence_store_errors()}
-
   def delete_sequence_store(%Client{} = client, id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(id)}"
 
@@ -5127,16 +5058,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:share_id` (`t:string`) The ID for the resource share to be deleted.
-
-  ## Optional parameters:
+  * `:share_id` (`t:string` required) The ID for the resource share to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_share_errors()}
-
   def delete_share(%Client{} = client, share_id, options \\ []) do
     url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
 
@@ -5183,17 +5111,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteVariantStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The store's name.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The store's name.
+  ## Keyword parameters:
   * `:force` (`t:string`) Whether to force deletion.
   """
-
   @spec delete_variant_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_variant_store_errors()}
-
   def delete_variant_store(%Client{} = client, name, options \\ []) do
     url_path = "/variantStore/#{AWS.Util.encode_uri(name)}"
 
@@ -5251,16 +5176,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The workflow's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The workflow's ID.
+  ## Keyword parameters:
   """
-
   @spec delete_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
-
   def delete_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/workflow/#{AWS.Util.encode_uri(id)}"
 
@@ -5307,16 +5229,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetAnnotationImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The job's ID.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The job's ID.
+  ## Keyword parameters:
   """
-
   @spec get_annotation_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_annotation_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_annotation_import_job_errors()}
-
   def get_annotation_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/import/annotation/#{AWS.Util.encode_uri(job_id)}"
 
@@ -5351,16 +5270,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetAnnotationStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The store's name.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The store's name.
+  ## Keyword parameters:
   """
-
   @spec get_annotation_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_annotation_store_errors()}
-
   def get_annotation_store(%Client{} = client, name, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
 
@@ -5395,19 +5311,16 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetAnnotationStoreVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name given to an annotation store version to
+  * `:name` (`t:string` required) The name given to an annotation store version to
   distinguish it from others.
-  * `:version_name` (`t:string`) The name given to an annotation store version to
-  distinguish it from others.
-
-  ## Optional parameters:
+  * `:version_name` (`t:string` required) The name given to an annotation store
+  version to distinguish it from others.
+  ## Keyword parameters:
   """
-
   @spec get_annotation_store_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_annotation_store_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_annotation_store_version_errors()}
-
   def get_annotation_store_version(%Client{} = client, name, version_name, options \\ []) do
     url_path =
       "/annotationStore/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version_name)}"
@@ -5443,19 +5356,16 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The read set's ID.
-  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
-  * `:part_number` (`t:string`) The part number to retrieve.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The read set's ID.
+  * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
+  * `:part_number` (`t:string` required) The part number to retrieve.
+  ## Keyword parameters:
   * `:file` (`t:string`) The file to retrieve.
   """
-
   @spec get_read_set(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_read_set_errors()}
-
   def get_read_set(%Client{} = client, id, sequence_store_id, part_number, options \\ [])
       when is_binary(part_number) do
     url_path =
@@ -5503,17 +5413,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetActivationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The job's ID.
-  * `:sequence_store_id` (`t:string`) The job's sequence store ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The job's ID.
+  * `:sequence_store_id` (`t:string` required) The job's sequence store ID.
+  ## Keyword parameters:
   """
-
   @spec get_read_set_activation_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_activation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_read_set_activation_job_errors()}
-
   def get_read_set_activation_job(%Client{} = client, id, sequence_store_id, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjob/#{AWS.Util.encode_uri(id)}"
@@ -5549,17 +5456,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The job's ID.
-  * `:sequence_store_id` (`t:string`) The job's sequence store ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The job's ID.
+  * `:sequence_store_id` (`t:string` required) The job's sequence store ID.
+  ## Keyword parameters:
   """
-
   @spec get_read_set_export_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_read_set_export_job_errors()}
-
   def get_read_set_export_job(%Client{} = client, id, sequence_store_id, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/exportjob/#{AWS.Util.encode_uri(id)}"
@@ -5595,17 +5499,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The job's ID.
-  * `:sequence_store_id` (`t:string`) The job's sequence store ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The job's ID.
+  * `:sequence_store_id` (`t:string` required) The job's sequence store ID.
+  ## Keyword parameters:
   """
-
   @spec get_read_set_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_read_set_import_job_errors()}
-
   def get_read_set_import_job(%Client{} = client, id, sequence_store_id, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/importjob/#{AWS.Util.encode_uri(id)}"
@@ -5641,17 +5542,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The read set's ID.
-  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The read set's ID.
+  * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
+  ## Keyword parameters:
   """
-
   @spec get_read_set_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_read_set_metadata_errors()}
-
   def get_read_set_metadata(%Client{} = client, id, sequence_store_id, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/readset/#{AWS.Util.encode_uri(id)}/metadata"
@@ -5687,20 +5585,17 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReference&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The reference's ID.
-  * `:reference_store_id` (`t:string`) The reference's store ID.
-  * `:part_number` (`t:string`) The part number to retrieve.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The reference's ID.
+  * `:reference_store_id` (`t:string` required) The reference's store ID.
+  * `:part_number` (`t:string` required) The part number to retrieve.
+  ## Keyword parameters:
   * `:file` (`t:string`) The file to retrieve.
   * `:range` (`t:string`) The range to retrieve.
   """
-
   @spec get_reference(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reference_errors()}
-
   def get_reference(%Client{} = client, id, reference_store_id, part_number, options \\ [])
       when is_binary(part_number) do
     url_path =
@@ -5754,17 +5649,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReferenceImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The job's ID.
-  * `:reference_store_id` (`t:string`) The job's reference store ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The job's ID.
+  * `:reference_store_id` (`t:string` required) The job's reference store ID.
+  ## Keyword parameters:
   """
-
   @spec get_reference_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reference_import_job_errors()}
-
   def get_reference_import_job(%Client{} = client, id, reference_store_id, options \\ []) do
     url_path =
       "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/importjob/#{AWS.Util.encode_uri(id)}"
@@ -5800,17 +5692,15 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReferenceMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The reference's ID.
-  * `:reference_store_id` (`t:string`) The reference's reference store ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The reference's ID.
+  * `:reference_store_id` (`t:string` required) The reference's reference store
+  ID.
+  ## Keyword parameters:
   """
-
   @spec get_reference_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reference_metadata_errors()}
-
   def get_reference_metadata(%Client{} = client, id, reference_store_id, options \\ []) do
     url_path =
       "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/reference/#{AWS.Util.encode_uri(id)}/metadata"
@@ -5846,16 +5736,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReferenceStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The store's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The store's ID.
+  ## Keyword parameters:
   """
-
   @spec get_reference_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reference_store_errors()}
-
   def get_reference_store(%Client{} = client, id, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(id)}"
 
@@ -5890,17 +5777,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The run's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The run's ID.
+  ## Keyword parameters:
   * `:export` (`t:list[com.amazonaws.omics#RunExport]`) The run's export format.
   """
-
   @spec get_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_run_errors()}
-
   def get_run(%Client{} = client, id, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}"
 
@@ -5946,16 +5830,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetRunGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The group's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The group's ID.
+  ## Keyword parameters:
   """
-
   @spec get_run_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_run_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_run_group_errors()}
-
   def get_run_group(%Client{} = client, id, options \\ []) do
     url_path = "/runGroup/#{AWS.Util.encode_uri(id)}"
 
@@ -5990,17 +5871,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetRunTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The workflow run ID.
-  * `:task_id` (`t:string`) The task's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The workflow run ID.
+  * `:task_id` (`t:string` required) The task's ID.
+  ## Keyword parameters:
   """
-
   @spec get_run_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_run_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_run_task_errors()}
-
   def get_run_task(%Client{} = client, id, task_id, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}/task/#{AWS.Util.encode_uri(task_id)}"
 
@@ -6035,16 +5913,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetSequenceStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The store's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The store's ID.
+  ## Keyword parameters:
   """
-
   @spec get_sequence_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sequence_store_errors()}
-
   def get_sequence_store(%Client{} = client, id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(id)}"
 
@@ -6079,16 +5954,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:share_id` (`t:string`) The ID of the share.
-
-  ## Optional parameters:
+  * `:share_id` (`t:string` required) The ID of the share.
+  ## Keyword parameters:
   """
-
   @spec get_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_share_errors()}
-
   def get_share(%Client{} = client, share_id, options \\ []) do
     url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
 
@@ -6123,16 +5995,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetVariantImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The job's ID.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The job's ID.
+  ## Keyword parameters:
   """
-
   @spec get_variant_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_variant_import_job_errors()}
-
   def get_variant_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/import/variant/#{AWS.Util.encode_uri(job_id)}"
 
@@ -6167,16 +6036,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetVariantStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The store's name.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The store's name.
+  ## Keyword parameters:
   """
-
   @spec get_variant_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_variant_store_errors()}
-
   def get_variant_store(%Client{} = client, name, options \\ []) do
     url_path = "/variantStore/#{AWS.Util.encode_uri(name)}"
 
@@ -6211,20 +6077,17 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The workflow's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The workflow's ID.
+  ## Keyword parameters:
   * `:export` (`t:list[com.amazonaws.omics#WorkflowExport]`) The export format for
   the workflow.
   * `:type` (`t:string`) The workflow's type.
   * `:workflow_owner_id` (`t:string`) The ID of the workflow owner.
   """
-
   @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
-
   def get_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/workflow/#{AWS.Util.encode_uri(id)}"
 
@@ -6284,19 +6147,16 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of jobs to return in one page
   of results.
   * `:next_token` (`t:string`) Specifies the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_annotation_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_annotation_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_annotation_import_jobs_errors()}
-
   def list_annotation_import_jobs(%Client{} = client, options \\ []) do
     url_path = "/import/annotations"
 
@@ -6351,20 +6211,17 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationStoreVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of an annotation store.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of an annotation store.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of annotation store versions to
   return in one page of results.
   * `:next_token` (`t:string`) Specifies the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_annotation_store_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_annotation_store_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_annotation_store_versions_errors()}
-
   def list_annotation_store_versions(%Client{} = client, name, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/versions"
 
@@ -6419,19 +6276,16 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of stores to return in one page
   of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_annotation_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_annotation_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_annotation_stores_errors()}
-
   def list_annotation_stores(%Client{} = client, options \\ []) do
     url_path = "/annotationStores"
 
@@ -6488,21 +6342,18 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListMultipartReadSetUploads&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart
-  uploads.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The Sequence Store ID used for the
+  multipart uploads.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of multipart uploads returned
   in a page.
   * `:next_token` (`t:string`) Next token returned in the response of a previous
   ListMultipartReadSetUploads call. Used to get the next page of results.
   """
-
   @spec list_multipart_read_set_uploads(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multipart_read_set_uploads_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_multipart_read_set_uploads_errors()}
-
   def list_multipart_read_set_uploads(%Client{} = client, sequence_store_id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/uploads"
 
@@ -6557,20 +6408,17 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetActivationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of read set activation jobs to
   return in one page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_read_set_activation_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_read_set_activation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_read_set_activation_jobs_errors()}
-
   def list_read_set_activation_jobs(%Client{} = client, sequence_store_id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjobs"
 
@@ -6625,20 +6473,17 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetExportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The jobs' sequence store ID.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The jobs' sequence store ID.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of jobs to return in one page
   of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_read_set_export_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_read_set_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_read_set_export_jobs_errors()}
-
   def list_read_set_export_jobs(%Client{} = client, sequence_store_id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/exportjobs"
 
@@ -6693,20 +6538,17 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The jobs' sequence store ID.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The jobs' sequence store ID.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of jobs to return in one page
   of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_read_set_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_read_set_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_read_set_import_jobs_errors()}
-
   def list_read_set_import_jobs(%Client{} = client, sequence_store_id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/importjobs"
 
@@ -6762,22 +6604,19 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetUploadParts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart
-  uploads.
-  * `:upload_id` (`t:string`) The ID for the initiated multipart upload.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The Sequence Store ID used for the
+  multipart uploads.
+  * `:upload_id` (`t:string` required) The ID for the initiated multipart upload.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of read set upload parts
   returned in a page.
   * `:next_token` (`t:string`) Next token returned in the response of a previous
   ListReadSetUploadPartsRequest call. Used to get the next page of results.
   """
-
   @spec list_read_set_upload_parts(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_read_set_upload_parts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_read_set_upload_parts_errors()}
-
   def list_read_set_upload_parts(%Client{} = client, sequence_store_id, upload_id, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload/#{AWS.Util.encode_uri(upload_id)}/parts"
@@ -6833,20 +6672,17 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The jobs' sequence store ID.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The jobs' sequence store ID.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of read sets to return in one
   page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_read_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_read_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_read_sets_errors()}
-
   def list_read_sets(%Client{} = client, sequence_store_id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/readsets"
 
@@ -6901,20 +6737,17 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReferenceImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:reference_store_id` (`t:string`) The job's reference store ID.
-
-  ## Optional parameters:
+  * `:reference_store_id` (`t:string` required) The job's reference store ID.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of jobs to return in one page
   of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_reference_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_reference_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reference_import_jobs_errors()}
-
   def list_reference_import_jobs(%Client{} = client, reference_store_id, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/importjobs"
 
@@ -6969,19 +6802,16 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReferenceStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of stores to return in one page
   of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_reference_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reference_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reference_stores_errors()}
-
   def list_reference_stores(%Client{} = client, options \\ []) do
     url_path = "/referencestores"
 
@@ -7036,20 +6866,18 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:reference_store_id` (`t:string`) The references' reference store ID.
-
-  ## Optional parameters:
+  * `:reference_store_id` (`t:string` required) The references' reference store
+  ID.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of references to return in one
   page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_references(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_references_errors()}
-
   def list_references(%Client{} = client, reference_store_id, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/references"
 
@@ -7104,20 +6932,17 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRunGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of run groups to return in one
   page of results.
   * `:name` (`t:string`) The run groups' name.
   * `:starting_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_run_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_run_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_run_groups_errors()}
-
   def list_run_groups(%Client{} = client, options \\ []) do
     url_path = "/runGroup"
 
@@ -7177,21 +7002,18 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRunTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The run's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The run's ID.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of run tasks to return in one
   page of results.
   * `:starting_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   * `:status` (`t:string`) Filter the list by status.
   """
-
   @spec list_run_tasks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_run_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_run_tasks_errors()}
-
   def list_run_tasks(%Client{} = client, id, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}/task"
 
@@ -7251,8 +7073,7 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of runs to return in one page
   of results.
   * `:name` (`t:string`) Filter the list by run name.
@@ -7261,12 +7082,10 @@ defmodule AWS.Omics do
   request to retrieve the next page of results.
   * `:status` (`t:string`) The status of a run.
   """
-
   @spec list_runs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_runs_errors()}
-
   def list_runs(%Client{} = client, options \\ []) do
     url_path = "/run"
 
@@ -7346,19 +7165,16 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListSequenceStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of stores to return in one page
   of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_sequence_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sequence_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sequence_stores_errors()}
-
   def list_sequence_stores(%Client{} = client, options \\ []) do
     url_path = "/sequencestores"
 
@@ -7414,19 +7230,16 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListShares&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of shares to return in one page
   of results.
   * `:next_token` (`t:string`) Next token returned in the response of a previous
   ListReadSetUploadPartsRequest call. Used to get the next page of results.
   """
-
   @spec list_shares(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_shares_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_shares_errors()}
-
   def list_shares(%Client{} = client, options \\ []) do
     url_path = "/shares"
 
@@ -7481,16 +7294,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource's ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource's ARN.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7525,19 +7335,16 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListVariantImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of import jobs to return in one
   page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_variant_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_variant_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_variant_import_jobs_errors()}
-
   def list_variant_import_jobs(%Client{} = client, options \\ []) do
     url_path = "/import/variants"
 
@@ -7592,19 +7399,16 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListVariantStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of stores to return in one page
   of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_variant_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_variant_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_variant_stores_errors()}
-
   def list_variant_stores(%Client{} = client, options \\ []) do
     url_path = "/variantStores"
 
@@ -7659,8 +7463,7 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of workflows to return in one
   page of results.
   * `:name` (`t:string`) Filter the list by workflow name.
@@ -7668,12 +7471,10 @@ defmodule AWS.Omics do
   request to retrieve the next page of results.
   * `:type` (`t:string`) Filter the list by workflow type.
   """
-
   @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
-
   def list_workflows(%Client{} = client, options \\ []) do
     url_path = "/workflow"
 
@@ -7740,15 +7541,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartAnnotationImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_annotation_import_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_annotation_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_annotation_import_job_errors()}
-
   def start_annotation_import_job(%Client{} = client, options \\ []) do
     url_path = "/import/annotation"
 
@@ -7786,16 +7584,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReadSetActivationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
+  ## Keyword parameters:
   """
-
   @spec start_read_set_activation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_read_set_activation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_read_set_activation_job_errors()}
-
   def start_read_set_activation_job(%Client{} = client, sequence_store_id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjob"
 
@@ -7832,16 +7627,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReadSetExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
+  ## Keyword parameters:
   """
-
   @spec start_read_set_export_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_read_set_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_read_set_export_job_errors()}
-
   def start_read_set_export_job(%Client{} = client, sequence_store_id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/exportjob"
 
@@ -7878,16 +7670,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReadSetImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
-
-  ## Optional parameters:
+  * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
+  ## Keyword parameters:
   """
-
   @spec start_read_set_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_read_set_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_read_set_import_job_errors()}
-
   def start_read_set_import_job(%Client{} = client, sequence_store_id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/importjob"
 
@@ -7924,16 +7713,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReferenceImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:reference_store_id` (`t:string`) The job's reference store ID.
-
-  ## Optional parameters:
+  * `:reference_store_id` (`t:string` required) The job's reference store ID.
+  ## Keyword parameters:
   """
-
   @spec start_reference_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_reference_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_reference_import_job_errors()}
-
   def start_reference_import_job(%Client{} = client, reference_store_id, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/importjob"
 
@@ -7972,15 +7758,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_run(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_run_errors()}
-
   def start_run(%Client{} = client, options \\ []) do
     url_path = "/run"
 
@@ -8017,15 +7800,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartVariantImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_variant_import_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_variant_import_job_errors()}
-
   def start_variant_import_job(%Client{} = client, options \\ []) do
     url_path = "/import/variant"
 
@@ -8062,16 +7842,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource's ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource's ARN.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -8108,17 +7885,15 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource's ARN.
-  * `:tag_keys` (`t:list[com.amazonaws.omics#TagKey]`) Keys of tags to remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource's ARN.
+  * `:tag_keys` (`t:list[com.amazonaws.omics#TagKey]` required) Keys of tags to
+  remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8166,16 +7941,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateAnnotationStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) A name for the store.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) A name for the store.
+  ## Keyword parameters:
   """
-
   @spec update_annotation_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_annotation_store_errors()}
-
   def update_annotation_store(%Client{} = client, name, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
 
@@ -8212,17 +7984,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateAnnotationStoreVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of an annotation store.
-  * `:version_name` (`t:string`) The name of an annotation store version.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of an annotation store.
+  * `:version_name` (`t:string` required) The name of an annotation store version.
+  ## Keyword parameters:
   """
-
   @spec update_annotation_store_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_annotation_store_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_annotation_store_version_errors()}
-
   def update_annotation_store_version(%Client{} = client, name, version_name, options \\ []) do
     url_path =
       "/annotationStore/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version_name)}"
@@ -8260,16 +8029,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateRunGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The group's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The group's ID.
+  ## Keyword parameters:
   """
-
   @spec update_run_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_run_group_errors()}
-
   def update_run_group(%Client{} = client, id, options \\ []) do
     url_path = "/runGroup/#{AWS.Util.encode_uri(id)}"
 
@@ -8306,16 +8072,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateVariantStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) A name for the store.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) A name for the store.
+  ## Keyword parameters:
   """
-
   @spec update_variant_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_variant_store_errors()}
-
   def update_variant_store(%Client{} = client, name, options \\ []) do
     url_path = "/variantStore/#{AWS.Util.encode_uri(name)}"
 
@@ -8352,16 +8115,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The workflow's ID.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The workflow's ID.
+  ## Keyword parameters:
   """
-
   @spec update_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_errors()}
-
   def update_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/workflow/#{AWS.Util.encode_uri(id)}"
 
@@ -8400,17 +8160,15 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UploadReadSetPart&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart
-  upload.
-  * `:upload_id` (`t:string`) The ID for the initiated multipart upload.
-  * `:part_number` (`t:string`) The number of the part being uploaded.
-  * `:part_source` (`t:string`) The source file for an upload part.
+  * `:sequence_store_id` (`t:string` required) The Sequence Store ID used for the
+  multipart upload.
+  * `:upload_id` (`t:string` required) The ID for the initiated multipart upload.
+  * `:part_number` (`t:string` required) The number of the part being uploaded.
+  * `:part_source` (`t:string` required) The source file for an upload part.
   * `:input` (`t:map`):
-    * `:payload` (`t:blob`) The read set data to upload for a part.
-
-  ## Optional parameters:
+    * `:payload` (`t:blob` required) The read set data to upload for a part.
+  ## Keyword parameters:
   """
-
   @spec upload_read_set_part(
           AWS.Client.t(),
           String.t(),
@@ -8423,7 +8181,6 @@ defmodule AWS.Omics do
           {:ok, upload_read_set_part_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upload_read_set_part_errors()}
-
   def upload_read_set_part(
         %Client{} = client,
         sequence_store_id,

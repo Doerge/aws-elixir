@@ -4298,15 +4298,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CancelImageCreation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_image_creation(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_image_creation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_image_creation_errors()}
-
   def cancel_image_creation(%Client{} = client, options \\ []) do
     url_path = "/CancelImageCreation"
 
@@ -4343,15 +4340,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CancelLifecycleExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_lifecycle_execution(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_lifecycle_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_lifecycle_execution_errors()}
-
   def cancel_lifecycle_execution(%Client{} = client, options \\ []) do
     url_path = "/CancelLifecycleExecution"
 
@@ -4390,15 +4384,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_component_errors()}
-
   def create_component(%Client{} = client, options \\ []) do
     url_path = "/CreateComponent"
 
@@ -4436,15 +4427,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateContainerRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_container_recipe(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_container_recipe_errors()}
-
   def create_container_recipe(%Client{} = client, options \\ []) do
     url_path = "/CreateContainerRecipe"
 
@@ -4482,15 +4470,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateDistributionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_distribution_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_distribution_configuration_errors()}
-
   def create_distribution_configuration(%Client{} = client, options \\ []) do
     url_path = "/CreateDistributionConfiguration"
 
@@ -4530,15 +4515,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_image(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_errors()}
-
   def create_image(%Client{} = client, options \\ []) do
     url_path = "/CreateImage"
 
@@ -4576,15 +4558,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImagePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_image_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_pipeline_errors()}
-
   def create_image_pipeline(%Client{} = client, options \\ []) do
     url_path = "/CreateImagePipeline"
 
@@ -4622,15 +4601,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImageRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_image_recipe(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_recipe_errors()}
-
   def create_image_recipe(%Client{} = client, options \\ []) do
     url_path = "/CreateImageRecipe"
 
@@ -4668,15 +4644,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateInfrastructureConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_infrastructure_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_infrastructure_configuration_errors()}
-
   def create_infrastructure_configuration(%Client{} = client, options \\ []) do
     url_path = "/CreateInfrastructureConfiguration"
 
@@ -4713,15 +4686,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_lifecycle_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lifecycle_policy_errors()}
-
   def create_lifecycle_policy(%Client{} = client, options \\ []) do
     url_path = "/CreateLifecyclePolicy"
 
@@ -4758,15 +4728,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
-
   def create_workflow(%Client{} = client, options \\ []) do
     url_path = "/CreateWorkflow"
 
@@ -4803,17 +4770,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
-  the component build version to delete.
-
-  ## Optional parameters:
+  * `:component_build_version_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) of the component build version to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_component_errors()}
-
   def delete_component(%Client{} = client, component_build_version_arn, options \\ [])
       when is_binary(component_build_version_arn) do
     url_path = "/DeleteComponent"
@@ -4861,17 +4825,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteContainerRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  container recipe to delete.
-
-  ## Optional parameters:
+  * `:container_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  of the container recipe to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_container_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_container_recipe_errors()}
-
   def delete_container_recipe(%Client{} = client, container_recipe_arn, options \\ [])
       when is_binary(container_recipe_arn) do
     url_path = "/DeleteContainerRecipe"
@@ -4919,17 +4880,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteDistributionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN)
-  of the distribution configuration to delete.
-
-  ## Optional parameters:
+  * `:distribution_configuration_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the distribution configuration to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_distribution_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_distribution_configuration_errors()}
-
   def delete_distribution_configuration(
         %Client{} = client,
         distribution_configuration_arn,
@@ -4984,17 +4942,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteImage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  Image Builder image resource to delete.
-
-  ## Optional parameters:
+  * `:image_build_version_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) of the Image Builder image resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_errors()}
-
   def delete_image(%Client{} = client, image_build_version_arn, options \\ [])
       when is_binary(image_build_version_arn) do
     url_path = "/DeleteImage"
@@ -5042,17 +4997,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteImagePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
-  pipeline to delete.
-
-  ## Optional parameters:
+  * `:image_pipeline_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the image pipeline to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_image_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_pipeline_errors()}
-
   def delete_image_pipeline(%Client{} = client, image_pipeline_arn, options \\ [])
       when is_binary(image_pipeline_arn) do
     url_path = "/DeleteImagePipeline"
@@ -5100,17 +5052,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteImageRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
-  recipe to delete.
-
-  ## Optional parameters:
+  * `:image_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the image recipe to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_image_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_recipe_errors()}
-
   def delete_image_recipe(%Client{} = client, image_recipe_arn, options \\ [])
       when is_binary(image_recipe_arn) do
     url_path = "/DeleteImageRecipe"
@@ -5158,17 +5107,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteInfrastructureConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name
-  (ARN) of the infrastructure configuration to delete.
-
-  ## Optional parameters:
+  * `:infrastructure_configuration_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the infrastructure configuration to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_infrastructure_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_infrastructure_configuration_errors()}
-
   def delete_infrastructure_configuration(
         %Client{} = client,
         infrastructure_configuration_arn,
@@ -5220,17 +5166,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lifecycle_policy_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  lifecycle policy resource to delete.
-
-  ## Optional parameters:
+  * `:lifecycle_policy_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  of the lifecycle policy resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lifecycle_policy_errors()}
-
   def delete_lifecycle_policy(%Client{} = client, lifecycle_policy_arn, options \\ [])
       when is_binary(lifecycle_policy_arn) do
     url_path = "/DeleteLifecyclePolicy"
@@ -5278,17 +5221,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
-  the workflow resource to delete.
-
-  ## Optional parameters:
+  * `:workflow_build_version_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) of the workflow resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
-
   def delete_workflow(%Client{} = client, workflow_build_version_arn, options \\ [])
       when is_binary(workflow_build_version_arn) do
     url_path = "/DeleteWorkflow"
@@ -5336,17 +5276,15 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
-  the component that you want to get. Regex requires the suffix /\d+$.
-
-  ## Optional parameters:
+  * `:component_build_version_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) of the component that you want to get. Regex requires the suffix
+  /\d+$.
+  ## Keyword parameters:
   """
-
   @spec get_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_errors()}
-
   def get_component(%Client{} = client, component_build_version_arn, options \\ [])
       when is_binary(component_build_version_arn) do
     url_path = "/GetComponent"
@@ -5382,17 +5320,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetComponentPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:component_arn` (`t:string`) The Amazon Resource Name (ARN) of the component
-  whose policy you want to retrieve.
-
-  ## Optional parameters:
+  * `:component_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  component whose policy you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_component_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_policy_errors()}
-
   def get_component_policy(%Client{} = client, component_arn, options \\ [])
       when is_binary(component_arn) do
     url_path = "/GetComponentPolicy"
@@ -5428,17 +5363,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetContainerRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  container recipe to retrieve.
-
-  ## Optional parameters:
+  * `:container_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  of the container recipe to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_container_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_recipe_errors()}
-
   def get_container_recipe(%Client{} = client, container_recipe_arn, options \\ [])
       when is_binary(container_recipe_arn) do
     url_path = "/GetContainerRecipe"
@@ -5474,17 +5406,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetContainerRecipePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  container recipe for the policy being requested.
-
-  ## Optional parameters:
+  * `:container_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  of the container recipe for the policy being requested.
+  ## Keyword parameters:
   """
-
   @spec get_container_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_recipe_policy_errors()}
-
   def get_container_recipe_policy(%Client{} = client, container_recipe_arn, options \\ [])
       when is_binary(container_recipe_arn) do
     url_path = "/GetContainerRecipePolicy"
@@ -5520,17 +5449,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetDistributionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN)
-  of the distribution configuration that you want to retrieve.
-
-  ## Optional parameters:
+  * `:distribution_configuration_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the distribution configuration that you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_distribution_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distribution_configuration_errors()}
-
   def get_distribution_configuration(
         %Client{} = client,
         distribution_configuration_arn,
@@ -5570,17 +5496,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  image that you want to get.
-
-  ## Optional parameters:
+  * `:image_build_version_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) of the image that you want to get.
+  ## Keyword parameters:
   """
-
   @spec get_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_errors()}
-
   def get_image(%Client{} = client, image_build_version_arn, options \\ [])
       when is_binary(image_build_version_arn) do
     url_path = "/GetImage"
@@ -5616,17 +5539,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImagePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
-  pipeline that you want to retrieve.
-
-  ## Optional parameters:
+  * `:image_pipeline_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the image pipeline that you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_image_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_pipeline_errors()}
-
   def get_image_pipeline(%Client{} = client, image_pipeline_arn, options \\ [])
       when is_binary(image_pipeline_arn) do
     url_path = "/GetImagePipeline"
@@ -5662,17 +5582,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImagePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:image_arn` (`t:string`) The Amazon Resource Name (ARN) of the image whose
-  policy you want to retrieve.
-
-  ## Optional parameters:
+  * `:image_arn` (`t:string` required) The Amazon Resource Name (ARN) of the image
+  whose policy you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_image_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_policy_errors()}
-
   def get_image_policy(%Client{} = client, image_arn, options \\ []) when is_binary(image_arn) do
     url_path = "/GetImagePolicy"
 
@@ -5707,17 +5624,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImageRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
-  recipe that you want to retrieve.
-
-  ## Optional parameters:
+  * `:image_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the image recipe that you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_image_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_recipe_errors()}
-
   def get_image_recipe(%Client{} = client, image_recipe_arn, options \\ [])
       when is_binary(image_recipe_arn) do
     url_path = "/GetImageRecipe"
@@ -5753,17 +5667,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImageRecipePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
-  recipe whose policy you want to retrieve.
-
-  ## Optional parameters:
+  * `:image_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the image recipe whose policy you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_image_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_recipe_policy_errors()}
-
   def get_image_recipe_policy(%Client{} = client, image_recipe_arn, options \\ [])
       when is_binary(image_recipe_arn) do
     url_path = "/GetImageRecipePolicy"
@@ -5799,17 +5710,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetInfrastructureConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name
-  (ARN) of the infrastructure configuration that you want to retrieve.
-
-  ## Optional parameters:
+  * `:infrastructure_configuration_arn` (`t:string` required) The Amazon Resource
+  Name (ARN) of the infrastructure configuration that you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_infrastructure_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_infrastructure_configuration_errors()}
-
   def get_infrastructure_configuration(
         %Client{} = client,
         infrastructure_configuration_arn,
@@ -5850,17 +5758,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetLifecycleExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lifecycle_execution_id` (`t:string`) Use the unique identifier for a runtime
-  instance of the lifecycle policy to get runtime details.
-
-  ## Optional parameters:
+  * `:lifecycle_execution_id` (`t:string` required) Use the unique identifier for
+  a runtime instance of the lifecycle policy to get runtime details.
+  ## Keyword parameters:
   """
-
   @spec get_lifecycle_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_execution_errors()}
-
   def get_lifecycle_execution(%Client{} = client, lifecycle_execution_id, options \\ [])
       when is_binary(lifecycle_execution_id) do
     url_path = "/GetLifecycleExecution"
@@ -5896,17 +5801,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:lifecycle_policy_arn` (`t:string`) Specifies the Amazon Resource Name (ARN)
-  of the image lifecycle policy resource to get.
-
-  ## Optional parameters:
+  * `:lifecycle_policy_arn` (`t:string` required) Specifies the Amazon Resource
+  Name (ARN) of the image lifecycle policy resource to get.
+  ## Keyword parameters:
   """
-
   @spec get_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_policy_errors()}
-
   def get_lifecycle_policy(%Client{} = client, lifecycle_policy_arn, options \\ [])
       when is_binary(lifecycle_policy_arn) do
     url_path = "/GetLifecyclePolicy"
@@ -5942,17 +5844,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
-  the workflow resource that you want to get.
-
-  ## Optional parameters:
+  * `:workflow_build_version_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) of the workflow resource that you want to get.
+  ## Keyword parameters:
   """
-
   @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
-
   def get_workflow(%Client{} = client, workflow_build_version_arn, options \\ [])
       when is_binary(workflow_build_version_arn) do
     url_path = "/GetWorkflow"
@@ -5989,17 +5888,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetWorkflowExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_execution_id` (`t:string`) Use the unique identifier for a runtime
-  instance of the workflow to get runtime details.
-
-  ## Optional parameters:
+  * `:workflow_execution_id` (`t:string` required) Use the unique identifier for a
+  runtime instance of the workflow to get runtime details.
+  ## Keyword parameters:
   """
-
   @spec get_workflow_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_execution_errors()}
-
   def get_workflow_execution(%Client{} = client, workflow_execution_id, options \\ [])
       when is_binary(workflow_execution_id) do
     url_path = "/GetWorkflowExecution"
@@ -6036,17 +5932,15 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetWorkflowStepExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:step_execution_id` (`t:string`) Use the unique identifier for a specific
-  runtime instance of the workflow step to get runtime details for that step.
-
-  ## Optional parameters:
+  * `:step_execution_id` (`t:string` required) Use the unique identifier for a
+  specific runtime instance of the workflow step to get runtime details for
+  that step.
+  ## Keyword parameters:
   """
-
   @spec get_workflow_step_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_step_execution_errors()}
-
   def get_workflow_step_execution(%Client{} = client, step_execution_id, options \\ [])
       when is_binary(step_execution_id) do
     url_path = "/GetWorkflowStepExecution"
@@ -6082,15 +5976,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ImportComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec import_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_component_errors()}
-
   def import_component(%Client{} = client, options \\ []) do
     url_path = "/ImportComponent"
 
@@ -6133,15 +6024,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ImportVmImage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec import_vm_image(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_vm_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_vm_image_errors()}
-
   def import_vm_image(%Client{} = client, options \\ []) do
     url_path = "/ImportVmImage"
 
@@ -6178,15 +6066,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListComponentBuildVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_component_build_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_component_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_component_build_versions_errors()}
-
   def list_component_build_versions(%Client{} = client, options \\ []) do
     url_path = "/ListComponentBuildVersions"
 
@@ -6225,15 +6110,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
-
   def list_components(%Client{} = client, options \\ []) do
     url_path = "/ListComponents"
 
@@ -6270,15 +6152,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListContainerRecipes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_container_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_container_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_container_recipes_errors()}
-
   def list_container_recipes(%Client{} = client, options \\ []) do
     url_path = "/ListContainerRecipes"
 
@@ -6315,15 +6194,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListDistributionConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_distribution_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_distribution_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distribution_configurations_errors()}
-
   def list_distribution_configurations(%Client{} = client, options \\ []) do
     url_path = "/ListDistributionConfigurations"
 
@@ -6360,15 +6236,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageBuildVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_image_build_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_build_versions_errors()}
-
   def list_image_build_versions(%Client{} = client, options \\ []) do
     url_path = "/ListImageBuildVersions"
 
@@ -6406,15 +6279,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_image_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_packages_errors()}
-
   def list_image_packages(%Client{} = client, options \\ []) do
     url_path = "/ListImagePackages"
 
@@ -6451,15 +6321,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePipelineImages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_image_pipeline_images(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_pipeline_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_pipeline_images_errors()}
-
   def list_image_pipeline_images(%Client{} = client, options \\ []) do
     url_path = "/ListImagePipelineImages"
 
@@ -6496,15 +6363,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_image_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_pipelines_errors()}
-
   def list_image_pipelines(%Client{} = client, options \\ []) do
     url_path = "/ListImagePipelines"
 
@@ -6541,15 +6405,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageRecipes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_image_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_recipes_errors()}
-
   def list_image_recipes(%Client{} = client, options \\ []) do
     url_path = "/ListImageRecipes"
 
@@ -6591,15 +6452,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageScanFindingAggregations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_image_scan_finding_aggregations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_scan_finding_aggregations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_scan_finding_aggregations_errors()}
-
   def list_image_scan_finding_aggregations(%Client{} = client, options \\ []) do
     url_path = "/ListImageScanFindingAggregations"
 
@@ -6636,15 +6494,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageScanFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_image_scan_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_scan_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_scan_findings_errors()}
-
   def list_image_scan_findings(%Client{} = client, options \\ []) do
     url_path = "/ListImageScanFindings"
 
@@ -6682,15 +6537,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_images(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_images_errors()}
-
   def list_images(%Client{} = client, options \\ []) do
     url_path = "/ListImages"
 
@@ -6727,15 +6579,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListInfrastructureConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_infrastructure_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_infrastructure_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_infrastructure_configurations_errors()}
-
   def list_infrastructure_configurations(%Client{} = client, options \\ []) do
     url_path = "/ListInfrastructureConfigurations"
 
@@ -6773,15 +6622,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecycleExecutionResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_lifecycle_execution_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lifecycle_execution_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lifecycle_execution_resources_errors()}
-
   def list_lifecycle_execution_resources(%Client{} = client, options \\ []) do
     url_path = "/ListLifecycleExecutionResources"
 
@@ -6818,15 +6664,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecycleExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_lifecycle_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lifecycle_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lifecycle_executions_errors()}
-
   def list_lifecycle_executions(%Client{} = client, options \\ []) do
     url_path = "/ListLifecycleExecutions"
 
@@ -6863,15 +6706,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecyclePolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_lifecycle_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lifecycle_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lifecycle_policies_errors()}
-
   def list_lifecycle_policies(%Client{} = client, options \\ []) do
     url_path = "/ListLifecyclePolicies"
 
@@ -6908,17 +6748,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  whose tags you want to retrieve.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource whose tags you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -6954,15 +6791,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWaitingWorkflowSteps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_waiting_workflow_steps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_waiting_workflow_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_waiting_workflow_steps_errors()}
-
   def list_waiting_workflow_steps(%Client{} = client, options \\ []) do
     url_path = "/ListWaitingWorkflowSteps"
 
@@ -6999,15 +6833,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowBuildVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_workflow_build_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflow_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_build_versions_errors()}
-
   def list_workflow_build_versions(%Client{} = client, options \\ []) do
     url_path = "/ListWorkflowBuildVersions"
 
@@ -7045,15 +6876,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_workflow_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflow_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_executions_errors()}
-
   def list_workflow_executions(%Client{} = client, options \\ []) do
     url_path = "/ListWorkflowExecutions"
 
@@ -7091,15 +6919,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowStepExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_workflow_step_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflow_step_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_step_executions_errors()}
-
   def list_workflow_step_executions(%Client{} = client, options \\ []) do
     url_path = "/ListWorkflowStepExecutions"
 
@@ -7136,15 +6961,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
-
   def list_workflows(%Client{} = client, options \\ []) do
     url_path = "/ListWorkflows"
 
@@ -7187,15 +7009,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutComponentPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_component_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_component_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_component_policy_errors()}
-
   def put_component_policy(%Client{} = client, options \\ []) do
     url_path = "/PutComponentPolicy"
 
@@ -7240,15 +7059,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutContainerRecipePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_container_recipe_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_container_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_container_recipe_policy_errors()}
-
   def put_container_recipe_policy(%Client{} = client, options \\ []) do
     url_path = "/PutContainerRecipePolicy"
 
@@ -7291,15 +7107,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutImagePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_image_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_image_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_image_policy_errors()}
-
   def put_image_policy(%Client{} = client, options \\ []) do
     url_path = "/PutImagePolicy"
 
@@ -7342,15 +7155,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutImageRecipePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_image_recipe_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_image_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_image_recipe_policy_errors()}
-
   def put_image_recipe_policy(%Client{} = client, options \\ []) do
     url_path = "/PutImageRecipePolicy"
 
@@ -7388,15 +7198,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20SendWorkflowStepAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec send_workflow_step_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_workflow_step_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_workflow_step_action_errors()}
-
   def send_workflow_step_action(%Client{} = client, options \\ []) do
     url_path = "/SendWorkflowStepAction"
 
@@ -7433,15 +7240,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20StartImagePipelineExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_image_pipeline_execution(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_image_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_image_pipeline_execution_errors()}
-
   def start_image_pipeline_execution(%Client{} = client, options \\ []) do
     url_path = "/StartImagePipelineExecution"
 
@@ -7479,15 +7283,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20StartResourceStateUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_resource_state_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_resource_state_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_resource_state_update_errors()}
-
   def start_resource_state_update(%Client{} = client, options \\ []) do
     url_path = "/StartResourceStateUpdate"
 
@@ -7524,17 +7325,14 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7571,19 +7369,16 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that you want to untag.
-  * `:tag_keys` (`t:list[com.amazonaws.imagebuilder#TagKey]`) The tag keys to
-  remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that you want to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.imagebuilder#TagKey]` required) The tag
+  keys to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7632,15 +7427,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateDistributionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_distribution_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_distribution_configuration_errors()}
-
   def update_distribution_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateDistributionConfiguration"
 
@@ -7679,15 +7471,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateImagePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_image_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_image_pipeline_errors()}
-
   def update_image_pipeline(%Client{} = client, options \\ []) do
     url_path = "/UpdateImagePipeline"
 
@@ -7725,15 +7514,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateInfrastructureConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_infrastructure_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_infrastructure_configuration_errors()}
-
   def update_infrastructure_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateInfrastructureConfiguration"
 
@@ -7770,15 +7556,12 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_lifecycle_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lifecycle_policy_errors()}
-
   def update_lifecycle_policy(%Client{} = client, options \\ []) do
     url_path = "/UpdateLifecyclePolicy"
 

@@ -1463,15 +1463,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20BatchGetIncidentFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_incident_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_incident_findings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_incident_findings_errors()}
-
   def batch_get_incident_findings(%Client{} = client, options \\ []) do
     url_path = "/batchGetIncidentFindings"
 
@@ -1509,15 +1506,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20CreateReplicationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_replication_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_set_errors()}
-
   def create_replication_set(%Client{} = client, options \\ []) do
     url_path = "/createReplicationSet"
 
@@ -1556,15 +1550,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20CreateResponsePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_response_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_response_plan_errors()}
-
   def create_response_plan(%Client{} = client, options \\ []) do
     url_path = "/createResponsePlan"
 
@@ -1604,15 +1595,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20CreateTimelineEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_timeline_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_timeline_event_errors()}
-
   def create_timeline_event(%Client{} = client, options \\ []) do
     url_path = "/createTimelineEvent"
 
@@ -1649,15 +1637,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteIncidentRecord&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_incident_record(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_incident_record_errors()}
-
   def delete_incident_record(%Client{} = client, options \\ []) do
     url_path = "/deleteIncidentRecord"
 
@@ -1695,17 +1680,14 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteReplicationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set
-  you're deleting.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the replication
+  set you're deleting.
+  ## Keyword parameters:
   """
-
   @spec delete_replication_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_set_errors()}
-
   def delete_replication_set(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/deleteReplicationSet"
 
@@ -1743,15 +1725,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/deleteResourcePolicy"
 
@@ -1790,15 +1769,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteResponsePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_response_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_response_plan_errors()}
-
   def delete_response_plan(%Client{} = client, options \\ []) do
     url_path = "/deleteResponsePlan"
 
@@ -1835,15 +1811,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteTimelineEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_timeline_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_timeline_event_errors()}
-
   def delete_timeline_event(%Client{} = client, options \\ []) do
     url_path = "/deleteTimelineEvent"
 
@@ -1880,16 +1853,14 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetIncidentRecord&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the incident record.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the incident
+  record.
+  ## Keyword parameters:
   """
-
   @spec get_incident_record(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_incident_record_errors()}
-
   def get_incident_record(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/getIncidentRecord"
 
@@ -1924,17 +1895,14 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetReplicationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set you
-  want to retrieve.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the replication
+  set you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_replication_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_set_errors()}
-
   def get_replication_set(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/getReplicationSet"
 
@@ -1969,17 +1937,14 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetResourcePolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response
-  plan with the attached resource policy.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  response plan with the attached resource policy.
+  ## Keyword parameters:
   """
-
   @spec get_resource_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policies_errors()}
-
   def get_resource_policies(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/getResourcePolicies"
@@ -2017,16 +1982,14 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetResponsePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the response plan.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the response
+  plan.
+  ## Keyword parameters:
   """
-
   @spec get_response_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_response_plan_errors()}
-
   def get_response_plan(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/getResponsePlan"
 
@@ -2061,19 +2024,16 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetTimelineEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:event_id` (`t:string`) The ID of the event. You can get an event's ID when
-  you create it, or by using ListTimelineEvents.
-  * `:incident_record_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  incident that includes the timeline event.
-
-  ## Optional parameters:
+  * `:event_id` (`t:string` required) The ID of the event. You can get an event's
+  ID when you create it, or by using ListTimelineEvents.
+  * `:incident_record_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the incident that includes the timeline event.
+  ## Keyword parameters:
   """
-
   @spec get_timeline_event(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_timeline_event_errors()}
-
   def get_timeline_event(%Client{} = client, event_id, incident_record_arn, options \\ [])
       when is_binary(event_id) and is_binary(incident_record_arn) do
     url_path = "/getTimelineEvent"
@@ -2113,15 +2073,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListIncidentFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_incident_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_incident_findings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_incident_findings_errors()}
-
   def list_incident_findings(%Client{} = client, options \\ []) do
     url_path = "/listIncidentFindings"
 
@@ -2159,15 +2116,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListIncidentRecords&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_incident_records(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_incident_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_incident_records_errors()}
-
   def list_incident_records(%Client{} = client, options \\ []) do
     url_path = "/listIncidentRecords"
 
@@ -2204,15 +2158,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListRelatedItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_related_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_related_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_related_items_errors()}
-
   def list_related_items(%Client{} = client, options \\ []) do
     url_path = "/listRelatedItems"
 
@@ -2249,15 +2200,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListReplicationSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_replication_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_replication_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_replication_sets_errors()}
-
   def list_replication_sets(%Client{} = client, options \\ []) do
     url_path = "/listReplicationSets"
 
@@ -2294,15 +2242,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListResponsePlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_response_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_response_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_response_plans_errors()}
-
   def list_response_plans(%Client{} = client, options \\ []) do
     url_path = "/listResponsePlans"
 
@@ -2339,17 +2284,14 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response
-  plan or incident.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  response plan or incident.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2384,15 +2326,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListTimelineEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_timeline_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_timeline_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_timeline_events_errors()}
-
   def list_timeline_events(%Client{} = client, options \\ []) do
     url_path = "/listTimelineEvents"
 
@@ -2433,15 +2372,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20PutResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/putResourcePolicy"
 
@@ -2479,15 +2415,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20StartIncident&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_incident(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_incident_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_incident_errors()}
-
   def start_incident(%Client{} = client, options \\ []) do
     url_path = "/startIncident"
 
@@ -2524,17 +2457,14 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response
-  plan you're adding the tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  response plan you're adding the tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2571,19 +2501,16 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response
-  plan you're removing a tag from.
-  * `:tag_keys` (`t:list[com.amazonaws.ssmincidents#TagKey]`) The name of the tag
-  to remove from the response plan.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  response plan you're removing a tag from.
+  * `:tag_keys` (`t:list[com.amazonaws.ssmincidents#TagKey]` required) The name of
+  the tag to remove from the response plan.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2632,15 +2559,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateDeletionProtection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_deletion_protection(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_deletion_protection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_deletion_protection_errors()}
-
   def update_deletion_protection(%Client{} = client, options \\ []) do
     url_path = "/updateDeletionProtection"
 
@@ -2680,15 +2604,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateIncidentRecord&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_incident_record(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_incident_record_errors()}
-
   def update_incident_record(%Client{} = client, options \\ []) do
     url_path = "/updateIncidentRecord"
 
@@ -2725,15 +2646,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateRelatedItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_related_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_related_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_related_items_errors()}
-
   def update_related_items(%Client{} = client, options \\ []) do
     url_path = "/updateRelatedItems"
 
@@ -2770,15 +2688,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateReplicationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_replication_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_set_errors()}
-
   def update_replication_set(%Client{} = client, options \\ []) do
     url_path = "/updateReplicationSet"
 
@@ -2815,15 +2730,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateResponsePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_response_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_response_plan_errors()}
-
   def update_response_plan(%Client{} = client, options \\ []) do
     url_path = "/updateResponsePlan"
 
@@ -2860,15 +2772,12 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateTimelineEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_timeline_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_timeline_event_errors()}
-
   def update_timeline_event(%Client{} = client, options \\ []) do
     url_path = "/updateTimelineEvent"
 

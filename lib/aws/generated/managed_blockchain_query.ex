@@ -744,15 +744,12 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20BatchGetTokenBalance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_token_balance(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_token_balance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_token_balance_errors()}
-
   def batch_get_token_balance(%Client{} = client, options \\ []) do
     url_path = "/batch-get-token-balance"
 
@@ -789,15 +786,12 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetAssetContract&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_asset_contract(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_asset_contract_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_contract_errors()}
-
   def get_asset_contract(%Client{} = client, options \\ []) do
     url_path = "/get-asset-contract"
 
@@ -835,15 +829,12 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetTokenBalance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_token_balance(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_token_balance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_token_balance_errors()}
-
   def get_token_balance(%Client{} = client, options \\ []) do
     url_path = "/get-token-balance"
 
@@ -880,15 +871,12 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_transaction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transaction_errors()}
-
   def get_transaction(%Client{} = client, options \\ []) do
     url_path = "/get-transaction"
 
@@ -926,15 +914,12 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListAssetContracts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_asset_contracts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_asset_contracts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_contracts_errors()}
-
   def list_asset_contracts(%Client{} = client, options \\ []) do
     url_path = "/list-asset-contracts"
 
@@ -971,15 +956,12 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListFilteredTransactionEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_filtered_transaction_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_filtered_transaction_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_filtered_transaction_events_errors()}
-
   def list_filtered_transaction_events(%Client{} = client, options \\ []) do
     url_path = "/list-filtered-transaction-events"
 
@@ -1016,15 +998,12 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTokenBalances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_token_balances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_token_balances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_token_balances_errors()}
-
   def list_token_balances(%Client{} = client, options \\ []) do
     url_path = "/list-token-balances"
 
@@ -1061,15 +1040,12 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTransactionEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_transaction_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_transaction_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_transaction_events_errors()}
-
   def list_transaction_events(%Client{} = client, options \\ []) do
     url_path = "/list-transaction-events"
 
@@ -1106,15 +1082,12 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTransactions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_transactions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_transactions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_transactions_errors()}
-
   def list_transactions(%Client{} = client, options \\ []) do
     url_path = "/list-transactions"
 

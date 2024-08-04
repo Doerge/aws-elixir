@@ -343,6 +343,7 @@ defmodule AWS.Pricing do
   end
 
   @doc """
+   
   Returns the metadata for one service or a list of the metadata for all services.
   Use this without a service code to get the service codes for all services. Use
   it with a service code, such as `AmazonEC2`, to get information specific to
@@ -361,12 +362,10 @@ defmodule AWS.Pricing do
       optional("ServiceCode") => String.t()
     }
   """
-
   @spec describe_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_services_errors()}
-
   def describe_services(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -375,6 +374,7 @@ defmodule AWS.Pricing do
   end
 
   @doc """
+   
   Returns a list of attribute values. Attributes are similar to the details in a
   Price List API offer file. For a list of available attributes, see [Offer File
   Definitions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs)
@@ -392,12 +392,10 @@ defmodule AWS.Pricing do
       required("ServiceCode") => String.t()
     }
   """
-
   @spec get_attribute_values(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_attribute_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attribute_values_errors()}
-
   def get_attribute_values(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -406,6 +404,7 @@ defmodule AWS.Pricing do
   end
 
   @doc """
+   
   * **This feature is in preview release and is subject to change. Your use of
   Amazon Web Services Price List API is subject to the Beta Service
   Participation terms of the [Amazon Web Services Service
@@ -424,12 +423,10 @@ defmodule AWS.Pricing do
       required("PriceListArn") => String.t()
     }
   """
-
   @spec get_price_list_file_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_price_list_file_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_price_list_file_url_errors()}
-
   def get_price_list_file_url(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -438,6 +435,7 @@ defmodule AWS.Pricing do
   end
 
   @doc """
+   
   Returns a list of all products that match the filter criteria.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pricing%20GetProducts&this_doc_guide=API%2520Reference)
@@ -452,12 +450,10 @@ defmodule AWS.Pricing do
       required("ServiceCode") => String.t()
     }
   """
-
   @spec get_products(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_products_errors()}
-
   def get_products(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -466,6 +462,7 @@ defmodule AWS.Pricing do
   end
 
   @doc """
+   
   * **This feature is in preview release and is subject to change. Your use of
   Amazon Web Services Price List API is subject to the Beta Service
   Participation terms of the [Amazon Web Services Service
@@ -493,12 +490,10 @@ defmodule AWS.Pricing do
       required("ServiceCode") => String.t()
     }
   """
-
   @spec list_price_lists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_price_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_price_lists_errors()}
-
   def list_price_lists(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

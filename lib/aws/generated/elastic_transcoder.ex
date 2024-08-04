@@ -1132,16 +1132,13 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CancelJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the job that you want to cancel.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the job that you want to cancel.
+  ## Keyword parameters:
   """
-
   @spec cancel_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
-
   def cancel_job(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
 
@@ -1189,15 +1186,12 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
-
   def create_job(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/jobs"
 
@@ -1234,15 +1228,12 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
-
   def create_pipeline(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/pipelines"
 
@@ -1289,15 +1280,12 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreatePreset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_preset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_preset_errors()}
-
   def create_preset(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/presets"
 
@@ -1334,16 +1322,14 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20DeletePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the pipeline that you want to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the pipeline that you want to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
-
   def delete_pipeline(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
 
@@ -1390,17 +1376,14 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20DeletePreset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the preset for which you want to get
-  detailed information.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the preset for which you want to
+  get detailed information.
+  ## Keyword parameters:
   """
-
   @spec delete_preset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_preset_errors()}
-
   def delete_preset(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/presets/#{AWS.Util.encode_uri(id)}"
 
@@ -1448,10 +1431,9 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListJobsByPipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:pipeline_id` (`t:string`) The ID of the pipeline for which you want to get
-  job information.
-
-  ## Optional parameters:
+  * `:pipeline_id` (`t:string` required) The ID of the pipeline for which you want
+  to get job information.
+  ## Keyword parameters:
   * `:ascending` (`t:string`) To list jobs in chronological order by the date and
   time that they were submitted, enter true. To list jobs in reverse
   chronological order, enter false.
@@ -1459,12 +1441,10 @@ defmodule AWS.ElasticTranscoder do
   of results, use pageToken in subsequent GET requests to get each successive
   page of results.
   """
-
   @spec list_jobs_by_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_by_pipeline_errors()}
-
   def list_jobs_by_pipeline(%Client{} = client, pipeline_id, options \\ []) do
     url_path = "/2012-09-25/jobsByPipeline/#{AWS.Util.encode_uri(pipeline_id)}"
 
@@ -1519,11 +1499,10 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListJobsByStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:status` (`t:string`) To get information about all of the jobs associated
-  with the current AWS account that have a given status, specify the following
-  status: Submitted, Progressing, Complete, Canceled, or Error.
-
-  ## Optional parameters:
+  * `:status` (`t:string` required) To get information about all of the jobs
+  associated with the current AWS account that have a given status, specify
+  the following status: Submitted, Progressing, Complete, Canceled, or Error.
+  ## Keyword parameters:
   * `:ascending` (`t:string`) To list jobs in chronological order by the date and
   time that they were submitted, enter true. To list jobs in reverse
   chronological order, enter false.
@@ -1531,12 +1510,10 @@ defmodule AWS.ElasticTranscoder do
   of results, use pageToken in subsequent GET requests to get each successive
   page of results.
   """
-
   @spec list_jobs_by_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_by_status_errors()}
-
   def list_jobs_by_status(%Client{} = client, status, options \\ []) do
     url_path = "/2012-09-25/jobsByStatus/#{AWS.Util.encode_uri(status)}"
 
@@ -1590,8 +1567,7 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListPipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:ascending` (`t:string`) To list pipelines in chronological order by the date
   and time that they were created, enter true. To list pipelines in reverse
   chronological order, enter false.
@@ -1599,12 +1575,10 @@ defmodule AWS.ElasticTranscoder do
   of results, use pageToken in subsequent GET requests to get each successive
   page of results.
   """
-
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipelines_errors()}
-
   def list_pipelines(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/pipelines"
 
@@ -1658,8 +1632,7 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListPresets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:ascending` (`t:string`) To list presets in chronological order by the date
   and time that they were created, enter true. To list presets in reverse
   chronological order, enter false.
@@ -1667,12 +1640,10 @@ defmodule AWS.ElasticTranscoder do
   of results, use pageToken in subsequent GET requests to get each successive
   page of results.
   """
-
   @spec list_presets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_presets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_presets_errors()}
-
   def list_presets(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/presets"
 
@@ -1725,17 +1696,14 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ReadJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the job for which you want to get
-  detailed information.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the job for which you want to
+  get detailed information.
+  ## Keyword parameters:
   """
-
   @spec read_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, read_job_errors()}
-
   def read_job(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
 
@@ -1770,16 +1738,13 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ReadPipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the pipeline to read.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the pipeline to read.
+  ## Keyword parameters:
   """
-
   @spec read_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, read_pipeline_errors()}
-
   def read_pipeline(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
 
@@ -1814,17 +1779,14 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ReadPreset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the preset for which you want to get
-  detailed information.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the preset for which you want to
+  get detailed information.
+  ## Keyword parameters:
   """
-
   @spec read_preset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, read_preset_errors()}
-
   def read_preset(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/presets/#{AWS.Util.encode_uri(id)}"
 
@@ -1859,15 +1821,12 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20TestRole&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec test_role(AWS.Client.t(), Keyword.t()) ::
           {:ok, test_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_role_errors()}
-
   def test_role(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/roleTests"
 
@@ -1904,16 +1863,13 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20UpdatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the pipeline that you want to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the pipeline that you want to update.
+  ## Keyword parameters:
   """
-
   @spec update_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_errors()}
-
   def update_pipeline(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
 
@@ -1951,17 +1907,14 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20UpdatePipelineNotifications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the pipeline for which you want to change
-  notification settings.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the pipeline for which you want
+  to change notification settings.
+  ## Keyword parameters:
   """
-
   @spec update_pipeline_notifications(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_notifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_notifications_errors()}
-
   def update_pipeline_notifications(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/notifications"
 
@@ -1999,16 +1952,13 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20UpdatePipelineStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the pipeline to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the pipeline to update.
+  ## Keyword parameters:
   """
-
   @spec update_pipeline_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_status_errors()}
-
   def update_pipeline_status(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/status"
 

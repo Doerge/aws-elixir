@@ -1406,17 +1406,14 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20DeleteEarthObservationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Earth Observation
-  job being deleted.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the Earth
+  Observation job being deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_earth_observation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_earth_observation_job_errors()}
-
   def delete_earth_observation_job(%Client{} = client, arn, options \\ []) do
     url_path = "/earth-observation-jobs/#{AWS.Util.encode_uri(arn)}"
 
@@ -1463,17 +1460,14 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20DeleteVectorEnrichmentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Vector Enrichment
-  job being deleted.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the Vector
+  Enrichment job being deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_vector_enrichment_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vector_enrichment_job_errors()}
-
   def delete_vector_enrichment_job(%Client{} = client, arn, options \\ []) do
     url_path = "/vector-enrichment-jobs/#{AWS.Util.encode_uri(arn)}"
 
@@ -1521,15 +1515,12 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ExportEarthObservationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec export_earth_observation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, export_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_earth_observation_job_errors()}
-
   def export_earth_observation_job(%Client{} = client, options \\ []) do
     url_path = "/export-earth-observation-job"
 
@@ -1567,15 +1558,12 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ExportVectorEnrichmentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec export_vector_enrichment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, export_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_vector_enrichment_job_errors()}
-
   def export_vector_enrichment_job(%Client{} = client, options \\ []) do
     url_path = "/export-vector-enrichment-jobs"
 
@@ -1612,17 +1600,14 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20GetEarthObservationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Earth Observation
-  job.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the Earth
+  Observation job.
+  ## Keyword parameters:
   """
-
   @spec get_earth_observation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_earth_observation_job_errors()}
-
   def get_earth_observation_job(%Client{} = client, arn, options \\ []) do
     url_path = "/earth-observation-jobs/#{AWS.Util.encode_uri(arn)}"
 
@@ -1657,17 +1642,14 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20GetRasterDataCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the raster data
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the raster data
   collection.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_raster_data_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_raster_data_collection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_raster_data_collection_errors()}
-
   def get_raster_data_collection(%Client{} = client, arn, options \\ []) do
     url_path = "/raster-data-collection/#{AWS.Util.encode_uri(arn)}"
 
@@ -1702,16 +1684,16 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20GetTile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:x` (`t:string`) The x coordinate of the tile input.
-  * `:y` (`t:string`) The y coordinate of the tile input.
-  * `:z` (`t:string`) The z coordinate of the tile input.
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the tile operation.
-  * `:image_assets` (`t:list[smithy.api#String]`) The particular assets or bands
-  to tile.
-  * `:target` (`t:string`) Determines what part of the Earth Observation job to
-  tile. 'INPUT' or 'OUTPUT' are the valid options.
-
-  ## Optional parameters:
+  * `:x` (`t:string` required) The x coordinate of the tile input.
+  * `:y` (`t:string` required) The y coordinate of the tile input.
+  * `:z` (`t:string` required) The z coordinate of the tile input.
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the tile
+  operation.
+  * `:image_assets` (`t:list[smithy.api#String]` required) The particular assets
+  or bands to tile.
+  * `:target` (`t:string` required) Determines what part of the Earth Observation
+  job to tile. 'INPUT' or 'OUTPUT' are the valid options.
+  ## Keyword parameters:
   * `:execution_role_arn` (`t:string`) The Amazon Resource Name (ARN) of the IAM
   role that you specify.
   * `:image_mask` (`t:string`) Determines whether or not to return a valid data
@@ -1723,7 +1705,6 @@ defmodule AWS.SageMakerGeospatial do
   * `:time_range_filter` (`t:string`) Time range filter applied to imagery to find
   the images to tile.
   """
-
   @spec get_tile(
           AWS.Client.t(),
           String.t(),
@@ -1737,7 +1718,6 @@ defmodule AWS.SageMakerGeospatial do
           {:ok, get_tile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tile_errors()}
-
   def get_tile(%Client{} = client, x, y, z, arn, image_assets, target, options \\ [])
       when is_binary(arn) and is_binary(image_assets) and is_binary(target) do
     url_path =
@@ -1835,17 +1815,14 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20GetVectorEnrichmentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Vector Enrichment
-  job.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the Vector
+  Enrichment job.
+  ## Keyword parameters:
   """
-
   @spec get_vector_enrichment_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vector_enrichment_job_errors()}
-
   def get_vector_enrichment_job(%Client{} = client, arn, options \\ []) do
     url_path = "/vector-enrichment-jobs/#{AWS.Util.encode_uri(arn)}"
 
@@ -1881,15 +1858,12 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ListEarthObservationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_earth_observation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_earth_observation_jobs_errors()}
-
   def list_earth_observation_jobs(%Client{} = client, options \\ []) do
     url_path = "/list-earth-observation-jobs"
 
@@ -1926,18 +1900,15 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ListRasterDataCollections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The total number of items to return.
   * `:next_token` (`t:string`) If the previous response was truncated, you receive
   this token. Use it in your next request to receive the next set of results.
   """
-
   @spec list_raster_data_collections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_raster_data_collections_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_raster_data_collections_errors()}
-
   def list_raster_data_collections(%Client{} = client, options \\ []) do
     url_path = "/raster-data-collections"
 
@@ -1990,17 +1961,14 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  you want to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource you want to tag.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2035,15 +2003,12 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ListVectorEnrichmentJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_vector_enrichment_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vector_enrichment_jobs_errors()}
-
   def list_vector_enrichment_jobs(%Client{} = client, options \\ []) do
     url_path = "/list-vector-enrichment-jobs"
 
@@ -2081,15 +2046,12 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20SearchRasterDataCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_raster_data_collection(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_raster_data_collection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_raster_data_collection_errors()}
-
   def search_raster_data_collection(%Client{} = client, options \\ []) do
     url_path = "/search-raster-data-collection"
 
@@ -2126,15 +2088,12 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20StartEarthObservationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_earth_observation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_earth_observation_job_errors()}
-
   def start_earth_observation_job(%Client{} = client, options \\ []) do
     url_path = "/earth-observation-jobs"
 
@@ -2172,15 +2131,12 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20StartVectorEnrichmentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_vector_enrichment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_vector_enrichment_job_errors()}
-
   def start_vector_enrichment_job(%Client{} = client, options \\ []) do
     url_path = "/vector-enrichment-jobs"
 
@@ -2217,15 +2173,12 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20StopEarthObservationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_earth_observation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_earth_observation_job_errors()}
-
   def stop_earth_observation_job(%Client{} = client, options \\ []) do
     url_path = "/earth-observation-jobs/stop"
 
@@ -2262,15 +2215,12 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20StopVectorEnrichmentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_vector_enrichment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_vector_enrichment_job_errors()}
-
   def stop_vector_enrichment_job(%Client{} = client, options \\ []) do
     url_path = "/vector-enrichment-jobs/stop"
 
@@ -2307,17 +2257,14 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  you want to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource you want to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2354,18 +2301,16 @@ defmodule AWS.SageMakerGeospatial do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  you want to untag.
-  * `:tag_keys` (`t:list[smithy.api#String]`) Keys of the tags you want to remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource you want to untag.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) Keys of the tags you want
+  to remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

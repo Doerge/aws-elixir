@@ -298,15 +298,12 @@ defmodule AWS.ElasticInference do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20DescribeAcceleratorOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_accelerator_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_accelerator_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_accelerator_offerings_errors()}
-
   def describe_accelerator_offerings(%Client{} = client, options \\ []) do
     url_path = "/describe-accelerator-offerings"
 
@@ -344,15 +341,12 @@ defmodule AWS.ElasticInference do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20DescribeAcceleratorTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_accelerator_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_accelerator_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_accelerator_types_errors()}
-
   def describe_accelerator_types(%Client{} = client, options \\ []) do
     url_path = "/describe-accelerator-types"
 
@@ -388,15 +382,12 @@ defmodule AWS.ElasticInference do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20DescribeAccelerators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_accelerators(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_accelerators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_accelerators_errors()}
-
   def describe_accelerators(%Client{} = client, options \\ []) do
     url_path = "/describe-accelerators"
 
@@ -433,17 +424,14 @@ defmodule AWS.ElasticInference do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the Elastic Inference Accelerator to
-  list the tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the Elastic Inference
+  Accelerator to list the tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -478,17 +466,14 @@ defmodule AWS.ElasticInference do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the Elastic Inference Accelerator to
-  tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the Elastic Inference
+  Accelerator to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -525,19 +510,16 @@ defmodule AWS.ElasticInference do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the Elastic Inference Accelerator to
-  untag.
-  * `:tag_keys` (`t:list[com.amazonaws.elasticinference#TagKey]`) The list of tags
-  to remove from the Elastic Inference Accelerator.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the Elastic Inference
+  Accelerator to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.elasticinference#TagKey]` required) The
+  list of tags to remove from the Elastic Inference Accelerator.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

@@ -3914,18 +3914,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20AddFacetToObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where the object resides. For more
   information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec add_facet_to_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_facet_to_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_facet_to_object_errors()}
-
   def add_facet_to_object(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/facets"
@@ -3964,18 +3961,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ApplySchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory into which the schema is copied. For more
   information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec apply_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, apply_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_schema_errors()}
-
   def apply_schema(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/apply"
@@ -4014,18 +4008,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20AttachObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) Amazon Resource Name (ARN) that is associated
-  with the Directory where both objects reside. For more information, see
-  arns.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) Amazon Resource Name (ARN) that is
+  associated with the Directory where both objects reside. For more
+  information, see arns.
+  ## Keyword parameters:
   """
-
   @spec attach_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_object_errors()}
-
   def attach_object(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attach"
@@ -4064,18 +4055,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20AttachPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where both objects reside. For more
   information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec attach_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_policy_errors()}
-
   def attach_policy(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/attach"
@@ -4113,17 +4101,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20AttachToIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-  where the object and index exist.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  directory where the object and index exist.
+  ## Keyword parameters:
   """
-
   @spec attach_to_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_to_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_to_index_errors()}
-
   def attach_to_index(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/index/attach"
@@ -4163,17 +4148,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20AttachTypedLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-  where you want to attach the typed link.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  directory where you want to attach the typed link.
+  ## Keyword parameters:
   """
-
   @spec attach_typed_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_typed_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_typed_link_errors()}
-
   def attach_typed_link(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attach"
@@ -4211,20 +4193,17 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20BatchRead&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory. For more information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
   and timing in which the successful write or update of an object is reflected
   in a subsequent read operation of that same object.
   """
-
   @spec batch_read(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_read_errors()}
-
   def batch_read(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/batchread"
@@ -4274,17 +4253,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20BatchWrite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory. For more information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_write(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_write_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_write_errors()}
-
   def batch_write(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/batchwrite"
@@ -4323,18 +4299,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateDirectory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the published
-  schema that will be copied into the data Directory. For more information,
-  see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  published schema that will be copied into the data Directory. For more
+  information, see arns.
+  ## Keyword parameters:
   """
-
   @spec create_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_directory_errors()}
-
   def create_directory(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/create"
@@ -4373,17 +4346,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateFacet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The schema ARN in which the new Facet will be
-  created. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The schema ARN in which the new Facet will
+  be created. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec create_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_facet_errors()}
-
   def create_facet(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/create"
 
@@ -4422,17 +4392,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory where the index should
-  be created.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The ARN of the directory where the
+  index should be created.
+  ## Keyword parameters:
   """
-
   @spec create_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_index_errors()}
-
   def create_index(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/index"
@@ -4474,18 +4441,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory in which the object will be created. For more
   information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_object_errors()}
-
   def create_object(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object"
@@ -4523,15 +4487,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_errors()}
-
   def create_schema(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/create"
 
@@ -4569,17 +4530,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateTypedLinkFacet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-  with the schema. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
+  associated with the schema. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec create_typed_link_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_typed_link_facet_errors()}
-
   def create_typed_link_facet(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
@@ -4619,16 +4577,13 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DeleteDirectory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory to delete.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The ARN of the directory to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_directory_errors()}
-
   def delete_directory(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/directory"
@@ -4667,17 +4622,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DeleteFacet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-  with the Facet. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
+  associated with the Facet. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec delete_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_facet_errors()}
-
   def delete_facet(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/delete"
 
@@ -4718,18 +4670,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DeleteObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where the object resides. For more
   information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_object_errors()}
-
   def delete_object(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/delete"
@@ -4768,17 +4717,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DeleteSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the development
-  schema. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  development schema. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec delete_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_errors()}
-
   def delete_schema(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema"
 
@@ -4816,17 +4762,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DeleteTypedLinkFacet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-  with the schema. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
+  associated with the schema. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec delete_typed_link_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_typed_link_facet_errors()}
-
   def delete_typed_link_facet(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete"
@@ -4864,17 +4807,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DetachFromIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-  the index and object exist in.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  directory the index and object exist in.
+  ## Keyword parameters:
   """
-
   @spec detach_from_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, detach_from_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_from_index_errors()}
-
   def detach_from_index(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/index/detach"
@@ -4913,18 +4853,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DetachObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where objects reside. For more information,
   see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec detach_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, detach_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_object_errors()}
-
   def detach_object(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/detach"
@@ -4962,18 +4899,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DetachPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where both objects reside. For more
   information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec detach_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, detach_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_policy_errors()}
-
   def detach_policy(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/detach"
@@ -5013,17 +4947,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DetachTypedLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-  where you want to detach the typed link.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  directory where you want to detach the typed link.
+  ## Keyword parameters:
   """
-
   @spec detach_typed_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_typed_link_errors()}
-
   def detach_typed_link(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/detach"
@@ -5063,16 +4994,13 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DisableDirectory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory to disable.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The ARN of the directory to disable.
+  ## Keyword parameters:
   """
-
   @spec disable_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disable_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_directory_errors()}
-
   def disable_directory(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/disable"
@@ -5111,16 +5039,13 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20EnableDirectory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory to enable.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The ARN of the directory to enable.
+  ## Keyword parameters:
   """
-
   @spec enable_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, enable_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_directory_errors()}
-
   def enable_directory(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/enable"
@@ -5158,15 +5083,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetAppliedSchemaVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_applied_schema_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_applied_schema_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_applied_schema_version_errors()}
-
   def get_applied_schema_version(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
 
@@ -5203,16 +5125,13 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetDirectory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The ARN of the directory.
+  ## Keyword parameters:
   """
-
   @spec get_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_directory_errors()}
-
   def get_directory(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/get"
@@ -5252,17 +5171,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetFacet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-  with the Facet. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
+  associated with the Facet. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec get_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_facet_errors()}
-
   def get_facet(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet"
 
@@ -5299,18 +5215,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetLinkAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where the typed link resides. For more
   information, see arns or Typed Links.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_link_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_link_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_link_attributes_errors()}
-
   def get_link_attributes(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attributes/get"
@@ -5348,19 +5261,16 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetObjectAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where the object resides.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
   at which to retrieve the attributes on an object.
   """
-
   @spec get_object_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_object_attributes_errors()}
-
   def get_object_attributes(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attributes/get"
@@ -5409,18 +5319,16 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetObjectInformation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory being retrieved.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The ARN of the directory being
+  retrieved.
+  ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
   at which to retrieve the object information.
   """
-
   @spec get_object_information(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_object_information_errors()}
-
   def get_object_information(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/information"
@@ -5471,16 +5379,13 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetSchemaAsJson&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The ARN of the schema to retrieve.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The ARN of the schema to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_schema_as_json(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schema_as_json_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_as_json_errors()}
-
   def get_schema_as_json(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/json"
@@ -5520,17 +5425,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetTypedLinkFacetInformation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-  with the schema. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
+  associated with the schema. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec get_typed_link_facet_information(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_typed_link_facet_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_typed_link_facet_information_errors()}
-
   def get_typed_link_facet_information(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
@@ -5569,15 +5471,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListAppliedSchemaArns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_applied_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applied_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applied_schema_arns_errors()}
-
   def list_applied_schema_arns(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/applied"
 
@@ -5614,18 +5513,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListAttachedIndices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The ARN of the directory.
+  ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
   to use for this operation.
   """
-
   @spec list_attached_indices(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attached_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attached_indices_errors()}
-
   def list_attached_indices(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/indices"
@@ -5674,15 +5570,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListDevelopmentSchemaArns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_development_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_development_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_development_schema_arns_errors()}
-
   def list_development_schema_arns(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/development"
 
@@ -5719,15 +5612,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListDirectories&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_directories(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_directories_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_directories_errors()}
-
   def list_directories(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/list"
 
@@ -5764,16 +5654,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListFacetAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The ARN of the schema where the facet resides.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The ARN of the schema where the facet
+  resides.
+  ## Keyword parameters:
   """
-
   @spec list_facet_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_facet_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_facet_attributes_errors()}
-
   def list_facet_attributes(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/attributes"
@@ -5811,17 +5699,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListFacetNames&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) to retrieve facet
-  names from.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) to retrieve
+  facet names from.
+  ## Keyword parameters:
   """
-
   @spec list_facet_names(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_facet_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_facet_names_errors()}
-
   def list_facet_names(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/list"
@@ -5862,17 +5747,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListIncomingTypedLinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-  where you want to list the typed links.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  directory where you want to list the typed links.
+  ## Keyword parameters:
   """
-
   @spec list_incoming_typed_links(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_incoming_typed_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_incoming_typed_links_errors()}
-
   def list_incoming_typed_links(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/incoming"
@@ -5910,19 +5792,16 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory that the index exists
-  in.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The ARN of the directory that the index
+  exists in.
+  ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
   to execute the request at.
   """
-
   @spec list_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_index_errors()}
-
   def list_index(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/index/targets"
@@ -5973,15 +5852,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListManagedSchemaArns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_managed_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_schema_arns_errors()}
-
   def list_managed_schema_arns(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/managed"
 
@@ -6018,21 +5894,18 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListObjectAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where the object resides. For more
   information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
   and timing in which the successful write or update of an object is reflected
   in a subsequent read operation of that same object.
   """
-
   @spec list_object_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_object_attributes_errors()}
-
   def list_object_attributes(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attributes"
@@ -6082,21 +5955,18 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListObjectChildren&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where the object resides. For more
   information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
   and timing in which the successful write or update of an object is reflected
   in a subsequent read operation of that same object.
   """
-
   @spec list_object_children(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_children_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_object_children_errors()}
-
   def list_object_children(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/children"
@@ -6148,17 +6018,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListObjectParentPaths&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory to which the parent
-  path applies.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The ARN of the directory to which the
+  parent path applies.
+  ## Keyword parameters:
   """
-
   @spec list_object_parent_paths(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_parent_paths_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_object_parent_paths_errors()}
-
   def list_object_parent_paths(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/parentpaths"
@@ -6197,21 +6064,18 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListObjectParents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where the object resides. For more
   information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
   and timing in which the successful write or update of an object is reflected
   in a subsequent read operation of that same object.
   """
-
   @spec list_object_parents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_parents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_object_parents_errors()}
-
   def list_object_parents(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/parent"
@@ -6260,21 +6124,18 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListObjectPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where objects reside. For more information,
   see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
   and timing in which the successful write or update of an object is reflected
   in a subsequent read operation of that same object.
   """
-
   @spec list_object_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_object_policies_errors()}
-
   def list_object_policies(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/policy"
@@ -6326,17 +6187,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListOutgoingTypedLinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-  where you want to list the typed links.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  directory where you want to list the typed links.
+  ## Keyword parameters:
   """
-
   @spec list_outgoing_typed_links(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_outgoing_typed_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_outgoing_typed_links_errors()}
-
   def list_outgoing_typed_links(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/outgoing"
@@ -6374,21 +6232,18 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListPolicyAttachments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where objects reside. For more information,
   see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
   and timing in which the successful write or update of an object is reflected
   in a subsequent read operation of that same object.
   """
-
   @spec list_policy_attachments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_policy_attachments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policy_attachments_errors()}
-
   def list_policy_attachments(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/attachment"
@@ -6439,15 +6294,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListPublishedSchemaArns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_published_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_published_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_published_schema_arns_errors()}
-
   def list_published_schema_arns(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/published"
 
@@ -6486,15 +6338,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags"
 
@@ -6533,17 +6382,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListTypedLinkFacetAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-  with the schema. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
+  associated with the schema. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec list_typed_link_facet_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_typed_link_facet_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_typed_link_facet_attributes_errors()}
-
   def list_typed_link_facet_attributes(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes"
@@ -6583,17 +6429,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListTypedLinkFacetNames&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-  with the schema. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
+  associated with the schema. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec list_typed_link_facet_names(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_typed_link_facet_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_typed_link_facet_names_errors()}
-
   def list_typed_link_facet_names(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/list"
@@ -6637,17 +6480,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20LookupPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory. For more information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec lookup_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, lookup_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, lookup_policy_errors()}
-
   def lookup_policy(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/lookup"
@@ -6686,17 +6526,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20PublishSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:development_schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-  associated with the development schema. For more information, see arns.
-
-  ## Optional parameters:
+  * `:development_schema_arn` (`t:string` required) The Amazon Resource Name (ARN)
+  that is associated with the development schema. For more information, see
+  arns.
+  ## Keyword parameters:
   """
-
   @spec publish_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, publish_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_schema_errors()}
-
   def publish_schema(%Client{} = client, development_schema_arn, options \\ [])
       when is_binary(development_schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/publish"
@@ -6737,16 +6575,13 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20PutSchemaFromJson&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The ARN of the schema to update.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The ARN of the schema to update.
+  ## Keyword parameters:
   """
-
   @spec put_schema_from_json(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_schema_from_json_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_schema_from_json_errors()}
-
   def put_schema_from_json(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/json"
@@ -6784,17 +6619,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20RemoveFacetFromObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory in which the object
-  resides.
-
-  ## Optional parameters:
+  * `:directory_arn` (`t:string` required) The ARN of the directory in which the
+  object resides.
+  ## Keyword parameters:
   """
-
   @spec remove_facet_from_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, remove_facet_from_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_facet_from_object_errors()}
-
   def remove_facet_from_object(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/facets/delete"
@@ -6832,15 +6664,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags/add"
 
@@ -6877,15 +6706,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags/remove"
 
@@ -6922,17 +6748,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpdateFacet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-  with the Facet. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
+  associated with the Facet. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec update_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_facet_errors()}
-
   def update_facet(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet"
 
@@ -6971,18 +6794,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpdateLinkAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where the updated typed link resides. For more
   information, see arns or Typed Links.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_link_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_link_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_link_attributes_errors()}
-
   def update_link_attributes(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attributes/update"
@@ -7020,18 +6840,15 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpdateObjectAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+  * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
   associated with the Directory where the object resides. For more
   information, see arns.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_object_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_object_attributes_errors()}
-
   def update_object_attributes(%Client{} = client, directory_arn, options \\ [])
       when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/update"
@@ -7070,17 +6887,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpdateSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the development
-  schema. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  development schema. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec update_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schema_errors()}
-
   def update_schema(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/update"
 
@@ -7118,17 +6932,14 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpdateTypedLinkFacet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-  with the schema. For more information, see arns.
-
-  ## Optional parameters:
+  * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
+  associated with the schema. For more information, see arns.
+  ## Keyword parameters:
   """
-
   @spec update_typed_link_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_typed_link_facet_errors()}
-
   def update_typed_link_facet(%Client{} = client, schema_arn, options \\ [])
       when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet"
@@ -7171,15 +6982,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpgradeAppliedSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec upgrade_applied_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, upgrade_applied_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_applied_schema_errors()}
-
   def upgrade_applied_schema(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
 
@@ -7217,15 +7025,12 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpgradePublishedSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec upgrade_published_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, upgrade_published_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_published_schema_errors()}
-
   def upgrade_published_schema(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/upgradepublished"
 

@@ -415,15 +415,12 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20CreateSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_slack_channel_configuration_errors()}
-
   def create_slack_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/control/create-slack-channel-configuration"
 
@@ -463,15 +460,12 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20DeleteAccountAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_account_alias(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_account_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_alias_errors()}
-
   def delete_account_alias(%Client{} = client, options \\ []) do
     url_path = "/control/delete-account-alias"
 
@@ -509,15 +503,12 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20DeleteSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slack_channel_configuration_errors()}
-
   def delete_slack_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/control/delete-slack-channel-configuration"
 
@@ -555,15 +546,12 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20DeleteSlackWorkspaceConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_slack_workspace_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_workspace_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slack_workspace_configuration_errors()}
-
   def delete_slack_workspace_configuration(%Client{} = client, options \\ []) do
     url_path = "/control/delete-slack-workspace-configuration"
 
@@ -603,15 +591,12 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20GetAccountAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_account_alias(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_alias_errors()}
-
   def get_account_alias(%Client{} = client, options \\ []) do
     url_path = "/control/get-account-alias"
 
@@ -648,15 +633,12 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20ListSlackChannelConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_slack_channel_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_slack_channel_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_slack_channel_configurations_errors()}
-
   def list_slack_channel_configurations(%Client{} = client, options \\ []) do
     url_path = "/control/list-slack-channel-configurations"
 
@@ -693,15 +675,12 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20ListSlackWorkspaceConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_slack_workspace_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_slack_workspace_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_slack_workspace_configurations_errors()}
-
   def list_slack_workspace_configurations(%Client{} = client, options \\ []) do
     url_path = "/control/list-slack-workspace-configurations"
 
@@ -741,15 +720,12 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20PutAccountAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_account_alias(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_alias_errors()}
-
   def put_account_alias(%Client{} = client, options \\ []) do
     url_path = "/control/put-account-alias"
 
@@ -789,15 +765,12 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20RegisterSlackWorkspaceForOrganization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_slack_workspace_for_organization(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_slack_workspace_for_organization_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_slack_workspace_for_organization_errors()}
-
   def register_slack_workspace_for_organization(%Client{} = client, options \\ []) do
     url_path = "/control/register-slack-workspace-for-organization"
 
@@ -835,15 +808,12 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20UpdateSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_slack_channel_configuration_errors()}
-
   def update_slack_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/control/update-slack-channel-configuration"
 

@@ -1901,17 +1901,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20CreateBotVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the bot that you want to create a new version
-  of. The name is case sensitive.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the bot that you want to create a
+  new version of. The name is case sensitive.
+  ## Keyword parameters:
   """
-
   @spec create_bot_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bot_version_errors()}
-
   def create_bot_version(%Client{} = client, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions"
 
@@ -1953,17 +1950,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20CreateIntentVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the intent that you want to create a new
-  version of. The name is case sensitive.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the intent that you want to create a
+  new version of. The name is case sensitive.
+  ## Keyword parameters:
   """
-
   @spec create_intent_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_intent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_intent_version_errors()}
-
   def create_intent_version(%Client{} = client, name, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions"
 
@@ -2005,17 +1999,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20CreateSlotTypeVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the slot type that you want to create a new
-  version for. The name is case sensitive.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the slot type that you want to
+  create a new version for. The name is case sensitive.
+  ## Keyword parameters:
   """
-
   @spec create_slot_type_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_slot_type_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_slot_type_version_errors()}
-
   def create_slot_type_version(%Client{} = client, name, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions"
 
@@ -2058,16 +2049,13 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the bot. The name is case sensitive.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the bot. The name is case sensitive.
+  ## Keyword parameters:
   """
-
   @spec delete_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_errors()}
-
   def delete_bot(%Client{} = client, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}"
 
@@ -2114,18 +2102,16 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteBotAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_name` (`t:string`) The name of the bot that the alias points to.
-  * `:name` (`t:string`) The name of the alias to delete. The name is case
-  sensitive.
-
-  ## Optional parameters:
+  * `:bot_name` (`t:string` required) The name of the bot that the alias points
+  to.
+  * `:name` (`t:string` required) The name of the alias to delete. The name is
+  case sensitive.
+  ## Keyword parameters:
   """
-
   @spec delete_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_alias_errors()}
-
   def delete_bot_alias(%Client{} = client, bot_name, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
 
@@ -2172,14 +2158,13 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteBotChannelAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias` (`t:string`) An alias that points to the specific version of the
-  Amazon Lex bot to which this association is being made.
-  * `:bot_name` (`t:string`) The name of the Amazon Lex bot.
-  * `:name` (`t:string`) The name of the association. The name is case sensitive.
-
-  ## Optional parameters:
+  * `:bot_alias` (`t:string` required) An alias that points to the specific
+  version of the Amazon Lex bot to which this association is being made.
+  * `:bot_name` (`t:string` required) The name of the Amazon Lex bot.
+  * `:name` (`t:string` required) The name of the association. The name is case
+  sensitive.
+  ## Keyword parameters:
   """
-
   @spec delete_bot_channel_association(
           AWS.Client.t(),
           String.t(),
@@ -2190,7 +2175,6 @@ defmodule AWS.LexModelBuilding do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_channel_association_errors()}
-
   def delete_bot_channel_association(%Client{} = client, bot_alias, bot_name, name, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels/#{AWS.Util.encode_uri(name)}"
@@ -2239,19 +2223,16 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteBotVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the bot.
-  * `:version` (`t:string`) The version of the bot to delete. You cannot delete
-  the $LATEST version of the bot. To delete the $LATEST version, use the
-  DeleteBot operation.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the bot.
+  * `:version` (`t:string` required) The version of the bot to delete. You cannot
+  delete the $LATEST version of the bot. To delete the $LATEST version, use
+  the DeleteBot operation.
+  ## Keyword parameters:
   """
-
   @spec delete_bot_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_version_errors()}
-
   def delete_bot_version(%Client{} = client, name, version, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
 
@@ -2302,16 +2283,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteIntent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the intent. The name is case sensitive.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the intent. The name is case
+  sensitive.
+  ## Keyword parameters:
   """
-
   @spec delete_intent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_intent_errors()}
-
   def delete_intent(%Client{} = client, name, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}"
 
@@ -2359,19 +2338,16 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteIntentVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the intent.
-  * `:version` (`t:string`) The version of the intent to delete. You cannot delete
-  the $LATEST version of the intent. To delete the $LATEST version, use the
-  DeleteIntent operation.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the intent.
+  * `:version` (`t:string` required) The version of the intent to delete. You
+  cannot delete the $LATEST version of the intent. To delete the $LATEST
+  version, use the DeleteIntent operation.
+  ## Keyword parameters:
   """
-
   @spec delete_intent_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_intent_version_errors()}
-
   def delete_intent_version(%Client{} = client, name, version, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
 
@@ -2422,16 +2398,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteSlotType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the slot type. The name is case sensitive.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the slot type. The name is case
+  sensitive.
+  ## Keyword parameters:
   """
-
   @spec delete_slot_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slot_type_errors()}
-
   def delete_slot_type(%Client{} = client, name, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}"
 
@@ -2479,19 +2453,16 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteSlotTypeVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the slot type.
-  * `:version` (`t:string`) The version of the slot type to delete. You cannot
-  delete the $LATEST version of the slot type. To delete the $LATEST version,
-  use the DeleteSlotType operation.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the slot type.
+  * `:version` (`t:string` required) The version of the slot type to delete. You
+  cannot delete the $LATEST version of the slot type. To delete the $LATEST
+  version, use the DeleteSlotType operation.
+  ## Keyword parameters:
   """
-
   @spec delete_slot_type_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slot_type_version_errors()}
-
   def delete_slot_type_version(%Client{} = client, name, version, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version)}"
 
@@ -2541,19 +2512,17 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteUtterances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_name` (`t:string`) The name of the bot that stored the utterances.
-  * `:user_id` (`t:string`) The unique identifier for the user that made the
-  utterances. This is the user ID that was sent in the PostContent or PostText
-  operation request that contained the utterance.
-
-  ## Optional parameters:
+  * `:bot_name` (`t:string` required) The name of the bot that stored the
+  utterances.
+  * `:user_id` (`t:string` required) The unique identifier for the user that made
+  the utterances. This is the user ID that was sent in the PostContent or
+  PostText operation request that contained the utterance.
+  ## Keyword parameters:
   """
-
   @spec delete_utterances(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_utterances_errors()}
-
   def delete_utterances(%Client{} = client, bot_name, user_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances/#{AWS.Util.encode_uri(user_id)}"
 
@@ -2601,17 +2570,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the bot. The name is case sensitive.
-  * `:version_or_alias` (`t:string`) The version or alias of the bot.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the bot. The name is case sensitive.
+  * `:version_or_alias` (`t:string` required) The version or alias of the bot.
+  ## Keyword parameters:
   """
-
   @spec get_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_errors()}
-
   def get_bot(%Client{} = client, name, version_or_alias, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version_or_alias)}"
@@ -2648,17 +2614,15 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBotAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_name` (`t:string`) The name of the bot.
-  * `:name` (`t:string`) The name of the bot alias. The name is case sensitive.
-
-  ## Optional parameters:
+  * `:bot_name` (`t:string` required) The name of the bot.
+  * `:name` (`t:string` required) The name of the bot alias. The name is case
+  sensitive.
+  ## Keyword parameters:
   """
-
   @spec get_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_alias_errors()}
-
   def get_bot_alias(%Client{} = client, bot_name, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
 
@@ -2693,9 +2657,8 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBotAliases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_name` (`t:string`) The name of the bot.
-
-  ## Optional parameters:
+  * `:bot_name` (`t:string` required) The name of the bot.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of aliases to return in the
   response. The default is 50. .
   * `:name_contains` (`t:string`) Substring to match in bot alias names. An alias
@@ -2706,12 +2669,10 @@ defmodule AWS.LexModelBuilding do
   pagination token in the response. To fetch the next page of aliases, specify
   the pagination token in the next request.
   """
-
   @spec get_bot_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_aliases_errors()}
-
   def get_bot_aliases(%Client{} = client, bot_name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases"
 
@@ -2772,15 +2733,13 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBotChannelAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias` (`t:string`) An alias pointing to the specific version of the
-  Amazon Lex bot to which this association is being made.
-  * `:bot_name` (`t:string`) The name of the Amazon Lex bot.
-  * `:name` (`t:string`) The name of the association between the bot and the
-  channel. The name is case sensitive.
-
-  ## Optional parameters:
+  * `:bot_alias` (`t:string` required) An alias pointing to the specific version
+  of the Amazon Lex bot to which this association is being made.
+  * `:bot_name` (`t:string` required) The name of the Amazon Lex bot.
+  * `:name` (`t:string` required) The name of the association between the bot and
+  the channel. The name is case sensitive.
+  ## Keyword parameters:
   """
-
   @spec get_bot_channel_association(
           AWS.Client.t(),
           String.t(),
@@ -2791,7 +2750,6 @@ defmodule AWS.LexModelBuilding do
           {:ok, get_bot_channel_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_channel_association_errors()}
-
   def get_bot_channel_association(%Client{} = client, bot_alias, bot_name, name, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels/#{AWS.Util.encode_uri(name)}"
@@ -2827,11 +2785,11 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBotChannelAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias` (`t:string`) An alias pointing to the specific version of the
-  Amazon Lex bot to which this association is being made.
-  * `:bot_name` (`t:string`) The name of the Amazon Lex bot in the association.
-
-  ## Optional parameters:
+  * `:bot_alias` (`t:string` required) An alias pointing to the specific version
+  of the Amazon Lex bot to which this association is being made.
+  * `:bot_name` (`t:string` required) The name of the Amazon Lex bot in the
+  association.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of associations to return in
   the response. The default is 50.
   * `:name_contains` (`t:string`) Substring to match in channel association names.
@@ -2844,12 +2802,10 @@ defmodule AWS.LexModelBuilding do
   a pagination token in the response. To fetch the next page of associations,
   specify the pagination token in the next request.
   """
-
   @spec get_bot_channel_associations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_channel_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_channel_associations_errors()}
-
   def get_bot_channel_associations(%Client{} = client, bot_alias, bot_name, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels"
@@ -2914,10 +2870,9 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBotVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the bot for which versions should be
+  * `:name` (`t:string` required) The name of the bot for which versions should be
   returned.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of bot versions to return in
   the response. The default is 10.
   * `:next_token` (`t:string`) A pagination token for fetching the next page of
@@ -2925,12 +2880,10 @@ defmodule AWS.LexModelBuilding do
   a pagination token in the response. To fetch the next page of versions,
   specify the pagination token in the next request.
   """
-
   @spec get_bot_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_versions_errors()}
-
   def get_bot_versions(%Client{} = client, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions"
 
@@ -2983,8 +2936,7 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of bots to return in the
   response that the request will return. The default is 10.
   * `:name_contains` (`t:string`) Substring to match in bot names. A bot will be
@@ -2995,12 +2947,10 @@ defmodule AWS.LexModelBuilding do
   pagination token in the response. To fetch the next page of bots, specify
   the pagination token in the next request.
   """
-
   @spec get_bots(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bots_errors()}
-
   def get_bots(%Client{} = client, options \\ []) do
     url_path = "/bots"
 
@@ -3060,18 +3010,15 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBuiltinIntent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:signature` (`t:string`) The unique identifier for a built-in intent. To find
-  the signature for an intent, see Standard Built-in Intents in the Alexa
-  Skills Kit.
-
-  ## Optional parameters:
+  * `:signature` (`t:string` required) The unique identifier for a built-in
+  intent. To find the signature for an intent, see Standard Built-in Intents
+  in the Alexa Skills Kit.
+  ## Keyword parameters:
   """
-
   @spec get_builtin_intent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_builtin_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_builtin_intent_errors()}
-
   def get_builtin_intent(%Client{} = client, signature, options \\ []) do
     url_path = "/builtins/intents/#{AWS.Util.encode_uri(signature)}"
 
@@ -3106,8 +3053,7 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBuiltinIntents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:locale`
   (`t:enum["DE_DE|EN_AU|EN_GB|EN_IN|EN_US|ES_419|ES_ES|ES_US|FR_CA|FR_FR|IT_IT|JA_JP|KO_KR"]`)
   A list of locales that the intent supports.
@@ -3123,12 +3069,10 @@ defmodule AWS.LexModelBuilding do
   find the signature for an intent, see Standard Built-in Intents in the Alexa
   Skills Kit.
   """
-
   @spec get_builtin_intents(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_builtin_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_builtin_intents_errors()}
-
   def get_builtin_intents(%Client{} = client, options \\ []) do
     url_path = "/builtins/intents"
 
@@ -3198,8 +3142,7 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBuiltinSlotTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:locale`
   (`t:enum["DE_DE|EN_AU|EN_GB|EN_IN|EN_US|ES_419|ES_ES|ES_US|FR_CA|FR_FR|IT_IT|JA_JP|KO_KR"]`)
   A list of locales that the slot type supports.
@@ -3214,12 +3157,10 @@ defmodule AWS.LexModelBuilding do
   matches the substring. For example, "xyz" matches both "xyzabc" and
   "abcxyz."
   """
-
   @spec get_builtin_slot_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_builtin_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_builtin_slot_types_errors()}
-
   def get_builtin_slot_types(%Client{} = client, options \\ []) do
     url_path = "/builtins/slottypes"
 
@@ -3286,21 +3227,18 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:export_type` (`t:enum["ALEXA_SKILLS_KIT|LEX"]`) The format of the exported
-  data.
-  * `:name` (`t:string`) The name of the bot to export.
-  * `:resource_type` (`t:enum["BOT|INTENT|SLOT_TYPE"]`) The type of resource to
-  export.
-  * `:version` (`t:string`) The version of the bot to export.
-
-  ## Optional parameters:
+  * `:export_type` (`t:enum["ALEXA_SKILLS_KIT|LEX"]` required) The format of the
+  exported data.
+  * `:name` (`t:string` required) The name of the bot to export.
+  * `:resource_type` (`t:enum["BOT|INTENT|SLOT_TYPE"]` required) The type of
+  resource to export.
+  * `:version` (`t:string` required) The version of the bot to export.
+  ## Keyword parameters:
   """
-
   @spec get_export(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_errors()}
-
   def get_export(%Client{} = client, export_type, name, resource_type, version, options \\ [])
       when is_binary(export_type) and is_binary(name) and is_binary(resource_type) and
              is_binary(version) do
@@ -3342,17 +3280,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetImport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:import_id` (`t:string`) The identifier of the import job information to
-  return.
-
-  ## Optional parameters:
+  * `:import_id` (`t:string` required) The identifier of the import job
+  information to return.
+  ## Keyword parameters:
   """
-
   @spec get_import(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_errors()}
-
   def get_import(%Client{} = client, import_id, options \\ []) do
     url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
 
@@ -3388,17 +3323,15 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetIntent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the intent. The name is case sensitive.
-  * `:version` (`t:string`) The version of the intent.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the intent. The name is case
+  sensitive.
+  * `:version` (`t:string` required) The version of the intent.
+  ## Keyword parameters:
   """
-
   @spec get_intent(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_intent_errors()}
-
   def get_intent(%Client{} = client, name, version, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
 
@@ -3437,10 +3370,9 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetIntentVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the intent for which versions should be
-  returned.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the intent for which versions should
+  be returned.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of intent versions to return
   in the response. The default is 10.
   * `:next_token` (`t:string`) A pagination token for fetching the next page of
@@ -3448,12 +3380,10 @@ defmodule AWS.LexModelBuilding do
   returns a pagination token in the response. To fetch the next page of
   versions, specify the pagination token in the next request.
   """
-
   @spec get_intent_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_intent_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_intent_versions_errors()}
-
   def get_intent_versions(%Client{} = client, name, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions"
 
@@ -3506,8 +3436,7 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetIntents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of intents to return in the
   response. The default is 10.
   * `:name_contains` (`t:string`) Substring to match in intent names. An intent
@@ -3518,12 +3447,10 @@ defmodule AWS.LexModelBuilding do
   pagination token in the response. To fetch the next page of intents, specify
   the pagination token in the next request.
   """
-
   @spec get_intents(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_intents_errors()}
-
   def get_intents(%Client{} = client, options \\ []) do
     url_path = "/intents"
 
@@ -3585,17 +3512,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetMigration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:migration_id` (`t:string`) The unique identifier of the migration to view.
-  The migrationID is returned by the operation.
-
-  ## Optional parameters:
+  * `:migration_id` (`t:string` required) The unique identifier of the migration
+  to view. The migrationID is returned by the operation.
+  ## Keyword parameters:
   """
-
   @spec get_migration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_migration_errors()}
-
   def get_migration(%Client{} = client, migration_id, options \\ []) do
     url_path = "/migrations/#{AWS.Util.encode_uri(migration_id)}"
 
@@ -3630,8 +3554,7 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetMigrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of migrations to return in the
   response. The default is 10.
   * `:migration_status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS"]`) Filters
@@ -3649,12 +3572,10 @@ defmodule AWS.LexModelBuilding do
   whose name contains the specified string. The string is matched anywhere in
   bot name.
   """
-
   @spec get_migrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_migrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_migrations_errors()}
-
   def get_migrations(%Client{} = client, options \\ []) do
     url_path = "/migrations"
 
@@ -3750,17 +3671,15 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetSlotType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the slot type. The name is case sensitive.
-  * `:version` (`t:string`) The version of the slot type.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the slot type. The name is case
+  sensitive.
+  * `:version` (`t:string` required) The version of the slot type.
+  ## Keyword parameters:
   """
-
   @spec get_slot_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_slot_type_errors()}
-
   def get_slot_type(%Client{} = client, name, version, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
 
@@ -3799,10 +3718,9 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetSlotTypeVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the slot type for which versions should be
-  returned.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the slot type for which versions
+  should be returned.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of slot type versions to
   return in the response. The default is 10.
   * `:next_token` (`t:string`) A pagination token for fetching the next page of
@@ -3810,12 +3728,10 @@ defmodule AWS.LexModelBuilding do
   returns a pagination token in the response. To fetch the next page of
   versions, specify the pagination token in the next request.
   """
-
   @spec get_slot_type_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_slot_type_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_slot_type_versions_errors()}
-
   def get_slot_type_versions(%Client{} = client, name, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions"
 
@@ -3868,8 +3784,7 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetSlotTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of slot types to return in the
   response. The default is 10.
   * `:name_contains` (`t:string`) Substring to match in slot type names. A slot
@@ -3880,12 +3795,10 @@ defmodule AWS.LexModelBuilding do
   returns a pagination token in the response. To fetch next page of slot
   types, specify the pagination token in the next request.
   """
-
   @spec get_slot_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_slot_types_errors()}
-
   def get_slot_types(%Client{} = client, options \\ []) do
     url_path = "/slottypes"
 
@@ -3952,23 +3865,20 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetUtterancesView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_name` (`t:string`) The name of the bot for which utterance information
-  should be returned.
-  * `:bot_versions` (`t:list[com.amazonaws.lexmodelbuildingservice#Version]`) An
-  array of bot versions for which utterance information should be returned.
-  The limit is 5 versions per request.
-  * `:status_type` (`t:enum["DETECTED|MISSED"]`) To return utterances that were
-  recognized and handled, use Detected. To return utterances that were not
-  recognized, use Missed.
-
-  ## Optional parameters:
+  * `:bot_name` (`t:string` required) The name of the bot for which utterance
+  information should be returned.
+  * `:bot_versions` (`t:list[com.amazonaws.lexmodelbuildingservice#Version]`
+  required) An array of bot versions for which utterance information should be
+  returned. The limit is 5 versions per request.
+  * `:status_type` (`t:enum["DETECTED|MISSED"]` required) To return utterances
+  that were recognized and handled, use Detected. To return utterances that
+  were not recognized, use Missed.
+  ## Keyword parameters:
   """
-
   @spec get_utterances_view(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_utterances_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_utterances_view_errors()}
-
   def get_utterances_view(%Client{} = client, bot_name, bot_versions, status_type, options \\ [])
       when is_binary(bot_versions) and is_binary(status_type) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances?view=aggregation"
@@ -4005,17 +3915,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  get a list of tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to get a list of tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4062,16 +3969,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20PutBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the bot. The name is not case sensitive.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the bot. The name is not case
+  sensitive.
+  ## Keyword parameters:
   """
-
   @spec put_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_bot_errors()}
-
   def put_bot(%Client{} = client, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
 
@@ -4111,17 +4016,15 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20PutBotAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_name` (`t:string`) The name of the bot.
-  * `:name` (`t:string`) The name of the alias. The name is not case sensitive.
-
-  ## Optional parameters:
+  * `:bot_name` (`t:string` required) The name of the bot.
+  * `:name` (`t:string` required) The name of the alias. The name is not case
+  sensitive.
+  ## Keyword parameters:
   """
-
   @spec put_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_bot_alias_errors()}
-
   def put_bot_alias(%Client{} = client, bot_name, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
 
@@ -4160,16 +4063,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20PutIntent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the intent. The name is not case sensitive.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the intent. The name is not case
+  sensitive.
+  ## Keyword parameters:
   """
-
   @spec put_intent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_intent_errors()}
-
   def put_intent(%Client{} = client, name, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
 
@@ -4209,17 +4110,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20PutSlotType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the slot type. The name is not case
+  * `:name` (`t:string` required) The name of the slot type. The name is not case
   sensitive.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_slot_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_slot_type_errors()}
-
   def put_slot_type(%Client{} = client, name, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
 
@@ -4256,15 +4154,12 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20StartImport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_errors()}
-
   def start_import(%Client{} = client, options \\ []) do
     url_path = "/imports"
 
@@ -4302,15 +4197,12 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20StartMigration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_migration(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_migration_errors()}
-
   def start_migration(%Client{} = client, options \\ []) do
     url_path = "/migrations"
 
@@ -4348,17 +4240,14 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot, bot
-  alias, or bot channel to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  bot, bot alias, or bot channel to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4395,20 +4284,17 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  remove the tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.lexmodelbuildingservice#TagKey]`) A list of
-  tag keys to remove from the resource. If a tag key does not exist on the
-  resource, it is ignored.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to remove the tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.lexmodelbuildingservice#TagKey]` required)
+  A list of tag keys to remove from the resource. If a tag key does not exist
+  on the resource, it is ignored.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

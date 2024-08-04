@@ -178,19 +178,17 @@ defmodule AWS.CloudTrailData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtraildata%20PutAuditEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_arn` (`t:string`) The ARN or ID (the ARN suffix) of a channel.
-
-  ## Optional parameters:
+  * `:channel_arn` (`t:string` required) The ARN or ID (the ARN suffix) of a
+  channel.
+  ## Keyword parameters:
   * `:external_id` (`t:string`) A unique identifier that is conditionally required
   when the channel's resource policy includes an external ID. This value can
   be any string, such as a passphrase or account number.
   """
-
   @spec put_audit_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_audit_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_audit_events_errors()}
-
   def put_audit_events(%Client{} = client, channel_arn, options \\ [])
       when is_binary(channel_arn) do
     url_path = "/PutAuditEvents"

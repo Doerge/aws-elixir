@@ -991,22 +991,20 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20CopyImageSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-  * `:source_image_set_id` (`t:string`) The source image set identifier.
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  * `:source_image_set_id` (`t:string` required) The source image set identifier.
   * `:input` (`t:map`):
-    * `:copy_image_set_information` (`t:structure`) Copy image set information.
-
-  ## Optional parameters:
+    * `:copy_image_set_information` (`t:structure` required) Copy image set
+  information.
+  ## Keyword parameters:
   * `:force` (`t:string`) Setting this flag will force the CopyImageSet operation,
   even if Patient, Study, or Series level metadata are mismatched across the
   sourceImageSet and destinationImageSet.
   """
-
   @spec copy_image_set(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_image_set_errors()}
-
   def copy_image_set(%Client{} = client, datastore_id, source_image_set_id, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -1056,15 +1054,12 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20CreateDatastore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_datastore(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_datastore_errors()}
-
   def create_datastore(%Client{} = client, options \\ []) do
     url_path = "/datastore"
 
@@ -1101,16 +1096,13 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20DeleteDatastore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-
-  ## Optional parameters:
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  ## Keyword parameters:
   """
-
   @spec delete_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_datastore_errors()}
-
   def delete_datastore(%Client{} = client, datastore_id, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}"
 
@@ -1157,17 +1149,14 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20DeleteImageSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-  * `:image_set_id` (`t:string`) The image set identifier.
-
-  ## Optional parameters:
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  * `:image_set_id` (`t:string` required) The image set identifier.
+  ## Keyword parameters:
   """
-
   @spec delete_image_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_set_errors()}
-
   def delete_image_set(%Client{} = client, datastore_id, image_set_id, options \\ []) do
     url_path =
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/deleteImageSet"
@@ -1205,17 +1194,14 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20GetDICOMImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-  * `:job_id` (`t:string`) The import job identifier.
-
-  ## Optional parameters:
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  * `:job_id` (`t:string` required) The import job identifier.
+  ## Keyword parameters:
   """
-
   @spec get_d_i_c_o_m_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_d_i_c_o_m_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_d_i_c_o_m_import_job_errors()}
-
   def get_d_i_c_o_m_import_job(%Client{} = client, datastore_id, job_id, options \\ []) do
     url_path =
       "/getDICOMImportJob/datastore/#{AWS.Util.encode_uri(datastore_id)}/job/#{AWS.Util.encode_uri(job_id)}"
@@ -1251,16 +1237,13 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20GetDatastore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-
-  ## Optional parameters:
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  ## Keyword parameters:
   """
-
   @spec get_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_datastore_errors()}
-
   def get_datastore(%Client{} = client, datastore_id, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}"
 
@@ -1295,20 +1278,17 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20GetImageFrame&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-  * `:image_set_id` (`t:string`) The image set identifier.
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  * `:image_set_id` (`t:string` required) The image set identifier.
   * `:input` (`t:map`):
-    * `:image_frame_information` (`t:structure`) Information about the image frame
-  (pixel data) identifier.
-
-  ## Optional parameters:
+    * `:image_frame_information` (`t:structure` required) Information about the
+  image frame (pixel data) identifier.
+  ## Keyword parameters:
   """
-
   @spec get_image_frame(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_image_frame_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_frame_errors()}
-
   def get_image_frame(%Client{} = client, datastore_id, image_set_id, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -1360,18 +1340,15 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20GetImageSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-  * `:image_set_id` (`t:string`) The image set identifier.
-
-  ## Optional parameters:
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  * `:image_set_id` (`t:string` required) The image set identifier.
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The image set version identifier.
   """
-
   @spec get_image_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_set_errors()}
-
   def get_image_set(%Client{} = client, datastore_id, image_set_id, options \\ []) do
     url_path =
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/getImageSet"
@@ -1420,18 +1397,15 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20GetImageSetMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-  * `:image_set_id` (`t:string`) The image set identifier.
-
-  ## Optional parameters:
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  * `:image_set_id` (`t:string` required) The image set identifier.
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The image set version identifier.
   """
-
   @spec get_image_set_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_set_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_set_metadata_errors()}
-
   def get_image_set_metadata(%Client{} = client, datastore_id, image_set_id, options \\ []) do
     url_path =
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/getImageSetMetadata"
@@ -1494,9 +1468,8 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20ListDICOMImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-
-  ## Optional parameters:
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  ## Keyword parameters:
   * `:job_status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|SUBMITTED"]`) The filters
   for listing import jobs based on status.
   * `:max_results` (`t:string`) The max results count. The upper bound is
@@ -1504,12 +1477,10 @@ defmodule AWS.MedicalImaging do
   * `:next_token` (`t:string`) The pagination token used to request the list of
   import jobs on the next page.
   """
-
   @spec list_d_i_c_o_m_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_d_i_c_o_m_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_d_i_c_o_m_import_jobs_errors()}
-
   def list_d_i_c_o_m_import_jobs(%Client{} = client, datastore_id, options \\ []) do
     url_path = "/listDICOMImportJobs/datastore/#{AWS.Util.encode_uri(datastore_id)}"
 
@@ -1569,8 +1540,7 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20ListDatastores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:datastore_status`
   (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETING"]`) The data store
   status.
@@ -1579,12 +1549,10 @@ defmodule AWS.MedicalImaging do
   * `:next_token` (`t:string`) The pagination token used to request the list of
   data stores on the next page.
   """
-
   @spec list_datastores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datastores_errors()}
-
   def list_datastores(%Client{} = client, options \\ []) do
     url_path = "/datastore"
 
@@ -1644,20 +1612,17 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20ListImageSetVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-  * `:image_set_id` (`t:string`) The image set identifier.
-
-  ## Optional parameters:
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  * `:image_set_id` (`t:string` required) The image set identifier.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The max results count.
   * `:next_token` (`t:string`) The pagination token used to request the list of
   image set versions on the next page.
   """
-
   @spec list_image_set_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_image_set_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_set_versions_errors()}
-
   def list_image_set_versions(%Client{} = client, datastore_id, image_set_id, options \\ []) do
     url_path =
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/listImageSetVersions"
@@ -1713,17 +1678,14 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the medical
-  imaging resource to list tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  medical imaging resource to list tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1758,25 +1720,22 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20SearchImageSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The identifier of the data store where the image
-  sets reside.
+  * `:datastore_id` (`t:string` required) The identifier of the data store where
+  the image sets reside.
   * `:input` (`t:map | nil`):
     * `:search_criteria` (`t:structure`) The search criteria that filters by
   applying a maximum of 1 item to SearchByAttribute.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results that can be returned
   in a search.
   * `:next_token` (`t:string`) The token used for pagination of results returned
   in the response. Use the token returned from the previous request to
   continue results where the previous request ended.
   """
-
   @spec search_image_sets(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, search_image_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_image_sets_errors()}
-
   def search_image_sets(%Client{} = client, datastore_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}/searchImageSets"
@@ -1835,16 +1794,13 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20StartDICOMImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-
-  ## Optional parameters:
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  ## Keyword parameters:
   """
-
   @spec start_d_i_c_o_m_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_d_i_c_o_m_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_d_i_c_o_m_import_job_errors()}
-
   def start_d_i_c_o_m_import_job(%Client{} = client, datastore_id, options \\ []) do
     url_path = "/startDICOMImportJob/datastore/#{AWS.Util.encode_uri(datastore_id)}"
 
@@ -1881,17 +1837,14 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the medical
-  imaging resource that tags are being added to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  medical imaging resource that tags are being added to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1928,19 +1881,16 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the medical
-  imaging resource that tags are being removed from.
-  * `:tag_keys` (`t:list[com.amazonaws.medicalimaging#TagKey]`) The keys for the
-  tags to be removed from the medical imaging resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  medical imaging resource that tags are being removed from.
+  * `:tag_keys` (`t:list[com.amazonaws.medicalimaging#TagKey]` required) The keys
+  for the tags to be removed from the medical imaging resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1988,18 +1938,17 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20UpdateImageSetMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:datastore_id` (`t:string`) The data store identifier.
-  * `:image_set_id` (`t:string`) The image set identifier.
-  * `:latest_version_id` (`t:string`) The latest image set version identifier.
+  * `:datastore_id` (`t:string` required) The data store identifier.
+  * `:image_set_id` (`t:string` required) The image set identifier.
+  * `:latest_version_id` (`t:string` required) The latest image set version
+  identifier.
   * `:input` (`t:map`):
-    * `:update_image_set_metadata_updates` (`t:union`) Update image set metadata
-  updates.
-
-  ## Optional parameters:
+    * `:update_image_set_metadata_updates` (`t:union` required) Update image set
+  metadata updates.
+  ## Keyword parameters:
   * `:force` (`t:string`) Setting this flag will force the UpdateImageSetMetadata
   operation for the following attributes:
   """
-
   @spec update_image_set_metadata(
           AWS.Client.t(),
           String.t(),
@@ -2011,7 +1960,6 @@ defmodule AWS.MedicalImaging do
           {:ok, update_image_set_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_image_set_metadata_errors()}
-
   def update_image_set_metadata(
         %Client{} = client,
         datastore_id,

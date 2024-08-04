@@ -816,6 +816,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Associates a created artifact of an AWS cloud resource, the target receiving the
   migration, with the migration task performed by a migration tool. This API has
   the following traits:
@@ -831,12 +832,10 @@ defmodule AWS.MigrationHub do
       required("ProgressUpdateStream") => String.t()
     }
   """
-
   @spec associate_created_artifact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_created_artifact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_created_artifact_errors()}
-
   def associate_created_artifact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -845,6 +844,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Associates a discovered resource ID from Application Discovery Service with a
   migration task.
 
@@ -859,12 +859,10 @@ defmodule AWS.MigrationHub do
       required("ProgressUpdateStream") => String.t()
     }
   """
-
   @spec associate_discovered_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_discovered_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_discovered_resource_errors()}
-
   def associate_discovered_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -874,6 +872,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Creates a progress update stream which is an AWS resource used for access
   control as well as a namespace for migration task names that is implicitly
   linked to your AWS account. It must uniquely identify the migration tool as it
@@ -889,12 +888,10 @@ defmodule AWS.MigrationHub do
       required("ProgressUpdateStreamName") => String.t()
     }
   """
-
   @spec create_progress_update_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_progress_update_stream_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_progress_update_stream_errors()}
-
   def create_progress_update_stream(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -904,6 +901,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Deletes a progress update stream, including all of its tasks, which was
   previously created as an AWS resource used for access control. This API has
   the following traits:
@@ -917,12 +915,10 @@ defmodule AWS.MigrationHub do
       required("ProgressUpdateStreamName") => String.t()
     }
   """
-
   @spec delete_progress_update_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_progress_update_stream_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_progress_update_stream_errors()}
-
   def delete_progress_update_stream(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -932,6 +928,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Gets the migration status of an application.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhub%20DescribeApplicationState&this_doc_guide=API%2520Reference)
@@ -942,12 +939,10 @@ defmodule AWS.MigrationHub do
       required("ApplicationId") => String.t()
     }
   """
-
   @spec describe_application_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_application_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_state_errors()}
-
   def describe_application_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -956,6 +951,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Retrieves a list of all attributes associated with a specific migration task.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhub%20DescribeMigrationTask&this_doc_guide=API%2520Reference)
@@ -967,12 +963,10 @@ defmodule AWS.MigrationHub do
       required("ProgressUpdateStream") => String.t()
     }
   """
-
   @spec describe_migration_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_migration_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_migration_task_errors()}
-
   def describe_migration_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -981,6 +975,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Disassociates a created artifact of an AWS resource with a migration task
   performed by a migration tool that was previously associated. This API has the
   following traits:
@@ -996,12 +991,10 @@ defmodule AWS.MigrationHub do
       required("ProgressUpdateStream") => String.t()
     }
   """
-
   @spec disassociate_created_artifact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_created_artifact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_created_artifact_errors()}
-
   def disassociate_created_artifact(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1011,6 +1004,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Disassociate an Application Discovery Service discovered resource from a
   migration task.
 
@@ -1025,12 +1019,10 @@ defmodule AWS.MigrationHub do
       required("ProgressUpdateStream") => String.t()
     }
   """
-
   @spec disassociate_discovered_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_discovered_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_discovered_resource_errors()}
-
   def disassociate_discovered_resource(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1040,6 +1032,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Registers a new migration task which represents a server, database, etc., being
   migrated to AWS by a migration tool.
 
@@ -1053,12 +1046,10 @@ defmodule AWS.MigrationHub do
       required("ProgressUpdateStream") => String.t()
     }
   """
-
   @spec import_migration_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_migration_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_migration_task_errors()}
-
   def import_migration_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1067,6 +1058,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Lists all the migration statuses for your applications. If you use the optional
   `ApplicationIds` parameter, only the migration statuses for those applications
   will be returned.
@@ -1081,12 +1073,10 @@ defmodule AWS.MigrationHub do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_application_states(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_application_states_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_states_errors()}
-
   def list_application_states(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1095,6 +1085,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Lists the created artifacts attached to a given migration task in an update
   stream. This API has the following traits:
 
@@ -1109,12 +1100,10 @@ defmodule AWS.MigrationHub do
       required("ProgressUpdateStream") => String.t()
     }
   """
-
   @spec list_created_artifacts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_created_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_created_artifacts_errors()}
-
   def list_created_artifacts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1123,6 +1112,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Lists discovered resources associated with the given `MigrationTask`.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhub%20ListDiscoveredResources&this_doc_guide=API%2520Reference)
@@ -1136,12 +1126,10 @@ defmodule AWS.MigrationHub do
       required("ProgressUpdateStream") => String.t()
     }
   """
-
   @spec list_discovered_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_discovered_resources_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_discovered_resources_errors()}
-
   def list_discovered_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1150,6 +1138,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Lists all, or filtered by resource name, migration tasks associated with the
   user account making this call. This API has the following traits:
 
@@ -1163,12 +1152,10 @@ defmodule AWS.MigrationHub do
       optional("ResourceName") => String.t()
     }
   """
-
   @spec list_migration_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_migration_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_migration_tasks_errors()}
-
   def list_migration_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1177,6 +1164,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Lists progress update streams associated with the user account making this call.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhub%20ListProgressUpdateStreams&this_doc_guide=API%2520Reference)
@@ -1188,12 +1176,10 @@ defmodule AWS.MigrationHub do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_progress_update_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_progress_update_streams_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_progress_update_streams_errors()}
-
   def list_progress_update_streams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1202,6 +1188,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Sets the migration state of an application. For a given application identified
   by the value passed to `ApplicationId`, its status is set or updated by
   passing one of three values to `Status`: ``` NOT_STARTED | IN_PROGRESS |
@@ -1218,12 +1205,10 @@ defmodule AWS.MigrationHub do
       required("Status") => list(any())
     }
   """
-
   @spec notify_application_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, notify_application_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_application_state_errors()}
-
   def notify_application_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1232,6 +1217,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Notifies Migration Hub of the current status, progress, or other detail
   regarding a migration task. This API has the following traits:
 
@@ -1248,12 +1234,10 @@ defmodule AWS.MigrationHub do
       required("UpdateDateTime") => non_neg_integer()
     }
   """
-
   @spec notify_migration_task_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, notify_migration_task_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_migration_task_state_errors()}
-
   def notify_migration_task_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1262,6 +1246,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+   
   Provides identifying details of the resource being migrated so that it can be
   associated in the Application Discovery Service repository. This association
   occurs asynchronously after `PutResourceAttributes` returns. Keep in mind that
@@ -1285,12 +1270,10 @@ defmodule AWS.MigrationHub do
       required("ResourceAttributeList") => list(resource_attribute()())
     }
   """
-
   @spec put_resource_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_attributes_errors()}
-
   def put_resource_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

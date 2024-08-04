@@ -3995,15 +3995,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20AssociateMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_member(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_member_errors()}
-
   def associate_member(%Client{} = client, options \\ []) do
     url_path = "/members/associate"
 
@@ -4041,15 +4038,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetAccountStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_account_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_account_status_errors()}
-
   def batch_get_account_status(%Client{} = client, options \\ []) do
     url_path = "/status/batch/get"
 
@@ -4087,15 +4081,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetCodeSnippet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_code_snippet(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_code_snippet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_code_snippet_errors()}
-
   def batch_get_code_snippet(%Client{} = client, options \\ []) do
     url_path = "/codesnippet/batchget"
 
@@ -4132,15 +4123,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetFindingDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_finding_details(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_finding_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_finding_details_errors()}
-
   def batch_get_finding_details(%Client{} = client, options \\ []) do
     url_path = "/findings/details/batch/get"
 
@@ -4177,15 +4165,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetFreeTrialInfo&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_free_trial_info(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_free_trial_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_free_trial_info_errors()}
-
   def batch_get_free_trial_info(%Client{} = client, options \\ []) do
     url_path = "/freetrialinfo/batchget"
 
@@ -4224,15 +4209,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetMemberEc2DeepInspectionStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_member_ec2_deep_inspection_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_member_ec2_deep_inspection_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_member_ec2_deep_inspection_status_errors()}
-
   def batch_get_member_ec2_deep_inspection_status(%Client{} = client, options \\ []) do
     url_path = "/ec2deepinspectionstatus/member/batch/get"
 
@@ -4271,15 +4253,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchUpdateMemberEc2DeepInspectionStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_update_member_ec2_deep_inspection_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_member_ec2_deep_inspection_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_member_ec2_deep_inspection_status_errors()}
-
   def batch_update_member_ec2_deep_inspection_status(%Client{} = client, options \\ []) do
     url_path = "/ec2deepinspectionstatus/member/batch/update"
 
@@ -4316,15 +4295,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CancelFindingsReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_findings_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_findings_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_findings_report_errors()}
-
   def cancel_findings_report(%Client{} = client, options \\ []) do
     url_path = "/reporting/cancel"
 
@@ -4361,15 +4337,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CancelSbomExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_sbom_export(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_sbom_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_sbom_export_errors()}
-
   def cancel_sbom_export(%Client{} = client, options \\ []) do
     url_path = "/sbomexport/cancel"
 
@@ -4406,15 +4379,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateCisScanConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cis_scan_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_cis_scan_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cis_scan_configuration_errors()}
-
   def create_cis_scan_configuration(%Client{} = client, options \\ []) do
     url_path = "/cis/scan-configuration/create"
 
@@ -4452,15 +4422,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_filter_errors()}
-
   def create_filter(%Client{} = client, options \\ []) do
     url_path = "/filters/create"
 
@@ -4499,15 +4466,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateFindingsReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_findings_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_findings_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_findings_report_errors()}
-
   def create_findings_report(%Client{} = client, options \\ []) do
     url_path = "/reporting/create"
 
@@ -4544,15 +4508,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateSbomExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sbom_export(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sbom_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sbom_export_errors()}
-
   def create_sbom_export(%Client{} = client, options \\ []) do
     url_path = "/sbomexport/create"
 
@@ -4589,15 +4550,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DeleteCisScanConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_cis_scan_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_cis_scan_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cis_scan_configuration_errors()}
-
   def delete_cis_scan_configuration(%Client{} = client, options \\ []) do
     url_path = "/cis/scan-configuration/delete"
 
@@ -4634,15 +4592,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DeleteFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_filter_errors()}
-
   def delete_filter(%Client{} = client, options \\ []) do
     url_path = "/filters/delete"
 
@@ -4680,15 +4635,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_configuration_errors()}
-
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/organizationconfiguration/describe"
 
@@ -4726,15 +4678,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20Disable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disable(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_errors()}
-
   def disable(%Client{} = client, options \\ []) do
     url_path = "/disable"
 
@@ -4771,15 +4720,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DisableDelegatedAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disable_delegated_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_delegated_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_delegated_admin_account_errors()}
-
   def disable_delegated_admin_account(%Client{} = client, options \\ []) do
     url_path = "/delegatedadminaccounts/disable"
 
@@ -4816,15 +4762,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DisassociateMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_member(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_member_errors()}
-
   def disassociate_member(%Client{} = client, options \\ []) do
     url_path = "/members/disassociate"
 
@@ -4861,15 +4804,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20Enable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec enable(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_errors()}
-
   def enable(%Client{} = client, options \\ []) do
     url_path = "/enable"
 
@@ -4907,15 +4847,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20EnableDelegatedAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec enable_delegated_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_delegated_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_delegated_admin_account_errors()}
-
   def enable_delegated_admin_account(%Client{} = client, options \\ []) do
     url_path = "/delegatedadminaccounts/enable"
 
@@ -4952,15 +4889,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetCisScanReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_cis_scan_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_cis_scan_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cis_scan_report_errors()}
-
   def get_cis_scan_report(%Client{} = client, options \\ []) do
     url_path = "/cis/scan/report/get"
 
@@ -4997,15 +4931,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetCisScanResultDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_cis_scan_result_details(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_cis_scan_result_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cis_scan_result_details_errors()}
-
   def get_cis_scan_result_details(%Client{} = client, options \\ []) do
     url_path = "/cis/scan-result/details/get"
 
@@ -5042,15 +4973,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_errors()}
-
   def get_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/get"
 
@@ -5088,15 +5016,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetDelegatedAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_delegated_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_delegated_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_delegated_admin_account_errors()}
-
   def get_delegated_admin_account(%Client{} = client, options \\ []) do
     url_path = "/delegatedadminaccounts/get"
 
@@ -5134,15 +5059,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_ec2_deep_inspection_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_ec2_deep_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ec2_deep_inspection_configuration_errors()}
-
   def get_ec2_deep_inspection_configuration(%Client{} = client, options \\ []) do
     url_path = "/ec2deepinspectionconfiguration/get"
 
@@ -5179,17 +5101,14 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetEncryptionKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_type` (`t:string`) The resource type the key encrypts.
-  * `:scan_type` (`t:string`) The scan type the key encrypts.
-
-  ## Optional parameters:
+  * `:resource_type` (`t:string` required) The resource type the key encrypts.
+  * `:scan_type` (`t:string` required) The scan type the key encrypts.
+  ## Keyword parameters:
   """
-
   @spec get_encryption_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_encryption_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_encryption_key_errors()}
-
   def get_encryption_key(%Client{} = client, resource_type, scan_type, options \\ [])
       when is_binary(resource_type) and is_binary(scan_type) do
     url_path = "/encryptionkey/get"
@@ -5225,15 +5144,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetFindingsReportStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_findings_report_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_findings_report_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_report_status_errors()}
-
   def get_findings_report_status(%Client{} = client, options \\ []) do
     url_path = "/reporting/status/get"
 
@@ -5270,15 +5186,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_member(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_member_errors()}
-
   def get_member(%Client{} = client, options \\ []) do
     url_path = "/members/get"
 
@@ -5315,15 +5228,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetSbomExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_sbom_export(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sbom_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sbom_export_errors()}
-
   def get_sbom_export(%Client{} = client, options \\ []) do
     url_path = "/sbomexport/get"
 
@@ -5360,15 +5270,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListAccountPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_account_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_account_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_permissions_errors()}
-
   def list_account_permissions(%Client{} = client, options \\ []) do
     url_path = "/accountpermissions/list"
 
@@ -5405,15 +5312,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_cis_scan_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cis_scan_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cis_scan_configurations_errors()}
-
   def list_cis_scan_configurations(%Client{} = client, options \\ []) do
     url_path = "/cis/scan-configuration/list"
 
@@ -5450,15 +5354,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanResultsAggregatedByChecks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_cis_scan_results_aggregated_by_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cis_scan_results_aggregated_by_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cis_scan_results_aggregated_by_checks_errors()}
-
   def list_cis_scan_results_aggregated_by_checks(%Client{} = client, options \\ []) do
     url_path = "/cis/scan-result/check/list"
 
@@ -5495,15 +5396,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanResultsAggregatedByTargetResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_cis_scan_results_aggregated_by_target_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cis_scan_results_aggregated_by_target_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cis_scan_results_aggregated_by_target_resource_errors()}
-
   def list_cis_scan_results_aggregated_by_target_resource(%Client{} = client, options \\ []) do
     url_path = "/cis/scan-result/resource/list"
 
@@ -5540,15 +5438,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_cis_scans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cis_scans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cis_scans_errors()}
-
   def list_cis_scans(%Client{} = client, options \\ []) do
     url_path = "/cis/scan/list"
 
@@ -5585,15 +5480,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCoverage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_coverage(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_coverage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_coverage_errors()}
-
   def list_coverage(%Client{} = client, options \\ []) do
     url_path = "/coverage/list"
 
@@ -5630,15 +5522,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCoverageStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_coverage_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_coverage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_coverage_statistics_errors()}
-
   def list_coverage_statistics(%Client{} = client, options \\ []) do
     url_path = "/coverage/statistics/list"
 
@@ -5676,15 +5565,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListDelegatedAdminAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_delegated_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_delegated_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_delegated_admin_accounts_errors()}
-
   def list_delegated_admin_accounts(%Client{} = client, options \\ []) do
     url_path = "/delegatedadminaccounts/list"
 
@@ -5721,15 +5607,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFilters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_filters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_filters_errors()}
-
   def list_filters(%Client{} = client, options \\ []) do
     url_path = "/filters/list"
 
@@ -5766,15 +5649,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFindingAggregations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_finding_aggregations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_finding_aggregations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_finding_aggregations_errors()}
-
   def list_finding_aggregations(%Client{} = client, options \\ []) do
     url_path = "/findings/aggregation/list"
 
@@ -5811,15 +5691,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_errors()}
-
   def list_findings(%Client{} = client, options \\ []) do
     url_path = "/findings/list"
 
@@ -5857,15 +5734,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
-
   def list_members(%Client{} = client, options \\ []) do
     url_path = "/members/list"
 
@@ -5902,17 +5776,14 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon resource number (ARN) of the resource
-  to list tags of.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon resource number (ARN) of the
+  resource to list tags of.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5947,15 +5818,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListUsageTotals&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_usage_totals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_usage_totals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_usage_totals_errors()}
-
   def list_usage_totals(%Client{} = client, options \\ []) do
     url_path = "/usage/list"
 
@@ -5993,15 +5861,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ResetEncryptionKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reset_encryption_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_encryption_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_encryption_key_errors()}
-
   def reset_encryption_key(%Client{} = client, options \\ []) do
     url_path = "/encryptionkey/reset"
 
@@ -6038,15 +5903,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SearchVulnerabilities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec search_vulnerabilities(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_vulnerabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_vulnerabilities_errors()}
-
   def search_vulnerabilities(%Client{} = client, options \\ []) do
     url_path = "/vulnerabilities/search"
 
@@ -6086,15 +5948,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SendCisSessionHealth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec send_cis_session_health(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_cis_session_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_cis_session_health_errors()}
-
   def send_cis_session_health(%Client{} = client, options \\ []) do
     url_path = "/cissession/health/send"
 
@@ -6134,15 +5993,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SendCisSessionTelemetry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec send_cis_session_telemetry(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_cis_session_telemetry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_cis_session_telemetry_errors()}
-
   def send_cis_session_telemetry(%Client{} = client, options \\ []) do
     url_path = "/cissession/telemetry/send"
 
@@ -6182,15 +6038,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20StartCisSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_cis_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_cis_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_cis_session_errors()}
-
   def start_cis_session(%Client{} = client, options \\ []) do
     url_path = "/cissession/start"
 
@@ -6230,15 +6083,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20StopCisSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_cis_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_cis_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_cis_session_errors()}
-
   def stop_cis_session(%Client{} = client, options \\ []) do
     url_path = "/cissession/stop"
 
@@ -6275,17 +6125,14 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  apply a tag to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to apply a tag to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -6322,19 +6169,16 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-  to remove tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.inspector2#TagKey]`) The tag keys to remove
-  from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  resource to remove tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.inspector2#TagKey]` required) The tag keys
+  to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6382,15 +6226,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateCisScanConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_cis_scan_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_cis_scan_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cis_scan_configuration_errors()}
-
   def update_cis_scan_configuration(%Client{} = client, options \\ []) do
     url_path = "/cis/scan-configuration/update"
 
@@ -6430,15 +6271,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_errors()}
-
   def update_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/update"
 
@@ -6476,15 +6314,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_ec2_deep_inspection_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_ec2_deep_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ec2_deep_inspection_configuration_errors()}
-
   def update_ec2_deep_inspection_configuration(%Client{} = client, options \\ []) do
     url_path = "/ec2deepinspectionconfiguration/update"
 
@@ -6522,15 +6357,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateEncryptionKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_encryption_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_encryption_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_encryption_key_errors()}
-
   def update_encryption_key(%Client{} = client, options \\ []) do
     url_path = "/encryptionkey/update"
 
@@ -6568,15 +6400,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_filter_errors()}
-
   def update_filter(%Client{} = client, options \\ []) do
     url_path = "/filters/update"
 
@@ -6614,15 +6443,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateOrgEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_org_ec2_deep_inspection_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_org_ec2_deep_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_org_ec2_deep_inspection_configuration_errors()}
-
   def update_org_ec2_deep_inspection_configuration(%Client{} = client, options \\ []) do
     url_path = "/ec2deepinspectionconfiguration/org/update"
 
@@ -6659,15 +6485,12 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_organization_configuration_errors()}
-
   def update_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/organizationconfiguration/update"
 

@@ -2356,6 +2356,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Creates an activity. An activity is a task that you write in any programming
   language and host on any machine that has access to Step Functions. Activities
   must poll Step Functions using the `GetActivityTask` API action and respond
@@ -2375,12 +2376,10 @@ defmodule AWS.SFN do
       required("name") => String.t()
     }
   """
-
   @spec create_activity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_activity_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_activity_errors()}
-
   def create_activity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2389,6 +2388,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Creates a state machine. A state machine consists of a collection of states that
   can do work (`Task` states), determine to which states to transition next
   (`Choice` states), stop an execution with an error (`Fail` states), and so on.
@@ -2416,12 +2416,10 @@ defmodule AWS.SFN do
       required("roleArn") => String.t()
     }
   """
-
   @spec create_state_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_state_machine_errors()}
-
   def create_state_machine(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2430,6 +2428,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Creates an
   [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html)
   for a state machine that points to one or two
@@ -2454,12 +2453,10 @@ defmodule AWS.SFN do
       required("routingConfiguration") => list(routing_configuration_list_item()())
     }
   """
-
   @spec create_state_machine_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_state_machine_alias_errors()}
-
   def create_state_machine_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2468,6 +2465,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Deletes an activity.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DeleteActivity&this_doc_guide=API%2520Reference)
@@ -2478,12 +2476,10 @@ defmodule AWS.SFN do
       required("activityArn") => String.t()
     }
   """
-
   @spec delete_activity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_activity_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_activity_errors()}
-
   def delete_activity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2492,6 +2488,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Deletes a state machine. This is an asynchronous operation. It sets the state
   machine's status to `DELETING` and begins the deletion process. A state
   machine is deleted only when all its executions are completed. On the next
@@ -2507,12 +2504,10 @@ defmodule AWS.SFN do
       required("stateMachineArn") => String.t()
     }
   """
-
   @spec delete_state_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_state_machine_errors()}
-
   def delete_state_machine(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2521,6 +2516,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Deletes a state machine
   [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html).
   After you delete a state machine alias, you can't use it to start executions.
@@ -2535,12 +2531,10 @@ defmodule AWS.SFN do
       required("stateMachineAliasArn") => String.t()
     }
   """
-
   @spec delete_state_machine_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_state_machine_alias_errors()}
-
   def delete_state_machine_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2549,6 +2543,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Deletes a state machine
   [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html).
   After you delete a version, you can't call `StartExecution` using that
@@ -2564,12 +2559,10 @@ defmodule AWS.SFN do
       required("stateMachineVersionArn") => String.t()
     }
   """
-
   @spec delete_state_machine_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_state_machine_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_state_machine_version_errors()}
-
   def delete_state_machine_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2578,6 +2571,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Describes an activity.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DescribeActivity&this_doc_guide=API%2520Reference)
@@ -2588,12 +2582,10 @@ defmodule AWS.SFN do
       required("activityArn") => String.t()
     }
   """
-
   @spec describe_activity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_activity_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_activity_errors()}
-
   def describe_activity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2602,6 +2594,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Provides information about a state machine execution, such as the state machine
   associated with the execution, the execution input and output, and relevant
   execution metadata. If you've
@@ -2621,12 +2614,10 @@ defmodule AWS.SFN do
       required("executionArn") => String.t()
     }
   """
-
   @spec describe_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_execution_errors()}
-
   def describe_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2635,6 +2626,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Provides information about a Map Run's configuration, progress, and results. If
   you've
   [redriven](https://docs.aws.amazon.com/step-functions/latest/dg/redrive-map-run.html)
@@ -2651,12 +2643,10 @@ defmodule AWS.SFN do
       required("mapRunArn") => String.t()
     }
   """
-
   @spec describe_map_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_map_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_map_run_errors()}
-
   def describe_map_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2665,6 +2655,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Provides information about a state machine's definition, its IAM role Amazon
   Resource Name (ARN), and configuration. A qualified state machine ARN can
   either refer to a *Distributed Map state* defined within a state machine, a
@@ -2679,12 +2670,10 @@ defmodule AWS.SFN do
       required("stateMachineArn") => String.t()
     }
   """
-
   @spec describe_state_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_state_machine_errors()}
-
   def describe_state_machine(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2693,6 +2682,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Returns details about a state machine
   [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html).
   **Related operations:**
@@ -2705,12 +2695,10 @@ defmodule AWS.SFN do
       required("stateMachineAliasArn") => String.t()
     }
   """
-
   @spec describe_state_machine_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_state_machine_alias_errors()}
-
   def describe_state_machine_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2719,6 +2707,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Provides information about a state machine's definition, its execution role ARN,
   and configuration. If a Map Run dispatched the execution, this action returns
   the Map Run Amazon Resource Name (ARN) in the response. The state machine
@@ -2735,12 +2724,10 @@ defmodule AWS.SFN do
       required("executionArn") => String.t()
     }
   """
-
   @spec describe_state_machine_for_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_state_machine_for_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_state_machine_for_execution_errors()}
-
   def describe_state_machine_for_execution(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2750,6 +2737,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Used by workers to retrieve a task (with the specified activity ARN) which has
   been scheduled for execution by a running state machine. This initiates a long
   poll, where the service holds the HTTP connection open and responds as soon as
@@ -2767,12 +2755,10 @@ defmodule AWS.SFN do
       required("activityArn") => String.t()
     }
   """
-
   @spec get_activity_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_activity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_activity_task_errors()}
-
   def get_activity_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2781,6 +2767,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Returns the history of the specified execution as a list of events. By default,
   the results are returned in ascending order of the `timeStamp` of the events.
   Use the `reverseOrder` parameter to get the latest events first. If
@@ -2802,12 +2789,10 @@ defmodule AWS.SFN do
       required("executionArn") => String.t()
     }
   """
-
   @spec get_execution_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_execution_history_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_execution_history_errors()}
-
   def get_execution_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2816,6 +2801,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Lists the existing activities. If `nextToken` is returned, there are more
   results available. The value of `nextToken` is a unique pagination token for
   each page. Make the call again using the returned token to retrieve the next
@@ -2832,12 +2818,10 @@ defmodule AWS.SFN do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_activities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_activities_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_activities_errors()}
-
   def list_activities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2846,6 +2830,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Lists all executions of a state machine or a Map Run. You can list all
   executions related to a state machine by specifying a state machine Amazon
   Resource Name (ARN), or those related to a Map Run by specifying a Map Run
@@ -2871,12 +2856,10 @@ defmodule AWS.SFN do
       optional("statusFilter") => list(any())
     }
   """
-
   @spec list_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_executions_errors()}
-
   def list_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2885,6 +2868,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Lists all Map Runs that were started by a given state machine execution. Use
   this API action to obtain Map Run ARNs, and then call `DescribeMapRun` to
   obtain more information, if needed.
@@ -2899,12 +2883,10 @@ defmodule AWS.SFN do
       required("executionArn") => String.t()
     }
   """
-
   @spec list_map_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_map_runs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_map_runs_errors()}
-
   def list_map_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2913,6 +2895,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Lists
   [aliases](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html)
   for a specified state machine ARN. Results are sorted by time, with the most
@@ -2936,12 +2919,10 @@ defmodule AWS.SFN do
       required("stateMachineArn") => String.t()
     }
   """
-
   @spec list_state_machine_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_state_machine_aliases_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_state_machine_aliases_errors()}
-
   def list_state_machine_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2950,6 +2931,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Lists
   [versions](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html)
   for the specified state machine Amazon Resource Name (ARN). The results are
@@ -2965,12 +2947,10 @@ defmodule AWS.SFN do
       required("stateMachineArn") => String.t()
     }
   """
-
   @spec list_state_machine_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_state_machine_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_state_machine_versions_errors()}
-
   def list_state_machine_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2979,6 +2959,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Lists the existing state machines. If `nextToken` is returned, there are more
   results available. The value of `nextToken` is a unique pagination token for
   each page. Make the call again using the returned token to retrieve the next
@@ -2995,12 +2976,10 @@ defmodule AWS.SFN do
       optional("nextToken") => String.t()
     }
   """
-
   @spec list_state_machines(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_state_machines_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_state_machines_errors()}
-
   def list_state_machines(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3009,6 +2988,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   List tags for a given resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -3019,12 +2999,10 @@ defmodule AWS.SFN do
       required("resourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3033,6 +3011,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Creates a
   [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html)
   from the current revision of a state machine. Use versions to create immutable
@@ -3051,12 +3030,10 @@ defmodule AWS.SFN do
       required("stateMachineArn") => String.t()
     }
   """
-
   @spec publish_state_machine_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, publish_state_machine_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_state_machine_version_errors()}
-
   def publish_state_machine_version(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3066,6 +3043,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Restarts unsuccessful executions of Standard workflows that didn't complete
   successfully in the last 14 days. These include failed, aborted, or timed out
   executions. When you
@@ -3105,12 +3083,10 @@ defmodule AWS.SFN do
       required("executionArn") => String.t()
     }
   """
-
   @spec redrive_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, redrive_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, redrive_execution_errors()}
-
   def redrive_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3119,6 +3095,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Used by activity workers, Task states using the
   [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
   pattern, and optionally Task states using the [job
@@ -3137,12 +3114,10 @@ defmodule AWS.SFN do
       required("taskToken") => String.t()
     }
   """
-
   @spec send_task_failure(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_task_failure_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_task_failure_errors()}
-
   def send_task_failure(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3151,6 +3126,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Used by activity workers and Task states using the
   [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
   pattern, and optionally Task states using the [job
@@ -3175,12 +3151,10 @@ defmodule AWS.SFN do
       required("taskToken") => String.t()
     }
   """
-
   @spec send_task_heartbeat(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_task_heartbeat_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_task_heartbeat_errors()}
-
   def send_task_heartbeat(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3189,6 +3163,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Used by activity workers, Task states using the
   [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
   pattern, and optionally Task states using the [job
@@ -3205,12 +3180,10 @@ defmodule AWS.SFN do
       required("taskToken") => String.t()
     }
   """
-
   @spec send_task_success(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_task_success_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_task_success_errors()}
-
   def send_task_success(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3219,6 +3192,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Starts a state machine execution. A qualified state machine ARN can either refer
   to a *Distributed Map state* defined within a state machine, a version ARN, or
   an alias ARN.
@@ -3234,12 +3208,10 @@ defmodule AWS.SFN do
       required("stateMachineArn") => String.t()
     }
   """
-
   @spec start_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_execution_errors()}
-
   def start_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3248,6 +3220,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Starts a Synchronous Express state machine execution. `StartSyncExecution` is
   not available for `STANDARD` workflows. `StartSyncExecution` will return a
   `200 OK` response, even if your execution fails, because the status code in
@@ -3267,12 +3240,10 @@ defmodule AWS.SFN do
       required("stateMachineArn") => String.t()
     }
   """
-
   @spec start_sync_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_sync_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_sync_execution_errors()}
-
   def start_sync_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "sync-")
@@ -3281,6 +3252,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Stops an execution. This API action is not supported by `EXPRESS` state
   machines.
 
@@ -3294,12 +3266,10 @@ defmodule AWS.SFN do
       required("executionArn") => String.t()
     }
   """
-
   @spec stop_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_execution_errors()}
-
   def stop_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3308,6 +3278,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Add a tag to a Step Functions resource. An array of key-value pairs. For more
   information, see [Using Cost Allocation
   Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
@@ -3324,12 +3295,10 @@ defmodule AWS.SFN do
       required("tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3338,6 +3307,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Accepts the definition of a single state and executes it. You can test a state
   without creating a state machine or updating an existing state machine. Using
   this API, you can test the following:
@@ -3354,12 +3324,10 @@ defmodule AWS.SFN do
       required("roleArn") => String.t()
     }
   """
-
   @spec test_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_state_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_state_errors()}
-
   def test_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "sync-")
@@ -3368,6 +3336,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Remove a tag from a Step Functions resource
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20UntagResource&this_doc_guide=API%2520Reference)
@@ -3379,12 +3348,10 @@ defmodule AWS.SFN do
       required("tagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3393,6 +3360,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Updates an in-progress Map Run's configuration to include changes to the
   settings that control maximum concurrency and Map Run failure.
 
@@ -3407,12 +3375,10 @@ defmodule AWS.SFN do
       required("mapRunArn") => String.t()
     }
   """
-
   @spec update_map_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_map_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_map_run_errors()}
-
   def update_map_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3421,6 +3387,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Updates an existing state machine by modifying its `definition`, `roleArn`,
   `loggingConfiguration`, or `EncryptionConfiguration`. Running executions will
   continue to use the previous `definition` and `roleArn`. You must include at
@@ -3447,12 +3414,10 @@ defmodule AWS.SFN do
       required("stateMachineArn") => String.t()
     }
   """
-
   @spec update_state_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_state_machine_errors()}
-
   def update_state_machine(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3461,6 +3426,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Updates the configuration of an existing state machine
   [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html)
   by modifying its `description` or `routingConfiguration`. You must specify at
@@ -3477,12 +3443,10 @@ defmodule AWS.SFN do
       required("stateMachineAliasArn") => String.t()
     }
   """
-
   @spec update_state_machine_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_state_machine_alias_errors()}
-
   def update_state_machine_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3491,6 +3455,7 @@ defmodule AWS.SFN do
   end
 
   @doc """
+   
   Validates the syntax of a state machine definition. You can validate that a
   state machine definition is correct without creating a state machine resource.
   Step Functions will implicitly perform the same syntax check when you invoke
@@ -3509,12 +3474,10 @@ defmodule AWS.SFN do
       required("definition") => String.t()
     }
   """
-
   @spec validate_state_machine_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, validate_state_machine_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_state_machine_definition_errors()}
-
   def validate_state_machine_definition(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

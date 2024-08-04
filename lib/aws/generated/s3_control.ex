@@ -3709,16 +3709,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20AssociateAccessGrantsIdentityCenter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec associate_access_grants_identity_center(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def associate_access_grants_identity_center(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/identitycenter"
@@ -3764,16 +3761,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20CreateAccessGrant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec create_access_grant(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_grant_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_access_grant(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/grant"
@@ -3813,16 +3807,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20CreateAccessGrantsInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec create_access_grants_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_grants_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_access_grants_instance(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance"
@@ -3862,16 +3853,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20CreateAccessGrantsLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec create_access_grants_location(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_grants_location_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_access_grants_location(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/location"
@@ -3913,17 +3901,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20CreateAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name you want to assign to this access point.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the account
-  that owns the specified access point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name you want to assign to this access
+  point.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  account that owns the specified access point.
+  ## Keyword parameters:
   """
-
   @spec create_access_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_access_point(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}"
@@ -3966,18 +3952,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20CreateAccessPointForObjectLambda&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name you want to assign to this Object Lambda Access
-  Point.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for owner of the
-  specified Object Lambda Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name you want to assign to this Object
+  Lambda Access Point.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for
+  owner of the specified Object Lambda Access Point.
+  ## Keyword parameters:
   """
-
   @spec create_access_point_for_object_lambda(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_point_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_access_point_for_object_lambda(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}"
@@ -4025,12 +4008,11 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20CreateBucket&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket.
+  * `:bucket` (`t:string` required) The name of the bucket.
   * `:input` (`t:map | nil`):
     * `:create_bucket_configuration` (`t:structure`) The configuration information
   for the bucket.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:acl` (`t:enum["authenticated_read|private|public_read|public_read_write"]`)
   The canned ACL to apply to the bucket.
   * `:grant_full_control` (`t:string`) Allows grantee the read, write, read ACP,
@@ -4046,12 +4028,10 @@ defmodule AWS.S3Control do
   * `:outpost_id` (`t:string`) The ID of the Outposts where the bucket is being
   created.
   """
-
   @spec create_bucket(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bucket_errors()}
-
   def create_bucket(%Client{} = client, bucket, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}"
@@ -4185,17 +4165,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20CreateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID that creates the
-  job.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID that
+  creates the job.
+  ## Keyword parameters:
   """
-
   @spec create_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
-
   def create_job(%Client{} = client, account_id, options \\ []) when is_binary(account_id) do
     url_path = "/v20180820/jobs"
 
@@ -4242,17 +4219,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20CreateMultiRegionAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-  the Multi-Region Access Point. The owner of the Multi-Region Access Point
-  also must own the underlying buckets.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  owner of the Multi-Region Access Point. The owner of the Multi-Region Access
+  Point also must own the underlying buckets.
+  ## Keyword parameters:
   """
-
   @spec create_multi_region_access_point(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_multi_region_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_multi_region_access_point(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/async-requests/mrap/create"
@@ -4303,16 +4277,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20CreateStorageLensGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID that the Storage
-  Lens group is created from and associated with.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID that
+  the Storage Lens group is created from and associated with.
+  ## Keyword parameters:
   """
-
   @spec create_storage_lens_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def create_storage_lens_group(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/storagelensgroup"
@@ -4352,18 +4323,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteAccessGrant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_grant_id` (`t:string`) The ID of the access grant. S3 Access Grants
-  auto-generates this ID when you create the access grant.
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:access_grant_id` (`t:string` required) The ID of the access grant. S3 Access
+  Grants auto-generates this ID when you create the access grant.
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec delete_access_grant(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_access_grant(%Client{} = client, access_grant_id, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/grant/#{AWS.Util.encode_uri(access_grant_id)}"
@@ -4423,16 +4391,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteAccessGrantsInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec delete_access_grants_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_access_grants_instance(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance"
@@ -4483,16 +4448,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteAccessGrantsInstanceResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec delete_access_grants_instance_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_access_grants_instance_resource_policy(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/resourcepolicy"
@@ -4546,21 +4508,18 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteAccessGrantsLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_grants_location_id` (`t:string`) The ID of the registered location
-  that you are deregistering from your S3 Access Grants instance. S3 Access
-  Grants assigned this ID when you registered the location. S3 Access Grants
-  assigns the ID default to the default location s3:// and assigns an
+  * `:access_grants_location_id` (`t:string` required) The ID of the registered
+  location that you are deregistering from your S3 Access Grants instance. S3
+  Access Grants assigned this ID when you registered the location. S3 Access
+  Grants assigns the ID default to the default location s3:// and assigns an
   auto-generated ID to other locations that you register.
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec delete_access_grants_location(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_access_grants_location(
         %Client{} = client,
         access_grants_location_id,
@@ -4615,17 +4574,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the access point you want to delete.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the account
-  that owns the specified access point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the access point you want to delete.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  account that owns the specified access point.
+  ## Keyword parameters:
   """
-
   @spec delete_access_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_access_point(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}"
@@ -4674,17 +4630,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteAccessPointForObjectLambda&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the access point you want to delete.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified Object Lambda Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the access point you want to delete.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified Object Lambda Access Point.
+  ## Keyword parameters:
   """
-
   @spec delete_access_point_for_object_lambda(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_access_point_for_object_lambda(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}"
@@ -4733,18 +4686,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteAccessPointPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the access point whose policy you want to
-  delete.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified access point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the access point whose policy you
+  want to delete.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified access point.
+  ## Keyword parameters:
   """
-
   @spec delete_access_point_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_access_point_policy(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policy"
@@ -4793,14 +4743,12 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteAccessPointPolicyForObjectLambda&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Object Lambda Access Point you want to
-  delete the policy for.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified Object Lambda Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Object Lambda Access Point you
+  want to delete the policy for.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified Object Lambda Access Point.
+  ## Keyword parameters:
   """
-
   @spec delete_access_point_policy_for_object_lambda(
           AWS.Client.t(),
           String.t(),
@@ -4809,7 +4757,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_access_point_policy_for_object_lambda(
         %Client{} = client,
         name,
@@ -4877,16 +4824,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteBucket&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket being deleted.
-  * `:account_id` (`t:string`) The account ID that owns the Outposts bucket.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) Specifies the bucket being deleted.
+  * `:account_id` (`t:string` required) The account ID that owns the Outposts
+  bucket.
+  ## Keyword parameters:
   """
-
   @spec delete_bucket(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}"
@@ -4947,17 +4892,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteBucketLifecycleConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket.
-  * `:account_id` (`t:string`) The account ID of the lifecycle configuration to
-  delete.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) Specifies the bucket.
+  * `:account_id` (`t:string` required) The account ID of the lifecycle
+  configuration to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_bucket_lifecycle_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_lifecycle_configuration(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/lifecycleconfiguration"
@@ -5019,16 +4961,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteBucketPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket.
-  * `:account_id` (`t:string`) The account ID of the Outposts bucket.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) Specifies the bucket.
+  * `:account_id` (`t:string` required) The account ID of the Outposts bucket.
+  ## Keyword parameters:
   """
-
   @spec delete_bucket_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_policy(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/policy"
@@ -5092,18 +5031,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteBucketReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the S3 on Outposts bucket to delete the
-  replication configuration for.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket to delete the replication configuration for.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) Specifies the S3 on Outposts bucket to delete
+  the replication configuration for.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket to delete the replication configuration for.
+  ## Keyword parameters:
   """
-
   @spec delete_bucket_replication(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_replication(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/replication"
@@ -5159,17 +5095,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteBucketTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The bucket ARN that has the tag set to be removed.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket tag set to be removed.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) The bucket ARN that has the tag set to be
+  removed.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket tag set to be removed.
+  ## Keyword parameters:
   """
-
   @spec delete_bucket_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_bucket_tagging(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/tagging"
@@ -5218,19 +5152,16 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteJobTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID for the S3 Batch Operations job whose tags you
-  want to delete.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-  the S3 Batch Operations job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID for the S3 Batch Operations job whose
+  tags you want to delete.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID
+  associated with the S3 Batch Operations job.
+  ## Keyword parameters:
   """
-
   @spec delete_job_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_tagging_errors()}
-
   def delete_job_tagging(%Client{} = client, job_id, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
@@ -5280,16 +5211,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteMultiRegionAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-  the Multi-Region Access Point.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  owner of the Multi-Region Access Point.
+  ## Keyword parameters:
   """
-
   @spec delete_multi_region_access_point(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_multi_region_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_multi_region_access_point(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/async-requests/mrap/delete"
@@ -5331,16 +5259,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeletePublicAccessBlock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The account ID for the Amazon Web Services account
-  whose PublicAccessBlock configuration you want to remove.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The account ID for the Amazon Web Services
+  account whose PublicAccessBlock configuration you want to remove.
+  ## Keyword parameters:
   """
-
   @spec delete_public_access_block(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_public_access_block(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/configuration/publicAccessBlock"
@@ -5388,16 +5313,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteStorageLensConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:config_id` (`t:string`) The ID of the S3 Storage Lens configuration.
-  * `:account_id` (`t:string`) The account ID of the requester.
-
-  ## Optional parameters:
+  * `:config_id` (`t:string` required) The ID of the S3 Storage Lens
+  configuration.
+  * `:account_id` (`t:string` required) The account ID of the requester.
+  ## Keyword parameters:
   """
-
   @spec delete_storage_lens_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}"
@@ -5445,12 +5368,11 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteStorageLensConfigurationTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:config_id` (`t:string`) The ID of the S3 Storage Lens configuration.
-  * `:account_id` (`t:string`) The account ID of the requester.
-
-  ## Optional parameters:
+  * `:config_id` (`t:string` required) The ID of the S3 Storage Lens
+  configuration.
+  * `:account_id` (`t:string` required) The account ID of the requester.
+  ## Keyword parameters:
   """
-
   @spec delete_storage_lens_configuration_tagging(
           AWS.Client.t(),
           String.t(),
@@ -5459,7 +5381,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, delete_storage_lens_configuration_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_storage_lens_configuration_tagging(
         %Client{} = client,
         config_id,
@@ -5512,18 +5433,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DeleteStorageLensGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Storage Lens group that you're trying to
-  delete.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID used to create
-  the Storage Lens group that you're trying to delete.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Storage Lens group that you're
+  trying to delete.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID used to
+  create the Storage Lens group that you're trying to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_storage_lens_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def delete_storage_lens_group(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/storagelensgroup/#{AWS.Util.encode_uri(name)}"
@@ -5574,19 +5492,16 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DescribeJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID for the job whose information you want to
-  retrieve.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-  the S3 Batch Operations job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID for the job whose information you want
+  to retrieve.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID
+  associated with the S3 Batch Operations job.
+  ## Keyword parameters:
   """
-
   @spec describe_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_errors()}
-
   def describe_job(%Client{} = client, job_id, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -5628,16 +5543,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DescribeMultiRegionAccessPointOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:request_token_arn` (`t:string`) The request token associated with the
-  request you want to know about. This request token is returned as part of
-  the response when you make an asynchronous request. You provide this token
-  to query about the status of the asynchronous action.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-  the Multi-Region Access Point.
-
-  ## Optional parameters:
+  * `:request_token_arn` (`t:string` required) The request token associated with
+  the request you want to know about. This request token is returned as part
+  of the response when you make an asynchronous request. You provide this
+  token to query about the status of the asynchronous action.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  owner of the Multi-Region Access Point.
+  ## Keyword parameters:
   """
-
   @spec describe_multi_region_access_point_operation(
           AWS.Client.t(),
           String.t(),
@@ -5646,7 +5559,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, describe_multi_region_access_point_operation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_multi_region_access_point_operation(
         %Client{} = client,
         request_token_arn,
@@ -5689,16 +5601,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20DissociateAccessGrantsIdentityCenter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec dissociate_access_grants_identity_center(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def dissociate_access_grants_identity_center(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/identitycenter"
@@ -5747,18 +5656,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessGrant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_grant_id` (`t:string`) The ID of the access grant. S3 Access Grants
-  auto-generates this ID when you create the access grant.
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:access_grant_id` (`t:string` required) The ID of the access grant. S3 Access
+  Grants auto-generates this ID when you create the access grant.
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec get_access_grant(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grant_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_grant(%Client{} = client, access_grant_id, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/grant/#{AWS.Util.encode_uri(access_grant_id)}"
@@ -5795,16 +5701,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessGrantsInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec get_access_grants_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_grants_instance(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance"
@@ -5841,18 +5744,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessGrantsInstanceForPrefix&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:s3_prefix` (`t:string`) The S3 prefix of the access grants that you would
-  like to retrieve.
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:s3_prefix` (`t:string` required) The S3 prefix of the access grants that you
+  would like to retrieve.
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec get_access_grants_instance_for_prefix(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_instance_for_prefix_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_grants_instance_for_prefix(
         %Client{} = client,
         s3_prefix,
@@ -5893,16 +5793,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessGrantsInstanceResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec get_access_grants_instance_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_instance_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_grants_instance_resource_policy(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/resourcepolicy"
@@ -5939,21 +5836,18 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessGrantsLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_grants_location_id` (`t:string`) The ID of the registered location
-  that you are retrieving. S3 Access Grants assigns this ID when you register
-  the location. S3 Access Grants assigns the ID default to the default
-  location s3:// and assigns an auto-generated ID to other locations that you
-  register.
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:access_grants_location_id` (`t:string` required) The ID of the registered
+  location that you are retrieving. S3 Access Grants assigns this ID when you
+  register the location. S3 Access Grants assigns the ID default to the
+  default location s3:// and assigns an auto-generated ID to other locations
+  that you register.
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec get_access_grants_location(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_location_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_grants_location(
         %Client{} = client,
         access_grants_location_id,
@@ -5996,18 +5890,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the access point whose configuration
+  * `:name` (`t:string` required) The name of the access point whose configuration
   information you want to retrieve.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the account
-  that owns the specified access point.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  account that owns the specified access point.
+  ## Keyword parameters:
   """
-
   @spec get_access_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_point(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}"
@@ -6044,14 +5935,12 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessPointConfigurationForObjectLambda&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Object Lambda Access Point you want to
-  return the configuration for.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified Object Lambda Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Object Lambda Access Point you
+  want to return the configuration for.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified Object Lambda Access Point.
+  ## Keyword parameters:
   """
-
   @spec get_access_point_configuration_for_object_lambda(
           AWS.Client.t(),
           String.t(),
@@ -6060,7 +5949,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, get_access_point_configuration_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_point_configuration_for_object_lambda(
         %Client{} = client,
         name,
@@ -6102,17 +5990,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessPointForObjectLambda&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Object Lambda Access Point.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified Object Lambda Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Object Lambda Access Point.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified Object Lambda Access Point.
+  ## Keyword parameters:
   """
-
   @spec get_access_point_for_object_lambda(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_point_for_object_lambda(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}"
@@ -6149,18 +6034,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessPointPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the access point whose policy you want to
-  retrieve.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified access point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the access point whose policy you
+  want to retrieve.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified access point.
+  ## Keyword parameters:
   """
-
   @spec get_access_point_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_point_policy(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policy"
@@ -6197,13 +6079,11 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessPointPolicyForObjectLambda&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Object Lambda Access Point.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified Object Lambda Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Object Lambda Access Point.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified Object Lambda Access Point.
+  ## Keyword parameters:
   """
-
   @spec get_access_point_policy_for_object_lambda(
           AWS.Client.t(),
           String.t(),
@@ -6212,7 +6092,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, get_access_point_policy_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_point_policy_for_object_lambda(
         %Client{} = client,
         name,
@@ -6253,18 +6132,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessPointPolicyStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the access point whose policy status you want
-  to retrieve.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified access point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the access point whose policy status
+  you want to retrieve.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified access point.
+  ## Keyword parameters:
   """
-
   @spec get_access_point_policy_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_policy_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_point_policy_status(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policyStatus"
@@ -6300,13 +6176,11 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetAccessPointPolicyStatusForObjectLambda&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Object Lambda Access Point.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified Object Lambda Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Object Lambda Access Point.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified Object Lambda Access Point.
+  ## Keyword parameters:
   """
-
   @spec get_access_point_policy_status_for_object_lambda(
           AWS.Client.t(),
           String.t(),
@@ -6315,7 +6189,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, get_access_point_policy_status_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_access_point_policy_status_for_object_lambda(
         %Client{} = client,
         name,
@@ -6367,17 +6240,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetBucket&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) Specifies the bucket.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket.
+  ## Keyword parameters:
   """
-
   @spec get_bucket(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}"
@@ -6437,17 +6307,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetBucketLifecycleConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The Amazon Resource Name (ARN) of the bucket.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) The Amazon Resource Name (ARN) of the bucket.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket.
+  ## Keyword parameters:
   """
-
   @spec get_bucket_lifecycle_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_lifecycle_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_lifecycle_configuration(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/lifecycleconfiguration"
@@ -6492,17 +6359,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetBucketPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) Specifies the bucket.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket.
+  ## Keyword parameters:
   """
-
   @spec get_bucket_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_policy(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/policy"
@@ -6569,18 +6433,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetBucketReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket to get the replication information
-  for.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) Specifies the bucket to get the replication
+  information for.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket.
+  ## Keyword parameters:
   """
-
   @spec get_bucket_replication(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_replication_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_replication(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/replication"
@@ -6624,17 +6485,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetBucketTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) Specifies the bucket.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket.
+  ## Keyword parameters:
   """
-
   @spec get_bucket_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_tagging(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/tagging"
@@ -6678,18 +6536,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetBucketVersioning&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The S3 on Outposts bucket to return the versioning
-  state for.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the S3 on
-  Outposts bucket.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) The S3 on Outposts bucket to return the
+  versioning state for.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  S3 on Outposts bucket.
+  ## Keyword parameters:
   """
-
   @spec get_bucket_versioning(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_versioning_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_bucket_versioning(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/versioning"
@@ -6729,16 +6584,16 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetDataAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:permission` (`t:enum["READ|READWRITE|WRITE"]`) The type of permission
-  granted to your S3 data, which can be set to one of the following values:
-  * `:target` (`t:string`) The S3 URI path of the data to which you are requesting
-  temporary access credentials. If the requesting account has an access grant
-  for this data, S3 Access Grants vends temporary access credentials in the
-  response.
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:permission` (`t:enum["READ|READWRITE|WRITE"]` required) The type of
+  permission granted to your S3 data, which can be set to one of the following
+  values:
+  * `:target` (`t:string` required) The S3 URI path of the data to which you are
+  requesting temporary access credentials. If the requesting account has an
+  access grant for this data, S3 Access Grants vends temporary access
+  credentials in the response.
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   * `:duration_seconds` (`t:integer`) The session duration, in seconds, of the
   temporary access credential that S3 Access Grants vends to the grantee or
   client application. The default value is 1 hour, but the grantee can specify
@@ -6751,11 +6606,9 @@ defmodule AWS.S3Control do
   access is a path to an object. Do not pass this value if the target data is
   a bucket or a bucket and a prefix.
   """
-
   @spec get_data_access(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_data_access(%Client{} = client, permission, target, account_id, options \\ [])
       when is_binary(permission) and is_binary(target) and is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/dataaccess"
@@ -6816,19 +6669,16 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetJobTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID for the S3 Batch Operations job whose tags you
-  want to retrieve.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-  the S3 Batch Operations job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID for the S3 Batch Operations job whose
+  tags you want to retrieve.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID
+  associated with the S3 Batch Operations job.
+  ## Keyword parameters:
   """
-
   @spec get_job_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_tagging_errors()}
-
   def get_job_tagging(%Client{} = client, job_id, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
@@ -6865,22 +6715,19 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetMultiRegionAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Multi-Region Access Point whose
+  * `:name` (`t:string` required) The name of the Multi-Region Access Point whose
   configuration information you want to receive. The name of the Multi-Region
   Access Point is different from the alias. For more information about the
   distinction between the name and the alias of an Multi-Region Access Point,
   see Rules for naming Amazon S3 Multi-Region Access Points in the Amazon S3
   User Guide.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-  the Multi-Region Access Point.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  owner of the Multi-Region Access Point.
+  ## Keyword parameters:
   """
-
   @spec get_multi_region_access_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_multi_region_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_multi_region_access_point(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(name)}"
@@ -6917,21 +6764,18 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetMultiRegionAccessPointPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) Specifies the Multi-Region Access Point. The name of the
-  Multi-Region Access Point is different from the alias. For more information
-  about the distinction between the name and the alias of an Multi-Region
-  Access Point, see Rules for naming Amazon S3 Multi-Region Access Points in
-  the Amazon S3 User Guide.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-  the Multi-Region Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) Specifies the Multi-Region Access Point. The
+  name of the Multi-Region Access Point is different from the alias. For more
+  information about the distinction between the name and the alias of an
+  Multi-Region Access Point, see Rules for naming Amazon S3 Multi-Region
+  Access Points in the Amazon S3 User Guide.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  owner of the Multi-Region Access Point.
+  ## Keyword parameters:
   """
-
   @spec get_multi_region_access_point_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_multi_region_access_point_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_multi_region_access_point_policy(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(name)}/policy"
@@ -6969,17 +6813,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetMultiRegionAccessPointPolicyStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) Specifies the Multi-Region Access Point. The name of the
-  Multi-Region Access Point is different from the alias. For more information
-  about the distinction between the name and the alias of an Multi-Region
-  Access Point, see Rules for naming Amazon S3 Multi-Region Access Points in
-  the Amazon S3 User Guide.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-  the Multi-Region Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) Specifies the Multi-Region Access Point. The
+  name of the Multi-Region Access Point is different from the alias. For more
+  information about the distinction between the name and the alias of an
+  Multi-Region Access Point, see Rules for naming Amazon S3 Multi-Region
+  Access Points in the Amazon S3 User Guide.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  owner of the Multi-Region Access Point.
+  ## Keyword parameters:
   """
-
   @spec get_multi_region_access_point_policy_status(
           AWS.Client.t(),
           String.t(),
@@ -6988,7 +6830,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, get_multi_region_access_point_policy_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_multi_region_access_point_policy_status(
         %Client{} = client,
         name,
@@ -7031,17 +6872,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetMultiRegionAccessPointRoutes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mrap` (`t:string`) The Multi-Region Access Point ARN.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-  the Multi-Region Access Point.
-
-  ## Optional parameters:
+  * `:mrap` (`t:string` required) The Multi-Region Access Point ARN.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  owner of the Multi-Region Access Point.
+  ## Keyword parameters:
   """
-
   @spec get_multi_region_access_point_routes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_multi_region_access_point_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_multi_region_access_point_routes(%Client{} = client, mrap, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(mrap)}/routes"
@@ -7081,17 +6919,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetPublicAccessBlock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The account ID for the Amazon Web Services account
-  whose PublicAccessBlock configuration you want to retrieve.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The account ID for the Amazon Web Services
+  account whose PublicAccessBlock configuration you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_public_access_block(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_public_access_block_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_access_block_errors()}
-
   def get_public_access_block(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/configuration/publicAccessBlock"
@@ -7127,16 +6962,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetStorageLensConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:config_id` (`t:string`) The ID of the Amazon S3 Storage Lens configuration.
-  * `:account_id` (`t:string`) The account ID of the requester.
-
-  ## Optional parameters:
+  * `:config_id` (`t:string` required) The ID of the Amazon S3 Storage Lens
+  configuration.
+  * `:account_id` (`t:string` required) The account ID of the requester.
+  ## Keyword parameters:
   """
-
   @spec get_storage_lens_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_storage_lens_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}"
@@ -7172,12 +7005,11 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetStorageLensConfigurationTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:config_id` (`t:string`) The ID of the Amazon S3 Storage Lens configuration.
-  * `:account_id` (`t:string`) The account ID of the requester.
-
-  ## Optional parameters:
+  * `:config_id` (`t:string` required) The ID of the Amazon S3 Storage Lens
+  configuration.
+  * `:account_id` (`t:string` required) The account ID of the requester.
+  ## Keyword parameters:
   """
-
   @spec get_storage_lens_configuration_tagging(
           AWS.Client.t(),
           String.t(),
@@ -7186,7 +7018,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, get_storage_lens_configuration_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_storage_lens_configuration_tagging(
         %Client{} = client,
         config_id,
@@ -7227,18 +7058,16 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20GetStorageLensGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Storage Lens group that you're trying to
-  retrieve the configuration details for.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-  the Storage Lens group that you're trying to retrieve the details for.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Storage Lens group that you're
+  trying to retrieve the configuration details for.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID
+  associated with the Storage Lens group that you're trying to retrieve the
+  details for.
+  ## Keyword parameters:
   """
-
   @spec get_storage_lens_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_storage_lens_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_storage_lens_group(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/storagelensgroup/#{AWS.Util.encode_uri(name)}"
@@ -7275,10 +7104,9 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListAccessGrants&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   * `:application_arn` (`t:string`) The Amazon Resource Name (ARN) of an Amazon
   Web Services IAM Identity Center application associated with your Identity
   Center instance. If the grant includes an application ARN, the grantee can
@@ -7304,11 +7132,9 @@ defmodule AWS.S3Control do
   * `:permission` (`t:enum["READ|READWRITE|WRITE"]`) The type of permission
   granted to your S3 data, which can be set to one of the following values:
   """
-
   @spec list_access_grants(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_grants_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_access_grants(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/grants"
@@ -7415,10 +7241,9 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListAccessGrantsInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of access grants that you
   would like returned in the List Access Grants response. If the results
   include the pagination token NextToken, make another call using the
@@ -7427,11 +7252,9 @@ defmodule AWS.S3Control do
   results. Pass this value into a subsequent List Access Grants Instances
   request in order to retrieve the next page of results.
   """
-
   @spec list_access_grants_instances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_grants_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_access_grants_instances(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstances"
@@ -7486,10 +7309,9 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListAccessGrantsLocations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   * `:location_scope` (`t:string`) The S3 path to the location that you are
   registering. The location scope can be the default S3 location s3://, the S3
   path to a bucket s3://, or the S3 path to a bucket and prefix s3:///. A
@@ -7505,11 +7327,9 @@ defmodule AWS.S3Control do
   results. Pass this value into a subsequent List Access Grants Locations
   request in order to retrieve the next page of results.
   """
-
   @spec list_access_grants_locations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_grants_locations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_access_grants_locations(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/locations"
@@ -7575,10 +7395,9 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListAccessPoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the account
-  that owns the specified access points.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  account that owns the specified access points.
+  ## Keyword parameters:
   * `:bucket` (`t:string`) The name of the bucket whose associated access points
   you want to list.
   * `:max_results` (`t:integer`) The maximum number of access points that you want
@@ -7590,11 +7409,9 @@ defmodule AWS.S3Control do
   providing that value here causes Amazon S3 to retrieve the next page of
   results.
   """
-
   @spec list_access_points(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_points_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_access_points(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspoint"
@@ -7659,10 +7476,9 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListAccessPointsForObjectLambda&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified Object Lambda Access Point.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified Object Lambda Access Point.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of access points that you want
   to include in the list. The response may contain fewer access points but
   will never contain more. If there are more than this number of access
@@ -7673,11 +7489,9 @@ defmodule AWS.S3Control do
   that you can provide in subsequent calls to this API to retrieve additional
   access points.
   """
-
   @spec list_access_points_for_object_lambda(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_points_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_access_points_for_object_lambda(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda"
@@ -7735,10 +7549,9 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-  the S3 Batch Operations job.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID
+  associated with the S3 Batch Operations job.
+  ## Keyword parameters:
   * `:job_statuses` (`t:list[com.amazonaws.s3control#JobStatus]`) The List Jobs
   request returns jobs that match the statuses listed in this element.
   * `:max_results` (`t:integer`) The maximum number of jobs that Amazon S3 will
@@ -7749,12 +7562,10 @@ defmodule AWS.S3Control do
   results. Use the token that Amazon S3 returned in the NextToken element of
   the ListJobsResult from the previous List Jobs request.
   """
-
   @spec list_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-
   def list_jobs(%Client{} = client, account_id, options \\ []) when is_binary(account_id) do
     url_path = "/v20180820/jobs"
 
@@ -7818,18 +7629,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListMultiRegionAccessPoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-  the Multi-Region Access Point.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  owner of the Multi-Region Access Point.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Not currently used. Do not use this parameter.
   * `:next_token` (`t:string`) Not currently used. Do not use this parameter.
   """
-
   @spec list_multi_region_access_points(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multi_region_access_points_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_multi_region_access_points(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances"
@@ -7883,19 +7691,16 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListRegionalBuckets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:outpost_id` (`t:string`) The ID of the Outposts resource.
   """
-
   @spec list_regional_buckets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_regional_buckets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_regional_buckets(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket"
@@ -7955,17 +7760,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListStorageLensConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The account ID of the requester.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The account ID of the requester.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) A pagination token to request the next page of
   results.
   """
-
   @spec list_storage_lens_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_lens_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_storage_lens_configurations(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/storagelens"
@@ -8012,18 +7814,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListStorageLensGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID that owns the
-  Storage Lens groups.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID that
+  owns the Storage Lens groups.
+  ## Keyword parameters:
   * `:next_token` (`t:string`) The token for the next set of results, or null if
   there are no more results.
   """
-
   @spec list_storage_lens_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_lens_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_storage_lens_groups(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/storagelensgroup"
@@ -8073,19 +7872,17 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 resource
-  that you want to list the tags for. The tagged resource can be an S3 Storage
-  Lens group or S3 Access Grants instance, registered location, or grant.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the resource
-  owner.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the S3
+  resource that you want to list the tags for. The tagged resource can be an
+  S3 Storage Lens group or S3 Access Grants instance, registered location, or
+  grant.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  resource owner.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
@@ -8121,16 +7918,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutAccessGrantsInstanceResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec put_access_grants_instance_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_access_grants_instance_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_access_grants_instance_resource_policy(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/resourcepolicy"
@@ -8169,13 +7963,11 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutAccessPointConfigurationForObjectLambda&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Object Lambda Access Point.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified Object Lambda Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Object Lambda Access Point.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified Object Lambda Access Point.
+  ## Keyword parameters:
   """
-
   @spec put_access_point_configuration_for_object_lambda(
           AWS.Client.t(),
           String.t(),
@@ -8184,7 +7976,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_access_point_configuration_for_object_lambda(
         %Client{} = client,
         name,
@@ -8230,18 +8021,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutAccessPointPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the access point that you want to associate
-  with the specified policy.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for owner of the
-  bucket associated with the specified access point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the access point that you want to
+  associate with the specified policy.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for
+  owner of the bucket associated with the specified access point.
+  ## Keyword parameters:
   """
-
   @spec put_access_point_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_access_point_policy(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policy"
@@ -8284,13 +8072,11 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutAccessPointPolicyForObjectLambda&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Object Lambda Access Point.
-  * `:account_id` (`t:string`) The account ID for the account that owns the
-  specified Object Lambda Access Point.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Object Lambda Access Point.
+  * `:account_id` (`t:string` required) The account ID for the account that owns
+  the specified Object Lambda Access Point.
+  ## Keyword parameters:
   """
-
   @spec put_access_point_policy_for_object_lambda(
           AWS.Client.t(),
           String.t(),
@@ -8299,7 +8085,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_access_point_policy_for_object_lambda(
         %Client{} = client,
         name,
@@ -8348,17 +8133,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutBucketLifecycleConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The name of the bucket for which to set the
+  * `:bucket` (`t:string` required) The name of the bucket for which to set the
   configuration.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket.
   * `:input` (`t:map | nil`):
     * `:lifecycle_configuration` (`t:structure`) Container for lifecycle rules. You
   can add as many as 1,000 rules.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_bucket_lifecycle_configuration(
           AWS.Client.t(),
           String.t(),
@@ -8368,7 +8151,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_lifecycle_configuration(
         %Client{} = client,
         bucket,
@@ -8422,20 +8204,17 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutBucketPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the bucket.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket.
-
-  ## Optional parameters:
+  * `:bucket` (`t:string` required) Specifies the bucket.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket.
+  ## Keyword parameters:
   * `:confirm_remove_self_bucket_access` (`t:boolean`) Set this parameter to true
   to confirm that you want to remove your permissions to change this bucket
   policy in the future.
   """
-
   @spec put_bucket_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_policy(%Client{} = client, bucket, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/policy"
@@ -8496,16 +8275,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutBucketReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) Specifies the S3 on Outposts bucket to set the
+  * `:bucket` (`t:string` required) Specifies the S3 on Outposts bucket to set the
   configuration for.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket.
   * `:input` (`t:map`):
-    * `:replication_configuration` (`t:structure`)
-
-  ## Optional parameters:
+    * `:replication_configuration` (`t:structure` required)
+  ## Keyword parameters:
   """
-
   @spec put_bucket_replication(
           AWS.Client.t(),
           String.t(),
@@ -8515,7 +8292,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_replication(%Client{} = client, bucket, account_id, input, options \\ [])
       when is_map(input) and is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/replication"
@@ -8571,19 +8347,16 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutBucketTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The Amazon Resource Name (ARN) of the bucket.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-  bucket.
+  * `:bucket` (`t:string` required) The Amazon Resource Name (ARN) of the bucket.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Outposts bucket.
   * `:input` (`t:map`):
-    * `:tagging` (`t:structure`)
-
-  ## Optional parameters:
+    * `:tagging` (`t:structure` required)
+  ## Keyword parameters:
   """
-
   @spec put_bucket_tagging(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_tagging(%Client{} = client, bucket, account_id, input, options \\ [])
       when is_map(input) and is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/tagging"
@@ -8634,24 +8407,21 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutBucketVersioning&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bucket` (`t:string`) The S3 on Outposts bucket to set the versioning state
-  for.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the S3 on
-  Outposts bucket.
+  * `:bucket` (`t:string` required) The S3 on Outposts bucket to set the
+  versioning state for.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  S3 on Outposts bucket.
   * `:input` (`t:map`):
-    * `:versioning_configuration` (`t:structure`) The root-level tag for the
-  VersioningConfiguration parameters.
-
-  ## Optional parameters:
+    * `:versioning_configuration` (`t:structure` required) The root-level tag for
+  the VersioningConfiguration parameters.
+  ## Keyword parameters:
   * `:mfa` (`t:string`) The concatenation of the authentication device's serial
   number, a space, and the value that is displayed on your authentication
   device.
   """
-
   @spec put_bucket_versioning(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_bucket_versioning(%Client{} = client, bucket, account_id, input, options \\ [])
       when is_map(input) and is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/versioning"
@@ -8726,19 +8496,16 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutJobTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID for the S3 Batch Operations job whose tags you
-  want to replace.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-  the S3 Batch Operations job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID for the S3 Batch Operations job whose
+  tags you want to replace.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID
+  associated with the S3 Batch Operations job.
+  ## Keyword parameters:
   """
-
   @spec put_job_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_job_tagging_errors()}
-
   def put_job_tagging(%Client{} = client, job_id, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
@@ -8780,16 +8547,13 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutMultiRegionAccessPointPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-  the Multi-Region Access Point.
-
-  ## Optional parameters:
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  owner of the Multi-Region Access Point.
+  ## Keyword parameters:
   """
-
   @spec put_multi_region_access_point_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_multi_region_access_point_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_multi_region_access_point_policy(%Client{} = client, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/async-requests/mrap/put-policy"
@@ -8832,20 +8596,17 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutPublicAccessBlock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:account_id` (`t:string`) The account ID for the Amazon Web Services account
-  whose PublicAccessBlock configuration you want to set.
+  * `:account_id` (`t:string` required) The account ID for the Amazon Web Services
+  account whose PublicAccessBlock configuration you want to set.
   * `:input` (`t:map`):
-    * `:public_access_block_configuration` (`t:structure`) The PublicAccessBlock
-  configuration that you want to apply to the specified Amazon Web Services
-  account.
-
-  ## Optional parameters:
+    * `:public_access_block_configuration` (`t:structure` required) The
+  PublicAccessBlock configuration that you want to apply to the specified
+  Amazon Web Services account.
+  ## Keyword parameters:
   """
-
   @spec put_public_access_block(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_public_access_block(%Client{} = client, account_id, input, options \\ [])
       when is_map(input) and is_binary(account_id) do
     url_path = "/v20180820/configuration/publicAccessBlock"
@@ -8883,16 +8644,14 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutStorageLensConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:config_id` (`t:string`) The ID of the S3 Storage Lens configuration.
-  * `:account_id` (`t:string`) The account ID of the requester.
-
-  ## Optional parameters:
+  * `:config_id` (`t:string` required) The ID of the S3 Storage Lens
+  configuration.
+  * `:account_id` (`t:string` required) The account ID of the requester.
+  ## Keyword parameters:
   """
-
   @spec put_storage_lens_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}"
@@ -8930,12 +8689,11 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20PutStorageLensConfigurationTagging&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:config_id` (`t:string`) The ID of the S3 Storage Lens configuration.
-  * `:account_id` (`t:string`) The account ID of the requester.
-
-  ## Optional parameters:
+  * `:config_id` (`t:string` required) The ID of the S3 Storage Lens
+  configuration.
+  * `:account_id` (`t:string` required) The account ID of the requester.
+  ## Keyword parameters:
   """
-
   @spec put_storage_lens_configuration_tagging(
           AWS.Client.t(),
           String.t(),
@@ -8944,7 +8702,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, put_storage_lens_configuration_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_storage_lens_configuration_tagging(
         %Client{} = client,
         config_id,
@@ -8993,13 +8750,11 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20SubmitMultiRegionAccessPointRoutes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:mrap` (`t:string`) The Multi-Region Access Point ARN.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-  the Multi-Region Access Point.
-
-  ## Optional parameters:
+  * `:mrap` (`t:string` required) The Multi-Region Access Point ARN.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID for the
+  owner of the Multi-Region Access Point.
+  ## Keyword parameters:
   """
-
   @spec submit_multi_region_access_point_routes(
           AWS.Client.t(),
           String.t(),
@@ -9008,7 +8763,6 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, submit_multi_region_access_point_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def submit_multi_region_access_point_routes(%Client{} = client, mrap, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(mrap)}/routes"
@@ -9065,19 +8819,18 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 resource
-  that you're trying to add tags to. The tagged resource can be an S3 Storage
-  Lens group or S3 Access Grants instance, registered location, or grant.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID that created the
-  S3 resource that you're trying to add tags to or the requester's account ID.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the S3
+  resource that you're trying to add tags to. The tagged resource can be an S3
+  Storage Lens group or S3 Access Grants instance, registered location, or
+  grant.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID that
+  created the S3 resource that you're trying to add tags to or the requester's
+  account ID.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def tag_resource(%Client{} = client, resource_arn, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
@@ -9123,20 +8876,18 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 resource
-  that you're trying to remove the tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.s3control#TagKeyString]`) The array of tag
-  key-value pairs that you're trying to remove from of the S3 resource.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID that owns the
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the S3
   resource that you're trying to remove the tags from.
-
-  ## Optional parameters:
+  * `:tag_keys` (`t:list[com.amazonaws.s3control#TagKeyString]` required) The
+  array of tag key-value pairs that you're trying to remove from of the S3
+  resource.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID that
+  owns the resource that you're trying to remove the tags from.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, account_id, options \\ [])
       when is_binary(tag_keys) and is_binary(account_id) do
     url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
@@ -9185,21 +8936,18 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20UpdateAccessGrantsLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_grants_location_id` (`t:string`) The ID of the registered location
-  that you are updating. S3 Access Grants assigns this ID when you register
-  the location. S3 Access Grants assigns the ID default to the default
-  location s3:// and assigns an auto-generated ID to other locations that you
-  register.
-  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-  making this request.
-
-  ## Optional parameters:
+  * `:access_grants_location_id` (`t:string` required) The ID of the registered
+  location that you are updating. S3 Access Grants assigns this ID when you
+  register the location. S3 Access Grants assigns the ID default to the
+  default location s3:// and assigns an auto-generated ID to other locations
+  that you register.
+  * `:account_id` (`t:string` required) The ID of the Amazon Web Services account
+  that is making this request.
+  ## Keyword parameters:
   """
-
   @spec update_access_grants_location(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_access_grants_location_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_access_grants_location(
         %Client{} = client,
         access_grants_location_id,
@@ -9246,19 +8994,18 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20UpdateJobPriority&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID for the job whose priority you want to update.
-  * `:priority` (`t:integer`) The priority you want to assign to this job.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-  the S3 Batch Operations job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID for the job whose priority you want to
+  update.
+  * `:priority` (`t:integer` required) The priority you want to assign to this
+  job.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID
+  associated with the S3 Batch Operations job.
+  ## Keyword parameters:
   """
-
   @spec update_job_priority(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_job_priority_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_priority_errors()}
-
   def update_job_priority(%Client{} = client, job_id, priority, account_id, options \\ [])
       when is_integer(priority) and is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/priority"
@@ -9300,23 +9047,21 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20UpdateJobStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID of the job whose status you want to update.
-  * `:requested_job_status` (`t:enum["Cancelled|Ready"]`) The status that you want
-  to move the specified job to.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-  the S3 Batch Operations job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID of the job whose status you want to
+  update.
+  * `:requested_job_status` (`t:enum["Cancelled|Ready"]` required) The status that
+  you want to move the specified job to.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID
+  associated with the S3 Batch Operations job.
+  ## Keyword parameters:
   * `:status_update_reason` (`t:string`) A description of the reason why you want
   to change the specified job's status. This field can be any string up to the
   maximum length.
   """
-
   @spec update_job_status(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_job_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_status_errors()}
-
   def update_job_status(
         %Client{} = client,
         job_id,
@@ -9371,18 +9116,15 @@ defmodule AWS.S3Control do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3control%20UpdateStorageLensGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the Storage Lens group that you want to
-  update.
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Storage
-  Lens group owner.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the Storage Lens group that you want
+  to update.
+  * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
+  Storage Lens group owner.
+  ## Keyword parameters:
   """
-
   @spec update_storage_lens_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def update_storage_lens_group(%Client{} = client, name, account_id, options \\ [])
       when is_binary(account_id) do
     url_path = "/v20180820/storagelensgroup/#{AWS.Util.encode_uri(name)}"

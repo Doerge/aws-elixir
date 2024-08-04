@@ -668,6 +668,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -690,12 +691,10 @@ defmodule AWS.CloudHSM do
       required("TagList") => list(tag()())
     }
   """
-
   @spec add_tags_to_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
-
   def add_tags_to_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -704,6 +703,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -724,12 +724,10 @@ defmodule AWS.CloudHSM do
       required("Label") => String.t()
     }
   """
-
   @spec create_hapg(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hapg_errors()}
-
   def create_hapg(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -738,6 +736,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -771,12 +770,10 @@ defmodule AWS.CloudHSM do
       required("SubscriptionType") => list(any())
     }
   """
-
   @spec create_hsm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hsm_errors()}
-
   def create_hsm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -785,6 +782,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -806,12 +804,10 @@ defmodule AWS.CloudHSM do
       required("Certificate") => String.t()
     }
   """
-
   @spec create_luna_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_luna_client_errors()}
-
   def create_luna_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -820,6 +816,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -840,12 +837,10 @@ defmodule AWS.CloudHSM do
       required("HapgArn") => String.t()
     }
   """
-
   @spec delete_hapg(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hapg_errors()}
-
   def delete_hapg(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -854,6 +849,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -874,12 +870,10 @@ defmodule AWS.CloudHSM do
       required("HsmArn") => String.t()
     }
   """
-
   @spec delete_hsm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hsm_errors()}
-
   def delete_hsm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -888,6 +882,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -908,12 +903,10 @@ defmodule AWS.CloudHSM do
       required("ClientArn") => String.t()
     }
   """
-
   @spec delete_luna_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_luna_client_errors()}
-
   def delete_luna_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -922,6 +915,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -942,12 +936,10 @@ defmodule AWS.CloudHSM do
       required("HapgArn") => String.t()
     }
   """
-
   @spec describe_hapg(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hapg_errors()}
-
   def describe_hapg(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -956,6 +948,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -977,12 +970,10 @@ defmodule AWS.CloudHSM do
       optional("HsmSerialNumber") => String.t()
     }
   """
-
   @spec describe_hsm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hsm_errors()}
-
   def describe_hsm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -991,6 +982,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1012,12 +1004,10 @@ defmodule AWS.CloudHSM do
       optional("ClientArn") => String.t()
     }
   """
-
   @spec describe_luna_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_luna_client_errors()}
-
   def describe_luna_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1026,6 +1016,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1048,12 +1039,10 @@ defmodule AWS.CloudHSM do
       required("HapgList") => list(String.t()())
     }
   """
-
   @spec get_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_config_errors()}
-
   def get_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1062,6 +1051,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1082,12 +1072,10 @@ defmodule AWS.CloudHSM do
       
     }
   """
-
   @spec list_available_zones(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_available_zones_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_zones_errors()}
-
   def list_available_zones(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1096,6 +1084,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1117,12 +1106,10 @@ defmodule AWS.CloudHSM do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_hapgs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hapgs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hapgs_errors()}
-
   def list_hapgs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1131,6 +1118,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1153,12 +1141,10 @@ defmodule AWS.CloudHSM do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_hsms(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hsms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hsms_errors()}
-
   def list_hsms(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1167,6 +1153,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1188,12 +1175,10 @@ defmodule AWS.CloudHSM do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_luna_clients(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_luna_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_luna_clients_errors()}
-
   def list_luna_clients(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1202,6 +1187,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1222,12 +1208,10 @@ defmodule AWS.CloudHSM do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1236,6 +1220,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1258,12 +1243,10 @@ defmodule AWS.CloudHSM do
       required("HapgArn") => String.t()
     }
   """
-
   @spec modify_hapg(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_hapg_errors()}
-
   def modify_hapg(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1272,6 +1255,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1298,12 +1282,10 @@ defmodule AWS.CloudHSM do
       required("HsmArn") => String.t()
     }
   """
-
   @spec modify_hsm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_hsm_errors()}
-
   def modify_hsm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1312,6 +1294,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1334,12 +1317,10 @@ defmodule AWS.CloudHSM do
       required("ClientArn") => String.t()
     }
   """
-
   @spec modify_luna_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_luna_client_errors()}
-
   def modify_luna_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1348,6 +1329,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+   
   This is documentation for **AWS CloudHSM Classic**. For more information, see
   [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
   [AWS CloudHSM Classic User
@@ -1370,12 +1352,10 @@ defmodule AWS.CloudHSM do
       required("TagKeyList") => list(String.t()())
     }
   """
-
   @spec remove_tags_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
-
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

@@ -3116,19 +3116,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20BatchDeleteDocument&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application.
-  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index that
-  contains the documents to delete.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application.
+  * `:index_id` (`t:string` required) The identifier of the Amazon Q Business
+  index that contains the documents to delete.
+  ## Keyword parameters:
   """
-
   @spec batch_delete_document(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_document_errors()}
-
   def batch_delete_document(%Client{} = client, application_id, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/documents/delete"
@@ -3166,19 +3163,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20BatchPutDocument&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application.
-  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index to add
-  the documents to.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application.
+  * `:index_id` (`t:string` required) The identifier of the Amazon Q Business
+  index to add the documents to.
+  ## Keyword parameters:
   """
-
   @spec batch_put_document(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_document_errors()}
-
   def batch_put_document(%Client{} = client, application_id, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/documents"
@@ -3216,12 +3210,11 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20Chat&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application linked to a streaming Amazon Q Business conversation.
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application linked to a streaming Amazon Q Business conversation.
   * `:input` (`t:map | nil`):
     * `:input_stream` (`t:union`) The streaming input for the Chat API.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A token that you provide to identify the chat
   input.
   * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business
@@ -3232,12 +3225,10 @@ defmodule AWS.QBusiness do
   user associated with the chat input belongs to.
   * `:user_id` (`t:string`) The identifier of the user attached to the chat input.
   """
-
   @spec chat(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, chat_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, chat_errors()}
-
   def chat(%Client{} = client, application_id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/conversations"
@@ -3326,20 +3317,17 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ChatSync&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application linked to the Amazon Q Business conversation.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application linked to the Amazon Q Business conversation.
+  ## Keyword parameters:
   * `:user_groups` (`t:list[com.amazonaws.qbusiness#String]`) The groups that a
   user associated with the chat input belongs to.
   * `:user_id` (`t:string`) The identifier of the user attached to the chat input.
   """
-
   @spec chat_sync(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, chat_sync_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, chat_sync_errors()}
-
   def chat_sync(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/conversations?sync"
 
@@ -3394,15 +3382,12 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -3439,19 +3424,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application the data source will be attached to.
-  * `:index_id` (`t:string`) The identifier of the index that you want to use with
-  the data source connector.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application the data source will be attached to.
+  * `:index_id` (`t:string` required) The identifier of the index that you want to
+  use with the data source connector.
+  ## Keyword parameters:
   """
-
   @spec create_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_errors()}
-
   def create_data_source(%Client{} = client, application_id, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/datasources"
@@ -3491,17 +3473,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application using the index.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application using the index.
+  ## Keyword parameters:
   """
-
   @spec create_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_index_errors()}
-
   def create_index(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/indices"
 
@@ -3538,17 +3517,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreatePlugin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application that will
-  contain the plugin.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application that
+  will contain the plugin.
+  ## Keyword parameters:
   """
-
   @spec create_plugin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_plugin_errors()}
-
   def create_plugin(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/plugins"
 
@@ -3585,17 +3561,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateRetriever&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of your Amazon Q Business
-  application.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of your Amazon Q
+  Business application.
+  ## Keyword parameters:
   """
-
   @spec create_retriever(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_retriever_errors()}
-
   def create_retriever(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers"
 
@@ -3633,17 +3606,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application for which the
-  user mapping will be created.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application for
+  which the user mapping will be created.
+  ## Keyword parameters:
   """
-
   @spec create_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-
   def create_user(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/users"
 
@@ -3680,17 +3650,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateWebExperience&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business web
-  experience.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business web experience.
+  ## Keyword parameters:
   """
-
   @spec create_web_experience(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_web_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_web_experience_errors()}
-
   def create_web_experience(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/experiences"
 
@@ -3727,17 +3694,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application.
+  ## Keyword parameters:
   """
-
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -3784,17 +3748,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteChatControlsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application the chat
-  controls have been configured for.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application the
+  chat controls have been configured for.
+  ## Keyword parameters:
   """
-
   @spec delete_chat_controls_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_chat_controls_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_chat_controls_configuration_errors()}
-
   def delete_chat_controls_configuration(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatcontrols"
 
@@ -3841,21 +3802,18 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteConversation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application associated with the conversation.
-  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business web
-  experience conversation being deleted.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application associated with the conversation.
+  * `:conversation_id` (`t:string` required) The identifier of the Amazon Q
+  Business web experience conversation being deleted.
+  ## Keyword parameters:
   * `:user_id` (`t:string`) The identifier of the user who is deleting the
   conversation.
   """
-
   @spec delete_conversation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_conversation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_conversation_errors()}
-
   def delete_conversation(%Client{} = client, application_id, conversation_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/conversations/#{AWS.Util.encode_uri(conversation_id)}"
@@ -3916,21 +3874,18 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application used with the data source connector.
-  * `:data_source_id` (`t:string`) The identifier of the data source connector
-  that you want to delete.
-  * `:index_id` (`t:string`) The identifier of the index used with the data source
-  connector.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application used with the data source connector.
+  * `:data_source_id` (`t:string` required) The identifier of the data source
+  connector that you want to delete.
+  * `:index_id` (`t:string` required) The identifier of the index used with the
+  data source connector.
+  ## Keyword parameters:
   """
-
   @spec delete_data_source(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
-
   def delete_data_source(
         %Client{} = client,
         application_id,
@@ -3987,22 +3942,19 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application in which the
-  group mapping belongs.
-  * `:group_name` (`t:string`) The name of the group you want to delete.
-  * `:index_id` (`t:string`) The identifier of the index you want to delete the
-  group from.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application in
+  which the group mapping belongs.
+  * `:group_name` (`t:string` required) The name of the group you want to delete.
+  * `:index_id` (`t:string` required) The identifier of the index you want to
+  delete the group from.
+  ## Keyword parameters:
   * `:data_source_id` (`t:string`) The identifier of the data source linked to the
   group
   """
-
   @spec delete_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-
   def delete_group(%Client{} = client, application_id, group_name, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/groups/#{AWS.Util.encode_uri(group_name)}"
@@ -4061,18 +4013,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application the Amazon Q Business index is linked to.
-  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application the Amazon Q Business index is linked to.
+  * `:index_id` (`t:string` required) The identifier of the Amazon Q Business
+  index.
+  ## Keyword parameters:
   """
-
   @spec delete_index(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_index_errors()}
-
   def delete_index(%Client{} = client, application_id, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}"
@@ -4120,18 +4070,15 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeletePlugin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier the application attached to the
-  Amazon Q Business plugin.
-  * `:plugin_id` (`t:string`) The identifier of the plugin being deleted.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier the application
+  attached to the Amazon Q Business plugin.
+  * `:plugin_id` (`t:string` required) The identifier of the plugin being deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_plugin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_plugin_errors()}
-
   def delete_plugin(%Client{} = client, application_id, plugin_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/plugins/#{AWS.Util.encode_uri(plugin_id)}"
@@ -4179,18 +4126,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteRetriever&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application using the retriever.
-  * `:retriever_id` (`t:string`) The identifier of the retriever being deleted.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application using the retriever.
+  * `:retriever_id` (`t:string` required) The identifier of the retriever being
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_retriever(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_retriever_errors()}
-
   def delete_retriever(%Client{} = client, application_id, retriever_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers/#{AWS.Util.encode_uri(retriever_id)}"
@@ -4238,18 +4183,15 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application from which
-  the user is being deleted.
-  * `:user_id` (`t:string`) The user email being deleted.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application from
+  which the user is being deleted.
+  * `:user_id` (`t:string` required) The user email being deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-
   def delete_user(%Client{} = client, application_id, user_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -4297,19 +4239,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteWebExperience&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application linked to the Amazon Q Business web experience.
-  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web
-  experience being deleted.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application linked to the Amazon Q Business web experience.
+  * `:web_experience_id` (`t:string` required) The identifier of the Amazon Q
+  Business web experience being deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_web_experience(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_web_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_web_experience_errors()}
-
   def delete_web_experience(%Client{} = client, application_id, web_experience_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/experiences/#{AWS.Util.encode_uri(web_experience_id)}"
@@ -4357,17 +4296,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application.
+  ## Keyword parameters:
   """
-
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -4403,10 +4339,9 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetChatControlsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application for which the
-  chat controls are configured.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application for
+  which the chat controls are configured.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of configured chat controls to
   return.
   * `:next_token` (`t:string`) If the maxResults response was incomplete because
@@ -4414,12 +4349,10 @@ defmodule AWS.QBusiness do
   in the response. You can use this pagination token to retrieve the next set
   of Amazon Q Business chat controls configured.
   """
-
   @spec get_chat_controls_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_chat_controls_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_chat_controls_configuration_errors()}
-
   def get_chat_controls_configuration(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatcontrols"
 
@@ -4472,20 +4405,18 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application.
-  * `:data_source_id` (`t:string`) The identifier of the data source connector.
-  * `:index_id` (`t:string`) The identfier of the index used with the data source
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application.
+  * `:data_source_id` (`t:string` required) The identifier of the data source
   connector.
-
-  ## Optional parameters:
+  * `:index_id` (`t:string` required) The identfier of the index used with the
+  data source connector.
+  ## Keyword parameters:
   """
-
   @spec get_data_source(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_errors()}
-
   def get_data_source(%Client{} = client, application_id, data_source_id, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
@@ -4521,21 +4452,19 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application id the group
-  is attached to.
-  * `:group_name` (`t:string`) The name of the group.
-  * `:index_id` (`t:string`) The identifier of the index the group is attached to.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application id
+  the group is attached to.
+  * `:group_name` (`t:string` required) The name of the group.
+  * `:index_id` (`t:string` required) The identifier of the index the group is
+  attached to.
+  ## Keyword parameters:
   * `:data_source_id` (`t:string`) The identifier of the data source the group is
   attached to.
   """
-
   @spec get_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
-
   def get_group(%Client{} = client, application_id, group_name, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/groups/#{AWS.Util.encode_uri(group_name)}"
@@ -4582,19 +4511,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application connected to the index.
-  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index you
-  want information on.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application connected to the index.
+  * `:index_id` (`t:string` required) The identifier of the Amazon Q Business
+  index you want information on.
+  ## Keyword parameters:
   """
-
   @spec get_index(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_index_errors()}
-
   def get_index(%Client{} = client, application_id, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}"
@@ -4630,18 +4556,15 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetPlugin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application which
-  contains the plugin.
-  * `:plugin_id` (`t:string`) The identifier of the plugin.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application
+  which contains the plugin.
+  * `:plugin_id` (`t:string` required) The identifier of the plugin.
+  ## Keyword parameters:
   """
-
   @spec get_plugin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_plugin_errors()}
-
   def get_plugin(%Client{} = client, application_id, plugin_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/plugins/#{AWS.Util.encode_uri(plugin_id)}"
@@ -4678,18 +4601,15 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetRetriever&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application using the retriever.
-  * `:retriever_id` (`t:string`) The identifier of the retriever.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application using the retriever.
+  * `:retriever_id` (`t:string` required) The identifier of the retriever.
+  ## Keyword parameters:
   """
-
   @spec get_retriever(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_retriever_errors()}
-
   def get_retriever(%Client{} = client, application_id, retriever_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers/#{AWS.Util.encode_uri(retriever_id)}"
@@ -4726,18 +4646,15 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application connected to
-  the user.
-  * `:user_id` (`t:string`) The user email address attached to the user.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application
+  connected to the user.
+  * `:user_id` (`t:string` required) The user email address attached to the user.
+  ## Keyword parameters:
   """
-
   @spec get_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_errors()}
-
   def get_user(%Client{} = client, application_id, user_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -4773,19 +4690,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetWebExperience&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application linked to the web experience.
-  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web
-  experience.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application linked to the web experience.
+  * `:web_experience_id` (`t:string` required) The identifier of the Amazon Q
+  Business web experience.
+  ## Keyword parameters:
   """
-
   @spec get_web_experience(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_web_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_web_experience_errors()}
-
   def get_web_experience(%Client{} = client, application_id, web_experience_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/experiences/#{AWS.Util.encode_uri(web_experience_id)}"
@@ -4821,8 +4735,7 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of Amazon Q Business
   applications to return.
   * `:next_token` (`t:string`) If the maxResults response was incomplete because
@@ -4830,12 +4743,10 @@ defmodule AWS.QBusiness do
   in the response. You can use this pagination token to retrieve the next set
   of Amazon Q Business applications.
   """
-
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -4888,10 +4799,9 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListConversations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of Amazon Q Business
   conversations to return.
   * `:next_token` (`t:string`) If the maxResults response was incomplete because
@@ -4901,12 +4811,10 @@ defmodule AWS.QBusiness do
   * `:user_id` (`t:string`) The identifier of the user involved in the Amazon Q
   Business web experience conversation.
   """
-
   @spec list_conversations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_conversations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_conversations_errors()}
-
   def list_conversations(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/conversations"
 
@@ -4967,13 +4875,13 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListDataSourceSyncJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application connected to the data source.
-  * `:data_source_id` (`t:string`) The identifier of the data source connector.
-  * `:index_id` (`t:string`) The identifier of the index used with the Amazon Q
-  Business data source connector.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application connected to the data source.
+  * `:data_source_id` (`t:string` required) The identifier of the data source
+  connector.
+  * `:index_id` (`t:string` required) The identifier of the index used with the
+  Amazon Q Business data source connector.
+  ## Keyword parameters:
   * `:end_time` (`t:timestamp`) The end time of the data source connector sync.
   * `:max_results` (`t:integer`) The maximum number of synchronization jobs to
   return in the response.
@@ -4988,7 +4896,6 @@ defmodule AWS.QBusiness do
   Only returns synchronization jobs with the Status field equal to the
   specified status.
   """
-
   @spec list_data_source_sync_jobs(
           AWS.Client.t(),
           String.t(),
@@ -4999,7 +4906,6 @@ defmodule AWS.QBusiness do
           {:ok, list_data_source_sync_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_source_sync_jobs_errors()}
-
   def list_data_source_sync_jobs(
         %Client{} = client,
         application_id,
@@ -5086,12 +4992,11 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListDataSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application linked to the data source connectors.
-  * `:index_id` (`t:string`) The identifier of the index used with one or more
-  data source connectors.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application linked to the data source connectors.
+  * `:index_id` (`t:string` required) The identifier of the index used with one or
+  more data source connectors.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of data source connectors to
   return.
   * `:next_token` (`t:string`) If the maxResults response was incomplete because
@@ -5099,12 +5004,10 @@ defmodule AWS.QBusiness do
   in the response. You can use this pagination token to retrieve the next set
   of Amazon Q Business data source connectors.
   """
-
   @spec list_data_sources(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
-
   def list_data_sources(%Client{} = client, application_id, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/datasources"
@@ -5158,12 +5061,11 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListDocuments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application id the
-  documents are attached to.
-  * `:index_id` (`t:string`) The identifier of the index the documents are
-  attached to.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application id
+  the documents are attached to.
+  * `:index_id` (`t:string` required) The identifier of the index the documents
+  are attached to.
+  ## Keyword parameters:
   * `:data_source_ids` (`t:list[com.amazonaws.qbusiness#DataSourceId]`) The
   identifier of the data sources the documents are attached to.
   * `:max_results` (`t:integer`) The maximum number of documents to return.
@@ -5172,12 +5074,10 @@ defmodule AWS.QBusiness do
   in the response. You can use this pagination token to retrieve the next set
   of documents.
   """
-
   @spec list_documents(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_documents_errors()}
-
   def list_documents(%Client{} = client, application_id, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/index/#{AWS.Util.encode_uri(index_id)}/documents"
@@ -5238,14 +5138,13 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application for getting a
+  * `:application_id` (`t:string` required) The identifier of the application for
+  getting a list of groups mapped to users.
+  * `:index_id` (`t:string` required) The identifier of the index for getting a
   list of groups mapped to users.
-  * `:index_id` (`t:string`) The identifier of the index for getting a list of
-  groups mapped to users.
-  * `:updated_earlier_than` (`t:timestamp`) The timestamp identifier used for the
-  latest PUT or DELETE action for mapping users to their groups.
-
-  ## Optional parameters:
+  * `:updated_earlier_than` (`t:timestamp` required) The timestamp identifier used
+  for the latest PUT or DELETE action for mapping users to their groups.
+  ## Keyword parameters:
   * `:data_source_id` (`t:string`) The identifier of the data source for getting a
   list of groups mapped to users.
   * `:max_results` (`t:integer`) The maximum number of returned groups that are
@@ -5255,12 +5154,10 @@ defmodule AWS.QBusiness do
   token in the response. You can use this pagination token to retrieve the
   next set of groups that are mapped to users.
   """
-
   @spec list_groups(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
-
   def list_groups(
         %Client{} = client,
         application_id,
@@ -5328,22 +5225,19 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListIndices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application connected to the index.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application connected to the index.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of indices to return.
   * `:next_token` (`t:string`) If the maxResults response was incomplete because
   there is more data to retrieve, Amazon Q Business returns a pagination token
   in the response. You can use this pagination token to retrieve the next set
   of Amazon Q Business indices.
   """
-
   @spec list_indices(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indices_errors()}
-
   def list_indices(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/indices"
 
@@ -5396,12 +5290,11 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListMessages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier for the Amazon Q Business
-  application.
-  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business web
-  experience conversation.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier for the Amazon Q
+  Business application.
+  * `:conversation_id` (`t:string` required) The identifier of the Amazon Q
+  Business web experience conversation.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of messages to return.
   * `:next_token` (`t:string`) If the number of retrievers returned exceeds
   maxResults, Amazon Q Business returns a next token as a pagination token to
@@ -5409,12 +5302,10 @@ defmodule AWS.QBusiness do
   * `:user_id` (`t:string`) The identifier of the user involved in the Amazon Q
   Business web experience conversation.
   """
-
   @spec list_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_messages_errors()}
-
   def list_messages(%Client{} = client, application_id, conversation_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/conversations/#{AWS.Util.encode_uri(conversation_id)}"
@@ -5475,22 +5366,19 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListPlugins&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application the plugin is
-  attached to.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application the
+  plugin is attached to.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of documents to return.
   * `:next_token` (`t:string`) If the maxResults response was incomplete because
   there is more data to retrieve, Amazon Q Business returns a pagination token
   in the response. You can use this pagination token to retrieve the next set
   of plugins.
   """
-
   @spec list_plugins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_plugins_errors()}
-
   def list_plugins(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/plugins"
 
@@ -5543,21 +5431,18 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListRetrievers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application using the retriever.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application using the retriever.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of retrievers returned.
   * `:next_token` (`t:string`) If the number of retrievers returned exceeds
   maxResults, Amazon Q Business returns a next token as a pagination token to
   retrieve the next set of retrievers.
   """
-
   @spec list_retrievers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_retrievers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_retrievers_errors()}
-
   def list_retrievers(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers"
 
@@ -5611,17 +5496,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q
-  Business application or data source to get a list of tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Amazon Q Business application or data source to get a list of tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5656,10 +5538,9 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListWebExperiences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application linked to the listed web experiences.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application linked to the listed web experiences.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of Amazon Q Business Web
   Experiences to return.
   * `:next_token` (`t:string`) If the maxResults response was incomplete because
@@ -5667,12 +5548,10 @@ defmodule AWS.QBusiness do
   in the response. You can use this pagination token to retrieve the next set
   of Amazon Q Business conversations.
   """
-
   @spec list_web_experiences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_web_experiences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_web_experiences_errors()}
-
   def list_web_experiences(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/experiences"
 
@@ -5726,22 +5605,19 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20PutFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application associated
-  with the feedback.
-  * `:conversation_id` (`t:string`) The identifier of the conversation the
-  feedback is attached to.
-  * `:message_id` (`t:string`) The identifier of the chat message that the
-  feedback was given for.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application
+  associated with the feedback.
+  * `:conversation_id` (`t:string` required) The identifier of the conversation
+  the feedback is attached to.
+  * `:message_id` (`t:string` required) The identifier of the chat message that
+  the feedback was given for.
+  ## Keyword parameters:
   * `:user_id` (`t:string`) The identifier of the user giving the feedback.
   """
-
   @spec put_feedback(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_feedback_errors()}
-
   def put_feedback(%Client{} = client, application_id, conversation_id, message_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/conversations/#{AWS.Util.encode_uri(conversation_id)}/messages/#{AWS.Util.encode_uri(message_id)}/feedback"
@@ -5790,19 +5666,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20PutGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application in which the
-  user and group mapping belongs.
-  * `:index_id` (`t:string`) The identifier of the index in which you want to map
-  users to their groups.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application in
+  which the user and group mapping belongs.
+  * `:index_id` (`t:string` required) The identifier of the index in which you
+  want to map users to their groups.
+  ## Keyword parameters:
   """
-
   @spec put_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_group_errors()}
-
   def put_group(%Client{} = client, application_id, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/groups"
@@ -5841,15 +5714,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20StartDataSourceSyncJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of Amazon Q Business application
-  the data source is connected to.
-  * `:data_source_id` (`t:string`) The identifier of the data source connector.
-  * `:index_id` (`t:string`) The identifier of the index used with the data source
+  * `:application_id` (`t:string` required) The identifier of Amazon Q Business
+  application the data source is connected to.
+  * `:data_source_id` (`t:string` required) The identifier of the data source
   connector.
-
-  ## Optional parameters:
+  * `:index_id` (`t:string` required) The identifier of the index used with the
+  data source connector.
+  ## Keyword parameters:
   """
-
   @spec start_data_source_sync_job(
           AWS.Client.t(),
           String.t(),
@@ -5860,7 +5732,6 @@ defmodule AWS.QBusiness do
           {:ok, start_data_source_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_source_sync_job_errors()}
-
   def start_data_source_sync_job(
         %Client{} = client,
         application_id,
@@ -5905,20 +5776,18 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20StopDataSourceSyncJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application that the data source is connected to.
-  * `:data_source_id` (`t:string`) The identifier of the data source connector.
-  * `:index_id` (`t:string`) The identifier of the index used with the Amazon Q
-  Business data source connector.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application that the data source is connected to.
+  * `:data_source_id` (`t:string` required) The identifier of the data source
+  connector.
+  * `:index_id` (`t:string` required) The identifier of the index used with the
+  Amazon Q Business data source connector.
+  ## Keyword parameters:
   """
-
   @spec stop_data_source_sync_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_data_source_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_data_source_sync_job_errors()}
-
   def stop_data_source_sync_job(
         %Client{} = client,
         application_id,
@@ -5964,17 +5833,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q
-  Business application or data source to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Amazon Q Business application or data source to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -6011,20 +5877,17 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q
-  Business application, or data source to remove the tag from.
-  * `:tag_keys` (`t:list[com.amazonaws.qbusiness#TagKey]`) A list of tag keys to
-  remove from the Amazon Q Business application or data source. If a tag key
-  does not exist on the resource, it is ignored.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Amazon Q Business application, or data source to remove the tag from.
+  * `:tag_keys` (`t:list[com.amazonaws.qbusiness#TagKey]` required) A list of tag
+  keys to remove from the Amazon Q Business application or data source. If a
+  tag key does not exist on the resource, it is ignored.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6072,17 +5935,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application.
+  ## Keyword parameters:
   """
-
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-
   def update_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -6120,17 +5980,14 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateChatControlsConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application for which the
-  chat controls are configured.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application for
+  which the chat controls are configured.
+  ## Keyword parameters:
   """
-
   @spec update_chat_controls_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_chat_controls_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_chat_controls_configuration_errors()}
-
   def update_chat_controls_configuration(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatcontrols"
 
@@ -6177,20 +6034,18 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application the data source is attached to.
-  * `:data_source_id` (`t:string`) The identifier of the data source connector.
-  * `:index_id` (`t:string`) The identifier of the index attached to the data
-  source connector.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application the data source is attached to.
+  * `:data_source_id` (`t:string` required) The identifier of the data source
+  connector.
+  * `:index_id` (`t:string` required) The identifier of the index attached to the
+  data source connector.
+  ## Keyword parameters:
   """
-
   @spec update_data_source(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
-
   def update_data_source(
         %Client{} = client,
         application_id,
@@ -6234,18 +6089,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application connected to the index.
-  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application connected to the index.
+  * `:index_id` (`t:string` required) The identifier of the Amazon Q Business
+  index.
+  ## Keyword parameters:
   """
-
   @spec update_index(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_index_errors()}
-
   def update_index(%Client{} = client, application_id, index_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}"
@@ -6283,18 +6136,15 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdatePlugin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application the plugin is
-  attached to.
-  * `:plugin_id` (`t:string`) The identifier of the plugin.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application the
+  plugin is attached to.
+  * `:plugin_id` (`t:string` required) The identifier of the plugin.
+  ## Keyword parameters:
   """
-
   @spec update_plugin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_plugin_errors()}
-
   def update_plugin(%Client{} = client, application_id, plugin_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/plugins/#{AWS.Util.encode_uri(plugin_id)}"
@@ -6332,18 +6182,15 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateRetriever&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of your Amazon Q Business
-  application.
-  * `:retriever_id` (`t:string`) The identifier of your retriever.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of your Amazon Q
+  Business application.
+  * `:retriever_id` (`t:string` required) The identifier of your retriever.
+  ## Keyword parameters:
   """
-
   @spec update_retriever(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_retriever_errors()}
-
   def update_retriever(%Client{} = client, application_id, retriever_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers/#{AWS.Util.encode_uri(retriever_id)}"
@@ -6381,18 +6228,15 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the application the user is
-  attached to.
-  * `:user_id` (`t:string`) The email id attached to the user.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the application the
+  user is attached to.
+  * `:user_id` (`t:string` required) The email id attached to the user.
+  ## Keyword parameters:
   """
-
   @spec update_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-
   def update_user(%Client{} = client, application_id, user_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -6430,19 +6274,16 @@ defmodule AWS.QBusiness do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateWebExperience&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
-  application attached to the web experience.
-  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web
-  experience.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) The identifier of the Amazon Q
+  Business application attached to the web experience.
+  * `:web_experience_id` (`t:string` required) The identifier of the Amazon Q
+  Business web experience.
+  ## Keyword parameters:
   """
-
   @spec update_web_experience(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_web_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_web_experience_errors()}
-
   def update_web_experience(%Client{} = client, application_id, web_experience_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/experiences/#{AWS.Util.encode_uri(web_experience_id)}"

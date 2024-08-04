@@ -317,15 +317,12 @@ defmodule AWS.S3Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20CreateEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_errors()}
-
   def create_endpoint(%Client{} = client, options \\ []) do
     url_path = "/S3Outposts/CreateEndpoint"
 
@@ -362,17 +359,14 @@ defmodule AWS.S3Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20DeleteEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:endpoint_id` (`t:string`) The ID of the endpoint.
-  * `:outpost_id` (`t:string`) The ID of the Outposts.
-
-  ## Optional parameters:
+  * `:endpoint_id` (`t:string` required) The ID of the endpoint.
+  * `:outpost_id` (`t:string` required) The ID of the Outposts.
+  ## Keyword parameters:
   """
-
   @spec delete_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_errors()}
-
   def delete_endpoint(%Client{} = client, endpoint_id, outpost_id, options \\ [])
       when is_binary(endpoint_id) and is_binary(outpost_id) do
     url_path = "/S3Outposts/DeleteEndpoint"
@@ -420,20 +414,17 @@ defmodule AWS.S3Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of endpoints that will be
   returned in the response.
   * `:next_token` (`t:string`) If a previous response from this operation included
   a NextToken value, provide that value here to retrieve the next page of
   results.
   """
-
   @spec list_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_endpoints_errors()}
-
   def list_endpoints(%Client{} = client, options \\ []) do
     url_path = "/S3Outposts/ListEndpoints"
 
@@ -488,8 +479,7 @@ defmodule AWS.S3Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListOutpostsWithS3&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of Outposts to return. The
   limit is 100.
   * `:next_token` (`t:string`) When you can get additional results from the
@@ -497,12 +487,10 @@ defmodule AWS.S3Outposts do
   You can then pass in a subsequent command to the NextToken parameter to
   continue listing additional Outposts.
   """
-
   @spec list_outposts_with_s3(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outposts_with_s3_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_outposts_with_s3_errors()}
-
   def list_outposts_with_s3(%Client{} = client, options \\ []) do
     url_path = "/S3Outposts/ListOutpostsWithS3"
 
@@ -556,21 +544,18 @@ defmodule AWS.S3Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListSharedEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:outpost_id` (`t:string`) The ID of the Amazon Web Services Outpost.
-
-  ## Optional parameters:
+  * `:outpost_id` (`t:string` required) The ID of the Amazon Web Services Outpost.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of endpoints that will be
   returned in the response.
   * `:next_token` (`t:string`) If a previous response from this operation included
   a NextToken value, you can provide that value here to retrieve the next page
   of results.
   """
-
   @spec list_shared_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_shared_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_shared_endpoints_errors()}
-
   def list_shared_endpoints(%Client{} = client, outpost_id, options \\ [])
       when is_binary(outpost_id) do
     url_path = "/S3Outposts/ListSharedEndpoints"

@@ -1250,23 +1250,20 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20CreateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) A comma-separated list of tag key:value pairs that you
   define. For example:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive token that you provide
   to ensure the idempotency of the request.
   """
-
   @spec create_channel(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
-
   def create_channel(%Client{} = client, channel_group_name, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel"
@@ -1323,17 +1320,14 @@ defmodule AWS.MediaPackageV2 do
   * `:input` (`t:map | nil`):
     * `:tags` (`t:map`) A comma-separated list of tag key:value pairs that you
   define. For example:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive token that you provide
   to ensure the idempotency of the request.
   """
-
   @spec create_channel_group(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_group_errors()}
-
   def create_channel_group(%Client{} = client, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/channelGroup"
@@ -1386,23 +1380,20 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20CreateOriginEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive token that you provide
   to ensure the idempotency of the request.
   """
-
   @spec create_origin_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_origin_endpoint_errors()}
-
   def create_origin_endpoint(%Client{} = client, channel_group_name, channel_name, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint"
@@ -1453,21 +1444,18 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20DeleteChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  ## Keyword parameters:
   """
-
   @spec delete_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
-
   def delete_channel(%Client{} = client, channel_group_name, channel_name, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/"
@@ -1518,18 +1506,15 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20DeleteChannelGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  ## Keyword parameters:
   """
-
   @spec delete_channel_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_group_errors()}
-
   def delete_channel_group(%Client{} = client, channel_group_name, options \\ []) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}"
 
@@ -1576,21 +1561,18 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20DeleteChannelPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  ## Keyword parameters:
   """
-
   @spec delete_channel_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_policy_errors()}
-
   def delete_channel_policy(%Client{} = client, channel_group_name, channel_name, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
@@ -1640,24 +1622,21 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20DeleteOriginEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-  * `:origin_endpoint_name` (`t:string`) The name that describes the origin
-  endpoint. The name is the primary identifier for the origin endpoint, and
-  and must be unique for your account in the AWS Region and channel.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  * `:origin_endpoint_name` (`t:string` required) The name that describes the
+  origin endpoint. The name is the primary identifier for the origin endpoint,
+  and and must be unique for your account in the AWS Region and channel.
+  ## Keyword parameters:
   """
-
   @spec delete_origin_endpoint(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_origin_endpoint_errors()}
-
   def delete_origin_endpoint(
         %Client{} = client,
         channel_group_name,
@@ -1711,19 +1690,17 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20DeleteOriginEndpointPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-  * `:origin_endpoint_name` (`t:string`) The name that describes the origin
-  endpoint. The name is the primary identifier for the origin endpoint, and
-  and must be unique for your account in the AWS Region and channel.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  * `:origin_endpoint_name` (`t:string` required) The name that describes the
+  origin endpoint. The name is the primary identifier for the origin endpoint,
+  and and must be unique for your account in the AWS Region and channel.
+  ## Keyword parameters:
   """
-
   @spec delete_origin_endpoint_policy(
           AWS.Client.t(),
           String.t(),
@@ -1734,7 +1711,6 @@ defmodule AWS.MediaPackageV2 do
           {:ok, delete_origin_endpoint_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_origin_endpoint_policy_errors()}
-
   def delete_origin_endpoint_policy(
         %Client{} = client,
         channel_group_name,
@@ -1789,21 +1765,18 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20GetChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  ## Keyword parameters:
   """
-
   @spec get_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channel_errors()}
-
   def get_channel(%Client{} = client, channel_group_name, channel_name, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/"
@@ -1841,18 +1814,15 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20GetChannelGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  ## Keyword parameters:
   """
-
   @spec get_channel_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channel_group_errors()}
-
   def get_channel_group(%Client{} = client, channel_group_name, options \\ []) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}"
 
@@ -1889,21 +1859,18 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20GetChannelPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  ## Keyword parameters:
   """
-
   @spec get_channel_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channel_policy_errors()}
-
   def get_channel_policy(%Client{} = client, channel_group_name, channel_name, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
@@ -1941,24 +1908,21 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20GetOriginEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-  * `:origin_endpoint_name` (`t:string`) The name that describes the origin
-  endpoint. The name is the primary identifier for the origin endpoint, and
-  and must be unique for your account in the AWS Region and channel.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  * `:origin_endpoint_name` (`t:string` required) The name that describes the
+  origin endpoint. The name is the primary identifier for the origin endpoint,
+  and and must be unique for your account in the AWS Region and channel.
+  ## Keyword parameters:
   """
-
   @spec get_origin_endpoint(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_origin_endpoint_errors()}
-
   def get_origin_endpoint(
         %Client{} = client,
         channel_group_name,
@@ -2001,19 +1965,17 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20GetOriginEndpointPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-  * `:origin_endpoint_name` (`t:string`) The name that describes the origin
-  endpoint. The name is the primary identifier for the origin endpoint, and
-  and must be unique for your account in the AWS Region and channel.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  * `:origin_endpoint_name` (`t:string` required) The name that describes the
+  origin endpoint. The name is the primary identifier for the origin endpoint,
+  and and must be unique for your account in the AWS Region and channel.
+  ## Keyword parameters:
   """
-
   @spec get_origin_endpoint_policy(
           AWS.Client.t(),
           String.t(),
@@ -2024,7 +1986,6 @@ defmodule AWS.MediaPackageV2 do
           {:ok, get_origin_endpoint_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_origin_endpoint_policy_errors()}
-
   def get_origin_endpoint_policy(
         %Client{} = client,
         channel_group_name,
@@ -2067,19 +2028,16 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20ListChannelGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) The pagination token from the GET list request. Use
   the token to fetch the next page of results.
   """
-
   @spec list_channel_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channel_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_groups_errors()}
-
   def list_channel_groups(%Client{} = client, options \\ []) do
     url_path = "/channelGroup"
 
@@ -2134,22 +2092,19 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) The pagination token from the GET list request. Use
   the token to fetch the next page of results.
   """
-
   @spec list_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-
   def list_channels(%Client{} = client, channel_group_name, options \\ []) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel"
 
@@ -2203,25 +2158,22 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20ListOriginEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) The pagination token from the GET list request. Use
   the token to fetch the next page of results.
   """
-
   @spec list_origin_endpoints(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_origin_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_origin_endpoints_errors()}
-
   def list_origin_endpoints(%Client{} = client, channel_group_name, channel_name, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint"
@@ -2275,17 +2227,14 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the CloudWatch resource that you want
-  to view tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the CloudWatch resource that
+  you want to view tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2322,21 +2271,18 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20PutChannelPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  ## Keyword parameters:
   """
-
   @spec put_channel_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_channel_policy_errors()}
-
   def put_channel_policy(%Client{} = client, channel_group_name, channel_name, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
@@ -2375,19 +2321,17 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20PutOriginEndpointPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-  * `:origin_endpoint_name` (`t:string`) The name that describes the origin
-  endpoint. The name is the primary identifier for the origin endpoint, and
-  and must be unique for your account in the AWS Region and channel.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  * `:origin_endpoint_name` (`t:string` required) The name that describes the
+  origin endpoint. The name is the primary identifier for the origin endpoint,
+  and and must be unique for your account in the AWS Region and channel.
+  ## Keyword parameters:
   """
-
   @spec put_origin_endpoint_policy(
           AWS.Client.t(),
           String.t(),
@@ -2398,7 +2342,6 @@ defmodule AWS.MediaPackageV2 do
           {:ok, put_origin_endpoint_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_origin_endpoint_policy_errors()}
-
   def put_origin_endpoint_policy(
         %Client{} = client,
         channel_group_name,
@@ -2443,20 +2386,17 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the MediaPackage resource that you're
-  adding tags to.
+  * `:resource_arn` (`t:string` required) The ARN of the MediaPackage resource
+  that you're adding tags to.
   * `:input` (`t:map`):
-    * `:tags` (`t:map`) Contains a map of the key-value pairs for the resource tag
-  or tags assigned to the resource.
-
-  ## Optional parameters:
+    * `:tags` (`t:map` required) Contains a map of the key-value pairs for the
+  resource tag or tags assigned to the resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2493,19 +2433,16 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the MediaPackage resource that you're
-  removing tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.mediapackagev2#TagKey]`) The list of tag
-  keys to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the MediaPackage resource
+  that you're removing tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.mediapackagev2#TagKey]` required) The list
+  of tag keys to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2556,24 +2493,21 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20UpdateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  ## Keyword parameters:
   * `:e_tag` (`t:string`) The expected current Entity Tag (ETag) for the resource.
   If the specified ETag does not match the resource's current entity tag, the
   update request will be rejected.
   """
-
   @spec update_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
-
   def update_channel(%Client{} = client, channel_group_name, channel_name, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/"
@@ -2624,21 +2558,18 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20UpdateChannelGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  ## Keyword parameters:
   * `:e_tag` (`t:string`) The expected current Entity Tag (ETag) for the resource.
   If the specified ETag does not match the resource's current entity tag, the
   update request will be rejected.
   """
-
   @spec update_channel_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_group_errors()}
-
   def update_channel_group(%Client{} = client, channel_group_name, options \\ []) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}"
 
@@ -2688,27 +2619,24 @@ defmodule AWS.MediaPackageV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagev2%20UpdateOriginEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:channel_group_name` (`t:string`) The name that describes the channel group.
-  The name is the primary identifier for the channel group, and must be unique
-  for your account in the AWS Region.
-  * `:channel_name` (`t:string`) The name that describes the channel. The name is
-  the primary identifier for the channel, and must be unique for your account
-  in the AWS Region and channel group.
-  * `:origin_endpoint_name` (`t:string`) The name that describes the origin
-  endpoint. The name is the primary identifier for the origin endpoint, and
-  and must be unique for your account in the AWS Region and channel.
-
-  ## Optional parameters:
+  * `:channel_group_name` (`t:string` required) The name that describes the
+  channel group. The name is the primary identifier for the channel group, and
+  must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string` required) The name that describes the channel. The
+  name is the primary identifier for the channel, and must be unique for your
+  account in the AWS Region and channel group.
+  * `:origin_endpoint_name` (`t:string` required) The name that describes the
+  origin endpoint. The name is the primary identifier for the origin endpoint,
+  and and must be unique for your account in the AWS Region and channel.
+  ## Keyword parameters:
   * `:e_tag` (`t:string`) The expected current Entity Tag (ETag) for the resource.
   If the specified ETag does not match the resource's current entity tag, the
   update request will be rejected.
   """
-
   @spec update_origin_endpoint(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_origin_endpoint_errors()}
-
   def update_origin_endpoint(
         %Client{} = client,
         channel_group_name,

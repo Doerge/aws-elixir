@@ -668,6 +668,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Creates a data store that can ingest and export FHIR formatted data.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=healthlake%20CreateFHIRDatastore&this_doc_guide=API%2520Reference)
@@ -684,12 +685,10 @@ defmodule AWS.HealthLake do
       required("DatastoreTypeVersion") => list(any())
     }
   """
-
   @spec create_fhir_datastore(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_fhir_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fhir_datastore_errors()}
-
   def create_fhir_datastore(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -698,6 +697,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Deletes a data store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=healthlake%20DeleteFHIRDatastore&this_doc_guide=API%2520Reference)
@@ -708,12 +708,10 @@ defmodule AWS.HealthLake do
       required("DatastoreId") => String.t()
     }
   """
-
   @spec delete_fhir_datastore(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_fhir_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fhir_datastore_errors()}
-
   def delete_fhir_datastore(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -722,6 +720,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Gets the properties associated with the FHIR data store, including the data
   store ID, data store ARN, data store name, data store status, when the data
   store was created, data store type version, and the data store's endpoint.
@@ -734,12 +733,10 @@ defmodule AWS.HealthLake do
       required("DatastoreId") => String.t()
     }
   """
-
   @spec describe_fhir_datastore(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fhir_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fhir_datastore_errors()}
-
   def describe_fhir_datastore(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -748,6 +745,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Displays the properties of a FHIR export job, including the ID, ARN, name, and
   the status of the job.
 
@@ -760,12 +758,10 @@ defmodule AWS.HealthLake do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_fhir_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fhir_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fhir_export_job_errors()}
-
   def describe_fhir_export_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -774,6 +770,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Displays the properties of a FHIR import job, including the ID, ARN, name, and
   the status of the job.
 
@@ -786,12 +783,10 @@ defmodule AWS.HealthLake do
       required("JobId") => String.t()
     }
   """
-
   @spec describe_fhir_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fhir_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fhir_import_job_errors()}
-
   def describe_fhir_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -800,6 +795,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Lists all FHIR data stores that are in the user’s account, regardless of data
   store status.
 
@@ -813,12 +809,10 @@ defmodule AWS.HealthLake do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_fhir_datastores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_fhir_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fhir_datastores_errors()}
-
   def list_fhir_datastores(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -827,6 +821,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Lists all FHIR export jobs associated with an account and their statuses.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=healthlake%20ListFHIRExportJobs&this_doc_guide=API%2520Reference)
@@ -843,12 +838,10 @@ defmodule AWS.HealthLake do
       required("DatastoreId") => String.t()
     }
   """
-
   @spec list_fhir_export_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_fhir_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fhir_export_jobs_errors()}
-
   def list_fhir_export_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -857,6 +850,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Lists all FHIR import jobs associated with an account and their statuses.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=healthlake%20ListFHIRImportJobs&this_doc_guide=API%2520Reference)
@@ -873,12 +867,10 @@ defmodule AWS.HealthLake do
       required("DatastoreId") => String.t()
     }
   """
-
   @spec list_fhir_import_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_fhir_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fhir_import_jobs_errors()}
-
   def list_fhir_import_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -887,6 +879,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Returns a list of all existing tags associated with a data store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=healthlake%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -897,12 +890,10 @@ defmodule AWS.HealthLake do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -911,6 +902,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Begins a FHIR export job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=healthlake%20StartFHIRExportJob&this_doc_guide=API%2520Reference)
@@ -925,12 +917,10 @@ defmodule AWS.HealthLake do
       required("OutputDataConfig") => list()
     }
   """
-
   @spec start_fhir_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_fhir_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fhir_export_job_errors()}
-
   def start_fhir_export_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -939,6 +929,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Begins a FHIR Import job.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=healthlake%20StartFHIRImportJob&this_doc_guide=API%2520Reference)
@@ -954,12 +945,10 @@ defmodule AWS.HealthLake do
       required("JobOutputDataConfig") => list()
     }
   """
-
   @spec start_fhir_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_fhir_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fhir_import_job_errors()}
-
   def start_fhir_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -968,6 +957,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Adds a user specified key and value tag to a data store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=healthlake%20TagResource&this_doc_guide=API%2520Reference)
@@ -979,12 +969,10 @@ defmodule AWS.HealthLake do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -993,6 +981,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+   
   Removes tags from a data store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=healthlake%20UntagResource&this_doc_guide=API%2520Reference)
@@ -1004,12 +993,10 @@ defmodule AWS.HealthLake do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

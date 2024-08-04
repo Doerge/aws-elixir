@@ -1805,19 +1805,16 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20AddPolicyStatement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that will
-  be accessed by the principal.
-  * `:statement_id` (`t:string`) A statement identifier that differentiates the
-  statement from others in the same policy.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the resource
+  that will be accessed by the principal.
+  * `:statement_id` (`t:string` required) A statement identifier that
+  differentiates the statement from others in the same policy.
+  ## Keyword parameters:
   """
-
   @spec add_policy_statement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, add_policy_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_policy_statement_errors()}
-
   def add_policy_statement(%Client{} = client, arn, statement_id, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}/#{AWS.Util.encode_uri(statement_id)}"
 
@@ -1854,20 +1851,17 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20BatchDeleteUniqueId&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the workflow.
-  * `:unique_ids` (`t:list[com.amazonaws.entityresolution#UniqueId]`) The unique
-  IDs to delete.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the workflow.
+  * `:unique_ids` (`t:list[com.amazonaws.entityresolution#UniqueId]` required) The
+  unique IDs to delete.
+  ## Keyword parameters:
   * `:input_source` (`t:string`) The input source for the batch delete unique ID
   operation.
   """
-
   @spec batch_delete_unique_id(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_unique_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_unique_id_errors()}
-
   def batch_delete_unique_id(%Client{} = client, workflow_name, unique_ids, options \\ [])
       when is_binary(unique_ids) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/uniqueids"
@@ -1928,15 +1922,12 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateIdMappingWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_id_mapping_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_id_mapping_workflow_errors()}
-
   def create_id_mapping_workflow(%Client{} = client, options \\ []) do
     url_path = "/idmappingworkflows"
 
@@ -1976,15 +1967,12 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateIdNamespace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_id_namespace(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_id_namespace_errors()}
-
   def create_id_namespace(%Client{} = client, options \\ []) do
     url_path = "/idnamespaces"
 
@@ -2024,15 +2012,12 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateMatchingWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_matching_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_matching_workflow_errors()}
-
   def create_matching_workflow(%Client{} = client, options \\ []) do
     url_path = "/matchingworkflows"
 
@@ -2072,15 +2057,12 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateSchemaMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_schema_mapping(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_mapping_errors()}
-
   def create_schema_mapping(%Client{} = client, options \\ []) do
     url_path = "/schemas"
 
@@ -2118,16 +2100,13 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteIdMappingWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the workflow to be deleted.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the workflow to be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_id_mapping_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_id_mapping_workflow_errors()}
-
   def delete_id_mapping_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
 
@@ -2174,16 +2153,13 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteIdNamespace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id_namespace_name` (`t:string`) The name of the ID namespace.
-
-  ## Optional parameters:
+  * `:id_namespace_name` (`t:string` required) The name of the ID namespace.
+  ## Keyword parameters:
   """
-
   @spec delete_id_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_id_namespace_errors()}
-
   def delete_id_namespace(%Client{} = client, id_namespace_name, options \\ []) do
     url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
 
@@ -2231,16 +2207,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteMatchingWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the workflow to be
+  retrieved.
+  ## Keyword parameters:
   """
-
   @spec delete_matching_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_matching_workflow_errors()}
-
   def delete_matching_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
 
@@ -2287,19 +2261,16 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeletePolicyStatement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The ARN of the resource for which the policy need to be
-  deleted.
-  * `:statement_id` (`t:string`) A statement identifier that differentiates the
-  statement from others in the same policy.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The ARN of the resource for which the policy need
+  to be deleted.
+  * `:statement_id` (`t:string` required) A statement identifier that
+  differentiates the statement from others in the same policy.
+  ## Keyword parameters:
   """
-
   @spec delete_policy_statement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_policy_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_statement_errors()}
-
   def delete_policy_statement(%Client{} = client, arn, statement_id, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}/#{AWS.Util.encode_uri(statement_id)}"
 
@@ -2349,16 +2320,13 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteSchemaMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_name` (`t:string`) The name of the schema to delete.
-
-  ## Optional parameters:
+  * `:schema_name` (`t:string` required) The name of the schema to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_schema_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_mapping_errors()}
-
   def delete_schema_mapping(%Client{} = client, schema_name, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
 
@@ -2406,17 +2374,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetIdMappingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID of the job.
-  * `:workflow_name` (`t:string`) The name of the workflow.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID of the job.
+  * `:workflow_name` (`t:string` required) The name of the workflow.
+  ## Keyword parameters:
   """
-
   @spec get_id_mapping_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_mapping_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_id_mapping_job_errors()}
-
   def get_id_mapping_job(%Client{} = client, job_id, workflow_name, options \\ []) do
     url_path =
       "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -2452,16 +2417,13 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetIdMappingWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the workflow.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the workflow.
+  ## Keyword parameters:
   """
-
   @spec get_id_mapping_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_id_mapping_workflow_errors()}
-
   def get_id_mapping_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
 
@@ -2496,16 +2458,13 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetIdNamespace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id_namespace_name` (`t:string`) The name of the ID namespace.
-
-  ## Optional parameters:
+  * `:id_namespace_name` (`t:string` required) The name of the ID namespace.
+  ## Keyword parameters:
   """
-
   @spec get_id_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_id_namespace_errors()}
-
   def get_id_namespace(%Client{} = client, id_namespace_name, options \\ []) do
     url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
 
@@ -2541,16 +2500,13 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetMatchId&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the workflow.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the workflow.
+  ## Keyword parameters:
   """
-
   @spec get_match_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_match_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_match_id_errors()}
-
   def get_match_id(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/matches"
 
@@ -2588,17 +2544,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetMatchingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The ID of the job.
-  * `:workflow_name` (`t:string`) The name of the workflow.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The ID of the job.
+  * `:workflow_name` (`t:string` required) The name of the workflow.
+  ## Keyword parameters:
   """
-
   @spec get_matching_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_matching_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_matching_job_errors()}
-
   def get_matching_job(%Client{} = client, job_id, workflow_name, options \\ []) do
     url_path =
       "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -2634,16 +2587,13 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetMatchingWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the workflow.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the workflow.
+  ## Keyword parameters:
   """
-
   @spec get_matching_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_matching_workflow_errors()}
-
   def get_matching_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
 
@@ -2678,17 +2628,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which
-  the policy need to be returned.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the resource
+  for which the policy need to be returned.
+  ## Keyword parameters:
   """
-
   @spec get_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
-
   def get_policy(%Client{} = client, arn, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}"
 
@@ -2723,19 +2670,16 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetProviderService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:provider_name` (`t:string`) The name of the provider. This name is typically
-  the company name.
-  * `:provider_service_name` (`t:string`) The ARN (Amazon Resource Name) of the
-  product that the provider service provides.
-
-  ## Optional parameters:
+  * `:provider_name` (`t:string` required) The name of the provider. This name is
+  typically the company name.
+  * `:provider_service_name` (`t:string` required) The ARN (Amazon Resource Name)
+  of the product that the provider service provides.
+  ## Keyword parameters:
   """
-
   @spec get_provider_service(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_provider_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_provider_service_errors()}
-
   def get_provider_service(
         %Client{} = client,
         provider_name,
@@ -2776,16 +2720,13 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetSchemaMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_name` (`t:string`) The name of the schema to be retrieved.
-
-  ## Optional parameters:
+  * `:schema_name` (`t:string` required) The name of the schema to be retrieved.
+  ## Keyword parameters:
   """
-
   @spec get_schema_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_mapping_errors()}
-
   def get_schema_mapping(%Client{} = client, schema_name, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
 
@@ -2820,18 +2761,16 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdMappingJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the workflow to be
+  retrieved.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-
   @spec list_id_mapping_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_id_mapping_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_id_mapping_jobs_errors()}
-
   def list_id_mapping_jobs(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
 
@@ -2885,17 +2824,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdMappingWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-
   @spec list_id_mapping_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_id_mapping_workflows_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_id_mapping_workflows_errors()}
-
   def list_id_mapping_workflows(%Client{} = client, options \\ []) do
     url_path = "/idmappingworkflows"
 
@@ -2948,18 +2884,15 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdNamespaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of IdNamespace objects returned
   per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-
   @spec list_id_namespaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_id_namespaces_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_id_namespaces_errors()}
-
   def list_id_namespaces(%Client{} = client, options \\ []) do
     url_path = "/idnamespaces"
 
@@ -3012,18 +2945,16 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListMatchingJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the workflow to be
+  retrieved.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-
   @spec list_matching_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_matching_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_matching_jobs_errors()}
-
   def list_matching_jobs(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
 
@@ -3077,17 +3008,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListMatchingWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-
   @spec list_matching_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_matching_workflows_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_matching_workflows_errors()}
-
   def list_matching_workflows(%Client{} = client, options \\ []) do
     url_path = "/matchingworkflows"
 
@@ -3141,19 +3069,16 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListProviderServices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
   * `:provider_name` (`t:string`) The name of the provider. This name is typically
   the company name.
   """
-
   @spec list_provider_services(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provider_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provider_services_errors()}
-
   def list_provider_services(%Client{} = client, options \\ []) do
     url_path = "/providerservices"
 
@@ -3214,17 +3139,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListSchemaMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-
   @spec list_schema_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schema_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schema_mappings_errors()}
-
   def list_schema_mappings(%Client{} = client, options \\ []) do
     url_path = "/schemas"
 
@@ -3278,17 +3200,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
-  view tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource for which you
+  want to view tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3323,17 +3242,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20PutPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which
-  the policy needs to be updated.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the resource
+  for which the policy needs to be updated.
+  ## Keyword parameters:
   """
-
   @spec put_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_policy_errors()}
-
   def put_policy(%Client{} = client, arn, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}"
 
@@ -3371,16 +3287,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20StartIdMappingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the ID mapping job to be retrieved.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the ID mapping job to be
+  retrieved.
+  ## Keyword parameters:
   """
-
   @spec start_id_mapping_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_id_mapping_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_id_mapping_job_errors()}
-
   def start_id_mapping_job(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
 
@@ -3418,16 +3332,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20StartMatchingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the matching job to be retrieved.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the matching job to be
+  retrieved.
+  ## Keyword parameters:
   """
-
   @spec start_matching_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_matching_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_matching_job_errors()}
-
   def start_matching_job(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
 
@@ -3474,17 +3386,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
-  view tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource for which you
+  want to view tags.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3522,19 +3431,16 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
-  untag.
-  * `:tag_keys` (`t:list[com.amazonaws.entityresolution#TagKey]`) The list of tag
-  keys to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource for which you
+  want to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.entityresolution#TagKey]` required) The
+  list of tag keys to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3585,16 +3491,13 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateIdMappingWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the workflow.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the workflow.
+  ## Keyword parameters:
   """
-
   @spec update_id_mapping_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_id_mapping_workflow_errors()}
-
   def update_id_mapping_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
 
@@ -3631,16 +3534,13 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateIdNamespace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id_namespace_name` (`t:string`) The name of the ID namespace.
-
-  ## Optional parameters:
+  * `:id_namespace_name` (`t:string` required) The name of the ID namespace.
+  ## Keyword parameters:
   """
-
   @spec update_id_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_id_namespace_errors()}
-
   def update_id_namespace(%Client{} = client, id_namespace_name, options \\ []) do
     url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
 
@@ -3680,16 +3580,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateMatchingWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
-
-  ## Optional parameters:
+  * `:workflow_name` (`t:string` required) The name of the workflow to be
+  retrieved.
+  ## Keyword parameters:
   """
-
   @spec update_matching_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_matching_workflow_errors()}
-
   def update_matching_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
 
@@ -3726,17 +3624,14 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateSchemaMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:schema_name` (`t:string`) The name of the schema. There can't be multiple
-  SchemaMappings with the same name.
-
-  ## Optional parameters:
+  * `:schema_name` (`t:string` required) The name of the schema. There can't be
+  multiple SchemaMappings with the same name.
+  ## Keyword parameters:
   """
-
   @spec update_schema_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schema_mapping_errors()}
-
   def update_schema_mapping(%Client{} = client, schema_name, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
 

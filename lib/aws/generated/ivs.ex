@@ -1472,14 +1472,11 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20BatchGetChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def batch_get_channel(%Client{} = client, options \\ []) do
     url_path = "/BatchGetChannel"
 
@@ -1516,14 +1513,11 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20BatchGetStreamKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_stream_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_stream_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def batch_get_stream_key(%Client{} = client, options \\ []) do
     url_path = "/BatchGetStreamKey"
 
@@ -1561,15 +1555,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20BatchStartViewerSessionRevocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_start_viewer_session_revocation(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_start_viewer_session_revocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_start_viewer_session_revocation_errors()}
-
   def batch_start_viewer_session_revocation(%Client{} = client, options \\ []) do
     url_path = "/BatchStartViewerSessionRevocation"
 
@@ -1606,15 +1597,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20CreateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
-
   def create_channel(%Client{} = client, options \\ []) do
     url_path = "/CreateChannel"
 
@@ -1652,15 +1640,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20CreatePlaybackRestrictionPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_playback_restriction_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_playback_restriction_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_playback_restriction_policy_errors()}
-
   def create_playback_restriction_policy(%Client{} = client, options \\ []) do
     url_path = "/CreatePlaybackRestrictionPolicy"
 
@@ -1702,15 +1687,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20CreateRecordingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_recording_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_recording_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recording_configuration_errors()}
-
   def create_recording_configuration(%Client{} = client, options \\ []) do
     url_path = "/CreateRecordingConfiguration"
 
@@ -1747,15 +1729,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20CreateStreamKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_stream_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_stream_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stream_key_errors()}
-
   def create_stream_key(%Client{} = client, options \\ []) do
     url_path = "/CreateStreamKey"
 
@@ -1792,15 +1771,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20DeleteChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
-
   def delete_channel(%Client{} = client, options \\ []) do
     url_path = "/DeleteChannel"
 
@@ -1841,15 +1817,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20DeletePlaybackKeyPair&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_playback_key_pair(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_playback_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_playback_key_pair_errors()}
-
   def delete_playback_key_pair(%Client{} = client, options \\ []) do
     url_path = "/DeletePlaybackKeyPair"
 
@@ -1886,15 +1859,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20DeletePlaybackRestrictionPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_playback_restriction_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_playback_restriction_policy_errors()}
-
   def delete_playback_restriction_policy(%Client{} = client, options \\ []) do
     url_path = "/DeletePlaybackRestrictionPolicy"
 
@@ -1931,15 +1901,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20DeleteRecordingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_recording_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recording_configuration_errors()}
-
   def delete_recording_configuration(%Client{} = client, options \\ []) do
     url_path = "/DeleteRecordingConfiguration"
 
@@ -1977,15 +1944,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20DeleteStreamKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_stream_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stream_key_errors()}
-
   def delete_stream_key(%Client{} = client, options \\ []) do
     url_path = "/DeleteStreamKey"
 
@@ -2023,15 +1987,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20GetChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channel_errors()}
-
   def get_channel(%Client{} = client, options \\ []) do
     url_path = "/GetChannel"
 
@@ -2073,15 +2034,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20GetPlaybackKeyPair&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_playback_key_pair(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_playback_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_playback_key_pair_errors()}
-
   def get_playback_key_pair(%Client{} = client, options \\ []) do
     url_path = "/GetPlaybackKeyPair"
 
@@ -2118,15 +2076,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20GetPlaybackRestrictionPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_playback_restriction_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_playback_restriction_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_playback_restriction_policy_errors()}
-
   def get_playback_restriction_policy(%Client{} = client, options \\ []) do
     url_path = "/GetPlaybackRestrictionPolicy"
 
@@ -2163,15 +2118,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20GetRecordingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_recording_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_recording_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recording_configuration_errors()}
-
   def get_recording_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetRecordingConfiguration"
 
@@ -2208,15 +2160,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20GetStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stream_errors()}
-
   def get_stream(%Client{} = client, options \\ []) do
     url_path = "/GetStream"
 
@@ -2253,15 +2202,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20GetStreamKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_stream_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_stream_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stream_key_errors()}
-
   def get_stream_key(%Client{} = client, options \\ []) do
     url_path = "/GetStreamKey"
 
@@ -2298,15 +2244,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20GetStreamSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_stream_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_stream_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stream_session_errors()}
-
   def get_stream_session(%Client{} = client, options \\ []) do
     url_path = "/GetStreamSession"
 
@@ -2348,15 +2291,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20ImportPlaybackKeyPair&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec import_playback_key_pair(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_playback_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_playback_key_pair_errors()}
-
   def import_playback_key_pair(%Client{} = client, options \\ []) do
     url_path = "/ImportPlaybackKeyPair"
 
@@ -2397,15 +2337,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-
   def list_channels(%Client{} = client, options \\ []) do
     url_path = "/ListChannels"
 
@@ -2445,15 +2382,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20ListPlaybackKeyPairs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_playback_key_pairs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_playback_key_pairs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_playback_key_pairs_errors()}
-
   def list_playback_key_pairs(%Client{} = client, options \\ []) do
     url_path = "/ListPlaybackKeyPairs"
 
@@ -2490,15 +2424,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20ListPlaybackRestrictionPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_playback_restriction_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_playback_restriction_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_playback_restriction_policies_errors()}
-
   def list_playback_restriction_policies(%Client{} = client, options \\ []) do
     url_path = "/ListPlaybackRestrictionPolicies"
 
@@ -2536,15 +2467,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20ListRecordingConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_recording_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recording_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recording_configurations_errors()}
-
   def list_recording_configurations(%Client{} = client, options \\ []) do
     url_path = "/ListRecordingConfigurations"
 
@@ -2581,15 +2509,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20ListStreamKeys&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_stream_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_stream_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stream_keys_errors()}
-
   def list_stream_keys(%Client{} = client, options \\ []) do
     url_path = "/ListStreamKeys"
 
@@ -2627,15 +2552,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20ListStreamSessions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_stream_sessions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_stream_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stream_sessions_errors()}
-
   def list_stream_sessions(%Client{} = client, options \\ []) do
     url_path = "/ListStreamSessions"
 
@@ -2673,15 +2595,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20ListStreams&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_streams(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streams_errors()}
-
   def list_streams(%Client{} = client, options \\ []) do
     url_path = "/ListStreams"
 
@@ -2718,17 +2637,14 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to be retrieved. The ARN
-  must be URL-encoded.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to be retrieved.
+  The ARN must be URL-encoded.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2769,15 +2685,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20PutMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_metadata_errors()}
-
   def put_metadata(%Client{} = client, options \\ []) do
     url_path = "/PutMetadata"
 
@@ -2818,15 +2731,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20StartViewerSessionRevocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_viewer_session_revocation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_viewer_session_revocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_viewer_session_revocation_errors()}
-
   def start_viewer_session_revocation(%Client{} = client, options \\ []) do
     url_path = "/StartViewerSessionRevocation"
 
@@ -2864,15 +2774,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20StopStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_stream_errors()}
-
   def stop_stream(%Client{} = client, options \\ []) do
     url_path = "/StopStream"
 
@@ -2910,17 +2817,14 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be
-  added or updated. The ARN must be URL-encoded.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) ARN of the resource for which tags are
+  to be added or updated. The ARN must be URL-encoded.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2957,22 +2861,20 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be
-  removed. The ARN must be URL-encoded.
-  * `:tag_keys` (`t:list[com.amazonaws.ivs#TagKey]`) Array of tags to be removed.
-  Array of maps, each of the form string:string (key:value). See Tagging
-  Amazon Web Services Resources for more information, including restrictions
-  that apply to tags and "Tag naming limits and requirements"; Amazon IVS has
-  no service-specific constraints beyond what is documented there.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) ARN of the resource for which tags are
+  to be removed. The ARN must be URL-encoded.
+  * `:tag_keys` (`t:list[com.amazonaws.ivs#TagKey]` required) Array of tags to be
+  removed. Array of maps, each of the form string:string (key:value). See
+  Tagging Amazon Web Services Resources for more information, including
+  restrictions that apply to tags and "Tag naming limits and requirements";
+  Amazon IVS has no service-specific constraints beyond what is documented
+  there.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3022,15 +2924,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20UpdateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
-
   def update_channel(%Client{} = client, options \\ []) do
     url_path = "/UpdateChannel"
 
@@ -3067,15 +2966,12 @@ defmodule AWS.Ivs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivs%20UpdatePlaybackRestrictionPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_playback_restriction_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_playback_restriction_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_playback_restriction_policy_errors()}
-
   def update_playback_restriction_policy(%Client{} = client, options \\ []) do
     url_path = "/UpdatePlaybackRestrictionPolicy"
 

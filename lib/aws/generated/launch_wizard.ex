@@ -552,15 +552,12 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20CreateDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_deployment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
-
   def create_deployment(%Client{} = client, options \\ []) do
     url_path = "/createDeployment"
 
@@ -597,15 +594,12 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20DeleteDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_deployment(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_errors()}
-
   def delete_deployment(%Client{} = client, options \\ []) do
     url_path = "/deleteDeployment"
 
@@ -642,15 +636,12 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_deployment(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
-
   def get_deployment(%Client{} = client, options \\ []) do
     url_path = "/getDeployment"
 
@@ -687,15 +678,12 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetWorkload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_workload(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workload_errors()}
-
   def get_workload(%Client{} = client, options \\ []) do
     url_path = "/getWorkload"
 
@@ -738,15 +726,12 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetWorkloadDeploymentPattern&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_workload_deployment_pattern(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_workload_deployment_pattern_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workload_deployment_pattern_errors()}
-
   def get_workload_deployment_pattern(%Client{} = client, options \\ []) do
     url_path = "/getWorkloadDeploymentPattern"
 
@@ -783,15 +768,12 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListDeploymentEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_deployment_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deployment_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_events_errors()}
-
   def list_deployment_events(%Client{} = client, options \\ []) do
     url_path = "/listDeploymentEvents"
 
@@ -828,15 +810,12 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
-
   def list_deployments(%Client{} = client, options \\ []) do
     url_path = "/listDeployments"
 
@@ -873,16 +852,14 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -920,15 +897,12 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListWorkloadDeploymentPatterns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_workload_deployment_patterns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workload_deployment_patterns_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workload_deployment_patterns_errors()}
-
   def list_workload_deployment_patterns(%Client{} = client, options \\ []) do
     url_path = "/listWorkloadDeploymentPatterns"
 
@@ -967,15 +941,12 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListWorkloads&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_workloads(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workloads_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workloads_errors()}
-
   def list_workloads(%Client{} = client, options \\ []) do
     url_path = "/listWorkloads"
 
@@ -1012,16 +983,14 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1058,18 +1027,16 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.launchwizard#TagKey]`) Keys identifying the
-  tags to remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.launchwizard#TagKey]` required) Keys
+  identifying the tags to remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

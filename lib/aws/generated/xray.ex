@@ -1740,15 +1740,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20BatchGetTraces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_get_traces(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_traces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_traces_errors()}
-
   def batch_get_traces(%Client{} = client, options \\ []) do
     url_path = "/Traces"
 
@@ -1785,15 +1782,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20CreateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-
   def create_group(%Client{} = client, options \\ []) do
     url_path = "/CreateGroup"
 
@@ -1838,15 +1832,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20CreateSamplingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sampling_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sampling_rule_errors()}
-
   def create_sampling_rule(%Client{} = client, options \\ []) do
     url_path = "/CreateSamplingRule"
 
@@ -1883,15 +1874,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20DeleteGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-
   def delete_group(%Client{} = client, options \\ []) do
     url_path = "/DeleteGroup"
 
@@ -1928,15 +1916,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/DeleteResourcePolicy"
 
@@ -1973,15 +1958,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20DeleteSamplingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_sampling_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sampling_rule_errors()}
-
   def delete_sampling_rule(%Client{} = client, options \\ []) do
     url_path = "/DeleteSamplingRule"
 
@@ -2018,15 +2000,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetEncryptionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_encryption_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_encryption_config_errors()}
-
   def get_encryption_config(%Client{} = client, options \\ []) do
     url_path = "/EncryptionConfig"
 
@@ -2063,15 +2042,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
-
   def get_group(%Client{} = client, options \\ []) do
     url_path = "/GetGroup"
 
@@ -2108,15 +2084,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_groups_errors()}
-
   def get_groups(%Client{} = client, options \\ []) do
     url_path = "/Groups"
 
@@ -2155,15 +2128,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsight&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_insight(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_errors()}
-
   def get_insight(%Client{} = client, options \\ []) do
     url_path = "/Insight"
 
@@ -2202,15 +2172,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsightEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_insight_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_events_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_events_errors()}
-
   def get_insight_events(%Client{} = client, options \\ []) do
     url_path = "/InsightEvents"
 
@@ -2249,15 +2216,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsightImpactGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_insight_impact_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_impact_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_impact_graph_errors()}
-
   def get_insight_impact_graph(%Client{} = client, options \\ []) do
     url_path = "/InsightImpactGraph"
 
@@ -2295,15 +2259,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsightSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_insight_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_summaries_errors()}
-
   def get_insight_summaries(%Client{} = client, options \\ []) do
     url_path = "/InsightSummaries"
 
@@ -2340,15 +2301,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetSamplingRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_sampling_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sampling_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampling_rules_errors()}
-
   def get_sampling_rules(%Client{} = client, options \\ []) do
     url_path = "/GetSamplingRules"
 
@@ -2385,15 +2343,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetSamplingStatisticSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_sampling_statistic_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sampling_statistic_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampling_statistic_summaries_errors()}
-
   def get_sampling_statistic_summaries(%Client{} = client, options \\ []) do
     url_path = "/SamplingStatisticSummaries"
 
@@ -2431,15 +2386,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetSamplingTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_sampling_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sampling_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampling_targets_errors()}
-
   def get_sampling_targets(%Client{} = client, options \\ []) do
     url_path = "/SamplingTargets"
 
@@ -2482,15 +2434,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetServiceGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_service_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_graph_errors()}
-
   def get_service_graph(%Client{} = client, options \\ []) do
     url_path = "/ServiceGraph"
 
@@ -2527,15 +2476,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetTimeSeriesServiceStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_time_series_service_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_time_series_service_statistics_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_time_series_service_statistics_errors()}
-
   def get_time_series_service_statistics(%Client{} = client, options \\ []) do
     url_path = "/TimeSeriesServiceStatistics"
 
@@ -2572,15 +2518,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetTraceGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_trace_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_trace_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trace_graph_errors()}
-
   def get_trace_graph(%Client{} = client, options \\ []) do
     url_path = "/TraceGraph"
 
@@ -2622,15 +2565,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetTraceSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_trace_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_trace_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trace_summaries_errors()}
-
   def get_trace_summaries(%Client{} = client, options \\ []) do
     url_path = "/TraceSummaries"
 
@@ -2667,15 +2607,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20ListResourcePolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_resource_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_policies_errors()}
-
   def list_resource_policies(%Client{} = client, options \\ []) do
     url_path = "/ListResourcePolicies"
 
@@ -2713,15 +2650,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/ListTagsForResource"
 
@@ -2758,15 +2692,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutEncryptionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_encryption_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_encryption_config_errors()}
-
   def put_encryption_config(%Client{} = client, options \\ []) do
     url_path = "/PutEncryptionConfig"
 
@@ -2807,15 +2738,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/PutResourcePolicy"
 
@@ -2852,15 +2780,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutTelemetryRecords&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_telemetry_records(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_telemetry_records_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_telemetry_records_errors()}
-
   def put_telemetry_records(%Client{} = client, options \\ []) do
     url_path = "/TelemetryRecords"
 
@@ -2905,15 +2830,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutTraceSegments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_trace_segments(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_trace_segments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_trace_segments_errors()}
-
   def put_trace_segments(%Client{} = client, options \\ []) do
     url_path = "/TraceSegments"
 
@@ -2950,15 +2872,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/TagResource"
 
@@ -2996,15 +2915,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/UntagResource"
 
@@ -3041,15 +2957,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20UpdateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
-
   def update_group(%Client{} = client, options \\ []) do
     url_path = "/UpdateGroup"
 
@@ -3086,15 +2999,12 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20UpdateSamplingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_sampling_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sampling_rule_errors()}
-
   def update_sampling_rule(%Client{} = client, options \\ []) do
     url_path = "/UpdateSamplingRule"
 

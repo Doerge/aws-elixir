@@ -746,18 +746,15 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20CancelJournalKinesisStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ledger_name` (`t:string`) The name of the ledger.
-  * `:stream_id` (`t:string`) The UUID (represented in Base62-encoded text) of the
-  QLDB journal stream to be canceled.
-
-  ## Optional parameters:
+  * `:ledger_name` (`t:string` required) The name of the ledger.
+  * `:stream_id` (`t:string` required) The UUID (represented in Base62-encoded
+  text) of the QLDB journal stream to be canceled.
+  ## Keyword parameters:
   """
-
   @spec cancel_journal_kinesis_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_journal_kinesis_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_journal_kinesis_stream_errors()}
-
   def cancel_journal_kinesis_stream(%Client{} = client, ledger_name, stream_id, options \\ []) do
     url_path =
       "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams/#{AWS.Util.encode_uri(stream_id)}"
@@ -805,15 +802,12 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20CreateLedger&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_ledger(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ledger_errors()}
-
   def create_ledger(%Client{} = client, options \\ []) do
     url_path = "/ledgers"
 
@@ -850,16 +844,13 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DeleteLedger&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ledger that you want to delete.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ledger that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ledger_errors()}
-
   def delete_ledger(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
 
@@ -908,18 +899,15 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DescribeJournalKinesisStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ledger_name` (`t:string`) The name of the ledger.
-  * `:stream_id` (`t:string`) The UUID (represented in Base62-encoded text) of the
-  QLDB journal stream to describe.
-
-  ## Optional parameters:
+  * `:ledger_name` (`t:string` required) The name of the ledger.
+  * `:stream_id` (`t:string` required) The UUID (represented in Base62-encoded
+  text) of the QLDB journal stream to describe.
+  ## Keyword parameters:
   """
-
   @spec describe_journal_kinesis_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_journal_kinesis_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_journal_kinesis_stream_errors()}
-
   def describe_journal_kinesis_stream(%Client{} = client, ledger_name, stream_id, options \\ []) do
     url_path =
       "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams/#{AWS.Util.encode_uri(stream_id)}"
@@ -960,18 +948,15 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DescribeJournalS3Export&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:export_id` (`t:string`) The UUID (represented in Base62-encoded text) of the
-  journal export job to describe.
-  * `:name` (`t:string`) The name of the ledger.
-
-  ## Optional parameters:
+  * `:export_id` (`t:string` required) The UUID (represented in Base62-encoded
+  text) of the journal export job to describe.
+  * `:name` (`t:string` required) The name of the ledger.
+  ## Keyword parameters:
   """
-
   @spec describe_journal_s3_export(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_journal_s3_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_journal_s3_export_errors()}
-
   def describe_journal_s3_export(%Client{} = client, export_id, name, options \\ []) do
     url_path =
       "/ledgers/#{AWS.Util.encode_uri(name)}/journal-s3-exports/#{AWS.Util.encode_uri(export_id)}"
@@ -1008,16 +993,14 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DescribeLedger&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ledger that you want to describe.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ledger that you want to
+  describe.
+  ## Keyword parameters:
   """
-
   @spec describe_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ledger_errors()}
-
   def describe_ledger(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
 
@@ -1056,16 +1039,13 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ExportJournalToS3&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ledger.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ledger.
+  ## Keyword parameters:
   """
-
   @spec export_journal_to_s3(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, export_journal_to_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_journal_to_s3_errors()}
-
   def export_journal_to_s3(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/journal-s3-exports"
 
@@ -1106,16 +1086,13 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20GetBlock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ledger.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ledger.
+  ## Keyword parameters:
   """
-
   @spec get_block(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_block_errors()}
-
   def get_block(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/block"
 
@@ -1153,16 +1130,13 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20GetDigest&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ledger.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ledger.
+  ## Keyword parameters:
   """
-
   @spec get_digest(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_digest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_digest_errors()}
-
   def get_digest(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/digest"
 
@@ -1201,16 +1175,13 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20GetRevision&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ledger.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ledger.
+  ## Keyword parameters:
   """
-
   @spec get_revision(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_revision_errors()}
-
   def get_revision(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/revision"
 
@@ -1251,9 +1222,8 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListJournalKinesisStreamsForLedger&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ledger_name` (`t:string`) The name of the ledger.
-
-  ## Optional parameters:
+  * `:ledger_name` (`t:string` required) The name of the ledger.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single ListJournalKinesisStreamsForLedger request. (The actual number of
   results returned might be fewer.)
@@ -1262,12 +1232,10 @@ defmodule AWS.QLDB do
   the response from a previous ListJournalKinesisStreamsForLedger call, you
   should use that value as input here.
   """
-
   @spec list_journal_kinesis_streams_for_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journal_kinesis_streams_for_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_journal_kinesis_streams_for_ledger_errors()}
-
   def list_journal_kinesis_streams_for_ledger(%Client{} = client, ledger_name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams"
 
@@ -1323,8 +1291,7 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListJournalS3Exports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single ListJournalS3Exports request. (The actual number of results returned
   might be fewer.)
@@ -1333,11 +1300,9 @@ defmodule AWS.QLDB do
   the response from a previous ListJournalS3Exports call, then you should use
   that value as input here.
   """
-
   @spec list_journal_s3_exports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_journal_s3_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_journal_s3_exports(%Client{} = client, options \\ []) do
     url_path = "/journal-s3-exports"
 
@@ -1392,9 +1357,8 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListJournalS3ExportsForLedger&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ledger.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ledger.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single ListJournalS3ExportsForLedger request. (The actual number of results
   returned might be fewer.)
@@ -1403,11 +1367,9 @@ defmodule AWS.QLDB do
   the response from a previous ListJournalS3ExportsForLedger call, then you
   should use that value as input here.
   """
-
   @spec list_journal_s3_exports_for_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journal_s3_exports_for_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_journal_s3_exports_for_ledger(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/journal-s3-exports"
 
@@ -1461,8 +1423,7 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListLedgers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single ListLedgers request. (The actual number of results returned might be
   fewer.)
@@ -1471,11 +1432,9 @@ defmodule AWS.QLDB do
   the response from a previous ListLedgers call, then you should use that
   value as input here.
   """
-
   @spec list_ledgers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ledgers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_ledgers(%Client{} = client, options \\ []) do
     url_path = "/ledgers"
 
@@ -1528,17 +1487,14 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for which to list
-  the tags. For example:
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for which
+  to list the tags. For example:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1575,16 +1531,13 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20StreamJournalToKinesis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ledger_name` (`t:string`) The name of the ledger.
-
-  ## Optional parameters:
+  * `:ledger_name` (`t:string` required) The name of the ledger.
+  ## Keyword parameters:
   """
-
   @spec stream_journal_to_kinesis(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stream_journal_to_kinesis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stream_journal_to_kinesis_errors()}
-
   def stream_journal_to_kinesis(%Client{} = client, ledger_name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams"
 
@@ -1621,17 +1574,14 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to which you want
-  to add the tags. For example:
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) to which
+  you want to add the tags. For example:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1669,19 +1619,16 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) from which to
-  remove the tags. For example:
-  * `:tag_keys` (`t:list[com.amazonaws.qldb#TagKey]`) The list of tag keys to
-  remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) from
+  which to remove the tags. For example:
+  * `:tag_keys` (`t:list[com.amazonaws.qldb#TagKey]` required) The list of tag
+  keys to remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1729,16 +1676,13 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20UpdateLedger&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ledger.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ledger.
+  ## Keyword parameters:
   """
-
   @spec update_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ledger_errors()}
-
   def update_ledger(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
 
@@ -1785,16 +1729,13 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20UpdateLedgerPermissionsMode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the ledger.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the ledger.
+  ## Keyword parameters:
   """
-
   @spec update_ledger_permissions_mode(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_ledger_permissions_mode_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ledger_permissions_mode_errors()}
-
   def update_ledger_permissions_mode(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/permissions-mode"
 

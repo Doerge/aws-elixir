@@ -2829,6 +2829,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Adds a source identifier to an existing event notification subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20AddSourceIdentifierToSubscription&this_doc_guide=API%2520Reference)
@@ -2840,12 +2841,10 @@ defmodule AWS.DocDB do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec add_source_identifier_to_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_source_identifier_to_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_source_identifier_to_subscription_errors()}
-
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2855,6 +2854,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Adds metadata tags to an Amazon DocumentDB resource. You can use these tags with
   cost allocation reporting to track costs that are associated with Amazon
   DocumentDB resources or in a `Condition` statement in an Identity and Access
@@ -2869,12 +2869,10 @@ defmodule AWS.DocDB do
       required("Tags") => list(tag()())
     }
   """
-
   @spec add_tags_to_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
-
   def add_tags_to_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2883,6 +2881,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Applies a pending maintenance action to a resource (for example, to an Amazon
   DocumentDB instance).
 
@@ -2896,12 +2895,10 @@ defmodule AWS.DocDB do
       required("ResourceIdentifier") => String.t()
     }
   """
-
   @spec apply_pending_maintenance_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, apply_pending_maintenance_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_pending_maintenance_action_errors()}
-
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2911,6 +2908,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Copies the specified cluster parameter group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20CopyDBClusterParameterGroup&this_doc_guide=API%2520Reference)
@@ -2924,12 +2922,10 @@ defmodule AWS.DocDB do
       required("TargetDBClusterParameterGroupIdentifier") => String.t()
     }
   """
-
   @spec copy_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_cluster_parameter_group_errors()}
-
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2939,6 +2935,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Copies a snapshot of a cluster. To copy a cluster snapshot from a shared manual
   cluster snapshot, `SourceDBClusterSnapshotIdentifier` must be the Amazon
   Resource Name (ARN) of the shared cluster snapshot. You can only copy a shared
@@ -2958,12 +2955,10 @@ defmodule AWS.DocDB do
       required("TargetDBClusterSnapshotIdentifier") => String.t()
     }
   """
-
   @spec copy_db_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_cluster_snapshot_errors()}
-
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2972,6 +2967,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Creates a new Amazon DocumentDB cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20CreateDBCluster&this_doc_guide=API%2520Reference)
@@ -3002,12 +2998,10 @@ defmodule AWS.DocDB do
       required("Engine") => String.t()
     }
   """
-
   @spec create_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_errors()}
-
   def create_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3016,6 +3010,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Creates a new cluster parameter group. Parameters in a cluster parameter group
   apply to all of the instances in a cluster.
 
@@ -3030,12 +3025,10 @@ defmodule AWS.DocDB do
       required("Description") => String.t()
     }
   """
-
   @spec create_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_parameter_group_errors()}
-
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3045,6 +3038,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Creates a snapshot of a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20CreateDBClusterSnapshot&this_doc_guide=API%2520Reference)
@@ -3057,12 +3051,10 @@ defmodule AWS.DocDB do
       required("DBClusterSnapshotIdentifier") => String.t()
     }
   """
-
   @spec create_db_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_snapshot_errors()}
-
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3071,6 +3063,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Creates a new instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20CreateDBInstance&this_doc_guide=API%2520Reference)
@@ -3093,12 +3086,10 @@ defmodule AWS.DocDB do
       required("Engine") => String.t()
     }
   """
-
   @spec create_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_instance_errors()}
-
   def create_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3107,6 +3098,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Creates a new subnet group. subnet groups must contain at least one subnet in at
   least two Availability Zones in the Amazon Web Services Region.
 
@@ -3121,12 +3113,10 @@ defmodule AWS.DocDB do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec create_db_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_subnet_group_errors()}
-
   def create_db_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3135,6 +3125,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Creates an Amazon DocumentDB event notification subscription. This action
   requires a topic Amazon Resource Name (ARN) created by using the Amazon
   DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To obtain
@@ -3161,12 +3152,10 @@ defmodule AWS.DocDB do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec create_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_subscription_errors()}
-
   def create_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3175,6 +3164,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Creates an Amazon DocumentDB global cluster that can span multiple multiple
   Amazon Web Services Regions. The global cluster contains one primary cluster
   with read-write capability, and up-to give read-only secondary clusters.
@@ -3196,12 +3186,10 @@ defmodule AWS.DocDB do
       required("GlobalClusterIdentifier") => String.t()
     }
   """
-
   @spec create_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_global_cluster_errors()}
-
   def create_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3210,6 +3198,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Deletes a previously provisioned cluster. When you delete a cluster, all
   automated backups for that cluster are deleted and can't be recovered. Manual
   DB cluster snapshots of the specified cluster are not deleted.
@@ -3224,12 +3213,10 @@ defmodule AWS.DocDB do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec delete_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_errors()}
-
   def delete_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3238,6 +3225,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Deletes a specified cluster parameter group. The cluster parameter group to be
   deleted can't be associated with any clusters.
 
@@ -3249,12 +3237,10 @@ defmodule AWS.DocDB do
       required("DBClusterParameterGroupName") => String.t()
     }
   """
-
   @spec delete_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_parameter_group_errors()}
-
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3264,6 +3250,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Deletes a cluster snapshot. If the snapshot is being copied, the copy operation
   is terminated.
 
@@ -3275,12 +3262,10 @@ defmodule AWS.DocDB do
       required("DBClusterSnapshotIdentifier") => String.t()
     }
   """
-
   @spec delete_db_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_snapshot_errors()}
-
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3289,6 +3274,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Deletes a previously provisioned instance.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20DeleteDBInstance&this_doc_guide=API%2520Reference)
@@ -3299,12 +3285,10 @@ defmodule AWS.DocDB do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec delete_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_instance_errors()}
-
   def delete_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3313,6 +3297,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Deletes a subnet group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20DeleteDBSubnetGroup&this_doc_guide=API%2520Reference)
@@ -3323,12 +3308,10 @@ defmodule AWS.DocDB do
       required("DBSubnetGroupName") => String.t()
     }
   """
-
   @spec delete_db_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_subnet_group_errors()}
-
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3337,6 +3320,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Deletes an Amazon DocumentDB event notification subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20DeleteEventSubscription&this_doc_guide=API%2520Reference)
@@ -3347,12 +3331,10 @@ defmodule AWS.DocDB do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec delete_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_subscription_errors()}
-
   def delete_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3361,6 +3343,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Deletes a global cluster. The primary and secondary clusters must already be
   detached or deleted before attempting to delete a global cluster.
 
@@ -3372,12 +3355,10 @@ defmodule AWS.DocDB do
       required("GlobalClusterIdentifier") => String.t()
     }
   """
-
   @spec delete_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_global_cluster_errors()}
-
   def delete_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3386,6 +3367,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns a list of certificate authority (CA) certificates provided by Amazon
   DocumentDB for this Amazon Web Services account.
 
@@ -3400,12 +3382,10 @@ defmodule AWS.DocDB do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, certificate_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificates_errors()}
-
   def describe_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3414,6 +3394,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns a list of `DBClusterParameterGroup` descriptions. If a
   `DBClusterParameterGroupName` parameter is specified, the list contains only
   the description of the specified cluster parameter group.
@@ -3429,12 +3410,10 @@ defmodule AWS.DocDB do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_cluster_parameter_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_parameter_groups_errors()}
-
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3444,6 +3423,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns the detailed parameter list for a particular cluster parameter group.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20DescribeDBClusterParameters&this_doc_guide=API%2520Reference)
@@ -3458,12 +3438,10 @@ defmodule AWS.DocDB do
       required("DBClusterParameterGroupName") => String.t()
     }
   """
-
   @spec describe_db_cluster_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_parameters_errors()}
-
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3473,6 +3451,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns a list of cluster snapshot attribute names and values for a manual DB
   cluster snapshot.
 
@@ -3484,12 +3463,10 @@ defmodule AWS.DocDB do
       required("DBClusterSnapshotIdentifier") => String.t()
     }
   """
-
   @spec describe_db_cluster_snapshot_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_db_cluster_snapshot_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
-
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3499,6 +3476,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns information about cluster snapshots. This API operation supports
   pagination.
 
@@ -3517,12 +3495,10 @@ defmodule AWS.DocDB do
       optional("SnapshotType") => String.t()
     }
   """
-
   @spec describe_db_cluster_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_snapshots_errors()}
-
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3532,6 +3508,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns information about provisioned Amazon DocumentDB clusters. This API
   operation supports pagination. For certain management features such as cluster
   and instance lifecycle management, Amazon DocumentDB leverages operational
@@ -3550,12 +3527,10 @@ defmodule AWS.DocDB do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_clusters_errors()}
-
   def describe_db_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3564,6 +3539,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns a list of the available engines.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20DescribeDBEngineVersions&this_doc_guide=API%2520Reference)
@@ -3582,11 +3558,9 @@ defmodule AWS.DocDB do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_engine_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_engine_version_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3595,6 +3569,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns information about provisioned Amazon DocumentDB instances. This API
   supports pagination.
 
@@ -3609,12 +3584,10 @@ defmodule AWS.DocDB do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_instance_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_instances_errors()}
-
   def describe_db_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3623,6 +3596,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns a list of `DBSubnetGroup` descriptions. If a `DBSubnetGroupName` is
   specified, the list will contain only the descriptions of the specified
   `DBSubnetGroup`.
@@ -3638,12 +3612,10 @@ defmodule AWS.DocDB do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_db_subnet_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_subnet_groups_errors()}
-
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3652,6 +3624,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns the default engine and system parameter information for the cluster
   database engine.
 
@@ -3666,11 +3639,9 @@ defmodule AWS.DocDB do
       required("DBParameterGroupFamily") => String.t()
     }
   """
-
   @spec describe_engine_default_cluster_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_engine_default_cluster_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3680,6 +3651,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Displays a list of categories for all event source types, or, if specified, for
   a specified source type.
 
@@ -3692,11 +3664,9 @@ defmodule AWS.DocDB do
       optional("SourceType") => String.t()
     }
   """
-
   @spec describe_event_categories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, event_categories_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_event_categories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3705,6 +3675,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Lists all the subscription descriptions for a customer account. The description
   for a subscription includes `SubscriptionName`, `SNSTopicARN`, `CustomerID`,
   `SourceType`, `SourceID`, `CreationTime`, and `Status`.
@@ -3720,12 +3691,10 @@ defmodule AWS.DocDB do
       optional("SubscriptionName") => String.t()
     }
   """
-
   @spec describe_event_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, event_subscriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_subscriptions_errors()}
-
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3734,6 +3703,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns events related to instances, security groups, snapshots, and DB
   parameter groups for the past 14 days. You can obtain events specific to a
   particular DB instance, security group, snapshot, or parameter group by
@@ -3756,11 +3726,9 @@ defmodule AWS.DocDB do
       optional("StartTime") => non_neg_integer()
     }
   """
-
   @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3769,6 +3737,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns information about Amazon DocumentDB global clusters. This API supports
   pagination.
 
@@ -3783,12 +3752,10 @@ defmodule AWS.DocDB do
       optional("MaxRecords") => integer()
     }
   """
-
   @spec describe_global_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, global_clusters_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_clusters_errors()}
-
   def describe_global_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3797,6 +3764,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns a list of orderable instance options for the specified engine.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20DescribeOrderableDBInstanceOptions&this_doc_guide=API%2520Reference)
@@ -3814,11 +3782,9 @@ defmodule AWS.DocDB do
       required("Engine") => String.t()
     }
   """
-
   @spec describe_orderable_db_instance_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, orderable_db_instance_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3828,6 +3794,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Returns a list of resources (for example, instances) that have at least one
   pending maintenance action.
 
@@ -3842,12 +3809,10 @@ defmodule AWS.DocDB do
       optional("ResourceIdentifier") => String.t()
     }
   """
-
   @spec describe_pending_maintenance_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, pending_maintenance_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pending_maintenance_actions_errors()}
-
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3857,6 +3822,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Forces a failover for a cluster. A failover for a cluster promotes one of the
   Amazon DocumentDB replicas (read-only instances) in the cluster to be the
   primary instance (the cluster writer).
@@ -3870,12 +3836,10 @@ defmodule AWS.DocDB do
       optional("TargetDBInstanceIdentifier") => String.t()
     }
   """
-
   @spec failover_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, failover_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, failover_db_cluster_errors()}
-
   def failover_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3884,6 +3848,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Lists all tags on an Amazon DocumentDB resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -3895,12 +3860,10 @@ defmodule AWS.DocDB do
       required("ResourceName") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3909,6 +3872,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Modifies a setting for an Amazon DocumentDB cluster. You can change one or more
   database configuration parameters by specifying these parameters and the new
   values in the request.
@@ -3935,12 +3899,10 @@ defmodule AWS.DocDB do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec modify_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_errors()}
-
   def modify_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3949,6 +3911,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Modifies the parameters of a cluster parameter group. To modify more than one
   parameter, submit a list of the following: `ParameterName`, `ParameterValue`,
   and `ApplyMethod`. A maximum of 20 parameters can be modified in a single
@@ -3965,12 +3928,10 @@ defmodule AWS.DocDB do
       required("Parameters") => list(parameter()())
     }
   """
-
   @spec modify_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_parameter_group_errors()}
-
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3980,6 +3941,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Adds an attribute and values to, or removes an attribute and values from, a
   manual cluster snapshot.
 
@@ -3994,12 +3956,10 @@ defmodule AWS.DocDB do
       required("DBClusterSnapshotIdentifier") => String.t()
     }
   """
-
   @spec modify_db_cluster_snapshot_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_cluster_snapshot_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
-
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4009,6 +3969,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Modifies settings for an instance. You can change one or more database
   configuration parameters by specifying these parameters and the new values in
   the request.
@@ -4032,12 +3993,10 @@ defmodule AWS.DocDB do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec modify_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_instance_errors()}
-
   def modify_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4046,6 +4005,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Modifies an existing subnet group. subnet groups must contain at least one
   subnet in at least two Availability Zones in the Amazon Web Services Region.
 
@@ -4059,12 +4019,10 @@ defmodule AWS.DocDB do
       required("SubnetIds") => list(String.t()())
     }
   """
-
   @spec modify_db_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_subnet_group_errors()}
-
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4073,6 +4031,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Modifies an existing Amazon DocumentDB event notification subscription.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20ModifyEventSubscription&this_doc_guide=API%2520Reference)
@@ -4087,12 +4046,10 @@ defmodule AWS.DocDB do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec modify_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_event_subscription_errors()}
-
   def modify_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4101,6 +4058,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Modify a setting for an Amazon DocumentDB global cluster. You can change one or
   more configuration parameters (for example: deletion protection), or the
   global cluster identifier by specifying these parameters and the new values in
@@ -4116,12 +4074,10 @@ defmodule AWS.DocDB do
       required("GlobalClusterIdentifier") => String.t()
     }
   """
-
   @spec modify_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_global_cluster_errors()}
-
   def modify_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4130,6 +4086,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   You might need to reboot your instance, usually for maintenance reasons. For
   example, if you make certain changes, or if you change the cluster parameter
   group that is associated with the instance, you must reboot the instance for
@@ -4144,12 +4101,10 @@ defmodule AWS.DocDB do
       required("DBInstanceIdentifier") => String.t()
     }
   """
-
   @spec reboot_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_db_instance_errors()}
-
   def reboot_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4158,6 +4113,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Detaches an Amazon DocumentDB secondary cluster from a global cluster. The
   cluster becomes a standalone cluster with read-write capability instead of
   being read-only and receiving data from a primary in a different region.
@@ -4171,12 +4127,10 @@ defmodule AWS.DocDB do
       required("GlobalClusterIdentifier") => String.t()
     }
   """
-
   @spec remove_from_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_from_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_from_global_cluster_errors()}
-
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4185,6 +4139,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Removes a source identifier from an existing Amazon DocumentDB event
   notification subscription.
 
@@ -4197,12 +4152,10 @@ defmodule AWS.DocDB do
       required("SubscriptionName") => String.t()
     }
   """
-
   @spec remove_source_identifier_from_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_source_identifier_from_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_source_identifier_from_subscription_errors()}
-
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4212,6 +4165,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Removes metadata tags from an Amazon DocumentDB resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdb%20RemoveTagsFromResource&this_doc_guide=API%2520Reference)
@@ -4223,12 +4177,10 @@ defmodule AWS.DocDB do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec remove_tags_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
-
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4237,6 +4189,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Modifies the parameters of a cluster parameter group to the default value. To
   reset specific parameters, submit a list of the following: `ParameterName` and
   `ApplyMethod`. To reset the entire cluster parameter group, specify the
@@ -4252,12 +4205,10 @@ defmodule AWS.DocDB do
       required("DBClusterParameterGroupName") => String.t()
     }
   """
-
   @spec reset_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_db_cluster_parameter_group_errors()}
-
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4267,6 +4218,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Creates a new cluster from a snapshot or cluster snapshot. If a snapshot is
   specified, the target cluster is created from the source DB snapshot with a
   default configuration and default security group.
@@ -4292,12 +4244,10 @@ defmodule AWS.DocDB do
       required("SnapshotIdentifier") => String.t()
     }
   """
-
   @spec restore_db_cluster_from_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_db_cluster_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_cluster_from_snapshot_errors()}
-
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4307,6 +4257,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Restores a cluster to an arbitrary point in time. Users can restore to any point
   in time before `LatestRestorableTime` for up to `BackupRetentionPeriod` days.
   The target cluster is created from the source cluster with the same
@@ -4333,12 +4284,10 @@ defmodule AWS.DocDB do
       required("SourceDBClusterIdentifier") => String.t()
     }
   """
-
   @spec restore_db_cluster_to_point_in_time(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_db_cluster_to_point_in_time_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
-
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4348,6 +4297,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Restarts the stopped cluster that is specified by `DBClusterIdentifier`. For
   more information, see [Stopping and Starting an Amazon DocumentDB
   Cluster](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html).
@@ -4360,12 +4310,10 @@ defmodule AWS.DocDB do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec start_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_db_cluster_errors()}
-
   def start_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4374,6 +4322,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Stops the running cluster that is specified by `DBClusterIdentifier`. The
   cluster must be in the *available* state. For more information, see [Stopping
   and Starting an Amazon DocumentDB
@@ -4387,12 +4336,10 @@ defmodule AWS.DocDB do
       required("DBClusterIdentifier") => String.t()
     }
   """
-
   @spec stop_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_db_cluster_errors()}
-
   def stop_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4401,6 +4348,7 @@ defmodule AWS.DocDB do
   end
 
   @doc """
+   
   Switches over the specified secondary Amazon DocumentDB cluster to be the new
   primary Amazon DocumentDB cluster in the global database cluster.
 
@@ -4413,12 +4361,10 @@ defmodule AWS.DocDB do
       required("TargetDbClusterIdentifier") => String.t()
     }
   """
-
   @spec switchover_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, switchover_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, switchover_global_cluster_errors()}
-
   def switchover_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

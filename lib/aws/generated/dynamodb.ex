@@ -3642,6 +3642,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   This operation allows you to perform batch reads or writes on data stored in
   DynamoDB, using PartiQL. Each read statement in a `BatchExecuteStatement` must
   specify an equality condition on all key attributes. This enforces that each
@@ -3660,12 +3661,10 @@ defmodule AWS.DynamoDB do
       required("Statements") => list(batch_statement_request()())
     }
   """
-
   @spec batch_execute_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_execute_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_execute_statement_errors()}
-
   def batch_execute_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3674,6 +3673,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   The `BatchGetItem` operation returns the attributes of one or more items from
   one or more tables. You identify requested items by primary key. A single
   operation can retrieve up to 16 MB of data, which can contain as many as 100
@@ -3692,12 +3692,10 @@ defmodule AWS.DynamoDB do
       required("RequestItems") => map()
     }
   """
-
   @spec batch_get_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_item_errors()}
-
   def batch_get_item(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3706,6 +3704,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   The `BatchWriteItem` operation puts or deletes multiple items in one or more
   tables. A single call to `BatchWriteItem` can transmit up to 16MB of data over
   the network, consisting of up to 25 item put or delete operations. While
@@ -3737,12 +3736,10 @@ defmodule AWS.DynamoDB do
       required("RequestItems") => map()
     }
   """
-
   @spec batch_write_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_write_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_write_item_errors()}
-
   def batch_write_item(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3751,6 +3748,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Creates a backup for an existing table. Each time you create an on-demand
   backup, the entire table data is backed up. There is no limit to the number of
   on-demand backups that can be taken.
@@ -3764,12 +3762,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec create_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backup_errors()}
-
   def create_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3778,6 +3774,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Creates a global table from an existing table. A global table creates a
   replication relationship between two or more DynamoDB tables with the same
   table name in the provided Regions. This documentation is for version
@@ -3801,12 +3798,10 @@ defmodule AWS.DynamoDB do
       required("ReplicationGroup") => list(replica()())
     }
   """
-
   @spec create_global_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_global_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_global_table_errors()}
-
   def create_global_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3815,6 +3810,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   The `CreateTable` operation adds a new table to your account. In an Amazon Web
   Services account, table names must be unique within each Region. That is, you
   can have two tables with same name if you create the tables in different
@@ -3845,12 +3841,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec create_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_table_errors()}
-
   def create_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3859,6 +3853,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Deletes an existing backup of a table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20DeleteBackup&this_doc_guide=API%2520Reference)
@@ -3869,12 +3864,10 @@ defmodule AWS.DynamoDB do
       required("BackupArn") => String.t()
     }
   """
-
   @spec delete_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_errors()}
-
   def delete_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3883,6 +3876,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Deletes a single item in a table by primary key. You can perform a conditional
   delete operation that deletes the item if it exists, or if it has an expected
   attribute value. In addition to deleting an item, you can also return the
@@ -3907,12 +3901,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec delete_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_item_errors()}
-
   def delete_item(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3921,6 +3913,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Deletes the resource-based policy attached to the resource, which can be a table
   or stream. `DeleteResourcePolicy` is an idempotent operation; running it
   multiple times on the same resource *doesn't* result in an error response,
@@ -3936,12 +3929,10 @@ defmodule AWS.DynamoDB do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3950,6 +3941,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   The `DeleteTable` operation deletes a table and all of its items. After a
   `DeleteTable` request, the specified table is in the `DELETING` state until
   DynamoDB completes the deletion. If the table is in the `ACTIVE` state, you
@@ -3967,12 +3959,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec delete_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_table_errors()}
-
   def delete_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3981,6 +3971,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Describes an existing backup of a table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20DescribeBackup&this_doc_guide=API%2520Reference)
@@ -3991,12 +3982,10 @@ defmodule AWS.DynamoDB do
       required("BackupArn") => String.t()
     }
   """
-
   @spec describe_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backup_errors()}
-
   def describe_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4005,6 +3994,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Checks the status of continuous backups and point in time recovery on the
   specified table. Continuous backups are `ENABLED` on all tables at table
   creation. If point in time recovery is enabled, `PointInTimeRecoveryStatus`
@@ -4020,12 +4010,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec describe_continuous_backups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_continuous_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_continuous_backups_errors()}
-
   def describe_continuous_backups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4034,6 +4022,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Returns information about contributor insights for a given table or global
   secondary index.
 
@@ -4046,12 +4035,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec describe_contributor_insights(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_contributor_insights_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contributor_insights_errors()}
-
   def describe_contributor_insights(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4061,6 +4048,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Returns the regional endpoint information. For more information on policy
   permissions, please see [Internetwork traffic
   privacy](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints).
@@ -4073,11 +4061,9 @@ defmodule AWS.DynamoDB do
       
     }
   """
-
   @spec describe_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def describe_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4086,6 +4072,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Describes an existing table export.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20DescribeExport&this_doc_guide=API%2520Reference)
@@ -4096,12 +4083,10 @@ defmodule AWS.DynamoDB do
       required("ExportArn") => String.t()
     }
   """
-
   @spec describe_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_export_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_export_errors()}
-
   def describe_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4110,6 +4095,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Returns information about the specified global table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20DescribeGlobalTable&this_doc_guide=API%2520Reference)
@@ -4120,12 +4106,10 @@ defmodule AWS.DynamoDB do
       required("GlobalTableName") => String.t()
     }
   """
-
   @spec describe_global_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_global_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_table_errors()}
-
   def describe_global_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4134,6 +4118,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Describes Region-specific settings for a global table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20DescribeGlobalTableSettings&this_doc_guide=API%2520Reference)
@@ -4144,12 +4129,10 @@ defmodule AWS.DynamoDB do
       required("GlobalTableName") => String.t()
     }
   """
-
   @spec describe_global_table_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_global_table_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_table_settings_errors()}
-
   def describe_global_table_settings(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4159,6 +4142,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Represents the properties of the import.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20DescribeImport&this_doc_guide=API%2520Reference)
@@ -4169,12 +4153,10 @@ defmodule AWS.DynamoDB do
       required("ImportArn") => String.t()
     }
   """
-
   @spec describe_import(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_import_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_import_errors()}
-
   def describe_import(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4183,6 +4165,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Returns information about the status of Kinesis streaming.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20DescribeKinesisStreamingDestination&this_doc_guide=API%2520Reference)
@@ -4193,12 +4176,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec describe_kinesis_streaming_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_kinesis_streaming_destination_errors()}
-
   def describe_kinesis_streaming_destination(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4208,6 +4189,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Returns the current provisioned-capacity quotas for your Amazon Web Services
   account in a Region, both for the Region as a whole and for any one DynamoDB
   table that you create there. When you establish an Amazon Web Services
@@ -4232,12 +4214,10 @@ defmodule AWS.DynamoDB do
       
     }
   """
-
   @spec describe_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_limits_errors()}
-
   def describe_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4246,6 +4226,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Returns information about the table, including the current status of the table,
   when it was created, the primary key schema, and any indexes on the table. For
   global tables, this operation only applies to global tables using Version
@@ -4259,12 +4240,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec describe_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_table_errors()}
-
   def describe_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4273,6 +4252,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Describes auto scaling settings across replicas of the global table at once.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20DescribeTableReplicaAutoScaling&this_doc_guide=API%2520Reference)
@@ -4283,12 +4263,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec describe_table_replica_auto_scaling(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_table_replica_auto_scaling_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_table_replica_auto_scaling_errors()}
-
   def describe_table_replica_auto_scaling(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4298,6 +4276,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Gives a description of the Time to Live (TTL) status on the specified table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20DescribeTimeToLive&this_doc_guide=API%2520Reference)
@@ -4308,12 +4287,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec describe_time_to_live(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_time_to_live_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_time_to_live_errors()}
-
   def describe_time_to_live(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4322,6 +4299,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Stops replication from the DynamoDB table to the Kinesis data stream. This is
   done without deleting either of the resources.
 
@@ -4335,12 +4313,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec disable_kinesis_streaming_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_kinesis_streaming_destination_errors()}
-
   def disable_kinesis_streaming_destination(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4350,6 +4326,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Starts table data replication to the specified Kinesis data stream at a
   timestamp chosen during the enable workflow. If this operation doesn't return
   results immediately, use DescribeKinesisStreamingDestination to check if
@@ -4365,12 +4342,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec enable_kinesis_streaming_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_kinesis_streaming_destination_errors()}
-
   def enable_kinesis_streaming_destination(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4380,6 +4355,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   This operation allows you to perform reads and singleton writes on data stored
   in DynamoDB, using PartiQL. For PartiQL reads (`SELECT` statement), if the
   total number of processed items exceeds the maximum dataset size limit of 1
@@ -4402,12 +4378,10 @@ defmodule AWS.DynamoDB do
       required("Statement") => String.t()
     }
   """
-
   @spec execute_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_statement_errors()}
-
   def execute_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4416,6 +4390,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   This operation allows you to perform transactional reads or writes on data
   stored in DynamoDB, using PartiQL.
 
@@ -4429,12 +4404,10 @@ defmodule AWS.DynamoDB do
       required("TransactStatements") => list(parameterized_statement()())
     }
   """
-
   @spec execute_transaction(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_transaction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_transaction_errors()}
-
   def execute_transaction(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4443,6 +4416,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Exports table data to an S3 bucket. The table must have point in time recovery
   enabled, and you can export data from any time within the point in time
   recovery window.
@@ -4465,12 +4439,10 @@ defmodule AWS.DynamoDB do
       required("TableArn") => String.t()
     }
   """
-
   @spec export_table_to_point_in_time(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_table_to_point_in_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_table_to_point_in_time_errors()}
-
   def export_table_to_point_in_time(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4480,6 +4452,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   The `GetItem` operation returns a set of attributes for the item with the given
   primary key. If there is no matching item, `GetItem` does not return any data
   and there will be no `Item` element in the response.
@@ -4498,12 +4471,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec get_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_item_errors()}
-
   def get_item(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4512,6 +4483,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Returns the resource-based policy document attached to the resource, which can
   be a table or stream, in JSON format. `GetResourcePolicy` follows an [
   *eventually consistent*
@@ -4527,12 +4499,10 @@ defmodule AWS.DynamoDB do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec get_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-
   def get_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4541,6 +4511,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Imports table data from an S3 bucket.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20ImportTable&this_doc_guide=API%2520Reference)
@@ -4556,12 +4527,10 @@ defmodule AWS.DynamoDB do
       required("TableCreationParameters") => table_creation_parameters()
     }
   """
-
   @spec import_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_table_errors()}
-
   def import_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4570,6 +4539,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   List DynamoDB backups that are associated with an Amazon Web Services account
   and weren't made with Amazon Web Services Backup. To list these backups for a
   given table, specify `TableName`. `ListBackups` returns a paginated list of
@@ -4591,12 +4561,10 @@ defmodule AWS.DynamoDB do
       optional("TimeRangeUpperBound") => non_neg_integer()
     }
   """
-
   @spec list_backups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backups_errors()}
-
   def list_backups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4605,6 +4573,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Returns a list of ContributorInsightsSummary for a table and all its global
   secondary indexes.
 
@@ -4618,12 +4587,10 @@ defmodule AWS.DynamoDB do
       optional("TableName") => String.t()
     }
   """
-
   @spec list_contributor_insights(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_contributor_insights_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contributor_insights_errors()}
-
   def list_contributor_insights(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4632,6 +4599,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Lists completed exports within the past 90 days.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20ListExports&this_doc_guide=API%2520Reference)
@@ -4644,12 +4612,10 @@ defmodule AWS.DynamoDB do
       optional("TableArn") => String.t()
     }
   """
-
   @spec list_exports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_exports_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_exports_errors()}
-
   def list_exports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4658,6 +4624,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Lists all global tables that have a replica in the specified Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20ListGlobalTables&this_doc_guide=API%2520Reference)
@@ -4670,12 +4637,10 @@ defmodule AWS.DynamoDB do
       optional("RegionName") => String.t()
     }
   """
-
   @spec list_global_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_global_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_global_tables_errors()}
-
   def list_global_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4684,6 +4649,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Lists completed imports within the past 90 days.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20ListImports&this_doc_guide=API%2520Reference)
@@ -4696,12 +4662,10 @@ defmodule AWS.DynamoDB do
       optional("TableArn") => String.t()
     }
   """
-
   @spec list_imports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_imports_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_imports_errors()}
-
   def list_imports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4710,6 +4674,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Returns an array of table names associated with the current account and
   endpoint. The output from `ListTables` is paginated, with each page returning
   a maximum of 100 table names.
@@ -4723,12 +4688,10 @@ defmodule AWS.DynamoDB do
       optional("Limit") => integer()
     }
   """
-
   @spec list_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tables_errors()}
-
   def list_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4737,6 +4700,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up
   to 10 times per second, per account.
 
@@ -4749,12 +4713,10 @@ defmodule AWS.DynamoDB do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec list_tags_of_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_of_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_of_resource_errors()}
-
   def list_tags_of_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4763,6 +4725,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Creates a new item, or replaces an old item with a new item. If an item that has
   the same primary key as the new item already exists in the specified table,
   the new item completely replaces the existing item. You can perform a
@@ -4790,12 +4753,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec put_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_item_errors()}
-
   def put_item(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4804,6 +4765,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Attaches a resource-based policy document to the resource, which can be a table
   or stream. When you attach a resource-based policy using this API, the policy
   application is [ *eventually consistent*
@@ -4824,12 +4786,10 @@ defmodule AWS.DynamoDB do
       required("ResourceArn") => String.t()
     }
   """
-
   @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4838,6 +4798,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   You must provide the name of the partition key attribute and a single value for
   that attribute. `Query` returns all items with that partition key value.
   Optionally, you can provide a sort key attribute and use a comparison operator
@@ -4874,12 +4835,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_errors()}
-
   def query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4888,6 +4847,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Creates a new table from an existing backup. Any number of users can execute up
   to 50 concurrent restores (any type of restore) in a given account. You can
   call `RestoreTableFromBackup` at a maximum rate of 10 times per second.
@@ -4907,12 +4867,10 @@ defmodule AWS.DynamoDB do
       required("TargetTableName") => String.t()
     }
   """
-
   @spec restore_table_from_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_table_from_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_table_from_backup_errors()}
-
   def restore_table_from_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4921,6 +4879,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Restores the specified table to the specified point in time within
   `EarliestRestorableDateTime` and `LatestRestorableDateTime`. You can restore
   your table to any point in time during the last 35 days. Any number of users
@@ -4947,12 +4906,10 @@ defmodule AWS.DynamoDB do
       required("TargetTableName") => String.t()
     }
   """
-
   @spec restore_table_to_point_in_time(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_table_to_point_in_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_table_to_point_in_time_errors()}
-
   def restore_table_to_point_in_time(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4962,6 +4919,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   The `Scan` operation returns one or more items and item attributes by accessing
   every item in a table or a secondary index. To have DynamoDB return fewer
   items, you can provide a `FilterExpression` operation. If the total size of
@@ -4997,12 +4955,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec scan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, scan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, scan_errors()}
-
   def scan(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5011,6 +4967,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Associate a set of tags with an Amazon DynamoDB resource. You can then activate
   these user-defined tags so that they appear on the Billing and Cost Management
   console for cost allocation tracking. You can call TagResource up to five
@@ -5025,12 +4982,10 @@ defmodule AWS.DynamoDB do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5039,6 +4994,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   `TransactGetItems` is a synchronous operation that atomically retrieves multiple
   items from one or more tables (but not from indexes) in a single account and
   Region. A `TransactGetItems` call can contain up to 100 `TransactGetItem`
@@ -5058,12 +5014,10 @@ defmodule AWS.DynamoDB do
       required("TransactItems") => list(transact_get_item()())
     }
   """
-
   @spec transact_get_items(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, transact_get_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, transact_get_items_errors()}
-
   def transact_get_items(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5072,6 +5026,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   `TransactWriteItems` is a synchronous write operation that groups up to 100
   action requests. These actions can target items in different tables, but not
   in different Amazon Web Services accounts or Regions, and no two actions can
@@ -5091,12 +5046,10 @@ defmodule AWS.DynamoDB do
       required("TransactItems") => list(transact_write_item()())
     }
   """
-
   @spec transact_write_items(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, transact_write_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, transact_write_items_errors()}
-
   def transact_write_items(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5105,6 +5058,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Removes the association of tags from an Amazon DynamoDB resource. You can call
   `UntagResource` up to five times per second, per account.
 
@@ -5117,12 +5071,10 @@ defmodule AWS.DynamoDB do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5131,6 +5083,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   `UpdateContinuousBackups` enables or disables point in time recovery for the
   specified table. A successful `UpdateContinuousBackups` call returns the
   current `ContinuousBackupsDescription`. Continuous backups are `ENABLED` on
@@ -5148,12 +5101,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec update_continuous_backups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_continuous_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_continuous_backups_errors()}
-
   def update_continuous_backups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5162,6 +5113,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Updates the status for contributor insights for a specific table or index.
   CloudWatch Contributor Insights for DynamoDB graphs display the partition key
   and (if applicable) sort key of frequently accessed items and frequently
@@ -5180,12 +5132,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec update_contributor_insights(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_contributor_insights_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contributor_insights_errors()}
-
   def update_contributor_insights(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5194,6 +5144,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Adds or removes replicas in the specified global table. The global table must
   already exist to be able to use this operation. Any replica to be added must
   be empty, have the same name as the global table, have the same key schema,
@@ -5227,12 +5178,10 @@ defmodule AWS.DynamoDB do
       required("ReplicaUpdates") => list(replica_update()())
     }
   """
-
   @spec update_global_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_global_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_table_errors()}
-
   def update_global_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5241,6 +5190,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Updates settings for a global table.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20UpdateGlobalTableSettings&this_doc_guide=API%2520Reference)
@@ -5256,12 +5206,10 @@ defmodule AWS.DynamoDB do
       required("GlobalTableName") => String.t()
     }
   """
-
   @spec update_global_table_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_global_table_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_table_settings_errors()}
-
   def update_global_table_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5270,6 +5218,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Edits an existing item's attributes, or adds a new item to the table if it does
   not already exist. You can put, delete, or add attribute values. You can also
   perform a conditional update on an existing item (insert a new attribute
@@ -5296,12 +5245,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec update_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_item_errors()}
-
   def update_item(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5310,6 +5257,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   The command to update the Kinesis stream destination.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20UpdateKinesisStreamingDestination&this_doc_guide=API%2520Reference)
@@ -5322,12 +5270,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec update_kinesis_streaming_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_kinesis_streaming_destination_errors()}
-
   def update_kinesis_streaming_destination(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5337,6 +5283,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Modifies the provisioned throughput settings, global secondary indexes, or
   DynamoDB Streams settings for a given table. For global tables, this operation
   only applies to global tables using Version 2019.11.21 (Current version).
@@ -5359,12 +5306,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec update_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_table_errors()}
-
   def update_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5373,6 +5318,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   Updates auto scaling settings on your global tables at once.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20UpdateTableReplicaAutoScaling&this_doc_guide=API%2520Reference)
@@ -5386,12 +5332,10 @@ defmodule AWS.DynamoDB do
       required("TableName") => String.t()
     }
   """
-
   @spec update_table_replica_auto_scaling(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_table_replica_auto_scaling_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_table_replica_auto_scaling_errors()}
-
   def update_table_replica_auto_scaling(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5401,6 +5345,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+   
   The `UpdateTimeToLive` method enables or disables Time to Live (TTL) for the
   specified table. A successful `UpdateTimeToLive` call returns the current
   `TimeToLiveSpecification`. It can take up to one hour for the change to fully
@@ -5419,12 +5364,10 @@ defmodule AWS.DynamoDB do
       required("TimeToLiveSpecification") => time_to_live_specification()
     }
   """
-
   @spec update_time_to_live(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_time_to_live_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_time_to_live_errors()}
-
   def update_time_to_live(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

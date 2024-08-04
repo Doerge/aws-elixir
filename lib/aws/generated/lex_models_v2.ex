@@ -6979,17 +6979,15 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20BatchCreateCustomVocabularyItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with this custom
-  vocabulary.
-  * `:bot_version` (`t:string`) The identifier of the version of the bot
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with this
+  custom vocabulary.
+  * `:bot_version` (`t:string` required) The identifier of the version of the bot
   associated with this custom vocabulary.
-  * `:locale_id` (`t:string`) The identifier of the language and locale where this
-  custom vocabulary is used. The string must match one of the supported
-  locales. For more information, see Supported Languages .
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  where this custom vocabulary is used. The string must match one of the
+  supported locales. For more information, see Supported Languages .
+  ## Keyword parameters:
   """
-
   @spec batch_create_custom_vocabulary_item(
           AWS.Client.t(),
           String.t(),
@@ -7000,7 +6998,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, batch_create_custom_vocabulary_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_custom_vocabulary_item_errors()}
-
   def batch_create_custom_vocabulary_item(
         %Client{} = client,
         bot_id,
@@ -7045,17 +7042,15 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20BatchDeleteCustomVocabularyItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with this custom
-  vocabulary.
-  * `:bot_version` (`t:string`) The identifier of the version of the bot
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with this
+  custom vocabulary.
+  * `:bot_version` (`t:string` required) The identifier of the version of the bot
   associated with this custom vocabulary.
-  * `:locale_id` (`t:string`) The identifier of the language and locale where this
-  custom vocabulary is used. The string must match one of the supported
-  locales. For more information, see Supported Languages .
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  where this custom vocabulary is used. The string must match one of the
+  supported locales. For more information, see Supported Languages .
+  ## Keyword parameters:
   """
-
   @spec batch_delete_custom_vocabulary_item(
           AWS.Client.t(),
           String.t(),
@@ -7066,7 +7061,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, batch_delete_custom_vocabulary_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_custom_vocabulary_item_errors()}
-
   def batch_delete_custom_vocabulary_item(
         %Client{} = client,
         bot_id,
@@ -7111,17 +7105,15 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20BatchUpdateCustomVocabularyItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with this custom
-  vocabulary
-  * `:bot_version` (`t:string`) The identifier of the version of the bot
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with this
+  custom vocabulary
+  * `:bot_version` (`t:string` required) The identifier of the version of the bot
   associated with this custom vocabulary.
-  * `:locale_id` (`t:string`) The identifier of the language and locale where this
-  custom vocabulary is used. The string must match one of the supported
-  locales. For more information, see Supported Languages .
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  where this custom vocabulary is used. The string must match one of the
+  supported locales. For more information, see Supported Languages .
+  ## Keyword parameters:
   """
-
   @spec batch_update_custom_vocabulary_item(
           AWS.Client.t(),
           String.t(),
@@ -7132,7 +7124,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, batch_update_custom_vocabulary_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_custom_vocabulary_item_errors()}
-
   def batch_update_custom_vocabulary_item(
         %Client{} = client,
         bot_id,
@@ -7178,23 +7169,20 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20BuildBotLocale&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot to build. The identifier is
-  returned in the response from the CreateBot operation.
-  * `:bot_version` (`t:string`) The version of the bot to build. This can only be
-  the draft version of the bot.
-  * `:locale_id` (`t:string`) The identifier of the language and locale that the
-  bot will be used in. The string must match one of the supported locales. All
-  of the intents, slot types, and slots used in the bot must have the same
-  locale. For more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot to build. The
+  identifier is returned in the response from the CreateBot operation.
+  * `:bot_version` (`t:string` required) The version of the bot to build. This can
+  only be the draft version of the bot.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  that the bot will be used in. The string must match one of the supported
+  locales. All of the intents, slot types, and slots used in the bot must have
+  the same locale. For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec build_bot_locale(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, build_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, build_bot_locale_errors()}
-
   def build_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}"
@@ -7232,15 +7220,12 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_bot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bot_errors()}
-
   def create_bot(%Client{} = client, options \\ []) do
     url_path = "/bots"
 
@@ -7278,17 +7263,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateBotAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot that the alias applies
-  to.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot that the
+  alias applies to.
+  ## Keyword parameters:
   """
-
   @spec create_bot_alias(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bot_alias_errors()}
-
   def create_bot_alias(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases"
 
@@ -7328,18 +7310,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateBotLocale&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot to create the locale for.
-  * `:bot_version` (`t:string`) The version of the bot to create the locale for.
-  This can only be the draft version of the bot.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot to create the locale
+  for.
+  * `:bot_version` (`t:string` required) The version of the bot to create the
+  locale for. This can only be the draft version of the bot.
+  ## Keyword parameters:
   """
-
   @spec create_bot_locale(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bot_locale_errors()}
-
   def create_bot_locale(%Client{} = client, bot_id, bot_version, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales"
@@ -7377,17 +7357,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateBotReplica&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The request for the unique bot ID of the source bot to
-  be replicated in the secondary region.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The request for the unique bot ID of the
+  source bot to be replicated in the secondary region.
+  ## Keyword parameters:
   """
-
   @spec create_bot_replica(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bot_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bot_replica_errors()}
-
   def create_bot_replica(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas"
 
@@ -7428,16 +7405,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateBotVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot to create the version for.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot to create the
+  version for.
+  ## Keyword parameters:
   """
-
   @spec create_bot_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bot_version_errors()}
-
   def create_bot_version(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions"
 
@@ -7478,15 +7453,12 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_export(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_export_errors()}
-
   def create_export(%Client{} = client, options \\ []) do
     url_path = "/exports"
 
@@ -7525,21 +7497,20 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateIntent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with this intent.
-  * `:bot_version` (`t:string`) The version of the bot associated with this
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with this
   intent.
-  * `:locale_id` (`t:string`) The identifier of the language and locale where this
-  intent is used. All of the bots, slot types, and slots used by the intent
-  must have the same locale. For more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_version` (`t:string` required) The version of the bot associated with
+  this intent.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  where this intent is used. All of the bots, slot types, and slots used by
+  the intent must have the same locale. For more information, see Supported
+  languages.
+  ## Keyword parameters:
   """
-
   @spec create_intent(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_intent_errors()}
-
   def create_intent(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents"
@@ -7577,17 +7548,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot
-  alias that the resource policy is attached to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  bot or bot alias that the resource policy is attached to.
+  ## Keyword parameters:
   """
-
   @spec create_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_policy_errors()}
-
   def create_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7627,20 +7595,17 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateResourcePolicyStatement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot
-  alias that the resource policy is attached to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  bot or bot alias that the resource policy is attached to.
+  ## Keyword parameters:
   * `:expected_revision_id` (`t:string`) The identifier of the revision of the
   policy to edit. If this revision ID doesn't match the current revision ID,
   Amazon Lex throws an exception.
   """
-
   @spec create_resource_policy_statement(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_resource_policy_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_policy_statement_errors()}
-
   def create_resource_policy_statement(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}/statements"
 
@@ -7691,22 +7656,22 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateSlot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with the slot.
-  * `:bot_version` (`t:string`) The version of the bot associated with the slot.
-  * `:intent_id` (`t:string`) The identifier of the intent that contains the slot.
-  * `:locale_id` (`t:string`) The identifier of the language and locale that the
-  slot will be used in. The string must match one of the supported locales.
-  All of the bots, intents, slot types used by the slot must have the same
-  locale. For more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with the
+  slot.
+  * `:bot_version` (`t:string` required) The version of the bot associated with
+  the slot.
+  * `:intent_id` (`t:string` required) The identifier of the intent that contains
+  the slot.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  that the slot will be used in. The string must match one of the supported
+  locales. All of the bots, intents, slot types used by the slot must have the
+  same locale. For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec create_slot(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_slot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_slot_errors()}
-
   def create_slot(%Client{} = client, bot_id, bot_version, intent_id, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots"
@@ -7744,23 +7709,20 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateSlotType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with this slot
-  type.
-  * `:bot_version` (`t:string`) The identifier of the bot version associated with
-  this slot type.
-  * `:locale_id` (`t:string`) The identifier of the language and locale that the
-  slot type will be used in. The string must match one of the supported
-  locales. All of the bots, intents, and slots used by the slot type must have
-  the same locale. For more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with this
+  slot type.
+  * `:bot_version` (`t:string` required) The identifier of the bot version
+  associated with this slot type.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  that the slot type will be used in. The string must match one of the
+  supported locales. All of the bots, intents, and slots used by the slot type
+  must have the same locale. For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec create_slot_type(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_slot_type_errors()}
-
   def create_slot_type(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes"
@@ -7798,17 +7760,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateTestSetDiscrepancyReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_set_id` (`t:string`) The test set Id for the test set discrepancy
-  report.
-
-  ## Optional parameters:
+  * `:test_set_id` (`t:string` required) The test set Id for the test set
+  discrepancy report.
+  ## Keyword parameters:
   """
-
   @spec create_test_set_discrepancy_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_test_set_discrepancy_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_set_discrepancy_report_errors()}
-
   def create_test_set_discrepancy_report(%Client{} = client, test_set_id, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/testsetdiscrepancy"
 
@@ -7846,15 +7805,12 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateUploadUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_upload_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_upload_url_errors()}
-
   def create_upload_url(%Client{} = client, options \\ []) do
     url_path = "/createuploadurl"
 
@@ -7894,9 +7850,8 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot to delete.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot to delete.
+  ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:boolean`) By default, Amazon Lex checks if
   any other resource, such as an alias or bot network, is using the bot
   version before it is deleted and throws a ResourceInUseException exception
@@ -7904,12 +7859,10 @@ defmodule AWS.LexModelsV2 do
   skip this check and remove the bot even if it is being used by another
   resource.
   """
-
   @spec delete_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_errors()}
-
   def delete_bot(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}"
 
@@ -7967,23 +7920,21 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteBotAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias_id` (`t:string`) The unique identifier of the bot alias to delete.
-  * `:bot_id` (`t:string`) The unique identifier of the bot associated with the
-  alias to delete.
-
-  ## Optional parameters:
+  * `:bot_alias_id` (`t:string` required) The unique identifier of the bot alias
+  to delete.
+  * `:bot_id` (`t:string` required) The unique identifier of the bot associated
+  with the alias to delete.
+  ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:boolean`) By default, Amazon Lex checks if
   any other resource, such as a bot network, is using the bot alias before it
   is deleted and throws a ResourceInUseException exception if the alias is
   being used by another resource. Set this parameter to true to skip this
   check and remove the alias even if it is being used by another resource.
   """
-
   @spec delete_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_alias_errors()}
-
   def delete_bot_alias(%Client{} = client, bot_alias_id, bot_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases/#{AWS.Util.encode_uri(bot_alias_id)}"
@@ -8042,21 +7993,19 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteBotLocale&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the
+  * `:bot_id` (`t:string` required) The unique identifier of the bot that contains
+  the locale.
+  * `:bot_version` (`t:string` required) The version of the bot that contains the
   locale.
-  * `:bot_version` (`t:string`) The version of the bot that contains the locale.
-  * `:locale_id` (`t:string`) The identifier of the language and locale that will
-  be deleted. The string must match one of the supported locales. For more
-  information, see Supported languages.
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  that will be deleted. The string must match one of the supported locales.
+  For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec delete_bot_locale(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_locale_errors()}
-
   def delete_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}"
@@ -8104,19 +8053,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteBotReplica&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique ID of the replicated bot to be deleted from
-  the secondary region
-  * `:replica_region` (`t:string`) The secondary region of the replicated bot that
-  will be deleted.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique ID of the replicated bot to be
+  deleted from the secondary region
+  * `:replica_region` (`t:string` required) The secondary region of the replicated
+  bot that will be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_bot_replica(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_bot_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_replica_errors()}
-
   def delete_bot_replica(%Client{} = client, bot_id, replica_region, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}"
@@ -8166,10 +8112,10 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteBotVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot that contains the version.
-  * `:bot_version` (`t:string`) The version of the bot to delete.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot that contains the
+  version.
+  * `:bot_version` (`t:string` required) The version of the bot to delete.
+  ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:boolean`) By default, Amazon Lex checks if
   any other resource, such as an alias or bot network, is using the bot
   version before it is deleted and throws a ResourceInUseException exception
@@ -8177,12 +8123,10 @@ defmodule AWS.LexModelsV2 do
   to skip this check and remove the version even if it is being used by
   another resource.
   """
-
   @spec delete_bot_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_version_errors()}
-
   def delete_bot_version(%Client{} = client, bot_id, bot_version, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}"
@@ -8241,21 +8185,18 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteCustomVocabulary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot to remove the custom
-  vocabulary from.
-  * `:bot_version` (`t:string`) The version of the bot to remove the custom
-  vocabulary from.
-  * `:locale_id` (`t:string`) The locale identifier for the locale that contains
-  the custom vocabulary to remove.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot to remove the
+  custom vocabulary from.
+  * `:bot_version` (`t:string` required) The version of the bot to remove the
+  custom vocabulary from.
+  * `:locale_id` (`t:string` required) The locale identifier for the locale that
+  contains the custom vocabulary to remove.
+  ## Keyword parameters:
   """
-
   @spec delete_custom_vocabulary(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_custom_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_vocabulary_errors()}
-
   def delete_custom_vocabulary(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary"
@@ -8303,16 +8244,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:export_id` (`t:string`) The unique identifier of the export to delete.
-
-  ## Optional parameters:
+  * `:export_id` (`t:string` required) The unique identifier of the export to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_export(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_export_errors()}
-
   def delete_export(%Client{} = client, export_id, options \\ []) do
     url_path = "/exports/#{AWS.Util.encode_uri(export_id)}"
 
@@ -8359,16 +8298,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteImport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:import_id` (`t:string`) The unique identifier of the import to delete.
-
-  ## Optional parameters:
+  * `:import_id` (`t:string` required) The unique identifier of the import to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_import(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_import_errors()}
-
   def delete_import(%Client{} = client, import_id, options \\ []) do
     url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
 
@@ -8415,21 +8352,21 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteIntent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with the intent.
-  * `:bot_version` (`t:string`) The version of the bot associated with the intent.
-  * `:intent_id` (`t:string`) The unique identifier of the intent to delete.
-  * `:locale_id` (`t:string`) The identifier of the language and locale where the
-  bot will be deleted. The string must match one of the supported locales. For
-  more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with the
+  intent.
+  * `:bot_version` (`t:string` required) The version of the bot associated with
+  the intent.
+  * `:intent_id` (`t:string` required) The unique identifier of the intent to
+  delete.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  where the bot will be deleted. The string must match one of the supported
+  locales. For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec delete_intent(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_intent_errors()}
-
   def delete_intent(%Client{} = client, bot_id, bot_version, intent_id, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}"
@@ -8478,20 +8415,17 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot
-  alias that has the resource policy attached.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  bot or bot alias that has the resource policy attached.
+  ## Keyword parameters:
   * `:expected_revision_id` (`t:string`) The identifier of the revision to edit.
   If this ID doesn't match the current revision number, Amazon Lex returns an
   exception
   """
-
   @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -8552,22 +8486,19 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteResourcePolicyStatement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot
-  alias that the resource policy is attached to.
-  * `:statement_id` (`t:string`) The name of the statement (SID) to delete from
-  the policy.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  bot or bot alias that the resource policy is attached to.
+  * `:statement_id` (`t:string` required) The name of the statement (SID) to
+  delete from the policy.
+  ## Keyword parameters:
   * `:expected_revision_id` (`t:string`) The identifier of the revision of the
   policy to delete the statement from. If this revision ID doesn't match the
   current revision ID, Amazon Lex throws an exception.
   """
-
   @spec delete_resource_policy_statement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_statement_errors()}
-
   def delete_resource_policy_statement(
         %Client{} = client,
         resource_arn,
@@ -8631,20 +8562,18 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteSlot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with the slot to
-  delete.
-  * `:bot_version` (`t:string`) The version of the bot associated with the slot to
-  delete.
-  * `:intent_id` (`t:string`) The identifier of the intent associated with the
-  slot.
-  * `:locale_id` (`t:string`) The identifier of the language and locale that the
-  slot will be deleted from. The string must match one of the supported
-  locales. For more information, see Supported languages.
-  * `:slot_id` (`t:string`) The identifier of the slot to delete.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with the
+  slot to delete.
+  * `:bot_version` (`t:string` required) The version of the bot associated with
+  the slot to delete.
+  * `:intent_id` (`t:string` required) The identifier of the intent associated
+  with the slot.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  that the slot will be deleted from. The string must match one of the
+  supported locales. For more information, see Supported languages.
+  * `:slot_id` (`t:string` required) The identifier of the slot to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_slot(
           AWS.Client.t(),
           String.t(),
@@ -8657,7 +8586,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slot_errors()}
-
   def delete_slot(
         %Client{} = client,
         bot_id,
@@ -8713,22 +8641,21 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteSlotType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with the slot
-  type.
-  * `:bot_version` (`t:string`) The version of the bot associated with the slot
-  type.
-  * `:locale_id` (`t:string`) The identifier of the language and locale that the
-  slot type will be deleted from. The string must match one of the supported
-  locales. For more information, see Supported languages.
-  * `:slot_type_id` (`t:string`) The identifier of the slot type to delete.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with the
+  slot type.
+  * `:bot_version` (`t:string` required) The version of the bot associated with
+  the slot type.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  that the slot type will be deleted from. The string must match one of the
+  supported locales. For more information, see Supported languages.
+  * `:slot_type_id` (`t:string` required) The identifier of the slot type to
+  delete.
+  ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:boolean`) By default, the DeleteSlotType
   operations throws a ResourceInUseException exception if you try to delete a
   slot type used by a slot. Set the skipResourceInUseCheck parameter to true
   to skip this check and remove the slot type even if a slot uses it.
   """
-
   @spec delete_slot_type(
           AWS.Client.t(),
           String.t(),
@@ -8740,7 +8667,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slot_type_errors()}
-
   def delete_slot_type(
         %Client{} = client,
         bot_id,
@@ -8806,16 +8732,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteTestSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_set_id` (`t:string`) The test set Id of the test set to be deleted.
-
-  ## Optional parameters:
+  * `:test_set_id` (`t:string` required) The test set Id of the test set to be
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_test_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_set_errors()}
-
   def delete_test_set(%Client{} = client, test_set_id, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"
 
@@ -8866,10 +8790,9 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DeleteUtterances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the
-  utterances.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot that contains
+  the utterances.
+  ## Keyword parameters:
   * `:locale_id` (`t:string`) The identifier of the language and locale where the
   utterances were collected. The string must match one of the supported
   locales. For more information, see Supported languages.
@@ -8877,12 +8800,10 @@ defmodule AWS.LexModelsV2 do
   The ID is returned in the response from the RecognizeText and
   RecognizeUtterance operations.
   """
-
   @spec delete_utterances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_utterances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_utterances_errors()}
-
   def delete_utterances(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/utterances"
 
@@ -8947,16 +8868,13 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot to describe.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot to describe.
+  ## Keyword parameters:
   """
-
   @spec describe_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bot_errors()}
-
   def describe_bot(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}"
 
@@ -8991,18 +8909,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeBotAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias_id` (`t:string`) The identifier of the bot alias to describe.
-  * `:bot_id` (`t:string`) The identifier of the bot associated with the bot alias
-  to describe.
-
-  ## Optional parameters:
+  * `:bot_alias_id` (`t:string` required) The identifier of the bot alias to
+  describe.
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with the
+  bot alias to describe.
+  ## Keyword parameters:
   """
-
   @spec describe_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bot_alias_errors()}
-
   def describe_bot_alias(%Client{} = client, bot_alias_id, bot_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases/#{AWS.Util.encode_uri(bot_alias_id)}"
@@ -9038,20 +8954,19 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeBotLocale&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with the locale.
-  * `:bot_version` (`t:string`) The version of the bot associated with the locale.
-  * `:locale_id` (`t:string`) The unique identifier of the locale to describe. The
-  string must match one of the supported locales. For more information, see
-  Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with the
+  locale.
+  * `:bot_version` (`t:string` required) The version of the bot associated with
+  the locale.
+  * `:locale_id` (`t:string` required) The unique identifier of the locale to
+  describe. The string must match one of the supported locales. For more
+  information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec describe_bot_locale(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bot_locale_errors()}
-
   def describe_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}"
@@ -9090,19 +9005,17 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeBotRecommendation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot associated with the
-  bot recommendation.
-  * `:bot_recommendation_id` (`t:string`) The identifier of the bot recommendation
-  to describe.
-  * `:bot_version` (`t:string`) The version of the bot associated with the bot
-  recommendation.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the bot
-  recommendation to describe. The string must match one of the supported
-  locales. For more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot associated
+  with the bot recommendation.
+  * `:bot_recommendation_id` (`t:string` required) The identifier of the bot
+  recommendation to describe.
+  * `:bot_version` (`t:string` required) The version of the bot associated with
+  the bot recommendation.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the bot recommendation to describe. The string must match one of the
+  supported locales. For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec describe_bot_recommendation(
           AWS.Client.t(),
           String.t(),
@@ -9114,7 +9027,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, describe_bot_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bot_recommendation_errors()}
-
   def describe_bot_recommendation(
         %Client{} = client,
         bot_id,
@@ -9157,19 +9069,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeBotReplica&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The request for the unique bot ID of the replicated bot
-  being monitored.
-  * `:replica_region` (`t:string`) The request for the region of the replicated
-  bot being monitored.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The request for the unique bot ID of the
+  replicated bot being monitored.
+  * `:replica_region` (`t:string` required) The request for the region of the
+  replicated bot being monitored.
+  ## Keyword parameters:
   """
-
   @spec describe_bot_replica(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bot_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bot_replica_errors()}
-
   def describe_bot_replica(%Client{} = client, bot_id, replica_region, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}"
@@ -9208,18 +9117,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeBotResourceGeneration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot for which to return
+  * `:bot_id` (`t:string` required) The unique identifier of the bot for which to
+  return the generation details.
+  * `:bot_version` (`t:string` required) The version of the bot for which to
+  return the generation details.
+  * `:generation_id` (`t:string` required) The unique identifier of the generation
+  request for which to return the generation details.
+  * `:locale_id` (`t:string` required) The locale of the bot for which to return
   the generation details.
-  * `:bot_version` (`t:string`) The version of the bot for which to return the
-  generation details.
-  * `:generation_id` (`t:string`) The unique identifier of the generation request
-  for which to return the generation details.
-  * `:locale_id` (`t:string`) The locale of the bot for which to return the
-  generation details.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_bot_resource_generation(
           AWS.Client.t(),
           String.t(),
@@ -9231,7 +9138,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, describe_bot_resource_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bot_resource_generation_errors()}
-
   def describe_bot_resource_generation(
         %Client{} = client,
         bot_id,
@@ -9274,18 +9180,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeBotVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot containing the version to
-  return metadata for.
-  * `:bot_version` (`t:string`) The version of the bot to return metadata for.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot containing the
+  version to return metadata for.
+  * `:bot_version` (`t:string` required) The version of the bot to return metadata
+  for.
+  ## Keyword parameters:
   """
-
   @spec describe_bot_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bot_version_errors()}
-
   def describe_bot_version(%Client{} = client, bot_id, bot_version, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}"
@@ -9321,15 +9225,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeCustomVocabularyMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the
-  custom vocabulary.
-  * `:bot_version` (`t:string`) The bot version of the bot to return metadata for.
-  * `:locale_id` (`t:string`) The locale to return the custom vocabulary
+  * `:bot_id` (`t:string` required) The unique identifier of the bot that contains
+  the custom vocabulary.
+  * `:bot_version` (`t:string` required) The bot version of the bot to return
+  metadata for.
+  * `:locale_id` (`t:string` required) The locale to return the custom vocabulary
   information for. The locale must be en_GB.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_custom_vocabulary_metadata(
           AWS.Client.t(),
           String.t(),
@@ -9340,7 +9243,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, describe_custom_vocabulary_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_vocabulary_metadata_errors()}
-
   def describe_custom_vocabulary_metadata(
         %Client{} = client,
         bot_id,
@@ -9382,16 +9284,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:export_id` (`t:string`) The unique identifier of the export to describe.
-
-  ## Optional parameters:
+  * `:export_id` (`t:string` required) The unique identifier of the export to
+  describe.
+  ## Keyword parameters:
   """
-
   @spec describe_export(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_export_errors()}
-
   def describe_export(%Client{} = client, export_id, options \\ []) do
     url_path = "/exports/#{AWS.Util.encode_uri(export_id)}"
 
@@ -9426,16 +9326,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeImport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:import_id` (`t:string`) The unique identifier of the import to describe.
-
-  ## Optional parameters:
+  * `:import_id` (`t:string` required) The unique identifier of the import to
+  describe.
+  ## Keyword parameters:
   """
-
   @spec describe_import(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_import_errors()}
-
   def describe_import(%Client{} = client, import_id, options \\ []) do
     url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
 
@@ -9470,16 +9368,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeIntent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with the intent.
-  * `:bot_version` (`t:string`) The version of the bot associated with the intent.
-  * `:intent_id` (`t:string`) The identifier of the intent to describe.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the
-  intent to describe. The string must match one of the supported locales. For
-  more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with the
+  intent.
+  * `:bot_version` (`t:string` required) The version of the bot associated with
+  the intent.
+  * `:intent_id` (`t:string` required) The identifier of the intent to describe.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the intent to describe. The string must match one of the supported
+  locales. For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec describe_intent(
           AWS.Client.t(),
           String.t(),
@@ -9491,7 +9389,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, describe_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_intent_errors()}
-
   def describe_intent(
         %Client{} = client,
         bot_id,
@@ -9534,17 +9431,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot
-  alias that the resource policy is attached to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  bot or bot alias that the resource policy is attached to.
+  ## Keyword parameters:
   """
-
   @spec describe_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_policy_errors()}
-
   def describe_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -9579,17 +9473,18 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeSlot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with the slot.
-  * `:bot_version` (`t:string`) The version of the bot associated with the slot.
-  * `:intent_id` (`t:string`) The identifier of the intent that contains the slot.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the
-  slot to describe. The string must match one of the supported locales. For
-  more information, see Supported languages.
-  * `:slot_id` (`t:string`) The unique identifier for the slot.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with the
+  slot.
+  * `:bot_version` (`t:string` required) The version of the bot associated with
+  the slot.
+  * `:intent_id` (`t:string` required) The identifier of the intent that contains
+  the slot.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the slot to describe. The string must match one of the supported locales.
+  For more information, see Supported languages.
+  * `:slot_id` (`t:string` required) The unique identifier for the slot.
+  ## Keyword parameters:
   """
-
   @spec describe_slot(
           AWS.Client.t(),
           String.t(),
@@ -9602,7 +9497,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, describe_slot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_slot_errors()}
-
   def describe_slot(
         %Client{} = client,
         bot_id,
@@ -9646,18 +9540,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeSlotType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot associated with the slot
-  type.
-  * `:bot_version` (`t:string`) The version of the bot associated with the slot
-  type.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the
-  slot type to describe. The string must match one of the supported locales.
-  For more information, see Supported languages.
-  * `:slot_type_id` (`t:string`) The identifier of the slot type.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot associated with the
+  slot type.
+  * `:bot_version` (`t:string` required) The version of the bot associated with
+  the slot type.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the slot type to describe. The string must match one of the supported
+  locales. For more information, see Supported languages.
+  * `:slot_type_id` (`t:string` required) The identifier of the slot type.
+  ## Keyword parameters:
   """
-
   @spec describe_slot_type(
           AWS.Client.t(),
           String.t(),
@@ -9669,7 +9561,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, describe_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_slot_type_errors()}
-
   def describe_slot_type(
         %Client{} = client,
         bot_id,
@@ -9712,16 +9603,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeTestExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_execution_id` (`t:string`) The execution Id of the test set execution.
-
-  ## Optional parameters:
+  * `:test_execution_id` (`t:string` required) The execution Id of the test set
+  execution.
+  ## Keyword parameters:
   """
-
   @spec describe_test_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_test_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_test_execution_errors()}
-
   def describe_test_execution(%Client{} = client, test_execution_id, options \\ []) do
     url_path = "/testexecutions/#{AWS.Util.encode_uri(test_execution_id)}"
 
@@ -9756,16 +9645,13 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeTestSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_set_id` (`t:string`) The test set Id for the test set request.
-
-  ## Optional parameters:
+  * `:test_set_id` (`t:string` required) The test set Id for the test set request.
+  ## Keyword parameters:
   """
-
   @spec describe_test_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_test_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_test_set_errors()}
-
   def describe_test_set(%Client{} = client, test_set_id, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"
 
@@ -9800,17 +9686,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeTestSetDiscrepancyReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_set_discrepancy_report_id` (`t:string`) The unique identifier of the
-  test set discrepancy report.
-
-  ## Optional parameters:
+  * `:test_set_discrepancy_report_id` (`t:string` required) The unique identifier
+  of the test set discrepancy report.
+  ## Keyword parameters:
   """
-
   @spec describe_test_set_discrepancy_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_test_set_discrepancy_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_test_set_discrepancy_report_errors()}
-
   def describe_test_set_discrepancy_report(
         %Client{} = client,
         test_set_discrepancy_report_id,
@@ -9849,17 +9732,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20DescribeTestSetGeneration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_set_generation_id` (`t:string`) The unique identifier of the test set
-  generation.
-
-  ## Optional parameters:
+  * `:test_set_generation_id` (`t:string` required) The unique identifier of the
+  test set generation.
+  ## Keyword parameters:
   """
-
   @spec describe_test_set_generation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_test_set_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_test_set_generation_errors()}
-
   def describe_test_set_generation(%Client{} = client, test_set_generation_id, options \\ []) do
     url_path = "/testsetgenerations/#{AWS.Util.encode_uri(test_set_generation_id)}"
 
@@ -9894,21 +9774,18 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20GenerateBotElement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The bot unique Id for the bot request to generate
-  utterances.
-  * `:bot_version` (`t:string`) The bot version for the bot request to generate
-  utterances.
-  * `:locale_id` (`t:string`) The unique locale Id for the bot request to generate
-  utterances.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The bot unique Id for the bot request to
+  generate utterances.
+  * `:bot_version` (`t:string` required) The bot version for the bot request to
+  generate utterances.
+  * `:locale_id` (`t:string` required) The unique locale Id for the bot request to
+  generate utterances.
+  ## Keyword parameters:
   """
-
   @spec generate_bot_element(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, generate_bot_element_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_bot_element_errors()}
-
   def generate_bot_element(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/generate"
@@ -9946,17 +9823,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20GetTestExecutionArtifactsUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_execution_id` (`t:string`) The unique identifier of the completed test
-  execution.
-
-  ## Optional parameters:
+  * `:test_execution_id` (`t:string` required) The unique identifier of the
+  completed test execution.
+  ## Keyword parameters:
   """
-
   @spec get_test_execution_artifacts_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_test_execution_artifacts_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_execution_artifacts_url_errors()}
-
   def get_test_execution_artifacts_url(%Client{} = client, test_execution_id, options \\ []) do
     url_path = "/testexecutions/#{AWS.Util.encode_uri(test_execution_id)}/artifacturl"
 
@@ -9994,17 +9868,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListAggregatedUtterances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot associated with this
-  request.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot associated
+  with this request.
+  ## Keyword parameters:
   """
-
   @spec list_aggregated_utterances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_aggregated_utterances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aggregated_utterances_errors()}
-
   def list_aggregated_utterances(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/aggregatedutterances"
 
@@ -10041,19 +9912,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBotAliasReplicas&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The request for the unique bot ID of the replicated bot
-  created from the source bot alias.
-  * `:replica_region` (`t:string`) The request for the secondary region of the
+  * `:bot_id` (`t:string` required) The request for the unique bot ID of the
   replicated bot created from the source bot alias.
-
-  ## Optional parameters:
+  * `:replica_region` (`t:string` required) The request for the secondary region
+  of the replicated bot created from the source bot alias.
+  ## Keyword parameters:
   """
-
   @spec list_bot_alias_replicas(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_bot_alias_replicas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bot_alias_replicas_errors()}
-
   def list_bot_alias_replicas(%Client{} = client, bot_id, replica_region, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}/botaliases"
@@ -10091,16 +9959,13 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBotAliases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot to list aliases for.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot to list aliases for.
+  ## Keyword parameters:
   """
-
   @spec list_bot_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bot_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bot_aliases_errors()}
-
   def list_bot_aliases(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases"
 
@@ -10137,17 +10002,15 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBotLocales&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot to list locales for.
-  * `:bot_version` (`t:string`) The version of the bot to list locales for.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot to list locales for.
+  * `:bot_version` (`t:string` required) The version of the bot to list locales
+  for.
+  ## Keyword parameters:
   """
-
   @spec list_bot_locales(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_bot_locales_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bot_locales_errors()}
-
   def list_bot_locales(%Client{} = client, bot_id, bot_version, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales"
@@ -10185,21 +10048,18 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBotRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the bot
-  recommendation list.
-  * `:bot_version` (`t:string`) The version of the bot that contains the bot
-  recommendation list.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the bot
-  recommendation list.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot that contains
+  the bot recommendation list.
+  * `:bot_version` (`t:string` required) The version of the bot that contains the
+  bot recommendation list.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the bot recommendation list.
+  ## Keyword parameters:
   """
-
   @spec list_bot_recommendations(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_bot_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bot_recommendations_errors()}
-
   def list_bot_recommendations(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations"
@@ -10237,17 +10097,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBotReplicas&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The request for the unique bot IDs in the list of
-  replicated bots.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The request for the unique bot IDs in the list
+  of replicated bots.
+  ## Keyword parameters:
   """
-
   @spec list_bot_replicas(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bot_replicas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bot_replicas_errors()}
-
   def list_bot_replicas(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas"
 
@@ -10284,16 +10141,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBotResourceGenerations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot whose generation
+  * `:bot_id` (`t:string` required) The unique identifier of the bot whose
+  generation requests you want to view.
+  * `:bot_version` (`t:string` required) The version of the bot whose generation
   requests you want to view.
-  * `:bot_version` (`t:string`) The version of the bot whose generation requests
-  you want to view.
-  * `:locale_id` (`t:string`) The locale of the bot whose generation requests you
-  want to view.
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The locale of the bot whose generation
+  requests you want to view.
+  ## Keyword parameters:
   """
-
   @spec list_bot_resource_generations(
           AWS.Client.t(),
           String.t(),
@@ -10304,7 +10159,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, list_bot_resource_generations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bot_resource_generations_errors()}
-
   def list_bot_resource_generations(
         %Client{} = client,
         bot_id,
@@ -10349,19 +10203,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBotVersionReplicas&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The request for the unique ID in the list of replicated
-  bots.
-  * `:replica_region` (`t:string`) The request for the region used in the list of
+  * `:bot_id` (`t:string` required) The request for the unique ID in the list of
   replicated bots.
-
-  ## Optional parameters:
+  * `:replica_region` (`t:string` required) The request for the region used in the
+  list of replicated bots.
+  ## Keyword parameters:
   """
-
   @spec list_bot_version_replicas(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_bot_version_replicas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bot_version_replicas_errors()}
-
   def list_bot_version_replicas(%Client{} = client, bot_id, replica_region, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}/botversions"
@@ -10402,16 +10253,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBotVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot to list versions for.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot to list versions
+  for.
+  ## Keyword parameters:
   """
-
   @spec list_bot_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bot_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bot_versions_errors()}
-
   def list_bot_versions(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions"
 
@@ -10448,15 +10297,12 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_bots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bots_errors()}
-
   def list_bots(%Client{} = client, options \\ []) do
     url_path = "/bots"
 
@@ -10494,18 +10340,15 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBuiltInIntents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the
-  intents to list. The string must match one of the supported locales. For
-  more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the intents to list. The string must match one of the supported locales.
+  For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec list_built_in_intents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_built_in_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_built_in_intents_errors()}
-
   def list_built_in_intents(%Client{} = client, locale_id, options \\ []) do
     url_path = "/builtins/locales/#{AWS.Util.encode_uri(locale_id)}/intents"
 
@@ -10542,18 +10385,15 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListBuiltInSlotTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the
-  slot types to list. The string must match one of the supported locales. For
-  more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the slot types to list. The string must match one of the supported
+  locales. For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec list_built_in_slot_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_built_in_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_built_in_slot_types_errors()}
-
   def list_built_in_slot_types(%Client{} = client, locale_id, options \\ []) do
     url_path = "/builtins/locales/#{AWS.Util.encode_uri(locale_id)}/slottypes"
 
@@ -10591,18 +10431,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListCustomVocabularyItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the version of the bot associated
-  with this custom vocabulary.
-  * `:bot_version` (`t:string`) The bot version of the bot to the list custom
-  vocabulary request.
-  * `:locale_id` (`t:string`) The identifier of the language and locale where this
-  custom vocabulary is used. The string must match one of the supported
-  locales. For more information, see Supported languages
+  * `:bot_id` (`t:string` required) The identifier of the version of the bot
+  associated with this custom vocabulary.
+  * `:bot_version` (`t:string` required) The bot version of the bot to the list
+  custom vocabulary request.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  where this custom vocabulary is used. The string must match one of the
+  supported locales. For more information, see Supported languages
   (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html).
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_custom_vocabulary_items(
           AWS.Client.t(),
           String.t(),
@@ -10613,7 +10451,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, list_custom_vocabulary_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_vocabulary_items_errors()}
-
   def list_custom_vocabulary_items(
         %Client{} = client,
         bot_id,
@@ -10658,15 +10495,12 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListExports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_exports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_exports_errors()}
-
   def list_exports(%Client{} = client, options \\ []) do
     url_path = "/exports"
 
@@ -10704,15 +10538,12 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListImports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_imports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_imports_errors()}
-
   def list_imports(%Client{} = client, options \\ []) do
     url_path = "/imports"
 
@@ -10750,17 +10581,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListIntentMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier for the bot for which you want to
-  retrieve intent metrics.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier for the bot for which you want
+  to retrieve intent metrics.
+  ## Keyword parameters:
   """
-
   @spec list_intent_metrics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_intent_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_intent_metrics_errors()}
-
   def list_intent_metrics(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentmetrics"
 
@@ -10798,17 +10626,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListIntentPaths&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier for the bot for which you want to
-  retrieve intent path metrics.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier for the bot for which you want
+  to retrieve intent path metrics.
+  ## Keyword parameters:
   """
-
   @spec list_intent_paths(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_intent_paths_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_intent_paths_errors()}
-
   def list_intent_paths(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentpaths"
 
@@ -10846,17 +10671,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListIntentStageMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier for the bot for which you want to
-  retrieve intent stage metrics.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier for the bot for which you want
+  to retrieve intent stage metrics.
+  ## Keyword parameters:
   """
-
   @spec list_intent_stage_metrics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_intent_stage_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_intent_stage_metrics_errors()}
-
   def list_intent_stage_metrics(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentstagemetrics"
 
@@ -10893,21 +10715,19 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListIntents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the
+  * `:bot_id` (`t:string` required) The unique identifier of the bot that contains
+  the intent.
+  * `:bot_version` (`t:string` required) The version of the bot that contains the
   intent.
-  * `:bot_version` (`t:string`) The version of the bot that contains the intent.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the
-  intents to list. The string must match one of the supported locales. For
-  more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the intents to list. The string must match one of the supported locales.
+  For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec list_intents(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_intents_errors()}
-
   def list_intents(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents"
@@ -10946,18 +10766,16 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListRecommendedIntents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot associated with the
+  * `:bot_id` (`t:string` required) The unique identifier of the bot associated
+  with the recommended intents.
+  * `:bot_recommendation_id` (`t:string` required) The identifier of the bot
+  recommendation that contains the recommended intents.
+  * `:bot_version` (`t:string` required) The version of the bot that contains the
   recommended intents.
-  * `:bot_recommendation_id` (`t:string`) The identifier of the bot recommendation
-  that contains the recommended intents.
-  * `:bot_version` (`t:string`) The version of the bot that contains the
-  recommended intents.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the
-  recommended intents.
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the recommended intents.
+  ## Keyword parameters:
   """
-
   @spec list_recommended_intents(
           AWS.Client.t(),
           String.t(),
@@ -10969,7 +10787,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, list_recommended_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommended_intents_errors()}
-
   def list_recommended_intents(
         %Client{} = client,
         bot_id,
@@ -11017,17 +10834,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListSessionAnalyticsData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier for the bot for which you want to
-  retrieve session analytics.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier for the bot for which you want
+  to retrieve session analytics.
+  ## Keyword parameters:
   """
-
   @spec list_session_analytics_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_session_analytics_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_session_analytics_data_errors()}
-
   def list_session_analytics_data(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/sessions"
 
@@ -11065,17 +10879,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListSessionMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier for the bot for which you want to
-  retrieve session metrics.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier for the bot for which you want
+  to retrieve session metrics.
+  ## Keyword parameters:
   """
-
   @spec list_session_metrics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_session_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_session_metrics_errors()}
-
   def list_session_metrics(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/sessionmetrics"
 
@@ -11112,22 +10923,19 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListSlotTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the slot
-  types.
-  * `:bot_version` (`t:string`) The version of the bot that contains the slot
-  type.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the
-  slot types to list. The string must match one of the supported locales. For
-  more information, see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot that contains
+  the slot types.
+  * `:bot_version` (`t:string` required) The version of the bot that contains the
+  slot type.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the slot types to list. The string must match one of the supported
+  locales. For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec list_slot_types(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_slot_types_errors()}
-
   def list_slot_types(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes"
@@ -11165,22 +10973,21 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListSlots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot that contains the slot.
-  * `:bot_version` (`t:string`) The version of the bot that contains the slot.
-  * `:intent_id` (`t:string`) The unique identifier of the intent that contains
-  the slot.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the
-  slots to list. The string must match one of the supported locales. For more
-  information, see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot that contains the
+  slot.
+  * `:bot_version` (`t:string` required) The version of the bot that contains the
+  slot.
+  * `:intent_id` (`t:string` required) The unique identifier of the intent that
+  contains the slot.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the slots to list. The string must match one of the supported locales.
+  For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec list_slots(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_slots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_slots_errors()}
-
   def list_slots(%Client{} = client, bot_id, bot_version, intent_id, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots"
@@ -11219,17 +11026,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  get a list of tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to get a list of tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -11264,17 +11068,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListTestExecutionResultItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_execution_id` (`t:string`) The unique identifier of the test execution
-  to list the result items.
-
-  ## Optional parameters:
+  * `:test_execution_id` (`t:string` required) The unique identifier of the test
+  execution to list the result items.
+  ## Keyword parameters:
   """
-
   @spec list_test_execution_result_items(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_test_execution_result_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_execution_result_items_errors()}
-
   def list_test_execution_result_items(%Client{} = client, test_execution_id, options \\ []) do
     url_path = "/testexecutions/#{AWS.Util.encode_uri(test_execution_id)}/results"
 
@@ -11311,15 +11112,12 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListTestExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_test_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_executions_errors()}
-
   def list_test_executions(%Client{} = client, options \\ []) do
     url_path = "/testexecutions"
 
@@ -11356,17 +11154,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListTestSetRecords&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_set_id` (`t:string`) The identifier of the test set to list its test
-  set records.
-
-  ## Optional parameters:
+  * `:test_set_id` (`t:string` required) The identifier of the test set to list
+  its test set records.
+  ## Keyword parameters:
   """
-
   @spec list_test_set_records(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_test_set_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_set_records_errors()}
-
   def list_test_set_records(%Client{} = client, test_set_id, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/records"
 
@@ -11403,15 +11198,12 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListTestSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_test_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_sets_errors()}
-
   def list_test_sets(%Client{} = client, options \\ []) do
     url_path = "/testsets"
 
@@ -11454,17 +11246,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListUtteranceAnalyticsData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier for the bot for which you want to
-  retrieve utterance analytics.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier for the bot for which you want
+  to retrieve utterance analytics.
+  ## Keyword parameters:
   """
-
   @spec list_utterance_analytics_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_utterance_analytics_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_utterance_analytics_data_errors()}
-
   def list_utterance_analytics_data(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/utterances"
 
@@ -11507,17 +11296,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20ListUtteranceMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier for the bot for which you want to
-  retrieve utterance metrics.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier for the bot for which you want
+  to retrieve utterance metrics.
+  ## Keyword parameters:
   """
-
   @spec list_utterance_metrics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_utterance_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_utterance_metrics_errors()}
-
   def list_utterance_metrics(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/utterancemetrics"
 
@@ -11554,19 +11340,17 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20SearchAssociatedTranscripts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot associated with the
+  * `:bot_id` (`t:string` required) The unique identifier of the bot associated
+  with the transcripts that you are searching.
+  * `:bot_recommendation_id` (`t:string` required) The unique identifier of the
+  bot recommendation associated with the transcripts to search.
+  * `:bot_version` (`t:string` required) The version of the bot containing the
   transcripts that you are searching.
-  * `:bot_recommendation_id` (`t:string`) The unique identifier of the bot
-  recommendation associated with the transcripts to search.
-  * `:bot_version` (`t:string`) The version of the bot containing the transcripts
-  that you are searching.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the
-  transcripts to search. The string must match one of the supported locales.
-  For more information, see Supported languages
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the transcripts to search. The string must match one of the supported
+  locales. For more information, see Supported languages
+  ## Keyword parameters:
   """
-
   @spec search_associated_transcripts(
           AWS.Client.t(),
           String.t(),
@@ -11578,7 +11362,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, search_associated_transcripts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_associated_transcripts_errors()}
-
   def search_associated_transcripts(
         %Client{} = client,
         bot_id,
@@ -11624,22 +11407,19 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20StartBotRecommendation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot containing the bot
+  * `:bot_id` (`t:string` required) The unique identifier of the bot containing
+  the bot recommendation.
+  * `:bot_version` (`t:string` required) The version of the bot containing the bot
   recommendation.
-  * `:bot_version` (`t:string`) The version of the bot containing the bot
-  recommendation.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the bot
-  recommendation to start. The string must match one of the supported locales.
-  For more information, see Supported languages
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the bot recommendation to start. The string must match one of the
+  supported locales. For more information, see Supported languages
+  ## Keyword parameters:
   """
-
   @spec start_bot_recommendation(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_bot_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_bot_recommendation_errors()}
-
   def start_bot_recommendation(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations"
@@ -11682,16 +11462,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20StartBotResourceGeneration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot for which to generate
+  * `:bot_id` (`t:string` required) The unique identifier of the bot for which to
+  generate intents and slot types.
+  * `:bot_version` (`t:string` required) The version of the bot for which to
+  generate intents and slot types.
+  * `:locale_id` (`t:string` required) The locale of the bot for which to generate
   intents and slot types.
-  * `:bot_version` (`t:string`) The version of the bot for which to generate
-  intents and slot types.
-  * `:locale_id` (`t:string`) The locale of the bot for which to generate intents
-  and slot types.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_bot_resource_generation(
           AWS.Client.t(),
           String.t(),
@@ -11702,7 +11480,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, start_bot_resource_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_bot_resource_generation_errors()}
-
   def start_bot_resource_generation(
         %Client{} = client,
         bot_id,
@@ -11747,15 +11524,12 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20StartImport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_errors()}
-
   def start_import(%Client{} = client, options \\ []) do
     url_path = "/imports"
 
@@ -11792,16 +11566,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20StartTestExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_set_id` (`t:string`) The test set Id for the test set execution.
-
-  ## Optional parameters:
+  * `:test_set_id` (`t:string` required) The test set Id for the test set
+  execution.
+  ## Keyword parameters:
   """
-
   @spec start_test_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_test_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_test_execution_errors()}
-
   def start_test_execution(%Client{} = client, test_set_id, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/testexecutions"
 
@@ -11838,15 +11610,12 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20StartTestSetGeneration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_test_set_generation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_test_set_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_test_set_generation_errors()}
-
   def start_test_set_generation(%Client{} = client, options \\ []) do
     url_path = "/testsetgenerations"
 
@@ -11883,19 +11652,17 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20StopBotRecommendation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot containing the bot
-  recommendation to be stopped.
-  * `:bot_recommendation_id` (`t:string`) The unique identifier of the bot
-  recommendation to be stopped.
-  * `:bot_version` (`t:string`) The version of the bot containing the bot
+  * `:bot_id` (`t:string` required) The unique identifier of the bot containing
+  the bot recommendation to be stopped.
+  * `:bot_recommendation_id` (`t:string` required) The unique identifier of the
+  bot recommendation to be stopped.
+  * `:bot_version` (`t:string` required) The version of the bot containing the bot
   recommendation.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the bot
-  recommendation to stop. The string must match one of the supported locales.
-  For more information, see Supported languages
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the bot recommendation to stop. The string must match one of the
+  supported locales. For more information, see Supported languages
+  ## Keyword parameters:
   """
-
   @spec stop_bot_recommendation(
           AWS.Client.t(),
           String.t(),
@@ -11907,7 +11674,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, stop_bot_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_bot_recommendation_errors()}
-
   def stop_bot_recommendation(
         %Client{} = client,
         bot_id,
@@ -11953,17 +11719,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot, bot
-  alias, or bot channel to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  bot, bot alias, or bot channel to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -12000,20 +11763,17 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  remove the tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.lexmodelsv2#TagKey]`) A list of tag keys to
-  remove from the resource. If a tag key does not exist on the resource, it is
-  ignored.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to remove the tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.lexmodelsv2#TagKey]` required) A list of
+  tag keys to remove from the resource. If a tag key does not exist on the
+  resource, it is ignored.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -12061,17 +11821,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UpdateBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot to update. This
-  identifier is returned by the CreateBot operation.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot to update.
+  This identifier is returned by the CreateBot operation.
+  ## Keyword parameters:
   """
-
   @spec update_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bot_errors()}
-
   def update_bot(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}"
 
@@ -12108,17 +11865,15 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UpdateBotAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_alias_id` (`t:string`) The unique identifier of the bot alias.
-  * `:bot_id` (`t:string`) The identifier of the bot with the updated alias.
-
-  ## Optional parameters:
+  * `:bot_alias_id` (`t:string` required) The unique identifier of the bot alias.
+  * `:bot_id` (`t:string` required) The identifier of the bot with the updated
+  alias.
+  ## Keyword parameters:
   """
-
   @spec update_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bot_alias_errors()}
-
   def update_bot_alias(%Client{} = client, bot_alias_id, bot_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases/#{AWS.Util.encode_uri(bot_alias_id)}"
@@ -12156,22 +11911,19 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UpdateBotLocale&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the
-  locale.
-  * `:bot_version` (`t:string`) The version of the bot that contains the locale to
-  be updated. The version can only be the DRAFT version.
-  * `:locale_id` (`t:string`) The identifier of the language and locale to update.
-  The string must match one of the supported locales. For more information,
-  see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot that contains
+  the locale.
+  * `:bot_version` (`t:string` required) The version of the bot that contains the
+  locale to be updated. The version can only be the DRAFT version.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  to update. The string must match one of the supported locales. For more
+  information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec update_bot_locale(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bot_locale_errors()}
-
   def update_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}"
@@ -12209,19 +11961,17 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UpdateBotRecommendation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot containing the bot
+  * `:bot_id` (`t:string` required) The unique identifier of the bot containing
+  the bot recommendation to be updated.
+  * `:bot_recommendation_id` (`t:string` required) The unique identifier of the
+  bot recommendation to be updated.
+  * `:bot_version` (`t:string` required) The version of the bot containing the bot
   recommendation to be updated.
-  * `:bot_recommendation_id` (`t:string`) The unique identifier of the bot
-  recommendation to be updated.
-  * `:bot_version` (`t:string`) The version of the bot containing the bot
-  recommendation to be updated.
-  * `:locale_id` (`t:string`) The identifier of the language and locale of the bot
-  recommendation to update. The string must match one of the supported
-  locales. For more information, see Supported languages
-
-  ## Optional parameters:
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  of the bot recommendation to update. The string must match one of the
+  supported locales. For more information, see Supported languages
+  ## Keyword parameters:
   """
-
   @spec update_bot_recommendation(
           AWS.Client.t(),
           String.t(),
@@ -12233,7 +11983,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, update_bot_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bot_recommendation_errors()}
-
   def update_bot_recommendation(
         %Client{} = client,
         bot_id,
@@ -12278,17 +12027,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UpdateExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:export_id` (`t:string`) The unique identifier Amazon Lex assigned to the
-  export.
-
-  ## Optional parameters:
+  * `:export_id` (`t:string` required) The unique identifier Amazon Lex assigned
+  to the export.
+  ## Keyword parameters:
   """
-
   @spec update_export(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_export_errors()}
-
   def update_export(%Client{} = client, export_id, options \\ []) do
     url_path = "/exports/#{AWS.Util.encode_uri(export_id)}"
 
@@ -12325,22 +12071,21 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UpdateIntent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot that contains the intent.
-  * `:bot_version` (`t:string`) The version of the bot that contains the intent.
-  Must be DRAFT.
-  * `:intent_id` (`t:string`) The unique identifier of the intent to update.
-  * `:locale_id` (`t:string`) The identifier of the language and locale where this
-  intent is used. The string must match one of the supported locales. For more
-  information, see Supported languages.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot that contains the
+  intent.
+  * `:bot_version` (`t:string` required) The version of the bot that contains the
+  intent. Must be DRAFT.
+  * `:intent_id` (`t:string` required) The unique identifier of the intent to
+  update.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  where this intent is used. The string must match one of the supported
+  locales. For more information, see Supported languages.
+  ## Keyword parameters:
   """
-
   @spec update_intent(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_intent_errors()}
-
   def update_intent(%Client{} = client, bot_id, bot_version, intent_id, locale_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}"
@@ -12379,20 +12124,17 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UpdateResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot
-  alias that the resource policy is attached to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  bot or bot alias that the resource policy is attached to.
+  ## Keyword parameters:
   * `:expected_revision_id` (`t:string`) The identifier of the revision of the
   policy to update. If this revision ID doesn't match the current revision ID,
   Amazon Lex throws an exception.
   """
-
   @spec update_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_policy_errors()}
-
   def update_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -12440,19 +12182,18 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UpdateSlot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the
-  slot.
-  * `:bot_version` (`t:string`) The version of the bot that contains the slot.
-  Must always be DRAFT.
-  * `:intent_id` (`t:string`) The identifier of the intent that contains the slot.
-  * `:locale_id` (`t:string`) The identifier of the language and locale that
-  contains the slot. The string must match one of the supported locales. For
-  more information, see Supported languages.
-  * `:slot_id` (`t:string`) The unique identifier for the slot to update.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The unique identifier of the bot that contains
+  the slot.
+  * `:bot_version` (`t:string` required) The version of the bot that contains the
+  slot. Must always be DRAFT.
+  * `:intent_id` (`t:string` required) The identifier of the intent that contains
+  the slot.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  that contains the slot. The string must match one of the supported locales.
+  For more information, see Supported languages.
+  * `:slot_id` (`t:string` required) The unique identifier for the slot to update.
+  ## Keyword parameters:
   """
-
   @spec update_slot(
           AWS.Client.t(),
           String.t(),
@@ -12465,7 +12206,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, update_slot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_slot_errors()}
-
   def update_slot(
         %Client{} = client,
         bot_id,
@@ -12511,17 +12251,17 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UpdateSlotType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bot_id` (`t:string`) The identifier of the bot that contains the slot type.
-  * `:bot_version` (`t:string`) The version of the bot that contains the slot
-  type. Must be DRAFT.
-  * `:locale_id` (`t:string`) The identifier of the language and locale that
-  contains the slot type. The string must match one of the supported locales.
-  For more information, see Supported languages.
-  * `:slot_type_id` (`t:string`) The unique identifier of the slot type to update.
-
-  ## Optional parameters:
+  * `:bot_id` (`t:string` required) The identifier of the bot that contains the
+  slot type.
+  * `:bot_version` (`t:string` required) The version of the bot that contains the
+  slot type. Must be DRAFT.
+  * `:locale_id` (`t:string` required) The identifier of the language and locale
+  that contains the slot type. The string must match one of the supported
+  locales. For more information, see Supported languages.
+  * `:slot_type_id` (`t:string` required) The unique identifier of the slot type
+  to update.
+  ## Keyword parameters:
   """
-
   @spec update_slot_type(
           AWS.Client.t(),
           String.t(),
@@ -12533,7 +12273,6 @@ defmodule AWS.LexModelsV2 do
           {:ok, update_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_slot_type_errors()}
-
   def update_slot_type(
         %Client{} = client,
         bot_id,
@@ -12578,17 +12317,14 @@ defmodule AWS.LexModelsV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20UpdateTestSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:test_set_id` (`t:string`) The test set Id for which update test operation to
-  be performed.
-
-  ## Optional parameters:
+  * `:test_set_id` (`t:string` required) The test set Id for which update test
+  operation to be performed.
+  ## Keyword parameters:
   """
-
   @spec update_test_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_test_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_test_set_errors()}
-
   def update_test_set(%Client{} = client, test_set_id, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"
 

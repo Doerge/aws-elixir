@@ -2033,6 +2033,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Accepts a proposal request to attach a virtual private gateway or transit
   gateway to a Direct Connect gateway.
 
@@ -2047,7 +2048,6 @@ defmodule AWS.DirectConnect do
       required("proposalId") => String.t()
     }
   """
-
   @spec accept_direct_connect_gateway_association_proposal(
           AWS.Client.t(),
           input :: map(),
@@ -2056,7 +2056,6 @@ defmodule AWS.DirectConnect do
           {:ok, accept_direct_connect_gateway_association_proposal_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_direct_connect_gateway_association_proposal_errors()}
-
   def accept_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2072,6 +2071,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deprecated. Use `AllocateHostedConnection` instead. Creates a hosted connection
   on an interconnect.
 
@@ -2087,12 +2087,10 @@ defmodule AWS.DirectConnect do
       required("vlan") => integer()
     }
   """
-
   @spec allocate_connection_on_interconnect(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, allocate_connection_on_interconnect_errors()}
-
   def allocate_connection_on_interconnect(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2102,6 +2100,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates a hosted connection on the specified interconnect or a link aggregation
   group (LAG) of interconnects. Allocates a VLAN number and a specified amount
   of capacity (bandwidth) for use by a hosted connection on the specified
@@ -2122,12 +2121,10 @@ defmodule AWS.DirectConnect do
       required("vlan") => integer()
     }
   """
-
   @spec allocate_hosted_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, allocate_hosted_connection_errors()}
-
   def allocate_hosted_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2136,6 +2133,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Provisions a private virtual interface to be owned by the specified Amazon Web
   Services account.
 
@@ -2149,12 +2147,10 @@ defmodule AWS.DirectConnect do
       required("ownerAccount") => String.t()
     }
   """
-
   @spec allocate_private_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, allocate_private_virtual_interface_errors()}
-
   def allocate_private_virtual_interface(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2164,6 +2160,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Provisions a public virtual interface to be owned by the specified Amazon Web
   Services account. The owner of a connection calls this function to provision a
   public virtual interface to be owned by the specified Amazon Web Services
@@ -2179,12 +2176,10 @@ defmodule AWS.DirectConnect do
       required("ownerAccount") => String.t()
     }
   """
-
   @spec allocate_public_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, allocate_public_virtual_interface_errors()}
-
   def allocate_public_virtual_interface(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2194,6 +2189,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Provisions a transit virtual interface to be owned by the specified Amazon Web
   Services account. Use this type of interface to connect a transit gateway to
   your Direct Connect gateway. The owner of a connection provisions a transit
@@ -2209,12 +2205,10 @@ defmodule AWS.DirectConnect do
       required("ownerAccount") => String.t()
     }
   """
-
   @spec allocate_transit_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, allocate_transit_virtual_interface_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, allocate_transit_virtual_interface_errors()}
-
   def allocate_transit_virtual_interface(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2224,6 +2218,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Associates an existing connection with a link aggregation group (LAG). The
   connection is interrupted and re-established as a member of the LAG
   (connectivity to Amazon Web Services is interrupted). The connection must be
@@ -2245,12 +2240,10 @@ defmodule AWS.DirectConnect do
       required("lagId") => String.t()
     }
   """
-
   @spec associate_connection_with_lag(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_connection_with_lag_errors()}
-
   def associate_connection_with_lag(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2260,6 +2253,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Associates a hosted connection and its virtual interfaces with a link
   aggregation group (LAG) or interconnect. If the target interconnect or LAG has
   an existing hosted connection with a conflicting VLAN number or IP address,
@@ -2275,12 +2269,10 @@ defmodule AWS.DirectConnect do
       required("parentConnectionId") => String.t()
     }
   """
-
   @spec associate_hosted_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_hosted_connection_errors()}
-
   def associate_hosted_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2289,6 +2281,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity
   Association Key (CAK) pair with an Direct Connect dedicated connection. You
   must supply either the `secretARN,` or the CKN/CAK (`ckn` and `cak`) pair in
@@ -2305,12 +2298,10 @@ defmodule AWS.DirectConnect do
       required("connectionId") => String.t()
     }
   """
-
   @spec associate_mac_sec_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_mac_sec_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_mac_sec_key_errors()}
-
   def associate_mac_sec_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2319,6 +2310,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Associates a virtual interface with a specified link aggregation group (LAG) or
   connection. Connectivity to Amazon Web Services is temporarily interrupted as
   the virtual interface is being migrated. If the target connection or LAG has
@@ -2337,12 +2329,10 @@ defmodule AWS.DirectConnect do
       required("virtualInterfaceId") => String.t()
     }
   """
-
   @spec associate_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_virtual_interface_errors()}
-
   def associate_virtual_interface(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2351,6 +2341,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Confirms the creation of the specified hosted connection on an interconnect.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20ConfirmConnection&this_doc_guide=API%2520Reference)
@@ -2361,12 +2352,10 @@ defmodule AWS.DirectConnect do
       required("connectionId") => String.t()
     }
   """
-
   @spec confirm_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, confirm_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, confirm_connection_errors()}
-
   def confirm_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2375,6 +2364,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   The confirmation of the terms of agreement when creating the connection/link
   aggregation group (LAG).
 
@@ -2386,12 +2376,10 @@ defmodule AWS.DirectConnect do
       optional("agreementName") => String.t()
     }
   """
-
   @spec confirm_customer_agreement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, confirm_customer_agreement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, confirm_customer_agreement_errors()}
-
   def confirm_customer_agreement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2400,6 +2388,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Accepts ownership of a private virtual interface created by another Amazon Web
   Services account.
 
@@ -2413,12 +2402,10 @@ defmodule AWS.DirectConnect do
       required("virtualInterfaceId") => String.t()
     }
   """
-
   @spec confirm_private_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, confirm_private_virtual_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, confirm_private_virtual_interface_errors()}
-
   def confirm_private_virtual_interface(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2428,6 +2415,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Accepts ownership of a public virtual interface created by another Amazon Web
   Services account.
 
@@ -2439,12 +2427,10 @@ defmodule AWS.DirectConnect do
       required("virtualInterfaceId") => String.t()
     }
   """
-
   @spec confirm_public_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, confirm_public_virtual_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, confirm_public_virtual_interface_errors()}
-
   def confirm_public_virtual_interface(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2454,6 +2440,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Accepts ownership of a transit virtual interface created by another Amazon Web
   Services account.
 
@@ -2466,12 +2453,10 @@ defmodule AWS.DirectConnect do
       required("virtualInterfaceId") => String.t()
     }
   """
-
   @spec confirm_transit_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, confirm_transit_virtual_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, confirm_transit_virtual_interface_errors()}
-
   def confirm_transit_virtual_interface(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2481,6 +2466,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates a BGP peer on the specified virtual interface. You must create a BGP
   peer for the corresponding address family (IPv4/IPv6) in order to access
   Amazon Web Services resources that also use that address family.
@@ -2494,12 +2480,10 @@ defmodule AWS.DirectConnect do
       optional("virtualInterfaceId") => String.t()
     }
   """
-
   @spec create_bgp_peer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_bgp_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bgp_peer_errors()}
-
   def create_bgp_peer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2508,6 +2492,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates a connection between a customer network and a specific Direct Connect
   location. A connection links your internal network to an Direct Connect
   location over a standard Ethernet fiber-optic cable. One end of the cable is
@@ -2527,12 +2512,10 @@ defmodule AWS.DirectConnect do
       required("location") => String.t()
     }
   """
-
   @spec create_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_errors()}
-
   def create_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2541,6 +2524,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates a Direct Connect gateway, which is an intermediate object that enables
   you to connect a set of virtual interfaces and virtual private gateways. A
   Direct Connect gateway is global and visible in any Amazon Web Services Region
@@ -2559,12 +2543,10 @@ defmodule AWS.DirectConnect do
       required("directConnectGatewayName") => String.t()
     }
   """
-
   @spec create_direct_connect_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_direct_connect_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_direct_connect_gateway_errors()}
-
   def create_direct_connect_gateway(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2574,6 +2556,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates an association between a Direct Connect gateway and a virtual private
   gateway. The virtual private gateway must be attached to a VPC and must not be
   associated with another Direct Connect gateway.
@@ -2589,12 +2572,10 @@ defmodule AWS.DirectConnect do
       required("directConnectGatewayId") => String.t()
     }
   """
-
   @spec create_direct_connect_gateway_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_direct_connect_gateway_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_direct_connect_gateway_association_errors()}
-
   def create_direct_connect_gateway_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2604,6 +2585,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates a proposal to associate the specified virtual private gateway or transit
   gateway with the specified Direct Connect gateway.
 
@@ -2619,7 +2601,6 @@ defmodule AWS.DirectConnect do
       required("gatewayId") => String.t()
     }
   """
-
   @spec create_direct_connect_gateway_association_proposal(
           AWS.Client.t(),
           input :: map(),
@@ -2628,7 +2609,6 @@ defmodule AWS.DirectConnect do
           {:ok, create_direct_connect_gateway_association_proposal_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_direct_connect_gateway_association_proposal_errors()}
-
   def create_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2644,6 +2624,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates an interconnect between an Direct Connect Partner's network and a
   specific Direct Connect location. An interconnect is a connection that is
   capable of hosting other connections. The Direct Connect Partner can use an
@@ -2666,12 +2647,10 @@ defmodule AWS.DirectConnect do
       required("location") => String.t()
     }
   """
-
   @spec create_interconnect(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, interconnect(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_interconnect_errors()}
-
   def create_interconnect(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2680,6 +2659,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates a link aggregation group (LAG) with the specified number of bundled
   physical dedicated connections between the customer network and a specific
   Direct Connect location. A LAG is a logical interface that uses the Link
@@ -2704,12 +2684,10 @@ defmodule AWS.DirectConnect do
       required("numberOfConnections") => integer()
     }
   """
-
   @spec create_lag(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, lag(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lag_errors()}
-
   def create_lag(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2718,6 +2696,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates a private virtual interface. A virtual interface is the VLAN that
   transports Direct Connect traffic. A private virtual interface can be
   connected to either a Direct Connect gateway or a Virtual Private Gateway
@@ -2736,12 +2715,10 @@ defmodule AWS.DirectConnect do
       required("newPrivateVirtualInterface") => new_private_virtual_interface()
     }
   """
-
   @spec create_private_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_private_virtual_interface_errors()}
-
   def create_private_virtual_interface(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2751,6 +2728,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates a public virtual interface. A virtual interface is the VLAN that
   transports Direct Connect traffic. A public virtual interface supports sending
   traffic to public services of Amazon Web Services such as Amazon S3.
@@ -2764,12 +2742,10 @@ defmodule AWS.DirectConnect do
       required("newPublicVirtualInterface") => new_public_virtual_interface()
     }
   """
-
   @spec create_public_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_public_virtual_interface_errors()}
-
   def create_public_virtual_interface(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2779,6 +2755,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Creates a transit virtual interface. A transit virtual interface should be used
   to access one or more transit gateways associated with Direct Connect
   gateways. A transit virtual interface enables the connection of multiple VPCs
@@ -2797,12 +2774,10 @@ defmodule AWS.DirectConnect do
       required("newTransitVirtualInterface") => new_transit_virtual_interface()
     }
   """
-
   @spec create_transit_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transit_virtual_interface_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_transit_virtual_interface_errors()}
-
   def create_transit_virtual_interface(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2812,6 +2787,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deletes the specified BGP peer on the specified virtual interface with the
   specified customer address and ASN.
 
@@ -2826,12 +2802,10 @@ defmodule AWS.DirectConnect do
       optional("virtualInterfaceId") => String.t()
     }
   """
-
   @spec delete_bgp_peer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_bgp_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bgp_peer_errors()}
-
   def delete_bgp_peer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2840,6 +2814,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deletes the specified connection.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20DeleteConnection&this_doc_guide=API%2520Reference)
@@ -2850,12 +2825,10 @@ defmodule AWS.DirectConnect do
       required("connectionId") => String.t()
     }
   """
-
   @spec delete_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-
   def delete_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2864,6 +2837,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deletes the specified Direct Connect gateway. You must first delete all virtual
   interfaces that are attached to the Direct Connect gateway and disassociate
   all virtual private gateways associated with the Direct Connect gateway.
@@ -2876,12 +2850,10 @@ defmodule AWS.DirectConnect do
       required("directConnectGatewayId") => String.t()
     }
   """
-
   @spec delete_direct_connect_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_direct_connect_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_direct_connect_gateway_errors()}
-
   def delete_direct_connect_gateway(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2891,6 +2863,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deletes the association between the specified Direct Connect gateway and virtual
   private gateway.
 
@@ -2904,12 +2877,10 @@ defmodule AWS.DirectConnect do
       optional("virtualGatewayId") => String.t()
     }
   """
-
   @spec delete_direct_connect_gateway_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_direct_connect_gateway_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_direct_connect_gateway_association_errors()}
-
   def delete_direct_connect_gateway_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2919,6 +2890,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deletes the association proposal request between the specified Direct Connect
   gateway and virtual private gateway or transit gateway.
 
@@ -2930,7 +2902,6 @@ defmodule AWS.DirectConnect do
       required("proposalId") => String.t()
     }
   """
-
   @spec delete_direct_connect_gateway_association_proposal(
           AWS.Client.t(),
           input :: map(),
@@ -2939,7 +2910,6 @@ defmodule AWS.DirectConnect do
           {:ok, delete_direct_connect_gateway_association_proposal_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_direct_connect_gateway_association_proposal_errors()}
-
   def delete_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2955,6 +2925,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deletes the specified interconnect.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20DeleteInterconnect&this_doc_guide=API%2520Reference)
@@ -2965,12 +2936,10 @@ defmodule AWS.DirectConnect do
       required("interconnectId") => String.t()
     }
   """
-
   @spec delete_interconnect(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_interconnect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_interconnect_errors()}
-
   def delete_interconnect(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2979,6 +2948,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deletes the specified link aggregation group (LAG). You cannot delete a LAG if
   it has active virtual interfaces or hosted connections.
 
@@ -2990,12 +2960,10 @@ defmodule AWS.DirectConnect do
       required("lagId") => String.t()
     }
   """
-
   @spec delete_lag(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, lag(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lag_errors()}
-
   def delete_lag(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3004,6 +2972,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deletes a virtual interface.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20DeleteVirtualInterface&this_doc_guide=API%2520Reference)
@@ -3014,12 +2983,10 @@ defmodule AWS.DirectConnect do
       required("virtualInterfaceId") => String.t()
     }
   """
-
   @spec delete_virtual_interface(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_virtual_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_virtual_interface_errors()}
-
   def delete_virtual_interface(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3028,6 +2995,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deprecated. Use `DescribeLoa` instead. Gets the LOA-CFA for a connection.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20DescribeConnectionLoa&this_doc_guide=API%2520Reference)
@@ -3040,12 +3008,10 @@ defmodule AWS.DirectConnect do
       required("connectionId") => String.t()
     }
   """
-
   @spec describe_connection_loa(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_connection_loa_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connection_loa_errors()}
-
   def describe_connection_loa(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3054,6 +3020,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Displays the specified connection or all connections in this Region.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20DescribeConnections&this_doc_guide=API%2520Reference)
@@ -3064,12 +3031,10 @@ defmodule AWS.DirectConnect do
       optional("connectionId") => String.t()
     }
   """
-
   @spec describe_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connections(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connections_errors()}
-
   def describe_connections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3078,6 +3043,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deprecated. Use `DescribeHostedConnections` instead. Lists the connections that
   have been provisioned on the specified interconnect.
 
@@ -3089,12 +3055,10 @@ defmodule AWS.DirectConnect do
       required("interconnectId") => String.t()
     }
   """
-
   @spec describe_connections_on_interconnect(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connections(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connections_on_interconnect_errors()}
-
   def describe_connections_on_interconnect(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3104,6 +3068,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Get and view a list of customer agreements, along with their signed status and
   whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner.
 
@@ -3112,12 +3077,10 @@ defmodule AWS.DirectConnect do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_customer_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_customer_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_customer_metadata_errors()}
-
   def describe_customer_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3126,6 +3089,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Describes one or more association proposals for connection between a virtual
   private gateway or transit gateway and a Direct Connect gateway.
 
@@ -3141,7 +3105,6 @@ defmodule AWS.DirectConnect do
       optional("proposalId") => String.t()
     }
   """
-
   @spec describe_direct_connect_gateway_association_proposals(
           AWS.Client.t(),
           input :: map(),
@@ -3150,7 +3113,6 @@ defmodule AWS.DirectConnect do
           {:ok, describe_direct_connect_gateway_association_proposals_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_direct_connect_gateway_association_proposals_errors()}
-
   def describe_direct_connect_gateway_association_proposals(
         %Client{} = client,
         input,
@@ -3170,6 +3132,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Lists the associations between your Direct Connect gateways and virtual private
   gateways and transit gateways. You must specify one of the following:
 
@@ -3186,12 +3149,10 @@ defmodule AWS.DirectConnect do
       optional("virtualGatewayId") => String.t()
     }
   """
-
   @spec describe_direct_connect_gateway_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_direct_connect_gateway_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_direct_connect_gateway_associations_errors()}
-
   def describe_direct_connect_gateway_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3201,6 +3162,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Lists the attachments between your Direct Connect gateways and virtual
   interfaces. You must specify a Direct Connect gateway, a virtual interface, or
   both. If you specify a Direct Connect gateway, the response contains all
@@ -3220,12 +3182,10 @@ defmodule AWS.DirectConnect do
       optional("virtualInterfaceId") => String.t()
     }
   """
-
   @spec describe_direct_connect_gateway_attachments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_direct_connect_gateway_attachments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_direct_connect_gateway_attachments_errors()}
-
   def describe_direct_connect_gateway_attachments(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3235,6 +3195,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Lists all your Direct Connect gateways or only the specified Direct Connect
   gateway. Deleted Direct Connect gateways are not returned.
 
@@ -3248,12 +3209,10 @@ defmodule AWS.DirectConnect do
       optional("nextToken") => String.t()
     }
   """
-
   @spec describe_direct_connect_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_direct_connect_gateways_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_direct_connect_gateways_errors()}
-
   def describe_direct_connect_gateways(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3263,6 +3222,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Lists the hosted connections that have been provisioned on the specified
   interconnect or link aggregation group (LAG).
 
@@ -3274,12 +3234,10 @@ defmodule AWS.DirectConnect do
       required("connectionId") => String.t()
     }
   """
-
   @spec describe_hosted_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connections(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hosted_connections_errors()}
-
   def describe_hosted_connections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3288,6 +3246,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deprecated. Use `DescribeLoa` instead. Gets the LOA-CFA for the specified
   interconnect.
 
@@ -3301,12 +3260,10 @@ defmodule AWS.DirectConnect do
       required("interconnectId") => String.t()
     }
   """
-
   @spec describe_interconnect_loa(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_interconnect_loa_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_interconnect_loa_errors()}
-
   def describe_interconnect_loa(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3315,6 +3272,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Lists the interconnects owned by the Amazon Web Services account or only the
   specified interconnect.
 
@@ -3326,12 +3284,10 @@ defmodule AWS.DirectConnect do
       optional("interconnectId") => String.t()
     }
   """
-
   @spec describe_interconnects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, interconnects(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_interconnects_errors()}
-
   def describe_interconnects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3340,6 +3296,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Describes all your link aggregation groups (LAG) or the specified LAG.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20DescribeLags&this_doc_guide=API%2520Reference)
@@ -3350,12 +3307,10 @@ defmodule AWS.DirectConnect do
       optional("lagId") => String.t()
     }
   """
-
   @spec describe_lags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, lags(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_lags_errors()}
-
   def describe_lags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3364,6 +3319,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Gets the LOA-CFA for a connection, interconnect, or link aggregation group
   (LAG).
 
@@ -3377,12 +3333,10 @@ defmodule AWS.DirectConnect do
       required("connectionId") => String.t()
     }
   """
-
   @spec describe_loa(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, loa(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_loa_errors()}
-
   def describe_loa(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3391,6 +3345,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Lists the Direct Connect locations in the current Amazon Web Services Region.
   These are the locations that can be selected when calling `CreateConnection`
   or `CreateInterconnect`.
@@ -3400,12 +3355,10 @@ defmodule AWS.DirectConnect do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_locations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, locations(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_locations_errors()}
-
   def describe_locations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3414,6 +3367,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Details about the router.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20DescribeRouterConfiguration&this_doc_guide=API%2520Reference)
@@ -3425,12 +3379,10 @@ defmodule AWS.DirectConnect do
       required("virtualInterfaceId") => String.t()
     }
   """
-
   @spec describe_router_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_router_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_router_configuration_errors()}
-
   def describe_router_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3440,6 +3392,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Describes the tags associated with the specified Direct Connect resources.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20DescribeTags&this_doc_guide=API%2520Reference)
@@ -3450,12 +3403,10 @@ defmodule AWS.DirectConnect do
       required("resourceArns") => list(String.t()())
     }
   """
-
   @spec describe_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
-
   def describe_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3464,6 +3415,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Deprecated. Use `DescribeVpnGateways` instead. See
   [DescribeVPNGateways](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html)
   in the *Amazon Elastic Compute Cloud API Reference*. Lists the virtual private
@@ -3474,12 +3426,10 @@ defmodule AWS.DirectConnect do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_virtual_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, virtual_gateways(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_virtual_gateways_errors()}
-
   def describe_virtual_gateways(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3488,6 +3438,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Displays all virtual interfaces for an Amazon Web Services account. Virtual
   interfaces deleted fewer than 15 minutes before you make the request are also
   returned. If you specify a connection ID, only the virtual interfaces
@@ -3503,12 +3454,10 @@ defmodule AWS.DirectConnect do
       optional("virtualInterfaceId") => String.t()
     }
   """
-
   @spec describe_virtual_interfaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, virtual_interfaces(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_virtual_interfaces_errors()}
-
   def describe_virtual_interfaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3517,6 +3466,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Disassociates a connection from a link aggregation group (LAG). The connection
   is interrupted and re-established as a standalone connection (the connection
   is not deleted; to delete the connection, use the `DeleteConnection` request).
@@ -3533,12 +3483,10 @@ defmodule AWS.DirectConnect do
       required("lagId") => String.t()
     }
   """
-
   @spec disassociate_connection_from_lag(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_connection_from_lag_errors()}
-
   def disassociate_connection_from_lag(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3548,6 +3496,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Removes the association between a MAC Security (MACsec) security key and an
   Direct Connect dedicated connection.
 
@@ -3560,12 +3509,10 @@ defmodule AWS.DirectConnect do
       required("secretARN") => String.t()
     }
   """
-
   @spec disassociate_mac_sec_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_mac_sec_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_mac_sec_key_errors()}
-
   def disassociate_mac_sec_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3574,6 +3521,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Lists the virtual interface failover test history.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20ListVirtualInterfaceTestHistory&this_doc_guide=API%2520Reference)
@@ -3589,12 +3537,10 @@ defmodule AWS.DirectConnect do
       optional("virtualInterfaceId") => String.t()
     }
   """
-
   @spec list_virtual_interface_test_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_virtual_interface_test_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_virtual_interface_test_history_errors()}
-
   def list_virtual_interface_test_history(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3604,6 +3550,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Starts the virtual interface failover test that verifies your configuration
   meets your resiliency requirements by placing the BGP peering session in the
   DOWN state. You can then send traffic to verify that there are no outages. You
@@ -3619,12 +3566,10 @@ defmodule AWS.DirectConnect do
       required("virtualInterfaceId") => String.t()
     }
   """
-
   @spec start_bgp_failover_test(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_bgp_failover_test_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_bgp_failover_test_errors()}
-
   def start_bgp_failover_test(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3633,6 +3578,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Stops the virtual interface failover test.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20StopBgpFailoverTest&this_doc_guide=API%2520Reference)
@@ -3643,12 +3589,10 @@ defmodule AWS.DirectConnect do
       required("virtualInterfaceId") => String.t()
     }
   """
-
   @spec stop_bgp_failover_test(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_bgp_failover_test_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_bgp_failover_test_errors()}
-
   def stop_bgp_failover_test(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3657,6 +3601,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Adds the specified tags to the specified Direct Connect resource. Each resource
   can have a maximum of 50 tags.
 
@@ -3669,12 +3614,10 @@ defmodule AWS.DirectConnect do
       required("tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3683,6 +3626,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Removes one or more tags from the specified Direct Connect resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20UntagResource&this_doc_guide=API%2520Reference)
@@ -3694,12 +3638,10 @@ defmodule AWS.DirectConnect do
       required("tagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3708,6 +3650,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Updates the Direct Connect dedicated connection configuration. You can update
   the following parameters for a connection:
 
@@ -3721,12 +3664,10 @@ defmodule AWS.DirectConnect do
       required("connectionId") => String.t()
     }
   """
-
   @spec update_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connection_errors()}
-
   def update_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3735,6 +3676,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Updates the name of a current Direct Connect gateway.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20UpdateDirectConnectGateway&this_doc_guide=API%2520Reference)
@@ -3746,12 +3688,10 @@ defmodule AWS.DirectConnect do
       required("newDirectConnectGatewayName") => String.t()
     }
   """
-
   @spec update_direct_connect_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_direct_connect_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_direct_connect_gateway_errors()}
-
   def update_direct_connect_gateway(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3761,6 +3701,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Updates the specified attributes of the Direct Connect gateway association.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20UpdateDirectConnectGatewayAssociation&this_doc_guide=API%2520Reference)
@@ -3773,12 +3714,10 @@ defmodule AWS.DirectConnect do
       optional("removeAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()())
     }
   """
-
   @spec update_direct_connect_gateway_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_direct_connect_gateway_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_direct_connect_gateway_association_errors()}
-
   def update_direct_connect_gateway_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3788,6 +3727,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Updates the attributes of the specified link aggregation group (LAG). You can
   update the following LAG attributes:
 
@@ -3802,12 +3742,10 @@ defmodule AWS.DirectConnect do
       required("lagId") => String.t()
     }
   """
-
   @spec update_lag(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, lag(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lag_errors()}
-
   def update_lag(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3816,6 +3754,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+   
   Updates the specified attributes of the specified virtual private interface.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directconnect%20UpdateVirtualInterfaceAttributes&this_doc_guide=API%2520Reference)
@@ -3829,12 +3768,10 @@ defmodule AWS.DirectConnect do
       required("virtualInterfaceId") => String.t()
     }
   """
-
   @spec update_virtual_interface_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_virtual_interface_attributes_errors()}
-
   def update_virtual_interface_attributes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

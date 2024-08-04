@@ -1419,6 +1419,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1435,12 +1436,10 @@ defmodule AWS.KinesisAnalytics do
       required("CurrentApplicationVersionId") => float()
     }
   """
-
   @spec add_application_cloud_watch_logging_option(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_application_cloud_watch_logging_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_cloud_watch_logging_option_errors()}
-
   def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1450,6 +1449,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1469,12 +1469,10 @@ defmodule AWS.KinesisAnalytics do
       required("Input") => input()
     }
   """
-
   @spec add_application_input(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_application_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_input_errors()}
-
   def add_application_input(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1483,6 +1481,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1500,7 +1499,6 @@ defmodule AWS.KinesisAnalytics do
       required("InputProcessingConfiguration") => input_processing_configuration()
     }
   """
-
   @spec add_application_input_processing_configuration(
           AWS.Client.t(),
           input :: map(),
@@ -1509,7 +1507,6 @@ defmodule AWS.KinesisAnalytics do
           {:ok, add_application_input_processing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_input_processing_configuration_errors()}
-
   def add_application_input_processing_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1525,6 +1522,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1542,12 +1540,10 @@ defmodule AWS.KinesisAnalytics do
       required("Output") => output()
     }
   """
-
   @spec add_application_output(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_application_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_output_errors()}
-
   def add_application_output(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1556,6 +1552,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1573,12 +1570,10 @@ defmodule AWS.KinesisAnalytics do
       required("ReferenceDataSource") => reference_data_source()
     }
   """
-
   @spec add_application_reference_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_application_reference_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_reference_data_source_errors()}
-
   def add_application_reference_data_source(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1588,6 +1583,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1608,12 +1604,10 @@ defmodule AWS.KinesisAnalytics do
       required("ApplicationName") => String.t()
     }
   """
-
   @spec create_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1622,6 +1616,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1637,12 +1632,10 @@ defmodule AWS.KinesisAnalytics do
       required("CreateTimestamp") => non_neg_integer()
     }
   """
-
   @spec delete_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1651,6 +1644,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1667,12 +1661,10 @@ defmodule AWS.KinesisAnalytics do
       required("CurrentApplicationVersionId") => float()
     }
   """
-
   @spec delete_application_cloud_watch_logging_option(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_cloud_watch_logging_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_cloud_watch_logging_option_errors()}
-
   def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1682,6 +1674,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1698,7 +1691,6 @@ defmodule AWS.KinesisAnalytics do
       required("InputId") => String.t()
     }
   """
-
   @spec delete_application_input_processing_configuration(
           AWS.Client.t(),
           input :: map(),
@@ -1707,7 +1699,6 @@ defmodule AWS.KinesisAnalytics do
           {:ok, delete_application_input_processing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_input_processing_configuration_errors()}
-
   def delete_application_input_processing_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1723,6 +1714,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1739,12 +1731,10 @@ defmodule AWS.KinesisAnalytics do
       required("OutputId") => String.t()
     }
   """
-
   @spec delete_application_output(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_output_errors()}
-
   def delete_application_output(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1753,6 +1743,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1771,12 +1762,10 @@ defmodule AWS.KinesisAnalytics do
       required("ReferenceId") => String.t()
     }
   """
-
   @spec delete_application_reference_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_reference_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_reference_data_source_errors()}
-
   def delete_application_reference_data_source(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1786,6 +1775,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1801,12 +1791,10 @@ defmodule AWS.KinesisAnalytics do
       required("ApplicationName") => String.t()
     }
   """
-
   @spec describe_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_errors()}
-
   def describe_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1815,6 +1803,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1837,12 +1826,10 @@ defmodule AWS.KinesisAnalytics do
       optional("S3Configuration") => s3_configuration()
     }
   """
-
   @spec discover_input_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, discover_input_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, discover_input_schema_errors()}
-
   def discover_input_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1851,6 +1838,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1872,11 +1860,9 @@ defmodule AWS.KinesisAnalytics do
       optional("Limit") => integer()
     }
   """
-
   @spec list_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1885,6 +1871,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   Retrieves the list of key-value tags assigned to the application. For more
   information, see [Using
   Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
@@ -1897,12 +1884,10 @@ defmodule AWS.KinesisAnalytics do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1911,6 +1896,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1928,12 +1914,10 @@ defmodule AWS.KinesisAnalytics do
       required("InputConfigurations") => list(input_configuration()())
     }
   """
-
   @spec start_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_errors()}
-
   def start_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1942,6 +1926,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -1962,12 +1947,10 @@ defmodule AWS.KinesisAnalytics do
       required("ApplicationName") => String.t()
     }
   """
-
   @spec stop_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_application_errors()}
-
   def stop_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1976,6 +1959,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   Adds one or more key-value tags to a Kinesis Analytics application. Note that
   the maximum number of application tags includes system tags. The maximum
   number of user-defined application tags is 50. For more information, see
@@ -1991,12 +1975,10 @@ defmodule AWS.KinesisAnalytics do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2005,6 +1987,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   Removes one or more tags from a Kinesis Analytics application. For more
   information, see [Using
   Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
@@ -2018,12 +2001,10 @@ defmodule AWS.KinesisAnalytics do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2032,6 +2013,7 @@ defmodule AWS.KinesisAnalytics do
   end
 
   @doc """
+   
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications. Version 2 of the API supports SQL and
   Java applications. For more information about version 2, see [Amazon Kinesis
@@ -2048,12 +2030,10 @@ defmodule AWS.KinesisAnalytics do
       required("CurrentApplicationVersionId") => float()
     }
   """
-
   @spec update_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-
   def update_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

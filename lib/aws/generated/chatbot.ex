@@ -1274,15 +1274,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20CreateChimeWebhookConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_chime_webhook_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_chime_webhook_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_chime_webhook_configuration_errors()}
-
   def create_chime_webhook_configuration(%Client{} = client, options \\ []) do
     url_path = "/create-chime-webhook-configuration"
 
@@ -1319,15 +1316,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20CreateMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_microsoft_teams_channel_configuration_errors()}
-
   def create_microsoft_teams_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/create-ms-teams-channel-configuration"
 
@@ -1364,15 +1358,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20CreateSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_slack_channel_configuration_errors()}
-
   def create_slack_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/create-slack-channel-configuration"
 
@@ -1409,15 +1400,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteChimeWebhookConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_chime_webhook_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_chime_webhook_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_chime_webhook_configuration_errors()}
-
   def delete_chime_webhook_configuration(%Client{} = client, options \\ []) do
     url_path = "/delete-chime-webhook-configuration"
 
@@ -1454,15 +1442,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_microsoft_teams_channel_configuration_errors()}
-
   def delete_microsoft_teams_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/delete-ms-teams-channel-configuration"
 
@@ -1501,15 +1486,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteMicrosoftTeamsConfiguredTeam&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_microsoft_teams_configured_team(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_teams_configured_team_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_microsoft_teams_configured_team_errors()}
-
   def delete_microsoft_teams_configured_team(%Client{} = client, options \\ []) do
     url_path = "/delete-ms-teams-configured-teams"
 
@@ -1546,15 +1528,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteMicrosoftTeamsUserIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_microsoft_teams_user_identity(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_microsoft_teams_user_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_microsoft_teams_user_identity_errors()}
-
   def delete_microsoft_teams_user_identity(%Client{} = client, options \\ []) do
     url_path = "/delete-ms-teams-user-identity"
 
@@ -1591,15 +1570,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slack_channel_configuration_errors()}
-
   def delete_slack_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/delete-slack-channel-configuration"
 
@@ -1636,15 +1612,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteSlackUserIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_slack_user_identity(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_user_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slack_user_identity_errors()}
-
   def delete_slack_user_identity(%Client{} = client, options \\ []) do
     url_path = "/delete-slack-user-identity"
 
@@ -1683,15 +1656,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteSlackWorkspaceAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_slack_workspace_authorization(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_workspace_authorization_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slack_workspace_authorization_errors()}
-
   def delete_slack_workspace_authorization(%Client{} = client, options \\ []) do
     url_path = "/delete-slack-workspace-authorization"
 
@@ -1728,15 +1698,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeChimeWebhookConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_chime_webhook_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_chime_webhook_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_chime_webhook_configurations_errors()}
-
   def describe_chime_webhook_configurations(%Client{} = client, options \\ []) do
     url_path = "/describe-chime-webhook-configurations"
 
@@ -1773,15 +1740,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeSlackChannelConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_slack_channel_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_slack_channel_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_slack_channel_configurations_errors()}
-
   def describe_slack_channel_configurations(%Client{} = client, options \\ []) do
     url_path = "/describe-slack-channel-configurations"
 
@@ -1818,15 +1782,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeSlackUserIdentities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_slack_user_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_slack_user_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_slack_user_identities_errors()}
-
   def describe_slack_user_identities(%Client{} = client, options \\ []) do
     url_path = "/describe-slack-user-identities"
 
@@ -1863,15 +1824,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeSlackWorkspaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_slack_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_slack_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_slack_workspaces_errors()}
-
   def describe_slack_workspaces(%Client{} = client, options \\ []) do
     url_path = "/describe-slack-workspaces"
 
@@ -1908,15 +1866,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20GetAccountPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_preferences_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_preferences_errors()}
-
   def get_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/get-account-preferences"
 
@@ -1953,15 +1908,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20GetMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_microsoft_teams_channel_configuration_errors()}
-
   def get_microsoft_teams_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/get-ms-teams-channel-configuration"
 
@@ -1998,15 +1950,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListMicrosoftTeamsChannelConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_microsoft_teams_channel_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_teams_channel_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_microsoft_teams_channel_configurations_errors()}
-
   def list_microsoft_teams_channel_configurations(%Client{} = client, options \\ []) do
     url_path = "/list-ms-teams-channel-configurations"
 
@@ -2043,15 +1992,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListMicrosoftTeamsConfiguredTeams&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_microsoft_teams_configured_teams(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_microsoft_teams_configured_teams_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_microsoft_teams_configured_teams_errors()}
-
   def list_microsoft_teams_configured_teams(%Client{} = client, options \\ []) do
     url_path = "/list-ms-teams-configured-teams"
 
@@ -2088,15 +2034,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListMicrosoftTeamsUserIdentities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_microsoft_teams_user_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_microsoft_teams_user_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_microsoft_teams_user_identities_errors()}
-
   def list_microsoft_teams_user_identities(%Client{} = client, options \\ []) do
     url_path = "/list-ms-teams-user-identities"
 
@@ -2133,15 +2076,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/list-tags-for-resource"
 
@@ -2178,15 +2118,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tag-resource"
 
@@ -2223,15 +2160,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/untag-resource"
 
@@ -2268,15 +2202,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateAccountPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_account_preferences_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_preferences_errors()}
-
   def update_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/update-account-preferences"
 
@@ -2313,15 +2244,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateChimeWebhookConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_chime_webhook_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_chime_webhook_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_chime_webhook_configuration_errors()}
-
   def update_chime_webhook_configuration(%Client{} = client, options \\ []) do
     url_path = "/update-chime-webhook-configuration"
 
@@ -2358,15 +2286,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_microsoft_teams_channel_configuration_errors()}
-
   def update_microsoft_teams_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/update-ms-teams-channel-configuration"
 
@@ -2403,15 +2328,12 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_slack_channel_configuration_errors()}
-
   def update_slack_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/update-slack-channel-configuration"
 

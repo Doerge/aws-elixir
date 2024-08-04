@@ -400,11 +400,10 @@ defmodule AWS.EBS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20CompleteSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_id` (`t:string`) The ID of the snapshot.
-  * `:changed_blocks_count` (`t:integer`) The number of blocks that were written
-  to the snapshot.
-
-  ## Optional parameters:
+  * `:snapshot_id` (`t:string` required) The ID of the snapshot.
+  * `:changed_blocks_count` (`t:integer` required) The number of blocks that were
+  written to the snapshot.
+  ## Keyword parameters:
   * `:checksum` (`t:string`) An aggregated Base-64 SHA256 checksum based on the
   checksums of each written block.
   * `:checksum_aggregation_method` (`t:enum["CHECKSUM_AGGREGATION_LINEAR"]`) The
@@ -414,12 +413,10 @@ defmodule AWS.EBS do
   used to generate the checksum. Currently, the only supported algorithm is
   SHA256.
   """
-
   @spec complete_snapshot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, complete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_snapshot_errors()}
-
   def complete_snapshot(%Client{} = client, snapshot_id, changed_blocks_count, options \\ [])
       when is_integer(changed_blocks_count) do
     url_path = "/snapshots/completion/#{AWS.Util.encode_uri(snapshot_id)}"
@@ -482,25 +479,22 @@ defmodule AWS.EBS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20GetSnapshotBlock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:block_index` (`t:integer`) The block index of the block in which to read the
-  data. A block index is a logical index in units of 512 KiB blocks. To
-  identify the block index, divide the logical offset of the data in the
+  * `:block_index` (`t:integer` required) The block index of the block in which to
+  read the data. A block index is a logical index in units of 512 KiB blocks.
+  To identify the block index, divide the logical offset of the data in the
   logical volume by the block size (logical offset of data/524288). The
   logical offset of the data must be 512 KiB aligned.
-  * `:snapshot_id` (`t:string`) The ID of the snapshot containing the block from
-  which to get data.
-  * `:block_token` (`t:string`) The block token of the block from which to get
-  data. You can obtain the BlockToken by running the ListChangedBlocks or
-  ListSnapshotBlocks operations.
-
-  ## Optional parameters:
+  * `:snapshot_id` (`t:string` required) The ID of the snapshot containing the
+  block from which to get data.
+  * `:block_token` (`t:string` required) The block token of the block from which
+  to get data. You can obtain the BlockToken by running the ListChangedBlocks
+  or ListSnapshotBlocks operations.
+  ## Keyword parameters:
   """
-
   @spec get_snapshot_block(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_snapshot_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_snapshot_block_errors()}
-
   def get_snapshot_block(%Client{} = client, block_index, snapshot_id, block_token, options \\ [])
       when is_binary(block_token) do
     url_path =
@@ -548,10 +542,9 @@ defmodule AWS.EBS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20ListChangedBlocks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:second_snapshot_id` (`t:string`) The ID of the second snapshot to use for
-  the comparison.
-
-  ## Optional parameters:
+  * `:second_snapshot_id` (`t:string` required) The ID of the second snapshot to
+  use for the comparison.
+  ## Keyword parameters:
   * `:first_snapshot_id` (`t:string`) The ID of the first snapshot to use for the
   comparison.
   * `:max_results` (`t:integer`) The maximum number of blocks to be returned by
@@ -560,12 +553,10 @@ defmodule AWS.EBS do
   * `:starting_block_index` (`t:integer`) The block index from which the
   comparison should start.
   """
-
   @spec list_changed_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_changed_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_changed_blocks_errors()}
-
   def list_changed_blocks(%Client{} = client, second_snapshot_id, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(second_snapshot_id)}/changedblocks"
 
@@ -637,10 +628,9 @@ defmodule AWS.EBS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20ListSnapshotBlocks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_id` (`t:string`) The ID of the snapshot from which to get block
-  indexes and block tokens.
-
-  ## Optional parameters:
+  * `:snapshot_id` (`t:string` required) The ID of the snapshot from which to get
+  block indexes and block tokens.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of blocks to be returned by
   the request.
   * `:next_token` (`t:string`) The token to request the next page of results.
@@ -648,12 +638,10 @@ defmodule AWS.EBS do
   should start. The list in the response will start from this block index or
   the next valid block index in the snapshot.
   """
-
   @spec list_snapshot_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_snapshot_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_snapshot_blocks_errors()}
-
   def list_snapshot_blocks(%Client{} = client, snapshot_id, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks"
 
@@ -715,26 +703,24 @@ defmodule AWS.EBS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20PutSnapshotBlock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:block_index` (`t:integer`) The block index of the block in which to write
-  the data. A block index is a logical index in units of 512 KiB blocks. To
-  identify the block index, divide the logical offset of the data in the
+  * `:block_index` (`t:integer` required) The block index of the block in which to
+  write the data. A block index is a logical index in units of 512 KiB blocks.
+  To identify the block index, divide the logical offset of the data in the
   logical volume by the block size (logical offset of data/524288). The
   logical offset of the data must be 512 KiB aligned.
-  * `:snapshot_id` (`t:string`) The ID of the snapshot.
-  * `:checksum` (`t:string`) A Base64-encoded SHA256 checksum of the data. Only
-  SHA256 checksums are supported.
-  * `:checksum_algorithm` (`t:enum["CHECKSUM_ALGORITHM_SHA256"]`) The algorithm
-  used to generate the checksum. Currently, the only supported algorithm is
-  SHA256.
-  * `:data_length` (`t:integer`) The size of the data to write to the block, in
-  bytes. Currently, the only supported size is 524288 bytes.
+  * `:snapshot_id` (`t:string` required) The ID of the snapshot.
+  * `:checksum` (`t:string` required) A Base64-encoded SHA256 checksum of the
+  data. Only SHA256 checksums are supported.
+  * `:checksum_algorithm` (`t:enum["CHECKSUM_ALGORITHM_SHA256"]` required) The
+  algorithm used to generate the checksum. Currently, the only supported
+  algorithm is SHA256.
+  * `:data_length` (`t:integer` required) The size of the data to write to the
+  block, in bytes. Currently, the only supported size is 524288 bytes.
   * `:input` (`t:map`):
-    * `:block_data` (`t:blob`) The data to write to the block.
-
-  ## Optional parameters:
+    * `:block_data` (`t:blob` required) The data to write to the block.
+  ## Keyword parameters:
   * `:progress` (`t:integer`) The progress of the write process, as a percentage.
   """
-
   @spec put_snapshot_block(
           AWS.Client.t(),
           String.t(),
@@ -748,7 +734,6 @@ defmodule AWS.EBS do
           {:ok, put_snapshot_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_snapshot_block_errors()}
-
   def put_snapshot_block(
         %Client{} = client,
         block_index,
@@ -832,15 +817,12 @@ defmodule AWS.EBS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20StartSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_snapshot_errors()}
-
   def start_snapshot(%Client{} = client, options \\ []) do
     url_path = "/snapshots"
 

@@ -615,17 +615,14 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20DeleteLexicon&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the lexicon to delete. Must be an existing
-  lexicon in the region.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the lexicon to delete. Must be an
+  existing lexicon in the region.
+  ## Keyword parameters:
   """
-
   @spec delete_lexicon(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lexicon_errors()}
-
   def delete_lexicon(%Client{} = client, name, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
 
@@ -676,8 +673,7 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20DescribeVoices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:engine` (`t:enum["GENERATIVE|LONG_FORM|NEURAL|STANDARD"]`) Specifies the
   engine (standard, neural, long-form or generative) used by Amazon Polly when
   processing input text for speech synthesis.
@@ -696,12 +692,10 @@ defmodule AWS.Polly do
   previous DescribeVoices operation. If present, this indicates where to
   continue the listing.
   """
-
   @spec describe_voices(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_voices_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_voices_errors()}
-
   def describe_voices(%Client{} = client, options \\ []) do
     url_path = "/v1/voices"
 
@@ -775,16 +769,13 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20GetLexicon&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) Name of the lexicon.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) Name of the lexicon.
+  ## Keyword parameters:
   """
-
   @spec get_lexicon(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lexicon_errors()}
-
   def get_lexicon(%Client{} = client, name, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
 
@@ -822,17 +813,14 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20GetSpeechSynthesisTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:task_id` (`t:string`) The Amazon Polly generated identifier for a speech
-  synthesis task.
-
-  ## Optional parameters:
+  * `:task_id` (`t:string` required) The Amazon Polly generated identifier for a
+  speech synthesis task.
+  ## Keyword parameters:
   """
-
   @spec get_speech_synthesis_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_speech_synthesis_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_speech_synthesis_task_errors()}
-
   def get_speech_synthesis_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/v1/synthesisTasks/#{AWS.Util.encode_uri(task_id)}"
 
@@ -869,18 +857,15 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20ListLexicons&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) An opaque pagination token returned from previous
   ListLexicons operation. If present, indicates where to continue the list of
   lexicons.
   """
-
   @spec list_lexicons(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lexicons_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lexicons_errors()}
-
   def list_lexicons(%Client{} = client, options \\ []) do
     url_path = "/v1/lexicons"
 
@@ -928,8 +913,7 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20ListSpeechSynthesisTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of speech synthesis tasks returned
   in a List operation.
   * `:next_token` (`t:string`) The pagination token to use in the next request to
@@ -937,12 +921,10 @@ defmodule AWS.Polly do
   * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|SCHEDULED"]`) Status of the
   speech synthesis tasks returned in a List operation
   """
-
   @spec list_speech_synthesis_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_speech_synthesis_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_speech_synthesis_tasks_errors()}
-
   def list_speech_synthesis_tasks(%Client{} = client, options \\ []) do
     url_path = "/v1/synthesisTasks"
 
@@ -1006,18 +988,15 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20PutLexicon&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) Name of the lexicon. The name must follow the regular
-  express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive
-  alphanumeric string up to 20 characters long.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) Name of the lexicon. The name must follow the
+  regular express format [0-9A-Za-z]{1,20}. That is, the name is a
+  case-sensitive alphanumeric string up to 20 characters long.
+  ## Keyword parameters:
   """
-
   @spec put_lexicon(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_lexicon_errors()}
-
   def put_lexicon(%Client{} = client, name, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
 
@@ -1062,15 +1041,12 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20StartSpeechSynthesisTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_speech_synthesis_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_speech_synthesis_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_speech_synthesis_task_errors()}
-
   def start_speech_synthesis_task(%Client{} = client, options \\ []) do
     url_path = "/v1/synthesisTasks"
 
@@ -1111,15 +1087,12 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20SynthesizeSpeech&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec synthesize_speech(AWS.Client.t(), Keyword.t()) ::
           {:ok, synthesize_speech_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, synthesize_speech_errors()}
-
   def synthesize_speech(%Client{} = client, options \\ []) do
     url_path = "/v1/speech"
 

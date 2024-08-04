@@ -1742,15 +1742,12 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateAlarmModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_alarm_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alarm_model_errors()}
-
   def create_alarm_model(%Client{} = client, options \\ []) do
     url_path = "/alarm-models"
 
@@ -1787,15 +1784,12 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateDetectorModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_detector_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_detector_model_errors()}
-
   def create_detector_model(%Client{} = client, options \\ []) do
     url_path = "/detector-models"
 
@@ -1832,15 +1826,12 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateInput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_input(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_input_errors()}
-
   def create_input(%Client{} = client, options \\ []) do
     url_path = "/inputs"
 
@@ -1878,16 +1869,13 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DeleteAlarmModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alarm_model_name` (`t:string`) The name of the alarm model.
-
-  ## Optional parameters:
+  * `:alarm_model_name` (`t:string` required) The name of the alarm model.
+  ## Keyword parameters:
   """
-
   @spec delete_alarm_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alarm_model_errors()}
-
   def delete_alarm_model(%Client{} = client, alarm_model_name, options \\ []) do
     url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
 
@@ -1935,17 +1923,14 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DeleteDetectorModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_model_name` (`t:string`) The name of the detector model to be
-  deleted.
-
-  ## Optional parameters:
+  * `:detector_model_name` (`t:string` required) The name of the detector model to
+  be deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_detector_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_detector_model_errors()}
-
   def delete_detector_model(%Client{} = client, detector_model_name, options \\ []) do
     url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
 
@@ -1992,16 +1977,13 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DeleteInput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_name` (`t:string`) The name of the input to delete.
-
-  ## Optional parameters:
+  * `:input_name` (`t:string` required) The name of the input to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_input_errors()}
-
   def delete_input(%Client{} = client, input_name, options \\ []) do
     url_path = "/inputs/#{AWS.Util.encode_uri(input_name)}"
 
@@ -2049,17 +2031,14 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeAlarmModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alarm_model_name` (`t:string`) The name of the alarm model.
-
-  ## Optional parameters:
+  * `:alarm_model_name` (`t:string` required) The name of the alarm model.
+  ## Keyword parameters:
   * `:alarm_model_version` (`t:string`) The version of the alarm model.
   """
-
   @spec describe_alarm_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_alarm_model_errors()}
-
   def describe_alarm_model(%Client{} = client, alarm_model_name, options \\ []) do
     url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
 
@@ -2106,17 +2085,14 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeDetectorModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_model_name` (`t:string`) The name of the detector model.
-
-  ## Optional parameters:
+  * `:detector_model_name` (`t:string` required) The name of the detector model.
+  ## Keyword parameters:
   * `:detector_model_version` (`t:string`) The version of the detector model.
   """
-
   @spec describe_detector_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_detector_model_errors()}
-
   def describe_detector_model(%Client{} = client, detector_model_name, options \\ []) do
     url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
 
@@ -2162,17 +2138,14 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeDetectorModelAnalysis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_id` (`t:string`) The ID of the analysis result that you want to
-  retrieve.
-
-  ## Optional parameters:
+  * `:analysis_id` (`t:string` required) The ID of the analysis result that you
+  want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec describe_detector_model_analysis(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_detector_model_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_detector_model_analysis_errors()}
-
   def describe_detector_model_analysis(%Client{} = client, analysis_id, options \\ []) do
     url_path = "/analysis/detector-models/#{AWS.Util.encode_uri(analysis_id)}"
 
@@ -2207,16 +2180,13 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeInput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_name` (`t:string`) The name of the input.
-
-  ## Optional parameters:
+  * `:input_name` (`t:string` required) The name of the input.
+  ## Keyword parameters:
   """
-
   @spec describe_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_input_errors()}
-
   def describe_input(%Client{} = client, input_name, options \\ []) do
     url_path = "/inputs/#{AWS.Util.encode_uri(input_name)}"
 
@@ -2251,15 +2221,12 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_options_errors()}
-
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
 
@@ -2294,21 +2261,18 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20GetDetectorModelAnalysisResults&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analysis_id` (`t:string`) The ID of the analysis result that you want to
-  retrieve.
-
-  ## Optional parameters:
+  * `:analysis_id` (`t:string` required) The ID of the analysis result that you
+  want to retrieve.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
   of results.
   """
-
   @spec get_detector_model_analysis_results(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_detector_model_analysis_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_detector_model_analysis_results_errors()}
-
   def get_detector_model_analysis_results(%Client{} = client, analysis_id, options \\ []) do
     url_path = "/analysis/detector-models/#{AWS.Util.encode_uri(analysis_id)}/results"
 
@@ -2362,20 +2326,17 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListAlarmModelVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alarm_model_name` (`t:string`) The name of the alarm model.
-
-  ## Optional parameters:
+  * `:alarm_model_name` (`t:string` required) The name of the alarm model.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
   of results.
   """
-
   @spec list_alarm_model_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alarm_model_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_alarm_model_versions_errors()}
-
   def list_alarm_model_versions(%Client{} = client, alarm_model_name, options \\ []) do
     url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}/versions"
 
@@ -2429,19 +2390,16 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListAlarmModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
   of results.
   """
-
   @spec list_alarm_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_alarm_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_alarm_models_errors()}
-
   def list_alarm_models(%Client{} = client, options \\ []) do
     url_path = "/alarm-models"
 
@@ -2495,21 +2453,18 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListDetectorModelVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_model_name` (`t:string`) The name of the detector model whose
-  versions are returned.
-
-  ## Optional parameters:
+  * `:detector_model_name` (`t:string` required) The name of the detector model
+  whose versions are returned.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
   of results.
   """
-
   @spec list_detector_model_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_detector_model_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_detector_model_versions_errors()}
-
   def list_detector_model_versions(%Client{} = client, detector_model_name, options \\ []) do
     url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}/versions"
 
@@ -2563,19 +2518,16 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListDetectorModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
   of results.
   """
-
   @spec list_detector_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detector_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_detector_models_errors()}
-
   def list_detector_models(%Client{} = client, options \\ []) do
     url_path = "/detector-models"
 
@@ -2628,15 +2580,12 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListInputRoutings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_input_routings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_input_routings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_input_routings_errors()}
-
   def list_input_routings(%Client{} = client, options \\ []) do
     url_path = "/input-routings"
 
@@ -2673,19 +2622,16 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListInputs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
   request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
   of results.
   """
-
   @spec list_inputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_inputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inputs_errors()}
-
   def list_inputs(%Client{} = client, options \\ []) do
     url_path = "/inputs"
 
@@ -2738,16 +2684,13 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -2783,15 +2726,12 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20PutLoggingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_options_errors()}
-
   def put_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
 
@@ -2831,15 +2771,12 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20StartDetectorModelAnalysis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_detector_model_analysis(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_detector_model_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_detector_model_analysis_errors()}
-
   def start_detector_model_analysis(%Client{} = client, options \\ []) do
     url_path = "/analysis/detector-models"
 
@@ -2877,16 +2814,13 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -2924,18 +2858,15 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.iotevents#TagKey]`) A list of the keys of
-  the tags to be removed from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iotevents#TagKey]` required) A list of the
+  keys of the tags to be removed from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(resource_arn) and is_binary(tag_keys) do
     url_path = "/tags"
@@ -2984,16 +2915,13 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UpdateAlarmModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alarm_model_name` (`t:string`) The name of the alarm model.
-
-  ## Optional parameters:
+  * `:alarm_model_name` (`t:string` required) The name of the alarm model.
+  ## Keyword parameters:
   """
-
   @spec update_alarm_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alarm_model_errors()}
-
   def update_alarm_model(%Client{} = client, alarm_model_name, options \\ []) do
     url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
 
@@ -3031,17 +2959,14 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UpdateDetectorModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_model_name` (`t:string`) The name of the detector model that is
-  updated.
-
-  ## Optional parameters:
+  * `:detector_model_name` (`t:string` required) The name of the detector model
+  that is updated.
+  ## Keyword parameters:
   """
-
   @spec update_detector_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_detector_model_errors()}
-
   def update_detector_model(%Client{} = client, detector_model_name, options \\ []) do
     url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
 
@@ -3078,16 +3003,13 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UpdateInput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:input_name` (`t:string`) The name of the input you want to update.
-
-  ## Optional parameters:
+  * `:input_name` (`t:string` required) The name of the input you want to update.
+  ## Keyword parameters:
   """
-
   @spec update_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_input_errors()}
-
   def update_input(%Client{} = client, input_name, options \\ []) do
     url_path = "/inputs/#{AWS.Util.encode_uri(input_name)}"
 

@@ -1707,15 +1707,12 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreateApplicationInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_instance_errors()}
-
   def create_application_instance(%Client{} = client, options \\ []) do
     url_path = "/application-instances"
 
@@ -1753,15 +1750,12 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreateJobForDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_job_for_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_for_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_for_devices_errors()}
-
   def create_job_for_devices(%Client{} = client, options \\ []) do
     url_path = "/jobs"
 
@@ -1798,15 +1792,12 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreateNodeFromTemplateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_node_from_template_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_node_from_template_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_node_from_template_job_errors()}
-
   def create_node_from_template_job(%Client{} = client, options \\ []) do
     url_path = "/packages/template-job"
 
@@ -1843,15 +1834,12 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_package_errors()}
-
   def create_package(%Client{} = client, options \\ []) do
     url_path = "/packages"
 
@@ -1888,15 +1876,12 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreatePackageImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_package_import_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_package_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_package_import_job_errors()}
-
   def create_package_import_job(%Client{} = client, options \\ []) do
     url_path = "/packages/import-jobs"
 
@@ -1933,16 +1918,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DeleteDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The device's ID.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The device's ID.
+  ## Keyword parameters:
   """
-
   @spec delete_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_errors()}
-
   def delete_device(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
 
@@ -1989,18 +1971,15 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DeletePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) The package's ID.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) The package's ID.
+  ## Keyword parameters:
   * `:force_delete` (`t:boolean`) Delete the package even if it has artifacts
   stored in its access point. Deletes the package's artifacts from Amazon S3.
   """
-
   @spec delete_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_package_errors()}
-
   def delete_package(%Client{} = client, package_id, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_id)}"
 
@@ -2058,16 +2037,14 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DeregisterPackageVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) A package ID.
-  * `:package_version` (`t:string`) A package version.
-  * `:patch_version` (`t:string`) A patch version.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) A package ID.
+  * `:package_version` (`t:string` required) A package version.
+  * `:patch_version` (`t:string` required) A patch version.
+  ## Keyword parameters:
   * `:owner_account` (`t:string`) An owner account.
   * `:updated_latest_patch_version` (`t:string`) If the version was marked latest,
   the new version to maker as latest.
   """
-
   @spec deregister_package_version(
           AWS.Client.t(),
           String.t(),
@@ -2078,7 +2055,6 @@ defmodule AWS.Panorama do
           {:ok, deregister_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_package_version_errors()}
-
   def deregister_package_version(
         %Client{} = client,
         package_id,
@@ -2150,16 +2126,14 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeApplicationInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_instance_id` (`t:string`) The application instance's ID.
-
-  ## Optional parameters:
+  * `:application_instance_id` (`t:string` required) The application instance's
+  ID.
+  ## Keyword parameters:
   """
-
   @spec describe_application_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_application_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_instance_errors()}
-
   def describe_application_instance(%Client{} = client, application_instance_id, options \\ []) do
     url_path = "/application-instances/#{AWS.Util.encode_uri(application_instance_id)}"
 
@@ -2194,16 +2168,14 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeApplicationInstanceDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_instance_id` (`t:string`) The application instance's ID.
-
-  ## Optional parameters:
+  * `:application_instance_id` (`t:string` required) The application instance's
+  ID.
+  ## Keyword parameters:
   """
-
   @spec describe_application_instance_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_application_instance_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_instance_details_errors()}
-
   def describe_application_instance_details(
         %Client{} = client,
         application_instance_id,
@@ -2242,16 +2214,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The device's ID.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The device's ID.
+  ## Keyword parameters:
   """
-
   @spec describe_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_errors()}
-
   def describe_device(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
 
@@ -2286,16 +2255,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeDeviceJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The job's ID.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The job's ID.
+  ## Keyword parameters:
   """
-
   @spec describe_device_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_device_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_job_errors()}
-
   def describe_device_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -2330,17 +2296,14 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeNode&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:node_id` (`t:string`) The node's ID.
-
-  ## Optional parameters:
+  * `:node_id` (`t:string` required) The node's ID.
+  ## Keyword parameters:
   * `:owner_account` (`t:string`) The account ID of the node's owner.
   """
-
   @spec describe_node(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_node_errors()}
-
   def describe_node(%Client{} = client, node_id, options \\ []) do
     url_path = "/nodes/#{AWS.Util.encode_uri(node_id)}"
 
@@ -2386,16 +2349,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeNodeFromTemplateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The job's ID.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The job's ID.
+  ## Keyword parameters:
   """
-
   @spec describe_node_from_template_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_node_from_template_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_node_from_template_job_errors()}
-
   def describe_node_from_template_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/packages/template-job/#{AWS.Util.encode_uri(job_id)}"
 
@@ -2430,16 +2390,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) The package's ID.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) The package's ID.
+  ## Keyword parameters:
   """
-
   @spec describe_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_package_errors()}
-
   def describe_package(%Client{} = client, package_id, options \\ []) do
     url_path = "/packages/metadata/#{AWS.Util.encode_uri(package_id)}"
 
@@ -2474,16 +2431,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribePackageImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The job's ID.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The job's ID.
+  ## Keyword parameters:
   """
-
   @spec describe_package_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_package_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_package_import_job_errors()}
-
   def describe_package_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/packages/import-jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -2518,19 +2472,16 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribePackageVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) The version's ID.
-  * `:package_version` (`t:string`) The version's version.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) The version's ID.
+  * `:package_version` (`t:string` required) The version's version.
+  ## Keyword parameters:
   * `:owner_account` (`t:string`) The version's owner account.
   * `:patch_version` (`t:string`) The version's patch version.
   """
-
   @spec describe_package_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_package_version_errors()}
-
   def describe_package_version(%Client{} = client, package_id, package_version, options \\ []) do
     url_path =
       "/packages/metadata/#{AWS.Util.encode_uri(package_id)}/versions/#{AWS.Util.encode_uri(package_version)}"
@@ -2584,20 +2535,18 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListApplicationInstanceDependencies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_instance_id` (`t:string`) The application instance's ID.
-
-  ## Optional parameters:
+  * `:application_instance_id` (`t:string` required) The application instance's
+  ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of application instance
   dependencies to return in one page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_application_instance_dependencies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_instance_dependencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_instance_dependencies_errors()}
-
   def list_application_instance_dependencies(
         %Client{} = client,
         application_instance_id,
@@ -2655,21 +2604,18 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListApplicationInstanceNodeInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_instance_id` (`t:string`) The node instances' application
-  instance ID.
-
-  ## Optional parameters:
+  * `:application_instance_id` (`t:string` required) The node instances'
+  application instance ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of node instances to return in
   one page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_application_instance_node_instances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_instance_node_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_instance_node_instances_errors()}
-
   def list_application_instance_node_instances(
         %Client{} = client,
         application_instance_id,
@@ -2727,8 +2673,7 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListApplicationInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:device_id` (`t:string`) The application instances' device ID.
   * `:max_results` (`t:integer`) The maximum number of application instances to
   return in one page of results.
@@ -2736,12 +2681,10 @@ defmodule AWS.Panorama do
   request to retrieve the next page of results.
   * `:status_filter` (`t:string`) Only include instances with a specific status.
   """
-
   @spec list_application_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_application_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_instances_errors()}
-
   def list_application_instances(%Client{} = client, options \\ []) do
     url_path = "/application-instances"
 
@@ -2808,8 +2751,7 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:device_aggregated_status_filter` (`t:string`) Filter based on a device's
   status.
   * `:max_results` (`t:integer`) The maximum number of devices to return in one
@@ -2823,12 +2765,10 @@ defmodule AWS.Panorama do
   is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is
   ASCENDING.
   """
-
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-
   def list_devices(%Client{} = client, options \\ []) do
     url_path = "/devices"
 
@@ -2923,20 +2863,17 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListDevicesJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:device_id` (`t:string`) Filter results by the job's target device ID.
   * `:max_results` (`t:integer`) The maximum number of device jobs to return in
   one page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_devices_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_jobs_errors()}
-
   def list_devices_jobs(%Client{} = client, options \\ []) do
     url_path = "/jobs"
 
@@ -2996,19 +2933,16 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListNodeFromTemplateJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of node from template jobs to
   return in one page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_node_from_template_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_node_from_template_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_node_from_template_jobs_errors()}
-
   def list_node_from_template_jobs(%Client{} = client, options \\ []) do
     url_path = "/packages/template-job"
 
@@ -3061,8 +2995,7 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListNodes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:category` (`t:string`) Search for nodes by category.
   * `:max_results` (`t:integer`) The maximum number of nodes to return in one page
   of results.
@@ -3074,12 +3007,10 @@ defmodule AWS.Panorama do
   * `:package_version` (`t:string`) Search for nodes by version.
   * `:patch_version` (`t:string`) Search for nodes by patch version.
   """
-
   @spec list_nodes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_nodes_errors()}
-
   def list_nodes(%Client{} = client, options \\ []) do
     url_path = "/nodes"
 
@@ -3183,19 +3114,16 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListPackageImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of package import jobs to
   return in one page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_package_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_package_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_package_import_jobs_errors()}
-
   def list_package_import_jobs(%Client{} = client, options \\ []) do
     url_path = "/packages/import-jobs"
 
@@ -3248,19 +3176,16 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListPackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of packages to return in one
   page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
   request to retrieve the next page of results.
   """
-
   @spec list_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packages_errors()}
-
   def list_packages(%Client{} = client, options \\ []) do
     url_path = "/packages"
 
@@ -3313,16 +3238,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource's ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource's ARN.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3361,15 +3283,12 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ProvisionDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec provision_device(AWS.Client.t(), Keyword.t()) ::
           {:ok, provision_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, provision_device_errors()}
-
   def provision_device(%Client{} = client, options \\ []) do
     url_path = "/devices"
 
@@ -3406,18 +3325,15 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20RegisterPackageVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:package_id` (`t:string`) A package ID.
-  * `:package_version` (`t:string`) A package version.
-  * `:patch_version` (`t:string`) A patch version.
-
-  ## Optional parameters:
+  * `:package_id` (`t:string` required) A package ID.
+  * `:package_version` (`t:string` required) A package version.
+  * `:patch_version` (`t:string` required) A patch version.
+  ## Keyword parameters:
   """
-
   @spec register_package_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, register_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_package_version_errors()}
-
   def register_package_version(
         %Client{} = client,
         package_id,
@@ -3461,16 +3377,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20RemoveApplicationInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_instance_id` (`t:string`) An application instance ID.
-
-  ## Optional parameters:
+  * `:application_instance_id` (`t:string` required) An application instance ID.
+  ## Keyword parameters:
   """
-
   @spec remove_application_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, remove_application_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_application_instance_errors()}
-
   def remove_application_instance(%Client{} = client, application_instance_id, options \\ []) do
     url_path = "/application-instances/#{AWS.Util.encode_uri(application_instance_id)}"
 
@@ -3517,16 +3430,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20SignalApplicationInstanceNodeInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_instance_id` (`t:string`) An application instance ID.
-
-  ## Optional parameters:
+  * `:application_instance_id` (`t:string` required) An application instance ID.
+  ## Keyword parameters:
   """
-
   @spec signal_application_instance_node_instances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, signal_application_instance_node_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, signal_application_instance_node_instances_errors()}
-
   def signal_application_instance_node_instances(
         %Client{} = client,
         application_instance_id,
@@ -3568,16 +3478,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource's ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource's ARN.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3614,17 +3521,15 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource's ARN.
-  * `:tag_keys` (`t:list[com.amazonaws.panorama#TagKey]`) Tag keys to remove.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource's ARN.
+  * `:tag_keys` (`t:list[com.amazonaws.panorama#TagKey]` required) Tag keys to
+  remove.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3672,16 +3577,13 @@ defmodule AWS.Panorama do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20UpdateDeviceMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_id` (`t:string`) The device's ID.
-
-  ## Optional parameters:
+  * `:device_id` (`t:string` required) The device's ID.
+  ## Keyword parameters:
   """
-
   @spec update_device_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_device_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_metadata_errors()}
-
   def update_device_metadata(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
 

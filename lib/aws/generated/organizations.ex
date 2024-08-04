@@ -2466,6 +2466,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Sends a response to the originator of a handshake agreeing to the action
   proposed by the handshake request. You can only call this operation by the
   following principals when they also have the relevant IAM permissions:
@@ -2478,12 +2479,10 @@ defmodule AWS.Organizations do
       required("HandshakeId") => String.t()
     }
   """
-
   @spec accept_handshake(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_handshake_errors()}
-
   def accept_handshake(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2492,6 +2491,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Attaches a policy to a root, an organizational unit (OU), or an individual
   account. How the policy affects accounts depends on the type of policy. Refer
   to the *Organizations User Guide* for information about each policy type:
@@ -2505,12 +2505,10 @@ defmodule AWS.Organizations do
       required("TargetId") => String.t()
     }
   """
-
   @spec attach_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_policy_errors()}
-
   def attach_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2519,6 +2517,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Cancels a handshake. Canceling a handshake sets the handshake state to
   `CANCELED`. This operation can be called only from the account that originated
   the handshake. The recipient of the handshake can't cancel it, but can use
@@ -2533,12 +2532,10 @@ defmodule AWS.Organizations do
       required("HandshakeId") => String.t()
     }
   """
-
   @spec cancel_handshake(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_handshake_errors()}
-
   def cancel_handshake(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2547,6 +2544,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Closes an Amazon Web Services member account within an organization. You can
   close an account when [all features are enabled
   ](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html).
@@ -2565,12 +2563,10 @@ defmodule AWS.Organizations do
       required("AccountId") => String.t()
     }
   """
-
   @spec close_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, close_account_errors()}
-
   def close_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2579,6 +2575,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Creates an Amazon Web Services account that is automatically a member of the
   organization whose credentials made the request. This is an asynchronous
   request that Amazon Web Services performs in the background. Because
@@ -2599,12 +2596,10 @@ defmodule AWS.Organizations do
       required("Email") => String.t()
     }
   """
-
   @spec create_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_errors()}
-
   def create_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2613,6 +2608,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   This action is available if all of the following are true:
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=organizations%20CreateGovCloudAccount&this_doc_guide=API%2520Reference)
@@ -2627,12 +2623,10 @@ defmodule AWS.Organizations do
       required("Email") => String.t()
     }
   """
-
   @spec create_gov_cloud_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_gov_cloud_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_gov_cloud_account_errors()}
-
   def create_gov_cloud_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2641,6 +2635,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Creates an Amazon Web Services organization. The account whose user is calling
   the `CreateOrganization` operation automatically becomes the [management
   account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account)
@@ -2656,12 +2651,10 @@ defmodule AWS.Organizations do
       optional("FeatureSet") => list(any())
     }
   """
-
   @spec create_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_organization_errors()}
-
   def create_organization(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2670,6 +2663,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Creates an organizational unit (OU) within a root or parent OU. An OU is a
   container for accounts that enables you to organize your accounts to apply
   policies according to your business requirements. The number of levels deep
@@ -2689,12 +2683,10 @@ defmodule AWS.Organizations do
       required("ParentId") => String.t()
     }
   """
-
   @spec create_organizational_unit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_organizational_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_organizational_unit_errors()}
-
   def create_organizational_unit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2703,6 +2695,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Creates a policy of a specified type that you can attach to a root, an
   organizational unit (OU), or an individual Amazon Web Services account. For
   more information about policies and their use, see [Managing Organizations
@@ -2720,12 +2713,10 @@ defmodule AWS.Organizations do
       required("Type") => list(any())
     }
   """
-
   @spec create_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_errors()}
-
   def create_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2734,6 +2725,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Declines a handshake request. This sets the handshake state to `DECLINED` and
   effectively deactivates the request. This operation can be called only from
   the account that received the handshake. The originator of the handshake can
@@ -2748,12 +2740,10 @@ defmodule AWS.Organizations do
       required("HandshakeId") => String.t()
     }
   """
-
   @spec decline_handshake(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, decline_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decline_handshake_errors()}
-
   def decline_handshake(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2762,6 +2752,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Deletes the organization. You can delete an organization only by using
   credentials from the management account. The organization must be empty of
   member accounts.
@@ -2771,12 +2762,10 @@ defmodule AWS.Organizations do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec delete_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_organization_errors()}
-
   def delete_organization(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2785,6 +2774,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Deletes an organizational unit (OU) from a root or another OU. You must first
   remove all accounts and child OUs from the OU that you want to delete.
 
@@ -2796,12 +2786,10 @@ defmodule AWS.Organizations do
       required("OrganizationalUnitId") => String.t()
     }
   """
-
   @spec delete_organizational_unit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_organizational_unit_errors()}
-
   def delete_organizational_unit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2810,6 +2798,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Deletes the specified policy from your organization. Before you perform this
   operation, you must first detach the policy from all organizational units
   (OUs), roots, and accounts.
@@ -2822,12 +2811,10 @@ defmodule AWS.Organizations do
       required("PolicyId") => String.t()
     }
   """
-
   @spec delete_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
-
   def delete_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2836,6 +2823,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Deletes the resource policy from your organization.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=organizations%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
@@ -2843,12 +2831,10 @@ defmodule AWS.Organizations do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-
   def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2857,6 +2843,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Removes the specified member Amazon Web Services account as a delegated
   administrator for the specified Amazon Web Services service. Deregistering a
   delegated administrator can have unintended impacts on the functionality of
@@ -2873,12 +2860,10 @@ defmodule AWS.Organizations do
       required("ServicePrincipal") => String.t()
     }
   """
-
   @spec deregister_delegated_administrator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_delegated_administrator_errors()}
-
   def deregister_delegated_administrator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2888,6 +2873,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Retrieves Organizations-related information about the specified account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=organizations%20DescribeAccount&this_doc_guide=API%2520Reference)
@@ -2898,12 +2884,10 @@ defmodule AWS.Organizations do
       required("AccountId") => String.t()
     }
   """
-
   @spec describe_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_errors()}
-
   def describe_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2912,6 +2896,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Retrieves the current status of an asynchronous request to create an account.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=organizations%20DescribeCreateAccountStatus&this_doc_guide=API%2520Reference)
@@ -2922,12 +2907,10 @@ defmodule AWS.Organizations do
       required("CreateAccountRequestId") => String.t()
     }
   """
-
   @spec describe_create_account_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_create_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_create_account_status_errors()}
-
   def describe_create_account_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2937,6 +2920,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Returns the contents of the effective policy for specified policy type and
   account. The effective policy is the aggregation of any policies of the
   specified type that the account inherits, plus any policy of that type that is
@@ -2952,12 +2936,10 @@ defmodule AWS.Organizations do
       required("PolicyType") => list(any())
     }
   """
-
   @spec describe_effective_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_effective_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_effective_policy_errors()}
-
   def describe_effective_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2966,6 +2948,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Retrieves information about a previously requested handshake. The handshake ID
   comes from the response to the original `InviteAccountToOrganization`
   operation that generated the handshake. You can access handshakes that are
@@ -2980,12 +2963,10 @@ defmodule AWS.Organizations do
       required("HandshakeId") => String.t()
     }
   """
-
   @spec describe_handshake(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_handshake_errors()}
-
   def describe_handshake(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2994,6 +2975,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Retrieves information about the organization that the user's account belongs to.
   This operation can be called from any account in the organization.
 
@@ -3002,12 +2984,10 @@ defmodule AWS.Organizations do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_errors()}
-
   def describe_organization(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3016,6 +2996,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Retrieves information about an organizational unit (OU).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=organizations%20DescribeOrganizationalUnit&this_doc_guide=API%2520Reference)
@@ -3026,12 +3007,10 @@ defmodule AWS.Organizations do
       required("OrganizationalUnitId") => String.t()
     }
   """
-
   @spec describe_organizational_unit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_organizational_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organizational_unit_errors()}
-
   def describe_organizational_unit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3040,6 +3019,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Retrieves information about a policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=organizations%20DescribePolicy&this_doc_guide=API%2520Reference)
@@ -3050,12 +3030,10 @@ defmodule AWS.Organizations do
       required("PolicyId") => String.t()
     }
   """
-
   @spec describe_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_policy_errors()}
-
   def describe_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3064,6 +3042,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Retrieves information about a resource policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=organizations%20DescribeResourcePolicy&this_doc_guide=API%2520Reference)
@@ -3071,12 +3050,10 @@ defmodule AWS.Organizations do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec describe_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_policy_errors()}
-
   def describe_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3085,6 +3062,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Detaches a policy from a target root, organizational unit (OU), or account. If
   the policy being detached is a service control policy (SCP), the changes to
   permissions for Identity and Access Management (IAM) users and roles in
@@ -3099,12 +3077,10 @@ defmodule AWS.Organizations do
       required("TargetId") => String.t()
     }
   """
-
   @spec detach_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_policy_errors()}
-
   def detach_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3113,6 +3089,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Disables the integration of an Amazon Web Services service (the service that is
   specified by `ServicePrincipal`) with Organizations. When you disable
   integration, the specified service no longer can create a [service-linked
@@ -3161,12 +3138,10 @@ defmodule AWS.Organizations do
       required("ServicePrincipal") => String.t()
     }
   """
-
   @spec disable_aws_service_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_aws_service_access_errors()}
-
   def disable_aws_service_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3175,6 +3150,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Disables an organizational policy type in a root. A policy of a certain type can
   be attached to entities in a root only if that type is enabled in the root.
   After you perform this operation, you no longer can attach policies of the
@@ -3197,12 +3173,10 @@ defmodule AWS.Organizations do
       required("RootId") => String.t()
     }
   """
-
   @spec disable_policy_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_policy_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_policy_type_errors()}
-
   def disable_policy_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3211,6 +3185,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Enables all features in an organization. This enables the use of organization
   policies that can restrict the services and actions that can be called in each
   account. Until you enable all features, you have access only to consolidated
@@ -3233,12 +3208,10 @@ defmodule AWS.Organizations do
       
     }
   """
-
   @spec enable_all_features(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_all_features_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_all_features_errors()}
-
   def enable_all_features(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3247,6 +3220,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Enables the integration of an Amazon Web Services service (the service that is
   specified by `ServicePrincipal`) with Organizations. When you enable
   integration, you allow the specified service to create a [service-linked
@@ -3272,12 +3246,10 @@ defmodule AWS.Organizations do
       required("ServicePrincipal") => String.t()
     }
   """
-
   @spec enable_aws_service_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_aws_service_access_errors()}
-
   def enable_aws_service_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3286,6 +3258,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Enables a policy type in a root. After you enable a policy type in a root, you
   can attach policies of that type to the root, any organizational unit (OU), or
   account in that root. You can undo this by using the `DisablePolicyType`
@@ -3303,12 +3276,10 @@ defmodule AWS.Organizations do
       required("RootId") => String.t()
     }
   """
-
   @spec enable_policy_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_policy_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_policy_type_errors()}
-
   def enable_policy_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3317,6 +3288,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Sends an invitation to another account to join your organization as a member
   account. Organizations sends email on your behalf to the email address that is
   associated with the other account's owner. The invitation is implemented as a
@@ -3344,12 +3316,10 @@ defmodule AWS.Organizations do
       required("Target") => handshake_party()
     }
   """
-
   @spec invite_account_to_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, invite_account_to_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invite_account_to_organization_errors()}
-
   def invite_account_to_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3359,6 +3329,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Removes a member account from its parent organization. This version of the
   operation is performed by the account that wants to leave. To remove a member
   account as a user in the management account, use
@@ -3370,12 +3341,10 @@ defmodule AWS.Organizations do
   ## Parameters:
   * `:input` (`t:%{}`)
   """
-
   @spec leave_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, leave_organization_errors()}
-
   def leave_organization(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3384,6 +3353,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists all the accounts in the organization. To request only the accounts in a
   specified root or organizational unit (OU), use the `ListAccountsForParent`
   operation instead. Always check the `NextToken` response parameter for a
@@ -3401,12 +3371,10 @@ defmodule AWS.Organizations do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_accounts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accounts_errors()}
-
   def list_accounts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3415,6 +3383,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists the accounts in an organization that are contained by the specified target
   root or organizational unit (OU). If you specify the root, you get a list of
   all the accounts that aren't in any OU. If you specify an OU, you get a list
@@ -3435,12 +3404,10 @@ defmodule AWS.Organizations do
       required("ParentId") => String.t()
     }
   """
-
   @spec list_accounts_for_parent(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_accounts_for_parent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accounts_for_parent_errors()}
-
   def list_accounts_for_parent(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3449,6 +3416,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Returns a list of the Amazon Web Services services that you enabled to integrate
   with your organization. After a service on this list creates the resources
   that it requires for the integration, it can perform operations on your
@@ -3468,12 +3436,10 @@ defmodule AWS.Organizations do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_aws_service_access_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_aws_service_access_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aws_service_access_for_organization_errors()}
-
   def list_aws_service_access_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3483,6 +3449,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists all of the organizational units (OUs) or accounts that are contained in
   the specified parent OU or root. This operation, along with `ListParents`
   enables you to traverse the tree structure that makes up this root. Always
@@ -3502,12 +3469,10 @@ defmodule AWS.Organizations do
       required("ParentId") => String.t()
     }
   """
-
   @spec list_children(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_children_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_children_errors()}
-
   def list_children(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3516,6 +3481,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists the account creation requests that match the specified status that is
   currently being tracked for the organization. Always check the `NextToken`
   response parameter for a `null` value when calling a `List*` operation. These
@@ -3533,12 +3499,10 @@ defmodule AWS.Organizations do
       optional("States") => list(list(any())())
     }
   """
-
   @spec list_create_account_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_create_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_create_account_status_errors()}
-
   def list_create_account_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3547,6 +3511,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists the Amazon Web Services accounts that are designated as delegated
   administrators in this organization.
 
@@ -3560,12 +3525,10 @@ defmodule AWS.Organizations do
       optional("ServicePrincipal") => String.t()
     }
   """
-
   @spec list_delegated_administrators(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_delegated_administrators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_delegated_administrators_errors()}
-
   def list_delegated_administrators(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3575,6 +3538,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   List the Amazon Web Services services for which the specified account is a
   delegated administrator.
 
@@ -3588,12 +3552,10 @@ defmodule AWS.Organizations do
       required("AccountId") => String.t()
     }
   """
-
   @spec list_delegated_services_for_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_delegated_services_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_delegated_services_for_account_errors()}
-
   def list_delegated_services_for_account(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3603,6 +3565,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists the current handshakes that are associated with the account of the
   requesting user. Handshakes that are `ACCEPTED`, `DECLINED`, `CANCELED`, or
   `EXPIRED` appear in the results of this API for only 30 days after changing to
@@ -3618,12 +3581,10 @@ defmodule AWS.Organizations do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_handshakes_for_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_handshakes_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_handshakes_for_account_errors()}
-
   def list_handshakes_for_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3632,6 +3593,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists the handshakes that are associated with the organization that the
   requesting user is part of. The `ListHandshakesForOrganization` operation
   returns a list of handshake structures. Each structure contains details and
@@ -3650,12 +3612,10 @@ defmodule AWS.Organizations do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_handshakes_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_handshakes_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_handshakes_for_organization_errors()}
-
   def list_handshakes_for_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3665,6 +3625,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists the organizational units (OUs) in a parent organizational unit or root.
   Always check the `NextToken` response parameter for a `null` value when
   calling a `List*` operation. These operations can occasionally return an empty
@@ -3682,12 +3643,10 @@ defmodule AWS.Organizations do
       required("ParentId") => String.t()
     }
   """
-
   @spec list_organizational_units_for_parent(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_organizational_units_for_parent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organizational_units_for_parent_errors()}
-
   def list_organizational_units_for_parent(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3697,6 +3656,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists the root or organizational units (OUs) that serve as the immediate parent
   of the specified child OU or account. This operation, along with
   `ListChildren` enables you to traverse the tree structure that makes up this
@@ -3716,12 +3676,10 @@ defmodule AWS.Organizations do
       required("ChildId") => String.t()
     }
   """
-
   @spec list_parents(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_parents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_parents_errors()}
-
   def list_parents(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3730,6 +3688,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Retrieves the list of all policies in an organization of a specified type.
   Always check the `NextToken` response parameter for a `null` value when
   calling a `List*` operation. These operations can occasionally return an empty
@@ -3747,12 +3706,10 @@ defmodule AWS.Organizations do
       required("Filter") => list(any())
     }
   """
-
   @spec list_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policies_errors()}
-
   def list_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3761,6 +3718,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists the policies that are directly attached to the specified target root,
   organizational unit (OU), or account. You must specify the policy type that
   you want included in the returned list. Always check the `NextToken` response
@@ -3780,12 +3738,10 @@ defmodule AWS.Organizations do
       required("TargetId") => String.t()
     }
   """
-
   @spec list_policies_for_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_policies_for_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policies_for_target_errors()}
-
   def list_policies_for_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3794,6 +3750,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists the roots that are defined in the current organization. Always check the
   `NextToken` response parameter for a `null` value when calling a `List*`
   operation. These operations can occasionally return an empty set of results
@@ -3809,12 +3766,10 @@ defmodule AWS.Organizations do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_roots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_roots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_roots_errors()}
-
   def list_roots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3823,6 +3778,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists tags that are attached to the specified resource. You can attach tags to
   the following resources in Organizations.
 
@@ -3835,12 +3791,10 @@ defmodule AWS.Organizations do
       required("ResourceId") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3849,6 +3803,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Lists all the roots, organizational units (OUs), and accounts that the specified
   policy is attached to. Always check the `NextToken` response parameter for a
   `null` value when calling a `List*` operation. These operations can
@@ -3866,12 +3821,10 @@ defmodule AWS.Organizations do
       required("PolicyId") => String.t()
     }
   """
-
   @spec list_targets_for_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_targets_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_targets_for_policy_errors()}
-
   def list_targets_for_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3880,6 +3833,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Moves an account from its current source parent root or organizational unit (OU)
   to the specified destination parent root or OU.
 
@@ -3893,12 +3847,10 @@ defmodule AWS.Organizations do
       required("SourceParentId") => String.t()
     }
   """
-
   @spec move_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, move_account_errors()}
-
   def move_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3907,6 +3859,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Creates or updates a resource policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=organizations%20PutResourcePolicy&this_doc_guide=API%2520Reference)
@@ -3918,12 +3871,10 @@ defmodule AWS.Organizations do
       required("Content") => String.t()
     }
   """
-
   @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-
   def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3932,6 +3883,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Enables the specified member account to administer the Organizations features of
   the specified Amazon Web Services service. It grants read-only access to
   Organizations service data. The account still requires IAM permissions to
@@ -3952,12 +3904,10 @@ defmodule AWS.Organizations do
       required("ServicePrincipal") => String.t()
     }
   """
-
   @spec register_delegated_administrator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_delegated_administrator_errors()}
-
   def register_delegated_administrator(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3967,6 +3917,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Removes the specified account from the organization. The removed account becomes
   a standalone account that isn't a member of any organization. It's no longer
   subject to any policies and is responsible for its own bill payments. The
@@ -3981,12 +3932,10 @@ defmodule AWS.Organizations do
       required("AccountId") => String.t()
     }
   """
-
   @spec remove_account_from_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_account_from_organization_errors()}
-
   def remove_account_from_organization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3996,6 +3945,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Adds one or more tags to the specified resource. Currently, you can attach tags
   to the following resources in Organizations.
 
@@ -4008,12 +3958,10 @@ defmodule AWS.Organizations do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4022,6 +3970,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Removes any tags with the specified keys from the specified resource. You can
   attach tags to the following resources in Organizations.
 
@@ -4034,12 +3983,10 @@ defmodule AWS.Organizations do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4048,6 +3995,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Renames the specified organizational unit (OU). The ID and ARN don't change. The
   child OUs and accounts remain in place, and any attached policies of the OU
   remain attached.
@@ -4061,12 +4009,10 @@ defmodule AWS.Organizations do
       required("OrganizationalUnitId") => String.t()
     }
   """
-
   @spec update_organizational_unit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_organizational_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_organizational_unit_errors()}
-
   def update_organizational_unit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4075,6 +4021,7 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+   
   Updates an existing policy with a new name, description, or content. If you
   don't supply any parameter, that value remains unchanged. You can't change a
   policy's type.
@@ -4090,12 +4037,10 @@ defmodule AWS.Organizations do
       required("PolicyId") => String.t()
     }
   """
-
   @spec update_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_policy_errors()}
-
   def update_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

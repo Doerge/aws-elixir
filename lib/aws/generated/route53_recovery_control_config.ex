@@ -959,15 +959,12 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cluster(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-
   def create_cluster(%Client{} = client, options \\ []) do
     url_path = "/cluster"
 
@@ -1008,15 +1005,12 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateControlPanel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_control_panel(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_control_panel_errors()}
-
   def create_control_panel(%Client{} = client, options \\ []) do
     url_path = "/controlpanel"
 
@@ -1055,15 +1049,12 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateRoutingControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_routing_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_routing_control_errors()}
-
   def create_routing_control(%Client{} = client, options \\ []) do
     url_path = "/routingcontrol"
 
@@ -1103,15 +1094,12 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateSafetyRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_safety_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_safety_rule_errors()}
-
   def create_safety_rule(%Client{} = client, options \\ []) do
     url_path = "/safetyrule"
 
@@ -1148,17 +1136,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster that
-  you're deleting.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster that you're deleting.
+  ## Keyword parameters:
   """
-
   @spec delete_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-
   def delete_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -1205,17 +1190,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteControlPanel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  control panel.
-
-  ## Optional parameters:
+  * `:control_panel_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the control panel.
+  ## Keyword parameters:
   """
-
   @spec delete_control_panel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_control_panel_errors()}
-
   def delete_control_panel(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}"
 
@@ -1262,17 +1244,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteRoutingControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  routing control that you're deleting.
-
-  ## Optional parameters:
+  * `:routing_control_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the routing control that you're deleting.
+  ## Keyword parameters:
   """
-
   @spec delete_routing_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_routing_control_errors()}
-
   def delete_routing_control(%Client{} = client, routing_control_arn, options \\ []) do
     url_path = "/routingcontrol/#{AWS.Util.encode_uri(routing_control_arn)}"
 
@@ -1319,16 +1298,13 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteSafetyRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:safety_rule_arn` (`t:string`) The ARN of the safety rule.
-
-  ## Optional parameters:
+  * `:safety_rule_arn` (`t:string` required) The ARN of the safety rule.
+  ## Keyword parameters:
   """
-
   @spec delete_safety_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_safety_rule_errors()}
-
   def delete_safety_rule(%Client{} = client, safety_rule_arn, options \\ []) do
     url_path = "/safetyrule/#{AWS.Util.encode_uri(safety_rule_arn)}"
 
@@ -1376,16 +1352,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
-
-  ## Optional parameters:
+  * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  cluster.
+  ## Keyword parameters:
   """
-
   @spec describe_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
-
   def describe_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -1420,17 +1394,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeControlPanel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  control panel.
-
-  ## Optional parameters:
+  * `:control_panel_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the control panel.
+  ## Keyword parameters:
   """
-
   @spec describe_control_panel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_control_panel_errors()}
-
   def describe_control_panel(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}"
 
@@ -1467,17 +1438,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeRoutingControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  routing control.
-
-  ## Optional parameters:
+  * `:routing_control_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the routing control.
+  ## Keyword parameters:
   """
-
   @spec describe_routing_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_routing_control_errors()}
-
   def describe_routing_control(%Client{} = client, routing_control_arn, options \\ []) do
     url_path = "/routingcontrol/#{AWS.Util.encode_uri(routing_control_arn)}"
 
@@ -1512,16 +1480,13 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeSafetyRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:safety_rule_arn` (`t:string`) The ARN of the safety rule.
-
-  ## Optional parameters:
+  * `:safety_rule_arn` (`t:string` required) The ARN of the safety rule.
+  ## Keyword parameters:
   """
-
   @spec describe_safety_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_safety_rule_errors()}
-
   def describe_safety_rule(%Client{} = client, safety_rule_arn, options \\ []) do
     url_path = "/safetyrule/#{AWS.Util.encode_uri(safety_rule_arn)}"
 
@@ -1556,16 +1521,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20GetResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcePolicy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1601,21 +1564,18 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListAssociatedRoute53HealthChecks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  routing control.
-
-  ## Optional parameters:
+  * `:routing_control_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the routing control.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec list_associated_route53_health_checks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_route53_health_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_route53_health_checks_errors()}
-
   def list_associated_route53_health_checks(
         %Client{} = client,
         routing_control_arn,
@@ -1673,19 +1633,16 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListClusters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
-
   def list_clusters(%Client{} = client, options \\ []) do
     url_path = "/cluster"
 
@@ -1738,20 +1695,17 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListControlPanels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of a cluster.
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec list_control_panels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_panels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_panels_errors()}
-
   def list_control_panels(%Client{} = client, options \\ []) do
     url_path = "/controlpanels"
 
@@ -1814,21 +1768,18 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListRoutingControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  control panel.
-
-  ## Optional parameters:
+  * `:control_panel_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the control panel.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec list_routing_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_controls_errors()}
-
   def list_routing_controls(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}/routingcontrols"
 
@@ -1882,21 +1833,18 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListSafetyRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  control panel.
-
-  ## Optional parameters:
+  * `:control_panel_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the control panel.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
   with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
   you want to see.
   """
-
   @spec list_safety_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_safety_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_safety_rules_errors()}
-
   def list_safety_rules(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}/safetyrules"
 
@@ -1949,17 +1897,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-  that's tagged.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  resource that's tagged.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1994,17 +1939,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-  that's tagged.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  resource that's tagged.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2041,19 +1983,16 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-  that's tagged.
-  * `:tag_keys` (`t:list[com.amazonaws.route53recoverycontrolconfig#__string]`)
-  Keys for the tags to be removed.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  resource that's tagged.
+  * `:tag_keys` (`t:list[com.amazonaws.route53recoverycontrolconfig#__string]`
+  required) Keys for the tags to be removed.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2102,15 +2041,12 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UpdateControlPanel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_control_panel(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_control_panel_errors()}
-
   def update_control_panel(%Client{} = client, options \\ []) do
     url_path = "/controlpanel"
 
@@ -2149,15 +2085,12 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UpdateRoutingControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_routing_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_control_errors()}
-
   def update_routing_control(%Client{} = client, options \\ []) do
     url_path = "/routingcontrol"
 
@@ -2196,15 +2129,12 @@ defmodule AWS.Route53RecoveryControlConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UpdateSafetyRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_safety_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_safety_rule_errors()}
-
   def update_safety_rule(%Client{} = client, options \\ []) do
     url_path = "/safetyrule"
 

@@ -3672,19 +3672,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20AssociateAgentKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent with which you
+  * `:agent_id` (`t:string` required) The unique identifier of the agent with
+  which you want to associate the knowledge base.
+  * `:agent_version` (`t:string` required) The version of the agent with which you
   want to associate the knowledge base.
-  * `:agent_version` (`t:string`) The version of the agent with which you want to
-  associate the knowledge base.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_agent_knowledge_base(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_agent_knowledge_base_errors()}
-
   def associate_agent_knowledge_base(%Client{} = client, agent_id, agent_version, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/knowledgebases/"
@@ -3724,15 +3721,12 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateAgent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_agent(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_agent_errors()}
-
   def create_agent(%Client{} = client, options \\ []) do
     url_path = "/agents/"
 
@@ -3774,19 +3768,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateAgentActionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
+  * `:agent_id` (`t:string` required) The unique identifier of the agent for which
+  to create the action group.
+  * `:agent_version` (`t:string` required) The version of the agent for which to
   create the action group.
-  * `:agent_version` (`t:string`) The version of the agent for which to create the
-  action group.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_agent_action_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_agent_action_group_errors()}
-
   def create_agent_action_group(%Client{} = client, agent_id, agent_version, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/actiongroups/"
@@ -3824,16 +3815,13 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateAgentAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent.
+  ## Keyword parameters:
   """
-
   @spec create_agent_alias(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_agent_alias_errors()}
-
   def create_agent_alias(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/"
 
@@ -3870,17 +3858,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  to which to add the data source.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base to which to add the data source.
+  ## Keyword parameters:
   """
-
   @spec create_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_errors()}
-
   def create_data_source(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/"
 
@@ -3924,15 +3909,12 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_errors()}
-
   def create_flow(%Client{} = client, options \\ []) do
     url_path = "/flows/"
 
@@ -3972,17 +3954,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateFlowAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow for which to
-  create an alias.
-
-  ## Optional parameters:
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow for
+  which to create an alias.
+  ## Keyword parameters:
   """
-
   @spec create_flow_alias(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_alias_errors()}
-
   def create_flow_alias(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases"
 
@@ -4022,17 +4001,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateFlowVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow that you
-  want to create a version of.
-
-  ## Optional parameters:
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow
+  that you want to create a version of.
+  ## Keyword parameters:
   """
-
   @spec create_flow_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_version_errors()}
-
   def create_flow_version(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions"
 
@@ -4077,15 +4053,12 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_knowledge_base(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_knowledge_base_errors()}
-
   def create_knowledge_base(%Client{} = client, options \\ []) do
     url_path = "/knowledgebases/"
 
@@ -4129,15 +4102,12 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreatePrompt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_prompt(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_prompt_errors()}
-
   def create_prompt(%Client{} = client, options \\ []) do
     url_path = "/prompts/"
 
@@ -4177,17 +4147,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreatePromptVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:prompt_identifier` (`t:string`) The unique identifier of the prompt that you
-  want to create a version of.
-
-  ## Optional parameters:
+  * `:prompt_identifier` (`t:string` required) The unique identifier of the prompt
+  that you want to create a version of.
+  ## Keyword parameters:
   """
-
   @spec create_prompt_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_prompt_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_prompt_version_errors()}
-
   def create_prompt_version(%Client{} = client, prompt_identifier, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/versions"
 
@@ -4224,19 +4191,17 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent to delete.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent to
+  delete.
+  ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:string`) By default, this value is false and
   deletion is stopped if the resource is in use. If you set it to true, the
   resource will be deleted even if the resource is in use.
   """
-
   @spec delete_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agent_errors()}
-
   def delete_agent(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
 
@@ -4294,24 +4259,21 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgentActionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:action_group_id` (`t:string`) The unique identifier of the action group to
-  delete.
-  * `:agent_id` (`t:string`) The unique identifier of the agent that the action
-  group belongs to.
-  * `:agent_version` (`t:string`) The version of the agent that the action group
-  belongs to.
-
-  ## Optional parameters:
+  * `:action_group_id` (`t:string` required) The unique identifier of the action
+  group to delete.
+  * `:agent_id` (`t:string` required) The unique identifier of the agent that the
+  action group belongs to.
+  * `:agent_version` (`t:string` required) The version of the agent that the
+  action group belongs to.
+  ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:string`) By default, this value is false and
   deletion is stopped if the resource is in use. If you set it to true, the
   resource will be deleted even if the resource is in use.
   """
-
   @spec delete_agent_action_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agent_action_group_errors()}
-
   def delete_agent_action_group(
         %Client{} = client,
         action_group_id,
@@ -4376,18 +4338,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgentAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_alias_id` (`t:string`) The unique identifier of the alias to delete.
-  * `:agent_id` (`t:string`) The unique identifier of the agent that the alias
-  belongs to.
-
-  ## Optional parameters:
+  * `:agent_alias_id` (`t:string` required) The unique identifier of the alias to
+  delete.
+  * `:agent_id` (`t:string` required) The unique identifier of the agent that the
+  alias belongs to.
+  ## Keyword parameters:
   """
-
   @spec delete_agent_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agent_alias_errors()}
-
   def delete_agent_alias(%Client{} = client, agent_alias_id, agent_id, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/#{AWS.Util.encode_uri(agent_alias_id)}/"
@@ -4435,21 +4395,18 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgentVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent that the version
-  belongs to.
-  * `:agent_version` (`t:string`) The version of the agent to delete.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent that the
+  version belongs to.
+  * `:agent_version` (`t:string` required) The version of the agent to delete.
+  ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:string`) By default, this value is false and
   deletion is stopped if the resource is in use. If you set it to true, the
   resource will be deleted even if the resource is in use.
   """
-
   @spec delete_agent_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_agent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agent_version_errors()}
-
   def delete_agent_version(%Client{} = client, agent_id, agent_version, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/"
@@ -4508,19 +4465,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_source_id` (`t:string`) The unique identifier of the data source to
-  delete.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  from which to delete the data source.
-
-  ## Optional parameters:
+  * `:data_source_id` (`t:string` required) The unique identifier of the data
+  source to delete.
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base from which to delete the data source.
+  ## Keyword parameters:
   """
-
   @spec delete_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
-
   def delete_data_source(%Client{} = client, data_source_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
@@ -4568,19 +4522,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
-
-  ## Optional parameters:
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
+  ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:string`) By default, this value is false and
   deletion is stopped if the resource is in use. If you set it to true, the
   resource will be deleted even if the resource is in use.
   """
-
   @spec delete_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_errors()}
-
   def delete_flow(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
 
@@ -4638,19 +4589,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteFlowAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_identifier` (`t:string`) The unique identifier of the alias to be
-  deleted.
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow that the
-  alias belongs to.
-
-  ## Optional parameters:
+  * `:alias_identifier` (`t:string` required) The unique identifier of the alias
+  to be deleted.
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow
+  that the alias belongs to.
+  ## Keyword parameters:
   """
-
   @spec delete_flow_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_alias_errors()}
-
   def delete_flow_alias(%Client{} = client, alias_identifier, flow_identifier, options \\ []) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(alias_identifier)}"
@@ -4698,21 +4646,19 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteFlowVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow whose
-  version that you want to delete
-  * `:flow_version` (`t:string`) The version of the flow that you want to delete.
-
-  ## Optional parameters:
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow
+  whose version that you want to delete
+  * `:flow_version` (`t:string` required) The version of the flow that you want to
+  delete.
+  ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:string`) By default, this value is false and
   deletion is stopped if the resource is in use. If you set it to true, the
   resource will be deleted even if the resource is in use.
   """
-
   @spec delete_flow_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_version_errors()}
-
   def delete_flow_version(%Client{} = client, flow_identifier, flow_version, options \\ []) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions/#{AWS.Util.encode_uri(flow_version)}/"
@@ -4775,17 +4721,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  to delete.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_knowledge_base(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_knowledge_base_errors()}
-
   def delete_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}"
 
@@ -4837,17 +4780,15 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeletePrompt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:prompt_identifier` (`t:string`) The unique identifier of the prompt.
-
-  ## Optional parameters:
+  * `:prompt_identifier` (`t:string` required) The unique identifier of the
+  prompt.
+  ## Keyword parameters:
   * `:prompt_version` (`t:string`) The version of the prompt to delete.
   """
-
   @spec delete_prompt(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_prompt_errors()}
-
   def delete_prompt(%Client{} = client, prompt_identifier, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
 
@@ -4905,16 +4846,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DisassociateAgentKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent from which to
+  * `:agent_id` (`t:string` required) The unique identifier of the agent from
+  which to disassociate the knowledge base.
+  * `:agent_version` (`t:string` required) The version of the agent from which to
   disassociate the knowledge base.
-  * `:agent_version` (`t:string`) The version of the agent from which to
-  disassociate the knowledge base.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  to disassociate.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base to disassociate.
+  ## Keyword parameters:
   """
-
   @spec disassociate_agent_knowledge_base(
           AWS.Client.t(),
           String.t(),
@@ -4925,7 +4864,6 @@ defmodule AWS.BedrockAgent do
           {:ok, disassociate_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_agent_knowledge_base_errors()}
-
   def disassociate_agent_knowledge_base(
         %Client{} = client,
         agent_id,
@@ -4979,16 +4917,13 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent.
+  ## Keyword parameters:
   """
-
   @spec get_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_errors()}
-
   def get_agent(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
 
@@ -5023,21 +4958,18 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentActionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:action_group_id` (`t:string`) The unique identifier of the action group for
-  which to get information.
-  * `:agent_id` (`t:string`) The unique identifier of the agent that the action
-  group belongs to.
-  * `:agent_version` (`t:string`) The version of the agent that the action group
-  belongs to.
-
-  ## Optional parameters:
+  * `:action_group_id` (`t:string` required) The unique identifier of the action
+  group for which to get information.
+  * `:agent_id` (`t:string` required) The unique identifier of the agent that the
+  action group belongs to.
+  * `:agent_version` (`t:string` required) The version of the agent that the
+  action group belongs to.
+  ## Keyword parameters:
   """
-
   @spec get_agent_action_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_action_group_errors()}
-
   def get_agent_action_group(
         %Client{} = client,
         action_group_id,
@@ -5079,19 +5011,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_alias_id` (`t:string`) The unique identifier of the alias for which to
-  get information.
-  * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias
-  to get information belongs.
-
-  ## Optional parameters:
+  * `:agent_alias_id` (`t:string` required) The unique identifier of the alias for
+  which to get information.
+  * `:agent_id` (`t:string` required) The unique identifier of the agent to which
+  the alias to get information belongs.
+  ## Keyword parameters:
   """
-
   @spec get_agent_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_alias_errors()}
-
   def get_agent_alias(%Client{} = client, agent_alias_id, agent_id, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/#{AWS.Util.encode_uri(agent_alias_id)}/"
@@ -5127,21 +5056,18 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent with which the
+  * `:agent_id` (`t:string` required) The unique identifier of the agent with
+  which the knowledge base is associated.
+  * `:agent_version` (`t:string` required) The version of the agent with which the
   knowledge base is associated.
-  * `:agent_version` (`t:string`) The version of the agent with which the
-  knowledge base is associated.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  associated with the agent.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base associated with the agent.
+  ## Keyword parameters:
   """
-
   @spec get_agent_knowledge_base(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_knowledge_base_errors()}
-
   def get_agent_knowledge_base(
         %Client{} = client,
         agent_id,
@@ -5183,17 +5109,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent.
-  * `:agent_version` (`t:string`) The version of the agent.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent.
+  * `:agent_version` (`t:string` required) The version of the agent.
+  ## Keyword parameters:
   """
-
   @spec get_agent_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_version_errors()}
-
   def get_agent_version(%Client{} = client, agent_id, agent_version, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/"
@@ -5229,18 +5152,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_source_id` (`t:string`) The unique identifier of the data source.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  that the data source was added to.
-
-  ## Optional parameters:
+  * `:data_source_id` (`t:string` required) The unique identifier of the data
+  source.
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base that the data source was added to.
+  ## Keyword parameters:
   """
-
   @spec get_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_errors()}
-
   def get_data_source(%Client{} = client, data_source_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
@@ -5279,16 +5200,13 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
-
-  ## Optional parameters:
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
+  ## Keyword parameters:
   """
-
   @spec get_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_errors()}
-
   def get_flow(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
 
@@ -5326,19 +5244,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetFlowAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_identifier` (`t:string`) The unique identifier of the alias for which
-  to retrieve information.
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow that the
-  alias belongs to.
-
-  ## Optional parameters:
+  * `:alias_identifier` (`t:string` required) The unique identifier of the alias
+  for which to retrieve information.
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow
+  that the alias belongs to.
+  ## Keyword parameters:
   """
-
   @spec get_flow_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_alias_errors()}
-
   def get_flow_alias(%Client{} = client, alias_identifier, flow_identifier, options \\ []) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(alias_identifier)}"
@@ -5377,19 +5292,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetFlowVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow for which to
-  get information.
-  * `:flow_version` (`t:string`) The version of the flow for which to get
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow for
+  which to get information.
+  * `:flow_version` (`t:string` required) The version of the flow for which to get
   information.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_flow_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_version_errors()}
-
   def get_flow_version(%Client{} = client, flow_identifier, flow_version, options \\ []) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions/#{AWS.Util.encode_uri(flow_version)}/"
@@ -5426,20 +5338,18 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetIngestionJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_source_id` (`t:string`) The unique identifier of the data source in the
+  * `:data_source_id` (`t:string` required) The unique identifier of the data
+  source in the ingestion job.
+  * `:ingestion_job_id` (`t:string` required) The unique identifier of the
   ingestion job.
-  * `:ingestion_job_id` (`t:string`) The unique identifier of the ingestion job.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  for which the ingestion job applies.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base for which the ingestion job applies.
+  ## Keyword parameters:
   """
-
   @spec get_ingestion_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ingestion_job_errors()}
-
   def get_ingestion_job(
         %Client{} = client,
         data_source_id,
@@ -5481,17 +5391,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  for which to get information.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base for which to get information.
+  ## Keyword parameters:
   """
-
   @spec get_knowledge_base(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_knowledge_base_errors()}
-
   def get_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}"
 
@@ -5531,18 +5438,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetPrompt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:prompt_identifier` (`t:string`) The unique identifier of the prompt.
-
-  ## Optional parameters:
+  * `:prompt_identifier` (`t:string` required) The unique identifier of the
+  prompt.
+  ## Keyword parameters:
   * `:prompt_version` (`t:string`) The version of the prompt about which you want
   to retrieve information.
   """
-
   @spec get_prompt(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_prompt_errors()}
-
   def get_prompt(%Client{} = client, prompt_identifier, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
 
@@ -5588,17 +5493,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentActionGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent.
-  * `:agent_version` (`t:string`) The version of the agent.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent.
+  * `:agent_version` (`t:string` required) The version of the agent.
+  ## Keyword parameters:
   """
-
   @spec list_agent_action_groups(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_action_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agent_action_groups_errors()}
-
   def list_agent_action_groups(%Client{} = client, agent_id, agent_version, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/actiongroups/"
@@ -5636,16 +5538,13 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentAliases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent.
+  ## Keyword parameters:
   """
-
   @spec list_agent_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agent_aliases_errors()}
-
   def list_agent_aliases(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/"
 
@@ -5682,19 +5581,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentKnowledgeBases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
+  * `:agent_id` (`t:string` required) The unique identifier of the agent for which
+  to return information about knowledge bases associated with it.
+  * `:agent_version` (`t:string` required) The version of the agent for which to
   return information about knowledge bases associated with it.
-  * `:agent_version` (`t:string`) The version of the agent for which to return
-  information about knowledge bases associated with it.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_agent_knowledge_bases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agent_knowledge_bases_errors()}
-
   def list_agent_knowledge_bases(%Client{} = client, agent_id, agent_version, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/knowledgebases/"
@@ -5732,16 +5628,13 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent.
+  ## Keyword parameters:
   """
-
   @spec list_agent_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agent_versions_errors()}
-
   def list_agent_versions(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/"
 
@@ -5778,15 +5671,12 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_agents(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agents_errors()}
-
   def list_agents(%Client{} = client, options \\ []) do
     url_path = "/agents/"
 
@@ -5823,17 +5713,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListDataSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  for which to return a list of information.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base for which to return a list of information.
+  ## Keyword parameters:
   """
-
   @spec list_data_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
-
   def list_data_sources(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/"
 
@@ -5870,10 +5757,9 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListFlowAliases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow for which
-  aliases are being returned.
-
-  ## Optional parameters:
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow for
+  which aliases are being returned.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If the total number of results is greater than this value, use the
   token returned in the response in the nextToken field when making another
@@ -5883,12 +5769,10 @@ defmodule AWS.BedrockAgent do
   nextToken field in the response in this field to return the next batch of
   results.
   """
-
   @spec list_flow_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_flow_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flow_aliases_errors()}
-
   def list_flow_aliases(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases"
 
@@ -5944,9 +5828,8 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListFlowVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
-
-  ## Optional parameters:
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If the total number of results is greater than this value, use the
   token returned in the response in the nextToken field when making another
@@ -5956,12 +5839,10 @@ defmodule AWS.BedrockAgent do
   nextToken field in the response in this field to return the next batch of
   results.
   """
-
   @spec list_flow_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_flow_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flow_versions_errors()}
-
   def list_flow_versions(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions"
 
@@ -6017,8 +5898,7 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListFlows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If the total number of results is greater than this value, use the
   token returned in the response in the nextToken field when making another
@@ -6028,12 +5908,10 @@ defmodule AWS.BedrockAgent do
   nextToken field in the response in this field to return the next batch of
   results.
   """
-
   @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flows_errors()}
-
   def list_flows(%Client{} = client, options \\ []) do
     url_path = "/flows/"
 
@@ -6086,19 +5964,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListIngestionJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_source_id` (`t:string`) The unique identifier of the data source for
-  which to return ingestion jobs.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  for which to return ingestion jobs.
-
-  ## Optional parameters:
+  * `:data_source_id` (`t:string` required) The unique identifier of the data
+  source for which to return ingestion jobs.
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base for which to return ingestion jobs.
+  ## Keyword parameters:
   """
-
   @spec list_ingestion_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestion_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ingestion_jobs_errors()}
-
   def list_ingestion_jobs(%Client{} = client, data_source_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/ingestionjobs/"
@@ -6136,15 +6011,12 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListKnowledgeBases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_knowledge_bases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_knowledge_bases_errors()}
-
   def list_knowledge_bases(%Client{} = client, options \\ []) do
     url_path = "/knowledgebases/"
 
@@ -6185,8 +6057,7 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListPrompts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response. If the total number of results is greater than this value, use the
   token returned in the response in the nextToken field when making another
@@ -6197,12 +6068,10 @@ defmodule AWS.BedrockAgent do
   results.
   * `:prompt_identifier` (`t:string`) The unique identifier of the prompt.
   """
-
   @spec list_prompts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_prompts_errors()}
-
   def list_prompts(%Client{} = client, options \\ []) do
     url_path = "/prompts/"
 
@@ -6262,17 +6131,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  for which to list tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource for which to list tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -6307,17 +6173,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20PrepareAgent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
-  create a DRAFT version.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent for which
+  to create a DRAFT version.
+  ## Keyword parameters:
   """
-
   @spec prepare_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, prepare_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, prepare_agent_errors()}
-
   def prepare_agent(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
 
@@ -6357,16 +6220,13 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20PrepareFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
-
-  ## Optional parameters:
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
+  ## Keyword parameters:
   """
-
   @spec prepare_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, prepare_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, prepare_flow_errors()}
-
   def prepare_flow(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
 
@@ -6403,19 +6263,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20StartIngestionJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_source_id` (`t:string`) The unique identifier of the data source to
-  ingest.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  to which to add the data source.
-
-  ## Optional parameters:
+  * `:data_source_id` (`t:string` required) The unique identifier of the data
+  source to ingest.
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base to which to add the data source.
+  ## Keyword parameters:
   """
-
   @spec start_ingestion_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ingestion_job_errors()}
-
   def start_ingestion_job(%Client{} = client, data_source_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/ingestionjobs/"
@@ -6455,17 +6312,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -6502,19 +6356,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  from which to remove tags.
-  * `:tag_keys` (`t:list[com.amazonaws.bedrockagent#TagKey]`) A list of keys of
-  the tags to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource from which to remove tags.
+  * `:tag_keys` (`t:list[com.amazonaws.bedrockagent#TagKey]` required) A list of
+  keys of the tags to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6562,16 +6413,13 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent.
+  ## Keyword parameters:
   """
-
   @spec update_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_errors()}
-
   def update_agent(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
 
@@ -6608,20 +6456,18 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgentActionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:action_group_id` (`t:string`) The unique identifier of the action group.
-  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
-  update the action group.
-  * `:agent_version` (`t:string`) The unique identifier of the agent version for
-  which to update the action group.
-
-  ## Optional parameters:
+  * `:action_group_id` (`t:string` required) The unique identifier of the action
+  group.
+  * `:agent_id` (`t:string` required) The unique identifier of the agent for which
+  to update the action group.
+  * `:agent_version` (`t:string` required) The unique identifier of the agent
+  version for which to update the action group.
+  ## Keyword parameters:
   """
-
   @spec update_agent_action_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_action_group_errors()}
-
   def update_agent_action_group(
         %Client{} = client,
         action_group_id,
@@ -6665,17 +6511,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgentAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_alias_id` (`t:string`) The unique identifier of the alias.
-  * `:agent_id` (`t:string`) The unique identifier of the agent.
-
-  ## Optional parameters:
+  * `:agent_alias_id` (`t:string` required) The unique identifier of the alias.
+  * `:agent_id` (`t:string` required) The unique identifier of the agent.
+  ## Keyword parameters:
   """
-
   @spec update_agent_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_alias_errors()}
-
   def update_agent_alias(%Client{} = client, agent_alias_id, agent_id, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/#{AWS.Util.encode_uri(agent_alias_id)}/"
@@ -6714,16 +6557,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgentKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent associated with
-  the knowledge base that you want to update.
-  * `:agent_version` (`t:string`) The version of the agent associated with the
-  knowledge base that you want to update.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  that has been associated with an agent.
-
-  ## Optional parameters:
+  * `:agent_id` (`t:string` required) The unique identifier of the agent
+  associated with the knowledge base that you want to update.
+  * `:agent_version` (`t:string` required) The version of the agent associated
+  with the knowledge base that you want to update.
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base that has been associated with an agent.
+  ## Keyword parameters:
   """
-
   @spec update_agent_knowledge_base(
           AWS.Client.t(),
           String.t(),
@@ -6734,7 +6575,6 @@ defmodule AWS.BedrockAgent do
           {:ok, update_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_knowledge_base_errors()}
-
   def update_agent_knowledge_base(
         %Client{} = client,
         agent_id,
@@ -6778,18 +6618,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateDataSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_source_id` (`t:string`) The unique identifier of the data source.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  for the data source.
-
-  ## Optional parameters:
+  * `:data_source_id` (`t:string` required) The unique identifier of the data
+  source.
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base for the data source.
+  ## Keyword parameters:
   """
-
   @spec update_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
-
   def update_data_source(%Client{} = client, data_source_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
@@ -6832,16 +6670,13 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
-
-  ## Optional parameters:
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
+  ## Keyword parameters:
   """
-
   @spec update_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_errors()}
-
   def update_flow(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
 
@@ -6881,17 +6716,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateFlowAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:alias_identifier` (`t:string`) The unique identifier of the alias.
-  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
-
-  ## Optional parameters:
+  * `:alias_identifier` (`t:string` required) The unique identifier of the alias.
+  * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
+  ## Keyword parameters:
   """
-
   @spec update_flow_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_alias_errors()}
-
   def update_flow_alias(%Client{} = client, alias_identifier, flow_identifier, options \\ []) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(alias_identifier)}"
@@ -6931,17 +6763,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-  to update.
-
-  ## Optional parameters:
+  * `:knowledge_base_id` (`t:string` required) The unique identifier of the
+  knowledge base to update.
+  ## Keyword parameters:
   """
-
   @spec update_knowledge_base(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_knowledge_base_errors()}
-
   def update_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}"
 
@@ -6984,16 +6813,14 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdatePrompt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:prompt_identifier` (`t:string`) The unique identifier of the prompt.
-
-  ## Optional parameters:
+  * `:prompt_identifier` (`t:string` required) The unique identifier of the
+  prompt.
+  ## Keyword parameters:
   """
-
   @spec update_prompt(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_prompt_errors()}
-
   def update_prompt(%Client{} = client, prompt_identifier, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
 

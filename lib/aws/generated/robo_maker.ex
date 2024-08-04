@@ -2760,15 +2760,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20BatchDeleteWorlds&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_delete_worlds(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_worlds_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_worlds_errors()}
-
   def batch_delete_worlds(%Client{} = client, options \\ []) do
     url_path = "/batchDeleteWorlds"
 
@@ -2805,15 +2802,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20BatchDescribeSimulationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec batch_describe_simulation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_describe_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_describe_simulation_job_errors()}
-
   def batch_describe_simulation_job(%Client{} = client, options \\ []) do
     url_path = "/batchDescribeSimulationJob"
 
@@ -2850,15 +2844,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelDeploymentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_deployment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_deployment_job_errors()}
-
   def cancel_deployment_job(%Client{} = client, options \\ []) do
     url_path = "/cancelDeploymentJob"
 
@@ -2895,15 +2886,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelSimulationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_simulation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_simulation_job_errors()}
-
   def cancel_simulation_job(%Client{} = client, options \\ []) do
     url_path = "/cancelSimulationJob"
 
@@ -2942,15 +2930,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelSimulationJobBatch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_simulation_job_batch(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_simulation_job_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_simulation_job_batch_errors()}
-
   def cancel_simulation_job_batch(%Client{} = client, options \\ []) do
     url_path = "/cancelSimulationJobBatch"
 
@@ -2987,15 +2972,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelWorldExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_world_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_world_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_world_export_job_errors()}
-
   def cancel_world_export_job(%Client{} = client, options \\ []) do
     url_path = "/cancelWorldExportJob"
 
@@ -3032,15 +3014,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelWorldGenerationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_world_generation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_world_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_world_generation_job_errors()}
-
   def cancel_world_generation_job(%Client{} = client, options \\ []) do
     url_path = "/cancelWorldGenerationJob"
 
@@ -3078,15 +3057,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateDeploymentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_deployment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_job_errors()}
-
   def create_deployment_job(%Client{} = client, options \\ []) do
     url_path = "/createDeploymentJob"
 
@@ -3123,15 +3099,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
-
   def create_fleet(%Client{} = client, options \\ []) do
     url_path = "/createFleet"
 
@@ -3168,15 +3141,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_robot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_robot_errors()}
-
   def create_robot(%Client{} = client, options \\ []) do
     url_path = "/createRobot"
 
@@ -3213,15 +3183,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobotApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_robot_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_robot_application_errors()}
-
   def create_robot_application(%Client{} = client, options \\ []) do
     url_path = "/createRobotApplication"
 
@@ -3258,15 +3225,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobotApplicationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_robot_application_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_robot_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_robot_application_version_errors()}
-
   def create_robot_application_version(%Client{} = client, options \\ []) do
     url_path = "/createRobotApplicationVersion"
 
@@ -3303,15 +3267,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_simulation_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_simulation_application_errors()}
-
   def create_simulation_application(%Client{} = client, options \\ []) do
     url_path = "/createSimulationApplication"
 
@@ -3348,15 +3309,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationApplicationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_simulation_application_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_simulation_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_simulation_application_version_errors()}
-
   def create_simulation_application_version(%Client{} = client, options \\ []) do
     url_path = "/createSimulationApplicationVersion"
 
@@ -3393,15 +3351,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_simulation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_simulation_job_errors()}
-
   def create_simulation_job(%Client{} = client, options \\ []) do
     url_path = "/createSimulationJob"
 
@@ -3438,15 +3393,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_world_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_world_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_world_export_job_errors()}
-
   def create_world_export_job(%Client{} = client, options \\ []) do
     url_path = "/createWorldExportJob"
 
@@ -3483,15 +3435,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldGenerationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_world_generation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_world_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_world_generation_job_errors()}
-
   def create_world_generation_job(%Client{} = client, options \\ []) do
     url_path = "/createWorldGenerationJob"
 
@@ -3528,15 +3477,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_world_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_world_template_errors()}
-
   def create_world_template(%Client{} = client, options \\ []) do
     url_path = "/createWorldTemplate"
 
@@ -3573,15 +3519,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
-
   def delete_fleet(%Client{} = client, options \\ []) do
     url_path = "/deleteFleet"
 
@@ -3618,15 +3561,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteRobot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_robot(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_robot_errors()}
-
   def delete_robot(%Client{} = client, options \\ []) do
     url_path = "/deleteRobot"
 
@@ -3663,15 +3603,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteRobotApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_robot_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_robot_application_errors()}
-
   def delete_robot_application(%Client{} = client, options \\ []) do
     url_path = "/deleteRobotApplication"
 
@@ -3708,15 +3645,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteSimulationApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_simulation_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_simulation_application_errors()}
-
   def delete_simulation_application(%Client{} = client, options \\ []) do
     url_path = "/deleteSimulationApplication"
 
@@ -3753,15 +3687,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteWorldTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_world_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_world_template_errors()}
-
   def delete_world_template(%Client{} = client, options \\ []) do
     url_path = "/deleteWorldTemplate"
 
@@ -3798,15 +3729,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeregisterRobot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec deregister_robot(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_robot_errors()}
-
   def deregister_robot(%Client{} = client, options \\ []) do
     url_path = "/deregisterRobot"
 
@@ -3843,15 +3771,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeDeploymentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_deployment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_deployment_job_errors()}
-
   def describe_deployment_job(%Client{} = client, options \\ []) do
     url_path = "/describeDeploymentJob"
 
@@ -3888,15 +3813,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_errors()}
-
   def describe_fleet(%Client{} = client, options \\ []) do
     url_path = "/describeFleet"
 
@@ -3933,15 +3855,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeRobot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_robot(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_robot_errors()}
-
   def describe_robot(%Client{} = client, options \\ []) do
     url_path = "/describeRobot"
 
@@ -3978,15 +3897,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeRobotApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_robot_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_robot_application_errors()}
-
   def describe_robot_application(%Client{} = client, options \\ []) do
     url_path = "/describeRobotApplication"
 
@@ -4023,15 +3939,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_simulation_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_simulation_application_errors()}
-
   def describe_simulation_application(%Client{} = client, options \\ []) do
     url_path = "/describeSimulationApplication"
 
@@ -4068,15 +3981,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_simulation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_simulation_job_errors()}
-
   def describe_simulation_job(%Client{} = client, options \\ []) do
     url_path = "/describeSimulationJob"
 
@@ -4113,15 +4023,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationJobBatch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_simulation_job_batch(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_simulation_job_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_simulation_job_batch_errors()}
-
   def describe_simulation_job_batch(%Client{} = client, options \\ []) do
     url_path = "/describeSimulationJobBatch"
 
@@ -4158,15 +4065,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorld&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_world(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_world_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_world_errors()}
-
   def describe_world(%Client{} = client, options \\ []) do
     url_path = "/describeWorld"
 
@@ -4203,15 +4107,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_world_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_world_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_world_export_job_errors()}
-
   def describe_world_export_job(%Client{} = client, options \\ []) do
     url_path = "/describeWorldExportJob"
 
@@ -4248,15 +4149,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldGenerationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_world_generation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_world_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_world_generation_job_errors()}
-
   def describe_world_generation_job(%Client{} = client, options \\ []) do
     url_path = "/describeWorldGenerationJob"
 
@@ -4293,15 +4191,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_world_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_world_template_errors()}
-
   def describe_world_template(%Client{} = client, options \\ []) do
     url_path = "/describeWorldTemplate"
 
@@ -4338,15 +4233,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20GetWorldTemplateBody&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_world_template_body(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_world_template_body_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_world_template_body_errors()}
-
   def get_world_template_body(%Client{} = client, options \\ []) do
     url_path = "/getWorldTemplateBody"
 
@@ -4384,15 +4276,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListDeploymentJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_deployment_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deployment_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_jobs_errors()}
-
   def list_deployment_jobs(%Client{} = client, options \\ []) do
     url_path = "/listDeploymentJobs"
 
@@ -4430,15 +4319,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListFleets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_fleets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_errors()}
-
   def list_fleets(%Client{} = client, options \\ []) do
     url_path = "/listFleets"
 
@@ -4476,15 +4362,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListRobotApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_robot_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_robot_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_robot_applications_errors()}
-
   def list_robot_applications(%Client{} = client, options \\ []) do
     url_path = "/listRobotApplications"
 
@@ -4522,15 +4405,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListRobots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_robots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_robots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_robots_errors()}
-
   def list_robots(%Client{} = client, options \\ []) do
     url_path = "/listRobots"
 
@@ -4568,15 +4448,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_simulation_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulation_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_simulation_applications_errors()}
-
   def list_simulation_applications(%Client{} = client, options \\ []) do
     url_path = "/listSimulationApplications"
 
@@ -4614,15 +4491,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationJobBatches&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_simulation_job_batches(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulation_job_batches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_simulation_job_batches_errors()}
-
   def list_simulation_job_batches(%Client{} = client, options \\ []) do
     url_path = "/listSimulationJobBatches"
 
@@ -4660,15 +4534,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_simulation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_simulation_jobs_errors()}
-
   def list_simulation_jobs(%Client{} = client, options \\ []) do
     url_path = "/listSimulationJobs"
 
@@ -4705,17 +4576,14 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The AWS RoboMaker Amazon Resource Name (ARN) with
-  tags to be listed.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The AWS RoboMaker Amazon Resource Name
+  (ARN) with tags to be listed.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4750,15 +4618,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldExportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_world_export_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_world_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_world_export_jobs_errors()}
-
   def list_world_export_jobs(%Client{} = client, options \\ []) do
     url_path = "/listWorldExportJobs"
 
@@ -4795,15 +4660,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldGenerationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_world_generation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_world_generation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_world_generation_jobs_errors()}
-
   def list_world_generation_jobs(%Client{} = client, options \\ []) do
     url_path = "/listWorldGenerationJobs"
 
@@ -4840,15 +4702,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_world_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_world_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_world_templates_errors()}
-
   def list_world_templates(%Client{} = client, options \\ []) do
     url_path = "/listWorldTemplates"
 
@@ -4885,15 +4744,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorlds&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_worlds(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_worlds_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_worlds_errors()}
-
   def list_worlds(%Client{} = client, options \\ []) do
     url_path = "/listWorlds"
 
@@ -4930,15 +4786,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20RegisterRobot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_robot(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_robot_errors()}
-
   def register_robot(%Client{} = client, options \\ []) do
     url_path = "/registerRobot"
 
@@ -4975,15 +4828,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20RestartSimulationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec restart_simulation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, restart_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restart_simulation_job_errors()}
-
   def restart_simulation_job(%Client{} = client, options \\ []) do
     url_path = "/restartSimulationJob"
 
@@ -5021,15 +4871,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20StartSimulationJobBatch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_simulation_job_batch(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_simulation_job_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_simulation_job_batch_errors()}
-
   def start_simulation_job_batch(%Client{} = client, options \\ []) do
     url_path = "/startSimulationJobBatch"
 
@@ -5067,15 +4914,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20SyncDeploymentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec sync_deployment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, sync_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sync_deployment_job_errors()}
-
   def sync_deployment_job(%Client{} = client, options \\ []) do
     url_path = "/syncDeploymentJob"
 
@@ -5114,17 +4958,14 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the AWS
-  RoboMaker resource you are tagging.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  AWS RoboMaker resource you are tagging.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5161,19 +5002,16 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the AWS
-  RoboMaker resource you are removing tags.
-  * `:tag_keys` (`t:list[com.amazonaws.robomaker#TagKey]`) A map that contains tag
-  keys and tag values that will be unattached from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  AWS RoboMaker resource you are removing tags.
+  * `:tag_keys` (`t:list[com.amazonaws.robomaker#TagKey]` required) A map that
+  contains tag keys and tag values that will be unattached from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5221,15 +5059,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateRobotApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_robot_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_robot_application_errors()}
-
   def update_robot_application(%Client{} = client, options \\ []) do
     url_path = "/updateRobotApplication"
 
@@ -5266,15 +5101,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateSimulationApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_simulation_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_simulation_application_errors()}
-
   def update_simulation_application(%Client{} = client, options \\ []) do
     url_path = "/updateSimulationApplication"
 
@@ -5311,15 +5143,12 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateWorldTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_world_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_world_template_errors()}
-
   def update_world_template(%Client{} = client, options \\ []) do
     url_path = "/updateWorldTemplate"
 

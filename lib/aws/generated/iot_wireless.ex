@@ -5174,15 +5174,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateAwsAccountWithPartnerAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_aws_account_with_partner_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_aws_account_with_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_aws_account_with_partner_account_errors()}
-
   def associate_aws_account_with_partner_account(%Client{} = client, options \\ []) do
     url_path = "/partner-accounts"
 
@@ -5219,16 +5216,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateMulticastGroupWithFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec associate_multicast_group_with_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_multicast_group_with_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_multicast_group_with_fuota_task_errors()}
-
   def associate_multicast_group_with_fuota_task(%Client{} = client, id, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/multicast-group"
 
@@ -5265,16 +5259,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateWirelessDeviceWithFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec associate_wireless_device_with_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_wireless_device_with_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_wireless_device_with_fuota_task_errors()}
-
   def associate_wireless_device_with_fuota_task(%Client{} = client, id, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/wireless-device"
 
@@ -5311,16 +5302,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateWirelessDeviceWithMulticastGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec associate_wireless_device_with_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_wireless_device_with_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_wireless_device_with_multicast_group_errors()}
-
   def associate_wireless_device_with_multicast_group(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/wireless-device"
 
@@ -5357,16 +5345,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateWirelessDeviceWithThing&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to update.
+  ## Keyword parameters:
   """
-
   @spec associate_wireless_device_with_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_wireless_device_with_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_wireless_device_with_thing_errors()}
-
   def associate_wireless_device_with_thing(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/thing"
 
@@ -5403,16 +5388,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateWirelessGatewayWithCertificate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to update.
+  ## Keyword parameters:
   """
-
   @spec associate_wireless_gateway_with_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_wireless_gateway_with_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_wireless_gateway_with_certificate_errors()}
-
   def associate_wireless_gateway_with_certificate(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
 
@@ -5449,16 +5431,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateWirelessGatewayWithThing&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to update.
+  ## Keyword parameters:
   """
-
   @spec associate_wireless_gateway_with_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_wireless_gateway_with_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_wireless_gateway_with_thing_errors()}
-
   def associate_wireless_gateway_with_thing(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/thing"
 
@@ -5495,16 +5474,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CancelMulticastGroupSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec cancel_multicast_group_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_multicast_group_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_multicast_group_session_errors()}
-
   def cancel_multicast_group_session(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
 
@@ -5551,15 +5527,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_destination(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_destination_errors()}
-
   def create_destination(%Client{} = client, options \\ []) do
     url_path = "/destinations"
 
@@ -5596,15 +5569,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateDeviceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_device_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_profile_errors()}
-
   def create_device_profile(%Client{} = client, options \\ []) do
     url_path = "/device-profiles"
 
@@ -5641,15 +5611,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_fuota_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fuota_task_errors()}
-
   def create_fuota_task(%Client{} = client, options \\ []) do
     url_path = "/fuota-tasks"
 
@@ -5686,15 +5653,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateMulticastGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_multicast_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_multicast_group_errors()}
-
   def create_multicast_group(%Client{} = client, options \\ []) do
     url_path = "/multicast-groups"
 
@@ -5731,15 +5695,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateNetworkAnalyzerConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_network_analyzer_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_analyzer_configuration_errors()}
-
   def create_network_analyzer_configuration(%Client{} = client, options \\ []) do
     url_path = "/network-analyzer-configurations"
 
@@ -5776,15 +5737,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateServiceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_service_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_profile_errors()}
-
   def create_service_profile(%Client{} = client, options \\ []) do
     url_path = "/service-profiles"
 
@@ -5821,15 +5779,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_wireless_device(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_wireless_device_errors()}
-
   def create_wireless_device(%Client{} = client, options \\ []) do
     url_path = "/wireless-devices"
 
@@ -5866,15 +5821,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_wireless_gateway(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_wireless_gateway_errors()}
-
   def create_wireless_gateway(%Client{} = client, options \\ []) do
     url_path = "/wireless-gateways"
 
@@ -5911,16 +5863,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessGatewayTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to update.
+  ## Keyword parameters:
   """
-
   @spec create_wireless_gateway_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_wireless_gateway_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_wireless_gateway_task_errors()}
-
   def create_wireless_gateway_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
 
@@ -5957,15 +5906,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessGatewayTaskDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_wireless_gateway_task_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_wireless_gateway_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_wireless_gateway_task_definition_errors()}
-
   def create_wireless_gateway_task_definition(%Client{} = client, options \\ []) do
     url_path = "/wireless-gateway-task-definitions"
 
@@ -6002,16 +5948,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the resource to delete.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_destination_errors()}
-
   def delete_destination(%Client{} = client, name, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
 
@@ -6058,16 +6001,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteDeviceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_device_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_profile_errors()}
-
   def delete_device_profile(%Client{} = client, id, options \\ []) do
     url_path = "/device-profiles/#{AWS.Util.encode_uri(id)}"
 
@@ -6114,16 +6054,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fuota_task_errors()}
-
   def delete_fuota_task(%Client{} = client, id, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
 
@@ -6170,16 +6107,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteMulticastGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_multicast_group_errors()}
-
   def delete_multicast_group(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
 
@@ -6226,16 +6160,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteNetworkAnalyzerConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:configuration_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_network_analyzer_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_network_analyzer_configuration_errors()}
-
   def delete_network_analyzer_configuration(%Client{} = client, configuration_name, options \\ []) do
     url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
 
@@ -6282,23 +6213,20 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteQueuedMessages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of a given wireless device for which downlink
-  messages will be deleted.
-  * `:message_id` (`t:string`) If message ID is "*", it cleares the entire
-  downlink queue for a given device, specified by the wireless device ID.
-  Otherwise, the downlink message with the specified message ID will be
+  * `:id` (`t:string` required) The ID of a given wireless device for which
+  downlink messages will be deleted.
+  * `:message_id` (`t:string` required) If message ID is "*", it cleares the
+  entire downlink queue for a given device, specified by the wireless device
+  ID. Otherwise, the downlink message with the specified message ID will be
   deleted.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) The wireless device
   type, which can be either Sidewalk or LoRaWAN.
   """
-
   @spec delete_queued_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_queued_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queued_messages_errors()}
-
   def delete_queued_messages(%Client{} = client, id, message_id, options \\ [])
       when is_binary(message_id) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
@@ -6357,16 +6285,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteServiceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_service_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_profile_errors()}
-
   def delete_service_profile(%Client{} = client, id, options \\ []) do
     url_path = "/service-profiles/#{AWS.Util.encode_uri(id)}"
 
@@ -6413,16 +6338,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteWirelessDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_wireless_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_wireless_device_errors()}
-
   def delete_wireless_device(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}"
 
@@ -6469,16 +6391,14 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique identifier of the import task to be deleted.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The unique identifier of the import task to be
+  deleted.
+  ## Keyword parameters:
   """
-
   @spec delete_wireless_device_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_wireless_device_import_task_errors()}
-
   def delete_wireless_device_import_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
 
@@ -6525,16 +6445,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteWirelessGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_wireless_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_wireless_gateway_errors()}
-
   def delete_wireless_gateway(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}"
 
@@ -6581,16 +6498,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteWirelessGatewayTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_wireless_gateway_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_wireless_gateway_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_wireless_gateway_task_errors()}
-
   def delete_wireless_gateway_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
 
@@ -6638,16 +6552,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteWirelessGatewayTaskDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_wireless_gateway_task_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_wireless_gateway_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_wireless_gateway_task_definition_errors()}
-
   def delete_wireless_gateway_task_definition(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateway-task-definitions/#{AWS.Util.encode_uri(id)}"
 
@@ -6694,20 +6605,17 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeregisterWirelessDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The identifier of the wireless device to deregister
-  from AWS IoT Wireless.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The identifier of the wireless device to
+  deregister from AWS IoT Wireless.
+  ## Keyword parameters:
   * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) The type of wireless
   device to deregister from AWS IoT Wireless, which can be LoRaWAN or
   Sidewalk.
   """
-
   @spec deregister_wireless_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_wireless_device_errors()}
-
   def deregister_wireless_device(%Client{} = client, identifier, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(identifier)}/deregister"
 
@@ -6767,13 +6675,11 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateAwsAccountFromPartnerAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:partner_account_id` (`t:string`) The partner account ID to disassociate from
-  the AWS account.
-  * `:partner_type` (`t:enum["Sidewalk"]`) The partner type.
-
-  ## Optional parameters:
+  * `:partner_account_id` (`t:string` required) The partner account ID to
+  disassociate from the AWS account.
+  * `:partner_type` (`t:enum["Sidewalk"]` required) The partner type.
+  ## Keyword parameters:
   """
-
   @spec disassociate_aws_account_from_partner_account(
           AWS.Client.t(),
           String.t(),
@@ -6783,7 +6689,6 @@ defmodule AWS.IoTWireless do
           {:ok, disassociate_aws_account_from_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_aws_account_from_partner_account_errors()}
-
   def disassociate_aws_account_from_partner_account(
         %Client{} = client,
         partner_account_id,
@@ -6836,12 +6741,10 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateMulticastGroupFromFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-  * `:multicast_group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  * `:multicast_group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec disassociate_multicast_group_from_fuota_task(
           AWS.Client.t(),
           String.t(),
@@ -6851,7 +6754,6 @@ defmodule AWS.IoTWireless do
           {:ok, disassociate_multicast_group_from_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_multicast_group_from_fuota_task_errors()}
-
   def disassociate_multicast_group_from_fuota_task(
         %Client{} = client,
         id,
@@ -6904,12 +6806,10 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateWirelessDeviceFromFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-  * `:wireless_device_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  * `:wireless_device_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec disassociate_wireless_device_from_fuota_task(
           AWS.Client.t(),
           String.t(),
@@ -6919,7 +6819,6 @@ defmodule AWS.IoTWireless do
           {:ok, disassociate_wireless_device_from_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_wireless_device_from_fuota_task_errors()}
-
   def disassociate_wireless_device_from_fuota_task(
         %Client{} = client,
         id,
@@ -6972,12 +6871,10 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateWirelessDeviceFromMulticastGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-  * `:wireless_device_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  * `:wireless_device_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec disassociate_wireless_device_from_multicast_group(
           AWS.Client.t(),
           String.t(),
@@ -6987,7 +6884,6 @@ defmodule AWS.IoTWireless do
           {:ok, disassociate_wireless_device_from_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_wireless_device_from_multicast_group_errors()}
-
   def disassociate_wireless_device_from_multicast_group(
         %Client{} = client,
         id,
@@ -7040,16 +6936,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateWirelessDeviceFromThing&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to update.
+  ## Keyword parameters:
   """
-
   @spec disassociate_wireless_device_from_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_wireless_device_from_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_wireless_device_from_thing_errors()}
-
   def disassociate_wireless_device_from_thing(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/thing"
 
@@ -7096,16 +6989,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateWirelessGatewayFromCertificate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to update.
+  ## Keyword parameters:
   """
-
   @spec disassociate_wireless_gateway_from_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_wireless_gateway_from_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_wireless_gateway_from_certificate_errors()}
-
   def disassociate_wireless_gateway_from_certificate(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
 
@@ -7152,16 +7042,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateWirelessGatewayFromThing&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to update.
+  ## Keyword parameters:
   """
-
   @spec disassociate_wireless_gateway_from_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_wireless_gateway_from_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_wireless_gateway_from_thing_errors()}
-
   def disassociate_wireless_gateway_from_thing(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/thing"
 
@@ -7208,16 +7095,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the resource to get.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the resource to get.
+  ## Keyword parameters:
   """
-
   @spec get_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_destination_errors()}
-
   def get_destination(%Client{} = client, name, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
 
@@ -7252,16 +7136,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetDeviceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to get.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to get.
+  ## Keyword parameters:
   """
-
   @spec get_device_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_profile_errors()}
-
   def get_device_profile(%Client{} = client, id, options \\ []) do
     url_path = "/device-profiles/#{AWS.Util.encode_uri(id)}"
 
@@ -7296,15 +7177,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetEventConfigurationByResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_event_configuration_by_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_event_configuration_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_configuration_by_resource_types_errors()}
-
   def get_event_configuration_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/event-configurations-resource-types"
 
@@ -7339,16 +7217,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_fuota_task_errors()}
-
   def get_fuota_task(%Client{} = client, id, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
 
@@ -7385,15 +7260,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetLogLevelsByResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_log_levels_by_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_log_levels_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_log_levels_by_resource_types_errors()}
-
   def get_log_levels_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/log-levels"
 
@@ -7428,15 +7300,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetMetricConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_metric_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_metric_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_configuration_errors()}
-
   def get_metric_configuration(%Client{} = client, options \\ []) do
     url_path = "/metric-configuration"
 
@@ -7471,15 +7340,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metrics_errors()}
-
   def get_metrics(%Client{} = client, options \\ []) do
     url_path = "/metrics"
 
@@ -7516,16 +7382,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetMulticastGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_multicast_group_errors()}
-
   def get_multicast_group(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
 
@@ -7560,16 +7423,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetMulticastGroupSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_multicast_group_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_multicast_group_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_multicast_group_session_errors()}
-
   def get_multicast_group_session(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
 
@@ -7604,16 +7464,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetNetworkAnalyzerConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:configuration_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_network_analyzer_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_analyzer_configuration_errors()}
-
   def get_network_analyzer_configuration(%Client{} = client, configuration_name, options \\ []) do
     url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
 
@@ -7649,18 +7506,15 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetPartnerAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:partner_account_id` (`t:string`) The partner account ID to disassociate from
-  the AWS account.
-  * `:partner_type` (`t:enum["Sidewalk"]`) The partner type.
-
-  ## Optional parameters:
+  * `:partner_account_id` (`t:string` required) The partner account ID to
+  disassociate from the AWS account.
+  * `:partner_type` (`t:enum["Sidewalk"]` required) The partner type.
+  ## Keyword parameters:
   """
-
   @spec get_partner_account(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_partner_account_errors()}
-
   def get_partner_account(%Client{} = client, partner_account_id, partner_type, options \\ [])
       when is_binary(partner_type) do
     url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
@@ -7696,19 +7550,16 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetPosition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) Resource identifier used to retrieve the
-  position information.
-  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type of
-  the resource for which position information is retrieved.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) Resource identifier used to
+  retrieve the position information.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required)
+  Resource type of the resource for which position information is retrieved.
+  ## Keyword parameters:
   """
-
   @spec get_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_position_errors()}
-
   def get_position(%Client{} = client, resource_identifier, resource_type, options \\ [])
       when is_binary(resource_type) do
     url_path = "/positions/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -7744,19 +7595,16 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetPositionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) Resource identifier used in a position
-  configuration.
-  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type of
-  the resource for which position configuration is retrieved.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) Resource identifier used in a
+  position configuration.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required)
+  Resource type of the resource for which position configuration is retrieved.
+  ## Keyword parameters:
   """
-
   @spec get_position_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_position_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_position_configuration_errors()}
-
   def get_position_configuration(
         %Client{} = client,
         resource_identifier,
@@ -7799,15 +7647,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetPositionEstimate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_position_estimate(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_position_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_position_estimate_errors()}
-
   def get_position_estimate(%Client{} = client, options \\ []) do
     url_path = "/position-estimate"
 
@@ -7844,22 +7689,20 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetResourceEventConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) Resource identifier to opt in for event messaging.
+  * `:identifier` (`t:string` required) Resource identifier to opt in for event
+  messaging.
   * `:identifier_type`
-  (`t:enum["DevEui|GatewayEui|PartnerAccountId|WirelessDeviceId|WirelessGatewayId"]`)
-  Identifier type of the particular resource identifier for event
+  (`t:enum["DevEui|GatewayEui|PartnerAccountId|WirelessDeviceId|WirelessGatewayId"]`
+  required) Identifier type of the particular resource identifier for event
   configuration.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:partner_type` (`t:enum["Sidewalk"]`) Partner type of the resource if the
   identifier type is PartnerAccountId.
   """
-
   @spec get_resource_event_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_event_configuration_errors()}
-
   def get_resource_event_configuration(
         %Client{} = client,
         identifier,
@@ -7912,18 +7755,15 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetResourceLogLevel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`)
-  * `:resource_type` (`t:string`) The type of the resource, which can be
+  * `:resource_identifier` (`t:string` required)
+  * `:resource_type` (`t:string` required) The type of the resource, which can be
   WirelessDevice or WirelessGateway.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_resource_log_level(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_log_level_errors()}
-
   def get_resource_log_level(
         %Client{} = client,
         resource_identifier,
@@ -7966,21 +7806,18 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetResourcePosition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) The identifier of the resource for which
-  position information is retrieved. It can be the wireless device ID or the
-  wireless gateway ID, depending on the resource type.
-  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) The type of
-  resource for which position information is retrieved, which can be a
+  * `:resource_identifier` (`t:string` required) The identifier of the resource
+  for which position information is retrieved. It can be the wireless device
+  ID or the wireless gateway ID, depending on the resource type.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required) The
+  type of resource for which position information is retrieved, which can be a
   wireless device or a wireless gateway.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_resource_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_position_errors()}
-
   def get_resource_position(%Client{} = client, resource_identifier, resource_type, options \\ [])
       when is_binary(resource_type) do
     url_path = "/resource-positions/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -8017,19 +7854,16 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetServiceEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:service_type` (`t:enum["CUPS|LNS"]`) The service type for which to get
   endpoint information about. Can be CUPS for the Configuration and Update
   Server endpoint, or LNS for the LoRaWAN Network Server endpoint or CLAIM for
   the global endpoint.
   """
-
   @spec get_service_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_endpoint_errors()}
-
   def get_service_endpoint(%Client{} = client, options \\ []) do
     url_path = "/service-endpoint"
 
@@ -8075,16 +7909,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetServiceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to get.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to get.
+  ## Keyword parameters:
   """
-
   @spec get_service_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_profile_errors()}
-
   def get_service_profile(%Client{} = client, id, options \\ []) do
     url_path = "/service-profiles/#{AWS.Util.encode_uri(id)}"
 
@@ -8119,19 +7950,17 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The identifier of the wireless device to get.
+  * `:identifier` (`t:string` required) The identifier of the wireless device to
+  get.
   * `:identifier_type`
-  (`t:enum["DevEui|SidewalkManufacturingSn|ThingName|WirelessDeviceId"]`) The
-  type of identifier used in identifier.
-
-  ## Optional parameters:
+  (`t:enum["DevEui|SidewalkManufacturingSn|ThingName|WirelessDeviceId"]`
+  required) The type of identifier used in identifier.
+  ## Keyword parameters:
   """
-
   @spec get_wireless_device(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_device_errors()}
-
   def get_wireless_device(%Client{} = client, identifier, identifier_type, options \\ [])
       when is_binary(identifier_type) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(identifier)}"
@@ -8168,17 +7997,14 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the import task for which information is
-  requested.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the import task for which
+  information is requested.
+  ## Keyword parameters:
   """
-
   @spec get_wireless_device_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_device_import_task_errors()}
-
   def get_wireless_device_import_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
 
@@ -8213,17 +8039,14 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessDeviceStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:wireless_device_id` (`t:string`) The ID of the wireless device for which to
-  get the data.
-
-  ## Optional parameters:
+  * `:wireless_device_id` (`t:string` required) The ID of the wireless device for
+  which to get the data.
+  ## Keyword parameters:
   """
-
   @spec get_wireless_device_statistics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_device_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_device_statistics_errors()}
-
   def get_wireless_device_statistics(%Client{} = client, wireless_device_id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(wireless_device_id)}/statistics"
 
@@ -8258,18 +8081,16 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) The identifier of the wireless gateway to get.
-  * `:identifier_type` (`t:enum["GatewayEui|ThingName|WirelessGatewayId"]`) The
-  type of identifier used in identifier.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) The identifier of the wireless gateway to
+  get.
+  * `:identifier_type` (`t:enum["GatewayEui|ThingName|WirelessGatewayId"]`
+  required) The type of identifier used in identifier.
+  ## Keyword parameters:
   """
-
   @spec get_wireless_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_errors()}
-
   def get_wireless_gateway(%Client{} = client, identifier, identifier_type, options \\ [])
       when is_binary(identifier_type) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(identifier)}"
@@ -8306,16 +8127,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGatewayCertificate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to get.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to get.
+  ## Keyword parameters:
   """
-
   @spec get_wireless_gateway_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_certificate_errors()}
-
   def get_wireless_gateway_certificate(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
 
@@ -8350,16 +8168,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGatewayFirmwareInformation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to get.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to get.
+  ## Keyword parameters:
   """
-
   @spec get_wireless_gateway_firmware_information(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_firmware_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_firmware_information_errors()}
-
   def get_wireless_gateway_firmware_information(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/firmware-information"
 
@@ -8394,17 +8209,14 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGatewayStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:wireless_gateway_id` (`t:string`) The ID of the wireless gateway for which
-  to get the data.
-
-  ## Optional parameters:
+  * `:wireless_gateway_id` (`t:string` required) The ID of the wireless gateway
+  for which to get the data.
+  ## Keyword parameters:
   """
-
   @spec get_wireless_gateway_statistics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_statistics_errors()}
-
   def get_wireless_gateway_statistics(%Client{} = client, wireless_gateway_id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(wireless_gateway_id)}/statistics"
 
@@ -8439,16 +8251,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGatewayTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to get.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to get.
+  ## Keyword parameters:
   """
-
   @spec get_wireless_gateway_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_task_errors()}
-
   def get_wireless_gateway_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
 
@@ -8483,16 +8292,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGatewayTaskDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to get.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to get.
+  ## Keyword parameters:
   """
-
   @spec get_wireless_gateway_task_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_task_definition_errors()}
-
   def get_wireless_gateway_task_definition(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateway-task-definitions/#{AWS.Util.encode_uri(id)}"
 
@@ -8527,20 +8333,17 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListDestinations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_destinations_errors()}
-
   def list_destinations(%Client{} = client, options \\ []) do
     url_path = "/destinations"
 
@@ -8593,8 +8396,7 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListDeviceProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:device_profile_type` (`t:enum["LoRaWAN|Sidewalk"]`) A filter to list only
   device profiles that use this type, which can be LoRaWAN or Sidewalk.
   * `:max_results` (`t:integer`) The maximum number of results to return in this
@@ -8603,12 +8405,10 @@ defmodule AWS.IoTWireless do
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_device_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_device_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_profiles_errors()}
-
   def list_device_profiles(%Client{} = client, options \\ []) do
     url_path = "/device-profiles"
 
@@ -8668,10 +8468,9 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListDevicesForWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the import task for which wireless
-  devices are listed.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the import task for which
+  wireless devices are listed.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
@@ -8679,12 +8478,10 @@ defmodule AWS.IoTWireless do
   * `:status` (`t:enum["FAILED|INITIALIZED|ONBOARDED|PENDING"]`) The status of the
   devices in the import task.
   """
-
   @spec list_devices_for_wireless_device_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_devices_for_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_for_wireless_device_import_task_errors()}
-
   def list_devices_for_wireless_device_import_task(%Client{} = client, id, options \\ [])
       when is_binary(id) do
     url_path = "/wireless_device_import_task"
@@ -8745,21 +8542,18 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListEventConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_type` (`t:enum["SidewalkAccount|WirelessDevice|WirelessGateway"]`)
-  Resource type to filter event configurations.
-
-  ## Optional parameters:
+  * `:resource_type` (`t:enum["SidewalkAccount|WirelessDevice|WirelessGateway"]`
+  required) Resource type to filter event configurations.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_event_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_configurations_errors()}
-
   def list_event_configurations(%Client{} = client, resource_type, options \\ [])
       when is_binary(resource_type) do
     url_path = "/event-configurations"
@@ -8813,19 +8607,16 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListFuotaTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_fuota_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fuota_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fuota_tasks_errors()}
-
   def list_fuota_tasks(%Client{} = client, options \\ []) do
     url_path = "/fuota-tasks"
 
@@ -8878,19 +8669,16 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListMulticastGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_multicast_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_multicast_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_multicast_groups_errors()}
-
   def list_multicast_groups(%Client{} = client, options \\ []) do
     url_path = "/multicast-groups"
 
@@ -8943,20 +8731,17 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListMulticastGroupsByFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_multicast_groups_by_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multicast_groups_by_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_multicast_groups_by_fuota_task_errors()}
-
   def list_multicast_groups_by_fuota_task(%Client{} = client, id, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/multicast-groups"
 
@@ -9009,19 +8794,16 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListNetworkAnalyzerConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_network_analyzer_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_analyzer_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_analyzer_configurations_errors()}
-
   def list_network_analyzer_configurations(%Client{} = client, options \\ []) do
     url_path = "/network-analyzer-configurations"
 
@@ -9074,20 +8856,17 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListPartnerAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_partner_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_partner_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_partner_accounts_errors()}
-
   def list_partner_accounts(%Client{} = client, options \\ []) do
     url_path = "/partner-accounts"
 
@@ -9140,8 +8919,7 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListPositionConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
@@ -9149,12 +8927,10 @@ defmodule AWS.IoTWireless do
   * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type
   for which position configurations are listed.
   """
-
   @spec list_position_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_position_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_position_configurations_errors()}
-
   def list_position_configurations(%Client{} = client, options \\ []) do
     url_path = "/position-configurations"
 
@@ -9214,10 +8990,9 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListQueuedMessages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of a given wireless device which the downlink
-  message packets are being sent.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of a given wireless device which the
+  downlink message packets are being sent.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
@@ -9226,12 +9001,10 @@ defmodule AWS.IoTWireless do
   * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) The wireless device
   type, whic can be either Sidewalk or LoRaWAN.
   """
-
   @spec list_queued_messages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queued_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queued_messages_errors()}
-
   def list_queued_messages(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
 
@@ -9291,20 +9064,17 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListServiceProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_service_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_profiles_errors()}
-
   def list_service_profiles(%Client{} = client, options \\ []) do
     url_path = "/service-profiles"
 
@@ -9357,17 +9127,14 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
-  list tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource for which you
+  want to list tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -9403,19 +9170,16 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessDeviceImportTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_wireless_device_import_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_device_import_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_wireless_device_import_tasks_errors()}
-
   def list_wireless_device_import_tasks(%Client{} = client, options \\ []) do
     url_path = "/wireless_device_import_tasks"
 
@@ -9468,8 +9232,7 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:destination_name` (`t:string`) A filter to list only the wireless devices
   that use this destination.
   * `:device_profile_id` (`t:string`) A filter to list only the wireless devices
@@ -9486,12 +9249,10 @@ defmodule AWS.IoTWireless do
   * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) A filter to list only
   the wireless devices that use this wireless device type.
   """
-
   @spec list_wireless_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_wireless_devices_errors()}
-
   def list_wireless_devices(%Client{} = client, options \\ []) do
     url_path = "/wireless-devices"
 
@@ -9604,8 +9365,7 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessGatewayTaskDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
@@ -9614,12 +9374,10 @@ defmodule AWS.IoTWireless do
   * `:task_definition_type` (`t:enum["UPDATE"]`) A filter to list only the
   wireless gateway task definitions that use this task definition type.
   """
-
   @spec list_wireless_gateway_task_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_gateway_task_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_wireless_gateway_task_definitions_errors()}
-
   def list_wireless_gateway_task_definitions(%Client{} = client, options \\ []) do
     url_path = "/wireless-gateway-task-definitions"
 
@@ -9679,20 +9437,17 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessGateways&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
   operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
   value from a previous response; otherwise null to receive the first set of
   results.
   """
-
   @spec list_wireless_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_wireless_gateways_errors()}
-
   def list_wireless_gateways(%Client{} = client, options \\ []) do
     url_path = "/wireless-gateways"
 
@@ -9745,19 +9500,17 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20PutPositionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) Resource identifier used to update the
-  position configuration.
-  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type of
-  the resource for which you want to update the position configuration.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) Resource identifier used to
+  update the position configuration.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required)
+  Resource type of the resource for which you want to update the position
+  configuration.
+  ## Keyword parameters:
   """
-
   @spec put_position_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_position_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_position_configuration_errors()}
-
   def put_position_configuration(
         %Client{} = client,
         resource_identifier,
@@ -9802,18 +9555,15 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20PutResourceLogLevel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`)
-  * `:resource_type` (`t:string`) The type of the resource, which can be
+  * `:resource_identifier` (`t:string` required)
+  * `:resource_type` (`t:string` required) The type of the resource, which can be
   WirelessDevice or WirelessGateway.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec put_resource_log_level(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_log_level_errors()}
-
   def put_resource_log_level(
         %Client{} = client,
         resource_identifier,
@@ -9857,15 +9607,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ResetAllResourceLogLevels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reset_all_resource_log_levels(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_all_resource_log_levels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_all_resource_log_levels_errors()}
-
   def reset_all_resource_log_levels(%Client{} = client, options \\ []) do
     url_path = "/log-levels"
 
@@ -9913,18 +9660,15 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ResetResourceLogLevel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`)
-  * `:resource_type` (`t:string`) The type of the resource, which can be
+  * `:resource_identifier` (`t:string` required)
+  * `:resource_type` (`t:string` required) The type of the resource, which can be
   WirelessDevice or WirelessGateway.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec reset_resource_log_level(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, reset_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_resource_log_level_errors()}
-
   def reset_resource_log_level(
         %Client{} = client,
         resource_identifier,
@@ -9977,16 +9721,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20SendDataToMulticastGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec send_data_to_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_data_to_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_data_to_multicast_group_errors()}
-
   def send_data_to_multicast_group(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/data"
 
@@ -10023,16 +9764,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20SendDataToWirelessDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the wireless device to receive the data.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the wireless device to receive the data.
+  ## Keyword parameters:
   """
-
   @spec send_data_to_wireless_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_data_to_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_data_to_wireless_device_errors()}
-
   def send_data_to_wireless_device(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
 
@@ -10070,11 +9808,9 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartBulkAssociateWirelessDeviceWithMulticastGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_bulk_associate_wireless_device_with_multicast_group(
           AWS.Client.t(),
           String.t(),
@@ -10083,7 +9819,6 @@ defmodule AWS.IoTWireless do
           {:ok, start_bulk_associate_wireless_device_with_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_bulk_associate_wireless_device_with_multicast_group_errors()}
-
   def start_bulk_associate_wireless_device_with_multicast_group(
         %Client{} = client,
         id,
@@ -10135,11 +9870,9 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartBulkDisassociateWirelessDeviceFromMulticastGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_bulk_disassociate_wireless_device_from_multicast_group(
           AWS.Client.t(),
           String.t(),
@@ -10148,7 +9881,6 @@ defmodule AWS.IoTWireless do
           {:ok, start_bulk_disassociate_wireless_device_from_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_bulk_disassociate_wireless_device_from_multicast_group_errors()}
-
   def start_bulk_disassociate_wireless_device_from_multicast_group(
         %Client{} = client,
         id,
@@ -10189,16 +9921,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fuota_task_errors()}
-
   def start_fuota_task(%Client{} = client, id, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
 
@@ -10235,16 +9964,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartMulticastGroupSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec start_multicast_group_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_multicast_group_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_multicast_group_session_errors()}
-
   def start_multicast_group_session(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
 
@@ -10281,15 +10007,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartSingleWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_single_wireless_device_import_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_single_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_single_wireless_device_import_task_errors()}
-
   def start_single_wireless_device_import_task(%Client{} = client, options \\ []) do
     url_path = "/wireless_single_device_import_task"
 
@@ -10327,15 +10050,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_wireless_device_import_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_wireless_device_import_task_errors()}
-
   def start_wireless_device_import_task(%Client{} = client, options \\ []) do
     url_path = "/wireless_device_import_task"
 
@@ -10372,16 +10092,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to add tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to add tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -10419,16 +10136,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20TestWirelessDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the wireless device to test.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the wireless device to test.
+  ## Keyword parameters:
   """
-
   @spec test_wireless_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, test_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_wireless_device_errors()}
-
   def test_wireless_device(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/test"
 
@@ -10465,18 +10179,16 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to remove tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.iotwireless#TagKey]`) A list of the keys of
-  the tags to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to remove tags
+  from.
+  * `:tag_keys` (`t:list[com.amazonaws.iotwireless#TagKey]` required) A list of
+  the keys of the tags to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(resource_arn) and is_binary(tag_keys) do
     url_path = "/tags"
@@ -10524,16 +10236,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The new name of the resource.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The new name of the resource.
+  ## Keyword parameters:
   """
-
   @spec update_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_destination_errors()}
-
   def update_destination(%Client{} = client, name, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
 
@@ -10580,15 +10289,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateEventConfigurationByResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_event_configuration_by_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_event_configuration_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_configuration_by_resource_types_errors()}
-
   def update_event_configuration_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/event-configurations-resource-types"
 
@@ -10635,16 +10341,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fuota_task_errors()}
-
   def update_fuota_task(%Client{} = client, id, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
 
@@ -10693,15 +10396,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateLogLevelsByResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_log_levels_by_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_log_levels_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_log_levels_by_resource_types_errors()}
-
   def update_log_levels_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/log-levels"
 
@@ -10738,15 +10438,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateMetricConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_metric_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_metric_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_metric_configuration_errors()}
-
   def update_metric_configuration(%Client{} = client, options \\ []) do
     url_path = "/metric-configuration"
 
@@ -10783,16 +10480,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateMulticastGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_multicast_group_errors()}
-
   def update_multicast_group(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
 
@@ -10839,16 +10533,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateNetworkAnalyzerConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:configuration_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:configuration_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_network_analyzer_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_analyzer_configuration_errors()}
-
   def update_network_analyzer_configuration(%Client{} = client, configuration_name, options \\ []) do
     url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
 
@@ -10895,17 +10586,15 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdatePartnerAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:partner_account_id` (`t:string`) The ID of the partner account to update.
-  * `:partner_type` (`t:enum["Sidewalk"]`) The partner type.
-
-  ## Optional parameters:
+  * `:partner_account_id` (`t:string` required) The ID of the partner account to
+  update.
+  * `:partner_type` (`t:enum["Sidewalk"]` required) The partner type.
+  ## Keyword parameters:
   """
-
   @spec update_partner_account(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_partner_account_errors()}
-
   def update_partner_account(%Client{} = client, partner_account_id, partner_type, options \\ [])
       when is_binary(partner_type) do
     url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
@@ -10953,19 +10642,16 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdatePosition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) Resource identifier of the resource for
-  which position is updated.
-  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type of
-  the resource for which position is updated.
-
-  ## Optional parameters:
+  * `:resource_identifier` (`t:string` required) Resource identifier of the
+  resource for which position is updated.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required)
+  Resource type of the resource for which position is updated.
+  ## Keyword parameters:
   """
-
   @spec update_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_position_errors()}
-
   def update_position(%Client{} = client, resource_identifier, resource_type, options \\ [])
       when is_binary(resource_type) do
     url_path = "/positions/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -11013,22 +10699,20 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateResourceEventConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) Resource identifier to opt in for event messaging.
+  * `:identifier` (`t:string` required) Resource identifier to opt in for event
+  messaging.
   * `:identifier_type`
-  (`t:enum["DevEui|GatewayEui|PartnerAccountId|WirelessDeviceId|WirelessGatewayId"]`)
-  Identifier type of the particular resource identifier for event
+  (`t:enum["DevEui|GatewayEui|PartnerAccountId|WirelessDeviceId|WirelessGatewayId"]`
+  required) Identifier type of the particular resource identifier for event
   configuration.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:partner_type` (`t:enum["Sidewalk"]`) Partner type of the resource if the
   identifier type is PartnerAccountId
   """
-
   @spec update_resource_event_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_resource_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_event_configuration_errors()}
-
   def update_resource_event_configuration(
         %Client{} = client,
         identifier,
@@ -11094,21 +10778,19 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateResourcePosition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_identifier` (`t:string`) The identifier of the resource for which
-  position information is updated. It can be the wireless device ID or the
-  wireless gateway ID, depending on the resource type.
-  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) The type of
-  resource for which position information is updated, which can be a wireless
-  device or a wireless gateway.
+  * `:resource_identifier` (`t:string` required) The identifier of the resource
+  for which position information is updated. It can be the wireless device ID
+  or the wireless gateway ID, depending on the resource type.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required) The
+  type of resource for which position information is updated, which can be a
+  wireless device or a wireless gateway.
   * `:input` (`t:map | nil`):
     * `:geo_json_payload` (`t:blob`) The position information of the resource,
   displayed as a JSON payload. The payload uses the GeoJSON format, which a
   format that's used to encode geographic data structures. For more
   information, see GeoJSON.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_resource_position(
           AWS.Client.t(),
           String.t(),
@@ -11119,7 +10801,6 @@ defmodule AWS.IoTWireless do
           {:ok, update_resource_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_position_errors()}
-
   def update_resource_position(
         %Client{} = client,
         resource_identifier,
@@ -11173,16 +10854,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateWirelessDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to update.
+  ## Keyword parameters:
   """
-
   @spec update_wireless_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_wireless_device_errors()}
-
   def update_wireless_device(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}"
 
@@ -11229,16 +10907,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The identifier of the import task to be updated.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The identifier of the import task to be updated.
+  ## Keyword parameters:
   """
-
   @spec update_wireless_device_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_wireless_device_import_task_errors()}
-
   def update_wireless_device_import_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
 
@@ -11285,16 +10960,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateWirelessGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the resource to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the resource to update.
+  ## Keyword parameters:
   """
-
   @spec update_wireless_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_wireless_gateway_errors()}
-
   def update_wireless_gateway(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}"
 

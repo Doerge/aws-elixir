@@ -2610,6 +2610,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Checks the availability of one or more image layers in a repository. When an
   image is pushed to a repository, each image layer is checked to verify if it
   has been uploaded before. If it has been uploaded, then the image layer is
@@ -2625,12 +2626,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec batch_check_layer_availability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_check_layer_availability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_check_layer_availability_errors()}
-
   def batch_check_layer_availability(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2640,6 +2639,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Deletes a list of specified images within a repository. Images are specified
   with either an `imageTag` or `imageDigest`. You can remove a tag from an image
   by specifying the image's tag in your request. When you remove the last tag
@@ -2655,12 +2655,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec batch_delete_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_image_errors()}
-
   def batch_delete_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2669,6 +2667,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Gets detailed information for an image. Images are specified with either an
   `imageTag` or `imageDigest`.
 
@@ -2683,12 +2682,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec batch_get_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_image_errors()}
-
   def batch_get_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2697,6 +2694,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Gets the scanning configuration for one or more repositories.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20BatchGetRepositoryScanningConfiguration&this_doc_guide=API%2520Reference)
@@ -2707,12 +2705,10 @@ defmodule AWS.ECR do
       required("repositoryNames") => list(String.t()())
     }
   """
-
   @spec batch_get_repository_scanning_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_repository_scanning_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_repository_scanning_configuration_errors()}
-
   def batch_get_repository_scanning_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2722,6 +2718,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Informs Amazon ECR that the image layer upload has completed for a specified
   registry, repository name, and upload ID. You can optionally provide a
   `sha256` digest of the image layer for data validation purposes. When an image
@@ -2739,12 +2736,10 @@ defmodule AWS.ECR do
       required("uploadId") => String.t()
     }
   """
-
   @spec complete_layer_upload(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, complete_layer_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_layer_upload_errors()}
-
   def complete_layer_upload(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2753,6 +2748,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Creates a pull through cache rule. A pull through cache rule provides a way to
   cache images from an upstream registry source in your Amazon ECR private
   registry. For more information, see [Using pull through cache
@@ -2771,12 +2767,10 @@ defmodule AWS.ECR do
       required("upstreamRegistryUrl") => String.t()
     }
   """
-
   @spec create_pull_through_cache_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_pull_through_cache_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pull_through_cache_rule_errors()}
-
   def create_pull_through_cache_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2786,6 +2780,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Creates a repository. For more information, see [Amazon ECR
   repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
   in the *Amazon Elastic Container Registry User Guide*.
@@ -2803,12 +2798,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec create_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_repository_errors()}
-
   def create_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2817,6 +2810,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Creates a repository creation template. This template is used to define the
   settings for repositories created by Amazon ECR on your behalf. For example,
   repositories created through pull through cache actions. For more information,
@@ -2840,12 +2834,10 @@ defmodule AWS.ECR do
       required("prefix") => String.t()
     }
   """
-
   @spec create_repository_creation_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_repository_creation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_repository_creation_template_errors()}
-
   def create_repository_creation_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2855,6 +2847,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Deletes the lifecycle policy associated with the specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DeleteLifecyclePolicy&this_doc_guide=API%2520Reference)
@@ -2866,12 +2859,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec delete_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lifecycle_policy_errors()}
-
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2880,6 +2871,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Deletes a pull through cache rule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DeletePullThroughCacheRule&this_doc_guide=API%2520Reference)
@@ -2891,12 +2883,10 @@ defmodule AWS.ECR do
       required("ecrRepositoryPrefix") => String.t()
     }
   """
-
   @spec delete_pull_through_cache_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_pull_through_cache_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pull_through_cache_rule_errors()}
-
   def delete_pull_through_cache_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2906,6 +2896,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Deletes the registry permissions policy.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DeleteRegistryPolicy&this_doc_guide=API%2520Reference)
@@ -2916,12 +2907,10 @@ defmodule AWS.ECR do
       
     }
   """
-
   @spec delete_registry_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_registry_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_registry_policy_errors()}
-
   def delete_registry_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2930,6 +2919,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Deletes a repository. If the repository isn't empty, you must either delete the
   contents of the repository or use the `force` option to delete the repository
   and have Amazon ECR delete all of its contents on your behalf.
@@ -2944,12 +2934,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec delete_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_repository_errors()}
-
   def delete_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2958,6 +2946,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Deletes a repository creation template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DeleteRepositoryCreationTemplate&this_doc_guide=API%2520Reference)
@@ -2968,12 +2957,10 @@ defmodule AWS.ECR do
       required("prefix") => String.t()
     }
   """
-
   @spec delete_repository_creation_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_repository_creation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_repository_creation_template_errors()}
-
   def delete_repository_creation_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2983,6 +2970,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Deletes the repository policy associated with the specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DeleteRepositoryPolicy&this_doc_guide=API%2520Reference)
@@ -2994,12 +2982,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec delete_repository_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_repository_policy_errors()}
-
   def delete_repository_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3008,6 +2994,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Returns the replication status for a specified image.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DescribeImageReplicationStatus&this_doc_guide=API%2520Reference)
@@ -3020,12 +3007,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec describe_image_replication_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_image_replication_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_replication_status_errors()}
-
   def describe_image_replication_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3035,6 +3020,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Returns the scan findings for the specified image.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DescribeImageScanFindings&this_doc_guide=API%2520Reference)
@@ -3049,12 +3035,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec describe_image_scan_findings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_image_scan_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_scan_findings_errors()}
-
   def describe_image_scan_findings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3063,6 +3047,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Returns metadata about the images in a repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DescribeImages&this_doc_guide=API%2520Reference)
@@ -3078,12 +3063,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec describe_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_images_errors()}
-
   def describe_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3092,6 +3075,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Returns the pull through cache rules for a registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DescribePullThroughCacheRules&this_doc_guide=API%2520Reference)
@@ -3105,12 +3089,10 @@ defmodule AWS.ECR do
       optional("registryId") => String.t()
     }
   """
-
   @spec describe_pull_through_cache_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_pull_through_cache_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pull_through_cache_rules_errors()}
-
   def describe_pull_through_cache_rules(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3120,6 +3102,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Describes the settings for a registry. The replication configuration for a
   repository can be created or updated with the `PutReplicationConfiguration`
   API action.
@@ -3132,12 +3115,10 @@ defmodule AWS.ECR do
       
     }
   """
-
   @spec describe_registry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registry_errors()}
-
   def describe_registry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3146,6 +3127,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Describes image repositories in a registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DescribeRepositories&this_doc_guide=API%2520Reference)
@@ -3159,12 +3141,10 @@ defmodule AWS.ECR do
       optional("repositoryNames") => list(String.t()())
     }
   """
-
   @spec describe_repositories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_repositories_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_repositories_errors()}
-
   def describe_repositories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3173,6 +3153,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Returns details about the repository creation templates in a registry. The
   `prefixes` request parameter can be used to return the details for a specific
   repository creation template.
@@ -3187,12 +3168,10 @@ defmodule AWS.ECR do
       optional("prefixes") => list(String.t()())
     }
   """
-
   @spec describe_repository_creation_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_repository_creation_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_repository_creation_templates_errors()}
-
   def describe_repository_creation_templates(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3202,6 +3181,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Retrieves an authorization token. An authorization token represents your IAM
   authentication credentials and can be used to access any Amazon ECR registry
   that your IAM principal has access to. The authorization token is valid for 12
@@ -3215,12 +3195,10 @@ defmodule AWS.ECR do
       optional("registryIds") => list(String.t()())
     }
   """
-
   @spec get_authorization_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_authorization_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_authorization_token_errors()}
-
   def get_authorization_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3229,6 +3207,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer.
   You can only get URLs for image layers that are referenced in an image. When
   an image is pulled, the GetDownloadUrlForLayer API is called once per image
@@ -3244,12 +3223,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_download_url_for_layer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_download_url_for_layer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_download_url_for_layer_errors()}
-
   def get_download_url_for_layer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3258,6 +3235,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Retrieves the lifecycle policy for the specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20GetLifecyclePolicy&this_doc_guide=API%2520Reference)
@@ -3269,12 +3247,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_policy_errors()}
-
   def get_lifecycle_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3283,6 +3259,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Retrieves the results of the lifecycle policy preview request for the specified
   repository.
 
@@ -3299,12 +3276,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_lifecycle_policy_preview(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_policy_preview_errors()}
-
   def get_lifecycle_policy_preview(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3313,6 +3288,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Retrieves the permissions policy for a registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20GetRegistryPolicy&this_doc_guide=API%2520Reference)
@@ -3323,12 +3299,10 @@ defmodule AWS.ECR do
       
     }
   """
-
   @spec get_registry_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_registry_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_registry_policy_errors()}
-
   def get_registry_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3337,6 +3311,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Retrieves the scanning configuration for a registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20GetRegistryScanningConfiguration&this_doc_guide=API%2520Reference)
@@ -3347,12 +3322,10 @@ defmodule AWS.ECR do
       
     }
   """
-
   @spec get_registry_scanning_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_registry_scanning_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_registry_scanning_configuration_errors()}
-
   def get_registry_scanning_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3362,6 +3335,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Retrieves the repository policy for the specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20GetRepositoryPolicy&this_doc_guide=API%2520Reference)
@@ -3373,12 +3347,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec get_repository_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_policy_errors()}
-
   def get_repository_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3387,6 +3359,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Notifies Amazon ECR that you intend to upload an image layer. When an image is
   pushed, the InitiateLayerUpload API is called once per image layer that has
   not already been uploaded. Whether or not an image layer has been uploaded is
@@ -3401,12 +3374,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec initiate_layer_upload(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, initiate_layer_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initiate_layer_upload_errors()}
-
   def initiate_layer_upload(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3415,6 +3386,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Lists all the image IDs for the specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20ListImages&this_doc_guide=API%2520Reference)
@@ -3429,12 +3401,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec list_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_images_errors()}
-
   def list_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3443,6 +3413,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   List the tags for an Amazon ECR resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20ListTagsForResource&this_doc_guide=API%2520Reference)
@@ -3453,12 +3424,10 @@ defmodule AWS.ECR do
       required("resourceArn") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3467,6 +3436,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Creates or updates the image manifest and tags associated with an image. When an
   image is pushed and all new image layers have been uploaded, the PutImage API
   is called once to create or update the image manifest and the tags associated
@@ -3485,12 +3455,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec put_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_image_errors()}
-
   def put_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3499,6 +3467,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   The `PutImageScanningConfiguration` API is being deprecated, in favor of
   specifying the image scanning configuration at the registry level. For more
   information, see `PutRegistryScanningConfiguration`.
@@ -3513,12 +3482,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec put_image_scanning_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_image_scanning_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_image_scanning_configuration_errors()}
-
   def put_image_scanning_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3528,6 +3495,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Updates the image tag mutability settings for the specified repository. For more
   information, see [Image tag
   mutability](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html)
@@ -3543,12 +3511,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec put_image_tag_mutability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_image_tag_mutability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_image_tag_mutability_errors()}
-
   def put_image_tag_mutability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3557,6 +3523,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Creates or updates the lifecycle policy for the specified repository. For more
   information, see [Lifecycle policy
   template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
@@ -3571,12 +3538,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec put_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_lifecycle_policy_errors()}
-
   def put_lifecycle_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3585,6 +3550,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Creates or updates the permissions policy for your registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20PutRegistryPolicy&this_doc_guide=API%2520Reference)
@@ -3595,12 +3561,10 @@ defmodule AWS.ECR do
       required("policyText") => String.t()
     }
   """
-
   @spec put_registry_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_registry_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_registry_policy_errors()}
-
   def put_registry_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3609,6 +3573,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Creates or updates the scanning configuration for your private registry.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20PutRegistryScanningConfiguration&this_doc_guide=API%2520Reference)
@@ -3620,12 +3585,10 @@ defmodule AWS.ECR do
       optional("scanType") => list(any())
     }
   """
-
   @spec put_registry_scanning_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_registry_scanning_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_registry_scanning_configuration_errors()}
-
   def put_registry_scanning_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3635,6 +3598,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Creates or updates the replication configuration for a registry. The existing
   replication configuration for a repository can be retrieved with the
   `DescribeRegistry` API action. The first time the PutReplicationConfiguration
@@ -3654,12 +3618,10 @@ defmodule AWS.ECR do
       required("replicationConfiguration") => replication_configuration()
     }
   """
-
   @spec put_replication_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_replication_configuration_errors()}
-
   def put_replication_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3669,6 +3631,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Applies a repository policy to the specified repository to control access
   permissions. For more information, see [Amazon ECR Repository
   policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html)
@@ -3685,12 +3648,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec set_repository_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_repository_policy_errors()}
-
   def set_repository_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3699,6 +3660,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Starts an image vulnerability scan. An image scan can only be started once per
   24 hours on an individual image. This limit includes if an image was scanned
   on initial push. For more information, see [Image
@@ -3715,12 +3677,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec start_image_scan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_image_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_image_scan_errors()}
-
   def start_image_scan(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3729,6 +3689,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Starts a preview of a lifecycle policy for the specified repository. This allows
   you to see the results before associating the lifecycle policy with the
   repository.
@@ -3743,12 +3704,10 @@ defmodule AWS.ECR do
       required("repositoryName") => String.t()
     }
   """
-
   @spec start_lifecycle_policy_preview(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_lifecycle_policy_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_lifecycle_policy_preview_errors()}
-
   def start_lifecycle_policy_preview(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3758,6 +3717,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Adds specified tags to a resource with the specified ARN. Existing tags on a
   resource are not changed if they are not specified in the request parameters.
 
@@ -3770,12 +3730,10 @@ defmodule AWS.ECR do
       required("tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3784,6 +3742,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Deletes specified tags from a resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20UntagResource&this_doc_guide=API%2520Reference)
@@ -3795,12 +3754,10 @@ defmodule AWS.ECR do
       required("tagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3809,6 +3766,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Updates an existing pull through cache rule.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20UpdatePullThroughCacheRule&this_doc_guide=API%2520Reference)
@@ -3821,12 +3779,10 @@ defmodule AWS.ECR do
       required("ecrRepositoryPrefix") => String.t()
     }
   """
-
   @spec update_pull_through_cache_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_pull_through_cache_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pull_through_cache_rule_errors()}
-
   def update_pull_through_cache_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3836,6 +3792,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Updates an existing repository creation template.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20UpdateRepositoryCreationTemplate&this_doc_guide=API%2520Reference)
@@ -3854,12 +3811,10 @@ defmodule AWS.ECR do
       required("prefix") => String.t()
     }
   """
-
   @spec update_repository_creation_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_repository_creation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_repository_creation_template_errors()}
-
   def update_repository_creation_template(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3869,6 +3824,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Uploads an image layer part to Amazon ECR. When an image is pushed, each new
   image layer is uploaded in parts. The maximum size of each image layer part
   can be 20971520 bytes (or about 20MB). The UploadLayerPart API is called once
@@ -3887,12 +3843,10 @@ defmodule AWS.ECR do
       required("uploadId") => String.t()
     }
   """
-
   @spec upload_layer_part(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, upload_layer_part_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upload_layer_part_errors()}
-
   def upload_layer_part(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3901,6 +3855,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
+   
   Validates an existing pull through cache rule for an upstream registry that
   requires authentication. This will retrieve the contents of the Amazon Web
   Services Secrets Manager secret, verify the syntax, and then validate that
@@ -3915,12 +3870,10 @@ defmodule AWS.ECR do
       required("ecrRepositoryPrefix") => String.t()
     }
   """
-
   @spec validate_pull_through_cache_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, validate_pull_through_cache_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_pull_through_cache_rule_errors()}
-
   def validate_pull_through_cache_rule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

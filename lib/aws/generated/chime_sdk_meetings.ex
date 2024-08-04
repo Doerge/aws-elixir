@@ -902,17 +902,14 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20BatchCreateAttendee&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK ID of the meeting to which
-  you're adding attendees.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK ID of the meeting to
+  which you're adding attendees.
+  ## Keyword parameters:
   """
-
   @spec batch_create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_attendee_errors()}
-
   def batch_create_attendee(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
 
@@ -952,17 +949,14 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20BatchUpdateAttendeeCapabilitiesExcept&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The ID of the meeting associated with the update
-  request.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The ID of the meeting associated with the
+  update request.
+  ## Keyword parameters:
   """
-
   @spec batch_update_attendee_capabilities_except(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_attendee_capabilities_except_errors()}
-
   def batch_update_attendee_capabilities_except(%Client{} = client, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/capabilities?operation=batch-update-except"
@@ -1003,16 +997,13 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20CreateAttendee&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The unique ID of the meeting.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The unique ID of the meeting.
+  ## Keyword parameters:
   """
-
   @spec create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_attendee_errors()}
-
   def create_attendee(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
 
@@ -1056,15 +1047,12 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20CreateMeeting&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_meeting(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_errors()}
-
   def create_meeting(%Client{} = client, options \\ []) do
     url_path = "/meetings"
 
@@ -1108,15 +1096,12 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20CreateMeetingWithAttendees&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_meeting_with_attendees(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_with_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_with_attendees_errors()}
-
   def create_meeting_with_attendees(%Client{} = client, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
 
@@ -1158,17 +1143,14 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20DeleteAttendee&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec delete_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attendee_errors()}
-
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -1221,16 +1203,13 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20DeleteMeeting&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec delete_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_meeting_errors()}
-
   def delete_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
 
@@ -1281,17 +1260,14 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20GetAttendee&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec get_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attendee_errors()}
-
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -1330,16 +1306,13 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20GetMeeting&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   """
-
   @spec get_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_meeting_errors()}
-
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
 
@@ -1377,20 +1350,17 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20ListAttendees&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
   single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
   results.
   """
-
   @spec list_attendees(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attendees_errors()}
-
   def list_attendees(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
 
@@ -1443,16 +1413,13 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
       when is_binary(resource_arn) do
     url_path = "/tags"
@@ -1496,16 +1463,14 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20StartMeetingTranscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The unique ID of the meeting being transcribed.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The unique ID of the meeting being
+  transcribed.
+  ## Keyword parameters:
   """
-
   @spec start_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_meeting_transcription_errors()}
-
   def start_meeting_transcription(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
 
@@ -1557,17 +1522,14 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20StopMeetingTranscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:meeting_id` (`t:string`) The unique ID of the meeting for which you stop
-  transcription.
-
-  ## Optional parameters:
+  * `:meeting_id` (`t:string` required) The unique ID of the meeting for which you
+  stop transcription.
+  ## Keyword parameters:
   """
-
   @spec stop_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_meeting_transcription_errors()}
-
   def stop_meeting_transcription(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
 
@@ -1604,15 +1566,12 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=tag-resource"
 
@@ -1652,15 +1611,12 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=untag-resource"
 
@@ -1699,19 +1655,16 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20UpdateAttendeeCapabilities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:attendee_id` (`t:string`) The ID of the attendee associated with the update
-  request.
-  * `:meeting_id` (`t:string`) The ID of the meeting associated with the update
-  request.
-
-  ## Optional parameters:
+  * `:attendee_id` (`t:string` required) The ID of the attendee associated with
+  the update request.
+  * `:meeting_id` (`t:string` required) The ID of the meeting associated with the
+  update request.
+  ## Keyword parameters:
   """
-
   @spec update_attendee_capabilities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_attendee_capabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_attendee_capabilities_errors()}
-
   def update_attendee_capabilities(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/capabilities"

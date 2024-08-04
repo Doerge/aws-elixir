@@ -2026,20 +2026,17 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20AbortDocumentVersionUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-  * `:version_id` (`t:string`) The ID of the version.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  * `:version_id` (`t:string` required) The ID of the version.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec abort_document_version_upload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, abort_document_version_upload_errors()}
-
   def abort_document_version_upload(%Client{} = client, document_id, version_id, options \\ []) do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
@@ -2098,19 +2095,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20ActivateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_id` (`t:string`) The ID of the user.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The ID of the user.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec activate_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, activate_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_user_errors()}
-
   def activate_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}/activation"
 
@@ -2160,19 +2154,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20AddResourcePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The ID of the resource.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The ID of the resource.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec add_resource_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_resource_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_resource_permissions_errors()}
-
   def add_resource_permissions(%Client{} = client, resource_id, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
 
@@ -2220,20 +2211,17 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateComment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-  * `:version_id` (`t:string`) The ID of the document version.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  * `:version_id` (`t:string` required) The ID of the document version.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec create_comment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_comment_errors()}
-
   def create_comment(%Client{} = client, document_id, version_id, options \\ []) do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}/comment"
@@ -2283,21 +2271,18 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateCustomMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The ID of the resource.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The ID of the resource.
+  ## Keyword parameters:
   * `:version_id` (`t:string`) The ID of the version, if the custom metadata is
   being added to a document version.
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec create_custom_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_custom_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_metadata_errors()}
-
   def create_custom_metadata(%Client{} = client, resource_id, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/customMetadata"
 
@@ -2351,18 +2336,15 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec create_folder(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_folder_errors()}
-
   def create_folder(%Client{} = client, options \\ []) do
     url_path = "/api/v1/folders"
 
@@ -2410,19 +2392,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateLabels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The ID of the resource.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The ID of the resource.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec create_labels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_labels_errors()}
-
   def create_labels(%Client{} = client, resource_id, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/labels"
 
@@ -2471,16 +2450,13 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateNotificationSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:organization_id` (`t:string`) The ID of the organization.
-
-  ## Optional parameters:
+  * `:organization_id` (`t:string` required) The ID of the organization.
+  ## Keyword parameters:
   """
-
   @spec create_notification_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_notification_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_notification_subscription_errors()}
-
   def create_notification_subscription(%Client{} = client, organization_id, options \\ []) do
     url_path = "/api/v1/organizations/#{AWS.Util.encode_uri(organization_id)}/subscriptions"
 
@@ -2518,18 +2494,15 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec create_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-
   def create_user(%Client{} = client, options \\ []) do
     url_path = "/api/v1/users"
 
@@ -2578,19 +2551,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeactivateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_id` (`t:string`) The ID of the user.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The ID of the user.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec deactivate_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_user_errors()}
-
   def deactivate_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}/activation"
 
@@ -2648,21 +2618,18 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteComment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:comment_id` (`t:string`) The ID of the comment.
-  * `:document_id` (`t:string`) The ID of the document.
-  * `:version_id` (`t:string`) The ID of the document version.
-
-  ## Optional parameters:
+  * `:comment_id` (`t:string` required) The ID of the comment.
+  * `:document_id` (`t:string` required) The ID of the document.
+  * `:version_id` (`t:string` required) The ID of the document version.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec delete_comment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_comment_errors()}
-
   def delete_comment(%Client{} = client, comment_id, document_id, version_id, options \\ []) do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}/comment/#{AWS.Util.encode_uri(comment_id)}"
@@ -2721,10 +2688,9 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteCustomMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The ID of the resource, either a document or
-  folder.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The ID of the resource, either a document
+  or folder.
+  ## Keyword parameters:
   * `:delete_all` (`t:boolean`) Flag to indicate removal of all custom metadata
   properties from the specified resource.
   * `:keys` (`t:list[com.amazonaws.workdocs#CustomMetadataKeyType]`) List of
@@ -2735,12 +2701,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec delete_custom_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_custom_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_metadata_errors()}
-
   def delete_custom_metadata(%Client{} = client, resource_id, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/customMetadata"
 
@@ -2818,19 +2782,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteDocument&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec delete_document(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_document_errors()}
-
   def delete_document(%Client{} = client, document_id, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
 
@@ -2888,23 +2849,20 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteDocumentVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document associated with the version
-  being deleted.
-  * `:version_id` (`t:string`) The ID of the version being deleted.
-  * `:delete_prior_versions` (`t:boolean`) Deletes all versions of a document
-  prior to the current version.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document associated with
+  the version being deleted.
+  * `:version_id` (`t:string` required) The ID of the version being deleted.
+  * `:delete_prior_versions` (`t:boolean` required) Deletes all versions of a
+  document prior to the current version.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec delete_document_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_document_version_errors()}
-
   def delete_document_version(
         %Client{} = client,
         document_id,
@@ -2970,19 +2928,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec delete_folder(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_folder_errors()}
-
   def delete_folder(%Client{} = client, folder_id, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
 
@@ -3040,19 +2995,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteFolderContents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec delete_folder_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_folder_contents_errors()}
-
   def delete_folder_contents(%Client{} = client, folder_id, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}/contents"
 
@@ -3110,9 +3062,8 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteLabels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The ID of the resource.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The ID of the resource.
+  ## Keyword parameters:
   * `:delete_all` (`t:boolean`) Flag to request removal of all labels from the
   specified resource.
   * `:labels` (`t:list[com.amazonaws.workdocs#SharedLabel]`) List of labels to
@@ -3121,12 +3072,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec delete_labels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_labels_errors()}
-
   def delete_labels(%Client{} = client, resource_id, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/labels"
 
@@ -3197,17 +3146,14 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteNotificationSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:organization_id` (`t:string`) The ID of the organization.
-  * `:subscription_id` (`t:string`) The ID of the subscription.
-
-  ## Optional parameters:
+  * `:organization_id` (`t:string` required) The ID of the organization.
+  * `:subscription_id` (`t:string` required) The ID of the subscription.
+  ## Keyword parameters:
   """
-
   @spec delete_notification_subscription(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_notification_subscription_errors()}
-
   def delete_notification_subscription(
         %Client{} = client,
         organization_id,
@@ -3260,19 +3206,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_id` (`t:string`) The ID of the user.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The ID of the user.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Do
   not set this field when using administrative API actions, as in accessing
   the API using Amazon Web Services credentials.
   """
-
   @spec delete_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-
   def delete_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}"
 
@@ -3330,8 +3273,7 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeActivities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:activity_types` (`t:string`) Specifies which activity types to include in
   the response. If this field is left empty, all activity types are returned.
   * `:end_time` (`t:timestamp`) The timestamp that determines the end time of the
@@ -3358,12 +3300,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec describe_activities(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_activities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_activities_errors()}
-
   def describe_activities(%Client{} = client, options \\ []) do
     url_path = "/api/v1/activities"
 
@@ -3493,10 +3433,9 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeComments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-  * `:version_id` (`t:string`) The ID of the document version.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  * `:version_id` (`t:string` required) The ID of the document version.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of items to return.
   * `:marker` (`t:string`) The marker for the next set of results. This marker was
   received from a previous call.
@@ -3504,12 +3443,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec describe_comments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_comments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_comments_errors()}
-
   def describe_comments(%Client{} = client, document_id, version_id, options \\ []) do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}/comments"
@@ -3569,9 +3506,8 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeDocumentVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  ## Keyword parameters:
   * `:fields` (`t:string`) Specify "SOURCE" to include initialized versions and a
   URL for the source document.
   * `:include` (`t:string`) A comma-separated list of values. Specify
@@ -3584,12 +3520,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec describe_document_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_document_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_document_versions_errors()}
-
   def describe_document_versions(%Client{} = client, document_id, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions"
 
@@ -3669,9 +3603,8 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeFolderContents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   * `:include` (`t:string`) The contents to include. Specify "INITIALIZED" to
   include initialized documents.
   * `:limit` (`t:integer`) The maximum number of items to return with this call.
@@ -3685,12 +3618,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec describe_folder_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_folder_contents_errors()}
-
   def describe_folder_contents(%Client{} = client, folder_id, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}/contents"
 
@@ -3786,9 +3717,9 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:search_query` (`t:string`) A query to describe groups by group name.
-
-  ## Optional parameters:
+  * `:search_query` (`t:string` required) A query to describe groups by group
+  name.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of items to return with this call.
   * `:marker` (`t:string`) The marker for the next set of results. (You received
   this marker from a previous call.)
@@ -3797,12 +3728,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec describe_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_groups_errors()}
-
   def describe_groups(%Client{} = client, search_query, options \\ [])
       when is_binary(search_query) do
     url_path = "/api/v1/groups"
@@ -3869,19 +3798,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeNotificationSubscriptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:organization_id` (`t:string`) The ID of the organization.
-
-  ## Optional parameters:
+  * `:organization_id` (`t:string` required) The ID of the organization.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of items to return with this call.
   * `:marker` (`t:string`) The marker for the next set of results. (You received
   this marker from a previous call.)
   """
-
   @spec describe_notification_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_notification_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_notification_subscriptions_errors()}
-
   def describe_notification_subscriptions(%Client{} = client, organization_id, options \\ []) do
     url_path = "/api/v1/organizations/#{AWS.Util.encode_uri(organization_id)}/subscriptions"
 
@@ -3934,9 +3860,8 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeResourcePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The ID of the resource.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The ID of the resource.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of items to return with this call.
   * `:marker` (`t:string`) The marker for the next set of results. (You received
   this marker from a previous call)
@@ -3945,12 +3870,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec describe_resource_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_resource_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_permissions_errors()}
-
   def describe_resource_permissions(%Client{} = client, resource_id, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
 
@@ -4019,19 +3942,17 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeRootFolders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token.
-
-  ## Optional parameters:
+  * `:authentication_token` (`t:string` required) Amazon WorkDocs authentication
+  token.
+  ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of items to return.
   * `:marker` (`t:string`) The marker for the next set of results. (You received
   this marker from a previous call.)
   """
-
   @spec describe_root_folders(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_root_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_root_folders_errors()}
-
   def describe_root_folders(%Client{} = client, authentication_token, options \\ [])
       when is_binary(authentication_token) do
     url_path = "/api/v1/me/root"
@@ -4086,8 +4007,7 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:fields` (`t:string`) A comma-separated list of values. Specify
   "STORAGE_METADATA" to include the user storage quota and utilization
   information.
@@ -4108,12 +4028,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec describe_users(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_users_errors()}
-
   def describe_users(%Client{} = client, options \\ []) do
     url_path = "/api/v1/users"
 
@@ -4244,16 +4162,14 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetCurrentUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token.
-
-  ## Optional parameters:
+  * `:authentication_token` (`t:string` required) Amazon WorkDocs authentication
+  token.
+  ## Keyword parameters:
   """
-
   @spec get_current_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_current_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_current_user_errors()}
-
   def get_current_user(%Client{} = client, authentication_token, options \\ [])
       when is_binary(authentication_token) do
     url_path = "/api/v1/me"
@@ -4289,21 +4205,18 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetDocument&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  ## Keyword parameters:
   * `:include_custom_metadata` (`t:boolean`) Set this to TRUE to include custom
   metadata in the response.
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec get_document(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_errors()}
-
   def get_document(%Client{} = client, document_id, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
 
@@ -4356,9 +4269,8 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetDocumentPath&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  ## Keyword parameters:
   * `:fields` (`t:string`) A comma-separated list of values. Specify NAME to
   include the names of the parent folders.
   * `:limit` (`t:integer`) The maximum number of levels in the hierarchy to
@@ -4368,12 +4280,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec get_document_path(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_document_path_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_path_errors()}
-
   def get_document_path(%Client{} = client, document_id, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/path"
 
@@ -4439,10 +4349,9 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetDocumentVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-  * `:version_id` (`t:string`) The version ID of the document.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  * `:version_id` (`t:string` required) The version ID of the document.
+  ## Keyword parameters:
   * `:fields` (`t:string`) A comma-separated list of values. Specify "SOURCE" to
   include a URL for the source document.
   * `:include_custom_metadata` (`t:boolean`) Set this to TRUE to include custom
@@ -4451,12 +4360,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec get_document_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_document_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_version_errors()}
-
   def get_document_version(%Client{} = client, document_id, version_id, options \\ []) do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
@@ -4516,21 +4423,18 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   * `:include_custom_metadata` (`t:boolean`) Set to TRUE to include custom
   metadata in the response.
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec get_folder(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_folder_errors()}
-
   def get_folder(%Client{} = client, folder_id, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
 
@@ -4583,9 +4487,8 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetFolderPath&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   * `:fields` (`t:string`) A comma-separated list of values. Specify "NAME" to
   include the names of the parent folders.
   * `:limit` (`t:integer`) The maximum number of levels in the hierarchy to
@@ -4595,12 +4498,10 @@ defmodule AWS.WorkDocs do
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec get_folder_path(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_folder_path_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_folder_path_errors()}
-
   def get_folder_path(%Client{} = client, folder_id, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}/path"
 
@@ -4667,8 +4568,7 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:collection_type` (`t:enum["SHARED_WITH_ME"]`) The collection type.
   * `:limit` (`t:integer`) The maximum number of resources to return.
   * `:marker` (`t:string`) The marker for the next set of results. This marker was
@@ -4679,12 +4579,10 @@ defmodule AWS.WorkDocs do
   Not required when using Amazon Web Services administrator credentials to
   access the API.
   """
-
   @spec get_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resources_errors()}
-
   def get_resources(%Client{} = client, options \\ []) do
     url_path = "/api/v1/resources"
 
@@ -4767,18 +4665,15 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20InitiateDocumentVersionUpload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec initiate_document_version_upload(AWS.Client.t(), Keyword.t()) ::
           {:ok, initiate_document_version_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initiate_document_version_upload_errors()}
-
   def initiate_document_version_upload(%Client{} = client, options \\ []) do
     url_path = "/api/v1/documents"
 
@@ -4826,19 +4721,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20RemoveAllResourcePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The ID of the resource.
-
-  ## Optional parameters:
+  * `:resource_id` (`t:string` required) The ID of the resource.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec remove_all_resource_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_all_resource_permissions_errors()}
-
   def remove_all_resource_permissions(%Client{} = client, resource_id, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
 
@@ -4896,22 +4788,19 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20RemoveResourcePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:principal_id` (`t:string`) The principal ID of the resource.
-  * `:resource_id` (`t:string`) The ID of the resource.
-
-  ## Optional parameters:
+  * `:principal_id` (`t:string` required) The principal ID of the resource.
+  * `:resource_id` (`t:string` required) The ID of the resource.
+  ## Keyword parameters:
   * `:principal_type` (`t:enum["ANONYMOUS|GROUP|INVITE|ORGANIZATION|USER"]`) The
   principal type of the resource.
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec remove_resource_permission(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_resource_permission_errors()}
-
   def remove_resource_permission(%Client{} = client, principal_id, resource_id, options \\ []) do
     url_path =
       "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions/#{AWS.Util.encode_uri(principal_id)}"
@@ -4976,19 +4865,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20RestoreDocumentVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec restore_document_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_document_versions_errors()}
-
   def restore_document_versions(%Client{} = client, document_id, options \\ []) do
     url_path = "/api/v1/documentVersions/restore/#{AWS.Util.encode_uri(document_id)}"
 
@@ -5037,18 +4923,15 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20SearchResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec search_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_resources_errors()}
-
   def search_resources(%Client{} = client, options \\ []) do
     url_path = "/api/v1/search"
 
@@ -5097,19 +4980,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateDocument&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec update_document(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_document_errors()}
-
   def update_document(%Client{} = client, document_id, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
 
@@ -5167,20 +5047,17 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateDocumentVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:document_id` (`t:string`) The ID of the document.
-  * `:version_id` (`t:string`) The version ID of the document.
-
-  ## Optional parameters:
+  * `:document_id` (`t:string` required) The ID of the document.
+  * `:version_id` (`t:string` required) The version ID of the document.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec update_document_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_document_version_errors()}
-
   def update_document_version(%Client{} = client, document_id, version_id, options \\ []) do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
@@ -5240,19 +5117,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateFolder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:folder_id` (`t:string`) The ID of the folder.
-
-  ## Optional parameters:
+  * `:folder_id` (`t:string` required) The ID of the folder.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec update_folder(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_folder_errors()}
-
   def update_folder(%Client{} = client, folder_id, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
 
@@ -5311,19 +5185,16 @@ defmodule AWS.WorkDocs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:user_id` (`t:string`) The ID of the user.
-
-  ## Optional parameters:
+  * `:user_id` (`t:string` required) The ID of the user.
+  ## Keyword parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
   required when using Amazon Web Services administrator credentials to access
   the API.
   """
-
   @spec update_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-
   def update_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}"
 

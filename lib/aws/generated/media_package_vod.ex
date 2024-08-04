@@ -901,18 +901,15 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ConfigureLogs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
+  * `:id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:egress_access_logs` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec configure_logs(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, configure_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, configure_logs_errors()}
-
   def configure_logs(%Client{} = client, id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}/configure_logs"
@@ -951,21 +948,18 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:id` (`t:string`)
-    * `:packaging_group_id` (`t:string`)
-    * `:source_arn` (`t:string`)
-    * `:source_role_arn` (`t:string`)
+    * `:id` (`t:string` required)
+    * `:packaging_group_id` (`t:string` required)
+    * `:source_arn` (`t:string` required)
+    * `:source_role_arn` (`t:string` required)
     * `:resource_id` (`t:string`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_asset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_errors()}
-
   def create_asset(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/assets"
 
@@ -1003,22 +997,19 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:id` (`t:string`)
-    * `:packaging_group_id` (`t:string`)
+    * `:id` (`t:string` required)
+    * `:packaging_group_id` (`t:string` required)
     * `:cmaf_package` (`t:structure`)
     * `:dash_package` (`t:structure`)
     * `:hls_package` (`t:structure`)
     * `:mss_package` (`t:structure`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_packaging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_packaging_configuration_errors()}
-
   def create_packaging_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/packaging_configurations"
@@ -1057,19 +1048,16 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:id` (`t:string`)
+    * `:id` (`t:string` required)
     * `:authorization` (`t:structure`)
     * `:egress_access_logs` (`t:structure`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_packaging_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_packaging_group_errors()}
-
   def create_packaging_group(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/packaging_groups"
 
@@ -1106,16 +1094,13 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DeleteAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_errors()}
-
   def delete_asset(%Client{} = client, id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(id)}"
 
@@ -1162,16 +1147,13 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DeletePackagingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_packaging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_packaging_configuration_errors()}
-
   def delete_packaging_configuration(%Client{} = client, id, options \\ []) do
     url_path = "/packaging_configurations/#{AWS.Util.encode_uri(id)}"
 
@@ -1218,16 +1200,13 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DeletePackagingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_packaging_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_packaging_group_errors()}
-
   def delete_packaging_group(%Client{} = client, id, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
 
@@ -1274,16 +1253,13 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DescribeAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_errors()}
-
   def describe_asset(%Client{} = client, id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(id)}"
 
@@ -1318,16 +1294,13 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DescribePackagingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_packaging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_packaging_configuration_errors()}
-
   def describe_packaging_configuration(%Client{} = client, id, options \\ []) do
     url_path = "/packaging_configurations/#{AWS.Util.encode_uri(id)}"
 
@@ -1362,16 +1335,13 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DescribePackagingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_packaging_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_packaging_group_errors()}
-
   def describe_packaging_group(%Client{} = client, id, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
 
@@ -1406,18 +1376,15 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:packaging_group_id` (`t:string`)
   """
-
   @spec list_assets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assets_errors()}
-
   def list_assets(%Client{} = client, options \\ []) do
     url_path = "/assets"
 
@@ -1477,18 +1444,15 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListPackagingConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:packaging_group_id` (`t:string`)
   """
-
   @spec list_packaging_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packaging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packaging_configurations_errors()}
-
   def list_packaging_configurations(%Client{} = client, options \\ []) do
     url_path = "/packaging_configurations"
 
@@ -1548,17 +1512,14 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListPackagingGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_packaging_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packaging_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packaging_groups_errors()}
-
   def list_packaging_groups(%Client{} = client, options \\ []) do
     url_path = "/packaging_groups"
 
@@ -1611,15 +1572,12 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1654,17 +1612,14 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
+  * `:resource_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:tags` (`t:map`)
-
-  ## Optional parameters:
+    * `:tags` (`t:map` required)
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1702,16 +1657,13 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
-  * `:tag_keys` (`t:list[com.amazonaws.mediapackagevod#__string]`)
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required)
+  * `:tag_keys` (`t:list[com.amazonaws.mediapackagevod#__string]` required)
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1760,18 +1712,15 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20UpdatePackagingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
+  * `:id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:authorization` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_packaging_group(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_packaging_group_errors()}
-
   def update_packaging_group(%Client{} = client, id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"

@@ -2038,15 +2038,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ApplyArchiveRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec apply_archive_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_archive_rule_errors()}
-
   def apply_archive_rule(%Client{} = client, options \\ []) do
     url_path = "/archive-rule"
 
@@ -2083,19 +2080,16 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CancelPolicyGeneration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The JobId that is returned by the StartPolicyGeneration
-  operation. The JobId can be used with GetGeneratedPolicy to retrieve the
-  generated policies or used with CancelPolicyGeneration to cancel the policy
-  generation request.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The JobId that is returned by the
+  StartPolicyGeneration operation. The JobId can be used with
+  GetGeneratedPolicy to retrieve the generated policies or used with
+  CancelPolicyGeneration to cancel the policy generation request.
+  ## Keyword parameters:
   """
-
   @spec cancel_policy_generation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_policy_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_policy_generation_errors()}
-
   def cancel_policy_generation(%Client{} = client, job_id, options \\ []) do
     url_path = "/policy/generation/#{AWS.Util.encode_uri(job_id)}"
 
@@ -2132,15 +2126,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckAccessNotGranted&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec check_access_not_granted(AWS.Client.t(), Keyword.t()) ::
           {:ok, check_access_not_granted_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_access_not_granted_errors()}
-
   def check_access_not_granted(%Client{} = client, options \\ []) do
     url_path = "/policy/check-access-not-granted"
 
@@ -2178,15 +2169,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckNoNewAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec check_no_new_access(AWS.Client.t(), Keyword.t()) ::
           {:ok, check_no_new_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_no_new_access_errors()}
-
   def check_no_new_access(%Client{} = client, options \\ []) do
     url_path = "/policy/check-no-new-access"
 
@@ -2224,15 +2212,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckNoPublicAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec check_no_public_access(AWS.Client.t(), Keyword.t()) ::
           {:ok, check_no_public_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_no_public_access_errors()}
-
   def check_no_public_access(%Client{} = client, options \\ []) do
     url_path = "/policy/check-no-public-access"
 
@@ -2270,15 +2255,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateAccessPreview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_access_preview(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_access_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_preview_errors()}
-
   def create_access_preview(%Client{} = client, options \\ []) do
     url_path = "/access-preview"
 
@@ -2315,15 +2297,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateAnalyzer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_analyzer(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_analyzer_errors()}
-
   def create_analyzer(%Client{} = client, options \\ []) do
     url_path = "/analyzer"
 
@@ -2362,16 +2341,13 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateArchiveRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analyzer_name` (`t:string`) The name of the created analyzer.
-
-  ## Optional parameters:
+  * `:analyzer_name` (`t:string` required) The name of the created analyzer.
+  ## Keyword parameters:
   """
-
   @spec create_archive_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_archive_rule_errors()}
-
   def create_archive_rule(%Client{} = client, analyzer_name, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule"
 
@@ -2411,17 +2387,14 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20DeleteAnalyzer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analyzer_name` (`t:string`) The name of the analyzer to delete.
-
-  ## Optional parameters:
+  * `:analyzer_name` (`t:string` required) The name of the analyzer to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A client token.
   """
-
   @spec delete_analyzer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_analyzer_errors()}
-
   def delete_analyzer(%Client{} = client, analyzer_name, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
 
@@ -2479,19 +2452,16 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20DeleteArchiveRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analyzer_name` (`t:string`) The name of the analyzer that associated with
-  the archive rule to delete.
-  * `:rule_name` (`t:string`) The name of the rule to delete.
-
-  ## Optional parameters:
+  * `:analyzer_name` (`t:string` required) The name of the analyzer that
+  associated with the archive rule to delete.
+  * `:rule_name` (`t:string` required) The name of the rule to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) A client token.
   """
-
   @spec delete_archive_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_archive_rule_errors()}
-
   def delete_archive_rule(%Client{} = client, analyzer_name, rule_name, options \\ []) do
     url_path =
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
@@ -2550,18 +2520,15 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GenerateFindingRecommendation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique ID for the finding recommendation.
-  * `:analyzer_arn` (`t:string`) The ARN of the analyzer used to generate the
-  finding recommendation.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The unique ID for the finding recommendation.
+  * `:analyzer_arn` (`t:string` required) The ARN of the analyzer used to generate
+  the finding recommendation.
+  ## Keyword parameters:
   """
-
   @spec generate_finding_recommendation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_finding_recommendation_errors()}
-
   def generate_finding_recommendation(%Client{} = client, id, analyzer_arn, options \\ [])
       when is_binary(analyzer_arn) do
     url_path = "/recommendation/#{AWS.Util.encode_uri(id)}"
@@ -2599,18 +2566,16 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetAccessPreview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_preview_id` (`t:string`) The unique ID for the access preview.
-  * `:analyzer_arn` (`t:string`) The ARN of the analyzer used to generate the
-  access preview.
-
-  ## Optional parameters:
+  * `:access_preview_id` (`t:string` required) The unique ID for the access
+  preview.
+  * `:analyzer_arn` (`t:string` required) The ARN of the analyzer used to generate
+  the access preview.
+  ## Keyword parameters:
   """
-
   @spec get_access_preview(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_access_preview_errors()}
-
   def get_access_preview(%Client{} = client, access_preview_id, analyzer_arn, options \\ [])
       when is_binary(analyzer_arn) do
     url_path = "/access-preview/#{AWS.Util.encode_uri(access_preview_id)}"
@@ -2646,19 +2611,16 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetAnalyzedResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analyzer_arn` (`t:string`) The ARN of the analyzer to retrieve information
-  from.
-  * `:resource_arn` (`t:string`) The ARN of the resource to retrieve information
-  about.
-
-  ## Optional parameters:
+  * `:analyzer_arn` (`t:string` required) The ARN of the analyzer to retrieve
+  information from.
+  * `:resource_arn` (`t:string` required) The ARN of the resource to retrieve
+  information about.
+  ## Keyword parameters:
   """
-
   @spec get_analyzed_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_analyzed_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_analyzed_resource_errors()}
-
   def get_analyzed_resource(%Client{} = client, analyzer_arn, resource_arn, options \\ [])
       when is_binary(analyzer_arn) and is_binary(resource_arn) do
     url_path = "/analyzed-resource"
@@ -2694,16 +2656,13 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetAnalyzer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analyzer_name` (`t:string`) The name of the analyzer retrieved.
-
-  ## Optional parameters:
+  * `:analyzer_name` (`t:string` required) The name of the analyzer retrieved.
+  ## Keyword parameters:
   """
-
   @spec get_analyzer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_analyzer_errors()}
-
   def get_analyzer(%Client{} = client, analyzer_name, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
 
@@ -2738,17 +2697,15 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetArchiveRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analyzer_name` (`t:string`) The name of the analyzer to retrieve rules from.
-  * `:rule_name` (`t:string`) The name of the rule to retrieve.
-
-  ## Optional parameters:
+  * `:analyzer_name` (`t:string` required) The name of the analyzer to retrieve
+  rules from.
+  * `:rule_name` (`t:string` required) The name of the rule to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_archive_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_archive_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_rule_errors()}
-
   def get_archive_rule(%Client{} = client, analyzer_name, rule_name, options \\ []) do
     url_path =
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
@@ -2787,18 +2744,15 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetFinding&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the finding to retrieve.
-  * `:analyzer_arn` (`t:string`) The ARN of the analyzer that generated the
-  finding.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the finding to retrieve.
+  * `:analyzer_arn` (`t:string` required) The ARN of the analyzer that generated
+  the finding.
+  ## Keyword parameters:
   """
-
   @spec get_finding(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_errors()}
-
   def get_finding(%Client{} = client, id, analyzer_arn, options \\ [])
       when is_binary(analyzer_arn) do
     url_path = "/finding/#{AWS.Util.encode_uri(id)}"
@@ -2834,21 +2788,18 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetFindingRecommendation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The unique ID for the finding recommendation.
-  * `:analyzer_arn` (`t:string`) The ARN of the analyzer used to generate the
-  finding recommendation.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The unique ID for the finding recommendation.
+  * `:analyzer_arn` (`t:string` required) The ARN of the analyzer used to generate
+  the finding recommendation.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
-
   @spec get_finding_recommendation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_recommendation_errors()}
-
   def get_finding_recommendation(%Client{} = client, id, analyzer_arn, options \\ [])
       when is_binary(analyzer_arn) do
     url_path = "/recommendation/#{AWS.Util.encode_uri(id)}"
@@ -2905,21 +2856,18 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetFindingV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the finding to retrieve.
-  * `:analyzer_arn` (`t:string`) The ARN of the analyzer that generated the
-  finding.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the finding to retrieve.
+  * `:analyzer_arn` (`t:string` required) The ARN of the analyzer that generated
+  the finding.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
-
   @spec get_finding_v2(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_v2_errors()}
-
   def get_finding_v2(%Client{} = client, id, analyzer_arn, options \\ [])
       when is_binary(analyzer_arn) do
     url_path = "/findingv2/#{AWS.Util.encode_uri(id)}"
@@ -2973,12 +2921,11 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetGeneratedPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The JobId that is returned by the StartPolicyGeneration
-  operation. The JobId can be used with GetGeneratedPolicy to retrieve the
-  generated policies or used with CancelPolicyGeneration to cancel the policy
-  generation request.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The JobId that is returned by the
+  StartPolicyGeneration operation. The JobId can be used with
+  GetGeneratedPolicy to retrieve the generated policies or used with
+  CancelPolicyGeneration to cancel the policy generation request.
+  ## Keyword parameters:
   * `:include_resource_placeholders` (`t:string`) The level of detail that you
   want to generate. You can specify whether to generate policies with
   placeholders for resource ARNs for actions that support resource level
@@ -2987,12 +2934,10 @@ defmodule AWS.AccessAnalyzer do
   want to generate. You can specify whether to generate service-level
   policies.
   """
-
   @spec get_generated_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_generated_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_generated_policy_errors()}
-
   def get_generated_policy(%Client{} = client, job_id, options \\ []) do
     url_path = "/policy/generation/#{AWS.Util.encode_uri(job_id)}"
 
@@ -3046,16 +2991,14 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAccessPreviewFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:access_preview_id` (`t:string`) The unique ID for the access preview.
-
-  ## Optional parameters:
+  * `:access_preview_id` (`t:string` required) The unique ID for the access
+  preview.
+  ## Keyword parameters:
   """
-
   @spec list_access_preview_findings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_preview_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_preview_findings_errors()}
-
   def list_access_preview_findings(%Client{} = client, access_preview_id, options \\ []) do
     url_path = "/access-preview/#{AWS.Util.encode_uri(access_preview_id)}"
 
@@ -3092,20 +3035,17 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAccessPreviews&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analyzer_arn` (`t:string`) The ARN of the analyzer used to generate the
-  access preview.
-
-  ## Optional parameters:
+  * `:analyzer_arn` (`t:string` required) The ARN of the analyzer used to generate
+  the access preview.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
-
   @spec list_access_previews(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_previews_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_previews_errors()}
-
   def list_access_previews(%Client{} = client, analyzer_arn, options \\ [])
       when is_binary(analyzer_arn) do
     url_path = "/access-preview"
@@ -3161,15 +3101,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAnalyzedResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_analyzed_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_analyzed_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analyzed_resources_errors()}
-
   def list_analyzed_resources(%Client{} = client, options \\ []) do
     url_path = "/analyzed-resource"
 
@@ -3206,19 +3143,16 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAnalyzers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   * `:type` (`t:string`) The type of analyzer.
   """
-
   @spec list_analyzers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_analyzers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analyzers_errors()}
-
   def list_analyzers(%Client{} = client, options \\ []) do
     url_path = "/analyzer"
 
@@ -3278,19 +3212,17 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListArchiveRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analyzer_name` (`t:string`) The name of the analyzer to retrieve rules from.
-
-  ## Optional parameters:
+  * `:analyzer_name` (`t:string` required) The name of the analyzer to retrieve
+  rules from.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
   request.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
-
   @spec list_archive_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_archive_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_archive_rules_errors()}
-
   def list_archive_rules(%Client{} = client, analyzer_name, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule"
 
@@ -3346,15 +3278,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_errors()}
-
   def list_findings(%Client{} = client, options \\ []) do
     url_path = "/finding"
 
@@ -3394,15 +3323,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListFindingsV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_findings_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_findings_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_v2_errors()}
-
   def list_findings_v2(%Client{} = client, options \\ []) do
     url_path = "/findingv2"
 
@@ -3439,8 +3365,7 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListPolicyGenerations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
@@ -3448,12 +3373,10 @@ defmodule AWS.AccessAnalyzer do
   which you are generating a policy. Use this with ListGeneratedPolicies to
   filter the results to only include results for a specific principal.
   """
-
   @spec list_policy_generations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_policy_generations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policy_generations_errors()}
-
   def list_policy_generations(%Client{} = client, options \\ []) do
     url_path = "/policy/generation"
 
@@ -3513,16 +3436,14 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to retrieve tags from.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to retrieve tags
+  from.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3557,15 +3478,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20StartPolicyGeneration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_policy_generation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_policy_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_policy_generation_errors()}
-
   def start_policy_generation(%Client{} = client, options \\ []) do
     url_path = "/policy/generation"
 
@@ -3602,15 +3520,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20StartResourceScan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_resource_scan(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_resource_scan_errors()}
-
   def start_resource_scan(%Client{} = client, options \\ []) do
     url_path = "/resource/scan"
 
@@ -3647,16 +3562,14 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to add the tag to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to add the tag
+  to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3693,17 +3606,15 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to remove the tag from.
-  * `:tag_keys` (`t:list[smithy.api#String]`) The key for the tag to add.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to remove the
+  tag from.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) The key for the tag to add.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3751,18 +3662,15 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20UpdateArchiveRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:analyzer_name` (`t:string`) The name of the analyzer to update the archive
-  rules for.
-  * `:rule_name` (`t:string`) The name of the rule to update.
-
-  ## Optional parameters:
+  * `:analyzer_name` (`t:string` required) The name of the analyzer to update the
+  archive rules for.
+  * `:rule_name` (`t:string` required) The name of the rule to update.
+  ## Keyword parameters:
   """
-
   @spec update_archive_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_archive_rule_errors()}
-
   def update_archive_rule(%Client{} = client, analyzer_name, rule_name, options \\ []) do
     url_path =
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
@@ -3800,15 +3708,12 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20UpdateFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_findings_errors()}
-
   def update_findings(%Client{} = client, options \\ []) do
     url_path = "/finding"
 
@@ -3848,18 +3753,15 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ValidatePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
-
   @spec validate_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, validate_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_policy_errors()}
-
   def validate_policy(%Client{} = client, options \\ []) do
     url_path = "/policy/validation"
 

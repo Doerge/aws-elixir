@@ -2915,6 +2915,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Adds an instance fleet to a running cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20AddInstanceFleet&this_doc_guide=API%2520Reference)
@@ -2926,12 +2927,10 @@ defmodule AWS.EMR do
       required("InstanceFleet") => instance_fleet_config()
     }
   """
-
   @spec add_instance_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_instance_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_instance_fleet_errors()}
-
   def add_instance_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2940,6 +2939,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Adds one or more instance groups to a running cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20AddInstanceGroups&this_doc_guide=API%2520Reference)
@@ -2951,12 +2951,10 @@ defmodule AWS.EMR do
       required("JobFlowId") => String.t()
     }
   """
-
   @spec add_instance_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_instance_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_instance_groups_errors()}
-
   def add_instance_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2965,6 +2963,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are
   allowed in each job flow. If your cluster is long-running (such as a Hive data
   warehouse) or complex, you may require more than 256 steps to process your
@@ -2982,12 +2981,10 @@ defmodule AWS.EMR do
       required("Steps") => list(step_config()())
     }
   """
-
   @spec add_job_flow_steps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_job_flow_steps_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_job_flow_steps_errors()}
-
   def add_job_flow_steps(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2996,6 +2993,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR Studio.
   Tags make it easier to associate resources in various ways, such as grouping
   clusters to track your Amazon EMR resource allocation costs. For more
@@ -3011,12 +3009,10 @@ defmodule AWS.EMR do
       required("Tags") => list(tag()())
     }
   """
-
   @spec add_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
-
   def add_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3025,6 +3021,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Cancels a pending step or steps in a running cluster. Available only in Amazon
   EMR versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps
   are allowed in each CancelSteps request. CancelSteps is idempotent but
@@ -3044,12 +3041,10 @@ defmodule AWS.EMR do
       required("StepIds") => list(String.t()())
     }
   """
-
   @spec cancel_steps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_steps_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_steps_errors()}
-
   def cancel_steps(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3058,6 +3053,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Creates a security configuration, which is stored in the service and can be
   specified when a cluster is created.
 
@@ -3070,12 +3066,10 @@ defmodule AWS.EMR do
       required("SecurityConfiguration") => String.t()
     }
   """
-
   @spec create_security_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_security_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_configuration_errors()}
-
   def create_security_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3085,6 +3079,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Creates a new Amazon EMR Studio.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20CreateStudio&this_doc_guide=API%2520Reference)
@@ -3111,12 +3106,10 @@ defmodule AWS.EMR do
       required("WorkspaceSecurityGroupId") => String.t()
     }
   """
-
   @spec create_studio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_studio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_studio_errors()}
-
   def create_studio(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3125,6 +3118,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Maps a user or group to the Amazon EMR Studio specified by `StudioId`, and
   applies a session policy to refine Studio permissions for that user or group.
   Use `CreateStudioSessionMapping` to assign users to a Studio when you use IAM
@@ -3145,12 +3139,10 @@ defmodule AWS.EMR do
       required("StudioId") => String.t()
     }
   """
-
   @spec create_studio_session_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_studio_session_mapping_errors()}
-
   def create_studio_session_mapping(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3160,6 +3152,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Deletes a security configuration.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20DeleteSecurityConfiguration&this_doc_guide=API%2520Reference)
@@ -3170,12 +3163,10 @@ defmodule AWS.EMR do
       required("Name") => String.t()
     }
   """
-
   @spec delete_security_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_security_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_security_configuration_errors()}
-
   def delete_security_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3185,6 +3176,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Removes an Amazon EMR Studio from the Studio metadata store.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20DeleteStudio&this_doc_guide=API%2520Reference)
@@ -3195,12 +3187,10 @@ defmodule AWS.EMR do
       required("StudioId") => String.t()
     }
   """
-
   @spec delete_studio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_studio_errors()}
-
   def delete_studio(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3209,6 +3199,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Removes a user or group from an Amazon EMR Studio.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20DeleteStudioSessionMapping&this_doc_guide=API%2520Reference)
@@ -3222,12 +3213,10 @@ defmodule AWS.EMR do
       required("StudioId") => String.t()
     }
   """
-
   @spec delete_studio_session_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_studio_session_mapping_errors()}
-
   def delete_studio_session_mapping(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3237,6 +3226,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides cluster-level details including status, hardware and software
   configuration, VPC settings, and so on.
 
@@ -3248,12 +3238,10 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec describe_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
-
   def describe_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3262,6 +3250,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   This API is no longer supported and will eventually be removed. We recommend you
   use `ListClusters`, `DescribeCluster`, `ListSteps`, `ListInstanceGroups` and
   `ListBootstrapActions` instead. DescribeJobFlows returns a list of job flows
@@ -3280,12 +3269,10 @@ defmodule AWS.EMR do
       optional("JobFlowStates") => list(list(any())())
     }
   """
-
   @spec describe_job_flows(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_job_flows_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_flows_errors()}
-
   def describe_job_flows(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3294,6 +3281,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides details of a notebook execution.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20DescribeNotebookExecution&this_doc_guide=API%2520Reference)
@@ -3304,12 +3292,10 @@ defmodule AWS.EMR do
       required("NotebookExecutionId") => String.t()
     }
   """
-
   @spec describe_notebook_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_notebook_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_notebook_execution_errors()}
-
   def describe_notebook_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3318,6 +3304,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides Amazon EMR release label details, such as the releases available the
   Region where the API request is run, and the available applications for a
   specific Amazon EMR release label. Can also list Amazon EMR releases that
@@ -3333,12 +3320,10 @@ defmodule AWS.EMR do
       optional("ReleaseLabel") => String.t()
     }
   """
-
   @spec describe_release_label(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_release_label_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_release_label_errors()}
-
   def describe_release_label(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3347,6 +3332,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides the details of a security configuration by returning the configuration
   JSON.
 
@@ -3358,12 +3344,10 @@ defmodule AWS.EMR do
       required("Name") => String.t()
     }
   """
-
   @spec describe_security_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_security_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_security_configuration_errors()}
-
   def describe_security_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3373,6 +3357,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides more detail about the cluster step.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20DescribeStep&this_doc_guide=API%2520Reference)
@@ -3384,12 +3369,10 @@ defmodule AWS.EMR do
       required("StepId") => String.t()
     }
   """
-
   @spec describe_step(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_step_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_step_errors()}
-
   def describe_step(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3398,6 +3381,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Returns details for the specified Amazon EMR Studio including ID, Name, VPC,
   Studio access URL, and so on.
 
@@ -3409,12 +3393,10 @@ defmodule AWS.EMR do
       required("StudioId") => String.t()
     }
   """
-
   @spec describe_studio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_studio_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_studio_errors()}
-
   def describe_studio(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3423,6 +3405,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Returns the auto-termination policy for an Amazon EMR cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20GetAutoTerminationPolicy&this_doc_guide=API%2520Reference)
@@ -3433,11 +3416,9 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec get_auto_termination_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_auto_termination_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_auto_termination_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3446,6 +3427,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Returns the Amazon EMR block public access configuration for your Amazon Web
   Services account in the current Region. For more information see [Configure
   Block Public Access for Amazon
@@ -3460,12 +3442,10 @@ defmodule AWS.EMR do
       
     }
   """
-
   @spec get_block_public_access_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_block_public_access_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_block_public_access_configuration_errors()}
-
   def get_block_public_access_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3475,6 +3455,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides temporary, HTTP basic credentials that are associated with a given
   runtime IAM role and used by a cluster with fine-grained access control
   activated. You can use these credentials to connect to cluster endpoints that
@@ -3489,12 +3470,10 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec get_cluster_session_credentials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_cluster_session_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_session_credentials_errors()}
-
   def get_cluster_session_credentials(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3504,6 +3483,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Fetches the attached managed scaling policy for an Amazon EMR cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20GetManagedScalingPolicy&this_doc_guide=API%2520Reference)
@@ -3514,11 +3494,9 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec get_managed_scaling_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_managed_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_managed_scaling_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3527,6 +3505,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Fetches mapping details for the specified Amazon EMR Studio and identity (user
   or group).
 
@@ -3541,12 +3520,10 @@ defmodule AWS.EMR do
       required("StudioId") => String.t()
     }
   """
-
   @spec get_studio_session_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_studio_session_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_studio_session_mapping_errors()}
-
   def get_studio_session_mapping(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3555,6 +3532,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides information about the bootstrap actions associated with a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20ListBootstrapActions&this_doc_guide=API%2520Reference)
@@ -3566,12 +3544,10 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec list_bootstrap_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_bootstrap_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bootstrap_actions_errors()}
-
   def list_bootstrap_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3580,6 +3556,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides the status of all clusters visible to this Amazon Web Services account.
   Allows you to filter the list of clusters based on certain criteria; for
   example, filtering by cluster creation date and time or by status. This call
@@ -3598,12 +3575,10 @@ defmodule AWS.EMR do
       optional("Marker") => String.t()
     }
   """
-
   @spec list_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
-
   def list_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3612,6 +3587,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Lists all available details about the instance fleets in a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20ListInstanceFleets&this_doc_guide=API%2520Reference)
@@ -3623,12 +3599,10 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec list_instance_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_instance_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_fleets_errors()}
-
   def list_instance_fleets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3637,6 +3611,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides all available details about the instance groups in a cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20ListInstanceGroups&this_doc_guide=API%2520Reference)
@@ -3648,12 +3623,10 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec list_instance_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_instance_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_groups_errors()}
-
   def list_instance_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3662,6 +3635,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides information for all active Amazon EC2 instances and Amazon EC2
   instances terminated in the last 30 days, up to a maximum of 2,000. Amazon EC2
   instances in any of the following states are considered active:
@@ -3681,12 +3655,10 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec list_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instances_errors()}
-
   def list_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3695,6 +3667,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides summaries of all notebook executions. You can filter the list based on
   multiple criteria such as status, time range, and editor id. Returns a maximum
   of 50 notebook executions and a marker to track the paging of a longer
@@ -3713,12 +3686,10 @@ defmodule AWS.EMR do
       optional("To") => non_neg_integer()
     }
   """
-
   @spec list_notebook_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_notebook_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notebook_executions_errors()}
-
   def list_notebook_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3727,6 +3698,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Retrieves release labels of Amazon EMR services in the Region where the API is
   called.
 
@@ -3740,12 +3712,10 @@ defmodule AWS.EMR do
       optional("NextToken") => String.t()
     }
   """
-
   @spec list_release_labels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_release_labels_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_release_labels_errors()}
-
   def list_release_labels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3754,6 +3724,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Lists all the security configurations visible to this account, providing their
   creation dates and times, and their names. This call returns a maximum of 50
   clusters per call, but returns a marker to track the paging of the cluster
@@ -3767,12 +3738,10 @@ defmodule AWS.EMR do
       optional("Marker") => String.t()
     }
   """
-
   @spec list_security_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_security_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_configurations_errors()}
-
   def list_security_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3781,6 +3750,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Provides a list of steps for the cluster in reverse order unless you specify
   `stepIds` with the request or filter by `StepStates`. You can specify a
   maximum of 10 `stepIDs`. The CLI automatically paginates results to return a
@@ -3799,12 +3769,10 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec list_steps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_steps_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_steps_errors()}
-
   def list_steps(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3813,6 +3781,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Returns a list of all user or group session mappings for the Amazon EMR Studio
   specified by `StudioId`.
 
@@ -3826,12 +3795,10 @@ defmodule AWS.EMR do
       optional("StudioId") => String.t()
     }
   """
-
   @spec list_studio_session_mappings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_studio_session_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_studio_session_mappings_errors()}
-
   def list_studio_session_mappings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3840,6 +3807,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Returns a list of all Amazon EMR Studios associated with the Amazon Web Services
   account. The list includes details such as ID, Studio Access URL, and creation
   time for each Studio.
@@ -3852,12 +3820,10 @@ defmodule AWS.EMR do
       optional("Marker") => String.t()
     }
   """
-
   @spec list_studios(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_studios_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_studios_errors()}
-
   def list_studios(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3866,6 +3832,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   A list of the instance types that Amazon EMR supports. You can filter the list
   by Amazon Web Services Region and Amazon EMR release.
 
@@ -3878,12 +3845,10 @@ defmodule AWS.EMR do
       required("ReleaseLabel") => String.t()
     }
   """
-
   @spec list_supported_instance_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_supported_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_supported_instance_types_errors()}
-
   def list_supported_instance_types(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3893,6 +3858,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Modifies the number of steps that can be executed concurrently for the cluster
   specified using ClusterID.
 
@@ -3905,12 +3871,10 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec modify_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cluster_errors()}
-
   def modify_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3919,6 +3883,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Modifies the target On-Demand and target Spot capacities for the instance fleet
   with the specified InstanceFleetID within the cluster specified using
   ClusterID. The call either succeeds or fails atomically.
@@ -3932,12 +3897,10 @@ defmodule AWS.EMR do
       required("InstanceFleet") => instance_fleet_modify_config()
     }
   """
-
   @spec modify_instance_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_instance_fleet_errors()}
-
   def modify_instance_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3946,6 +3909,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   ModifyInstanceGroups modifies the number of nodes and configuration settings of
   an instance group. The input parameters include the new target instance count
   for the group and the instance group ID. The call will either succeed or fail
@@ -3960,12 +3924,10 @@ defmodule AWS.EMR do
       optional("InstanceGroups") => list(instance_group_modify_config()())
     }
   """
-
   @spec modify_instance_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_instance_groups_errors()}
-
   def modify_instance_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3974,6 +3936,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Creates or updates an automatic scaling policy for a core instance group or task
   instance group in an Amazon EMR cluster. The automatic scaling policy defines
   how an instance group dynamically adds and terminates Amazon EC2 instances in
@@ -3989,11 +3952,9 @@ defmodule AWS.EMR do
       required("InstanceGroupId") => String.t()
     }
   """
-
   @spec put_auto_scaling_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_auto_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_auto_scaling_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4002,6 +3963,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Auto-termination is supported in Amazon EMR releases 5.30.0 and 6.1.0 and later.
   For more information, see [Using an auto-termination
   policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html).
@@ -4020,11 +3982,9 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec put_auto_termination_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_auto_termination_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_auto_termination_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4033,6 +3993,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Creates or updates an Amazon EMR block public access configuration for your
   Amazon Web Services account in the current Region. For more information see
   [Configure Block Public Access for Amazon
@@ -4047,12 +4008,10 @@ defmodule AWS.EMR do
       required("BlockPublicAccessConfiguration") => block_public_access_configuration()
     }
   """
-
   @spec put_block_public_access_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_block_public_access_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_block_public_access_configuration_errors()}
-
   def put_block_public_access_configuration(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4062,6 +4021,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Creates or updates a managed scaling policy for an Amazon EMR cluster. The
   managed scaling policy defines the limits for resources, such as Amazon EC2
   instances that can be added or terminated from a cluster. The policy only
@@ -4077,11 +4037,9 @@ defmodule AWS.EMR do
       required("ManagedScalingPolicy") => managed_scaling_policy()
     }
   """
-
   @spec put_managed_scaling_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_managed_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def put_managed_scaling_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4090,6 +4048,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Removes an automatic scaling policy from a specified instance group within an
   Amazon EMR cluster.
 
@@ -4102,11 +4061,9 @@ defmodule AWS.EMR do
       required("InstanceGroupId") => String.t()
     }
   """
-
   @spec remove_auto_scaling_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_auto_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def remove_auto_scaling_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4115,6 +4072,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Removes an auto-termination policy from an Amazon EMR cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20RemoveAutoTerminationPolicy&this_doc_guide=API%2520Reference)
@@ -4125,11 +4083,9 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec remove_auto_termination_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_auto_termination_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def remove_auto_termination_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4139,6 +4095,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Removes a managed scaling policy from a specified Amazon EMR cluster.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20RemoveManagedScalingPolicy&this_doc_guide=API%2520Reference)
@@ -4149,11 +4106,9 @@ defmodule AWS.EMR do
       required("ClusterId") => String.t()
     }
   """
-
   @spec remove_managed_scaling_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_managed_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def remove_managed_scaling_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4163,6 +4118,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Removes tags from an Amazon EMR resource, such as a cluster or Amazon EMR
   Studio. Tags make it easier to associate resources in various ways, such as
   grouping clusters to track your Amazon EMR resource allocation costs. For more
@@ -4178,12 +4134,10 @@ defmodule AWS.EMR do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec remove_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_errors()}
-
   def remove_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4192,6 +4146,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   RunJobFlow creates and starts running a new cluster (job flow). The cluster runs
   the steps specified. After the steps complete, the cluster stops and the HDFS
   partition is lost. To prevent loss of data, configure the last step of the job
@@ -4241,12 +4196,10 @@ defmodule AWS.EMR do
       required("Name") => String.t()
     }
   """
-
   @spec run_job_flow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, run_job_flow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, run_job_flow_errors()}
-
   def run_job_flow(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4255,6 +4208,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   You can use the `SetKeepJobFlowAliveWhenNoSteps` to configure a cluster (job
   flow) to terminate after the step execution, i.e., all your steps are
   executed. If you want a transient cluster that shuts down after the last of
@@ -4271,12 +4225,10 @@ defmodule AWS.EMR do
       required("KeepJobFlowAliveWhenNoSteps") => boolean()
     }
   """
-
   @spec set_keep_job_flow_alive_when_no_steps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_keep_job_flow_alive_when_no_steps_errors()}
-
   def set_keep_job_flow_alive_when_no_steps(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4286,6 +4238,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   SetTerminationProtection locks a cluster (job flow) so the Amazon EC2 instances
   in the cluster cannot be terminated by user intervention, an API call, or in
   the event of a job-flow error. The cluster still terminates upon successful
@@ -4305,12 +4258,10 @@ defmodule AWS.EMR do
       required("TerminationProtected") => boolean()
     }
   """
-
   @spec set_termination_protection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_termination_protection_errors()}
-
   def set_termination_protection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4319,6 +4270,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Specify whether to enable unhealthy node replacement, which lets Amazon EMR
   gracefully replace core nodes on a cluster if any nodes become unhealthy. For
   example, a node becomes unhealthy if disk usage is above 90%. If unhealthy
@@ -4340,12 +4292,10 @@ defmodule AWS.EMR do
       required("UnhealthyNodeReplacement") => boolean()
     }
   """
-
   @spec set_unhealthy_node_replacement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_unhealthy_node_replacement_errors()}
-
   def set_unhealthy_node_replacement(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4355,6 +4305,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   The SetVisibleToAllUsers parameter is no longer supported. Your cluster may be
   visible to all users in your account. To restrict cluster access using an IAM
   policy, see [Identity and Access Management for Amazon
@@ -4377,12 +4328,10 @@ defmodule AWS.EMR do
       required("VisibleToAllUsers") => boolean()
     }
   """
-
   @spec set_visible_to_all_users(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_visible_to_all_users_errors()}
-
   def set_visible_to_all_users(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4391,6 +4340,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Starts a notebook execution.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20StartNotebookExecution&this_doc_guide=API%2520Reference)
@@ -4412,12 +4362,10 @@ defmodule AWS.EMR do
       required("ServiceRole") => String.t()
     }
   """
-
   @spec start_notebook_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_notebook_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_notebook_execution_errors()}
-
   def start_notebook_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4426,6 +4374,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Stops a notebook execution.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emr%20StopNotebookExecution&this_doc_guide=API%2520Reference)
@@ -4436,12 +4385,10 @@ defmodule AWS.EMR do
       required("NotebookExecutionId") => String.t()
     }
   """
-
   @spec stop_notebook_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_notebook_execution_errors()}
-
   def stop_notebook_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4450,6 +4397,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is
   shut down, any step not yet completed is canceled and the Amazon EC2 instances
   on which the cluster is running are stopped. Any log files not already saved
@@ -4464,12 +4412,10 @@ defmodule AWS.EMR do
       required("JobFlowIds") => list(String.t()())
     }
   """
-
   @spec terminate_job_flows(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_job_flows_errors()}
-
   def terminate_job_flows(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4478,6 +4424,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Updates an Amazon EMR Studio configuration, including attributes such as name,
   description, and subnets.
 
@@ -4494,12 +4441,10 @@ defmodule AWS.EMR do
       required("StudioId") => String.t()
     }
   """
-
   @spec update_studio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_studio_errors()}
-
   def update_studio(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4508,6 +4453,7 @@ defmodule AWS.EMR do
   end
 
   @doc """
+   
   Updates the session policy attached to the user or group for the specified
   Amazon EMR Studio.
 
@@ -4523,12 +4469,10 @@ defmodule AWS.EMR do
       required("StudioId") => String.t()
     }
   """
-
   @spec update_studio_session_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_studio_session_mapping_errors()}
-
   def update_studio_session_mapping(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =

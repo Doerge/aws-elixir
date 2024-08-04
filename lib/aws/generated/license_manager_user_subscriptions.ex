@@ -594,15 +594,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20AssociateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_user_errors()}
-
   def associate_user(%Client{} = client, options \\ []) do
     url_path = "/user/AssociateUser"
 
@@ -639,15 +636,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20DeregisterIdentityProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec deregister_identity_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_identity_provider_errors()}
-
   def deregister_identity_provider(%Client{} = client, options \\ []) do
     url_path = "/identity-provider/DeregisterIdentityProvider"
 
@@ -684,15 +678,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20DisassociateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_user_errors()}
-
   def disassociate_user(%Client{} = client, options \\ []) do
     url_path = "/user/DisassociateUser"
 
@@ -729,15 +720,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListIdentityProviders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_identity_providers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_identity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_providers_errors()}
-
   def list_identity_providers(%Client{} = client, options \\ []) do
     url_path = "/identity-provider/ListIdentityProviders"
 
@@ -774,15 +762,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instances_errors()}
-
   def list_instances(%Client{} = client, options \\ []) do
     url_path = "/instance/ListInstances"
 
@@ -819,15 +804,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListProductSubscriptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_product_subscriptions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_product_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_product_subscriptions_errors()}
-
   def list_product_subscriptions(%Client{} = client, options \\ []) do
     url_path = "/user/ListProductSubscriptions"
 
@@ -864,15 +846,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListUserAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_user_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_user_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_associations_errors()}
-
   def list_user_associations(%Client{} = client, options \\ []) do
     url_path = "/user/ListUserAssociations"
 
@@ -909,15 +888,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20RegisterIdentityProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_identity_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_identity_provider_errors()}
-
   def register_identity_provider(%Client{} = client, options \\ []) do
     url_path = "/identity-provider/RegisterIdentityProvider"
 
@@ -954,15 +930,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20StartProductSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec start_product_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_product_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_product_subscription_errors()}
-
   def start_product_subscription(%Client{} = client, options \\ []) do
     url_path = "/user/StartProductSubscription"
 
@@ -999,15 +972,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20StopProductSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec stop_product_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_product_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_product_subscription_errors()}
-
   def stop_product_subscription(%Client{} = client, options \\ []) do
     url_path = "/user/StopProductSubscription"
 
@@ -1045,15 +1015,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20UpdateIdentityProviderSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_identity_provider_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_identity_provider_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_identity_provider_settings_errors()}
-
   def update_identity_provider_settings(%Client{} = client, options \\ []) do
     url_path = "/identity-provider/UpdateIdentityProviderSettings"
 

@@ -499,15 +499,12 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20CreateConfigurationManager&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_configuration_manager(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_manager_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_manager_errors()}
-
   def create_configuration_manager(%Client{} = client, options \\ []) do
     url_path = "/configurationManager"
 
@@ -544,16 +541,13 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20DeleteConfigurationManager&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:manager_arn` (`t:string`) The ID of the configuration manager.
-
-  ## Optional parameters:
+  * `:manager_arn` (`t:string` required) The ID of the configuration manager.
+  ## Keyword parameters:
   """
-
   @spec delete_configuration_manager(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_manager_errors()}
-
   def delete_configuration_manager(%Client{} = client, manager_arn, options \\ []) do
     url_path = "/configurationManager/#{AWS.Util.encode_uri(manager_arn)}"
 
@@ -600,16 +594,13 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20GetConfigurationManager&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:manager_arn` (`t:string`) The ARN of the configuration manager.
-
-  ## Optional parameters:
+  * `:manager_arn` (`t:string` required) The ARN of the configuration manager.
+  ## Keyword parameters:
   """
-
   @spec get_configuration_manager(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_manager_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_manager_errors()}
-
   def get_configuration_manager(%Client{} = client, manager_arn, options \\ []) do
     url_path = "/configurationManager/#{AWS.Util.encode_uri(manager_arn)}"
 
@@ -645,15 +636,12 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20GetServiceSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_service_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_settings_errors()}
-
   def get_service_settings(%Client{} = client, options \\ []) do
     url_path = "/serviceSettings"
 
@@ -688,15 +676,12 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20ListConfigurationManagers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_configuration_managers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_managers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_managers_errors()}
-
   def list_configuration_managers(%Client{} = client, options \\ []) do
     url_path = "/listConfigurationManagers"
 
@@ -733,15 +718,12 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20ListQuickSetupTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_quick_setup_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_quick_setup_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_quick_setup_types_errors()}
-
   def list_quick_setup_types(%Client{} = client, options \\ []) do
     url_path = "/listQuickSetupTypes"
 
@@ -776,16 +758,14 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource the tag is assigned to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource the tag is
+  assigned to.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -820,16 +800,13 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to tag.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -866,18 +843,16 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to remove tags from.
-  * `:tag_keys` (`t:list[smithy.api#String]`) The keys of the tags to remove from
-  the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to remove tags
+  from.
+  * `:tag_keys` (`t:list[smithy.api#String]` required) The keys of the tags to
+  remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -925,18 +900,16 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20UpdateConfigurationDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the configuration definition you want to update.
-  * `:manager_arn` (`t:string`) The ARN of the configuration manager associated
-  with the definition to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the configuration definition you want to
+  update.
+  * `:manager_arn` (`t:string` required) The ARN of the configuration manager
+  associated with the definition to update.
+  ## Keyword parameters:
   """
-
   @spec update_configuration_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_definition_errors()}
-
   def update_configuration_definition(%Client{} = client, id, manager_arn, options \\ []) do
     url_path =
       "/configurationDefinition/#{AWS.Util.encode_uri(manager_arn)}/#{AWS.Util.encode_uri(id)}"
@@ -974,16 +947,13 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20UpdateConfigurationManager&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:manager_arn` (`t:string`) The ARN of the configuration manager.
-
-  ## Optional parameters:
+  * `:manager_arn` (`t:string` required) The ARN of the configuration manager.
+  ## Keyword parameters:
   """
-
   @spec update_configuration_manager(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_manager_errors()}
-
   def update_configuration_manager(%Client{} = client, manager_arn, options \\ []) do
     url_path = "/configurationManager/#{AWS.Util.encode_uri(manager_arn)}"
 
@@ -1020,15 +990,12 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20UpdateServiceSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_service_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_settings_errors()}
-
   def update_service_settings(%Client{} = client, options \\ []) do
     url_path = "/serviceSettings"
 

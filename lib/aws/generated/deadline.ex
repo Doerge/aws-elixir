@@ -4849,18 +4849,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToFarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The ID of the farm to associate with the member.
-  * `:principal_id` (`t:string`) The member's principal ID to associate with the
-  farm.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The ID of the farm to associate with the
+  member.
+  * `:principal_id` (`t:string` required) The member's principal ID to associate
+  with the farm.
+  ## Keyword parameters:
   """
-
   @spec associate_member_to_farm(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_member_to_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_member_to_farm_errors()}
-
   def associate_member_to_farm(%Client{} = client, farm_id, principal_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/members/#{AWS.Util.encode_uri(principal_id)}"
@@ -4898,19 +4896,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the fleet to associate with the member.
-  * `:fleet_id` (`t:string`) The ID of the fleet to associate with a member.
-  * `:principal_id` (`t:string`) The member's principal ID to associate with a
-  fleet.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the fleet to associate with
+  the member.
+  * `:fleet_id` (`t:string` required) The ID of the fleet to associate with a
+  member.
+  * `:principal_id` (`t:string` required) The member's principal ID to associate
+  with a fleet.
+  ## Keyword parameters:
   """
-
   @spec associate_member_to_fleet(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_member_to_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_member_to_fleet_errors()}
-
   def associate_member_to_fleet(
         %Client{} = client,
         farm_id,
@@ -4954,15 +4951,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the job to associate with the member.
-  * `:job_id` (`t:string`) The job ID to associate with the member.
-  * `:principal_id` (`t:string`) The member's principal ID to associate with the
-  job.
-  * `:queue_id` (`t:string`) The queue ID to associate to the member.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the job to associate with the
+  member.
+  * `:job_id` (`t:string` required) The job ID to associate with the member.
+  * `:principal_id` (`t:string` required) The member's principal ID to associate
+  with the job.
+  * `:queue_id` (`t:string` required) The queue ID to associate to the member.
+  ## Keyword parameters:
   """
-
   @spec associate_member_to_job(
           AWS.Client.t(),
           String.t(),
@@ -4974,7 +4970,6 @@ defmodule AWS.Deadline do
           {:ok, associate_member_to_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_member_to_job_errors()}
-
   def associate_member_to_job(
         %Client{} = client,
         farm_id,
@@ -5019,19 +5014,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the queue to associate with the member.
-  * `:principal_id` (`t:string`) The member's principal ID to associate with the
-  queue.
-  * `:queue_id` (`t:string`) The ID of the queue to associate to the member.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the queue to associate with
+  the member.
+  * `:principal_id` (`t:string` required) The member's principal ID to associate
+  with the queue.
+  * `:queue_id` (`t:string` required) The ID of the queue to associate to the
+  member.
+  ## Keyword parameters:
   """
-
   @spec associate_member_to_queue(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_member_to_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_member_to_queue_errors()}
-
   def associate_member_to_queue(
         %Client{} = client,
         farm_id,
@@ -5076,17 +5070,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeFleetRoleForRead&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the fleet's farm.
-  * `:fleet_id` (`t:string`) The fleet ID.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the fleet's farm.
+  * `:fleet_id` (`t:string` required) The fleet ID.
+  ## Keyword parameters:
   """
-
   @spec assume_fleet_role_for_read(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, assume_fleet_role_for_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_fleet_role_for_read_errors()}
-
   def assume_fleet_role_for_read(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/read-roles"
@@ -5122,13 +5113,12 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeFleetRoleForWorker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the fleet's farm.
-  * `:fleet_id` (`t:string`) The fleet ID that contains the worker.
-  * `:worker_id` (`t:string`) The ID of the worker assuming the fleet role.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the fleet's farm.
+  * `:fleet_id` (`t:string` required) The fleet ID that contains the worker.
+  * `:worker_id` (`t:string` required) The ID of the worker assuming the fleet
+  role.
+  ## Keyword parameters:
   """
-
   @spec assume_fleet_role_for_worker(
           AWS.Client.t(),
           String.t(),
@@ -5139,7 +5129,6 @@ defmodule AWS.Deadline do
           {:ok, assume_fleet_role_for_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_fleet_role_for_worker_errors()}
-
   def assume_fleet_role_for_worker(
         %Client{} = client,
         farm_id,
@@ -5182,17 +5171,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeQueueRoleForRead&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm containing the queue.
-  * `:queue_id` (`t:string`) The queue ID.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm containing the queue.
+  * `:queue_id` (`t:string` required) The queue ID.
+  ## Keyword parameters:
   """
-
   @spec assume_queue_role_for_read(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, assume_queue_role_for_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_queue_role_for_read_errors()}
-
   def assume_queue_role_for_read(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/read-roles"
@@ -5228,19 +5214,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeQueueRoleForUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the queue that the user assumes the
-  role for.
-  * `:queue_id` (`t:string`) The queue ID of the queue that the user assumes the
-  role for.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the queue that the user
+  assumes the role for.
+  * `:queue_id` (`t:string` required) The queue ID of the queue that the user
+  assumes the role for.
+  ## Keyword parameters:
   """
-
   @spec assume_queue_role_for_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, assume_queue_role_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_queue_role_for_user_errors()}
-
   def assume_queue_role_for_user(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/user-roles"
@@ -5276,14 +5259,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeQueueRoleForWorker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the worker assuming the queue role.
-  * `:fleet_id` (`t:string`) The fleet ID of the worker assuming the queue role.
-  * `:worker_id` (`t:string`) The worker ID of the worker assuming the queue role.
-  * `:queue_id` (`t:string`) The queue ID of the worker assuming the queue role.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the worker assuming the queue
+  role.
+  * `:fleet_id` (`t:string` required) The fleet ID of the worker assuming the
+  queue role.
+  * `:worker_id` (`t:string` required) The worker ID of the worker assuming the
+  queue role.
+  * `:queue_id` (`t:string` required) The queue ID of the worker assuming the
+  queue role.
+  ## Keyword parameters:
   """
-
   @spec assume_queue_role_for_worker(
           AWS.Client.t(),
           String.t(),
@@ -5295,7 +5280,6 @@ defmodule AWS.Deadline do
           {:ok, assume_queue_role_for_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_queue_role_for_worker_errors()}
-
   def assume_queue_role_for_worker(
         %Client{} = client,
         farm_id,
@@ -5339,21 +5323,19 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20BatchGetJobEntity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the worker that's fetching job details.
-  The worker must have an assignment on a job to fetch job details.
-  * `:fleet_id` (`t:string`) The fleet ID of the worker that's fetching job
+  * `:farm_id` (`t:string` required) The farm ID of the worker that's fetching job
   details. The worker must have an assignment on a job to fetch job details.
-  * `:worker_id` (`t:string`) The worker ID of the worker containing the job
-  details to get.
-
-  ## Optional parameters:
+  * `:fleet_id` (`t:string` required) The fleet ID of the worker that's fetching
+  job details. The worker must have an assignment on a job to fetch job
+  details.
+  * `:worker_id` (`t:string` required) The worker ID of the worker containing the
+  job details to get.
+  ## Keyword parameters:
   """
-
   @spec batch_get_job_entity(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_job_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_job_entity_errors()}
-
   def batch_get_job_entity(%Client{} = client, farm_id, fleet_id, worker_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}/batchGetJobEntity"
@@ -5391,18 +5373,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CopyJobTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to copy.
-  * `:job_id` (`t:string`) The job ID to copy.
-  * `:queue_id` (`t:string`) The queue ID to copy.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to copy.
+  * `:job_id` (`t:string` required) The job ID to copy.
+  * `:queue_id` (`t:string` required) The queue ID to copy.
+  ## Keyword parameters:
   """
-
   @spec copy_job_template(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, copy_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_job_template_errors()}
-
   def copy_job_template(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/template"
@@ -5440,18 +5419,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateBudget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to include in this budget.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to include in this budget.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec create_budget(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_budget_errors()}
-
   def create_budget(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets"
 
@@ -5502,17 +5478,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateFarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec create_farm(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_farm_errors()}
-
   def create_farm(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/farms"
 
@@ -5562,18 +5535,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the fleet.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm to connect to the
+  fleet.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec create_fleet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
-
   def create_fleet(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets"
 
@@ -5622,19 +5593,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the job.
-  * `:queue_id` (`t:string`) The ID of the queue that the job is submitted to.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm to connect to the
+  job.
+  * `:queue_id` (`t:string` required) The ID of the queue that the job is
+  submitted to.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec create_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
-
   def create_job(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs"
@@ -5684,17 +5654,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateLicenseEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec create_license_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_endpoint_errors()}
-
   def create_license_endpoint(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/license-endpoints"
 
@@ -5745,17 +5712,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec create_monitor(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitor_errors()}
-
   def create_monitor(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/monitors"
 
@@ -5805,18 +5769,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the queue.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm to connect to the
+  queue.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec create_queue(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_queue_errors()}
-
   def create_queue(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues"
 
@@ -5864,19 +5826,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateQueueEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the environment.
-  * `:queue_id` (`t:string`) The queue ID to connect the queue and environment.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm to connect to the
+  environment.
+  * `:queue_id` (`t:string` required) The queue ID to connect the queue and
+  environment.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec create_queue_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_queue_environment_errors()}
-
   def create_queue_environment(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/environments"
@@ -5925,16 +5886,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateQueueFleetAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The ID of the farm that the queue and fleet belong to.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The ID of the farm that the queue and fleet
+  belong to.
+  ## Keyword parameters:
   """
-
   @spec create_queue_fleet_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_queue_fleet_association_errors()}
-
   def create_queue_fleet_association(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations"
 
@@ -5972,19 +5931,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateStorageProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the storage
-  profile.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm to connect to the
+  storage profile.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec create_storage_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_storage_profile_errors()}
-
   def create_storage_profile(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles"
 
@@ -6035,19 +5991,17 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateWorker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the worker.
-  * `:fleet_id` (`t:string`) The fleet ID to connect to the worker.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm to connect to the
+  worker.
+  * `:fleet_id` (`t:string` required) The fleet ID to connect to the worker.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec create_worker(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_worker_errors()}
-
   def create_worker(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers"
@@ -6096,17 +6050,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteBudget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:budget_id` (`t:string`) The budget ID of the budget to delete.
-  * `:farm_id` (`t:string`) The farm ID of the farm to remove from the budget.
-
-  ## Optional parameters:
+  * `:budget_id` (`t:string` required) The budget ID of the budget to delete.
+  * `:farm_id` (`t:string` required) The farm ID of the farm to remove from the
+  budget.
+  ## Keyword parameters:
   """
-
   @spec delete_budget(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_budget_errors()}
-
   def delete_budget(%Client{} = client, budget_id, farm_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets/#{AWS.Util.encode_uri(budget_id)}"
@@ -6154,16 +6106,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteFarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to delete.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_farm(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_farm_errors()}
-
   def delete_farm(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}"
 
@@ -6210,19 +6159,17 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to remove from the fleet.
-  * `:fleet_id` (`t:string`) The fleet ID of the fleet to delete.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm to remove from the
+  fleet.
+  * `:fleet_id` (`t:string` required) The fleet ID of the fleet to delete.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec delete_fleet(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
-
   def delete_fleet(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}"
@@ -6281,17 +6228,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteLicenseEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:license_endpoint_id` (`t:string`) The license endpoint ID of the license
-  endpoint to delete.
-
-  ## Optional parameters:
+  * `:license_endpoint_id` (`t:string` required) The license endpoint ID of the
+  license endpoint to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_license_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_license_endpoint_errors()}
-
   def delete_license_endpoint(%Client{} = client, license_endpoint_id, options \\ []) do
     url_path = "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}"
 
@@ -6338,18 +6282,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteMeteredProduct&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:license_endpoint_id` (`t:string`) The ID of the license endpoint from which
-  to remove the metered product.
-  * `:product_id` (`t:string`) The product ID to remove from the license endpoint.
-
-  ## Optional parameters:
+  * `:license_endpoint_id` (`t:string` required) The ID of the license endpoint
+  from which to remove the metered product.
+  * `:product_id` (`t:string` required) The product ID to remove from the license
+  endpoint.
+  ## Keyword parameters:
   """
-
   @spec delete_metered_product(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_metered_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_metered_product_errors()}
-
   def delete_metered_product(%Client{} = client, license_endpoint_id, product_id, options \\ []) do
     url_path =
       "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}/metered-products/#{AWS.Util.encode_uri(product_id)}"
@@ -6398,18 +6340,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_id` (`t:string`) The unique identifier of the monitor to delete.
-  This ID is returned by the CreateMonitor operation, and is included in the
-  response to the GetMonitor operation.
-
-  ## Optional parameters:
+  * `:monitor_id` (`t:string` required) The unique identifier of the monitor to
+  delete. This ID is returned by the CreateMonitor operation, and is included
+  in the response to the GetMonitor operation.
+  ## Keyword parameters:
   """
-
   @spec delete_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitor_errors()}
-
   def delete_monitor(%Client{} = client, monitor_id, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
 
@@ -6456,17 +6395,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The ID of the farm from which to remove the queue.
-  * `:queue_id` (`t:string`) The queue ID of the queue to delete.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The ID of the farm from which to remove the
+  queue.
+  * `:queue_id` (`t:string` required) The queue ID of the queue to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queue_errors()}
-
   def delete_queue(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}"
@@ -6514,20 +6451,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteQueueEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm from which to remove the queue
-  environment.
-  * `:queue_environment_id` (`t:string`) The queue environment ID of the queue
-  environment to delete.
-  * `:queue_id` (`t:string`) The queue ID of the queue environment to delete.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm from which to remove
+  the queue environment.
+  * `:queue_environment_id` (`t:string` required) The queue environment ID of the
+  queue environment to delete.
+  * `:queue_id` (`t:string` required) The queue ID of the queue environment to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_queue_environment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queue_environment_errors()}
-
   def delete_queue_environment(
         %Client{} = client,
         farm_id,
@@ -6581,14 +6516,12 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteQueueFleetAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm that holds the queue-fleet
-  association.
-  * `:fleet_id` (`t:string`) The fleet ID of the queue-fleet association.
-  * `:queue_id` (`t:string`) The queue ID of the queue-fleet association.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm that holds the
+  queue-fleet association.
+  * `:fleet_id` (`t:string` required) The fleet ID of the queue-fleet association.
+  * `:queue_id` (`t:string` required) The queue ID of the queue-fleet association.
+  ## Keyword parameters:
   """
-
   @spec delete_queue_fleet_association(
           AWS.Client.t(),
           String.t(),
@@ -6599,7 +6532,6 @@ defmodule AWS.Deadline do
           {:ok, delete_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queue_fleet_association_errors()}
-
   def delete_queue_fleet_association(
         %Client{} = client,
         farm_id,
@@ -6653,19 +6585,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteStorageProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm from which to remove the
-  storage profile.
-  * `:storage_profile_id` (`t:string`) The storage profile ID of the storage
-  profile to delete.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm from which to remove
+  the storage profile.
+  * `:storage_profile_id` (`t:string` required) The storage profile ID of the
+  storage profile to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_storage_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_storage_profile_errors()}
-
   def delete_storage_profile(%Client{} = client, farm_id, storage_profile_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles/#{AWS.Util.encode_uri(storage_profile_id)}"
@@ -6713,18 +6642,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteWorker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the worker to delete.
-  * `:fleet_id` (`t:string`) The fleet ID of the worker to delete.
-  * `:worker_id` (`t:string`) The worker ID of the worker to delete.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the worker to delete.
+  * `:fleet_id` (`t:string` required) The fleet ID of the worker to delete.
+  * `:worker_id` (`t:string` required) The worker ID of the worker to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_worker(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_worker_errors()}
-
   def delete_worker(%Client{} = client, farm_id, fleet_id, worker_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}"
@@ -6772,19 +6698,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromFarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to disassociate from the
-  member.
-  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
-  farm.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm to disassociate from
+  the member.
+  * `:principal_id` (`t:string` required) A member's principal ID to disassociate
+  from a farm.
+  ## Keyword parameters:
   """
-
   @spec disassociate_member_from_farm(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_member_from_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_member_from_farm_errors()}
-
   def disassociate_member_from_farm(%Client{} = client, farm_id, principal_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/members/#{AWS.Util.encode_uri(principal_id)}"
@@ -6832,16 +6755,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the fleet to disassociate a member
-  from.
-  * `:fleet_id` (`t:string`) The fleet ID of the fleet to from which to
+  * `:farm_id` (`t:string` required) The farm ID of the fleet to disassociate a
+  member from.
+  * `:fleet_id` (`t:string` required) The fleet ID of the fleet to from which to
   disassociate a member.
-  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
-  fleet.
-
-  ## Optional parameters:
+  * `:principal_id` (`t:string` required) A member's principal ID to disassociate
+  from a fleet.
+  ## Keyword parameters:
   """
-
   @spec disassociate_member_from_fleet(
           AWS.Client.t(),
           String.t(),
@@ -6852,7 +6773,6 @@ defmodule AWS.Deadline do
           {:ok, disassociate_member_from_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_member_from_fleet_errors()}
-
   def disassociate_member_from_fleet(
         %Client{} = client,
         farm_id,
@@ -6906,17 +6826,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the job to disassociate from the
-  member.
-  * `:job_id` (`t:string`) The job ID to disassociate from a member in a job.
-  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
+  * `:farm_id` (`t:string` required) The farm ID for the job to disassociate from
+  the member.
+  * `:job_id` (`t:string` required) The job ID to disassociate from a member in a
   job.
-  * `:queue_id` (`t:string`) The queue ID connected to a job for which you're
-  disassociating a member.
-
-  ## Optional parameters:
+  * `:principal_id` (`t:string` required) A member's principal ID to disassociate
+  from a job.
+  * `:queue_id` (`t:string` required) The queue ID connected to a job for which
+  you're disassociating a member.
+  ## Keyword parameters:
   """
-
   @spec disassociate_member_from_job(
           AWS.Client.t(),
           String.t(),
@@ -6928,7 +6847,6 @@ defmodule AWS.Deadline do
           {:ok, disassociate_member_from_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_member_from_job_errors()}
-
   def disassociate_member_from_job(
         %Client{} = client,
         farm_id,
@@ -6983,16 +6901,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the queue to disassociate from a
-  member.
-  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
-  queue.
-  * `:queue_id` (`t:string`) The queue ID of the queue in which you're
+  * `:farm_id` (`t:string` required) The farm ID for the queue to disassociate
+  from a member.
+  * `:principal_id` (`t:string` required) A member's principal ID to disassociate
+  from a queue.
+  * `:queue_id` (`t:string` required) The queue ID of the queue in which you're
   disassociating from a member.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_member_from_queue(
           AWS.Client.t(),
           String.t(),
@@ -7003,7 +6919,6 @@ defmodule AWS.Deadline do
           {:ok, disassociate_member_from_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_member_from_queue_errors()}
-
   def disassociate_member_from_queue(
         %Client{} = client,
         farm_id,
@@ -7057,17 +6972,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetBudget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:budget_id` (`t:string`) The budget ID.
-  * `:farm_id` (`t:string`) The farm ID of the farm connected to the budget.
-
-  ## Optional parameters:
+  * `:budget_id` (`t:string` required) The budget ID.
+  * `:farm_id` (`t:string` required) The farm ID of the farm connected to the
+  budget.
+  ## Keyword parameters:
   """
-
   @spec get_budget(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_budget_errors()}
-
   def get_budget(%Client{} = client, budget_id, farm_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets/#{AWS.Util.encode_uri(budget_id)}"
@@ -7103,16 +7016,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetFarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm.
+  ## Keyword parameters:
   """
-
   @spec get_farm(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_farm_errors()}
-
   def get_farm(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}"
 
@@ -7147,17 +7057,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm in the fleet.
-  * `:fleet_id` (`t:string`) The fleet ID of the fleet to get.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm in the fleet.
+  * `:fleet_id` (`t:string` required) The fleet ID of the fleet to get.
+  ## Keyword parameters:
   """
-
   @spec get_fleet(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_fleet_errors()}
-
   def get_fleet(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}"
@@ -7193,18 +7100,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm in the job.
-  * `:job_id` (`t:string`) The job ID.
-  * `:queue_id` (`t:string`) The queue ID associated with the job.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm in the job.
+  * `:job_id` (`t:string` required) The job ID.
+  * `:queue_id` (`t:string` required) The queue ID associated with the job.
+  ## Keyword parameters:
   """
-
   @spec get_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
-
   def get_job(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -7240,16 +7144,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetLicenseEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:license_endpoint_id` (`t:string`) The license endpoint ID.
-
-  ## Optional parameters:
+  * `:license_endpoint_id` (`t:string` required) The license endpoint ID.
+  ## Keyword parameters:
   """
-
   @spec get_license_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_endpoint_errors()}
-
   def get_license_endpoint(%Client{} = client, license_endpoint_id, options \\ []) do
     url_path = "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}"
 
@@ -7284,17 +7185,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_id` (`t:string`) The unique identifier for the monitor. This ID is
-  returned by the CreateMonitor operation.
-
-  ## Optional parameters:
+  * `:monitor_id` (`t:string` required) The unique identifier for the monitor.
+  This ID is returned by the CreateMonitor operation.
+  ## Keyword parameters:
   """
-
   @spec get_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitor_errors()}
-
   def get_monitor(%Client{} = client, monitor_id, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
 
@@ -7329,17 +7227,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm in the queue.
-  * `:queue_id` (`t:string`) The queue ID for the queue to retrieve.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm in the queue.
+  * `:queue_id` (`t:string` required) The queue ID for the queue to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_queue_errors()}
-
   def get_queue(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}"
@@ -7375,18 +7270,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetQueueEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the queue environment.
-  * `:queue_environment_id` (`t:string`) The queue environment ID.
-  * `:queue_id` (`t:string`) The queue ID for the queue environment.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the queue environment.
+  * `:queue_environment_id` (`t:string` required) The queue environment ID.
+  * `:queue_id` (`t:string` required) The queue ID for the queue environment.
+  ## Keyword parameters:
   """
-
   @spec get_queue_environment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_queue_environment_errors()}
-
   def get_queue_environment(
         %Client{} = client,
         farm_id,
@@ -7428,14 +7320,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetQueueFleetAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm that contains the queue-fleet
+  * `:farm_id` (`t:string` required) The farm ID of the farm that contains the
+  queue-fleet association.
+  * `:fleet_id` (`t:string` required) The fleet ID for the queue-fleet
   association.
-  * `:fleet_id` (`t:string`) The fleet ID for the queue-fleet association.
-  * `:queue_id` (`t:string`) The queue ID for the queue-fleet association.
-
-  ## Optional parameters:
+  * `:queue_id` (`t:string` required) The queue ID for the queue-fleet
+  association.
+  ## Keyword parameters:
   """
-
   @spec get_queue_fleet_association(
           AWS.Client.t(),
           String.t(),
@@ -7446,7 +7338,6 @@ defmodule AWS.Deadline do
           {:ok, get_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_queue_fleet_association_errors()}
-
   def get_queue_fleet_association(%Client{} = client, farm_id, fleet_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations/#{AWS.Util.encode_uri(queue_id)}/#{AWS.Util.encode_uri(fleet_id)}"
@@ -7482,19 +7373,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the session.
-  * `:job_id` (`t:string`) The job ID for the session.
-  * `:queue_id` (`t:string`) The queue ID for the session.
-  * `:session_id` (`t:string`) The session ID.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the session.
+  * `:job_id` (`t:string` required) The job ID for the session.
+  * `:queue_id` (`t:string` required) The queue ID for the session.
+  * `:session_id` (`t:string` required) The session ID.
+  ## Keyword parameters:
   """
-
   @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
-
   def get_session(%Client{} = client, farm_id, job_id, queue_id, session_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
@@ -7530,14 +7418,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetSessionAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the session action.
-  * `:job_id` (`t:string`) The job ID for the session.
-  * `:queue_id` (`t:string`) The queue ID for the session action.
-  * `:session_action_id` (`t:string`) The session action ID for the session.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the session action.
+  * `:job_id` (`t:string` required) The job ID for the session.
+  * `:queue_id` (`t:string` required) The queue ID for the session action.
+  * `:session_action_id` (`t:string` required) The session action ID for the
+  session.
+  ## Keyword parameters:
   """
-
   @spec get_session_action(
           AWS.Client.t(),
           String.t(),
@@ -7549,7 +7436,6 @@ defmodule AWS.Deadline do
           {:ok, get_session_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_action_errors()}
-
   def get_session_action(
         %Client{} = client,
         farm_id,
@@ -7595,25 +7481,22 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetSessionsStatisticsAggregation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The identifier of the farm to include in the
+  * `:farm_id` (`t:string` required) The identifier of the farm to include in the
   statistics. This should be the same as the farm ID used in the call to the
   StartSessionsStatisticsAggregation operation.
-  * `:aggregation_id` (`t:string`) The identifier returned by the
+  * `:aggregation_id` (`t:string` required) The identifier returned by the
   StartSessionsStatisticsAggregation operation that identifies the aggregated
   statistics.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec get_sessions_statistics_aggregation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sessions_statistics_aggregation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sessions_statistics_aggregation_errors()}
-
   def get_sessions_statistics_aggregation(
         %Client{} = client,
         farm_id,
@@ -7672,19 +7555,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetStep&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the step.
-  * `:job_id` (`t:string`) The job ID for the step.
-  * `:queue_id` (`t:string`) The queue ID for the step.
-  * `:step_id` (`t:string`) The step ID.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the step.
+  * `:job_id` (`t:string` required) The job ID for the step.
+  * `:queue_id` (`t:string` required) The queue ID for the step.
+  * `:step_id` (`t:string` required) The step ID.
+  ## Keyword parameters:
   """
-
   @spec get_step(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_step_errors()}
-
   def get_step(%Client{} = client, farm_id, job_id, queue_id, step_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}"
@@ -7720,17 +7600,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetStorageProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the storage profile.
-  * `:storage_profile_id` (`t:string`) The storage profile ID.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the storage profile.
+  * `:storage_profile_id` (`t:string` required) The storage profile ID.
+  ## Keyword parameters:
   """
-
   @spec get_storage_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_storage_profile_errors()}
-
   def get_storage_profile(%Client{} = client, farm_id, storage_profile_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles/#{AWS.Util.encode_uri(storage_profile_id)}"
@@ -7766,14 +7643,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetStorageProfileForQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the queue in storage profile.
-  * `:queue_id` (`t:string`) The queue ID the queue in the storage profile.
-  * `:storage_profile_id` (`t:string`) The storage profile ID for the storage
-  profile in the queue.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the queue in storage profile.
+  * `:queue_id` (`t:string` required) The queue ID the queue in the storage
+  profile.
+  * `:storage_profile_id` (`t:string` required) The storage profile ID for the
+  storage profile in the queue.
+  ## Keyword parameters:
   """
-
   @spec get_storage_profile_for_queue(
           AWS.Client.t(),
           String.t(),
@@ -7784,7 +7660,6 @@ defmodule AWS.Deadline do
           {:ok, get_storage_profile_for_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_storage_profile_for_queue_errors()}
-
   def get_storage_profile_for_queue(
         %Client{} = client,
         farm_id,
@@ -7826,15 +7701,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm connected to the task.
-  * `:job_id` (`t:string`) The job ID of the job connected to the task.
-  * `:queue_id` (`t:string`) The queue ID for the queue connected to the task.
-  * `:step_id` (`t:string`) The step ID for the step connected to the task.
-  * `:task_id` (`t:string`) The task ID.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the farm connected to the
+  task.
+  * `:job_id` (`t:string` required) The job ID of the job connected to the task.
+  * `:queue_id` (`t:string` required) The queue ID for the queue connected to the
+  task.
+  * `:step_id` (`t:string` required) The step ID for the step connected to the
+  task.
+  * `:task_id` (`t:string` required) The task ID.
+  ## Keyword parameters:
   """
-
   @spec get_task(
           AWS.Client.t(),
           String.t(),
@@ -7847,7 +7723,6 @@ defmodule AWS.Deadline do
           {:ok, get_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_task_errors()}
-
   def get_task(%Client{} = client, farm_id, job_id, queue_id, step_id, task_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/tasks/#{AWS.Util.encode_uri(task_id)}"
@@ -7883,18 +7758,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetWorker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the worker.
-  * `:fleet_id` (`t:string`) The fleet ID of the worker.
-  * `:worker_id` (`t:string`) The worker ID.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the worker.
+  * `:fleet_id` (`t:string` required) The fleet ID of the worker.
+  * `:worker_id` (`t:string` required) The worker ID.
+  ## Keyword parameters:
   """
-
   @spec get_worker(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_worker_errors()}
-
   def get_worker(%Client{} = client, farm_id, fleet_id, worker_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}"
@@ -7930,19 +7802,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListAvailableMeteredProducts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_available_metered_products(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_available_metered_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_metered_products_errors()}
-
   def list_available_metered_products(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/metered-products"
 
@@ -7995,21 +7864,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListBudgets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID associated with the budgets.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID associated with the budgets.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   * `:status` (`t:enum["ACTIVE|INACTIVE"]`) The status to list for the budgets.
   """
-
   @spec list_budgets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_budgets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_budgets_errors()}
-
   def list_budgets(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets"
 
@@ -8069,20 +7935,17 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFarmMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_farm_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_farm_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_farm_members_errors()}
-
   def list_farm_members(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/members"
 
@@ -8135,8 +7998,7 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFarms&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
@@ -8144,12 +8006,10 @@ defmodule AWS.Deadline do
   * `:principal_id` (`t:string`) The principal ID of the member to list on the
   farm.
   """
-
   @spec list_farms(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_farms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_farms_errors()}
-
   def list_farms(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/farms"
 
@@ -8209,21 +8069,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFleetMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the fleet.
-  * `:fleet_id` (`t:string`) The fleet ID to include on the list.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the fleet.
+  * `:fleet_id` (`t:string` required) The fleet ID to include on the list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_fleet_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_fleet_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleet_members_errors()}
-
   def list_fleet_members(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/members"
@@ -8277,9 +8134,8 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFleets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the fleets.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the fleets.
+  ## Keyword parameters:
   * `:display_name` (`t:string`) The display names of a list of fleets.
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
@@ -8291,12 +8147,10 @@ defmodule AWS.Deadline do
   (`t:enum["ACTIVE|CREATE_FAILED|CREATE_IN_PROGRESS|UPDATE_FAILED|UPDATE_IN_PROGRESS"]`)
   The status of the fleet.
   """
-
   @spec list_fleets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_errors()}
-
   def list_fleets(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets"
 
@@ -8376,22 +8230,19 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListJobMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the job to list.
-  * `:job_id` (`t:string`) The job ID to include on the list.
-  * `:queue_id` (`t:string`) The queue ID to include on the list.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the job to list.
+  * `:job_id` (`t:string` required) The job ID to include on the list.
+  * `:queue_id` (`t:string` required) The queue ID to include on the list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_job_members(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_members_errors()}
-
   def list_job_members(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/members"
@@ -8445,22 +8296,19 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the jobs.
-  * `:queue_id` (`t:string`) The queue ID for the job.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the jobs.
+  * `:queue_id` (`t:string` required) The queue ID for the job.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   * `:principal_id` (`t:string`) The principal ID of the members on the jobs.
   """
-
   @spec list_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-
   def list_jobs(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs"
@@ -8521,19 +8369,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListLicenseEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_license_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_license_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_endpoints_errors()}
-
   def list_license_endpoints(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/license-endpoints"
 
@@ -8586,21 +8431,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListMeteredProducts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:license_endpoint_id` (`t:string`) The license endpoint ID to include on the
-  list of metered products.
-
-  ## Optional parameters:
+  * `:license_endpoint_id` (`t:string` required) The license endpoint ID to
+  include on the list of metered products.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_metered_products(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_metered_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metered_products_errors()}
-
   def list_metered_products(%Client{} = client, license_endpoint_id, options \\ []) do
     url_path =
       "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}/metered-products"
@@ -8654,19 +8496,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListMonitors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitors_errors()}
-
   def list_monitors(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/monitors"
 
@@ -8719,21 +8558,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueueEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the queue environment list.
-  * `:queue_id` (`t:string`) The queue ID for the queue environment list.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the queue environment list.
+  * `:queue_id` (`t:string` required) The queue ID for the queue environment list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_queue_environments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queue_environments_errors()}
-
   def list_queue_environments(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/environments"
@@ -8787,9 +8623,9 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueueFleetAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the queue-fleet association list.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the queue-fleet association
+  list.
+  ## Keyword parameters:
   * `:fleet_id` (`t:string`) The fleet ID for the queue-fleet association list.
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
@@ -8797,12 +8633,10 @@ defmodule AWS.Deadline do
   start from the beginning.
   * `:queue_id` (`t:string`) The queue ID for the queue-fleet association list.
   """
-
   @spec list_queue_fleet_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_fleet_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queue_fleet_associations_errors()}
-
   def list_queue_fleet_associations(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations"
 
@@ -8869,21 +8703,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueueMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the queue.
-  * `:queue_id` (`t:string`) The queue ID to include on the list.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the queue.
+  * `:queue_id` (`t:string` required) The queue ID to include on the list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_queue_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queue_members_errors()}
-
   def list_queue_members(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/members"
@@ -8937,9 +8768,8 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueues&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the queue.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the queue.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
@@ -8950,12 +8780,10 @@ defmodule AWS.Deadline do
   * `:status` (`t:enum["IDLE|SCHEDULING|SCHEDULING_BLOCKED"]`) The status of the
   queues listed.
   """
-
   @spec list_queues(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queues_errors()}
-
   def list_queues(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues"
 
@@ -9022,11 +8850,10 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSessionActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the session actions list.
-  * `:job_id` (`t:string`) The job ID for the session actions list.
-  * `:queue_id` (`t:string`) The queue ID for the session actions list.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the session actions list.
+  * `:job_id` (`t:string` required) The job ID for the session actions list.
+  * `:queue_id` (`t:string` required) The queue ID for the session actions list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
@@ -9035,12 +8862,10 @@ defmodule AWS.Deadline do
   list.
   * `:task_id` (`t:string`) The task ID for the session actions list.
   """
-
   @spec list_session_actions(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_session_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_session_actions_errors()}
-
   def list_session_actions(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/session-actions"
@@ -9108,22 +8933,19 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSessions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the list of sessions.
-  * `:job_id` (`t:string`) The job ID for the list of sessions.
-  * `:queue_id` (`t:string`) The queue ID for the list of sessions
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the list of sessions.
+  * `:job_id` (`t:string` required) The job ID for the list of sessions.
+  * `:queue_id` (`t:string` required) The queue ID for the list of sessions
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_sessions(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sessions_errors()}
-
   def list_sessions(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/sessions"
@@ -9177,22 +8999,19 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSessionsForWorker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the session.
-  * `:fleet_id` (`t:string`) The fleet ID for the session.
-  * `:worker_id` (`t:string`) The worker ID for the session.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the session.
+  * `:fleet_id` (`t:string` required) The fleet ID for the session.
+  * `:worker_id` (`t:string` required) The worker ID for the session.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_sessions_for_worker(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sessions_for_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sessions_for_worker_errors()}
-
   def list_sessions_for_worker(%Client{} = client, farm_id, fleet_id, worker_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}/sessions"
@@ -9246,18 +9065,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStepConsumers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the list of step consumers.
-  * `:job_id` (`t:string`) The job ID for the step consumer.
-  * `:queue_id` (`t:string`) The queue ID for the step consumer.
-  * `:step_id` (`t:string`) The step ID to include on the list.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the list of step consumers.
+  * `:job_id` (`t:string` required) The job ID for the step consumer.
+  * `:queue_id` (`t:string` required) The queue ID for the step consumer.
+  * `:step_id` (`t:string` required) The step ID to include on the list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_step_consumers(
           AWS.Client.t(),
           String.t(),
@@ -9269,7 +9086,6 @@ defmodule AWS.Deadline do
           {:ok, list_step_consumers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_step_consumers_errors()}
-
   def list_step_consumers(%Client{} = client, farm_id, job_id, queue_id, step_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/consumers"
@@ -9323,18 +9139,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStepDependencies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID for the step dependencies list.
-  * `:job_id` (`t:string`) The job ID for the step dependencies list.
-  * `:queue_id` (`t:string`) The queue ID for the step dependencies list.
-  * `:step_id` (`t:string`) The step ID to include on the list.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID for the step dependencies list.
+  * `:job_id` (`t:string` required) The job ID for the step dependencies list.
+  * `:queue_id` (`t:string` required) The queue ID for the step dependencies list.
+  * `:step_id` (`t:string` required) The step ID to include on the list.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_step_dependencies(
           AWS.Client.t(),
           String.t(),
@@ -9346,7 +9160,6 @@ defmodule AWS.Deadline do
           {:ok, list_step_dependencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_step_dependencies_errors()}
-
   def list_step_dependencies(
         %Client{} = client,
         farm_id,
@@ -9407,22 +9220,20 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSteps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to include on the list of steps.
-  * `:job_id` (`t:string`) The job ID to include on the list of steps.
-  * `:queue_id` (`t:string`) The queue ID to include on the list of steps.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to include on the list of steps.
+  * `:job_id` (`t:string` required) The job ID to include on the list of steps.
+  * `:queue_id` (`t:string` required) The queue ID to include on the list of
+  steps.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_steps(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_steps_errors()}
-
   def list_steps(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps"
@@ -9476,20 +9287,17 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStorageProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the storage profile.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the storage profile.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_storage_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_storage_profiles_errors()}
-
   def list_storage_profiles(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles"
 
@@ -9542,21 +9350,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStorageProfilesForQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the queue's storage profile.
-  * `:queue_id` (`t:string`) The queue ID for the storage profile.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the queue's storage profile.
+  * `:queue_id` (`t:string` required) The queue ID for the storage profile.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_storage_profiles_for_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_profiles_for_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_storage_profiles_for_queue_errors()}
-
   def list_storage_profiles_for_queue(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/storage-profiles"
@@ -9610,16 +9415,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The resource ARN to list tags for.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The resource ARN to list tags for.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2023-10-12/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -9654,23 +9456,20 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID connected to the tasks.
-  * `:job_id` (`t:string`) The job ID for the tasks.
-  * `:queue_id` (`t:string`) The queue ID connected to the tasks.
-  * `:step_id` (`t:string`) The step ID for the tasks.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID connected to the tasks.
+  * `:job_id` (`t:string` required) The job ID for the tasks.
+  * `:queue_id` (`t:string` required) The queue ID connected to the tasks.
+  * `:step_id` (`t:string` required) The step ID for the tasks.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_tasks(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tasks_errors()}
-
   def list_tasks(%Client{} = client, farm_id, job_id, queue_id, step_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/tasks"
@@ -9724,21 +9523,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListWorkers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID connected to the workers.
-  * `:fleet_id` (`t:string`) The fleet ID of the workers.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID connected to the workers.
+  * `:fleet_id` (`t:string` required) The fleet ID of the workers.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. Use this
   parameter with NextToken to get results as a set of sequential pages.
   * `:next_token` (`t:string`) The token for the next set of results, or null to
   start from the beginning.
   """
-
   @spec list_workers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workers_errors()}
-
   def list_workers(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers"
@@ -9792,18 +9588,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20PutMeteredProduct&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:license_endpoint_id` (`t:string`) The license endpoint ID to add to the
-  metered product.
-  * `:product_id` (`t:string`) The product ID to add to the metered product.
-
-  ## Optional parameters:
+  * `:license_endpoint_id` (`t:string` required) The license endpoint ID to add to
+  the metered product.
+  * `:product_id` (`t:string` required) The product ID to add to the metered
+  product.
+  ## Keyword parameters:
   """
-
   @spec put_metered_product(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_metered_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_metered_product_errors()}
-
   def put_metered_product(%Client{} = client, license_endpoint_id, product_id, options \\ []) do
     url_path =
       "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}/metered-products/#{AWS.Util.encode_uri(product_id)}"
@@ -9841,16 +9635,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the job.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the job.
+  ## Keyword parameters:
   """
-
   @spec search_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_jobs_errors()}
-
   def search_jobs(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/jobs"
 
@@ -9887,16 +9678,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchSteps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to use for the step search.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to use for the step search.
+  ## Keyword parameters:
   """
-
   @spec search_steps(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_steps_errors()}
-
   def search_steps(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/steps"
 
@@ -9933,16 +9721,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the task.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the task.
+  ## Keyword parameters:
   """
-
   @spec search_tasks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_tasks_errors()}
-
   def search_tasks(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/tasks"
 
@@ -9979,16 +9764,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchWorkers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID in the workers search.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID in the workers search.
+  ## Keyword parameters:
   """
-
   @spec search_workers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_workers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_workers_errors()}
-
   def search_workers(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/workers"
 
@@ -10028,17 +9810,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20StartSessionsStatisticsAggregation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The identifier of the farm that contains queues or
-  fleets to return statistics for.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The identifier of the farm that contains
+  queues or fleets to return statistics for.
+  ## Keyword parameters:
   """
-
   @spec start_sessions_statistics_aggregation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_sessions_statistics_aggregation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_sessions_statistics_aggregation_errors()}
-
   def start_sessions_statistics_aggregation(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/sessions-statistics-aggregation"
 
@@ -10075,16 +9854,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to apply tags to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to apply tags
+  to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2023-10-12/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -10121,17 +9898,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to remove the tag from.
-  * `:tag_keys` (`t:list[com.amazonaws.deadline#String]`) They keys of the tag.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource to remove the
+  tag from.
+  * `:tag_keys` (`t:list[com.amazonaws.deadline#String]` required) They keys of
+  the tag.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/2023-10-12/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -10179,19 +9955,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateBudget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:budget_id` (`t:string`) The budget ID to update.
-  * `:farm_id` (`t:string`) The farm ID of the budget to update.
-
-  ## Optional parameters:
+  * `:budget_id` (`t:string` required) The budget ID to update.
+  * `:farm_id` (`t:string` required) The farm ID of the budget to update.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec update_budget(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_budget_errors()}
-
   def update_budget(%Client{} = client, budget_id, farm_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets/#{AWS.Util.encode_uri(budget_id)}"
@@ -10250,16 +10023,13 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateFarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to update.
+  ## Keyword parameters:
   """
-
   @spec update_farm(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_farm_errors()}
-
   def update_farm(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}"
 
@@ -10306,19 +10076,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to update.
-  * `:fleet_id` (`t:string`) The fleet ID to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to update.
+  * `:fleet_id` (`t:string` required) The fleet ID to update.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec update_fleet(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_errors()}
-
   def update_fleet(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}"
@@ -10377,20 +10144,17 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the job to update.
-  * `:job_id` (`t:string`) The job ID to update.
-  * `:queue_id` (`t:string`) The queue ID of the job to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the job to update.
+  * `:job_id` (`t:string` required) The job ID to update.
+  * `:queue_id` (`t:string` required) The queue ID of the job to update.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec update_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_errors()}
-
   def update_job(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -10450,16 +10214,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:monitor_id` (`t:string`) The unique identifier of the monitor to update.
-
-  ## Optional parameters:
+  * `:monitor_id` (`t:string` required) The unique identifier of the monitor to
+  update.
+  ## Keyword parameters:
   """
-
   @spec update_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitor_errors()}
-
   def update_monitor(%Client{} = client, monitor_id, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
 
@@ -10506,18 +10268,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to update in the queue.
-  * `:queue_id` (`t:string`) The queue ID to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to update in the queue.
+  * `:queue_id` (`t:string` required) The queue ID to update.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The idempotency token to update in the queue.
   """
-
   @spec update_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_errors()}
-
   def update_queue(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}"
@@ -10576,20 +10335,20 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateQueueEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID of the queue environment to update.
-  * `:queue_environment_id` (`t:string`) The queue environment ID to update.
-  * `:queue_id` (`t:string`) The queue ID of the queue environment to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID of the queue environment to
+  update.
+  * `:queue_environment_id` (`t:string` required) The queue environment ID to
+  update.
+  * `:queue_id` (`t:string` required) The queue ID of the queue environment to
+  update.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec update_queue_environment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_environment_errors()}
-
   def update_queue_environment(
         %Client{} = client,
         farm_id,
@@ -10654,13 +10413,11 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateQueueFleetAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to update.
-  * `:fleet_id` (`t:string`) The fleet ID to update.
-  * `:queue_id` (`t:string`) The queue ID to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to update.
+  * `:fleet_id` (`t:string` required) The fleet ID to update.
+  * `:queue_id` (`t:string` required) The queue ID to update.
+  ## Keyword parameters:
   """
-
   @spec update_queue_fleet_association(
           AWS.Client.t(),
           String.t(),
@@ -10671,7 +10428,6 @@ defmodule AWS.Deadline do
           {:ok, update_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_fleet_association_errors()}
-
   def update_queue_fleet_association(
         %Client{} = client,
         farm_id,
@@ -10725,16 +10481,14 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to update in the session.
-  * `:job_id` (`t:string`) The job ID to update in the session.
-  * `:queue_id` (`t:string`) The queue ID to update in the session.
-  * `:session_id` (`t:string`) The session ID to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to update in the session.
+  * `:job_id` (`t:string` required) The job ID to update in the session.
+  * `:queue_id` (`t:string` required) The queue ID to update in the session.
+  * `:session_id` (`t:string` required) The session ID to update.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec update_session(
           AWS.Client.t(),
           String.t(),
@@ -10746,7 +10500,6 @@ defmodule AWS.Deadline do
           {:ok, update_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_session_errors()}
-
   def update_session(%Client{} = client, farm_id, job_id, queue_id, session_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
@@ -10805,21 +10558,18 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateStep&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to update.
-  * `:job_id` (`t:string`) The job ID to update.
-  * `:queue_id` (`t:string`) The queue ID to update.
-  * `:step_id` (`t:string`) The step ID to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to update.
+  * `:job_id` (`t:string` required) The job ID to update.
+  * `:queue_id` (`t:string` required) The queue ID to update.
+  * `:step_id` (`t:string` required) The step ID to update.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec update_step(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_step_errors()}
-
   def update_step(%Client{} = client, farm_id, job_id, queue_id, step_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}"
@@ -10878,19 +10628,16 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateStorageProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to update.
-  * `:storage_profile_id` (`t:string`) The storage profile ID to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to update.
+  * `:storage_profile_id` (`t:string` required) The storage profile ID to update.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec update_storage_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_storage_profile_errors()}
-
   def update_storage_profile(%Client{} = client, farm_id, storage_profile_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles/#{AWS.Util.encode_uri(storage_profile_id)}"
@@ -10949,17 +10696,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to update.
-  * `:job_id` (`t:string`) The job ID to update.
-  * `:queue_id` (`t:string`) The queue ID to update.
-  * `:step_id` (`t:string`) The step ID to update.
-  * `:task_id` (`t:string`) The task ID to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to update.
+  * `:job_id` (`t:string` required) The job ID to update.
+  * `:queue_id` (`t:string` required) The queue ID to update.
+  * `:step_id` (`t:string` required) The step ID to update.
+  * `:task_id` (`t:string` required) The task ID to update.
+  ## Keyword parameters:
   * `:client_token` (`t:string`) The unique token which the server uses to
   recognize retries of the same request.
   """
-
   @spec update_task(
           AWS.Client.t(),
           String.t(),
@@ -10972,7 +10717,6 @@ defmodule AWS.Deadline do
           {:ok, update_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_task_errors()}
-
   def update_task(%Client{} = client, farm_id, job_id, queue_id, step_id, task_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/tasks/#{AWS.Util.encode_uri(task_id)}"
@@ -11031,18 +10775,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateWorker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to update.
-  * `:fleet_id` (`t:string`) The fleet ID to update.
-  * `:worker_id` (`t:string`) The worker ID to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to update.
+  * `:fleet_id` (`t:string` required) The fleet ID to update.
+  * `:worker_id` (`t:string` required) The worker ID to update.
+  ## Keyword parameters:
   """
-
   @spec update_worker(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_worker_errors()}
-
   def update_worker(%Client{} = client, farm_id, fleet_id, worker_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}"
@@ -11090,18 +10831,15 @@ defmodule AWS.Deadline do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateWorkerSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:farm_id` (`t:string`) The farm ID to update.
-  * `:fleet_id` (`t:string`) The fleet ID to update.
-  * `:worker_id` (`t:string`) The worker ID to update.
-
-  ## Optional parameters:
+  * `:farm_id` (`t:string` required) The farm ID to update.
+  * `:fleet_id` (`t:string` required) The fleet ID to update.
+  * `:worker_id` (`t:string` required) The worker ID to update.
+  ## Keyword parameters:
   """
-
   @spec update_worker_schedule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_worker_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_worker_schedule_errors()}
-
   def update_worker_schedule(%Client{} = client, farm_id, fleet_id, worker_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}/schedule"

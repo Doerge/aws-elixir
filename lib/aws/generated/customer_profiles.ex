@@ -2769,16 +2769,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20AddProfileKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec add_profile_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_profile_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_profile_key_errors()}
-
   def add_profile_key(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys"
 
@@ -2821,13 +2818,11 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20CreateCalculatedAttributeDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated
-  attribute.
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:calculated_attribute_name` (`t:string` required) The unique name of the
+  calculated attribute.
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec create_calculated_attribute_definition(
           AWS.Client.t(),
           String.t(),
@@ -2837,7 +2832,6 @@ defmodule AWS.CustomerProfiles do
           {:ok, create_calculated_attribute_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_calculated_attribute_definition_errors()}
-
   def create_calculated_attribute_definition(
         %Client{} = client,
         calculated_attribute_name,
@@ -2884,16 +2878,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20CreateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec create_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-
   def create_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -2932,17 +2923,14 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20CreateEventStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:event_stream_name` (`t:string`) The name of the event stream.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:event_stream_name` (`t:string` required) The name of the event stream.
+  ## Keyword parameters:
   """
-
   @spec create_event_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_stream_errors()}
-
   def create_event_stream(%Client{} = client, domain_name, event_stream_name, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
@@ -2982,16 +2970,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20CreateIntegrationWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec create_integration_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_integration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_integration_workflow_errors()}
-
   def create_integration_workflow(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/integrations"
 
@@ -3028,16 +3013,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20CreateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec create_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_errors()}
-
   def create_profile(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"
 
@@ -3077,13 +3059,11 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteCalculatedAttributeDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated
-  attribute.
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:calculated_attribute_name` (`t:string` required) The unique name of the
+  calculated attribute.
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec delete_calculated_attribute_definition(
           AWS.Client.t(),
           String.t(),
@@ -3093,7 +3073,6 @@ defmodule AWS.CustomerProfiles do
           {:ok, delete_calculated_attribute_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_calculated_attribute_definition_errors()}
-
   def delete_calculated_attribute_definition(
         %Client{} = client,
         calculated_attribute_name,
@@ -3147,16 +3126,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec delete_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-
   def delete_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -3203,17 +3179,14 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteEventStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:event_stream_name` (`t:string`) The name of the event stream
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:event_stream_name` (`t:string` required) The name of the event stream
+  ## Keyword parameters:
   """
-
   @spec delete_event_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_stream_errors()}
-
   def delete_event_stream(%Client{} = client, domain_name, event_stream_name, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
@@ -3261,16 +3234,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec delete_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_integration_errors()}
-
   def delete_integration(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations/delete"
 
@@ -3307,16 +3277,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec delete_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_errors()}
-
   def delete_profile(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/delete"
 
@@ -3353,16 +3320,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteProfileKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec delete_profile_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_profile_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_key_errors()}
-
   def delete_profile_key(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys/delete"
 
@@ -3399,16 +3363,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteProfileObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec delete_profile_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_profile_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_object_errors()}
-
   def delete_profile_object(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects/delete"
 
@@ -3448,17 +3409,14 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteProfileObjectType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:object_type_name` (`t:string`) The name of the profile object type.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:object_type_name` (`t:string` required) The name of the profile object type.
+  ## Keyword parameters:
   """
-
   @spec delete_profile_object_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_profile_object_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_object_type_errors()}
-
   def delete_profile_object_type(%Client{} = client, domain_name, object_type_name, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
@@ -3507,17 +3465,14 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:workflow_id` (`t:string`) Unique identifier for the workflow.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:workflow_id` (`t:string` required) Unique identifier for the workflow.
+  ## Keyword parameters:
   """
-
   @spec delete_workflow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
-
   def delete_workflow(%Client{} = client, domain_name, workflow_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/#{AWS.Util.encode_uri(workflow_id)}"
@@ -3565,16 +3520,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DetectProfileObjectType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec detect_profile_object_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, detect_profile_object_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_profile_object_type_errors()}
-
   def detect_profile_object_type(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/detect/object-types"
 
@@ -3617,16 +3569,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetAutoMergingPreview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec get_auto_merging_preview(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_auto_merging_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_auto_merging_preview_errors()}
-
   def get_auto_merging_preview(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/identity-resolution-jobs/auto-merging-preview"
@@ -3665,18 +3614,15 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetCalculatedAttributeDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated
-  attribute.
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:calculated_attribute_name` (`t:string` required) The unique name of the
+  calculated attribute.
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec get_calculated_attribute_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_calculated_attribute_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_calculated_attribute_definition_errors()}
-
   def get_calculated_attribute_definition(
         %Client{} = client,
         calculated_attribute_name,
@@ -3717,14 +3663,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetCalculatedAttributeForProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated
-  attribute.
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:profile_id` (`t:string`) The unique identifier of a customer profile.
-
-  ## Optional parameters:
+  * `:calculated_attribute_name` (`t:string` required) The unique name of the
+  calculated attribute.
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:profile_id` (`t:string` required) The unique identifier of a customer
+  profile.
+  ## Keyword parameters:
   """
-
   @spec get_calculated_attribute_for_profile(
           AWS.Client.t(),
           String.t(),
@@ -3735,7 +3680,6 @@ defmodule AWS.CustomerProfiles do
           {:ok, get_calculated_attribute_for_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_calculated_attribute_for_profile_errors()}
-
   def get_calculated_attribute_for_profile(
         %Client{} = client,
         calculated_attribute_name,
@@ -3777,16 +3721,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec get_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_errors()}
-
   def get_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -3821,18 +3762,15 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetEventStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:event_stream_name` (`t:string`) The name of the event stream provided during
-  create operations.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:event_stream_name` (`t:string` required) The name of the event stream
+  provided during create operations.
+  ## Keyword parameters:
   """
-
   @spec get_event_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_stream_errors()}
-
   def get_event_stream(%Client{} = client, domain_name, event_stream_name, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
@@ -3868,17 +3806,15 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetIdentityResolutionJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:job_id` (`t:string`) The unique identifier of the Identity Resolution Job.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:job_id` (`t:string` required) The unique identifier of the Identity
+  Resolution Job.
+  ## Keyword parameters:
   """
-
   @spec get_identity_resolution_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_identity_resolution_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_identity_resolution_job_errors()}
-
   def get_identity_resolution_job(%Client{} = client, domain_name, job_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/identity-resolution-jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -3914,16 +3850,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec get_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_integration_errors()}
-
   def get_integration(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
 
@@ -3975,20 +3908,17 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetMatches&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec get_matches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_matches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_matches_errors()}
-
   def get_matches(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/matches"
 
@@ -4041,17 +3971,14 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetProfileObjectType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:object_type_name` (`t:string`) The name of the profile object type.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:object_type_name` (`t:string` required) The name of the profile object type.
+  ## Keyword parameters:
   """
-
   @spec get_profile_object_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_object_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_object_type_errors()}
-
   def get_profile_object_type(%Client{} = client, domain_name, object_type_name, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
@@ -4087,16 +4014,14 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetProfileObjectTypeTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:template_id` (`t:string`) A unique identifier for the object template.
-
-  ## Optional parameters:
+  * `:template_id` (`t:string` required) A unique identifier for the object
+  template.
+  ## Keyword parameters:
   """
-
   @spec get_profile_object_type_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_object_type_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_object_type_template_errors()}
-
   def get_profile_object_type_template(%Client{} = client, template_id, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_id)}"
 
@@ -4134,19 +4059,16 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetSimilarProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous
   GetSimilarProfiles API call.
   """
-
   @spec get_similar_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_similar_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_similar_profiles_errors()}
-
   def get_similar_profiles(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/matches"
 
@@ -4201,17 +4123,14 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:workflow_id` (`t:string`) Unique identifier for the workflow.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:workflow_id` (`t:string` required) Unique identifier for the workflow.
+  ## Keyword parameters:
   """
-
   @spec get_workflow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
-
   def get_workflow(%Client{} = client, domain_name, workflow_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/#{AWS.Util.encode_uri(workflow_id)}"
@@ -4247,21 +4166,18 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetWorkflowSteps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:workflow_id` (`t:string`) Unique identifier for the workflow.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:workflow_id` (`t:string` required) Unique identifier for the workflow.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec get_workflow_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_steps_errors()}
-
   def get_workflow_steps(%Client{} = client, domain_name, workflow_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/#{AWS.Util.encode_uri(workflow_id)}/steps"
@@ -4315,20 +4231,17 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListAccountIntegrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:include_hidden` (`t:boolean`) Boolean to indicate if hidden integration
   should be returned. Defaults to False.
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous
   ListAccountIntegrations API call.
   """
-
   @spec list_account_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_account_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_integrations_errors()}
-
   def list_account_integrations(%Client{} = client, options \\ []) do
     url_path = "/integrations"
 
@@ -4390,20 +4303,17 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListCalculatedAttributeDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of calculated attribute
   definitions returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous call to
   ListCalculatedAttributeDefinitions.
   """
-
   @spec list_calculated_attribute_definitions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_calculated_attribute_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_calculated_attribute_definitions_errors()}
-
   def list_calculated_attribute_definitions(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes"
 
@@ -4456,16 +4366,15 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListCalculatedAttributesForProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:profile_id` (`t:string`) The unique identifier of a customer profile.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:profile_id` (`t:string` required) The unique identifier of a customer
+  profile.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of calculated attributes
   returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous call to
   ListCalculatedAttributesForProfile.
   """
-
   @spec list_calculated_attributes_for_profile(
           AWS.Client.t(),
           String.t(),
@@ -4475,7 +4384,6 @@ defmodule AWS.CustomerProfiles do
           {:ok, list_calculated_attributes_for_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_calculated_attributes_for_profile_errors()}
-
   def list_calculated_attributes_for_profile(
         %Client{} = client,
         domain_name,
@@ -4534,18 +4442,15 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous ListDomain
   API call.
   """
-
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-
   def list_domains(%Client{} = client, options \\ []) do
     url_path = "/domains"
 
@@ -4598,18 +4503,15 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListEventStreams&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) Identifies the next page of results to return.
   """
-
   @spec list_event_streams(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_streams_errors()}
-
   def list_event_streams(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams"
 
@@ -4663,20 +4565,17 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListIdentityResolutionJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_identity_resolution_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_resolution_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_resolution_jobs_errors()}
-
   def list_identity_resolution_jobs(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/identity-resolution-jobs"
 
@@ -4729,21 +4628,18 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListIntegrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:include_hidden` (`t:boolean`) Boolean to indicate if hidden integration
   should be returned. Defaults to False.
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous
   ListIntegrations API call.
   """
-
   @spec list_integrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_integrations_errors()}
-
   def list_integrations(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
 
@@ -4803,18 +4699,15 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListProfileObjectTypeTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous
   ListObjectTypeTemplates API call.
   """
-
   @spec list_profile_object_type_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profile_object_type_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_object_type_templates_errors()}
-
   def list_profile_object_type_templates(%Client{} = client, options \\ []) do
     url_path = "/templates"
 
@@ -4867,18 +4760,15 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListProfileObjectTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) Identifies the next page of results to return.
   """
-
   @spec list_profile_object_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_object_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_object_types_errors()}
-
   def list_profile_object_types(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types"
 
@@ -4932,19 +4822,16 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListProfileObjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous call to
   ListProfileObjects.
   """
-
   @spec list_profile_objects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_objects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_objects_errors()}
-
   def list_profile_objects(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects"
 
@@ -4999,19 +4886,16 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListRuleBasedMatches&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of MatchIds returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous
   ListRuleBasedMatches API call.
   """
-
   @spec list_rule_based_matches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rule_based_matches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_based_matches_errors()}
-
   def list_rule_based_matches(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/ruleBasedMatches"
 
@@ -5066,17 +4950,14 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
-  view tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource for which you
+  want to view tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5111,20 +4992,17 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_workflows(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
-
   def list_workflows(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows"
 
@@ -5179,16 +5057,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20MergeProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec merge_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, merge_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, merge_profiles_errors()}
-
   def merge_profiles(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects/merge"
 
@@ -5227,16 +5102,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20PutIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec put_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_integration_errors()}
-
   def put_integration(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
 
@@ -5278,16 +5150,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20PutProfileObject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec put_profile_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_profile_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_profile_object_errors()}
-
   def put_profile_object(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects"
 
@@ -5324,17 +5193,14 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20PutProfileObjectType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:object_type_name` (`t:string`) The name of the profile object type.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  * `:object_type_name` (`t:string` required) The name of the profile object type.
+  ## Keyword parameters:
   """
-
   @spec put_profile_object_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_profile_object_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_profile_object_type_errors()}
-
   def put_profile_object_type(%Client{} = client, domain_name, object_type_name, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
@@ -5375,19 +5241,16 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20SearchProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous
   SearchProfiles API call.
   """
-
   @spec search_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_profiles_errors()}
-
   def search_profiles(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/search"
 
@@ -5448,17 +5311,14 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that you're adding tags
-  to.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource that you're
+  adding tags to.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -5497,19 +5357,16 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource from which you are
-  removing tags.
-  * `:tag_keys` (`t:list[com.amazonaws.customerprofiles#TagKey]`) The list of tag
-  keys to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The ARN of the resource from which you
+  are removing tags.
+  * `:tag_keys` (`t:list[com.amazonaws.customerprofiles#TagKey]` required) The
+  list of tag keys to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5559,13 +5416,11 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20UpdateCalculatedAttributeDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated
-  attribute.
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:calculated_attribute_name` (`t:string` required) The unique name of the
+  calculated attribute.
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec update_calculated_attribute_definition(
           AWS.Client.t(),
           String.t(),
@@ -5575,7 +5430,6 @@ defmodule AWS.CustomerProfiles do
           {:ok, update_calculated_attribute_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_calculated_attribute_definition_errors()}
-
   def update_calculated_attribute_definition(
         %Client{} = client,
         calculated_attribute_name,
@@ -5620,16 +5474,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20UpdateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec update_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_errors()}
-
   def update_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -5667,16 +5518,13 @@ defmodule AWS.CustomerProfiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20UpdateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:domain_name` (`t:string`) The unique name of the domain.
-
-  ## Optional parameters:
+  * `:domain_name` (`t:string` required) The unique name of the domain.
+  ## Keyword parameters:
   """
-
   @spec update_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_errors()}
-
   def update_profile(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"
 

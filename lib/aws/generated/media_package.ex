@@ -1106,19 +1106,16 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ConfigureLogs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
+  * `:id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:egress_access_logs` (`t:structure`)
     * `:ingress_access_logs` (`t:structure`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec configure_logs(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, configure_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, configure_logs_errors()}
-
   def configure_logs(%Client{} = client, id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}/configure_logs"
@@ -1157,18 +1154,15 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:id` (`t:string`)
+    * `:id` (`t:string` required)
     * `:description` (`t:string`)
     * `:tags` (`t:map`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
-
   def create_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/channels"
 
@@ -1206,20 +1200,17 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:end_time` (`t:string`)
-    * `:id` (`t:string`)
-    * `:origin_endpoint_id` (`t:string`)
-    * `:s3_destination` (`t:structure`)
-    * `:start_time` (`t:string`)
-
-  ## Optional parameters:
+    * `:end_time` (`t:string` required)
+    * `:id` (`t:string` required)
+    * `:origin_endpoint_id` (`t:string` required)
+    * `:s3_destination` (`t:structure` required)
+    * `:start_time` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec create_harvest_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_harvest_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_harvest_job_errors()}
-
   def create_harvest_job(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/harvest_jobs"
 
@@ -1257,8 +1248,8 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:channel_id` (`t:string`)
-    * `:id` (`t:string`)
+    * `:channel_id` (`t:string` required)
+    * `:id` (`t:string` required)
     * `:authorization` (`t:structure`)
     * `:cmaf_package` (`t:structure`)
     * `:dash_package` (`t:structure`)
@@ -1271,15 +1262,12 @@ defmodule AWS.MediaPackage do
     * `:tags` (`t:map`)
     * `:time_delay_seconds` (`t:integer`)
     * `:whitelist` (`t:list[com.amazonaws.mediapackage#__string]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_origin_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_origin_endpoint_errors()}
-
   def create_origin_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/origin_endpoints"
 
@@ -1316,16 +1304,13 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DeleteChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
-
   def delete_channel(%Client{} = client, id, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}"
 
@@ -1372,16 +1357,13 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DeleteOriginEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_origin_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_origin_endpoint_errors()}
-
   def delete_origin_endpoint(%Client{} = client, id, options \\ []) do
     url_path = "/origin_endpoints/#{AWS.Util.encode_uri(id)}"
 
@@ -1428,16 +1410,13 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DescribeChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_errors()}
-
   def describe_channel(%Client{} = client, id, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}"
 
@@ -1472,16 +1451,13 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DescribeHarvestJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_harvest_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_harvest_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_harvest_job_errors()}
-
   def describe_harvest_job(%Client{} = client, id, options \\ []) do
     url_path = "/harvest_jobs/#{AWS.Util.encode_uri(id)}"
 
@@ -1516,16 +1492,13 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DescribeOriginEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec describe_origin_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_origin_endpoint_errors()}
-
   def describe_origin_endpoint(%Client{} = client, id, options \\ []) do
     url_path = "/origin_endpoints/#{AWS.Util.encode_uri(id)}"
 
@@ -1560,17 +1533,14 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-
   def list_channels(%Client{} = client, options \\ []) do
     url_path = "/channels"
 
@@ -1623,19 +1593,16 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListHarvestJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:include_channel_id` (`t:string`)
   * `:include_status` (`t:string`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_harvest_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_harvest_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_harvest_jobs_errors()}
-
   def list_harvest_jobs(%Client{} = client, options \\ []) do
     url_path = "/harvest_jobs"
 
@@ -1707,18 +1674,15 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListOriginEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:channel_id` (`t:string`)
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_origin_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_origin_endpoints_errors()}
-
   def list_origin_endpoints(%Client{} = client, options \\ []) do
     url_path = "/origin_endpoints"
 
@@ -1772,10 +1736,18 @@ defmodule AWS.MediaPackage do
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
+  @doc """
+
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string` required)
+  ## Keyword parameters:
+  """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1811,16 +1783,13 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20RotateChannelCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec rotate_channel_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, rotate_channel_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rotate_channel_credentials_errors()}
-
   def rotate_channel_credentials(%Client{} = client, id, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}/credentials"
 
@@ -1858,17 +1827,14 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20RotateIngestEndpointCredentials&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
-  * `:ingest_endpoint_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:id` (`t:string` required)
+  * `:ingest_endpoint_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec rotate_ingest_endpoint_credentials(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, rotate_ingest_endpoint_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rotate_ingest_endpoint_credentials_errors()}
-
   def rotate_ingest_endpoint_credentials(
         %Client{} = client,
         id,
@@ -1905,10 +1871,20 @@ defmodule AWS.MediaPackage do
     Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
+  @doc """
+
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string` required)
+  * `:input` (`t:map`):
+    * `:tags` (`t:map` required)
+  ## Keyword parameters:
+  """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1939,10 +1915,19 @@ defmodule AWS.MediaPackage do
     Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
+  @doc """
+
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string` required)
+  * `:tag_keys` (`t:list[com.amazonaws.mediapackage#__string]` required)
+  ## Keyword parameters:
+  """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1990,18 +1975,15 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20UpdateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
+  * `:id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:description` (`t:string`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_channel(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
-
   def update_channel(%Client{} = client, id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}"
@@ -2039,7 +2021,7 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20UpdateOriginEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`)
+  * `:id` (`t:string` required)
   * `:input` (`t:map | nil`):
     * `:authorization` (`t:structure`)
     * `:cmaf_package` (`t:structure`)
@@ -2052,15 +2034,12 @@ defmodule AWS.MediaPackage do
     * `:startover_window_seconds` (`t:integer`)
     * `:time_delay_seconds` (`t:integer`)
     * `:whitelist` (`t:list[com.amazonaws.mediapackage#__string]`)
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_origin_endpoint(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_origin_endpoint_errors()}
-
   def update_origin_endpoint(%Client{} = client, id, input, options \\ [])
       when is_map(input) or is_nil(input) do
     url_path = "/origin_endpoints/#{AWS.Util.encode_uri(id)}"

@@ -944,15 +944,12 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-
   def create_application(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -989,15 +986,12 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateDataIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_data_integration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_integration_errors()}
-
   def create_data_integration(%Client{} = client, options \\ []) do
     url_path = "/dataIntegrations"
 
@@ -1038,15 +1032,12 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateEventIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_event_integration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_integration_errors()}
-
   def create_event_integration(%Client{} = client, options \\ []) do
     url_path = "/eventIntegrations"
 
@@ -1084,16 +1075,14 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20DeleteApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Application.
+  ## Keyword parameters:
   """
-
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-
   def delete_application(%Client{} = client, arn, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
 
@@ -1142,17 +1131,14 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20DeleteDataIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_integration_identifier` (`t:string`) A unique identifier for the
-  DataIntegration.
-
-  ## Optional parameters:
+  * `:data_integration_identifier` (`t:string` required) A unique identifier for
+  the DataIntegration.
+  ## Keyword parameters:
   """
-
   @spec delete_data_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_integration_errors()}
-
   def delete_data_integration(%Client{} = client, data_integration_identifier, options \\ []) do
     url_path = "/dataIntegrations/#{AWS.Util.encode_uri(data_integration_identifier)}"
 
@@ -1200,16 +1186,13 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20DeleteEventIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the event integration.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the event integration.
+  ## Keyword parameters:
   """
-
   @spec delete_event_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_integration_errors()}
-
   def delete_event_integration(%Client{} = client, name, options \\ []) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
 
@@ -1256,16 +1239,14 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20GetApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Application.
+  ## Keyword parameters:
   """
-
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-
   def get_application(%Client{} = client, arn, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
 
@@ -1300,16 +1281,13 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20GetDataIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) A unique identifier.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) A unique identifier.
+  ## Keyword parameters:
   """
-
   @spec get_data_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_integration_errors()}
-
   def get_data_integration(%Client{} = client, identifier, options \\ []) do
     url_path = "/dataIntegrations/#{AWS.Util.encode_uri(identifier)}"
 
@@ -1344,16 +1322,13 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20GetEventIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the event integration.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the event integration.
+  ## Keyword parameters:
   """
-
   @spec get_event_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_integration_errors()}
-
   def get_event_integration(%Client{} = client, name, options \\ []) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
 
@@ -1388,20 +1363,18 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListApplicationAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:application_id` (`t:string`) A unique identifier for the Application.
-
-  ## Optional parameters:
+  * `:application_id` (`t:string` required) A unique identifier for the
+  Application.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_application_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_associations_errors()}
-
   def list_application_associations(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/associations"
 
@@ -1454,19 +1427,16 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -1519,21 +1489,18 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListDataIntegrationAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_integration_identifier` (`t:string`) A unique identifier for the
-  DataIntegration.
-
-  ## Optional parameters:
+  * `:data_integration_identifier` (`t:string` required) A unique identifier for
+  the DataIntegration.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_data_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_integration_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_integration_associations_errors()}
-
   def list_data_integration_associations(
         %Client{} = client,
         data_integration_identifier,
@@ -1591,19 +1558,16 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListDataIntegrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_data_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_integrations_errors()}
-
   def list_data_integrations(%Client{} = client, options \\ []) do
     url_path = "/dataIntegrations"
 
@@ -1656,20 +1620,18 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListEventIntegrationAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:event_integration_name` (`t:string`) The name of the event integration.
-
-  ## Optional parameters:
+  * `:event_integration_name` (`t:string` required) The name of the event
+  integration.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_event_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_integration_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_integration_associations_errors()}
-
   def list_event_integration_associations(
         %Client{} = client,
         event_integration_name,
@@ -1726,19 +1688,16 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListEventIntegrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
   value returned in the previous response in the next request to retrieve the
   next set of results.
   """
-
   @spec list_event_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_integrations_errors()}
-
   def list_event_integrations(%Client{} = client, options \\ []) do
     url_path = "/eventIntegrations"
 
@@ -1791,16 +1750,14 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1835,16 +1792,14 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1881,17 +1836,16 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.appintegrations#TagKey]`) The tag keys.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.appintegrations#TagKey]` required) The tag
+  keys.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1939,16 +1893,14 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UpdateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
-
-  ## Optional parameters:
+  * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  Application.
+  ## Keyword parameters:
   """
-
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-
   def update_application(%Client{} = client, arn, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
 
@@ -1995,16 +1947,14 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UpdateDataIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:identifier` (`t:string`) A unique identifier for the DataIntegration.
-
-  ## Optional parameters:
+  * `:identifier` (`t:string` required) A unique identifier for the
+  DataIntegration.
+  ## Keyword parameters:
   """
-
   @spec update_data_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_integration_errors()}
-
   def update_data_integration(%Client{} = client, identifier, options \\ []) do
     url_path = "/dataIntegrations/#{AWS.Util.encode_uri(identifier)}"
 
@@ -2051,16 +2001,13 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UpdateEventIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:name` (`t:string`) The name of the event integration.
-
-  ## Optional parameters:
+  * `:name` (`t:string` required) The name of the event integration.
+  ## Keyword parameters:
   """
-
   @spec update_event_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_integration_errors()}
-
   def update_event_integration(%Client{} = client, name, options \\ []) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
 

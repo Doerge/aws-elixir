@@ -3139,6 +3139,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Activates the gateway you previously deployed on your host. In the activation
   process, you specify information such as the Amazon Web Services Region that
   you want to use for storing snapshots or tapes, the time zone for scheduled
@@ -3161,12 +3162,10 @@ defmodule AWS.StorageGateway do
       required("GatewayTimezone") => String.t()
     }
   """
-
   @spec activate_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activate_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_gateway_errors()}
-
   def activate_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3175,6 +3174,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Configures one or more gateway local disks as cache for a gateway. This
   operation is only supported in the cached volume, tape, and file gateway type
   (see [How Storage Gateway works
@@ -3189,12 +3189,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec add_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_cache_errors()}
-
   def add_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3203,6 +3201,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Adds one or more tags to the specified resource. You use tags to add metadata to
   resources, which you can use to categorize these resources. For example, you
   can categorize resources by purpose, owner, environment, or team. Each tag
@@ -3218,12 +3217,10 @@ defmodule AWS.StorageGateway do
       required("Tags") => list(tag()())
     }
   """
-
   @spec add_tags_to_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_to_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
-
   def add_tags_to_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3232,6 +3229,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Configures one or more gateway local disks as upload buffer for a specified
   gateway. This operation is supported for the stored volume, cached volume, and
   tape gateway types.
@@ -3245,12 +3243,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec add_upload_buffer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_upload_buffer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_upload_buffer_errors()}
-
   def add_upload_buffer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3259,6 +3255,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Configures one or more gateway local disks as working storage for a gateway.
   This operation is only supported in the stored volume gateway type. This
   operation is deprecated in cached volume API version 20120630. Use
@@ -3275,12 +3272,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec add_working_storage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_working_storage_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_working_storage_errors()}
-
   def add_working_storage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3289,6 +3284,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Assigns a tape to a tape pool for archiving. The tape assigned to a pool is
   archived in the S3 storage class that is associated with the pool. When you
   use your backup application to eject the tape, the tape is archived directly
@@ -3305,12 +3301,10 @@ defmodule AWS.StorageGateway do
       required("TapeARN") => String.t()
     }
   """
-
   @spec assign_tape_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, assign_tape_pool_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assign_tape_pool_errors()}
-
   def assign_tape_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3319,6 +3313,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Associate an Amazon FSx file system with the FSx File Gateway. After the
   association process is complete, the file shares on the Amazon FSx file system
   are available for access through the gateway. This operation only supports the
@@ -3340,12 +3335,10 @@ defmodule AWS.StorageGateway do
       required("UserName") => String.t()
     }
   """
-
   @spec associate_file_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_file_system_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_file_system_errors()}
-
   def associate_file_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3354,6 +3347,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Connects a volume to an iSCSI connection and then attaches the volume to the
   specified gateway. Detaching and attaching a volume enables you to recover
   your data from one gateway to a different gateway without creating a snapshot.
@@ -3372,12 +3366,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARN") => String.t()
     }
   """
-
   @spec attach_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_volume_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_volume_errors()}
-
   def attach_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3386,6 +3378,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the
   archiving process is initiated. This operation is only supported in the tape
   gateway type.
@@ -3399,12 +3392,10 @@ defmodule AWS.StorageGateway do
       required("TapeARN") => String.t()
     }
   """
-
   @spec cancel_archival(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_archival_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_archival_errors()}
-
   def cancel_archival(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3413,6 +3404,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a
   gateway after the retrieval process is initiated. The virtual tape is returned
   to the VTS. This operation is only supported in the tape gateway type.
@@ -3426,12 +3418,10 @@ defmodule AWS.StorageGateway do
       required("TapeARN") => String.t()
     }
   """
-
   @spec cancel_retrieval(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_retrieval_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_retrieval_errors()}
-
   def cancel_retrieval(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3440,6 +3430,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Creates a cached volume on a specified cached volume gateway. This operation is
   only supported in the cached volume gateway type. Cache storage must be
   allocated to the gateway before you can create a cached volume. Use the
@@ -3462,12 +3453,10 @@ defmodule AWS.StorageGateway do
       required("VolumeSizeInBytes") => float()
     }
   """
-
   @spec create_cached_iscsi_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cached_iscsi_volume_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cached_iscsi_volume_errors()}
-
   def create_cached_iscsi_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3476,6 +3465,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Creates a Network File System (NFS) file share on an existing S3 File Gateway.
   In Storage Gateway, a file share is a file system mount point backed by Amazon
   S3 cloud storage. Storage Gateway exposes file shares using an NFS interface.
@@ -3509,12 +3499,10 @@ defmodule AWS.StorageGateway do
       required("Role") => String.t()
     }
   """
-
   @spec create_nfs_file_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_nfs_file_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_nfs_file_share_errors()}
-
   def create_nfs_file_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3523,6 +3511,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Creates a Server Message Block (SMB) file share on an existing S3 File Gateway.
   In Storage Gateway, a file share is a file system mount point backed by Amazon
   S3 cloud storage. Storage Gateway exposes file shares using an SMB interface.
@@ -3561,12 +3550,10 @@ defmodule AWS.StorageGateway do
       required("Role") => String.t()
     }
   """
-
   @spec create_smb_file_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_smb_file_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_smb_file_share_errors()}
-
   def create_smb_file_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3575,6 +3562,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Initiates a snapshot of a volume. Storage Gateway provides the ability to back
   up point-in-time snapshots of your data to Amazon Simple Storage (Amazon S3)
   for durable off-site recovery, and also import the data to an Amazon Elastic
@@ -3602,12 +3590,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARN") => String.t()
     }
   """
-
   @spec create_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_errors()}
-
   def create_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3616,6 +3602,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Initiates a snapshot of a gateway from a volume recovery point. This operation
   is only supported in the cached volume gateway type. A volume recovery point
   is a point in time at which all data of the volume is consistent and from
@@ -3632,12 +3619,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARN") => String.t()
     }
   """
-
   @spec create_snapshot_from_volume_recovery_point(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_snapshot_from_volume_recovery_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_from_volume_recovery_point_errors()}
-
   def create_snapshot_from_volume_recovery_point(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3647,6 +3632,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Creates a volume on a specified gateway. This operation is only supported in the
   stored volume gateway type. The size of the volume to create is inferred from
   the disk size. You can choose to preserve existing data on the disk, create
@@ -3669,12 +3655,10 @@ defmodule AWS.StorageGateway do
       required("TargetName") => String.t()
     }
   """
-
   @spec create_stored_iscsi_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_stored_iscsi_volume_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stored_iscsi_volume_errors()}
-
   def create_stored_iscsi_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3683,6 +3667,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Creates a new custom tape pool. You can use custom tape pool to enable tape
   retention lock on tapes that are archived in the custom pool.
 
@@ -3698,12 +3683,10 @@ defmodule AWS.StorageGateway do
       required("StorageClass") => list(any())
     }
   """
-
   @spec create_tape_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_tape_pool_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tape_pool_errors()}
-
   def create_tape_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3712,6 +3695,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Creates a virtual tape by using your own barcode. You write data to the virtual
   tape and then archive the tape. A barcode is unique and cannot be reused if it
   has already been used on a tape. This applies to barcodes used on deleted
@@ -3732,12 +3716,10 @@ defmodule AWS.StorageGateway do
       required("TapeSizeInBytes") => float()
     }
   """
-
   @spec create_tape_with_barcode(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_tape_with_barcode_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tape_with_barcode_errors()}
-
   def create_tape_with_barcode(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3746,6 +3728,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Creates one or more virtual tapes. You write data to the virtual tapes and then
   archive the tapes. This operation is only supported in the tape gateway type.
 
@@ -3766,12 +3749,10 @@ defmodule AWS.StorageGateway do
       required("TapeSizeInBytes") => float()
     }
   """
-
   @spec create_tapes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_tapes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tapes_errors()}
-
   def create_tapes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3780,6 +3761,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Deletes the automatic tape creation policy of a gateway. If you delete this
   policy, new virtual tapes must be created manually. Use the Amazon Resource
   Name (ARN) of the gateway in your request to remove the policy.
@@ -3792,12 +3774,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec delete_automatic_tape_creation_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_automatic_tape_creation_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_automatic_tape_creation_policy_errors()}
-
   def delete_automatic_tape_creation_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3807,6 +3787,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Deletes the bandwidth rate limits of a gateway. You can delete either the upload
   and download bandwidth rate limit, or you can delete both. If you delete only
   one of the limits, the other limit remains unchanged. To specify which gateway
@@ -3823,12 +3804,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec delete_bandwidth_rate_limit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_bandwidth_rate_limit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bandwidth_rate_limit_errors()}
-
   def delete_bandwidth_rate_limit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3837,6 +3816,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a
   specified iSCSI target and initiator pair. This operation is supported in
   volume and tape gateway types.
@@ -3850,12 +3830,10 @@ defmodule AWS.StorageGateway do
       required("TargetARN") => String.t()
     }
   """
-
   @spec delete_chap_credentials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_chap_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_chap_credentials_errors()}
-
   def delete_chap_credentials(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3864,6 +3842,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Deletes a file share from an S3 File Gateway. This operation is only supported
   for S3 File Gateways.
 
@@ -3876,12 +3855,10 @@ defmodule AWS.StorageGateway do
       required("FileShareARN") => String.t()
     }
   """
-
   @spec delete_file_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_file_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_file_share_errors()}
-
   def delete_file_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3890,6 +3867,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Deletes a gateway. To specify which gateway to delete, use the Amazon Resource
   Name (ARN) of the gateway in your request. The operation deletes the gateway;
   however, it does not delete the gateway virtual machine (VM) from your host
@@ -3906,12 +3884,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec delete_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_errors()}
-
   def delete_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3920,6 +3896,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Deletes a snapshot of a volume.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=storagegateway%20DeleteSnapshotSchedule&this_doc_guide=API%2520Reference)
@@ -3930,12 +3907,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARN") => String.t()
     }
   """
-
   @spec delete_snapshot_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_snapshot_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_schedule_errors()}
-
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3944,6 +3919,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Deletes the specified virtual tape. This operation is only supported in the tape
   gateway type.
 
@@ -3957,12 +3933,10 @@ defmodule AWS.StorageGateway do
       required("TapeARN") => String.t()
     }
   """
-
   @spec delete_tape(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_tape_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tape_errors()}
-
   def delete_tape(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3971,6 +3945,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Deletes the specified virtual tape from the virtual tape shelf (VTS). This
   operation is only supported in the tape gateway type.
 
@@ -3983,12 +3958,10 @@ defmodule AWS.StorageGateway do
       required("TapeARN") => String.t()
     }
   """
-
   @spec delete_tape_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_tape_archive_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tape_archive_errors()}
-
   def delete_tape_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3997,6 +3970,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Delete a custom tape pool. A custom tape pool can only be deleted if there are
   no tapes in the pool and if there are no automatic tape creation policies that
   reference the custom tape pool.
@@ -4009,12 +3983,10 @@ defmodule AWS.StorageGateway do
       required("PoolARN") => String.t()
     }
   """
-
   @spec delete_tape_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_tape_pool_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tape_pool_errors()}
-
   def delete_tape_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4023,6 +3995,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Deletes the specified storage volume that you previously created using the
   `CreateCachediSCSIVolume` or `CreateStorediSCSIVolume` API. This operation is
   only supported in the cached volume and stored volume types. For stored volume
@@ -4044,12 +4017,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARN") => String.t()
     }
   """
-
   @spec delete_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_volume_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_volume_errors()}
-
   def delete_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4058,6 +4029,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns information about the most recent high availability monitoring test that
   was performed on the host in a cluster. If a test isn't performed, the status
   and start time in the response would be null.
@@ -4070,12 +4042,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_availability_monitor_test(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_availability_monitor_test_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_availability_monitor_test_errors()}
-
   def describe_availability_monitor_test(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4085,6 +4055,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns the bandwidth rate limits of a gateway. By default, these limits are not
   set, which means no bandwidth rate limiting is in effect. This operation is
   supported only for the stored volume, cached volume, and tape gateway types.
@@ -4099,12 +4070,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_bandwidth_rate_limit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_bandwidth_rate_limit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bandwidth_rate_limit_errors()}
-
   def describe_bandwidth_rate_limit(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4114,6 +4083,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns information about the bandwidth rate limit schedule of a gateway. By
   default, gateways do not have bandwidth rate limit schedules, which means no
   bandwidth rate limiting is in effect. This operation is supported only for
@@ -4132,12 +4102,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_bandwidth_rate_limit_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_bandwidth_rate_limit_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bandwidth_rate_limit_schedule_errors()}
-
   def describe_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4147,6 +4115,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns information about the cache of a gateway. This operation is only
   supported in the cached volume, tape, and file gateway types.
 
@@ -4158,12 +4127,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cache_errors()}
-
   def describe_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4172,6 +4139,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns a description of the gateway volumes specified in the request. This
   operation is only supported in the cached volume gateway types.
 
@@ -4183,12 +4151,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARNs") => list(String.t()())
     }
   """
-
   @spec describe_cached_iscsi_volumes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_cached_iscsi_volumes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cached_iscsi_volumes_errors()}
-
   def describe_cached_iscsi_volumes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4198,6 +4164,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns an array of Challenge-Handshake Authentication Protocol (CHAP)
   credentials information for a specified iSCSI target, one for each
   target-initiator pair. This operation is supported in the volume and tape
@@ -4211,12 +4178,10 @@ defmodule AWS.StorageGateway do
       required("TargetARN") => String.t()
     }
   """
-
   @spec describe_chap_credentials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_chap_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_chap_credentials_errors()}
-
   def describe_chap_credentials(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4225,6 +4190,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Gets the file system association information. This operation is only supported
   for FSx File Gateways.
 
@@ -4236,12 +4202,10 @@ defmodule AWS.StorageGateway do
       required("FileSystemAssociationARNList") => list(String.t()())
     }
   """
-
   @spec describe_file_system_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_file_system_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_system_associations_errors()}
-
   def describe_file_system_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4251,6 +4215,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns metadata about a gateway such as its name, network interfaces, time
   zone, status, and software version. To specify which gateway to describe, use
   the Amazon Resource Name (ARN) of the gateway in your request.
@@ -4263,12 +4228,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_gateway_information(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_gateway_information_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_information_errors()}
-
   def describe_gateway_information(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4277,6 +4240,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns your gateway's maintenance window schedule information, with values for
   monthly or weekly cadence, specific day and time to begin maintenance, and
   which types of updates to apply. Time values returned are for the gateway's
@@ -4290,12 +4254,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_maintenance_start_time(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_maintenance_start_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_maintenance_start_time_errors()}
-
   def describe_maintenance_start_time(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4305,6 +4267,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Gets a description for one or more Network File System (NFS) file shares from an
   S3 File Gateway. This operation is only supported for S3 File Gateways.
 
@@ -4316,12 +4279,10 @@ defmodule AWS.StorageGateway do
       required("FileShareARNList") => list(String.t()())
     }
   """
-
   @spec describe_nfs_file_shares(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_nfs_file_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_nfs_file_shares_errors()}
-
   def describe_nfs_file_shares(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4330,6 +4291,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Gets a description for one or more Server Message Block (SMB) file shares from a
   S3 File Gateway. This operation is only supported for S3 File Gateways.
 
@@ -4341,12 +4303,10 @@ defmodule AWS.StorageGateway do
       required("FileShareARNList") => list(String.t()())
     }
   """
-
   @spec describe_smb_file_shares(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_smb_file_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_smb_file_shares_errors()}
-
   def describe_smb_file_shares(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4355,6 +4315,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Gets a description of a Server Message Block (SMB) file share settings from a
   file gateway. This operation is only supported for file gateways.
 
@@ -4366,12 +4327,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_smb_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_smb_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_smb_settings_errors()}
-
   def describe_smb_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4380,6 +4339,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Describes the snapshot schedule for the specified gateway volume. The snapshot
   schedule information includes intervals at which snapshots are automatically
   initiated on the volume. This operation is only supported in the cached volume
@@ -4393,12 +4353,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARN") => String.t()
     }
   """
-
   @spec describe_snapshot_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_snapshot_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_snapshot_schedule_errors()}
-
   def describe_snapshot_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4407,6 +4365,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns the description of the gateway volumes specified in the request. The
   list of gateway volumes in the request must be from one gateway. In the
   response, Storage Gateway returns volume information sorted by volume ARNs.
@@ -4420,12 +4379,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARNs") => list(String.t()())
     }
   """
-
   @spec describe_stored_iscsi_volumes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stored_iscsi_volumes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stored_iscsi_volumes_errors()}
-
   def describe_stored_iscsi_volumes(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4435,6 +4392,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns a description of specified virtual tapes in the virtual tape shelf
   (VTS). This operation is only supported in the tape gateway type.
 
@@ -4448,12 +4406,10 @@ defmodule AWS.StorageGateway do
       optional("TapeARNs") => list(String.t()())
     }
   """
-
   @spec describe_tape_archives(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tape_archives_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tape_archives_errors()}
-
   def describe_tape_archives(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4462,6 +4418,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns a list of virtual tape recovery points that are available for the
   specified tape gateway.
 
@@ -4475,12 +4432,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_tape_recovery_points(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tape_recovery_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tape_recovery_points_errors()}
-
   def describe_tape_recovery_points(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4490,6 +4445,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns a description of virtual tapes that correspond to the specified Amazon
   Resource Names (ARNs). If `TapeARN` is not specified, returns a description of
   the virtual tapes associated with the specified gateway. This operation is
@@ -4506,12 +4462,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_tapes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tapes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tapes_errors()}
-
   def describe_tapes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4520,6 +4474,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns information about the upload buffer of a gateway. This operation is
   supported for the stored volume, cached volume, and tape gateway types.
 
@@ -4531,12 +4486,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_upload_buffer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_upload_buffer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_upload_buffer_errors()}
-
   def describe_upload_buffer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4545,6 +4498,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns a description of virtual tape library (VTL) devices for the specified
   tape gateway. In the response, Storage Gateway returns VTL device information.
 
@@ -4559,12 +4513,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_vtl_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_vtl_devices_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vtl_devices_errors()}
-
   def describe_vtl_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4573,6 +4525,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns information about the working storage of a gateway. This operation is
   only supported in the stored volumes gateway type. This operation is
   deprecated in cached volumes API version (20120630). Use DescribeUploadBuffer
@@ -4588,12 +4541,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec describe_working_storage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_working_storage_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_working_storage_errors()}
-
   def describe_working_storage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4602,6 +4553,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Disconnects a volume from an iSCSI connection and then detaches the volume from
   the specified gateway. Detaching and attaching a volume enables you to recover
   your data from one gateway to a different gateway without creating a snapshot.
@@ -4618,12 +4570,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARN") => String.t()
     }
   """
-
   @spec detach_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_volume_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_volume_errors()}
-
   def detach_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4632,6 +4582,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Disables a tape gateway when the gateway is no longer functioning. For example,
   if your gateway VM is damaged, you can disable the gateway so you can recover
   virtual tapes. Use this operation for a tape gateway that is not reachable or
@@ -4645,12 +4596,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec disable_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_gateway_errors()}
-
   def disable_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4659,6 +4608,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Disassociates an Amazon FSx file system from the specified gateway. After the
   disassociation process finishes, the gateway can no longer access the Amazon
   FSx file system. This operation is only supported in the FSx File Gateway
@@ -4673,12 +4623,10 @@ defmodule AWS.StorageGateway do
       required("FileSystemAssociationARN") => String.t()
     }
   """
-
   @spec disassociate_file_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_file_system_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_file_system_errors()}
-
   def disassociate_file_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4687,6 +4635,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Adds a file gateway to an Active Directory domain. This operation is only
   supported for file gateways that support the SMB file protocol.
 
@@ -4704,12 +4653,10 @@ defmodule AWS.StorageGateway do
       required("UserName") => String.t()
     }
   """
-
   @spec join_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, join_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, join_domain_errors()}
-
   def join_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4718,6 +4665,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Lists the automatic tape creation policies for a gateway. If there are no
   automatic tape creation policies for the gateway, it returns an empty list.
 
@@ -4729,12 +4677,10 @@ defmodule AWS.StorageGateway do
       optional("GatewayARN") => String.t()
     }
   """
-
   @spec list_automatic_tape_creation_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_automatic_tape_creation_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_automatic_tape_creation_policies_errors()}
-
   def list_automatic_tape_creation_policies(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4744,6 +4690,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Gets a list of the file shares for a specific S3 File Gateway, or the list of
   file shares that belong to the calling Amazon Web Services account. This
   operation is only supported for S3 File Gateways.
@@ -4758,12 +4705,10 @@ defmodule AWS.StorageGateway do
       optional("Marker") => String.t()
     }
   """
-
   @spec list_file_shares(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_file_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_file_shares_errors()}
-
   def list_file_shares(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4772,6 +4717,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Gets a list of `FileSystemAssociationSummary` objects. Each object contains a
   summary of a file system association. This operation is only supported for FSx
   File Gateways.
@@ -4786,12 +4732,10 @@ defmodule AWS.StorageGateway do
       optional("Marker") => String.t()
     }
   """
-
   @spec list_file_system_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_file_system_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_file_system_associations_errors()}
-
   def list_file_system_associations(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -4801,6 +4745,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Lists gateways owned by an Amazon Web Services account in an Amazon Web Services
   Region specified in the request. The returned list is ordered by gateway
   Amazon Resource Name (ARN). By default, the operation returns a maximum of 100
@@ -4816,12 +4761,10 @@ defmodule AWS.StorageGateway do
       optional("Marker") => String.t()
     }
   """
-
   @spec list_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_gateways_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateways_errors()}
-
   def list_gateways(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4830,6 +4773,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Returns a list of the gateway's local disks. To specify which gateway to
   describe, you use the Amazon Resource Name (ARN) of the gateway in the body of
   the request.
@@ -4842,12 +4786,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec list_local_disks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_local_disks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_local_disks_errors()}
-
   def list_local_disks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4856,6 +4798,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Lists the tags that have been added to the specified resource. This operation is
   supported in storage gateways of all types.
 
@@ -4869,12 +4812,10 @@ defmodule AWS.StorageGateway do
       required("ResourceARN") => String.t()
     }
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4883,6 +4824,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Lists custom tape pools. You specify custom tape pools to list by specifying one
   or more custom tape pool Amazon Resource Names (ARNs). If you don't specify a
   custom tape pool ARN, the operation lists all custom tape pools.
@@ -4897,12 +4839,10 @@ defmodule AWS.StorageGateway do
       optional("PoolARNs") => list(String.t()())
     }
   """
-
   @spec list_tape_pools(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tape_pools_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tape_pools_errors()}
-
   def list_tape_pools(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4911,6 +4851,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Lists virtual tapes in your virtual tape library (VTL) and your virtual tape
   shelf (VTS). You specify the tapes to list by specifying one or more tape
   Amazon Resource Names (ARNs). If you don't specify a tape ARN, the operation
@@ -4926,12 +4867,10 @@ defmodule AWS.StorageGateway do
       optional("TapeARNs") => list(String.t()())
     }
   """
-
   @spec list_tapes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tapes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tapes_errors()}
-
   def list_tapes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4940,6 +4879,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Lists iSCSI initiators that are connected to a volume. You can use this
   operation to determine whether a volume is being used or not. This operation
   is only supported in the cached volume and stored volume gateway types.
@@ -4952,12 +4892,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARN") => String.t()
     }
   """
-
   @spec list_volume_initiators(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_volume_initiators_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_volume_initiators_errors()}
-
   def list_volume_initiators(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4966,6 +4904,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Lists the recovery points for a specified gateway. This operation is only
   supported in the cached volume gateway type.
 
@@ -4977,12 +4916,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec list_volume_recovery_points(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_volume_recovery_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_volume_recovery_points_errors()}
-
   def list_volume_recovery_points(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4991,6 +4928,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN.
   The response includes only the volume ARNs. If you want additional volume
   information, use the `DescribeStorediSCSIVolumes` or the
@@ -5006,12 +4944,10 @@ defmodule AWS.StorageGateway do
       optional("Marker") => String.t()
     }
   """
-
   @spec list_volumes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_volumes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_volumes_errors()}
-
   def list_volumes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5020,6 +4956,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Sends you notification through CloudWatch Events when all files written to your
   file share have been uploaded to Amazon S3. Storage Gateway can send a
   notification through Amazon CloudWatch Events when all files written to your
@@ -5038,12 +4975,10 @@ defmodule AWS.StorageGateway do
       required("FileShareARN") => String.t()
     }
   """
-
   @spec notify_when_uploaded(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, notify_when_uploaded_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_when_uploaded_errors()}
-
   def notify_when_uploaded(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5052,6 +4987,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Refreshes the cached inventory of objects for the specified file share. This
   operation finds objects in the Amazon S3 bucket that were added, removed, or
   replaced since the gateway last listed the bucket's contents and cached the
@@ -5081,12 +5017,10 @@ defmodule AWS.StorageGateway do
       required("FileShareARN") => String.t()
     }
   """
-
   @spec refresh_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, refresh_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, refresh_cache_errors()}
-
   def refresh_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5095,6 +5029,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Removes one or more tags from the specified resource. This operation is
   supported in storage gateways of all types.
 
@@ -5107,12 +5042,10 @@ defmodule AWS.StorageGateway do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec remove_tags_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_from_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
-
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5121,6 +5054,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Resets all cache disks that have encountered an error and makes the disks
   available for reconfiguration as cache storage. If your cache disk encounters
   an error, the gateway prevents read and write operations on virtual tapes in
@@ -5137,12 +5071,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec reset_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reset_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_cache_errors()}
-
   def reset_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5151,6 +5083,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape
   gateway. Virtual tapes archived in the VTS are not associated with any
   gateway. However after a tape is retrieved, it is associated with a gateway,
@@ -5166,12 +5099,10 @@ defmodule AWS.StorageGateway do
       required("TapeARN") => String.t()
     }
   """
-
   @spec retrieve_tape_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, retrieve_tape_archive_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_tape_archive_errors()}
-
   def retrieve_tape_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5180,6 +5111,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Retrieves the recovery point for the specified virtual tape. This operation is
   only supported in the tape gateway type. A recovery point is a point in time
   view of a virtual tape at which all the data on the tape is consistent. If
@@ -5195,12 +5127,10 @@ defmodule AWS.StorageGateway do
       required("TapeARN") => String.t()
     }
   """
-
   @spec retrieve_tape_recovery_point(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, retrieve_tape_recovery_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_tape_recovery_point_errors()}
-
   def retrieve_tape_recovery_point(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5209,6 +5139,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Sets the password for your VM local console. When you log in to the local
   console for the first time, you log in to the VM with the default credentials.
   We recommend that you set a new password. You don't need to know the default
@@ -5223,12 +5154,10 @@ defmodule AWS.StorageGateway do
       required("LocalConsolePassword") => String.t()
     }
   """
-
   @spec set_local_console_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_local_console_password_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_local_console_password_errors()}
-
   def set_local_console_password(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5237,6 +5166,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Sets the password for the guest user `smbguest`. The `smbguest` user is the user
   when the authentication method for the file share is set to `GuestAccess`.
   This operation only supported for S3 File Gateways
@@ -5250,12 +5180,10 @@ defmodule AWS.StorageGateway do
       required("Password") => String.t()
     }
   """
-
   @spec set_smb_guest_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_smb_guest_password_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_smb_guest_password_errors()}
-
   def set_smb_guest_password(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5264,6 +5192,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Shuts down a Tape Gateway or Volume Gateway. To specify which gateway to shut
   down, use the Amazon Resource Name (ARN) of the gateway in the body of your
   request. This API action cannot be used to shut down S3 File Gateway or FSx
@@ -5277,12 +5206,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec shutdown_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, shutdown_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, shutdown_gateway_errors()}
-
   def shutdown_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5291,6 +5218,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Start a test that verifies that the specified gateway is configured for High
   Availability monitoring in your host environment. This request only initiates
   the test and that a successful response only indicates that the test was
@@ -5305,12 +5233,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec start_availability_monitor_test(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_availability_monitor_test_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_availability_monitor_test_errors()}
-
   def start_availability_monitor_test(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5320,6 +5246,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Starts a gateway that you previously shut down (see `ShutdownGateway`). After
   the gateway starts, you can then make other API calls, your applications can
   read from or write to the gateway's storage volumes and you will be able to
@@ -5337,12 +5264,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec start_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_gateway_errors()}
-
   def start_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5351,6 +5276,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates the automatic tape creation policy of a gateway. Use this to update the
   policy with a new set of automatic tape creation rules. This is only supported
   for tape gateways. By default, there is no automatic tape creation policy.
@@ -5364,12 +5290,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec update_automatic_tape_creation_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_automatic_tape_creation_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_automatic_tape_creation_policy_errors()}
-
   def update_automatic_tape_creation_policy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5379,6 +5303,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates the bandwidth rate limits of a gateway. You can update both the upload
   and download bandwidth rate limit or specify only one of the two. If you don't
   set a bandwidth rate limit, the existing rate limit remains. This operation is
@@ -5399,12 +5324,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec update_bandwidth_rate_limit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_bandwidth_rate_limit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bandwidth_rate_limit_errors()}
-
   def update_bandwidth_rate_limit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5413,6 +5336,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates the bandwidth rate limit schedule for a specified gateway. By default,
   gateways do not have bandwidth rate limit schedules, which means no bandwidth
   rate limiting is in effect. Use this to initiate or update a gateway's
@@ -5429,12 +5353,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec update_bandwidth_rate_limit_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_bandwidth_rate_limit_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bandwidth_rate_limit_schedule_errors()}
-
   def update_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5444,6 +5366,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
   specified iSCSI target. By default, a gateway does not have CHAP enabled;
   however, for added security, you might use it. This operation is supported in
@@ -5460,12 +5383,10 @@ defmodule AWS.StorageGateway do
       required("TargetARN") => String.t()
     }
   """
-
   @spec update_chap_credentials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_chap_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_chap_credentials_errors()}
-
   def update_chap_credentials(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5474,6 +5395,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates a file system association. This operation is only supported in the FSx
   File Gateways.
 
@@ -5489,12 +5411,10 @@ defmodule AWS.StorageGateway do
       required("FileSystemAssociationARN") => String.t()
     }
   """
-
   @spec update_file_system_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_file_system_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_file_system_association_errors()}
-
   def update_file_system_association(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5504,6 +5424,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates a gateway's metadata, which includes the gateway's name, time zone, and
   metadata cache size. To specify which gateway to update, use the Amazon
   Resource Name (ARN) of the gateway in your request.
@@ -5520,12 +5441,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec update_gateway_information(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_gateway_information_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_information_errors()}
-
   def update_gateway_information(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5534,6 +5453,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates the gateway virtual machine (VM) software. The request immediately
   triggers the software update. When you make this request, you get a `200 OK`
   success response immediately. However, it might take some time for the update
@@ -5548,12 +5468,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec update_gateway_software_now(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_gateway_software_now_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_software_now_errors()}
-
   def update_gateway_software_now(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5562,6 +5480,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates a gateway's maintenance window schedule, with settings for monthly or
   weekly cadence, specific day and time to begin maintenance, and which types of
   updates to apply. Time configuration uses the gateway's time zone. You can
@@ -5585,12 +5504,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec update_maintenance_start_time(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_maintenance_start_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_maintenance_start_time_errors()}
-
   def update_maintenance_start_time(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5600,6 +5517,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates a Network File System (NFS) file share. This operation is only supported
   in S3 File Gateways. To leave a file share field unchanged, set the
   corresponding input field to null.
@@ -5626,12 +5544,10 @@ defmodule AWS.StorageGateway do
       required("FileShareARN") => String.t()
     }
   """
-
   @spec update_nfs_file_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_nfs_file_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_nfs_file_share_errors()}
-
   def update_nfs_file_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5640,6 +5556,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates a Server Message Block (SMB) file share. This operation is only
   supported for S3 File Gateways. To leave a file share field unchanged, set the
   corresponding input field to null.
@@ -5670,12 +5587,10 @@ defmodule AWS.StorageGateway do
       required("FileShareARN") => String.t()
     }
   """
-
   @spec update_smb_file_share(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_smb_file_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_smb_file_share_errors()}
-
   def update_smb_file_share(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5684,6 +5599,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Controls whether the shares on an S3 File Gateway are visible in a net view or
   browse list. The operation is only supported for S3 File Gateways.
 
@@ -5696,12 +5612,10 @@ defmodule AWS.StorageGateway do
       required("GatewayARN") => String.t()
     }
   """
-
   @spec update_smb_file_share_visibility(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_smb_file_share_visibility_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_smb_file_share_visibility_errors()}
-
   def update_smb_file_share_visibility(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -5711,6 +5625,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates the list of Active Directory users and groups that have special
   permissions for SMB file shares on the gateway.
 
@@ -5723,12 +5638,10 @@ defmodule AWS.StorageGateway do
       required("SMBLocalGroups") => smb_local_groups()
     }
   """
-
   @spec update_smb_local_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_smb_local_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_smb_local_groups_errors()}
-
   def update_smb_local_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5737,6 +5650,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates the SMB security strategy level for an Amazon S3 file gateway. This
   action is only supported for Amazon S3 file gateways.
 
@@ -5749,12 +5663,10 @@ defmodule AWS.StorageGateway do
       required("SMBSecurityStrategy") => list(any())
     }
   """
-
   @spec update_smb_security_strategy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_smb_security_strategy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_smb_security_strategy_errors()}
-
   def update_smb_security_strategy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5763,6 +5675,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates a snapshot schedule configured for a gateway volume. This operation is
   only supported in the cached volume and stored volume gateway types. The
   default snapshot schedule for volume is once every 24 hours, starting at the
@@ -5781,12 +5694,10 @@ defmodule AWS.StorageGateway do
       required("VolumeARN") => String.t()
     }
   """
-
   @spec update_snapshot_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_snapshot_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_snapshot_schedule_errors()}
-
   def update_snapshot_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -5795,6 +5706,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+   
   Updates the type of medium changer in a tape gateway. When you activate a tape
   gateway, you select a medium changer type for the tape gateway. This operation
   enables you to select a different type of medium changer after a tape gateway
@@ -5809,12 +5721,10 @@ defmodule AWS.StorageGateway do
       required("VTLDeviceARN") => String.t()
     }
   """
-
   @spec update_vtl_device_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_vtl_device_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vtl_device_type_errors()}
-
   def update_vtl_device_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

@@ -1560,16 +1560,14 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CancelSolNetworkOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ns_lcm_op_occ_id` (`t:string`) The identifier of the network operation.
-
-  ## Optional parameters:
+  * `:ns_lcm_op_occ_id` (`t:string` required) The identifier of the network
+  operation.
+  ## Keyword parameters:
   """
-
   @spec cancel_sol_network_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_sol_network_operation_errors()}
-
   def cancel_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs/#{AWS.Util.encode_uri(ns_lcm_op_occ_id)}/cancel"
 
@@ -1606,15 +1604,12 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CreateSolFunctionPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sol_function_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sol_function_package_errors()}
-
   def create_sol_function_package(%Client{} = client, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages"
 
@@ -1651,15 +1646,12 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CreateSolNetworkInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sol_network_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sol_network_instance_errors()}
-
   def create_sol_network_instance(%Client{} = client, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances"
 
@@ -1706,15 +1698,12 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CreateSolNetworkPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sol_network_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sol_network_package_errors()}
-
   def create_sol_network_package(%Client{} = client, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors"
 
@@ -1755,16 +1744,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20DeleteSolFunctionPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vnf_pkg_id` (`t:string`) ID of the function package.
-
-  ## Optional parameters:
+  * `:vnf_pkg_id` (`t:string` required) ID of the function package.
+  ## Keyword parameters:
   """
-
   @spec delete_sol_function_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sol_function_package_errors()}
-
   def delete_sol_function_package(%Client{} = client, vnf_pkg_id, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
 
@@ -1813,16 +1799,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20DeleteSolNetworkInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ns_instance_id` (`t:string`) Network instance ID.
-
-  ## Optional parameters:
+  * `:ns_instance_id` (`t:string` required) Network instance ID.
+  ## Keyword parameters:
   """
-
   @spec delete_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sol_network_instance_errors()}
-
   def delete_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
 
@@ -1871,17 +1854,14 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20DeleteSolNetworkPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
-  network package.
-
-  ## Optional parameters:
+  * `:nsd_info_id` (`t:string` required) ID of the network service descriptor in
+  the network package.
+  ## Keyword parameters:
   """
-
   @spec delete_sol_network_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sol_network_package_errors()}
-
   def delete_sol_network_package(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
 
@@ -1930,16 +1910,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolFunctionInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vnf_instance_id` (`t:string`) ID of the network function.
-
-  ## Optional parameters:
+  * `:vnf_instance_id` (`t:string` required) ID of the network function.
+  ## Keyword parameters:
   """
-
   @spec get_sol_function_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_instance_errors()}
-
   def get_sol_function_instance(%Client{} = client, vnf_instance_id, options \\ []) do
     url_path = "/sol/vnflcm/v1/vnf_instances/#{AWS.Util.encode_uri(vnf_instance_id)}"
 
@@ -1975,16 +1952,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolFunctionPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vnf_pkg_id` (`t:string`) ID of the function package.
-
-  ## Optional parameters:
+  * `:vnf_pkg_id` (`t:string` required) ID of the function package.
+  ## Keyword parameters:
   """
-
   @spec get_sol_function_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_package_errors()}
-
   def get_sol_function_package(%Client{} = client, vnf_pkg_id, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
 
@@ -2019,18 +1993,15 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolFunctionPackageContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vnf_pkg_id` (`t:string`) ID of the function package.
-  * `:accept` (`t:enum["APPLICATION_ZIP"]`) The format of the package that you
-  want to download from the function packages.
-
-  ## Optional parameters:
+  * `:vnf_pkg_id` (`t:string` required) ID of the function package.
+  * `:accept` (`t:enum["APPLICATION_ZIP"]` required) The format of the package
+  that you want to download from the function packages.
+  ## Keyword parameters:
   """
-
   @spec get_sol_function_package_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_package_content_errors()}
-
   def get_sol_function_package_content(%Client{} = client, vnf_pkg_id, accept, options \\ [])
       when is_binary(accept) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content"
@@ -2075,18 +2046,15 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolFunctionPackageDescriptor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vnf_pkg_id` (`t:string`) ID of the function package.
-  * `:accept` (`t:enum["TEXT_PLAIN"]`) Indicates which content types, expressed as
-  MIME types, the client is able to understand.
-
-  ## Optional parameters:
+  * `:vnf_pkg_id` (`t:string` required) ID of the function package.
+  * `:accept` (`t:enum["TEXT_PLAIN"]` required) Indicates which content types,
+  expressed as MIME types, the client is able to understand.
+  ## Keyword parameters:
   """
-
   @spec get_sol_function_package_descriptor(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_descriptor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_package_descriptor_errors()}
-
   def get_sol_function_package_descriptor(%Client{} = client, vnf_pkg_id, accept, options \\ [])
       when is_binary(accept) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/vnfd"
@@ -2128,16 +2096,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolNetworkInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ns_instance_id` (`t:string`) ID of the network instance.
-
-  ## Optional parameters:
+  * `:ns_instance_id` (`t:string` required) ID of the network instance.
+  ## Keyword parameters:
   """
-
   @spec get_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_instance_errors()}
-
   def get_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
 
@@ -2173,16 +2138,14 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolNetworkOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ns_lcm_op_occ_id` (`t:string`) The identifier of the network operation.
-
-  ## Optional parameters:
+  * `:ns_lcm_op_occ_id` (`t:string` required) The identifier of the network
+  operation.
+  ## Keyword parameters:
   """
-
   @spec get_sol_network_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_operation_errors()}
-
   def get_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs/#{AWS.Util.encode_uri(ns_lcm_op_occ_id)}"
 
@@ -2217,17 +2180,14 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolNetworkPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
-  network package.
-
-  ## Optional parameters:
+  * `:nsd_info_id` (`t:string` required) ID of the network service descriptor in
+  the network package.
+  ## Keyword parameters:
   """
-
   @spec get_sol_network_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_package_errors()}
-
   def get_sol_network_package(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
 
@@ -2262,19 +2222,16 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolNetworkPackageContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
-  network package.
-  * `:accept` (`t:enum["APPLICATION_ZIP"]`) The format of the package you want to
-  download from the network package.
-
-  ## Optional parameters:
+  * `:nsd_info_id` (`t:string` required) ID of the network service descriptor in
+  the network package.
+  * `:accept` (`t:enum["APPLICATION_ZIP"]` required) The format of the package you
+  want to download from the network package.
+  ## Keyword parameters:
   """
-
   @spec get_sol_network_package_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_package_content_errors()}
-
   def get_sol_network_package_content(%Client{} = client, nsd_info_id, accept, options \\ [])
       when is_binary(accept) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content"
@@ -2316,17 +2273,14 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolNetworkPackageDescriptor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
-  network package.
-
-  ## Optional parameters:
+  * `:nsd_info_id` (`t:string` required) ID of the network service descriptor in
+  the network package.
+  ## Keyword parameters:
   """
-
   @spec get_sol_network_package_descriptor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_descriptor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_package_descriptor_errors()}
-
   def get_sol_network_package_descriptor(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd"
 
@@ -2369,20 +2323,17 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20InstantiateSolNetworkInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ns_instance_id` (`t:string`) ID of the network instance.
-
-  ## Optional parameters:
+  * `:ns_instance_id` (`t:string` required) ID of the network instance.
+  ## Keyword parameters:
   * `:dry_run` (`t:string`) A check for whether you have the required permissions
   for the action without actually making the request and provides an error
   response. If you have the required permissions, the error response is
   DryRunOperation. Otherwise, it is UnauthorizedOperation.
   """
-
   @spec instantiate_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, instantiate_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, instantiate_sol_network_instance_errors()}
-
   def instantiate_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/instantiate"
 
@@ -2430,18 +2381,15 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolFunctionInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_sol_function_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_function_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_function_instances_errors()}
-
   def list_sol_function_instances(%Client{} = client, options \\ []) do
     url_path = "/sol/vnflcm/v1/vnf_instances"
 
@@ -2494,18 +2442,15 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolFunctionPackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_sol_function_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_function_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_function_packages_errors()}
-
   def list_sol_function_packages(%Client{} = client, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages"
 
@@ -2558,18 +2503,15 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolNetworkInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_sol_network_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_network_instances_errors()}
-
   def list_sol_network_instances(%Client{} = client, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances"
 
@@ -2623,20 +2565,17 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolNetworkOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:ns_instance_id` (`t:string`) Network instance id filter, to retrieve network
   operations associated to a network instance.
   """
-
   @spec list_sol_network_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_network_operations_errors()}
-
   def list_sol_network_operations(%Client{} = client, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs"
 
@@ -2696,18 +2635,15 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolNetworkPackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
-
   @spec list_sol_network_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_network_packages_errors()}
-
   def list_sol_network_packages(%Client{} = client, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors"
 
@@ -2760,16 +2696,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Resource ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Resource ARN.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2804,19 +2737,16 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20PutSolFunctionPackageContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vnf_pkg_id` (`t:string`) Function package ID.
+  * `:vnf_pkg_id` (`t:string` required) Function package ID.
   * `:input` (`t:map`):
-    * `:file` (`t:blob`) Function package file.
-
-  ## Optional parameters:
+    * `:file` (`t:blob` required) Function package file.
+  ## Keyword parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
   """
-
   @spec put_sol_function_package_content(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sol_function_package_content_errors()}
-
   def put_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ [])
       when is_map(input) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content"
@@ -2865,19 +2795,16 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20PutSolNetworkPackageContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:nsd_info_id` (`t:string`) Network service descriptor info ID.
+  * `:nsd_info_id` (`t:string` required) Network service descriptor info ID.
   * `:input` (`t:map`):
-    * `:file` (`t:blob`) Network package file.
-
-  ## Optional parameters:
+    * `:file` (`t:blob` required) Network package file.
+  ## Keyword parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
   """
-
   @spec put_sol_network_package_content(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sol_network_package_content_errors()}
-
   def put_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ [])
       when is_map(input) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content"
@@ -2926,16 +2853,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Resource ARN.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Resource ARN.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2974,16 +2898,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20TerminateSolNetworkInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ns_instance_id` (`t:string`) ID of the network instance.
-
-  ## Optional parameters:
+  * `:ns_instance_id` (`t:string` required) ID of the network instance.
+  ## Keyword parameters:
   """
-
   @spec terminate_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, terminate_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_sol_network_instance_errors()}
-
   def terminate_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/terminate"
 
@@ -3020,17 +2941,14 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) Resource ARN.
-  * `:tag_keys` (`t:list[com.amazonaws.tnb#TagKey]`) Tag keys.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) Resource ARN.
+  * `:tag_keys` (`t:list[com.amazonaws.tnb#TagKey]` required) Tag keys.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3078,16 +2996,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20UpdateSolFunctionPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vnf_pkg_id` (`t:string`) ID of the function package.
-
-  ## Optional parameters:
+  * `:vnf_pkg_id` (`t:string` required) ID of the function package.
+  ## Keyword parameters:
   """
-
   @spec update_sol_function_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sol_function_package_errors()}
-
   def update_sol_function_package(%Client{} = client, vnf_pkg_id, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
 
@@ -3136,16 +3051,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20UpdateSolNetworkInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:ns_instance_id` (`t:string`) ID of the network instance.
-
-  ## Optional parameters:
+  * `:ns_instance_id` (`t:string` required) ID of the network instance.
+  ## Keyword parameters:
   """
-
   @spec update_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sol_network_instance_errors()}
-
   def update_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/update"
 
@@ -3185,17 +3097,14 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20UpdateSolNetworkPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
-  network package.
-
-  ## Optional parameters:
+  * `:nsd_info_id` (`t:string` required) ID of the network service descriptor in
+  the network package.
+  ## Keyword parameters:
   """
-
   @spec update_sol_network_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sol_network_package_errors()}
-
   def update_sol_network_package(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
 
@@ -3244,14 +3153,12 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ValidateSolFunctionPackageContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vnf_pkg_id` (`t:string`) Function package ID.
+  * `:vnf_pkg_id` (`t:string` required) Function package ID.
   * `:input` (`t:map`):
-    * `:file` (`t:blob`) Function package file.
-
-  ## Optional parameters:
+    * `:file` (`t:blob` required) Function package file.
+  ## Keyword parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
   """
-
   @spec validate_sol_function_package_content(
           AWS.Client.t(),
           String.t(),
@@ -3261,7 +3168,6 @@ defmodule AWS.Tnb do
           {:ok, validate_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_sol_function_package_content_errors()}
-
   def validate_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -3313,14 +3219,12 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ValidateSolNetworkPackageContent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:nsd_info_id` (`t:string`) Network service descriptor file.
+  * `:nsd_info_id` (`t:string` required) Network service descriptor file.
   * `:input` (`t:map`):
-    * `:file` (`t:blob`) Network package file.
-
-  ## Optional parameters:
+    * `:file` (`t:blob` required) Network package file.
+  ## Keyword parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
   """
-
   @spec validate_sol_network_package_content(
           AWS.Client.t(),
           String.t(),
@@ -3330,7 +3234,6 @@ defmodule AWS.Tnb do
           {:ok, validate_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_sol_network_package_content_errors()}
-
   def validate_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ [])
       when is_map(input) do
     url_path =

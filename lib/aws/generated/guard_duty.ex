@@ -4532,24 +4532,21 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20AcceptAdministratorInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
   * `:input` (`t:map`):
-    * `:administrator_id` (`t:string`) The account ID of the GuardDuty administrator
-  account whose invitation you're accepting.
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
-    * `:invitation_id` (`t:string`) The value that is used to validate the
+    * `:administrator_id` (`t:string` required) The account ID of the GuardDuty
+  administrator account whose invitation you're accepting.
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
+    * `:invitation_id` (`t:string` required) The value that is used to validate the
   administrator account to the member account.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec accept_administrator_invitation(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_administrator_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_administrator_invitation_errors()}
-
   def accept_administrator_invitation(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
@@ -4587,24 +4584,21 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20AcceptInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
-    * `:invitation_id` (`t:string`) The value that is used to validate the
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
+    * `:invitation_id` (`t:string` required) The value that is used to validate the
   administrator account to the member account.
-    * `:master_id` (`t:string`) The account ID of the GuardDuty administrator
-  account whose invitation you're accepting.
-
-  ## Optional parameters:
+    * `:master_id` (`t:string` required) The account ID of the GuardDuty
+  administrator account whose invitation you're accepting.
+  ## Keyword parameters:
   """
-
   @spec accept_invitation(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_invitation_errors()}
-
   def accept_invitation(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master"
@@ -4642,22 +4636,19 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ArchiveFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that specifies the
+  * `:detector_id` (`t:string` required) The ID of the detector that specifies the
   GuardDuty service whose findings you want to archive.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The ID of the detector that specifies the
+    * `:detector_id` (`t:string` required) The ID of the detector that specifies the
   GuardDuty service whose findings you want to archive.
-    * `:finding_ids` (`t:list[com.amazonaws.guardduty#FindingId]`) The IDs of the
-  findings that you want to archive.
-
-  ## Optional parameters:
+    * `:finding_ids` (`t:list[com.amazonaws.guardduty#FindingId]` required) The IDs
+  of the findings that you want to archive.
+  ## Keyword parameters:
   """
-
   @spec archive_findings(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, archive_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, archive_findings_errors()}
-
   def archive_findings(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/archive"
@@ -4699,8 +4690,8 @@ defmodule AWS.GuardDuty do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:enable` (`t:boolean`) A Boolean value that specifies whether the detector is
-  to be enabled.
+    * `:enable` (`t:boolean` required) A Boolean value that specifies whether the
+  detector is to be enabled.
     * `:client_token` (`t:string`) The idempotency token for the create request.
     * `:data_sources` (`t:structure`) Describes which data sources will be enabled
   for the detector.
@@ -4710,15 +4701,12 @@ defmodule AWS.GuardDuty do
   (`t:enum["FIFTEEN_MINUTES|ONE_HOUR|SIX_HOURS"]`) A value that specifies how
   frequently updated findings are exported.
     * `:tags` (`t:map`) The tags to be added to a new detector resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_detector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_detector_errors()}
-
   def create_detector(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/detector"
 
@@ -4758,16 +4746,16 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector belonging to the GuardDuty
-  account that you want to create a filter for.
+  * `:detector_id` (`t:string` required) The ID of the detector belonging to the
+  GuardDuty account that you want to create a filter for.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The ID of the detector belonging to the GuardDuty
-  account that you want to create a filter for.
-    * `:finding_criteria` (`t:structure`) Represents the criteria to be used in the
-  filter for querying findings.
-    * `:name` (`t:string`) The name of the filter. Valid characters include period
-  (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is
-  considered to be an invalid character.
+    * `:detector_id` (`t:string` required) The ID of the detector belonging to the
+  GuardDuty account that you want to create a filter for.
+    * `:finding_criteria` (`t:structure` required) Represents the criteria to be
+  used in the filter for querying findings.
+    * `:name` (`t:string` required) The name of the filter. Valid characters include
+  period (.), underscore (_), dash (-), and alphanumeric characters. A
+  whitespace is considered to be an invalid character.
     * `:action` (`t:enum["ARCHIVE|NOOP"]`) Specifies the action that is to be
   applied to the findings that match the filter.
     * `:client_token` (`t:string`) The idempotency token for the create request.
@@ -4779,15 +4767,12 @@ defmodule AWS.GuardDuty do
   current filters. Also specifies the order in which this filter is applied to
   the findings.
     * `:tags` (`t:map`) The tags to be added to a new filter resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_filter(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_filter_errors()}
-
   def create_filter(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/filter"
 
@@ -4828,28 +4813,25 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateIPSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account that you want to create an IPSet for.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account that you want to create an IPSet for.
   * `:input` (`t:map`):
-    * `:activate` (`t:boolean`) A Boolean value that indicates whether GuardDuty is
-  to start using the uploaded IPSet.
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account that you want to create an IPSet for.
-    * `:format` (`t:enum["ALIEN_VAULT|FIRE_EYE|OTX_CSV|PROOF_POINT|STIX|TXT"]`) The
-  format of the file that contains the IPSet.
-    * `:location` (`t:string`) The URI of the file that contains the IPSet.
-    * `:name` (`t:string`) The user-friendly name to identify the IPSet.
+    * `:activate` (`t:boolean` required) A Boolean value that indicates whether
+  GuardDuty is to start using the uploaded IPSet.
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account that you want to create an IPSet for.
+    * `:format` (`t:enum["ALIEN_VAULT|FIRE_EYE|OTX_CSV|PROOF_POINT|STIX|TXT"]`
+  required) The format of the file that contains the IPSet.
+    * `:location` (`t:string` required) The URI of the file that contains the IPSet.
+    * `:name` (`t:string` required) The user-friendly name to identify the IPSet.
     * `:client_token` (`t:string`) The idempotency token for the create request.
     * `:tags` (`t:map`) The tags to be added to a new IP set resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_ip_set(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ip_set_errors()}
-
   def create_ip_set(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset"
 
@@ -4887,24 +4869,21 @@ defmodule AWS.GuardDuty do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:protected_resource` (`t:structure`) Information about the protected resource
-  that is associated with the created Malware Protection plan. Presently,
-  S3Bucket is the only supported protected resource.
-    * `:role` (`t:string`) IAM role with permissions required to scan and add tags
-  to the associated protected resource.
+    * `:protected_resource` (`t:structure` required) Information about the protected
+  resource that is associated with the created Malware Protection plan.
+  Presently, S3Bucket is the only supported protected resource.
+    * `:role` (`t:string` required) IAM role with permissions required to scan and
+  add tags to the associated protected resource.
     * `:actions` (`t:structure`) Information about whether the tags will be added to
   the S3 object after scanning.
     * `:client_token` (`t:string`) The idempotency token for the create request.
     * `:tags` (`t:map`) Tags added to the Malware Protection plan resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_malware_protection_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_malware_protection_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_malware_protection_plan_errors()}
-
   def create_malware_protection_plan(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/malware-protection-plan"
@@ -4948,23 +4927,20 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account that you want to associate member accounts with.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account that you want to associate member accounts with.
   * `:input` (`t:map`):
-    * `:account_details` (`t:list[com.amazonaws.guardduty#AccountDetail]`) A list of
-  account ID and email address pairs of the accounts that you want to
-  associate with the GuardDuty administrator account.
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account that you want to associate member accounts with.
-
-  ## Optional parameters:
+    * `:account_details` (`t:list[com.amazonaws.guardduty#AccountDetail]` required)
+  A list of account ID and email address pairs of the accounts that you want
+  to associate with the GuardDuty administrator account.
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account that you want to associate member accounts with.
+  ## Keyword parameters:
   """
-
   @spec create_members(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_members_errors()}
-
   def create_members(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member"
 
@@ -5002,26 +4978,23 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreatePublishingDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the GuardDuty detector associated with
-  the publishing destination.
+  * `:detector_id` (`t:string` required) The ID of the GuardDuty detector
+  associated with the publishing destination.
   * `:input` (`t:map`):
-    * `:destination_properties` (`t:structure`) The properties of the publishing
-  destination, including the ARNs for the destination and the KMS key used for
-  encryption.
-    * `:destination_type` (`t:enum["S3"]`) The type of resource for the publishing
-  destination. Currently only Amazon S3 buckets are supported.
-    * `:detector_id` (`t:string`) The ID of the GuardDuty detector associated with
-  the publishing destination.
+    * `:destination_properties` (`t:structure` required) The properties of the
+  publishing destination, including the ARNs for the destination and the KMS
+  key used for encryption.
+    * `:destination_type` (`t:enum["S3"]` required) The type of resource for the
+  publishing destination. Currently only Amazon S3 buckets are supported.
+    * `:detector_id` (`t:string` required) The ID of the GuardDuty detector
+  associated with the publishing destination.
     * `:client_token` (`t:string`) The idempotency token for the request.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_publishing_destination(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_publishing_destination_errors()}
-
   def create_publishing_destination(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination"
@@ -5061,22 +5034,19 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateSampleFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector to create sample findings
-  for.
+  * `:detector_id` (`t:string` required) The ID of the detector to create sample
+  findings for.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The ID of the detector to create sample findings
-  for.
+    * `:detector_id` (`t:string` required) The ID of the detector to create sample
+  findings for.
     * `:finding_types` (`t:list[com.amazonaws.guardduty#FindingType]`) The types of
   sample findings to generate.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_sample_findings(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_sample_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sample_findings_errors()}
-
   def create_sample_findings(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/create"
@@ -5116,30 +5086,28 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateThreatIntelSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account that you want to create a threatIntelSet for.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account that you want to create a threatIntelSet for.
   * `:input` (`t:map`):
-    * `:activate` (`t:boolean`) A Boolean value that indicates whether GuardDuty is
-  to start using the uploaded ThreatIntelSet.
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account that you want to create a threatIntelSet for.
-    * `:format` (`t:enum["ALIEN_VAULT|FIRE_EYE|OTX_CSV|PROOF_POINT|STIX|TXT"]`) The
-  format of the file that contains the ThreatIntelSet.
-    * `:location` (`t:string`) The URI of the file that contains the ThreatIntelSet.
-    * `:name` (`t:string`) A user-friendly ThreatIntelSet name displayed in all
-  findings that are generated by activity that involves IP addresses included
-  in this ThreatIntelSet.
+    * `:activate` (`t:boolean` required) A Boolean value that indicates whether
+  GuardDuty is to start using the uploaded ThreatIntelSet.
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account that you want to create a threatIntelSet for.
+    * `:format` (`t:enum["ALIEN_VAULT|FIRE_EYE|OTX_CSV|PROOF_POINT|STIX|TXT"]`
+  required) The format of the file that contains the ThreatIntelSet.
+    * `:location` (`t:string` required) The URI of the file that contains the
+  ThreatIntelSet.
+    * `:name` (`t:string` required) A user-friendly ThreatIntelSet name displayed in
+  all findings that are generated by activity that involves IP addresses
+  included in this ThreatIntelSet.
     * `:client_token` (`t:string`) The idempotency token for the create request.
     * `:tags` (`t:map`) The tags to be added to a new threat list resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_threat_intel_set(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_threat_intel_set_errors()}
-
   def create_threat_intel_set(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset"
@@ -5179,18 +5147,15 @@ defmodule AWS.GuardDuty do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) A list of account
-  IDs of the Amazon Web Services accounts that sent invitations to the current
-  member account that you want to decline invitations from.
-
-  ## Optional parameters:
+    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]` required) A list
+  of account IDs of the Amazon Web Services accounts that sent invitations to
+  the current member account that you want to decline invitations from.
+  ## Keyword parameters:
   """
-
   @spec decline_invitations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, decline_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decline_invitations_errors()}
-
   def decline_invitations(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/invitation/decline"
 
@@ -5227,20 +5192,17 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that you want to
-  delete.
+  * `:detector_id` (`t:string` required) The unique ID of the detector that you
+  want to delete.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector that you want to
-  delete.
-
-  ## Optional parameters:
+    * `:detector_id` (`t:string` required) The unique ID of the detector that you
+  want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_detector(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_detector_errors()}
-
   def delete_detector(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
 
@@ -5287,22 +5249,21 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is
-  associated with.
-  * `:filter_name` (`t:string`) The name of the filter that you want to delete.
+  * `:detector_id` (`t:string` required) The unique ID of the detector that the
+  filter is associated with.
+  * `:filter_name` (`t:string` required) The name of the filter that you want to
+  delete.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector that the filter is
-  associated with.
-    * `:filter_name` (`t:string`) The name of the filter that you want to delete.
-
-  ## Optional parameters:
+    * `:detector_id` (`t:string` required) The unique ID of the detector that the
+  filter is associated with.
+    * `:filter_name` (`t:string` required) The name of the filter that you want to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_filter(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_filter_errors()}
-
   def delete_filter(%Client{} = client, detector_id, filter_name, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -5353,18 +5314,15 @@ defmodule AWS.GuardDuty do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) A list of account
-  IDs of the Amazon Web Services accounts that sent invitations to the current
-  member account that you want to delete invitations from.
-
-  ## Optional parameters:
+    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]` required) A list
+  of account IDs of the Amazon Web Services accounts that sent invitations to
+  the current member account that you want to delete invitations from.
+  ## Keyword parameters:
   """
-
   @spec delete_invitations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_invitations_errors()}
-
   def delete_invitations(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/invitation/delete"
 
@@ -5402,22 +5360,19 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteIPSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector associated with the
-  IPSet.
-  * `:ip_set_id` (`t:string`) The unique ID of the IPSet to delete.
+  * `:detector_id` (`t:string` required) The unique ID of the detector associated
+  with the IPSet.
+  * `:ip_set_id` (`t:string` required) The unique ID of the IPSet to delete.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector associated with the
-  IPSet.
-    * `:ip_set_id` (`t:string`) The unique ID of the IPSet to delete.
-
-  ## Optional parameters:
+    * `:detector_id` (`t:string` required) The unique ID of the detector associated
+  with the IPSet.
+    * `:ip_set_id` (`t:string` required) The unique ID of the IPSet to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_ip_set(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ip_set_errors()}
-
   def delete_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -5468,20 +5423,17 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteMalwareProtectionPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:malware_protection_plan_id` (`t:string`) A unique identifier associated with
-  Malware Protection plan resource.
+  * `:malware_protection_plan_id` (`t:string` required) A unique identifier
+  associated with Malware Protection plan resource.
   * `:input` (`t:map`):
-    * `:malware_protection_plan_id` (`t:string`) A unique identifier associated with
-  Malware Protection plan resource.
-
-  ## Optional parameters:
+    * `:malware_protection_plan_id` (`t:string` required) A unique identifier
+  associated with Malware Protection plan resource.
+  ## Keyword parameters:
   """
-
   @spec delete_malware_protection_plan(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_malware_protection_plan_errors()}
-
   def delete_malware_protection_plan(
         %Client{} = client,
         malware_protection_plan_id,
@@ -5535,22 +5487,19 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account whose members you want to delete.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account whose members you want to delete.
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) A list of account
-  IDs of the GuardDuty member accounts that you want to delete.
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account whose members you want to delete.
-
-  ## Optional parameters:
+    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]` required) A list
+  of account IDs of the GuardDuty member accounts that you want to delete.
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account whose members you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_members(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_members_errors()}
-
   def delete_members(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/delete"
 
@@ -5587,17 +5536,17 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeletePublishingDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:destination_id` (`t:string`) The ID of the publishing destination to delete.
-  * `:detector_id` (`t:string`) The unique ID of the detector associated with the
-  publishing destination to delete.
+  * `:destination_id` (`t:string` required) The ID of the publishing destination
+  to delete.
+  * `:detector_id` (`t:string` required) The unique ID of the detector associated
+  with the publishing destination to delete.
   * `:input` (`t:map`):
-    * `:destination_id` (`t:string`) The ID of the publishing destination to delete.
-    * `:detector_id` (`t:string`) The unique ID of the detector associated with the
-  publishing destination to delete.
-
-  ## Optional parameters:
+    * `:destination_id` (`t:string` required) The ID of the publishing destination
+  to delete.
+    * `:detector_id` (`t:string` required) The unique ID of the detector associated
+  with the publishing destination to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_publishing_destination(
           AWS.Client.t(),
           String.t(),
@@ -5608,7 +5557,6 @@ defmodule AWS.GuardDuty do
           {:ok, delete_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_publishing_destination_errors()}
-
   def delete_publishing_destination(
         %Client{} = client,
         destination_id,
@@ -5663,19 +5611,17 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteThreatIntelSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the
+  * `:detector_id` (`t:string` required) The unique ID of the detector that the
   threatIntelSet is associated with.
-  * `:threat_intel_set_id` (`t:string`) The unique ID of the threatIntelSet that
-  you want to delete.
+  * `:threat_intel_set_id` (`t:string` required) The unique ID of the
+  threatIntelSet that you want to delete.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector that the
+    * `:detector_id` (`t:string` required) The unique ID of the detector that the
   threatIntelSet is associated with.
-    * `:threat_intel_set_id` (`t:string`) The unique ID of the threatIntelSet that
-  you want to delete.
-
-  ## Optional parameters:
+    * `:threat_intel_set_id` (`t:string` required) The unique ID of the
+  threatIntelSet that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_threat_intel_set(
           AWS.Client.t(),
           String.t(),
@@ -5686,7 +5632,6 @@ defmodule AWS.GuardDuty do
           {:ok, delete_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_threat_intel_set_errors()}
-
   def delete_threat_intel_set(
         %Client{} = client,
         detector_id,
@@ -5743,11 +5688,11 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DescribeMalwareScans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the request is
-  associated with.
+  * `:detector_id` (`t:string` required) The unique ID of the detector that the
+  request is associated with.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector that the request is
-  associated with.
+    * `:detector_id` (`t:string` required) The unique ID of the detector that the
+  request is associated with.
     * `:filter_criteria` (`t:structure`) Represents the criteria to be used in the
   filter for describing scan entries.
     * `:max_results` (`t:integer`) You can use this parameter to indicate the
@@ -5760,15 +5705,12 @@ defmodule AWS.GuardDuty do
   data.
     * `:sort_criteria` (`t:structure`) Represents the criteria used for sorting scan
   entries. The attributeName is required and it must be scanStartTime.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_malware_scans(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_malware_scans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_malware_scans_errors()}
-
   def describe_malware_scans(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scans"
@@ -5807,10 +5749,9 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector to retrieve information
-  about the delegated administrator from.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The ID of the detector to retrieve
+  information about the delegated administrator from.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) You can use this parameter to indicate the
   maximum number of items that you want in the response.
   * `:next_token` (`t:string`) You can use this parameter when paginating results.
@@ -5819,12 +5760,10 @@ defmodule AWS.GuardDuty do
   with the value of NextToken from the previous response to continue listing
   data.
   """
-
   @spec describe_organization_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_configuration_errors()}
-
   def describe_organization_configuration(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"
 
@@ -5878,19 +5817,16 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DescribePublishingDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:destination_id` (`t:string`) The ID of the publishing destination to
-  retrieve.
-  * `:detector_id` (`t:string`) The unique ID of the detector associated with the
-  publishing destination to retrieve.
-
-  ## Optional parameters:
+  * `:destination_id` (`t:string` required) The ID of the publishing destination
+  to retrieve.
+  * `:detector_id` (`t:string` required) The unique ID of the detector associated
+  with the publishing destination to retrieve.
+  ## Keyword parameters:
   """
-
   @spec describe_publishing_destination(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_publishing_destination_errors()}
-
   def describe_publishing_destination(
         %Client{} = client,
         destination_id,
@@ -5933,17 +5869,15 @@ defmodule AWS.GuardDuty do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:admin_account_id` (`t:string`) The Amazon Web Services Account ID for the
-  organizations account to be disabled as a GuardDuty delegated administrator.
-
-  ## Optional parameters:
+    * `:admin_account_id` (`t:string` required) The Amazon Web Services Account ID
+  for the organizations account to be disabled as a GuardDuty delegated
+  administrator.
+  ## Keyword parameters:
   """
-
   @spec disable_organization_admin_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_organization_admin_account_errors()}
-
   def disable_organization_admin_account(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/admin/disable"
@@ -5992,15 +5926,13 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DisassociateFromAdministratorAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
-
-  ## Optional parameters:
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
+  ## Keyword parameters:
   """
-
   @spec disassociate_from_administrator_account(
           AWS.Client.t(),
           String.t(),
@@ -6010,7 +5942,6 @@ defmodule AWS.GuardDuty do
           {:ok, disassociate_from_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_from_administrator_account_errors()}
-
   def disassociate_from_administrator_account(
         %Client{} = client,
         detector_id,
@@ -6054,20 +5985,17 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DisassociateFromMasterAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
-
-  ## Optional parameters:
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
+  ## Keyword parameters:
   """
-
   @spec disassociate_from_master_account(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_from_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_from_master_account_errors()}
-
   def disassociate_from_master_account(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master/disassociate"
@@ -6119,25 +6047,22 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DisassociateMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account whose members you want to disassociate from the administrator
-  account.
-  * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) A list of account
-  IDs of the GuardDuty member accounts that you want to disassociate from the
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account whose members you want to disassociate from the
   administrator account.
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account whose members you want to disassociate from the administrator
-  account.
-
-  ## Optional parameters:
+  * `:input` (`t:map`):
+    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]` required) A list
+  of account IDs of the GuardDuty member accounts that you want to
+  disassociate from the administrator account.
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account whose members you want to disassociate from the
+  administrator account.
+  ## Keyword parameters:
   """
-
   @spec disassociate_members(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_members_errors()}
-
   def disassociate_members(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/disassociate"
@@ -6178,17 +6103,15 @@ defmodule AWS.GuardDuty do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:admin_account_id` (`t:string`) The Amazon Web Services account ID for the
-  organization account to be enabled as a GuardDuty delegated administrator.
-
-  ## Optional parameters:
+    * `:admin_account_id` (`t:string` required) The Amazon Web Services account ID
+  for the organization account to be enabled as a GuardDuty delegated
+  administrator.
+  ## Keyword parameters:
   """
-
   @spec enable_organization_admin_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_organization_admin_account_errors()}
-
   def enable_organization_admin_account(%Client{} = client, input, options \\ [])
       when is_map(input) do
     url_path = "/admin/enable"
@@ -6227,17 +6150,14 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetAdministratorAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
+  ## Keyword parameters:
   """
-
   @spec get_administrator_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_administrator_account_errors()}
-
   def get_administrator_account(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
 
@@ -6276,24 +6196,22 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetCoverageStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the GuardDuty detector associated
-  to the coverage statistics.
+  * `:detector_id` (`t:string` required) The unique ID of the GuardDuty detector
+  associated to the coverage statistics.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the GuardDuty detector associated
-  to the coverage statistics.
-    * `:statistics_type` (`t:list[com.amazonaws.guardduty#CoverageStatisticsType]`)
-  Represents the statistics type used to aggregate the coverage details.
+    * `:detector_id` (`t:string` required) The unique ID of the GuardDuty detector
+  associated to the coverage statistics.
+    * `:statistics_type` (`t:list[com.amazonaws.guardduty#CoverageStatisticsType]`
+  required) Represents the statistics type used to aggregate the coverage
+  details.
     * `:filter_criteria` (`t:structure`) Represents the criteria used to filter the
   coverage statistics
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_coverage_statistics(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_coverage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_coverage_statistics_errors()}
-
   def get_coverage_statistics(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage/statistics"
@@ -6331,17 +6249,14 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that you want to
-  get.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The unique ID of the detector that you
+  want to get.
+  ## Keyword parameters:
   """
-
   @spec get_detector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_detector_errors()}
-
   def get_detector(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
 
@@ -6376,18 +6291,15 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is
-  associated with.
-  * `:filter_name` (`t:string`) The name of the filter you want to get.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The unique ID of the detector that the
+  filter is associated with.
+  * `:filter_name` (`t:string` required) The name of the filter you want to get.
+  ## Keyword parameters:
   """
-
   @spec get_filter(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_filter_errors()}
-
   def get_filter(%Client{} = client, detector_id, filter_name, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/filter/#{AWS.Util.encode_uri(filter_name)}"
@@ -6423,24 +6335,21 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that specifies the
+  * `:detector_id` (`t:string` required) The ID of the detector that specifies the
   GuardDuty service whose findings you want to retrieve.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The ID of the detector that specifies the
+    * `:detector_id` (`t:string` required) The ID of the detector that specifies the
   GuardDuty service whose findings you want to retrieve.
-    * `:finding_ids` (`t:list[com.amazonaws.guardduty#FindingId]`) The IDs of the
-  findings that you want to retrieve.
+    * `:finding_ids` (`t:list[com.amazonaws.guardduty#FindingId]` required) The IDs
+  of the findings that you want to retrieve.
     * `:sort_criteria` (`t:structure`) Represents the criteria used for sorting
   findings.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_findings(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_errors()}
-
   def get_findings(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/get"
 
@@ -6477,25 +6386,22 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetFindingsStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that specifies the
+  * `:detector_id` (`t:string` required) The ID of the detector that specifies the
   GuardDuty service whose findings' statistics you want to retrieve.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The ID of the detector that specifies the
+    * `:detector_id` (`t:string` required) The ID of the detector that specifies the
   GuardDuty service whose findings' statistics you want to retrieve.
     * `:finding_statistic_types`
-  (`t:list[com.amazonaws.guardduty#FindingStatisticType]`) The types of
-  finding statistics to retrieve.
+  (`t:list[com.amazonaws.guardduty#FindingStatisticType]` required) The types
+  of finding statistics to retrieve.
     * `:finding_criteria` (`t:structure`) Represents the criteria that is used for
   querying findings.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_findings_statistics(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_findings_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_statistics_errors()}
-
   def get_findings_statistics(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/statistics"
@@ -6534,15 +6440,12 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetInvitationsCount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_invitations_count(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_invitations_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_invitations_count_errors()}
-
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitation/count"
 
@@ -6577,18 +6480,15 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetIPSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the IPSet is
-  associated with.
-  * `:ip_set_id` (`t:string`) The unique ID of the IPSet to retrieve.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The unique ID of the detector that the
+  IPSet is associated with.
+  * `:ip_set_id` (`t:string` required) The unique ID of the IPSet to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_ip_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ip_set_errors()}
-
   def get_ip_set(%Client{} = client, detector_id, ip_set_id, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
@@ -6625,17 +6525,14 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetMalwareProtectionPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:malware_protection_plan_id` (`t:string`) A unique identifier associated with
-  Malware Protection plan resource.
-
-  ## Optional parameters:
+  * `:malware_protection_plan_id` (`t:string` required) A unique identifier
+  associated with Malware Protection plan resource.
+  ## Keyword parameters:
   """
-
   @spec get_malware_protection_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_malware_protection_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_malware_protection_plan_errors()}
-
   def get_malware_protection_plan(%Client{} = client, malware_protection_plan_id, options \\ []) do
     url_path = "/malware-protection-plan/#{AWS.Util.encode_uri(malware_protection_plan_id)}"
 
@@ -6670,17 +6567,14 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetMalwareScanSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the scan
-  setting is associated with.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The unique ID of the detector that the
+  scan setting is associated with.
+  ## Keyword parameters:
   """
-
   @spec get_malware_scan_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_malware_scan_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_malware_scan_settings_errors()}
-
   def get_malware_scan_settings(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
 
@@ -6716,17 +6610,14 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetMasterAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
+  ## Keyword parameters:
   """
-
   @spec get_master_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_master_account_errors()}
-
   def get_master_account(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master"
 
@@ -6761,20 +6652,19 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetMemberDetectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The detector ID for the administrator account.
+  * `:detector_id` (`t:string` required) The detector ID for the administrator
+  account.
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) The account ID of
-  the member account.
-    * `:detector_id` (`t:string`) The detector ID for the administrator account.
-
-  ## Optional parameters:
+    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]` required) The
+  account ID of the member account.
+    * `:detector_id` (`t:string` required) The detector ID for the administrator
+  account.
+  ## Keyword parameters:
   """
-
   @spec get_member_detectors(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_member_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_member_detectors_errors()}
-
   def get_member_detectors(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/get"
@@ -6813,22 +6703,19 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account whose members you want to retrieve.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account whose members you want to retrieve.
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) A list of account
-  IDs of the GuardDuty member accounts that you want to describe.
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account whose members you want to retrieve.
-
-  ## Optional parameters:
+    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]` required) A list
+  of account IDs of the GuardDuty member accounts that you want to describe.
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account whose members you want to retrieve.
+  ## Keyword parameters:
   """
-
   @spec get_members(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_members_errors()}
-
   def get_members(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/get"
 
@@ -6867,15 +6754,12 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetOrganizationStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_organization_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_organization_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_organization_statistics_errors()}
-
   def get_organization_statistics(%Client{} = client, options \\ []) do
     url_path = "/organization/statistics"
 
@@ -6911,22 +6795,19 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetRemainingFreeTrialDays&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  member account.
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty member account.
     * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) A list of account
   identifiers of the GuardDuty member account.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_remaining_free_trial_days(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_remaining_free_trial_days_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_remaining_free_trial_days_errors()}
-
   def get_remaining_free_trial_days(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/freeTrial/daysRemaining"
@@ -6964,19 +6845,16 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetThreatIntelSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the
+  * `:detector_id` (`t:string` required) The unique ID of the detector that the
   threatIntelSet is associated with.
-  * `:threat_intel_set_id` (`t:string`) The unique ID of the threatIntelSet that
-  you want to get.
-
-  ## Optional parameters:
+  * `:threat_intel_set_id` (`t:string` required) The unique ID of the
+  threatIntelSet that you want to get.
+  ## Keyword parameters:
   """
-
   @spec get_threat_intel_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_threat_intel_set_errors()}
-
   def get_threat_intel_set(%Client{} = client, detector_id, threat_intel_set_id, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset/#{AWS.Util.encode_uri(threat_intel_set_id)}"
@@ -7018,16 +6896,16 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetUsageStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that specifies the
+  * `:detector_id` (`t:string` required) The ID of the detector that specifies the
   GuardDuty service whose usage statistics you want to retrieve.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The ID of the detector that specifies the
+    * `:detector_id` (`t:string` required) The ID of the detector that specifies the
   GuardDuty service whose usage statistics you want to retrieve.
-    * `:usage_criteria` (`t:structure`) Represents the criteria used for querying
-  usage.
+    * `:usage_criteria` (`t:structure` required) Represents the criteria used for
+  querying usage.
     * `:usage_statistic_type`
-  (`t:enum["SUM_BY_ACCOUNT|SUM_BY_DATA_SOURCE|SUM_BY_FEATURES|SUM_BY_RESOURCE|TOP_ACCOUNTS_BY_FEATURE|TOP_RESOURCES"]`)
-  The type of usage statistics to retrieve.
+  (`t:enum["SUM_BY_ACCOUNT|SUM_BY_DATA_SOURCE|SUM_BY_FEATURES|SUM_BY_RESOURCE|TOP_ACCOUNTS_BY_FEATURE|TOP_RESOURCES"]`
+  required) The type of usage statistics to retrieve.
     * `:max_results` (`t:integer`) The maximum number of results to return in the
   response.
     * `:next_token` (`t:string`) A token to use for paginating results that are
@@ -7037,15 +6915,12 @@ defmodule AWS.GuardDuty do
   the first page.
     * `:unit` (`t:string`) The currency unit you would like to view your usage
   statistics in. Current valid values are USD.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_usage_statistics(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_usage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_statistics_errors()}
-
   def get_usage_statistics(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/usage/statistics"
@@ -7117,27 +6992,25 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20InviteMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account that you want to invite members with.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account that you want to invite members with.
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) A list of account
-  IDs of the accounts that you want to invite to GuardDuty as members.
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  account that you want to invite members with.
+    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]` required) A list
+  of account IDs of the accounts that you want to invite to GuardDuty as
+  members.
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty account that you want to invite members with.
     * `:disable_email_notification` (`t:boolean`) A Boolean value that specifies
   whether you want to disable email notification to the accounts that you are
   inviting to GuardDuty as members.
     * `:message` (`t:string`) The invitation message that you want to send to the
   accounts that you're inviting to GuardDuty as members.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec invite_members(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, invite_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invite_members_errors()}
-
   def invite_members(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/invite"
 
@@ -7176,11 +7049,11 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListCoverage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector whose coverage
-  details you want to retrieve.
+  * `:detector_id` (`t:string` required) The unique ID of the detector whose
+  coverage details you want to retrieve.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector whose coverage
-  details you want to retrieve.
+    * `:detector_id` (`t:string` required) The unique ID of the detector whose
+  coverage details you want to retrieve.
     * `:filter_criteria` (`t:structure`) Represents the criteria used to filter the
   coverage details.
     * `:max_results` (`t:integer`) The maximum number of results to return in the
@@ -7192,15 +7065,12 @@ defmodule AWS.GuardDuty do
   the first page.
     * `:sort_criteria` (`t:structure`) Represents the criteria used to sort the
   coverage details.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_coverage(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, list_coverage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_coverage_errors()}
-
   def list_coverage(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage"
 
@@ -7237,8 +7107,7 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListDetectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) You can use this parameter to indicate the
   maximum number of items that you want in the response. The default value is
   50. The maximum value is 50.
@@ -7248,12 +7117,10 @@ defmodule AWS.GuardDuty do
   with the value of NextToken from the previous response to continue listing
   data.
   """
-
   @spec list_detectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_detectors_errors()}
-
   def list_detectors(%Client{} = client, options \\ []) do
     url_path = "/detector"
 
@@ -7306,10 +7173,9 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListFilters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is
-  associated with.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The unique ID of the detector that the
+  filter is associated with.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) You can use this parameter to indicate the
   maximum number of items that you want in the response. The default value is
   50. The maximum value is 50.
@@ -7319,12 +7185,10 @@ defmodule AWS.GuardDuty do
   with the value of NextToken from the previous response to continue listing
   data.
   """
-
   @spec list_filters(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_filters_errors()}
-
   def list_filters(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/filter"
 
@@ -7377,10 +7241,10 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that specifies the
+  * `:detector_id` (`t:string` required) The ID of the detector that specifies the
   GuardDuty service whose findings you want to list.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The ID of the detector that specifies the
+    * `:detector_id` (`t:string` required) The ID of the detector that specifies the
   GuardDuty service whose findings you want to list.
     * `:finding_criteria` (`t:structure`) Represents the criteria used for querying
   findings. Valid values include:
@@ -7394,15 +7258,12 @@ defmodule AWS.GuardDuty do
   data.
     * `:sort_criteria` (`t:structure`) Represents the criteria used for sorting
   findings.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_findings(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_errors()}
-
   def list_findings(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings"
 
@@ -7440,8 +7301,7 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) You can use this parameter to indicate the
   maximum number of items that you want in the response. The default value is
   50. The maximum value is 50.
@@ -7451,12 +7311,10 @@ defmodule AWS.GuardDuty do
   with the value of NextToken from the previous response to continue listing
   data.
   """
-
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invitations_errors()}
-
   def list_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitation"
 
@@ -7511,10 +7369,9 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListIPSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the IPSet is
-  associated with.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The unique ID of the detector that the
+  IPSet is associated with.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) You can use this parameter to indicate the
   maximum number of items you want in the response. The default value is 50.
   The maximum value is 50.
@@ -7524,12 +7381,10 @@ defmodule AWS.GuardDuty do
   with the value of NextToken from the previous response to continue listing
   data.
   """
-
   @spec list_ip_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_ip_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ip_sets_errors()}
-
   def list_ip_sets(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset"
 
@@ -7583,20 +7438,17 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListMalwareProtectionPlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:next_token` (`t:string`) You can use this parameter when paginating results.
   Set the value of this parameter to null on your first call to the list
   action. For subsequent calls to the action, fill nextToken in the request
   with the value of NextToken from the previous response to continue listing
   data.
   """
-
   @spec list_malware_protection_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_malware_protection_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_malware_protection_plans_errors()}
-
   def list_malware_protection_plans(%Client{} = client, options \\ []) do
     url_path = "/malware-protection-plan"
 
@@ -7643,10 +7495,9 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector the member is
-  associated with.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The unique ID of the detector the member
+  is associated with.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) You can use this parameter to indicate the
   maximum number of items you want in the response. The default value is 50.
   The maximum value is 50.
@@ -7660,12 +7511,10 @@ defmodule AWS.GuardDuty do
   yet or have been disassociated). Member accounts must have been previously
   associated with the GuardDuty administrator account using Create Members .
   """
-
   @spec list_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
-
   def list_members(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member"
 
@@ -7726,8 +7575,7 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) A token to use for paginating results that are
@@ -7736,12 +7584,10 @@ defmodule AWS.GuardDuty do
   value returned from the previous request to continue listing results after
   the first page.
   """
-
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_admin_accounts_errors()}
-
   def list_organization_admin_accounts(%Client{} = client, options \\ []) do
     url_path = "/admin"
 
@@ -7795,10 +7641,9 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListPublishingDestinations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector to retrieve publishing
-  destinations for.
-
-  ## Optional parameters:
+  * `:detector_id` (`t:string` required) The ID of the detector to retrieve
+  publishing destinations for.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
   response.
   * `:next_token` (`t:string`) A token to use for paginating results that are
@@ -7807,12 +7652,10 @@ defmodule AWS.GuardDuty do
   value returned from the previous request to continue listing results after
   the first page.
   """
-
   @spec list_publishing_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_publishing_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_publishing_destinations_errors()}
-
   def list_publishing_destinations(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination"
 
@@ -7868,17 +7711,14 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the given
-  GuardDuty resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  given GuardDuty resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7915,10 +7755,9 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListThreatIntelSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the
+  * `:detector_id` (`t:string` required) The unique ID of the detector that the
   threatIntelSet is associated with.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) You can use this parameter to indicate the
   maximum number of items that you want in the response. The default value is
   50. The maximum value is 50.
@@ -7928,12 +7767,10 @@ defmodule AWS.GuardDuty do
   request with the value of NextToken from the previous response to continue
   listing data.
   """
-
   @spec list_threat_intel_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_threat_intel_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_threat_intel_sets_errors()}
-
   def list_threat_intel_sets(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset"
 
@@ -7992,17 +7829,14 @@ defmodule AWS.GuardDuty do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource for
-  which you invoked the API.
-
-  ## Optional parameters:
+    * `:resource_arn` (`t:string` required) Amazon Resource Name (ARN) of the
+  resource for which you invoked the API.
+  ## Keyword parameters:
   """
-
   @spec start_malware_scan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_malware_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_malware_scan_errors()}
-
   def start_malware_scan(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/malware-scan/start"
 
@@ -8043,22 +7877,21 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20StartMonitoringMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  administrator account associated with the member accounts to monitor.
+  * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty administrator account associated with the member accounts to
+  monitor.
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) A list of account
-  IDs of the GuardDuty member accounts to start monitoring.
-    * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
-  administrator account associated with the member accounts to monitor.
-
-  ## Optional parameters:
+    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]` required) A list
+  of account IDs of the GuardDuty member accounts to start monitoring.
+    * `:detector_id` (`t:string` required) The unique ID of the detector of the
+  GuardDuty administrator account associated with the member accounts to
+  monitor.
+  ## Keyword parameters:
   """
-
   @spec start_monitoring_members(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, start_monitoring_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_monitoring_members_errors()}
-
   def start_monitoring_members(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/start"
@@ -8097,22 +7930,19 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20StopMonitoringMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector associated with the
-  GuardDuty administrator account that is monitoring member accounts.
+  * `:detector_id` (`t:string` required) The unique ID of the detector associated
+  with the GuardDuty administrator account that is monitoring member accounts.
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) A list of account
-  IDs for the member accounts to stop monitoring.
-    * `:detector_id` (`t:string`) The unique ID of the detector associated with the
-  GuardDuty administrator account that is monitoring member accounts.
-
-  ## Optional parameters:
+    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]` required) A list
+  of account IDs for the member accounts to stop monitoring.
+    * `:detector_id` (`t:string` required) The unique ID of the detector associated
+  with the GuardDuty administrator account that is monitoring member accounts.
+  ## Keyword parameters:
   """
-
   @spec stop_monitoring_members(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_monitoring_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_monitoring_members_errors()}
-
   def stop_monitoring_members(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/stop"
@@ -8150,21 +7980,18 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the GuardDuty
-  resource to apply a tag to.
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  GuardDuty resource to apply a tag to.
   * `:input` (`t:map`):
-    * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the GuardDuty
-  resource to apply a tag to.
-    * `:tags` (`t:map`) The tags to be added to a resource.
-
-  ## Optional parameters:
+    * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  GuardDuty resource to apply a tag to.
+    * `:tags` (`t:map` required) The tags to be added to a resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -8201,22 +8028,19 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UnarchiveFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector associated with the
-  findings to unarchive.
+  * `:detector_id` (`t:string` required) The ID of the detector associated with
+  the findings to unarchive.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The ID of the detector associated with the
-  findings to unarchive.
-    * `:finding_ids` (`t:list[com.amazonaws.guardduty#FindingId]`) The IDs of the
-  findings to unarchive.
-
-  ## Optional parameters:
+    * `:detector_id` (`t:string` required) The ID of the detector associated with
+  the findings to unarchive.
+    * `:finding_ids` (`t:list[com.amazonaws.guardduty#FindingId]` required) The IDs
+  of the findings to unarchive.
+  ## Keyword parameters:
   """
-
   @spec unarchive_findings(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, unarchive_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unarchive_findings_errors()}
-
   def unarchive_findings(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/unarchive"
@@ -8254,24 +8078,21 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-  to remove tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.guardduty#TagKey]`) The tag keys to remove
-  from the resource.
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  resource to remove tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.guardduty#TagKey]` required) The tag keys
+  to remove from the resource.
   * `:input` (`t:map`):
-    * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-  to remove tags from.
-    * `:tag_keys` (`t:list[com.amazonaws.guardduty#TagKey]`) The tag keys to remove
-  from the resource.
-
-  ## Optional parameters:
+    * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
+  resource to remove tags from.
+    * `:tag_keys` (`t:list[com.amazonaws.guardduty#TagKey]` required) The tag keys
+  to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, input, options \\ [])
       when is_map(input) and is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8319,9 +8140,9 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector to update.
+  * `:detector_id` (`t:string` required) The unique ID of the detector to update.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector to update.
+    * `:detector_id` (`t:string` required) The unique ID of the detector to update.
     * `:data_sources` (`t:structure`) Describes which data sources will be updated.
     * `:enable` (`t:boolean`) Specifies whether the detector is enabled or not
   enabled.
@@ -8331,15 +8152,12 @@ defmodule AWS.GuardDuty do
   (`t:enum["FIFTEEN_MINUTES|ONE_HOUR|SIX_HOURS"]`) An enum value that
   specifies how frequently findings are exported, such as to CloudWatch
   Events.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_detector(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_detector_errors()}
-
   def update_detector(%Client{} = client, detector_id, input, options \\ []) when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
 
@@ -8376,13 +8194,13 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that specifies the
-  GuardDuty service where you want to update a filter.
-  * `:filter_name` (`t:string`) The name of the filter.
+  * `:detector_id` (`t:string` required) The unique ID of the detector that
+  specifies the GuardDuty service where you want to update a filter.
+  * `:filter_name` (`t:string` required) The name of the filter.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector that specifies the
-  GuardDuty service where you want to update a filter.
-    * `:filter_name` (`t:string`) The name of the filter.
+    * `:detector_id` (`t:string` required) The unique ID of the detector that
+  specifies the GuardDuty service where you want to update a filter.
+    * `:filter_name` (`t:string` required) The name of the filter.
     * `:action` (`t:enum["ARCHIVE|NOOP"]`) Specifies the action that is to be
   applied to the findings that match the filter.
     * `:description` (`t:string`) The description of the filter. Valid characters
@@ -8394,15 +8212,12 @@ defmodule AWS.GuardDuty do
     * `:rank` (`t:integer`) Specifies the position of the filter in the list of
   current filters. Also specifies the order in which this filter is applied to
   the findings.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_filter(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_filter_errors()}
-
   def update_filter(%Client{} = client, detector_id, filter_name, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -8441,24 +8256,22 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateFindingsFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector associated with the
-  findings to update feedback for.
+  * `:detector_id` (`t:string` required) The ID of the detector associated with
+  the findings to update feedback for.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The ID of the detector associated with the
-  findings to update feedback for.
-    * `:feedback` (`t:enum["NOT_USEFUL|USEFUL"]`) The feedback for the finding.
-    * `:finding_ids` (`t:list[com.amazonaws.guardduty#FindingId]`) The IDs of the
-  findings that you want to mark as useful or not useful.
+    * `:detector_id` (`t:string` required) The ID of the detector associated with
+  the findings to update feedback for.
+    * `:feedback` (`t:enum["NOT_USEFUL|USEFUL"]` required) The feedback for the
+  finding.
+    * `:finding_ids` (`t:list[com.amazonaws.guardduty#FindingId]` required) The IDs
+  of the findings that you want to mark as useful or not useful.
     * `:comments` (`t:string`) Additional feedback about the GuardDuty findings.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_findings_feedback(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_findings_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_findings_feedback_errors()}
-
   def update_findings_feedback(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/feedback"
@@ -8496,29 +8309,26 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateIPSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The detectorID that specifies the GuardDuty
-  service whose IPSet you want to update.
-  * `:ip_set_id` (`t:string`) The unique ID that specifies the IPSet that you want
-  to update.
+  * `:detector_id` (`t:string` required) The detectorID that specifies the
+  GuardDuty service whose IPSet you want to update.
+  * `:ip_set_id` (`t:string` required) The unique ID that specifies the IPSet that
+  you want to update.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The detectorID that specifies the GuardDuty
-  service whose IPSet you want to update.
-    * `:ip_set_id` (`t:string`) The unique ID that specifies the IPSet that you want
-  to update.
+    * `:detector_id` (`t:string` required) The detectorID that specifies the
+  GuardDuty service whose IPSet you want to update.
+    * `:ip_set_id` (`t:string` required) The unique ID that specifies the IPSet that
+  you want to update.
     * `:activate` (`t:boolean`) The updated Boolean value that specifies whether the
   IPSet is active or not.
     * `:location` (`t:string`) The updated URI of the file that contains the IPSet.
     * `:name` (`t:string`) The unique ID that specifies the IPSet that you want to
   update.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_ip_set(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ip_set_errors()}
-
   def update_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ [])
       when is_map(input) do
     url_path =
@@ -8557,11 +8367,11 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateMalwareProtectionPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:malware_protection_plan_id` (`t:string`) A unique identifier associated with
-  the Malware Protection plan.
+  * `:malware_protection_plan_id` (`t:string` required) A unique identifier
+  associated with the Malware Protection plan.
   * `:input` (`t:map`):
-    * `:malware_protection_plan_id` (`t:string`) A unique identifier associated with
-  the Malware Protection plan.
+    * `:malware_protection_plan_id` (`t:string` required) A unique identifier
+  associated with the Malware Protection plan.
     * `:actions` (`t:structure`) Information about whether the tags will be added to
   the S3 object after scanning.
     * `:protected_resource` (`t:structure`) Information about the protected resource
@@ -8569,15 +8379,12 @@ defmodule AWS.GuardDuty do
   S3Bucket is the only supported protected resource.
     * `:role` (`t:string`) IAM role with permissions required to scan and add tags
   to the associated protected resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_malware_protection_plan(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_malware_protection_plan_errors()}
-
   def update_malware_protection_plan(
         %Client{} = client,
         malware_protection_plan_id,
@@ -8630,24 +8437,21 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateMalwareScanSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that specifies the
-  GuardDuty service where you want to update scan settings.
+  * `:detector_id` (`t:string` required) The unique ID of the detector that
+  specifies the GuardDuty service where you want to update scan settings.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The unique ID of the detector that specifies the
-  GuardDuty service where you want to update scan settings.
+    * `:detector_id` (`t:string` required) The unique ID of the detector that
+  specifies the GuardDuty service where you want to update scan settings.
     * `:ebs_snapshot_preservation` (`t:enum["NO_RETENTION|RETENTION_WITH_FINDING"]`)
   An enum value representing possible snapshot preservation settings.
     * `:scan_resource_criteria` (`t:structure`) Represents the criteria to be used
   in the filter for selecting resources to scan.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_malware_scan_settings(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_malware_scan_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_malware_scan_settings_errors()}
-
   def update_malware_scan_settings(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
@@ -8685,23 +8489,22 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateMemberDetectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The detector ID of the administrator account.
+  * `:detector_id` (`t:string` required) The detector ID of the administrator
+  account.
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]`) A list of member
-  account IDs to be updated.
-    * `:detector_id` (`t:string`) The detector ID of the administrator account.
+    * `:account_ids` (`t:list[com.amazonaws.guardduty#AccountId]` required) A list
+  of member account IDs to be updated.
+    * `:detector_id` (`t:string` required) The detector ID of the administrator
+  account.
     * `:data_sources` (`t:structure`) Describes which data sources will be updated.
     * `:features` (`t:list[com.amazonaws.guardduty#MemberFeaturesConfiguration]`) A
   list of features that will be updated for the specified member accounts.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_member_detectors(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_member_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_member_detectors_errors()}
-
   def update_member_detectors(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/update"
@@ -8741,11 +8544,11 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that configures the
-  delegated administrator.
+  * `:detector_id` (`t:string` required) The ID of the detector that configures
+  the delegated administrator.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The ID of the detector that configures the
-  delegated administrator.
+    * `:detector_id` (`t:string` required) The ID of the detector that configures
+  the delegated administrator.
     * `:auto_enable` (`t:boolean`) Represents whether or not to automatically enable
   member accounts in the organization.
     * `:auto_enable_organization_members` (`t:enum["ALL|NEW|NONE"]`) Indicates the
@@ -8756,15 +8559,12 @@ defmodule AWS.GuardDuty do
     * `:features`
   (`t:list[com.amazonaws.guardduty#OrganizationFeatureConfiguration]`) A list
   of features that will be configured for the organization.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_organization_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_organization_configuration_errors()}
-
   def update_organization_configuration(%Client{} = client, detector_id, input, options \\ [])
       when is_map(input) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"
@@ -8803,19 +8603,19 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdatePublishingDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:destination_id` (`t:string`) The ID of the publishing destination to update.
-  * `:detector_id` (`t:string`) The ID of the detector associated with the
-  publishing destinations to update.
+  * `:destination_id` (`t:string` required) The ID of the publishing destination
+  to update.
+  * `:detector_id` (`t:string` required) The ID of the detector associated with
+  the publishing destinations to update.
   * `:input` (`t:map`):
-    * `:destination_id` (`t:string`) The ID of the publishing destination to update.
-    * `:detector_id` (`t:string`) The ID of the detector associated with the
-  publishing destinations to update.
+    * `:destination_id` (`t:string` required) The ID of the publishing destination
+  to update.
+    * `:detector_id` (`t:string` required) The ID of the detector associated with
+  the publishing destinations to update.
     * `:destination_properties` (`t:structure`) A DestinationProperties object that
   includes the DestinationArn and KmsKeyArn of the publishing destination.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_publishing_destination(
           AWS.Client.t(),
           String.t(),
@@ -8826,7 +8626,6 @@ defmodule AWS.GuardDuty do
           {:ok, update_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_publishing_destination_errors()}
-
   def update_publishing_destination(
         %Client{} = client,
         destination_id,
@@ -8871,14 +8670,14 @@ defmodule AWS.GuardDuty do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateThreatIntelSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:detector_id` (`t:string`) The detectorID that specifies the GuardDuty
-  service whose ThreatIntelSet you want to update.
-  * `:threat_intel_set_id` (`t:string`) The unique ID that specifies the
+  * `:detector_id` (`t:string` required) The detectorID that specifies the
+  GuardDuty service whose ThreatIntelSet you want to update.
+  * `:threat_intel_set_id` (`t:string` required) The unique ID that specifies the
   ThreatIntelSet that you want to update.
   * `:input` (`t:map`):
-    * `:detector_id` (`t:string`) The detectorID that specifies the GuardDuty
-  service whose ThreatIntelSet you want to update.
-    * `:threat_intel_set_id` (`t:string`) The unique ID that specifies the
+    * `:detector_id` (`t:string` required) The detectorID that specifies the
+  GuardDuty service whose ThreatIntelSet you want to update.
+    * `:threat_intel_set_id` (`t:string` required) The unique ID that specifies the
   ThreatIntelSet that you want to update.
     * `:activate` (`t:boolean`) The updated Boolean value that specifies whether the
   ThreateIntelSet is active or not.
@@ -8886,10 +8685,8 @@ defmodule AWS.GuardDuty do
   ThreateIntelSet.
     * `:name` (`t:string`) The unique ID that specifies the ThreatIntelSet that you
   want to update.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_threat_intel_set(
           AWS.Client.t(),
           String.t(),
@@ -8900,7 +8697,6 @@ defmodule AWS.GuardDuty do
           {:ok, update_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_threat_intel_set_errors()}
-
   def update_threat_intel_set(
         %Client{} = client,
         detector_id,

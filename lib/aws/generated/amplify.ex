@@ -1524,15 +1524,12 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
-
   def create_app(%Client{} = client, options \\ []) do
     url_path = "/apps"
 
@@ -1569,16 +1566,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateBackendEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   """
-
   @spec create_backend_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_backend_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backend_environment_errors()}
-
   def create_backend_environment(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments"
 
@@ -1615,16 +1609,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateBranch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   """
-
   @spec create_branch(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_branch_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_branch_errors()}
-
   def create_branch(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches"
 
@@ -1662,17 +1653,15 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of the branch to use for the job.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of the branch to use for the
+  job.
+  ## Keyword parameters:
   """
-
   @spec create_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_deployment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
-
   def create_deployment(%Client{} = client, app_id, branch_name, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/deployments"
@@ -1711,16 +1700,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateDomainAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   """
-
   @spec create_domain_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_association_errors()}
-
   def create_domain_association(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains"
 
@@ -1757,16 +1743,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateWebhook&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   """
-
   @spec create_webhook(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_webhook_errors()}
-
   def create_webhook(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/webhooks"
 
@@ -1803,16 +1786,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   """
-
   @spec delete_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
-
   def delete_app(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
 
@@ -1859,18 +1839,15 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteBackendEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID of an Amplify app.
-  * `:environment_name` (`t:string`) The name of a backend environment of an
-  Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID of an Amplify app.
+  * `:environment_name` (`t:string` required) The name of a backend environment of
+  an Amplify app.
+  ## Keyword parameters:
   """
-
   @spec delete_backend_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_backend_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backend_environment_errors()}
-
   def delete_backend_environment(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments/#{AWS.Util.encode_uri(environment_name)}"
@@ -1918,17 +1895,14 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteBranch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of the branch.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of the branch.
+  ## Keyword parameters:
   """
-
   @spec delete_branch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_branch_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_branch_errors()}
-
   def delete_branch(%Client{} = client, app_id, branch_name, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
 
@@ -1975,17 +1949,14 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteDomainAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique id for an Amplify app.
-  * `:domain_name` (`t:string`) The name of the domain.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique id for an Amplify app.
+  * `:domain_name` (`t:string` required) The name of the domain.
+  ## Keyword parameters:
   """
-
   @spec delete_domain_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_association_errors()}
-
   def delete_domain_association(%Client{} = client, app_id, domain_name, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -2032,18 +2003,16 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of the branch to use for the job.
-  * `:job_id` (`t:string`) The unique ID for the job.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of the branch to use for the
+  job.
+  * `:job_id` (`t:string` required) The unique ID for the job.
+  ## Keyword parameters:
   """
-
   @spec delete_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
-
   def delete_job(%Client{} = client, app_id, branch_name, job_id, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -2091,16 +2060,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteWebhook&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:webhook_id` (`t:string`) The unique ID for a webhook.
-
-  ## Optional parameters:
+  * `:webhook_id` (`t:string` required) The unique ID for a webhook.
+  ## Keyword parameters:
   """
-
   @spec delete_webhook(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_webhook_errors()}
-
   def delete_webhook(%Client{} = client, webhook_id, options \\ []) do
     url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"
 
@@ -2147,16 +2113,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GenerateAccessLogs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   """
-
   @spec generate_access_logs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, generate_access_logs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_access_logs_errors()}
-
   def generate_access_logs(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/accesslogs"
 
@@ -2193,16 +2156,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   """
-
   @spec get_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_errors()}
-
   def get_app(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
 
@@ -2237,16 +2197,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetArtifactUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:artifact_id` (`t:string`) The unique ID for an artifact.
-
-  ## Optional parameters:
+  * `:artifact_id` (`t:string` required) The unique ID for an artifact.
+  ## Keyword parameters:
   """
-
   @spec get_artifact_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_artifact_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_artifact_url_errors()}
-
   def get_artifact_url(%Client{} = client, artifact_id, options \\ []) do
     url_path = "/artifacts/#{AWS.Util.encode_uri(artifact_id)}"
 
@@ -2281,17 +2238,15 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetBackendEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique id for an Amplify app.
-  * `:environment_name` (`t:string`) The name for the backend environment.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique id for an Amplify app.
+  * `:environment_name` (`t:string` required) The name for the backend
+  environment.
+  ## Keyword parameters:
   """
-
   @spec get_backend_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_backend_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backend_environment_errors()}
-
   def get_backend_environment(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments/#{AWS.Util.encode_uri(environment_name)}"
@@ -2327,17 +2282,14 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetBranch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of the branch.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of the branch.
+  ## Keyword parameters:
   """
-
   @spec get_branch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_branch_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_branch_errors()}
-
   def get_branch(%Client{} = client, app_id, branch_name, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
 
@@ -2372,17 +2324,14 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetDomainAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique id for an Amplify app.
-  * `:domain_name` (`t:string`) The name of the domain.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique id for an Amplify app.
+  * `:domain_name` (`t:string` required) The name of the domain.
+  ## Keyword parameters:
   """
-
   @spec get_domain_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_association_errors()}
-
   def get_domain_association(%Client{} = client, app_id, domain_name, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -2417,18 +2366,16 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of the branch to use for the job.
-  * `:job_id` (`t:string`) The unique ID for the job.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of the branch to use for the
+  job.
+  * `:job_id` (`t:string` required) The unique ID for the job.
+  ## Keyword parameters:
   """
-
   @spec get_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
-
   def get_job(%Client{} = client, app_id, branch_name, job_id, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -2464,16 +2411,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetWebhook&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:webhook_id` (`t:string`) The unique ID for a webhook.
-
-  ## Optional parameters:
+  * `:webhook_id` (`t:string` required) The unique ID for a webhook.
+  ## Keyword parameters:
   """
-
   @spec get_webhook(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_webhook_errors()}
-
   def get_webhook(%Client{} = client, webhook_id, options \\ []) do
     url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"
 
@@ -2508,20 +2452,17 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListApps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
   response.
   * `:next_token` (`t:string`) A pagination token. If non-null, the pagination
   token is returned in a result. Pass its value in another request to retrieve
   more entries.
   """
-
   @spec list_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_apps_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_apps_errors()}
-
   def list_apps(%Client{} = client, options \\ []) do
     url_path = "/apps"
 
@@ -2574,24 +2515,21 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListArtifacts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of a branch that is part of an Amplify
-  app.
-  * `:job_id` (`t:string`) The unique ID for a job.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of a branch that is part of an
+  Amplify app.
+  * `:job_id` (`t:string` required) The unique ID for a job.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
   response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
   artifacts from start. If a non-null pagination token is returned in a
   result, pass its value in here to list more artifacts.
   """
-
   @spec list_artifacts(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_artifacts_errors()}
-
   def list_artifacts(%Client{} = client, app_id, branch_name, job_id, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/artifacts"
@@ -2645,9 +2583,8 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListBackendEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   * `:environment_name` (`t:string`) The name of the backend environment
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
   response.
@@ -2656,12 +2593,10 @@ defmodule AWS.Amplify do
   returned in a result, pass its value in here to list more backend
   environments.
   """
-
   @spec list_backend_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_backend_environments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backend_environments_errors()}
-
   def list_backend_environments(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments"
 
@@ -2721,21 +2656,18 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListBranches&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
   response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
   branches from the start. If a non-null pagination token is returned in a
   result, pass its value in here to list more branches.
   """
-
   @spec list_branches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_branches_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_branches_errors()}
-
   def list_branches(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches"
 
@@ -2788,21 +2720,18 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListDomainAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
   response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
   apps from the start. If non-null, a pagination token is returned in a
   result. Pass its value in here to list more projects.
   """
-
   @spec list_domain_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domain_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_associations_errors()}
-
   def list_domain_associations(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains"
 
@@ -2855,22 +2784,20 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of the branch to use for the request.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of the branch to use for the
+  request.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
   response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
   steps from the start. If a non-null pagination token is returned in a
   result, pass its value in here to list more steps.
   """
-
   @spec list_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-
   def list_jobs(%Client{} = client, app_id, branch_name, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs"
@@ -2924,17 +2851,14 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to use to list
-  tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) to use to
+  list tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2969,21 +2893,18 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListWebhooks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
   response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
   webhooks from the start. If non-null,the pagination token is returned in a
   result. Pass its value in here to list more webhooks.
   """
-
   @spec list_webhooks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_webhooks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_webhooks_errors()}
-
   def list_webhooks(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/webhooks"
 
@@ -3037,17 +2958,15 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20StartDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of the branch to use for the job.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of the branch to use for the
+  job.
+  ## Keyword parameters:
   """
-
   @spec start_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_deployment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_deployment_errors()}
-
   def start_deployment(%Client{} = client, app_id, branch_name, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/deployments/start"
@@ -3085,17 +3004,15 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20StartJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of the branch to use for the job.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of the branch to use for the
+  job.
+  ## Keyword parameters:
   """
-
   @spec start_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_errors()}
-
   def start_job(%Client{} = client, app_id, branch_name, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs"
@@ -3133,19 +3050,16 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20StopJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of the branch to use for the stop job
-  request.
-  * `:job_id` (`t:string`) The unique id for the job.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of the branch to use for the
+  stop job request.
+  * `:job_id` (`t:string` required) The unique id for the job.
+  ## Keyword parameters:
   """
-
   @spec stop_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_job_errors()}
-
   def stop_job(%Client{} = client, app_id, branch_name, job_id, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/stop"
@@ -3193,17 +3107,14 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to use to tag a
-  resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) to use to
+  tag a resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3240,19 +3151,16 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to use to untag a
-  resource.
-  * `:tag_keys` (`t:list[com.amazonaws.amplify#TagKey]`) The tag keys to use to
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) to use to
   untag a resource.
-
-  ## Optional parameters:
+  * `:tag_keys` (`t:list[com.amazonaws.amplify#TagKey]` required) The tag keys to
+  use to untag a resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3300,16 +3208,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20UpdateApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  ## Keyword parameters:
   """
-
   @spec update_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_errors()}
-
   def update_app(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
 
@@ -3346,17 +3251,14 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20UpdateBranch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:branch_name` (`t:string`) The name of the branch.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string` required) The name of the branch.
+  ## Keyword parameters:
   """
-
   @spec update_branch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_branch_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_branch_errors()}
-
   def update_branch(%Client{} = client, app_id, branch_name, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
 
@@ -3393,17 +3295,14 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20UpdateDomainAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app.
-  * `:domain_name` (`t:string`) The name of the domain.
-
-  ## Optional parameters:
+  * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+  * `:domain_name` (`t:string` required) The name of the domain.
+  ## Keyword parameters:
   """
-
   @spec update_domain_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_association_errors()}
-
   def update_domain_association(%Client{} = client, app_id, domain_name, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -3440,16 +3339,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20UpdateWebhook&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:webhook_id` (`t:string`) The unique ID for a webhook.
-
-  ## Optional parameters:
+  * `:webhook_id` (`t:string` required) The unique ID for a webhook.
+  ## Keyword parameters:
   """
-
   @spec update_webhook(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_webhook_errors()}
-
   def update_webhook(%Client{} = client, webhook_id, options \\ []) do
     url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"
 

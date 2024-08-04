@@ -2989,16 +2989,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20AssociateRoleToGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec associate_role_to_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_role_to_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_role_to_group_errors()}
-
   def associate_role_to_group(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
 
@@ -3038,15 +3035,12 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20AssociateServiceRoleToAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec associate_service_role_to_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_service_role_to_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_service_role_to_account_errors()}
-
   def associate_service_role_to_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
 
@@ -3085,16 +3079,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateConnectorDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_connector_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_definition_errors()}
-
   def create_connector_definition(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/connectors"
 
@@ -3142,17 +3133,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateConnectorDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connector_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_connector_definition_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_connector_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_definition_version_errors()}
-
   def create_connector_definition_version(
         %Client{} = client,
         connector_definition_id,
@@ -3207,16 +3195,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateCoreDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_core_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_core_definition_errors()}
-
   def create_core_definition(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/cores"
 
@@ -3265,17 +3250,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateCoreDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:core_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_core_definition_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_core_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_core_definition_version_errors()}
-
   def create_core_definition_version(%Client{} = client, core_definition_id, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}/versions"
 
@@ -3324,17 +3306,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
-
   def create_deployment(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments"
 
@@ -3383,16 +3362,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateDeviceDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_device_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_definition_errors()}
-
   def create_device_definition(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/devices"
 
@@ -3440,17 +3416,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateDeviceDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:device_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_device_definition_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_device_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_definition_version_errors()}
-
   def create_device_definition_version(%Client{} = client, device_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}/versions"
@@ -3502,16 +3475,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateFunctionDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_function_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_function_definition_errors()}
-
   def create_function_definition(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/functions"
 
@@ -3559,17 +3529,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateFunctionDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:function_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_function_definition_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_function_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_function_definition_version_errors()}
-
   def create_function_definition_version(
         %Client{} = client,
         function_definition_id,
@@ -3626,16 +3593,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-
   def create_group(%Client{} = client, options \\ []) do
     url_path = "/greengrass/groups"
 
@@ -3684,17 +3648,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateGroupCertificateAuthority&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_group_certificate_authority(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_group_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_certificate_authority_errors()}
-
   def create_group_certificate_authority(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities"
 
@@ -3742,17 +3703,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateGroupVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_group_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_group_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_version_errors()}
-
   def create_group_version(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/versions"
 
@@ -3801,16 +3759,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateLoggerDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_logger_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_logger_definition_errors()}
-
   def create_logger_definition(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/loggers"
 
@@ -3858,17 +3813,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateLoggerDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:logger_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:logger_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_logger_definition_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_logger_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_logger_definition_version_errors()}
-
   def create_logger_definition_version(%Client{} = client, logger_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}/versions"
@@ -3919,16 +3871,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateResourceDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_resource_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_definition_errors()}
-
   def create_resource_definition(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/resources"
 
@@ -3976,17 +3925,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateResourceDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_resource_definition_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_resource_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_definition_version_errors()}
-
   def create_resource_definition_version(
         %Client{} = client,
         resource_definition_id,
@@ -4042,16 +3988,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSoftwareUpdateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_software_update_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_software_update_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_software_update_job_errors()}
-
   def create_software_update_job(%Client{} = client, options \\ []) do
     url_path = "/greengrass/updates"
 
@@ -4101,16 +4044,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSubscriptionDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_subscription_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subscription_definition_errors()}
-
   def create_subscription_definition(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/subscriptions"
 
@@ -4158,17 +4098,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSubscriptionDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:subscription_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:subscription_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec create_subscription_definition_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_subscription_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subscription_definition_version_errors()}
-
   def create_subscription_definition_version(
         %Client{} = client,
         subscription_definition_id,
@@ -4221,16 +4158,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteConnectorDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connector_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_connector_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_definition_errors()}
-
   def delete_connector_definition(%Client{} = client, connector_definition_id, options \\ []) do
     url_path = "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}"
 
@@ -4277,16 +4211,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteCoreDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:core_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_core_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_core_definition_errors()}
-
   def delete_core_definition(%Client{} = client, core_definition_id, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
 
@@ -4333,16 +4264,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteDeviceDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:device_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_device_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_definition_errors()}
-
   def delete_device_definition(%Client{} = client, device_definition_id, options \\ []) do
     url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
 
@@ -4389,16 +4317,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteFunctionDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:function_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_function_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_function_definition_errors()}
-
   def delete_function_definition(%Client{} = client, function_definition_id, options \\ []) do
     url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
 
@@ -4445,16 +4370,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-
   def delete_group(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
 
@@ -4501,16 +4423,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteLoggerDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:logger_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:logger_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_logger_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_logger_definition_errors()}
-
   def delete_logger_definition(%Client{} = client, logger_definition_id, options \\ []) do
     url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
 
@@ -4557,16 +4476,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteResourceDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_resource_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_definition_errors()}
-
   def delete_resource_definition(%Client{} = client, resource_definition_id, options \\ []) do
     url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
 
@@ -4613,16 +4529,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteSubscriptionDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:subscription_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:subscription_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec delete_subscription_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_subscription_definition_errors()}
-
   def delete_subscription_definition(
         %Client{} = client,
         subscription_definition_id,
@@ -4674,16 +4587,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DisassociateRoleFromGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec disassociate_role_from_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_role_from_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_role_from_group_errors()}
-
   def disassociate_role_from_group(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
 
@@ -4731,15 +4641,12 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DisassociateServiceRoleFromAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec disassociate_service_role_from_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_service_role_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_service_role_from_account_errors()}
-
   def disassociate_service_role_from_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
 
@@ -4786,16 +4693,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetAssociatedRole&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_associated_role(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_associated_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_associated_role_errors()}
-
   def get_associated_role(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
 
@@ -4830,16 +4734,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetBulkDeploymentStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bulk_deployment_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:bulk_deployment_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_bulk_deployment_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bulk_deployment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bulk_deployment_status_errors()}
-
   def get_bulk_deployment_status(%Client{} = client, bulk_deployment_id, options \\ []) do
     url_path = "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/status"
 
@@ -4874,16 +4775,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetConnectivityInfo&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:thing_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_connectivity_info(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connectivity_info_errors()}
-
   def get_connectivity_info(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
 
@@ -4918,16 +4816,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetConnectorDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connector_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_connector_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connector_definition_errors()}
-
   def get_connector_definition(%Client{} = client, connector_definition_id, options \\ []) do
     url_path = "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}"
 
@@ -4965,18 +4860,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetConnectorDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_definition_id` (`t:string`)
-  * `:connector_definition_version_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connector_definition_id` (`t:string` required)
+  * `:connector_definition_version_id` (`t:string` required)
+  ## Keyword parameters:
   * `:next_token` (`t:string`)
   """
-
   @spec get_connector_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connector_definition_version_errors()}
-
   def get_connector_definition_version(
         %Client{} = client,
         connector_definition_id,
@@ -5028,16 +4920,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetCoreDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:core_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_core_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_definition_errors()}
-
   def get_core_definition(%Client{} = client, core_definition_id, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
 
@@ -5072,17 +4961,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetCoreDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_definition_id` (`t:string`)
-  * `:core_definition_version_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:core_definition_id` (`t:string` required)
+  * `:core_definition_version_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_core_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_definition_version_errors()}
-
   def get_core_definition_version(
         %Client{} = client,
         core_definition_id,
@@ -5123,17 +5009,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetDeploymentStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:deployment_id` (`t:string`)
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:deployment_id` (`t:string` required)
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_deployment_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_status_errors()}
-
   def get_deployment_status(%Client{} = client, deployment_id, group_id, options \\ []) do
     url_path =
       "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}/status"
@@ -5169,16 +5052,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetDeviceDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:device_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_device_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_definition_errors()}
-
   def get_device_definition(%Client{} = client, device_definition_id, options \\ []) do
     url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
 
@@ -5213,18 +5093,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetDeviceDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_definition_id` (`t:string`)
-  * `:device_definition_version_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:device_definition_id` (`t:string` required)
+  * `:device_definition_version_id` (`t:string` required)
+  ## Keyword parameters:
   * `:next_token` (`t:string`)
   """
-
   @spec get_device_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_definition_version_errors()}
-
   def get_device_definition_version(
         %Client{} = client,
         device_definition_id,
@@ -5277,16 +5154,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetFunctionDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:function_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_function_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_definition_errors()}
-
   def get_function_definition(%Client{} = client, function_definition_id, options \\ []) do
     url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
 
@@ -5322,18 +5196,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetFunctionDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_definition_id` (`t:string`)
-  * `:function_definition_version_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:function_definition_id` (`t:string` required)
+  * `:function_definition_version_id` (`t:string` required)
+  ## Keyword parameters:
   * `:next_token` (`t:string`)
   """
-
   @spec get_function_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_definition_version_errors()}
-
   def get_function_definition_version(
         %Client{} = client,
         function_definition_id,
@@ -5385,16 +5256,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
-
   def get_group(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
 
@@ -5429,17 +5297,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroupCertificateAuthority&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:certificate_authority_id` (`t:string`)
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:certificate_authority_id` (`t:string` required)
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_group_certificate_authority(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_certificate_authority_errors()}
-
   def get_group_certificate_authority(
         %Client{} = client,
         certificate_authority_id,
@@ -5480,16 +5345,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroupCertificateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_group_certificate_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_certificate_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_certificate_configuration_errors()}
-
   def get_group_certificate_configuration(%Client{} = client, group_id, options \\ []) do
     url_path =
       "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities/configuration/expiry"
@@ -5525,17 +5387,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroupVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-  * `:group_version_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  * `:group_version_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_group_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_version_errors()}
-
   def get_group_version(%Client{} = client, group_id, group_version_id, options \\ []) do
     url_path =
       "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/versions/#{AWS.Util.encode_uri(group_version_id)}"
@@ -5571,16 +5430,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetLoggerDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:logger_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:logger_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_logger_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logger_definition_errors()}
-
   def get_logger_definition(%Client{} = client, logger_definition_id, options \\ []) do
     url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
 
@@ -5615,18 +5471,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetLoggerDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:logger_definition_id` (`t:string`)
-  * `:logger_definition_version_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:logger_definition_id` (`t:string` required)
+  * `:logger_definition_version_id` (`t:string` required)
+  ## Keyword parameters:
   * `:next_token` (`t:string`)
   """
-
   @spec get_logger_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_logger_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logger_definition_version_errors()}
-
   def get_logger_definition_version(
         %Client{} = client,
         logger_definition_id,
@@ -5679,16 +5532,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetResourceDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_resource_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_definition_errors()}
-
   def get_resource_definition(%Client{} = client, resource_definition_id, options \\ []) do
     url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
 
@@ -5724,17 +5574,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetResourceDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_definition_id` (`t:string`)
-  * `:resource_definition_version_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_definition_id` (`t:string` required)
+  * `:resource_definition_version_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_resource_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_definition_version_errors()}
-
   def get_resource_definition_version(
         %Client{} = client,
         resource_definition_id,
@@ -5775,15 +5622,12 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetServiceRoleForAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_service_role_for_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_role_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_role_for_account_errors()}
-
   def get_service_role_for_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
 
@@ -5818,16 +5662,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetSubscriptionDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:subscription_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:subscription_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_subscription_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_definition_errors()}
-
   def get_subscription_definition(%Client{} = client, subscription_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}"
@@ -5863,18 +5704,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetSubscriptionDefinitionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:subscription_definition_id` (`t:string`)
-  * `:subscription_definition_version_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:subscription_definition_id` (`t:string` required)
+  * `:subscription_definition_version_id` (`t:string` required)
+  ## Keyword parameters:
   * `:next_token` (`t:string`)
   """
-
   @spec get_subscription_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_definition_version_errors()}
-
   def get_subscription_definition_version(
         %Client{} = client,
         subscription_definition_id,
@@ -5926,16 +5764,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetThingRuntimeConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:thing_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec get_thing_runtime_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_thing_runtime_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_thing_runtime_configuration_errors()}
-
   def get_thing_runtime_configuration(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/runtimeconfig"
 
@@ -5971,18 +5806,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListBulkDeploymentDetailedReports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bulk_deployment_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:bulk_deployment_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_bulk_deployment_detailed_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bulk_deployment_detailed_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bulk_deployment_detailed_reports_errors()}
-
   def list_bulk_deployment_detailed_reports(%Client{} = client, bulk_deployment_id, options \\ []) do
     url_path =
       "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/detailed-reports"
@@ -6036,17 +5868,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListBulkDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_bulk_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bulk_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bulk_deployments_errors()}
-
   def list_bulk_deployments(%Client{} = client, options \\ []) do
     url_path = "/greengrass/bulk/deployments"
 
@@ -6102,18 +5931,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListConnectorDefinitionVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connector_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_connector_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_connector_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connector_definition_versions_errors()}
-
   def list_connector_definition_versions(
         %Client{} = client,
         connector_definition_id,
@@ -6171,16 +5997,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListConnectorDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_connector_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connector_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_connector_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/connectors"
 
@@ -6233,18 +6056,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListCoreDefinitionVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:core_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_core_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_core_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_core_definition_versions_errors()}
-
   def list_core_definition_versions(%Client{} = client, core_definition_id, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}/versions"
 
@@ -6297,16 +6117,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListCoreDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_core_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_core_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/cores"
 
@@ -6359,18 +6176,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
-
   def list_deployments(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments"
 
@@ -6423,18 +6237,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListDeviceDefinitionVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:device_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_device_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_definition_versions_errors()}
-
   def list_device_definition_versions(%Client{} = client, device_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}/versions"
@@ -6488,16 +6299,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListDeviceDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_device_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_device_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_device_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/devices"
 
@@ -6550,18 +6358,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListFunctionDefinitionVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:function_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_function_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_function_definition_versions_errors()}
-
   def list_function_definition_versions(%Client{} = client, function_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}/versions"
@@ -6615,16 +6420,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListFunctionDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_function_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_function_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_function_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/functions"
 
@@ -6677,16 +6479,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListGroupCertificateAuthorities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec list_group_certificate_authorities(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_certificate_authorities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_certificate_authorities_errors()}
-
   def list_group_certificate_authorities(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities"
 
@@ -6721,18 +6520,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListGroupVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_group_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_versions_errors()}
-
   def list_group_versions(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/versions"
 
@@ -6785,16 +6581,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_groups(%Client{} = client, options \\ []) do
     url_path = "/greengrass/groups"
 
@@ -6847,18 +6640,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListLoggerDefinitionVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:logger_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:logger_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_logger_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_logger_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_logger_definition_versions_errors()}
-
   def list_logger_definition_versions(%Client{} = client, logger_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}/versions"
@@ -6912,16 +6702,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListLoggerDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_logger_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_logger_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_logger_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/loggers"
 
@@ -6974,18 +6761,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListResourceDefinitionVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_resource_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_definition_versions_errors()}
-
   def list_resource_definition_versions(%Client{} = client, resource_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}/versions"
@@ -7039,16 +6823,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListResourceDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_resource_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_resource_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/resources"
 
@@ -7101,18 +6882,15 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListSubscriptionDefinitionVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:subscription_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:subscription_definition_id` (`t:string` required)
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_subscription_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscription_definition_versions_errors()}
-
   def list_subscription_definition_versions(
         %Client{} = client,
         subscription_definition_id,
@@ -7170,16 +6948,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListSubscriptionDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
   """
-
   @spec list_subscription_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_subscription_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_subscription_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/subscriptions"
 
@@ -7232,16 +7007,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7276,17 +7048,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ResetDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec reset_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reset_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_deployments_errors()}
-
   def reset_deployments(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments/$reset"
 
@@ -7339,16 +7108,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20StartBulkDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
-
   @spec start_bulk_deployment(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_bulk_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_bulk_deployment_errors()}
-
   def start_bulk_deployment(%Client{} = client, options \\ []) do
     url_path = "/greengrass/bulk/deployments"
 
@@ -7399,16 +7165,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20StopBulkDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:bulk_deployment_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:bulk_deployment_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec stop_bulk_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_bulk_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_bulk_deployment_errors()}
-
   def stop_bulk_deployment(%Client{} = client, bulk_deployment_id, options \\ []) do
     url_path = "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/$stop"
 
@@ -7448,16 +7211,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7494,17 +7254,14 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`)
-  * `:tag_keys` (`t:list[com.amazonaws.greengrass#__string]`)
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required)
+  * `:tag_keys` (`t:list[com.amazonaws.greengrass#__string]` required)
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7554,16 +7311,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateConnectivityInfo&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:thing_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_connectivity_info(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connectivity_info_errors()}
-
   def update_connectivity_info(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
 
@@ -7600,16 +7354,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateConnectorDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:connector_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_connector_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_definition_errors()}
-
   def update_connector_definition(%Client{} = client, connector_definition_id, options \\ []) do
     url_path = "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}"
 
@@ -7646,16 +7397,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateCoreDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:core_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:core_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_core_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_core_definition_errors()}
-
   def update_core_definition(%Client{} = client, core_definition_id, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
 
@@ -7692,16 +7440,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateDeviceDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:device_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:device_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_device_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_definition_errors()}
-
   def update_device_definition(%Client{} = client, device_definition_id, options \\ []) do
     url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
 
@@ -7738,16 +7483,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateFunctionDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:function_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:function_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_function_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_function_definition_errors()}
-
   def update_function_definition(%Client{} = client, function_definition_id, options \\ []) do
     url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
 
@@ -7784,16 +7526,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
-
   def update_group(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
 
@@ -7830,16 +7569,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateGroupCertificateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:group_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:group_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_group_certificate_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_group_certificate_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_certificate_configuration_errors()}
-
   def update_group_certificate_configuration(%Client{} = client, group_id, options \\ []) do
     url_path =
       "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities/configuration/expiry"
@@ -7877,16 +7613,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateLoggerDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:logger_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:logger_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_logger_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_logger_definition_errors()}
-
   def update_logger_definition(%Client{} = client, logger_definition_id, options \\ []) do
     url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
 
@@ -7923,16 +7656,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateResourceDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:resource_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_resource_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_definition_errors()}
-
   def update_resource_definition(%Client{} = client, resource_definition_id, options \\ []) do
     url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
 
@@ -7969,16 +7699,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateSubscriptionDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:subscription_definition_id` (`t:string`)
-
-  ## Optional parameters:
+  * `:subscription_definition_id` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_subscription_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subscription_definition_errors()}
-
   def update_subscription_definition(
         %Client{} = client,
         subscription_definition_id,
@@ -8020,16 +7747,13 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateThingRuntimeConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`)
-
-  ## Optional parameters:
+  * `:thing_name` (`t:string` required)
+  ## Keyword parameters:
   """
-
   @spec update_thing_runtime_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_thing_runtime_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_thing_runtime_configuration_errors()}
-
   def update_thing_runtime_configuration(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/runtimeconfig"
 

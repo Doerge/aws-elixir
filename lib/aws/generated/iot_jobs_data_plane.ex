@@ -292,24 +292,21 @@ defmodule AWS.IoTJobsDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20DescribeJobExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The unique identifier assigned to this job when it was
-  created.
-  * `:thing_name` (`t:string`) The thing name associated with the device the job
-  execution is running on.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The unique identifier assigned to this job
+  when it was created.
+  * `:thing_name` (`t:string` required) The thing name associated with the device
+  the job execution is running on.
+  ## Keyword parameters:
   * `:execution_number` (`t:long`) Optional. A number that identifies a particular
   job execution on a particular device. If not specified, the latest job
   execution is returned.
   * `:include_job_document` (`t:boolean`) Optional. When set to true, the response
   contains the job document. The default is false.
   """
-
   @spec describe_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_execution_errors()}
-
   def describe_job_execution(%Client{} = client, job_id, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -362,16 +359,14 @@ defmodule AWS.IoTJobsDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20GetPendingJobExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`) The name of the thing that is executing the job.
-
-  ## Optional parameters:
+  * `:thing_name` (`t:string` required) The name of the thing that is executing
+  the job.
+  ## Keyword parameters:
   """
-
   @spec get_pending_job_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pending_job_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pending_job_executions_errors()}
-
   def get_pending_job_executions(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs"
 
@@ -407,16 +402,14 @@ defmodule AWS.IoTJobsDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20StartNextPendingJobExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:thing_name` (`t:string`) The name of the thing associated with the device.
-
-  ## Optional parameters:
+  * `:thing_name` (`t:string` required) The name of the thing associated with the
+  device.
+  ## Keyword parameters:
   """
-
   @spec start_next_pending_job_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_next_pending_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_next_pending_job_execution_errors()}
-
   def start_next_pending_job_execution(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/$next"
 
@@ -453,18 +446,16 @@ defmodule AWS.IoTJobsDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20UpdateJobExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The unique identifier assigned to this job when it was
-  created.
-  * `:thing_name` (`t:string`) The name of the thing associated with the device.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The unique identifier assigned to this job
+  when it was created.
+  * `:thing_name` (`t:string` required) The name of the thing associated with the
+  device.
+  ## Keyword parameters:
   """
-
   @spec update_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_execution_errors()}
-
   def update_job_execution(%Client{} = client, job_id, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 

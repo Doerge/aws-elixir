@@ -219,16 +219,13 @@ defmodule AWS.EKSAuth do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eksauth%20AssumeRoleForPodIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_name` (`t:string`) The name of the cluster for the request.
-
-  ## Optional parameters:
+  * `:cluster_name` (`t:string` required) The name of the cluster for the request.
+  ## Keyword parameters:
   """
-
   @spec assume_role_for_pod_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, assume_role_for_pod_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_role_for_pod_identity_errors()}
-
   def assume_role_for_pod_identity(%Client{} = client, cluster_name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/assume-role-for-pod-identity"
 

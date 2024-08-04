@@ -3313,19 +3313,17 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ActivateKeySigningKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
-  * `:name` (`t:string`) A string used to identify a key-signing key (KSK). Name
-  can include numbers, letters, and underscores (_). Name must be unique for
-  each key-signing key in the same hosted zone.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) A unique string used to identify a
+  hosted zone.
+  * `:name` (`t:string` required) A string used to identify a key-signing key
+  (KSK). Name can include numbers, letters, and underscores (_). Name must be
+  unique for each key-signing key in the same hosted zone.
+  ## Keyword parameters:
   """
-
   @spec activate_key_signing_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, activate_key_signing_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_key_signing_key_errors()}
-
   def activate_key_signing_key(%Client{} = client, hosted_zone_id, name, options \\ []) do
     url_path =
       "/2013-04-01/keysigningkey/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(name)}/activate"
@@ -3365,17 +3363,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20AssociateVPCWithHostedZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the private hosted zone that you want
-  to associate an Amazon VPC with.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) The ID of the private hosted zone that
+  you want to associate an Amazon VPC with.
+  ## Keyword parameters:
   """
-
   @spec associate_vpc_with_hosted_zone(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_vpc_with_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_vpc_with_hosted_zone_errors()}
-
   def associate_vpc_with_hosted_zone(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/associatevpc"
 
@@ -3416,16 +3411,13 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ChangeCidrCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The UUID of the CIDR collection to update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The UUID of the CIDR collection to update.
+  ## Keyword parameters:
   """
-
   @spec change_cidr_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, change_cidr_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, change_cidr_collection_errors()}
-
   def change_cidr_collection(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(id)}"
 
@@ -3466,17 +3458,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ChangeResourceRecordSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that contains the
-  resource record sets that you want to change.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) The ID of the hosted zone that
+  contains the resource record sets that you want to change.
+  ## Keyword parameters:
   """
-
   @spec change_resource_record_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, change_resource_record_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, change_resource_record_sets_errors()}
-
   def change_resource_record_sets(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/rrset"
 
@@ -3513,19 +3502,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ChangeTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The ID of the resource for which you want to add,
-  change, or delete tags.
-  * `:resource_type` (`t:enum["healthcheck|hostedzone"]`) The type of the
+  * `:resource_id` (`t:string` required) The ID of the resource for which you want
+  to add, change, or delete tags.
+  * `:resource_type` (`t:enum["healthcheck|hostedzone"]` required) The type of the
   resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec change_tags_for_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, change_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, change_tags_for_resource_errors()}
-
   def change_tags_for_resource(%Client{} = client, resource_id, resource_type, options \\ []) do
     url_path =
       "/2013-04-01/tags/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource_id)}"
@@ -3563,15 +3549,12 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateCidrCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_cidr_collection(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_cidr_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cidr_collection_errors()}
-
   def create_cidr_collection(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/cidrcollection"
 
@@ -3626,15 +3609,12 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateHealthCheck&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_health_check(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_health_check_errors()}
-
   def create_health_check(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/healthcheck"
 
@@ -3691,15 +3671,12 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateHostedZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_hosted_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hosted_zone_errors()}
-
   def create_hosted_zone(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/hostedzone"
 
@@ -3750,15 +3727,12 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateKeySigningKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_key_signing_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_key_signing_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_signing_key_errors()}
-
   def create_key_signing_key(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/keysigningkey"
 
@@ -3812,15 +3786,12 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateQueryLoggingConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_query_logging_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_query_logging_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_query_logging_config_errors()}
-
   def create_query_logging_config(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/queryloggingconfig"
 
@@ -3874,15 +3845,12 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateReusableDelegationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_reusable_delegation_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_reusable_delegation_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_reusable_delegation_set_errors()}
-
   def create_reusable_delegation_set(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/delegationset"
 
@@ -3934,15 +3902,12 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateTrafficPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_traffic_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_traffic_policy_errors()}
-
   def create_traffic_policy(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/trafficpolicy"
 
@@ -3997,15 +3962,12 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateTrafficPolicyInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_traffic_policy_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_traffic_policy_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_traffic_policy_instance_errors()}
-
   def create_traffic_policy_instance(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance"
 
@@ -4062,17 +4024,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateTrafficPolicyVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the traffic policy for which you want to create a
-  new version.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the traffic policy for which you want to
+  create a new version.
+  ## Keyword parameters:
   """
-
   @spec create_traffic_policy_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_traffic_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_traffic_policy_version_errors()}
-
   def create_traffic_policy_version(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}"
 
@@ -4127,17 +4086,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateVPCAssociationAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the private hosted zone that you want
-  to authorize associating a VPC with.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) The ID of the private hosted zone that
+  you want to authorize associating a VPC with.
+  ## Keyword parameters:
   """
-
   @spec create_vpc_association_authorization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_vpc_association_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_association_authorization_errors()}
-
   def create_vpc_association_authorization(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path =
       "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/authorizevpcassociation"
@@ -4176,17 +4132,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeactivateKeySigningKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
-  * `:name` (`t:string`) A string used to identify a key-signing key (KSK).
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) A unique string used to identify a
+  hosted zone.
+  * `:name` (`t:string` required) A string used to identify a key-signing key
+  (KSK).
+  ## Keyword parameters:
   """
-
   @spec deactivate_key_signing_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deactivate_key_signing_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_key_signing_key_errors()}
-
   def deactivate_key_signing_key(%Client{} = client, hosted_zone_id, name, options \\ []) do
     url_path =
       "/2013-04-01/keysigningkey/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(name)}/deactivate"
@@ -4225,16 +4180,13 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteCidrCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The UUID of the collection to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The UUID of the collection to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_cidr_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cidr_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cidr_collection_errors()}
-
   def delete_cidr_collection(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(id)}"
 
@@ -4289,17 +4241,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteHealthCheck&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:health_check_id` (`t:string`) The ID of the health check that you want to
-  delete.
-
-  ## Optional parameters:
+  * `:health_check_id` (`t:string` required) The ID of the health check that you
+  want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_health_check(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_health_check_errors()}
-
   def delete_health_check(%Client{} = client, health_check_id, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
 
@@ -4354,16 +4303,13 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteHostedZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the hosted zone you want to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the hosted zone you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_hosted_zone(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hosted_zone_errors()}
-
   def delete_hosted_zone(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
 
@@ -4412,17 +4358,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteKeySigningKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
-  * `:name` (`t:string`) A string used to identify a key-signing key (KSK).
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) A unique string used to identify a
+  hosted zone.
+  * `:name` (`t:string` required) A string used to identify a key-signing key
+  (KSK).
+  ## Keyword parameters:
   """
-
   @spec delete_key_signing_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_key_signing_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_signing_key_errors()}
-
   def delete_key_signing_key(%Client{} = client, hosted_zone_id, name, options \\ []) do
     url_path =
       "/2013-04-01/keysigningkey/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(name)}"
@@ -4472,16 +4417,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteQueryLoggingConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the configuration that you want to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the configuration that you want to
+  delete.
+  ## Keyword parameters:
   """
-
   @spec delete_query_logging_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_query_logging_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_query_logging_config_errors()}
-
   def delete_query_logging_config(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/queryloggingconfig/#{AWS.Util.encode_uri(id)}"
 
@@ -4529,17 +4472,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteReusableDelegationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the reusable delegation set that you want to
-  delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the reusable delegation set that you
+  want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_reusable_delegation_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_reusable_delegation_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_reusable_delegation_set_errors()}
-
   def delete_reusable_delegation_set(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/delegationset/#{AWS.Util.encode_uri(id)}"
 
@@ -4588,18 +4528,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteTrafficPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the traffic policy that you want to delete.
-  * `:version` (`t:integer`) The version number of the traffic policy that you
-  want to delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the traffic policy that you want to
+  delete.
+  * `:version` (`t:integer` required) The version number of the traffic policy
+  that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_traffic_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_traffic_policy_errors()}
-
   def delete_traffic_policy(%Client{} = client, id, version, options \\ []) do
     url_path =
       "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}/#{AWS.Util.encode_uri(version)}"
@@ -4648,17 +4586,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteTrafficPolicyInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the traffic policy instance that you want to
-  delete.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the traffic policy instance that you
+  want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_traffic_policy_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_traffic_policy_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_traffic_policy_instance_errors()}
-
   def delete_traffic_policy_instance(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"
 
@@ -4708,19 +4643,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteVPCAssociationAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) When removing authorization to associate a VPC
-  that was created by one Amazon Web Services account with a hosted zone that
-  was created with a different Amazon Web Services account, the ID of the
-  hosted zone.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) When removing authorization to
+  associate a VPC that was created by one Amazon Web Services account with a
+  hosted zone that was created with a different Amazon Web Services account,
+  the ID of the hosted zone.
+  ## Keyword parameters:
   """
-
   @spec delete_vpc_association_authorization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vpc_association_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_association_authorization_errors()}
-
   def delete_vpc_association_authorization(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path =
       "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/deauthorizevpcassociation"
@@ -4759,16 +4691,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DisableHostedZoneDNSSEC&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) A unique string used to identify a
+  hosted zone.
+  ## Keyword parameters:
   """
-
   @spec disable_hosted_zone_dns_sec(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disable_hosted_zone_dns_sec_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_hosted_zone_dns_sec_errors()}
-
   def disable_hosted_zone_dns_sec(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/disable-dnssec"
 
@@ -4806,17 +4736,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DisassociateVPCFromHostedZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the private hosted zone that you want
-  to disassociate a VPC from.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) The ID of the private hosted zone that
+  you want to disassociate a VPC from.
+  ## Keyword parameters:
   """
-
   @spec disassociate_vpc_from_hosted_zone(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_vpc_from_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_vpc_from_hosted_zone_errors()}
-
   def disassociate_vpc_from_hosted_zone(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/disassociatevpc"
 
@@ -4853,16 +4780,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20EnableHostedZoneDNSSEC&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) A unique string used to identify a
+  hosted zone.
+  ## Keyword parameters:
   """
-
   @spec enable_hosted_zone_dns_sec(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, enable_hosted_zone_dns_sec_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_hosted_zone_dns_sec_errors()}
-
   def enable_hosted_zone_dns_sec(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/enable-dnssec"
 
@@ -4901,17 +4826,15 @@ defmodule AWS.Route53 do
 
   ## Parameters:
   * `:type`
-  (`t:enum["MAX_HEALTH_CHECKS_BY_OWNER|MAX_HOSTED_ZONES_BY_OWNER|MAX_REUSABLE_DELEGATION_SETS_BY_OWNER|MAX_TRAFFIC_POLICIES_BY_OWNER|MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"]`)
-  The limit that you want to get. Valid values include the following:
-
-  ## Optional parameters:
+  (`t:enum["MAX_HEALTH_CHECKS_BY_OWNER|MAX_HOSTED_ZONES_BY_OWNER|MAX_REUSABLE_DELEGATION_SETS_BY_OWNER|MAX_TRAFFIC_POLICIES_BY_OWNER|MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"]`
+  required) The limit that you want to get. Valid values include the
+  following:
+  ## Keyword parameters:
   """
-
   @spec get_account_limit(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_account_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_limit_errors()}
-
   def get_account_limit(%Client{} = client, type, options \\ []) do
     url_path = "/2013-04-01/accountlimit/#{AWS.Util.encode_uri(type)}"
 
@@ -4947,18 +4870,15 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetChange&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the change batch request. The value that you
-  specify here is the value that ChangeResourceRecordSets returned in the Id
-  element when you submitted the request.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the change batch request. The value that
+  you specify here is the value that ChangeResourceRecordSets returned in the
+  Id element when you submitted the request.
+  ## Keyword parameters:
   """
-
   @spec get_change(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_change_errors()}
-
   def get_change(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/change/#{AWS.Util.encode_uri(id)}"
 
@@ -4994,14 +4914,11 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetCheckerIpRanges&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_checker_ip_ranges(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_checker_ip_ranges_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_checker_ip_ranges(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/checkeripranges"
 
@@ -5037,16 +4954,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetDNSSEC&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) A unique string used to identify a
+  hosted zone.
+  ## Keyword parameters:
   """
-
   @spec get_dns_sec(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dns_sec_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dns_sec_errors()}
-
   def get_dns_sec(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/dnssec"
 
@@ -5084,8 +4999,7 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetGeoLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:continent_code` (`t:string`) For geolocation resource record sets, a
   two-letter abbreviation that identifies a continent. Amazon Route 53
   supports the following continent codes:
@@ -5097,12 +5011,10 @@ defmodule AWS.Route53 do
   on the United States Postal Service website. For a list of all supported
   subdivision codes, use the ListGeoLocations API.
   """
-
   @spec get_geo_location(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_geo_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_geo_location_errors()}
-
   def get_geo_location(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/geolocation"
 
@@ -5162,19 +5074,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHealthCheck&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:health_check_id` (`t:string`) The identifier that Amazon Route 53 assigned
-  to the health check when you created it. When you add or update a resource
-  record set, you use this value to specify which health check to use. The
-  value can be up to 64 characters long.
-
-  ## Optional parameters:
+  * `:health_check_id` (`t:string` required) The identifier that Amazon Route 53
+  assigned to the health check when you created it. When you add or update a
+  resource record set, you use this value to specify which health check to
+  use. The value can be up to 64 characters long.
+  ## Keyword parameters:
   """
-
   @spec get_health_check(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_health_check_errors()}
-
   def get_health_check(%Client{} = client, health_check_id, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
 
@@ -5210,14 +5119,11 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHealthCheckCount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_health_check_count(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_health_check_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_health_check_count(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/healthcheckcount"
 
@@ -5252,19 +5158,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHealthCheckLastFailureReason&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:health_check_id` (`t:string`) The ID for the health check for which you want
-  the last failure reason. When you created the health check,
+  * `:health_check_id` (`t:string` required) The ID for the health check for which
+  you want the last failure reason. When you created the health check,
   CreateHealthCheck returned the ID in the response, in the HealthCheckId
   element.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_health_check_last_failure_reason(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_health_check_last_failure_reason_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_health_check_last_failure_reason_errors()}
-
   def get_health_check_last_failure_reason(%Client{} = client, health_check_id, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}/lastfailurereason"
 
@@ -5299,18 +5202,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHealthCheckStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:health_check_id` (`t:string`) The ID for the health check that you want the
-  current status for. When you created the health check, CreateHealthCheck
-  returned the ID in the response, in the HealthCheckId element.
-
-  ## Optional parameters:
+  * `:health_check_id` (`t:string` required) The ID for the health check that you
+  want the current status for. When you created the health check,
+  CreateHealthCheck returned the ID in the response, in the HealthCheckId
+  element.
+  ## Keyword parameters:
   """
-
   @spec get_health_check_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_health_check_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_health_check_status_errors()}
-
   def get_health_check_status(%Client{} = client, health_check_id, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}/status"
 
@@ -5346,17 +5247,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHostedZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the hosted zone that you want to get information
-  about.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the hosted zone that you want to get
+  information about.
+  ## Keyword parameters:
   """
-
   @spec get_hosted_zone(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hosted_zone_errors()}
-
   def get_hosted_zone(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
 
@@ -5392,15 +5290,12 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHostedZoneCount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_hosted_zone_count(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_hosted_zone_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hosted_zone_count_errors()}
-
   def get_hosted_zone_count(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/hostedzonecount"
 
@@ -5436,19 +5331,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHostedZoneLimit&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that you want to get
-  a limit for.
-  * `:type` (`t:enum["MAX_RRSETS_BY_ZONE|MAX_VPCS_ASSOCIATED_BY_ZONE"]`) The limit
-  that you want to get. Valid values include the following:
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) The ID of the hosted zone that you
+  want to get a limit for.
+  * `:type` (`t:enum["MAX_RRSETS_BY_ZONE|MAX_VPCS_ASSOCIATED_BY_ZONE"]` required)
+  The limit that you want to get. Valid values include the following:
+  ## Keyword parameters:
   """
-
   @spec get_hosted_zone_limit(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_hosted_zone_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hosted_zone_limit_errors()}
-
   def get_hosted_zone_limit(%Client{} = client, hosted_zone_id, type, options \\ []) do
     url_path =
       "/2013-04-01/hostedzonelimit/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(type)}"
@@ -5484,17 +5376,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetQueryLoggingConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the configuration for DNS query logging that you
-  want to get information about.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the configuration for DNS query logging
+  that you want to get information about.
+  ## Keyword parameters:
   """
-
   @spec get_query_logging_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_logging_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_logging_config_errors()}
-
   def get_query_logging_config(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/queryloggingconfig/#{AWS.Util.encode_uri(id)}"
 
@@ -5530,17 +5419,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetReusableDelegationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the reusable delegation set that you want to get
-  a list of name servers for.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the reusable delegation set that you
+  want to get a list of name servers for.
+  ## Keyword parameters:
   """
-
   @spec get_reusable_delegation_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_reusable_delegation_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reusable_delegation_set_errors()}
-
   def get_reusable_delegation_set(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/delegationset/#{AWS.Util.encode_uri(id)}"
 
@@ -5576,20 +5462,17 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetReusableDelegationSetLimit&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:delegation_set_id` (`t:string`) The ID of the delegation set that you want
-  to get the limit for.
-  * `:type` (`t:enum["MAX_ZONES_BY_REUSABLE_DELEGATION_SET"]`) Specify
+  * `:delegation_set_id` (`t:string` required) The ID of the delegation set that
+  you want to get the limit for.
+  * `:type` (`t:enum["MAX_ZONES_BY_REUSABLE_DELEGATION_SET"]` required) Specify
   MAX_ZONES_BY_REUSABLE_DELEGATION_SET to get the maximum number of hosted
   zones that you can associate with the specified reusable delegation set.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_reusable_delegation_set_limit(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_reusable_delegation_set_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reusable_delegation_set_limit_errors()}
-
   def get_reusable_delegation_set_limit(
         %Client{} = client,
         delegation_set_id,
@@ -5630,19 +5513,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetTrafficPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the traffic policy that you want to get
+  * `:id` (`t:string` required) The ID of the traffic policy that you want to get
   information about.
-  * `:version` (`t:integer`) The version number of the traffic policy that you
-  want to get information about.
-
-  ## Optional parameters:
+  * `:version` (`t:integer` required) The version number of the traffic policy
+  that you want to get information about.
+  ## Keyword parameters:
   """
-
   @spec get_traffic_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_traffic_policy_errors()}
-
   def get_traffic_policy(%Client{} = client, id, version, options \\ []) do
     url_path =
       "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}/#{AWS.Util.encode_uri(version)}"
@@ -5682,17 +5562,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetTrafficPolicyInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the traffic policy instance that you want to get
-  information about.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the traffic policy instance that you
+  want to get information about.
+  ## Keyword parameters:
   """
-
   @spec get_traffic_policy_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_traffic_policy_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_traffic_policy_instance_errors()}
-
   def get_traffic_policy_instance(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"
 
@@ -5728,14 +5605,11 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetTrafficPolicyInstanceCount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_traffic_policy_instance_count(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_traffic_policy_instance_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def get_traffic_policy_instance_count(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstancecount"
 
@@ -5770,20 +5644,17 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListCidrBlocks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_id` (`t:string`) The UUID of the CIDR collection.
-
-  ## Optional parameters:
+  * `:collection_id` (`t:string` required) The UUID of the CIDR collection.
+  ## Keyword parameters:
   * `:location_name` (`t:string`) The name of the CIDR collection location.
   * `:max_results` (`t:string`) Maximum number of results you want returned.
   * `:next_token` (`t:string`) An opaque pagination token to indicate where the
   service is to begin enumerating results.
   """
-
   @spec list_cidr_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cidr_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cidr_blocks_errors()}
-
   def list_cidr_blocks(%Client{} = client, collection_id, options \\ []) do
     url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(collection_id)}/cidrblocks"
 
@@ -5844,19 +5715,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListCidrCollections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of CIDR collections to return
   in the response.
   * `:next_token` (`t:string`) An opaque pagination token to indicate where the
   service is to begin enumerating results.
   """
-
   @spec list_cidr_collections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cidr_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cidr_collections_errors()}
-
   def list_cidr_collections(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/cidrcollection"
 
@@ -5910,20 +5778,17 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListCidrLocations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:collection_id` (`t:string`) The CIDR collection ID.
-
-  ## Optional parameters:
+  * `:collection_id` (`t:string` required) The CIDR collection ID.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of CIDR collection locations to
   return in the response.
   * `:next_token` (`t:string`) An opaque pagination token to indicate where the
   service is to begin enumerating results.
   """
-
   @spec list_cidr_locations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cidr_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cidr_locations_errors()}
-
   def list_cidr_locations(%Client{} = client, collection_id, options \\ []) do
     url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(collection_id)}"
 
@@ -5979,8 +5844,7 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListGeoLocations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_items` (`t:string`) (Optional) The maximum number of geolocations to be
   included in the response body for this request. If more than maxitems
   geolocations remain to be listed, then the value of the IsTruncated element
@@ -6004,12 +5868,10 @@ defmodule AWS.Route53 do
   previous response has a value, enter that value in startsubdivisioncode to
   return the next page of results.
   """
-
   @spec list_geo_locations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_geo_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_geo_locations_errors()}
-
   def list_geo_locations(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/geolocations"
 
@@ -6087,8 +5949,7 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListHealthChecks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) If the value of IsTruncated in the previous response
   was true, you have more health checks. To get another group, submit another
   ListHealthChecks request.
@@ -6097,12 +5958,10 @@ defmodule AWS.Route53 do
   53 returns a maximum of 1000 items. If you set MaxItems to a value greater
   than 1000, Route 53 returns only the first 1000 health checks.
   """
-
   @spec list_health_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_health_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_health_checks_errors()}
-
   def list_health_checks(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/healthcheck"
 
@@ -6157,8 +6016,7 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListHostedZones&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:delegation_set_id` (`t:string`) If you're using reusable delegation sets and
   you want to list all of the hosted zones that are associated with a reusable
   delegation set, specify the ID of that reusable delegation set.
@@ -6173,12 +6031,10 @@ defmodule AWS.Route53 do
   NextMarker is the hosted zone ID of the first hosted zone that Route 53 will
   return if you submit another request.
   """
-
   @spec list_hosted_zones(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_hosted_zones_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hosted_zones_errors()}
-
   def list_hosted_zones(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/hostedzone"
 
@@ -6248,8 +6104,7 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListHostedZonesByName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:dns_name` (`t:string`) (Optional) For your first request to
   ListHostedZonesByName, include the dnsname parameter only if you want to
   specify the name of the first hosted zone in the response. If you don't
@@ -6266,12 +6121,10 @@ defmodule AWS.Route53 do
   and the values of NextDNSName and NextHostedZoneId specify the first hosted
   zone in the next group of maxitems hosted zones.
   """
-
   @spec list_hosted_zones_by_name(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_hosted_zones_by_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hosted_zones_by_name_errors()}
-
   def list_hosted_zones_by_name(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/hostedzonesbyname"
 
@@ -6334,14 +6187,13 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListHostedZonesByVPC&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:vpc_id` (`t:string`) The ID of the Amazon VPC that you want to list hosted
-  zones for.
+  * `:vpc_id` (`t:string` required) The ID of the Amazon VPC that you want to list
+  hosted zones for.
   * `:vpc_region`
-  (`t:enum["eu_central_2|eu_north_1|il_central_1|us_iso_east_1|us_gov_west_1|ca_central_1|ap_southeast_1|ap_east_1|eu_west_3|ap_northeast_1|us_iso_west_1|us_isob_east_1|us_gov_east_1|eu_south_1|me_central_1|us_west_1|sa_east_1|ap_south_2|eu_central_1|ap_northeast_2|eu_south_2|us_west_2|us_east_2|ca_west_1|eu_west_1|ap_northeast_3|ap_southeast_4|eu_west_2|ap_southeast_2|ap_southeast_3|af_south_1|cn_north_1|me_south_1|us_east_1|ap_south_1"]`)
-  For the Amazon VPC that you specified for VPCId, the Amazon Web Services
-  Region that you created the VPC in.
-
-  ## Optional parameters:
+  (`t:enum["eu_central_2|eu_north_1|il_central_1|us_iso_east_1|us_gov_west_1|ca_central_1|ap_southeast_1|ap_east_1|eu_west_3|ap_northeast_1|us_iso_west_1|us_isob_east_1|us_gov_east_1|eu_south_1|me_central_1|us_west_1|sa_east_1|ap_south_2|eu_central_1|ap_northeast_2|eu_south_2|us_west_2|us_east_2|ca_west_1|eu_west_1|ap_northeast_3|ap_southeast_4|eu_west_2|ap_southeast_2|ap_southeast_3|af_south_1|cn_north_1|me_south_1|us_east_1|ap_south_1"]`
+  required) For the Amazon VPC that you specified for VPCId, the Amazon Web
+  Services Region that you created the VPC in.
+  ## Keyword parameters:
   * `:max_items` (`t:string`) (Optional) The maximum number of hosted zones that
   you want Amazon Route 53 to return. If the specified VPC is associated with
   more than MaxItems hosted zones, the response includes a NextToken element.
@@ -6351,12 +6203,10 @@ defmodule AWS.Route53 do
   element, the specified VPC is associated with more hosted zones. To get more
   hosted zones, submit another ListHostedZonesByVPC request.
   """
-
   @spec list_hosted_zones_by_vpc(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_hosted_zones_by_vpc_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hosted_zones_by_vpc_errors()}
-
   def list_hosted_zones_by_vpc(%Client{} = client, vpc_id, vpc_region, options \\ [])
       when is_binary(vpc_id) and is_binary(vpc_region) do
     url_path = "/2013-04-01/hostedzonesbyvpc"
@@ -6412,8 +6262,7 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListQueryLoggingConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:hosted_zone_id` (`t:string`) (Optional) If you want to list the query
   logging configuration that is associated with a hosted zone, specify the ID
   in HostedZoneId.
@@ -6426,12 +6275,10 @@ defmodule AWS.Route53 do
   account has more than MaxResults query logging configurations, use NextToken
   to get the second and subsequent pages of results.
   """
-
   @spec list_query_logging_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_query_logging_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_query_logging_configs_errors()}
-
   def list_query_logging_configs(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/queryloggingconfig"
 
@@ -6494,10 +6341,9 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListResourceRecordSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that contains the
-  resource record sets that you want to list.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) The ID of the hosted zone that
+  contains the resource record sets that you want to list.
+  ## Keyword parameters:
   * `:max_items` (`t:string`) (Optional) The maximum number of resource records
   sets to include in the response body for this request. If the response
   includes more than maxitems resource record sets, the value of the
@@ -6518,12 +6364,10 @@ defmodule AWS.Route53 do
   (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) The type
   of resource record set to begin the record listing from.
   """
-
   @spec list_resource_record_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_record_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_record_sets_errors()}
-
   def list_resource_record_sets(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/rrset"
 
@@ -6601,8 +6445,7 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListReusableDelegationSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:marker` (`t:string`) If the value of IsTruncated in the previous response
   was true, you have more reusable delegation sets. To get another group,
   submit another ListReusableDelegationSets request.
@@ -6611,12 +6454,10 @@ defmodule AWS.Route53 do
   value greater than 100, Route 53 returns only the first 100 reusable
   delegation sets.
   """
-
   @spec list_reusable_delegation_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reusable_delegation_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reusable_delegation_sets_errors()}
-
   def list_reusable_delegation_sets(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/delegationset"
 
@@ -6669,19 +6510,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_id` (`t:string`) The ID of the resource for which you want to
-  retrieve tags.
-  * `:resource_type` (`t:enum["healthcheck|hostedzone"]`) The type of the
+  * `:resource_id` (`t:string` required) The ID of the resource for which you want
+  to retrieve tags.
+  * `:resource_type` (`t:enum["healthcheck|hostedzone"]` required) The type of the
   resource.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_id, resource_type, options \\ []) do
     url_path =
       "/2013-04-01/tags/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource_id)}"
@@ -6717,17 +6555,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTagsForResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_type` (`t:enum["healthcheck|hostedzone"]`) The type of the
+  * `:resource_type` (`t:enum["healthcheck|hostedzone"]` required) The type of the
   resources.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resources_errors()}
-
   def list_tags_for_resources(%Client{} = client, resource_type, options \\ []) do
     url_path = "/2013-04-01/tags/#{AWS.Util.encode_uri(resource_type)}"
 
@@ -6766,8 +6601,7 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTrafficPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_items` (`t:string`) (Optional) The maximum number of traffic policies
   that you want Amazon Route 53 to return in response to this request. If you
   have more than MaxItems traffic policies, the value of IsTruncated in the
@@ -6777,12 +6611,10 @@ defmodule AWS.Route53 do
   * `:traffic_policy_id_marker` (`t:string`) (Conditional) For your first request
   to ListTrafficPolicies, don't include the TrafficPolicyIdMarker parameter.
   """
-
   @spec list_traffic_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_traffic_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_policies_errors()}
-
   def list_traffic_policies(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/trafficpolicies"
 
@@ -6839,8 +6671,7 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTrafficPolicyInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:hosted_zone_id_marker` (`t:string`) If the value of IsTruncated in the
   previous response was true, you have more traffic policy instances. To get
   more traffic policy instances, submit another ListTrafficPolicyInstances
@@ -6873,12 +6704,10 @@ defmodule AWS.Route53 do
   type of the first traffic policy instance in the next group of traffic
   policy instances.
   """
-
   @spec list_traffic_policy_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_traffic_policy_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_policy_instances_errors()}
-
   def list_traffic_policy_instances(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstances"
 
@@ -6959,10 +6788,9 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTrafficPolicyInstancesByHostedZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that you want to list
-  traffic policy instances for.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) The ID of the hosted zone that you
+  want to list traffic policy instances for.
+  ## Keyword parameters:
   * `:max_items` (`t:string`) The maximum number of traffic policy instances to be
   included in the response body for this request. If you have more than
   MaxItems traffic policy instances, the value of the IsTruncated element in
@@ -6988,12 +6816,10 @@ defmodule AWS.Route53 do
   type of the first traffic policy instance in the next group of traffic
   policy instances.
   """
-
   @spec list_traffic_policy_instances_by_hosted_zone(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_traffic_policy_instances_by_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_policy_instances_by_hosted_zone_errors()}
-
   def list_traffic_policy_instances_by_hosted_zone(
         %Client{} = client,
         hosted_zone_id,
@@ -7071,13 +6897,12 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTrafficPolicyInstancesByPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:traffic_policy_id` (`t:string`) The ID of the traffic policy for which you
-  want to list traffic policy instances.
-  * `:traffic_policy_version` (`t:integer`) The version of the traffic policy for
-  which you want to list traffic policy instances. The version must be
-  associated with the traffic policy that is specified by TrafficPolicyId.
-
-  ## Optional parameters:
+  * `:traffic_policy_id` (`t:string` required) The ID of the traffic policy for
+  which you want to list traffic policy instances.
+  * `:traffic_policy_version` (`t:integer` required) The version of the traffic
+  policy for which you want to list traffic policy instances. The version must
+  be associated with the traffic policy that is specified by TrafficPolicyId.
+  ## Keyword parameters:
   * `:hosted_zone_id_marker` (`t:string`) If the value of IsTruncated in the
   previous response was true, you have more traffic policy instances. To get
   more traffic policy instances, submit another
@@ -7099,7 +6924,6 @@ defmodule AWS.Route53 do
   traffic policy instances. To get more traffic policy instances, submit
   another ListTrafficPolicyInstancesByPolicy request.
   """
-
   @spec list_traffic_policy_instances_by_policy(
           AWS.Client.t(),
           String.t(),
@@ -7109,7 +6933,6 @@ defmodule AWS.Route53 do
           {:ok, list_traffic_policy_instances_by_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_policy_instances_by_policy_errors()}
-
   def list_traffic_policy_instances_by_policy(
         %Client{} = client,
         traffic_policy_id,
@@ -7192,10 +7015,9 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTrafficPolicyVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) Specify the value of Id of the traffic policy for which you
-  want to list all versions.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) Specify the value of Id of the traffic policy for
+  which you want to list all versions.
+  ## Keyword parameters:
   * `:max_items` (`t:string`) The maximum number of traffic policy versions that
   you want Amazon Route 53 to include in the response body for this request.
   If the specified traffic policy has more than MaxItems versions, the value
@@ -7206,12 +7028,10 @@ defmodule AWS.Route53 do
   ListTrafficPolicyVersions, don't include the TrafficPolicyVersionMarker
   parameter.
   """
-
   @spec list_traffic_policy_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_traffic_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_policy_versions_errors()}
-
   def list_traffic_policy_versions(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/trafficpolicies/#{AWS.Util.encode_uri(id)}/versions"
 
@@ -7266,10 +7086,9 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListVPCAssociationAuthorizations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone for which you want a
-  list of VPCs that can be associated with the hosted zone.
-
-  ## Optional parameters:
+  * `:hosted_zone_id` (`t:string` required) The ID of the hosted zone for which
+  you want a list of VPCs that can be associated with the hosted zone.
+  ## Keyword parameters:
   * `:max_results` (`t:string`) Optional: An integer that specifies the maximum
   number of VPCs that you want Amazon Route 53 to return. If you don't specify
   a value for MaxResults, Route 53 returns up to 50 VPCs per page.
@@ -7279,12 +7098,10 @@ defmodule AWS.Route53 do
   include the value of NextToken from the response in the nexttoken parameter
   in another ListVPCAssociationAuthorizations request.
   """
-
   @spec list_vpc_association_authorizations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_association_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_association_authorizations_errors()}
-
   def list_vpc_association_authorizations(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path =
       "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/authorizevpcassociation"
@@ -7341,15 +7158,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20TestDNSAnswer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that you want Amazon
-  Route 53 to simulate a query for.
-  * `:record_name` (`t:string`) The name of the resource record set that you want
-  Amazon Route 53 to simulate a query for.
+  * `:hosted_zone_id` (`t:string` required) The ID of the hosted zone that you
+  want Amazon Route 53 to simulate a query for.
+  * `:record_name` (`t:string` required) The name of the resource record set that
+  you want Amazon Route 53 to simulate a query for.
   * `:record_type`
-  (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) The type
-  of the resource record set.
-
-  ## Optional parameters:
+  (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]` required)
+  The type of the resource record set.
+  ## Keyword parameters:
   * `:e_dns0_client_subnet_ip` (`t:string`) If the resolver that you specified for
   resolverip supports EDNS0, specify the IPv4 or IPv6 address of a client in
   the applicable location, for example, 192.0.2.44 or
@@ -7366,12 +7182,10 @@ defmodule AWS.Route53 do
   value, TestDnsAnswer uses the IP address of a DNS resolver in the Amazon Web
   Services US East (N. Virginia) Region (us-east-1).
   """
-
   @spec test_dns_answer(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, test_dns_answer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_dns_answer_errors()}
-
   def test_dns_answer(%Client{} = client, hosted_zone_id, record_name, record_type, options \\ [])
       when is_binary(hosted_zone_id) and is_binary(record_name) and is_binary(record_type) do
     url_path = "/2013-04-01/testdnsanswer"
@@ -7440,18 +7254,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20UpdateHealthCheck&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:health_check_id` (`t:string`) The ID for the health check for which you want
-  detailed information. When you created the health check, CreateHealthCheck
-  returned the ID in the response, in the HealthCheckId element.
-
-  ## Optional parameters:
+  * `:health_check_id` (`t:string` required) The ID for the health check for which
+  you want detailed information. When you created the health check,
+  CreateHealthCheck returned the ID in the response, in the HealthCheckId
+  element.
+  ## Keyword parameters:
   """
-
   @spec update_health_check(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_health_check_errors()}
-
   def update_health_check(%Client{} = client, health_check_id, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
 
@@ -7488,17 +7300,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20UpdateHostedZoneComment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID for the hosted zone that you want to update the
-  comment for.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID for the hosted zone that you want to update
+  the comment for.
+  ## Keyword parameters:
   """
-
   @spec update_hosted_zone_comment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_hosted_zone_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_hosted_zone_comment_errors()}
-
   def update_hosted_zone_comment(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
 
@@ -7535,19 +7344,16 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20UpdateTrafficPolicyComment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The value of Id for the traffic policy that you want to
-  update the comment for.
-  * `:version` (`t:integer`) The value of Version for the traffic policy that you
+  * `:id` (`t:string` required) The value of Id for the traffic policy that you
   want to update the comment for.
-
-  ## Optional parameters:
+  * `:version` (`t:integer` required) The value of Version for the traffic policy
+  that you want to update the comment for.
+  ## Keyword parameters:
   """
-
   @spec update_traffic_policy_comment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_traffic_policy_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_traffic_policy_comment_errors()}
-
   def update_traffic_policy_comment(%Client{} = client, id, version, options \\ []) do
     url_path =
       "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}/#{AWS.Util.encode_uri(version)}"
@@ -7591,17 +7397,14 @@ defmodule AWS.Route53 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20UpdateTrafficPolicyInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:string`) The ID of the traffic policy instance that you want to
-  update.
-
-  ## Optional parameters:
+  * `:id` (`t:string` required) The ID of the traffic policy instance that you
+  want to update.
+  ## Keyword parameters:
   """
-
   @spec update_traffic_policy_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_traffic_policy_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_traffic_policy_instance_errors()}
-
   def update_traffic_policy_instance(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"
 

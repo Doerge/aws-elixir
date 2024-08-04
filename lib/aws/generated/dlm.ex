@@ -670,15 +670,12 @@ defmodule AWS.DLM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20CreateLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_lifecycle_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lifecycle_policy_errors()}
-
   def create_lifecycle_policy(%Client{} = client, options \\ []) do
     url_path = "/policies"
 
@@ -716,16 +713,13 @@ defmodule AWS.DLM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20DeleteLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
-
-  ## Optional parameters:
+  * `:policy_id` (`t:string` required) The identifier of the lifecycle policy.
+  ## Keyword parameters:
   """
-
   @spec delete_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lifecycle_policy_errors()}
-
   def delete_lifecycle_policy(%Client{} = client, policy_id, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
 
@@ -772,8 +766,7 @@ defmodule AWS.DLM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20GetLifecyclePolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:default_policy_type` (`t:enum["ALL|INSTANCE|VOLUME"]`) [Default policies
   only] Specifies the type of default policy to get. Specify one of the
   following:
@@ -787,12 +780,10 @@ defmodule AWS.DLM do
   * `:target_tags` (`t:list[com.amazonaws.dlm#TagFilter]`) The target tag for a
   policy.
   """
-
   @spec get_lifecycle_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_policies_errors()}
-
   def get_lifecycle_policies(%Client{} = client, options \\ []) do
     url_path = "/policies"
 
@@ -887,16 +878,13 @@ defmodule AWS.DLM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20GetLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
-
-  ## Optional parameters:
+  * `:policy_id` (`t:string` required) The identifier of the lifecycle policy.
+  ## Keyword parameters:
   """
-
   @spec get_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_policy_errors()}
-
   def get_lifecycle_policy(%Client{} = client, policy_id, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
 
@@ -931,16 +919,14 @@ defmodule AWS.DLM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -975,16 +961,14 @@ defmodule AWS.DLM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1021,17 +1005,15 @@ defmodule AWS.DLM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.dlm#TagKey]`) The tag keys.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource.
+  * `:tag_keys` (`t:list[com.amazonaws.dlm#TagKey]` required) The tag keys.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1079,16 +1061,13 @@ defmodule AWS.DLM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20UpdateLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
-
-  ## Optional parameters:
+  * `:policy_id` (`t:string` required) The identifier of the lifecycle policy.
+  ## Keyword parameters:
   """
-
   @spec update_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lifecycle_policy_errors()}
-
   def update_lifecycle_policy(%Client{} = client, policy_id, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
 

@@ -467,6 +467,7 @@ defmodule AWS.AutoScalingPlans do
   end
 
   @doc """
+   
   Creates a scaling plan.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscalingplans%20CreateScalingPlan&this_doc_guide=API%2520Reference)
@@ -479,12 +480,10 @@ defmodule AWS.AutoScalingPlans do
       required("ScalingPlanName") => String.t()
     }
   """
-
   @spec create_scaling_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_scaling_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scaling_plan_errors()}
-
   def create_scaling_plan(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -493,6 +492,7 @@ defmodule AWS.AutoScalingPlans do
   end
 
   @doc """
+   
   Deletes the specified scaling plan. Deleting a scaling plan deletes the
   underlying `ScalingInstruction` for all of the scalable resources that are
   covered by the plan.
@@ -506,12 +506,10 @@ defmodule AWS.AutoScalingPlans do
       required("ScalingPlanVersion") => float()
     }
   """
-
   @spec delete_scaling_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_scaling_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scaling_plan_errors()}
-
   def delete_scaling_plan(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -520,6 +518,7 @@ defmodule AWS.AutoScalingPlans do
   end
 
   @doc """
+   
   Describes the scalable resources in the specified scaling plan.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscalingplans%20DescribeScalingPlanResources&this_doc_guide=API%2520Reference)
@@ -533,12 +532,10 @@ defmodule AWS.AutoScalingPlans do
       required("ScalingPlanVersion") => float()
     }
   """
-
   @spec describe_scaling_plan_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scaling_plan_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scaling_plan_resources_errors()}
-
   def describe_scaling_plan_resources(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -548,6 +545,7 @@ defmodule AWS.AutoScalingPlans do
   end
 
   @doc """
+   
   Describes one or more of your scaling plans.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscalingplans%20DescribeScalingPlans&this_doc_guide=API%2520Reference)
@@ -562,12 +560,10 @@ defmodule AWS.AutoScalingPlans do
       optional("ScalingPlanVersion") => float()
     }
   """
-
   @spec describe_scaling_plans(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scaling_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scaling_plans_errors()}
-
   def describe_scaling_plans(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -576,6 +572,7 @@ defmodule AWS.AutoScalingPlans do
   end
 
   @doc """
+   
   Retrieves the forecast data for a scalable resource.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscalingplans%20GetScalingPlanResourceForecastData&this_doc_guide=API%2520Reference)
@@ -593,12 +590,10 @@ defmodule AWS.AutoScalingPlans do
       required("StartTime") => non_neg_integer()
     }
   """
-
   @spec get_scaling_plan_resource_forecast_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_scaling_plan_resource_forecast_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_scaling_plan_resource_forecast_data_errors()}
-
   def get_scaling_plan_resource_forecast_data(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -608,6 +603,7 @@ defmodule AWS.AutoScalingPlans do
   end
 
   @doc """
+   
   Updates the specified scaling plan.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=autoscalingplans%20UpdateScalingPlan&this_doc_guide=API%2520Reference)
@@ -621,12 +617,10 @@ defmodule AWS.AutoScalingPlans do
       required("ScalingPlanVersion") => float()
     }
   """
-
   @spec update_scaling_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_scaling_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scaling_plan_errors()}
-
   def update_scaling_plan(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

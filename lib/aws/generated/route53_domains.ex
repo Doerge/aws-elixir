@@ -1284,6 +1284,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Accepts the transfer of a domain from another Amazon Web Services account to the
   currentAmazon Web Services account. You initiate a transfer between Amazon Web
   Services accounts using
@@ -1302,7 +1303,6 @@ defmodule AWS.Route53Domains do
       required("Password") => String.t()
     }
   """
-
   @spec accept_domain_transfer_from_another_aws_account(
           AWS.Client.t(),
           input :: map(),
@@ -1311,7 +1311,6 @@ defmodule AWS.Route53Domains do
           {:ok, accept_domain_transfer_from_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_domain_transfer_from_another_aws_account_errors()}
-
   def accept_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1327,6 +1326,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Creates a delegation signer (DS) record in the registry zone for this domain
   name.
 
@@ -1339,12 +1339,10 @@ defmodule AWS.Route53Domains do
       required("SigningAttributes") => dnssec_signing_attributes()
     }
   """
-
   @spec associate_delegation_signer_to_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_delegation_signer_to_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_delegation_signer_to_domain_errors()}
-
   def associate_delegation_signer_to_domain(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1354,6 +1352,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Cancels the transfer of a domain from the current Amazon Web Services account to
   another Amazon Web Services account. You initiate a transfer betweenAmazon Web
   Services accounts using
@@ -1370,12 +1369,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec cancel_domain_transfer_to_another_aws_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_domain_transfer_to_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_domain_transfer_to_another_aws_account_errors()}
-
   def cancel_domain_transfer_to_another_aws_account(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1385,6 +1382,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation checks the availability of one domain name. Note that if the
   availability status of a domain is pending, you must submit another request to
   determine the availability of the domain name.
@@ -1398,12 +1396,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec check_domain_availability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, check_domain_availability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_domain_availability_errors()}
-
   def check_domain_availability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1412,6 +1408,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Checks whether a domain name can be transferred to Amazon Route 53.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53domains%20CheckDomainTransferability&this_doc_guide=API%2520Reference)
@@ -1423,12 +1420,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec check_domain_transferability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, check_domain_transferability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_domain_transferability_errors()}
-
   def check_domain_transferability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1437,6 +1432,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation deletes the specified domain. This action is permanent. For more
   information, see [Deleting a domain name
   registration](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-delete.html).
@@ -1452,12 +1448,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec delete_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-
   def delete_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1466,6 +1460,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation deletes the specified tags for a domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53domains%20DeleteTagsForDomain&this_doc_guide=API%2520Reference)
@@ -1477,12 +1472,10 @@ defmodule AWS.Route53Domains do
       required("TagsToDelete") => list(String.t()())
     }
   """
-
   @spec delete_tags_for_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_tags_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_for_domain_errors()}
-
   def delete_tags_for_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1491,6 +1484,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation disables automatic renewal of domain registration for the
   specified domain.
 
@@ -1502,12 +1496,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec disable_domain_auto_renew(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_domain_auto_renew_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_domain_auto_renew_errors()}
-
   def disable_domain_auto_renew(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1516,6 +1508,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation removes the transfer lock on the domain (specifically the
   `clientTransferProhibited` status) to allow domain transfers. We recommend you
   refrain from performing this action unless you intend to transfer the domain
@@ -1532,12 +1525,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec disable_domain_transfer_lock(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_domain_transfer_lock_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_domain_transfer_lock_errors()}
-
   def disable_domain_transfer_lock(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1546,6 +1537,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Deletes a delegation signer (DS) record in the registry zone for this domain
   name.
 
@@ -1558,12 +1550,10 @@ defmodule AWS.Route53Domains do
       required("Id") => String.t()
     }
   """
-
   @spec disassociate_delegation_signer_from_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_delegation_signer_from_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_delegation_signer_from_domain_errors()}
-
   def disassociate_delegation_signer_from_domain(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1573,6 +1563,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation configures Amazon Route 53 to automatically renew the specified
   domain before the domain registration expires. The cost of renewing your
   domain registration is billed to your Amazon Web Services account.
@@ -1585,12 +1576,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec enable_domain_auto_renew(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_domain_auto_renew_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_domain_auto_renew_errors()}
-
   def enable_domain_auto_renew(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1599,6 +1588,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation sets the transfer lock on the domain (specifically the
   `clientTransferProhibited` status) to prevent domain transfers. Successful
   submission returns an operation ID that you can use to track the progress and
@@ -1613,12 +1603,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec enable_domain_transfer_lock(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_domain_transfer_lock_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_domain_transfer_lock_errors()}
-
   def enable_domain_transfer_lock(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1627,6 +1615,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   For operations that require confirmation that the email address for the
   registrant contact is valid, such as registering a new domain, this operation
   returns information about whether the registrant contact has responded.
@@ -1639,12 +1628,10 @@ defmodule AWS.Route53Domains do
       optional("domainName") => String.t()
     }
   """
-
   @spec get_contact_reachability_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_contact_reachability_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_reachability_status_errors()}
-
   def get_contact_reachability_status(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1654,6 +1641,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation returns detailed information about a specified domain that is
   associated with the current Amazon Web Services account. Contact information
   for the domain is also returned as part of the output.
@@ -1666,12 +1654,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec get_domain_detail(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_domain_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_detail_errors()}
-
   def get_domain_detail(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1680,6 +1666,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   The GetDomainSuggestions operation returns a list of suggested domain names.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53domains%20GetDomainSuggestions&this_doc_guide=API%2520Reference)
@@ -1692,12 +1679,10 @@ defmodule AWS.Route53Domains do
       required("SuggestionCount") => integer()
     }
   """
-
   @spec get_domain_suggestions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_domain_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_suggestions_errors()}
-
   def get_domain_suggestions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1706,6 +1691,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation returns the current status of an operation that is not completed.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53domains%20GetOperationDetail&this_doc_guide=API%2520Reference)
@@ -1716,12 +1702,10 @@ defmodule AWS.Route53Domains do
       required("OperationId") => String.t()
     }
   """
-
   @spec get_operation_detail(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_operation_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_operation_detail_errors()}
-
   def get_operation_detail(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1730,6 +1714,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation returns all the domain names registered with Amazon Route 53 for
   the current Amazon Web Services account if no filtering conditions are used.
 
@@ -1744,12 +1729,10 @@ defmodule AWS.Route53Domains do
       optional("SortCondition") => sort_condition()
     }
   """
-
   @spec list_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-
   def list_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1758,6 +1741,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Returns information about all of the operations that return an operation ID and
   that have ever been performed on domains that were registered by the current
   account.
@@ -1776,12 +1760,10 @@ defmodule AWS.Route53Domains do
       optional("Type") => list(list(any())())
     }
   """
-
   @spec list_operations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_operations_errors()}
-
   def list_operations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1790,6 +1772,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Lists the following prices for either all the TLDs supported by Route 53, or the
   specified TLD:
 
@@ -1803,12 +1786,10 @@ defmodule AWS.Route53Domains do
       optional("Tld") => String.t()
     }
   """
-
   @spec list_prices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_prices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_prices_errors()}
-
   def list_prices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1817,6 +1798,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation returns all of the tags that are associated with the specified
   domain.
 
@@ -1828,12 +1810,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec list_tags_for_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_domain_errors()}
-
   def list_tags_for_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1842,6 +1822,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Moves a domain from Amazon Web Services to another registrar. Supported actions:
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53domains%20PushDomain&this_doc_guide=API%2520Reference)
@@ -1853,12 +1834,10 @@ defmodule AWS.Route53Domains do
       required("Target") => String.t()
     }
   """
-
   @spec push_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, push_domain_errors()}
-
   def push_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1867,6 +1846,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation registers a domain. For some top-level domains (TLDs), this
   operation requires extra parameters. When you register a domain, Amazon Route
   53 does the following:
@@ -1890,12 +1870,10 @@ defmodule AWS.Route53Domains do
       required("TechContact") => contact_detail()
     }
   """
-
   @spec register_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_domain_errors()}
-
   def register_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1904,6 +1882,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Rejects the transfer of a domain from another Amazon Web Services account to the
   current Amazon Web Services account. You initiate a transfer betweenAmazon Web
   Services accounts using
@@ -1925,7 +1904,6 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec reject_domain_transfer_from_another_aws_account(
           AWS.Client.t(),
           input :: map(),
@@ -1934,7 +1912,6 @@ defmodule AWS.Route53Domains do
           {:ok, reject_domain_transfer_from_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_domain_transfer_from_another_aws_account_errors()}
-
   def reject_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -1950,6 +1927,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation renews a domain for the specified number of years. The cost of
   renewing your domain is billed to your Amazon Web Services account.
 
@@ -1963,12 +1941,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec renew_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, renew_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, renew_domain_errors()}
-
   def renew_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -1977,6 +1953,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   For operations that require confirmation that the email address for the
   registrant contact is valid, such as registering a new domain, this operation
   resends the confirmation email to the current email address for the registrant
@@ -1990,12 +1967,10 @@ defmodule AWS.Route53Domains do
       optional("domainName") => String.t()
     }
   """
-
   @spec resend_contact_reachability_email(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resend_contact_reachability_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resend_contact_reachability_email_errors()}
-
   def resend_contact_reachability_email(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2005,6 +1980,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Resend the form of authorization email for this operation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53domains%20ResendOperationAuthorization&this_doc_guide=API%2520Reference)
@@ -2015,12 +1991,10 @@ defmodule AWS.Route53Domains do
       required("OperationId") => String.t()
     }
   """
-
   @spec resend_operation_authorization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resend_operation_authorization_errors()}
-
   def resend_operation_authorization(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2030,6 +2004,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation returns the authorization code for the domain. To transfer a
   domain to another registrar, you provide this value to the new registrar.
 
@@ -2041,12 +2016,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec retrieve_domain_auth_code(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, retrieve_domain_auth_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_domain_auth_code_errors()}
-
   def retrieve_domain_auth_code(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2055,6 +2028,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Transfers a domain from another registrar to Amazon Route 53. For more
   information about transferring domains, see the following topics:
 
@@ -2079,12 +2053,10 @@ defmodule AWS.Route53Domains do
       required("TechContact") => contact_detail()
     }
   """
-
   @spec transfer_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, transfer_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, transfer_domain_errors()}
-
   def transfer_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2093,6 +2065,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Transfers a domain from the current Amazon Web Services account to another
   Amazon Web Services account. Note the following:
 
@@ -2105,12 +2078,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec transfer_domain_to_another_aws_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, transfer_domain_to_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, transfer_domain_to_another_aws_account_errors()}
-
   def transfer_domain_to_another_aws_account(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2120,6 +2091,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation updates the contact information for a particular domain. You must
   specify information for at least one contact: registrant, administrator, or
   technical.
@@ -2137,12 +2109,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec update_domain_contact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_domain_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_contact_errors()}
-
   def update_domain_contact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2151,6 +2121,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation updates the specified domain contact's privacy setting. When
   privacy protection is enabled, your contact information is replaced with
   contact information for the registrar or with the phrase "REDACTED FOR
@@ -2170,12 +2141,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec update_domain_contact_privacy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_domain_contact_privacy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_contact_privacy_errors()}
-
   def update_domain_contact_privacy(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -2185,6 +2154,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation replaces the current set of name servers for the domain with the
   specified set of name servers. If you use Amazon Route 53 as your DNS service,
   specify the four name servers in the delegation set for the hosted zone for
@@ -2200,12 +2170,10 @@ defmodule AWS.Route53Domains do
       required("Nameservers") => list(nameserver()())
     }
   """
-
   @spec update_domain_nameservers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_domain_nameservers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_nameservers_errors()}
-
   def update_domain_nameservers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2214,6 +2182,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   This operation adds or updates tags for a specified domain.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53domains%20UpdateTagsForDomain&this_doc_guide=API%2520Reference)
@@ -2225,12 +2194,10 @@ defmodule AWS.Route53Domains do
       required("DomainName") => String.t()
     }
   """
-
   @spec update_tags_for_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_tags_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_tags_for_domain_errors()}
-
   def update_tags_for_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2239,6 +2206,7 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+   
   Returns all the domain-related billing records for the current Amazon Web
   Services account for a specified period
 
@@ -2253,12 +2221,10 @@ defmodule AWS.Route53Domains do
       optional("Start") => non_neg_integer()
     }
   """
-
   @spec view_billing(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, view_billing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, view_billing_errors()}
-
   def view_billing(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

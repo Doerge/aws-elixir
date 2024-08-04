@@ -2107,15 +2107,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20CancelJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec cancel_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
-
   def cancel_job(%Client{} = client, options \\ []) do
     url_path = "/v1/canceljob"
 
@@ -2164,15 +2161,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20CreateComputeEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_compute_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_compute_environment_errors()}
-
   def create_compute_environment(%Client{} = client, options \\ []) do
     url_path = "/v1/createcomputeenvironment"
 
@@ -2211,15 +2205,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20CreateJobQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_job_queue(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_queue_errors()}
-
   def create_job_queue(%Client{} = client, options \\ []) do
     url_path = "/v1/createjobqueue"
 
@@ -2256,15 +2247,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20CreateSchedulingPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_scheduling_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scheduling_policy_errors()}
-
   def create_scheduling_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/createschedulingpolicy"
 
@@ -2301,15 +2289,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DeleteComputeEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_compute_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_compute_environment_errors()}
-
   def delete_compute_environment(%Client{} = client, options \\ []) do
     url_path = "/v1/deletecomputeenvironment"
 
@@ -2349,15 +2334,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DeleteJobQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_job_queue(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_queue_errors()}
-
   def delete_job_queue(%Client{} = client, options \\ []) do
     url_path = "/v1/deletejobqueue"
 
@@ -2394,15 +2376,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DeleteSchedulingPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec delete_scheduling_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scheduling_policy_errors()}
-
   def delete_scheduling_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/deleteschedulingpolicy"
 
@@ -2440,15 +2419,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DeregisterJobDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec deregister_job_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_job_definition_errors()}
-
   def deregister_job_definition(%Client{} = client, options \\ []) do
     url_path = "/v1/deregisterjobdefinition"
 
@@ -2485,15 +2461,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DescribeComputeEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_compute_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_compute_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_compute_environments_errors()}
-
   def describe_compute_environments(%Client{} = client, options \\ []) do
     url_path = "/v1/describecomputeenvironments"
 
@@ -2531,15 +2504,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DescribeJobDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_job_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_definitions_errors()}
-
   def describe_job_definitions(%Client{} = client, options \\ []) do
     url_path = "/v1/describejobdefinitions"
 
@@ -2576,15 +2546,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DescribeJobQueues&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_job_queues(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_job_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_queues_errors()}
-
   def describe_job_queues(%Client{} = client, options \\ []) do
     url_path = "/v1/describejobqueues"
 
@@ -2621,15 +2588,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DescribeJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_jobs_errors()}
-
   def describe_jobs(%Client{} = client, options \\ []) do
     url_path = "/v1/describejobs"
 
@@ -2666,15 +2630,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DescribeSchedulingPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec describe_scheduling_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_scheduling_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scheduling_policies_errors()}
-
   def describe_scheduling_policies(%Client{} = client, options \\ []) do
     url_path = "/v1/describeschedulingpolicies"
 
@@ -2712,15 +2673,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20GetJobQueueSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec get_job_queue_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_job_queue_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_queue_snapshot_errors()}
-
   def get_job_queue_snapshot(%Client{} = client, options \\ []) do
     url_path = "/v1/getjobqueuesnapshot"
 
@@ -2757,15 +2715,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20ListJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-
   def list_jobs(%Client{} = client, options \\ []) do
     url_path = "/v1/listjobs"
 
@@ -2802,15 +2757,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20ListSchedulingPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec list_scheduling_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scheduling_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scheduling_policies_errors()}
-
   def list_scheduling_policies(%Client{} = client, options \\ []) do
     url_path = "/v1/listschedulingpolicies"
 
@@ -2850,20 +2802,17 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-  the resource that tags are listed for. Batch resources that support tags are
-  compute environments, jobs, job definitions, job queues, and scheduling
-  policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs
-  aren't supported.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
+  identifies the resource that tags are listed for. Batch resources that
+  support tags are compute environments, jobs, job definitions, job queues,
+  and scheduling policies. ARNs for child jobs of array and multi-node
+  parallel (MNP) jobs aren't supported.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2898,15 +2847,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20RegisterJobDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec register_job_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_job_definition_errors()}
-
   def register_job_definition(%Client{} = client, options \\ []) do
     url_path = "/v1/registerjobdefinition"
 
@@ -2950,15 +2896,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20SubmitJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec submit_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, submit_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_job_errors()}
-
   def submit_job(%Client{} = client, options \\ []) do
     url_path = "/v1/submitjob"
 
@@ -3001,20 +2944,17 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  that tags are added to. Batch resources that support tags are compute
-  environments, jobs, job definitions, job queues, and scheduling policies.
-  ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't
-  supported.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource that tags are added to. Batch resources that support tags are
+  compute environments, jobs, job definitions, job queues, and scheduling
+  policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs
+  aren't supported.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3053,15 +2993,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20TerminateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec terminate_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, terminate_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_job_errors()}
-
   def terminate_job(%Client{} = client, options \\ []) do
     url_path = "/v1/terminatejob"
 
@@ -3098,22 +3035,19 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  from which to delete tags. Batch resources that support tags are compute
-  environments, jobs, job definitions, job queues, and scheduling policies.
-  ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't
-  supported.
-  * `:tag_keys` (`t:list[com.amazonaws.batch#TagKey]`) The keys of the tags to be
-  removed.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource from which to delete tags. Batch resources that support tags are
+  compute environments, jobs, job definitions, job queues, and scheduling
+  policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs
+  aren't supported.
+  * `:tag_keys` (`t:list[com.amazonaws.batch#TagKey]` required) The keys of the
+  tags to be removed.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3161,15 +3095,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20UpdateComputeEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_compute_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_compute_environment_errors()}
-
   def update_compute_environment(%Client{} = client, options \\ []) do
     url_path = "/v1/updatecomputeenvironment"
 
@@ -3206,15 +3137,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20UpdateJobQueue&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_job_queue(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_queue_errors()}
-
   def update_job_queue(%Client{} = client, options \\ []) do
     url_path = "/v1/updatejobqueue"
 
@@ -3251,15 +3179,12 @@ defmodule AWS.Batch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20UpdateSchedulingPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_scheduling_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scheduling_policy_errors()}
-
   def update_scheduling_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/updateschedulingpolicy"
 

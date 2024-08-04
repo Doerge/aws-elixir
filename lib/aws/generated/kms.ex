@@ -2468,6 +2468,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Cancels the deletion of a KMS key. When this operation succeeds, the key state
   of the KMS key is `Disabled`. To enable the KMS key, use `EnableKey`. For more
   information about scheduling and canceling deletion of a KMS key, see
@@ -2487,12 +2488,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec cancel_key_deletion(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_key_deletion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_key_deletion_errors()}
-
   def cancel_key_deletion(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2501,6 +2500,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Connects or reconnects a [custom key
   store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   to its backing key store. For an CloudHSM key store, `ConnectCustomKeyStore`
@@ -2525,12 +2525,10 @@ defmodule AWS.KMS do
       required("CustomKeyStoreId") => String.t()
     }
   """
-
   @spec connect_custom_key_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connect_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, connect_custom_key_store_errors()}
-
   def connect_custom_key_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2539,6 +2537,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Creates a friendly name for a KMS key. Adding, deleting, or updating an alias
   can allow or deny permission to the KMS key. For details, see [ABAC for
   KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
@@ -2560,12 +2559,10 @@ defmodule AWS.KMS do
       required("TargetKeyId") => String.t()
     }
   """
-
   @spec create_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alias_errors()}
-
   def create_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2574,6 +2571,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Creates a [custom key
   store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   backed by a key store that you own and manage. When you use a KMS key in a
@@ -2618,12 +2616,10 @@ defmodule AWS.KMS do
       required("CustomKeyStoreName") => String.t()
     }
   """
-
   @spec create_custom_key_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_key_store_errors()}
-
   def create_custom_key_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2632,6 +2628,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Adds a grant to a KMS key. A *grant* is a policy instrument that allows Amazon
   Web Services principals to use KMS keys in cryptographic operations. It also
   can allow them to view a KMS key (`DescribeKey`) and create and manage grants.
@@ -2655,12 +2652,10 @@ defmodule AWS.KMS do
       required("Operations") => list(list(any())())
     }
   """
-
   @spec create_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_grant_errors()}
-
   def create_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2669,6 +2664,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Creates a unique customer managed [KMS
   key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys)
   in your Amazon Web Services account and Region. You can use a KMS key in
@@ -2701,12 +2697,10 @@ defmodule AWS.KMS do
       optional("XksKeyId") => String.t()
     }
   """
-
   @spec create_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_errors()}
-
   def create_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2715,6 +2709,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Decrypts ciphertext that was encrypted by a KMS key using any of the following
   operations:
 
@@ -2732,12 +2727,10 @@ defmodule AWS.KMS do
       required("CiphertextBlob") => binary()
     }
   """
-
   @spec decrypt(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, decrypt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decrypt_errors()}
-
   def decrypt(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2746,6 +2739,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Deletes the specified alias. Adding, deleting, or updating an alias can allow or
   deny permission to the KMS key. For details, see [ABAC for
   KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
@@ -2763,12 +2757,10 @@ defmodule AWS.KMS do
       required("AliasName") => String.t()
     }
   """
-
   @spec delete_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alias_errors()}
-
   def delete_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2777,6 +2769,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Deletes a [custom key
   store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html).
   This operation does not affect any backing elements of the custom key store.
@@ -2812,12 +2805,10 @@ defmodule AWS.KMS do
       required("CustomKeyStoreId") => String.t()
     }
   """
-
   @spec delete_custom_key_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_key_store_errors()}
-
   def delete_custom_key_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2826,6 +2817,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Deletes key material that was previously imported. This operation makes the
   specified KMS key temporarily unusable. To restore the usability of the KMS
   key, reimport the same key material. For more information about importing key
@@ -2847,12 +2839,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec delete_imported_key_material(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_imported_key_material_errors()}
-
   def delete_imported_key_material(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2861,6 +2851,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Derives a shared secret using a key agreement algorithm. You must use an
   asymmetric NIST-recommended elliptic curve (ECC) or SM2 (China Regions only)
   KMS key pair with a `KeyUsage` value of `KEY_AGREEMENT` to call
@@ -2879,12 +2870,10 @@ defmodule AWS.KMS do
       required("PublicKey") => binary()
     }
   """
-
   @spec derive_shared_secret(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, derive_shared_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, derive_shared_secret_errors()}
-
   def derive_shared_secret(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2893,6 +2882,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Gets information about [custom key
   stores](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   in the account and Region. This operation is part of the [custom key
@@ -2915,12 +2905,10 @@ defmodule AWS.KMS do
       optional("Marker") => String.t()
     }
   """
-
   @spec describe_custom_key_stores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_custom_key_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_key_stores_errors()}
-
   def describe_custom_key_stores(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2929,6 +2917,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Provides detailed information about a KMS key. You can run `DescribeKey` on a
   [customer managed
   key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk)
@@ -2959,12 +2948,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec describe_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_errors()}
-
   def describe_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -2973,6 +2960,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Sets the state of a KMS key to disabled. This change temporarily prevents use of
   the KMS key for [cryptographic
   operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations).
@@ -2995,12 +2983,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec disable_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_key_errors()}
-
   def disable_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3009,6 +2995,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Disables [automatic rotation of the key
   material](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
   of the specified symmetric encryption KMS key. Automatic key rotation is
@@ -3046,12 +3033,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec disable_key_rotation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_key_rotation_errors()}
-
   def disable_key_rotation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3060,6 +3045,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Disconnects the [custom key
   store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   from its backing key store. This operation disconnects an CloudHSM key store
@@ -3081,12 +3067,10 @@ defmodule AWS.KMS do
       required("CustomKeyStoreId") => String.t()
     }
   """
-
   @spec disconnect_custom_key_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disconnect_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_custom_key_store_errors()}
-
   def disconnect_custom_key_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3095,6 +3079,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Sets the key state of a KMS key to enabled. This allows you to use the KMS key
   for [cryptographic
   operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations).
@@ -3113,12 +3098,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec enable_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_key_errors()}
-
   def enable_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3127,6 +3110,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Enables [automatic rotation of the key
   material](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable)
   of the specified symmetric encryption KMS key. By default, when you enable
@@ -3153,12 +3137,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec enable_key_rotation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_key_rotation_errors()}
-
   def enable_key_rotation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3167,6 +3149,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric
   or asymmetric KMS key with a `KeyUsage` of `ENCRYPT_DECRYPT`. You can use this
   operation to encrypt small amounts of arbitrary data, such as a personal
@@ -3188,12 +3171,10 @@ defmodule AWS.KMS do
       required("Plaintext") => binary()
     }
   """
-
   @spec encrypt(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, encrypt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, encrypt_errors()}
-
   def encrypt(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3202,6 +3183,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Returns a unique symmetric data key for use outside of KMS. This operation
   returns a plaintext copy of the data key and a copy that is encrypted under a
   symmetric encryption KMS key that you specify. The bytes in the plaintext key
@@ -3226,12 +3208,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec generate_data_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_data_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_data_key_errors()}
-
   def generate_data_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3240,6 +3220,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Returns a unique asymmetric data key pair for use outside of KMS. This operation
   returns a plaintext public key, a plaintext private key, and a copy of the
   private key that is encrypted under the symmetric encryption KMS key you
@@ -3265,12 +3246,10 @@ defmodule AWS.KMS do
       required("KeyPairSpec") => list(any())
     }
   """
-
   @spec generate_data_key_pair(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_data_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_data_key_pair_errors()}
-
   def generate_data_key_pair(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3279,6 +3258,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Returns a unique asymmetric data key pair for use outside of KMS. This operation
   returns a plaintext public key and a copy of the private key that is encrypted
   under the symmetric encryption KMS key you specify. Unlike
@@ -3302,12 +3282,10 @@ defmodule AWS.KMS do
       required("KeyPairSpec") => list(any())
     }
   """
-
   @spec generate_data_key_pair_without_plaintext(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_data_key_pair_without_plaintext_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_data_key_pair_without_plaintext_errors()}
-
   def generate_data_key_pair_without_plaintext(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3317,6 +3295,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Returns a unique symmetric data key for use outside of KMS. This operation
   returns a data key that is encrypted under a symmetric encryption KMS key that
   you specify. The bytes in the key are random; they are not related to the
@@ -3337,12 +3316,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec generate_data_key_without_plaintext(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_data_key_without_plaintext_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_data_key_without_plaintext_errors()}
-
   def generate_data_key_without_plaintext(%Client{} = client, input, options \\ [])
       when is_map(input) do
     meta =
@@ -3352,6 +3329,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Generates a hash-based message authentication code (HMAC) for a message using an
   HMAC KMS key and a MAC algorithm that the key supports. HMAC KMS keys and the
   HMAC algorithms that KMS uses conform to industry standards defined in [RFC
@@ -3382,12 +3360,10 @@ defmodule AWS.KMS do
       required("Message") => binary()
     }
   """
-
   @spec generate_mac(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_mac_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_mac_errors()}
-
   def generate_mac(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3396,6 +3372,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Returns a random byte string that is cryptographically secure. You must use the
   `NumberOfBytes` parameter to specify the length of the random byte string.
   There is no default value for string length.
@@ -3410,12 +3387,10 @@ defmodule AWS.KMS do
       optional("Recipient") => recipient_info()
     }
   """
-
   @spec generate_random(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_random_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_random_errors()}
-
   def generate_random(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3424,6 +3399,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Gets a key policy attached to the specified KMS key. **Cross-account use**: No.
   You cannot perform this operation on a KMS key in a different Amazon Web
   Services account.
@@ -3437,12 +3413,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec get_key_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_key_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_policy_errors()}
-
   def get_key_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3451,6 +3425,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Provides detailed information about the rotation status for a KMS key, including
   whether [automatic rotation of the key
   material](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
@@ -3491,12 +3466,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec get_key_rotation_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_key_rotation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_rotation_status_errors()}
-
   def get_key_rotation_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3505,6 +3478,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Returns the public key and an import token you need to import or reimport key
   material for a KMS key. By default, KMS keys are created with key material
   that KMS generates. This operation supports [Importing key
@@ -3540,12 +3514,10 @@ defmodule AWS.KMS do
       required("WrappingKeySpec") => list(any())
     }
   """
-
   @spec get_parameters_for_import(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_parameters_for_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parameters_for_import_errors()}
-
   def get_parameters_for_import(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3554,6 +3526,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Returns the public key of an asymmetric KMS key. Unlike the private key of a
   asymmetric KMS key, which never leaves KMS unencrypted, callers with
   `kms:GetPublicKey` permission can download the public key of an asymmetric KMS
@@ -3580,12 +3553,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec get_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_key_errors()}
-
   def get_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3594,6 +3565,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Imports or reimports key material into an existing KMS key that was created
   without key material. `ImportKeyMaterial` also sets the expiration model and
   expiration date of the imported key material. By default, KMS keys are created
@@ -3623,12 +3595,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec import_key_material(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_key_material_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_key_material_errors()}
-
   def import_key_material(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3637,6 +3607,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Gets a list of aliases in the caller's Amazon Web Services account and region.
   For more information about aliases, see `CreateAlias`. By default, the
   `ListAliases` operation returns all aliases in the account and region. To get
@@ -3653,12 +3624,10 @@ defmodule AWS.KMS do
       optional("Marker") => String.t()
     }
   """
-
   @spec list_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aliases_errors()}
-
   def list_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3667,6 +3636,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Gets a list of all grants for the specified KMS key. You must specify the KMS
   key in all requests. You can filter the grant list by grant ID or grantee
   principal.
@@ -3683,12 +3653,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec list_grants(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_grants_errors()}
-
   def list_grants(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3697,6 +3665,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Gets the names of the key policies that are attached to a KMS key. This
   operation is designed to get policy names that you can use in a `GetKeyPolicy`
   operation. However, the only valid policy name is `default`. **Cross-account
@@ -3713,12 +3682,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec list_key_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_key_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_key_policies_errors()}
-
   def list_key_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3727,6 +3694,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Returns information about all completed key material rotations for the specified
   KMS key. You must specify the KMS key in all requests. You can refine the key
   rotations list by limiting the number of rotations returned.
@@ -3741,12 +3709,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec list_key_rotations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_key_rotations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_key_rotations_errors()}
-
   def list_key_rotations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3755,6 +3721,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Gets a list of all KMS keys in the caller's Amazon Web Services account and
   Region. **Cross-account use**: No. You cannot perform this operation on a KMS
   key in a different Amazon Web Services account.
@@ -3768,12 +3735,10 @@ defmodule AWS.KMS do
       optional("Marker") => String.t()
     }
   """
-
   @spec list_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keys_errors()}
-
   def list_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3782,6 +3747,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Returns all tags on the specified KMS key. For general information about tags,
   including the format and syntax, see [Tagging Amazon Web Services
   resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
@@ -3801,12 +3767,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec list_resource_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_tags_errors()}
-
   def list_resource_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3815,6 +3779,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Returns information about all grants in the Amazon Web Services account and
   Region that have the specified retiring principal. You can specify any
   principal in your Amazon Web Services account. The grants that are returned
@@ -3832,12 +3797,10 @@ defmodule AWS.KMS do
       required("RetiringPrincipal") => String.t()
     }
   """
-
   @spec list_retirable_grants(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_retirable_grants_errors()}
-
   def list_retirable_grants(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3846,6 +3809,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Attaches a key policy to the specified KMS key. For more information about key
   policies, see [Key
   Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html)
@@ -3870,12 +3834,10 @@ defmodule AWS.KMS do
       required("Policy") => String.t()
     }
   """
-
   @spec put_key_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_key_policy_errors()}
-
   def put_key_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3884,6 +3846,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Decrypts ciphertext and then reencrypts it entirely within KMS. You can use this
   operation to change the KMS key under which data is encrypted, such as when
   you [manually
@@ -3922,12 +3885,10 @@ defmodule AWS.KMS do
       required("DestinationKeyId") => String.t()
     }
   """
-
   @spec re_encrypt(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, re_encrypt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, re_encrypt_errors()}
-
   def re_encrypt(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -3936,6 +3897,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Replicates a multi-Region key into the specified Region. This operation creates
   a multi-Region replica key based on a multi-Region primary key in a different
   Region of the same Amazon Web Services partition. You can create multiple
@@ -3995,12 +3957,10 @@ defmodule AWS.KMS do
       required("ReplicaRegion") => String.t()
     }
   """
-
   @spec replicate_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, replicate_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, replicate_key_errors()}
-
   def replicate_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4009,6 +3969,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Deletes a grant. Typically, you retire a grant when you no longer need its
   permissions. To identify the grant to retire, use a [grant
   token](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token),
@@ -4040,12 +4001,10 @@ defmodule AWS.KMS do
       optional("KeyId") => String.t()
     }
   """
-
   @spec retire_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retire_grant_errors()}
-
   def retire_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4054,6 +4013,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Deletes the specified grant. You revoke a grant to terminate the permissions
   that the grant allows. For more information, see [Retiring and revoking
   grants](https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete)
@@ -4082,12 +4042,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec revoke_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_grant_errors()}
-
   def revoke_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4096,6 +4054,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Immediately initiates rotation of the key material of the specified symmetric
   encryption KMS key. You can perform [on-demand
   rotation](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-on-demand)
@@ -4119,12 +4078,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec rotate_key_on_demand(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rotate_key_on_demand_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rotate_key_on_demand_errors()}
-
   def rotate_key_on_demand(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4133,6 +4090,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Schedules the deletion of a KMS key. By default, KMS applies a waiting period of
   30 days, but you can specify a waiting period of 7-30 days. When this
   operation is successful, the key state of the KMS key changes to
@@ -4169,12 +4127,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec schedule_key_deletion(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, schedule_key_deletion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, schedule_key_deletion_errors()}
-
   def schedule_key_deletion(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4183,6 +4139,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Creates a [digital signature](https://en.wikipedia.org/wiki/Digital_signature)
   for a message or message digest by using the private key in an asymmetric
   signing KMS key. To verify the signature, use the `Verify` operation, or use
@@ -4210,12 +4167,10 @@ defmodule AWS.KMS do
       required("SigningAlgorithm") => list(any())
     }
   """
-
   @spec sign(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, sign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sign_errors()}
-
   def sign(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4224,6 +4179,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Adds or edits tags on a [customer managed
   key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk).
   Tagging or untagging a KMS key can allow or deny permission to the KMS key.
@@ -4243,12 +4199,10 @@ defmodule AWS.KMS do
       required("Tags") => list(tag()())
     }
   """
-
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4257,6 +4211,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Deletes tags from a [customer managed
   key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk).
   To delete a tag, specify the tag key and the KMS key. Tagging or untagging a
@@ -4277,12 +4232,10 @@ defmodule AWS.KMS do
       required("TagKeys") => list(String.t()())
     }
   """
-
   @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4291,6 +4244,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Associates an existing KMS alias with a different KMS key. Each alias is
   associated with only one KMS key at a time, although a KMS key can have
   multiple aliases. The alias and the KMS key must be in the same Amazon Web
@@ -4312,12 +4266,10 @@ defmodule AWS.KMS do
       required("TargetKeyId") => String.t()
     }
   """
-
   @spec update_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alias_errors()}
-
   def update_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4326,6 +4278,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Changes the properties of a custom key store. You can use this operation to
   change the properties of an CloudHSM key store or an external key store. Use
   the required `CustomKeyStoreId` parameter to identify the custom key store.
@@ -4349,12 +4302,10 @@ defmodule AWS.KMS do
       required("CustomKeyStoreId") => String.t()
     }
   """
-
   @spec update_custom_key_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_key_store_errors()}
-
   def update_custom_key_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4363,6 +4314,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Updates the description of a KMS key. To see the description of a KMS key, use
   `DescribeKey`. The KMS key that you use for this operation must be in a
   compatible key state. For details, see [Key states of KMS
@@ -4380,12 +4332,10 @@ defmodule AWS.KMS do
       required("KeyId") => String.t()
     }
   """
-
   @spec update_key_description(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_key_description_errors()}
-
   def update_key_description(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4394,6 +4344,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Changes the primary key of a multi-Region key. This operation changes the
   replica key in the specified Region to a primary key and changes the former
   primary key to a replica key. For example, suppose you have a primary key in
@@ -4422,12 +4373,10 @@ defmodule AWS.KMS do
       required("PrimaryRegion") => String.t()
     }
   """
-
   @spec update_primary_region(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_primary_region_errors()}
-
   def update_primary_region(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4436,6 +4385,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Verifies a digital signature that was generated by the `Sign` operation.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20Verify&this_doc_guide=API%2520Reference)
@@ -4452,12 +4402,10 @@ defmodule AWS.KMS do
       required("SigningAlgorithm") => list(any())
     }
   """
-
   @spec verify(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_errors()}
-
   def verify(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
@@ -4466,6 +4414,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
+   
   Verifies the hash-based message authentication code (HMAC) for a specified
   message, HMAC KMS key, and MAC algorithm. To verify the HMAC, `VerifyMac`
   computes an HMAC using the message, HMAC KMS key, and MAC algorithm that you
@@ -4493,12 +4442,10 @@ defmodule AWS.KMS do
       required("Message") => binary()
     }
   """
-
   @spec verify_mac(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_mac_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_mac_errors()}
-
   def verify_mac(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()

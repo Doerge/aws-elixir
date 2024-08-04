@@ -1899,16 +1899,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CancelJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The unique identifier for a job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The unique identifier for a job.
+  ## Keyword parameters:
   """
-
   @spec cancel_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
-
   def cancel_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -1955,15 +1952,12 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_data_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_set_errors()}
-
   def create_data_set(%Client{} = client, options \\ []) do
     url_path = "/v1/data-sets"
 
@@ -2000,15 +1994,12 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateEventAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_event_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_action_errors()}
-
   def create_event_action(%Client{} = client, options \\ []) do
     url_path = "/v1/event-actions"
 
@@ -2045,15 +2036,12 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
-
   def create_job(%Client{} = client, options \\ []) do
     url_path = "/v1/jobs"
 
@@ -2090,16 +2078,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateRevision&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  ## Keyword parameters:
   """
-
   @spec create_revision(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_revision_errors()}
-
   def create_revision(%Client{} = client, data_set_id, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions"
 
@@ -2136,18 +2121,15 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The unique identifier for an asset.
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-  * `:revision_id` (`t:string`) The unique identifier for a revision.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The unique identifier for an asset.
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  * `:revision_id` (`t:string` required) The unique identifier for a revision.
+  ## Keyword parameters:
   """
-
   @spec delete_asset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_errors()}
-
   def delete_asset(%Client{} = client, asset_id, data_set_id, revision_id, options \\ []) do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
@@ -2195,16 +2177,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  ## Keyword parameters:
   """
-
   @spec delete_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_set_errors()}
-
   def delete_data_set(%Client{} = client, data_set_id, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
 
@@ -2251,16 +2230,14 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteEventAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:event_action_id` (`t:string`) The unique identifier for the event action.
-
-  ## Optional parameters:
+  * `:event_action_id` (`t:string` required) The unique identifier for the event
+  action.
+  ## Keyword parameters:
   """
-
   @spec delete_event_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_action_errors()}
-
   def delete_event_action(%Client{} = client, event_action_id, options \\ []) do
     url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
 
@@ -2307,17 +2284,14 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteRevision&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-  * `:revision_id` (`t:string`) The unique identifier for a revision.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  * `:revision_id` (`t:string` required) The unique identifier for a revision.
+  ## Keyword parameters:
   """
-
   @spec delete_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_revision_errors()}
-
   def delete_revision(%Client{} = client, data_set_id, revision_id, options \\ []) do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}"
@@ -2365,18 +2339,15 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The unique identifier for an asset.
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-  * `:revision_id` (`t:string`) The unique identifier for a revision.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The unique identifier for an asset.
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  * `:revision_id` (`t:string` required) The unique identifier for a revision.
+  ## Keyword parameters:
   """
-
   @spec get_asset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_errors()}
-
   def get_asset(%Client{} = client, asset_id, data_set_id, revision_id, options \\ []) do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
@@ -2412,16 +2383,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  ## Keyword parameters:
   """
-
   @spec get_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_set_errors()}
-
   def get_data_set(%Client{} = client, data_set_id, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
 
@@ -2456,16 +2424,14 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetEventAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:event_action_id` (`t:string`) The unique identifier for the event action.
-
-  ## Optional parameters:
+  * `:event_action_id` (`t:string` required) The unique identifier for the event
+  action.
+  ## Keyword parameters:
   """
-
   @spec get_event_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_action_errors()}
-
   def get_event_action(%Client{} = client, event_action_id, options \\ []) do
     url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
 
@@ -2500,16 +2466,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The unique identifier for a job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The unique identifier for a job.
+  ## Keyword parameters:
   """
-
   @spec get_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
-
   def get_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -2544,17 +2507,14 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetRevision&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-  * `:revision_id` (`t:string`) The unique identifier for a revision.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  * `:revision_id` (`t:string` required) The unique identifier for a revision.
+  ## Keyword parameters:
   """
-
   @spec get_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_revision_errors()}
-
   def get_revision(%Client{} = client, data_set_id, revision_id, options \\ []) do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}"
@@ -2591,20 +2551,17 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListDataSetRevisions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results returned by a
   single call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_data_set_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_set_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_set_revisions_errors()}
-
   def list_data_set_revisions(%Client{} = client, data_set_id, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions"
 
@@ -2659,8 +2616,7 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListDataSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results returned by a
   single call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
@@ -2668,12 +2624,10 @@ defmodule AWS.DataExchange do
   * `:origin` (`t:string`) A property that defines the data set as OWNED by the
   account (for providers) or ENTITLED to the account (for subscribers).
   """
-
   @spec list_data_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sets_errors()}
-
   def list_data_sets(%Client{} = client, options \\ []) do
     url_path = "/v1/data-sets"
 
@@ -2733,20 +2687,17 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListEventActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:event_source_id` (`t:string`) The unique identifier for the event source.
   * `:max_results` (`t:integer`) The maximum number of results returned by a
   single call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_event_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_actions_errors()}
-
   def list_event_actions(%Client{} = client, options \\ []) do
     url_path = "/v1/event-actions"
 
@@ -2806,8 +2757,7 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
   * `:max_results` (`t:integer`) The maximum number of results returned by a
   single call.
@@ -2815,12 +2765,10 @@ defmodule AWS.DataExchange do
   access the next page of results.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
   """
-
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-
   def list_jobs(%Client{} = client, options \\ []) do
     url_path = "/v1/jobs"
 
@@ -2888,21 +2836,18 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListRevisionAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-  * `:revision_id` (`t:string`) The unique identifier for a revision.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  * `:revision_id` (`t:string` required) The unique identifier for a revision.
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results returned by a
   single call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
   access the next page of results.
   """
-
   @spec list_revision_assets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_revision_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_revision_assets_errors()}
-
   def list_revision_assets(%Client{} = client, data_set_id, revision_id, options \\ []) do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets"
@@ -2956,16 +2901,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies an AWS resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies an AWS resource.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3000,17 +2942,14 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20RevokeRevision&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-  * `:revision_id` (`t:string`) The unique identifier for a revision.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  * `:revision_id` (`t:string` required) The unique identifier for a revision.
+  ## Keyword parameters:
   """
-
   @spec revoke_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, revoke_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_revision_errors()}
-
   def revoke_revision(%Client{} = client, data_set_id, revision_id, options \\ []) do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/revoke"
@@ -3049,13 +2988,12 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20SendApiAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) Asset ID value for the API request.
-  * `:data_set_id` (`t:string`) Data set ID value for the API request.
-  * `:revision_id` (`t:string`) Revision ID value for the API request.
+  * `:asset_id` (`t:string` required) Asset ID value for the API request.
+  * `:data_set_id` (`t:string` required) Data set ID value for the API request.
+  * `:revision_id` (`t:string` required) Revision ID value for the API request.
   * `:input` (`t:binary | nil`)
 
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:query_string_parameters` (`t:map`) Attach query string parameters to the end
   of the URI (for example, /v1/examplePath?exampleParam=exampleValue).
   * `:method` (`t:string`) HTTP method value for the API request. Alternatively,
@@ -3063,7 +3001,6 @@ defmodule AWS.DataExchange do
   * `:path` (`t:string`) URI path value for the API request. Alternatively, you
   can set the URI path directly by invoking /v1/{pathValue}.
   """
-
   @spec send_api_asset(
           AWS.Client.t(),
           String.t(),
@@ -3075,7 +3012,6 @@ defmodule AWS.DataExchange do
           {:ok, send_api_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_api_asset_errors()}
-
   def send_api_asset(%Client{} = client, asset_id, data_set_id, revision_id, input, options \\ [])
       when (is_binary(input) or is_nil(input)) and is_binary(asset_id) and is_binary(data_set_id) and
              is_binary(revision_id) do
@@ -3156,16 +3092,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20SendDataSetNotification&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) Affected data set of the notification.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) Affected data set of the notification.
+  ## Keyword parameters:
   """
-
   @spec send_data_set_notification(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_data_set_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_data_set_notification_errors()}
-
   def send_data_set_notification(%Client{} = client, data_set_id, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/notification"
 
@@ -3202,16 +3135,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20StartJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:job_id` (`t:string`) The unique identifier for a job.
-
-  ## Optional parameters:
+  * `:job_id` (`t:string` required) The unique identifier for a job.
+  ## Keyword parameters:
   """
-
   @spec start_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_errors()}
-
   def start_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -3258,19 +3188,16 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies an AWS resource.
+  * `:resource_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies an AWS resource.
   * `:input` (`t:map`):
-    * `:tags` (`t:map`) A label that consists of a customer-defined key and an
-  optional value.
-
-  ## Optional parameters:
+    * `:tags` (`t:map` required) A label that consists of a customer-defined key and
+  an optional value.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3307,17 +3234,15 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
-  identifies an AWS resource.
-  * `:tag_keys` (`t:list[com.amazonaws.dataexchange#__string]`) The key tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) An Amazon Resource Name (ARN) that
+  uniquely identifies an AWS resource.
+  * `:tag_keys` (`t:list[com.amazonaws.dataexchange#__string]` required) The key
+  tags.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3365,18 +3290,15 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateAsset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:asset_id` (`t:string`) The unique identifier for an asset.
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-  * `:revision_id` (`t:string`) The unique identifier for a revision.
-
-  ## Optional parameters:
+  * `:asset_id` (`t:string` required) The unique identifier for an asset.
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  * `:revision_id` (`t:string` required) The unique identifier for a revision.
+  ## Keyword parameters:
   """
-
   @spec update_asset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_errors()}
-
   def update_asset(%Client{} = client, asset_id, data_set_id, revision_id, options \\ []) do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
@@ -3424,16 +3346,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  ## Keyword parameters:
   """
-
   @spec update_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_set_errors()}
-
   def update_data_set(%Client{} = client, data_set_id, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
 
@@ -3480,16 +3399,14 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateEventAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:event_action_id` (`t:string`) The unique identifier for the event action.
-
-  ## Optional parameters:
+  * `:event_action_id` (`t:string` required) The unique identifier for the event
+  action.
+  ## Keyword parameters:
   """
-
   @spec update_event_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_action_errors()}
-
   def update_event_action(%Client{} = client, event_action_id, options \\ []) do
     url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
 
@@ -3536,17 +3453,14 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateRevision&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:data_set_id` (`t:string`) The unique identifier for a data set.
-  * `:revision_id` (`t:string`) The unique identifier for a revision.
-
-  ## Optional parameters:
+  * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+  * `:revision_id` (`t:string` required) The unique identifier for a revision.
+  ## Keyword parameters:
   """
-
   @spec update_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_revision_errors()}
-
   def update_revision(%Client{} = client, data_set_id, revision_id, options \\ []) do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}"

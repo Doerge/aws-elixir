@@ -1329,15 +1329,12 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20CreateConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
-
   def create_connector(%Client{} = client, options \\ []) do
     url_path = "/v1/connectors"
 
@@ -1374,15 +1371,12 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20CreateCustomPlugin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_custom_plugin(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_plugin_errors()}
-
   def create_custom_plugin(%Client{} = client, options \\ []) do
     url_path = "/v1/custom-plugins"
 
@@ -1419,15 +1413,12 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20CreateWorkerConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec create_worker_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_worker_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_worker_configuration_errors()}
-
   def create_worker_configuration(%Client{} = client, options \\ []) do
     url_path = "/v1/worker-configurations"
 
@@ -1464,19 +1455,16 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DeleteConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector
-  that you want to delete.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  connector that you want to delete.
+  ## Keyword parameters:
   * `:current_version` (`t:string`) The current version of the connector that you
   want to delete.
   """
-
   @spec delete_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
-
   def delete_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}"
 
@@ -1534,17 +1522,14 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DeleteCustomPlugin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:custom_plugin_arn` (`t:string`) The Amazon Resource Name (ARN) of the custom
-  plugin that you want to delete.
-
-  ## Optional parameters:
+  * `:custom_plugin_arn` (`t:string` required) The Amazon Resource Name (ARN) of
+  the custom plugin that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_custom_plugin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_plugin_errors()}
-
   def delete_custom_plugin(%Client{} = client, custom_plugin_arn, options \\ []) do
     url_path = "/v1/custom-plugins/#{AWS.Util.encode_uri(custom_plugin_arn)}"
 
@@ -1591,17 +1576,14 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DeleteWorkerConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:worker_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  worker configuration that you want to delete.
-
-  ## Optional parameters:
+  * `:worker_configuration_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) of the worker configuration that you want to delete.
+  ## Keyword parameters:
   """
-
   @spec delete_worker_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_worker_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_worker_configuration_errors()}
-
   def delete_worker_configuration(%Client{} = client, worker_configuration_arn, options \\ []) do
     url_path = "/v1/worker-configurations/#{AWS.Util.encode_uri(worker_configuration_arn)}"
 
@@ -1648,17 +1630,14 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DescribeConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector
-  that you want to describe.
-
-  ## Optional parameters:
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  connector that you want to describe.
+  ## Keyword parameters:
   """
-
   @spec describe_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connector_errors()}
-
   def describe_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}"
 
@@ -1693,16 +1672,14 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DescribeCustomPlugin&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:custom_plugin_arn` (`t:string`) Returns information about a custom plugin.
-
-  ## Optional parameters:
+  * `:custom_plugin_arn` (`t:string` required) Returns information about a custom
+  plugin.
+  ## Keyword parameters:
   """
-
   @spec describe_custom_plugin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_plugin_errors()}
-
   def describe_custom_plugin(%Client{} = client, custom_plugin_arn, options \\ []) do
     url_path = "/v1/custom-plugins/#{AWS.Util.encode_uri(custom_plugin_arn)}"
 
@@ -1737,17 +1714,14 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DescribeWorkerConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:worker_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-  worker configuration that you want to get information about.
-
-  ## Optional parameters:
+  * `:worker_configuration_arn` (`t:string` required) The Amazon Resource Name
+  (ARN) of the worker configuration that you want to get information about.
+  ## Keyword parameters:
   """
-
   @spec describe_worker_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_worker_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_worker_configuration_errors()}
-
   def describe_worker_configuration(%Client{} = client, worker_configuration_arn, options \\ []) do
     url_path = "/v1/worker-configurations/#{AWS.Util.encode_uri(worker_configuration_arn)}"
 
@@ -1784,8 +1758,7 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20ListConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:connector_name_prefix` (`t:string`) The name prefix that you want to use to
   search for and list connectors.
   * `:max_results` (`t:integer`) The maximum number of connectors to list in one
@@ -1794,12 +1767,10 @@ defmodule AWS.KafkaConnect do
   truncated, it will include a NextToken. Send this NextToken in a subsequent
   request to continue listing from where the previous operation left off.
   """
-
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
-
   def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/v1/connectors"
 
@@ -1859,8 +1830,7 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20ListCustomPlugins&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of custom plugins to list in
   one response.
   * `:name_prefix` (`t:string`) Lists custom plugin names that start with the
@@ -1869,12 +1839,10 @@ defmodule AWS.KafkaConnect do
   truncated, it will include a NextToken. Send this NextToken in a subsequent
   request to continue listing from where the previous operation left off.
   """
-
   @spec list_custom_plugins(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_plugins_errors()}
-
   def list_custom_plugins(%Client{} = client, options \\ []) do
     url_path = "/v1/custom-plugins"
 
@@ -1934,17 +1902,14 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  for which you want to list all attached tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource for which you want to list all attached tags.
+  ## Keyword parameters:
   """
-
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1979,8 +1944,7 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20ListWorkerConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-
-  ## Optional parameters:
+  ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of worker configurations to
   list in one response.
   * `:name_prefix` (`t:string`) Lists worker configuration names that start with
@@ -1990,12 +1954,10 @@ defmodule AWS.KafkaConnect do
   a subsequent request to continue listing from where the previous operation
   left off.
   """
-
   @spec list_worker_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_worker_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_worker_configurations_errors()}
-
   def list_worker_configurations(%Client{} = client, options \\ []) do
     url_path = "/v1/worker-configurations"
 
@@ -2055,17 +2017,14 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-  which you want to attach tags.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource to which you want to attach tags.
+  ## Keyword parameters:
   """
-
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-
   def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2102,19 +2061,16 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-  from which you want to remove tags.
-  * `:tag_keys` (`t:list[com.amazonaws.kafkaconnect#TagKey]`) The keys of the tags
-  that you want to remove from the resource.
-
-  ## Optional parameters:
+  * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  resource from which you want to remove tags.
+  * `:tag_keys` (`t:list[com.amazonaws.kafkaconnect#TagKey]` required) The keys of
+  the tags that you want to remove from the resource.
+  ## Keyword parameters:
   """
-
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-
   def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
       when is_binary(tag_keys) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2162,19 +2118,16 @@ defmodule AWS.KafkaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20UpdateConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector
+  * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
+  connector that you want to update.
+  * `:current_version` (`t:string` required) The current version of the connector
   that you want to update.
-  * `:current_version` (`t:string`) The current version of the connector that you
-  want to update.
-
-  ## Optional parameters:
+  ## Keyword parameters:
   """
-
   @spec update_connector(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_errors()}
-
   def update_connector(%Client{} = client, connector_arn, current_version, options \\ [])
       when is_binary(current_version) do
     url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}"
